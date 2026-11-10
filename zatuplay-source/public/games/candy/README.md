@@ -1,0 +1,13 @@
+# キャンディ・レヴェリー ブラウザ版
+
+公開先: https://poetsakihana.github.io/game-no-mori/zatuplay/games/candy/
+
+APK 1.0.0 の assets/index.html を元にしたブラウザ専用配信です。原本APKは変更していません。全10ワールド・50ステージと元の図柄・ゲームルールを維持しています。
+
+変更点: ブラウザ版の表記と一覧への戻りリンク、Androidブリッジ依存の無効化、開始・再開時のキーボードフォーカス、ボタンのキーボード操作を妨げない入力処理。
+
+進行は localStorage の candy-reverie-v1 に保存します。他のキーを削除しません。APK版との自動同期はありません。candy-reverie-save-v1 形式のJSONを書き出し・読み込み可能です。元の作品に音声実装はありません。
+
+検証: node zatuplay-source/scripts/test-candy.cjs
+
+12項目の単体・ロジック検証が成功。50ステージの初期化・描画関数・クリア遷移はDOM/Canvasスタブを使ったシミュレーションであり、全ステージの手動プレイ完走やスマートフォン実機検証を意味しません。公開ブラウザの実操作結果はカタログ登録時に追記します。
