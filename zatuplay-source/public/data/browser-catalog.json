@@ -14,7 +14,28 @@
       "version": "1.0.0-web.1",
       "checkedAt": "2026-11-10T22:17:06Z",
       "note": "キーボード・画面ボタン対応。Chromeで1-1クリア、進行保存・再開を確認。音ON/OFF切替確認済み（実聴取は未確認）。APKとは自動同期しません。全250面の手動完走・スマホ実機は未検証。"
+    },
+    {
+      "id": "chronoweave",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/chronoweave/",
+      "version": "1.1.2-web.1",
+      "checkedAt": "2026-11-10T22:46:11Z",
+      "note": "Chromeで第1章クリア、第2章の保存・再読込、JSON書出し・読込を確認。音ON/OFF表示は確認済み（実聴取は未確認）。APKとは自動同期しません。全20章の手動完走・スマホ実機は未検証。"
+    },
+    {
+      "id": "black-sensei-2",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/black-sensei-2/",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-10T22:38:00Z",
+      "note": "Chromeで1-1クリア、進行保存・1-2再開、停止・復帰、画面の攻撃ボタンを確認。音ON/OFF表示は確認済み（実聴取は未確認）。APKとは自動同期しません。全250面の手動完走・スマホ実機は未検証。"
+    },
+    {
+      "id": "black-sensei-3",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/black-sensei-3/",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-10T22:38:00Z",
+      "note": "Chromeで1-1クリア、進行保存・1-2海中面の再開、陸海空の訓練起動を確認。APKとは自動同期しません。画面ボタン・音声・全250面の手動完走・スマホ実機は未検証。"
     }
   ],
-  "updatedAt": "2026-11-10T22:17:06Z"
+  "updatedAt": "2026-11-10T22:46:52Z"
 }
