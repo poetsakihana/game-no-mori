@@ -1,0 +1,8 @@
+.collection-link{color:#c3ccb7;font-size:11px;text-decoration:none;white-space:nowrap;padding:8px;border:1px solid #424c3b}
+.collection-link:hover,.collection-link:focus-visible{color:#fff3df;border-color:var(--red)}
+.browser-note{font-size:11px;line-height:1.7;color:#b6c0ba;margin:12px 0 20px}
+body:not(.browser-playing) .touch-controls{display:none}
+.touch-controls button{touch-action:none;-webkit-user-select:none;user-select:none}
+#storyScreen{overflow-y:auto;align-items:flex-start;padding:16px 0}.story-card{flex-shrink:0;margin:auto}
+@media(max-width:700px){.collection-link{font-size:9px;padding:7px 5px}.brand-name{font-size:11px}.app{padding:0 3%}}
+@media(max-width:450px){.title-content{top:4%;width:68%}h1{font-size:clamp(29px,8vw,36px);margin-top:9px}.tagline{font-size:8px;margin:7px 0}.subtitle{margin-bottom:6px}.save-note{font-size:6px;margin-top:6px}.title-actions .primary,.title-actions .secondary{height:29px}.training{margin-top:7px}.training button{height:23px}.touch-controls{flex-wrap:wrap;gap:10px}.touch-controls .dpad{margin-right:auto;grid-template-columns:repeat(3,44px)}.action-pad{margin-left:auto;flex-wrap:wrap;justify-content:flex-end}.touch-controls button,.dpad button,.action-pad .small-touch,.action-pad .attack-touch{min-width:44px;min-height:44px}.screen-overlay h2{font-size:27px}.screen-overlay p{font-size:9px}.result-stats{margin:8px 0}.screen-overlay .primary,.screen-overlay .secondary{height:31px;margin-top:5px}.story-card{padding:12px}.story-main{margin:12px 0}.story-card .story-main p{font-size:11px;line-height:1.8}}
