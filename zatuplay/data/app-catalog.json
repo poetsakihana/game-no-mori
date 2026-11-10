@@ -1,0 +1,2579 @@
+{
+  "schemaVersion": 1,
+  "apps": [
+    {
+      "id": "zatsu",
+      "name": "ザツワールド",
+      "subtitle": "ザツ物語",
+      "category": "パズル",
+      "description": "つないで、集めて。ザツたちと出かけるパズルの世界。",
+      "color": "mint",
+      "icon": "smile",
+      "tags": [
+        "キャラクター",
+        "パズル",
+        "ザツ"
+      ],
+      "filename": "33.ザツワールド～ザツ物語-v2.2.1.apk",
+      "size": 1073509,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "2.2.1",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 0,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "10tzDel8wQUh1o1wrXgGnAAK3X3rZ42ed",
+          "filename": "33.ザツワールド～ザツ物語-v2.2.1.apk",
+          "version": "2.2.1",
+          "size": 1073509,
+          "modifiedAt": "2026-11-08T09:38:31.028Z",
+          "viewUrl": "https://drive.google.com/file/d/10tzDel8wQUh1o1wrXgGnAAK3X3rZ42ed/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1v-olFsgnEWjjuZK50O7Fb_qllKWIRtaZ",
+          "filename": "33.ザツワールド～ザツ物語.apk",
+          "version": "記載なし",
+          "size": 564565,
+          "modifiedAt": "2026-10-25T03:08:44.958Z",
+          "viewUrl": "https://drive.google.com/file/d/1v-olFsgnEWjjuZK50O7Fb_qllKWIRtaZ/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/10tzDel8wQUh1o1wrXgGnAAK3X3rZ42ed/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T09:38:31.028Z"
+    },
+    {
+      "id": "chronoweave",
+      "name": "CHRONOWEAVE",
+      "subtitle": "時を編む者",
+      "category": "RPG",
+      "description": "過去・現在・未来をつなぎ、物語の可能性を探す時間編集ゲーム。",
+      "color": "violet",
+      "icon": "clock",
+      "tags": [
+        "時間操作",
+        "物語",
+        "パズル"
+      ],
+      "filename": "56.Chronoweave-v1.1.2.apk",
+      "size": 90808,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.1.2",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "14CGk5ZVku-FO3EvM-PpKKRBHM84HMBn7",
+          "filename": "56.Chronoweave-v1.1.2.apk",
+          "version": "1.1.2",
+          "size": 90808,
+          "modifiedAt": "2026-11-09T12:16:41.989Z",
+          "viewUrl": "https://drive.google.com/file/d/14CGk5ZVku-FO3EvM-PpKKRBHM84HMBn7/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/14CGk5ZVku-FO3EvM-PpKKRBHM84HMBn7/view?usp=drivesdk",
+      "modifiedAt": "2026-11-09T12:16:41.989Z"
+    },
+    {
+      "id": "song-chronicle",
+      "name": "咲華の歌物語",
+      "subtitle": "星詠みのアーカディア",
+      "category": "RPG",
+      "description": "咲華の歌から広がる物語を、ステージをめぐりながら体験。",
+      "color": "pink",
+      "icon": "music",
+      "tags": [
+        "咲華",
+        "歌",
+        "物語"
+      ],
+      "filename": "61.Sakihana-Song-Chronicle-v1.0.0.apk",
+      "size": 222370,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.0.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 2,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1_7L0iJB7wzkQ4C0HJBpz-6-eOu5WIGY8",
+          "filename": "61.Sakihana-Song-Chronicle-v1.0.0.apk",
+          "version": "1.0.0",
+          "size": 222370,
+          "modifiedAt": "2026-11-09T21:58:53.224Z",
+          "viewUrl": "https://drive.google.com/file/d/1_7L0iJB7wzkQ4C0HJBpz-6-eOu5WIGY8/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1_7L0iJB7wzkQ4C0HJBpz-6-eOu5WIGY8/view?usp=drivesdk",
+      "modifiedAt": "2026-11-09T21:58:53.224Z"
+    },
+    {
+      "id": "asteria",
+      "name": "ASTERIA",
+      "subtitle": "星をつなぐ旅",
+      "category": "RPG",
+      "description": "星座をたどり、星の世界へ旅立つアクションRPG。",
+      "color": "blue",
+      "icon": "star",
+      "tags": [
+        "星座",
+        "冒険",
+        "アクション"
+      ],
+      "filename": "49.ASTERIA-v1.1.0.apk",
+      "size": 152551,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.1.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 3,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1I-Ib29R6dqYA0VTSb84BVKrX9hUnZkwJ",
+          "filename": "49.ASTERIA-v1.1.0.apk",
+          "version": "1.1.0",
+          "size": 152551,
+          "modifiedAt": "2026-11-08T12:37:22.388Z",
+          "viewUrl": "https://drive.google.com/file/d/1I-Ib29R6dqYA0VTSb84BVKrX9hUnZkwJ/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1I-Ib29R6dqYA0VTSb84BVKrX9hUnZkwJ/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T12:37:22.388Z"
+    },
+    {
+      "id": "tokai",
+      "name": "東海地名手帖",
+      "subtitle": "愛知・岐阜・三重をめぐる",
+      "category": "学び・クイズ",
+      "description": "読み方を入力して答える、東海の地名クイズ。",
+      "color": "green",
+      "icon": "map",
+      "tags": [
+        "地名",
+        "東海",
+        "入力式"
+      ],
+      "filename": "45.東海地名難読漢字.apk",
+      "size": 6604845,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "記載なし",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 4,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1KsDx4JLRNAaCMrTwXdU6Qm7-zrQuPaRi",
+          "filename": "45.東海地名難読漢字.apk",
+          "version": "記載なし",
+          "size": 6604845,
+          "modifiedAt": "2026-11-08T10:29:34.461Z",
+          "viewUrl": "https://drive.google.com/file/d/1KsDx4JLRNAaCMrTwXdU6Qm7-zrQuPaRi/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1KsDx4JLRNAaCMrTwXdU6Qm7-zrQuPaRi/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T10:29:34.461Z"
+    },
+    {
+      "id": "tokyo",
+      "name": "東京よみめぐり",
+      "subtitle": "地名と出会う、小さな旅",
+      "category": "学び・クイズ",
+      "description": "東京の区市町村をめぐり、地名の読み方に挑戦。",
+      "color": "orange",
+      "icon": "building",
+      "tags": [
+        "東京",
+        "地名",
+        "クイズ"
+      ],
+      "filename": "46.東京地名難読漢字.apk",
+      "size": 374577,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "記載なし",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 5,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1LyXfqpkucYAJLoGXLREhdCHtWVKVUfW_",
+          "filename": "46.東京地名難読漢字.apk",
+          "version": "記載なし",
+          "size": 374577,
+          "modifiedAt": "2026-11-08T10:30:42.840Z",
+          "viewUrl": "https://drive.google.com/file/d/1LyXfqpkucYAJLoGXLREhdCHtWVKVUfW_/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1LyXfqpkucYAJLoGXLREhdCHtWVKVUfW_/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T10:30:42.840Z"
+    },
+    {
+      "id": "candy",
+      "name": "キャンディ・レヴェリー",
+      "subtitle": "お菓子の国の冒険",
+      "category": "パズル",
+      "description": "お菓子の国を舞台に、全50ステージへ進むゲーム。",
+      "color": "pink",
+      "icon": "candy",
+      "tags": [
+        "お菓子",
+        "ステージ",
+        "冒険"
+      ],
+      "filename": "58.Candy-Reverie-v1.0.0.apk",
+      "size": 37404,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.0.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 6,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1ICPuQyBNdfK1xLcmd-_t4Kne1DiA74Vj",
+          "filename": "58.Candy-Reverie-v1.0.0.apk",
+          "version": "1.0.0",
+          "size": 37404,
+          "modifiedAt": "2026-11-09T12:40:22.231Z",
+          "viewUrl": "https://drive.google.com/file/d/1ICPuQyBNdfK1xLcmd-_t4Kne1DiA74Vj/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1ICPuQyBNdfK1xLcmd-_t4Kne1DiA74Vj/view?usp=drivesdk",
+      "modifiedAt": "2026-11-09T12:40:22.231Z"
+    },
+    {
+      "id": "black-sensei-3",
+      "name": "ブラック先生 Ⅲ",
+      "subtitle": "陸海空の誓い",
+      "category": "アクション",
+      "description": "ブラック先生の新たな戦い。陸・海・空へ広がるアクション。",
+      "color": "red",
+      "icon": "fist",
+      "tags": [
+        "横スクロール",
+        "バトル",
+        "シリーズ"
+      ],
+      "filename": "60.BlackSensei3-v1.0.0.apk",
+      "size": 0,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.0.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 7,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1xl-6PU6tsvzk0Bs1hk0OL8j5k0OdAPTs",
+          "filename": "60.BlackSensei3-v1.0.0.apk",
+          "version": "1.0.0",
+          "size": 0,
+          "modifiedAt": "2026-11-09T13:50:23.054Z",
+          "viewUrl": "https://drive.google.com/file/d/1xl-6PU6tsvzk0Bs1hk0OL8j5k0OdAPTs/view?usp=drivesdk",
+          "available": false
+        }
+      ],
+      "available": false,
+      "driveUrl": "https://drive.google.com/file/d/1xl-6PU6tsvzk0Bs1hk0OL8j5k0OdAPTs/view?usp=drivesdk",
+      "modifiedAt": "2026-11-09T13:50:23.054Z"
+    },
+    {
+      "id": "black-sensei-2",
+      "name": "ブラック先生 Ⅱ",
+      "subtitle": "黒蓮の逆襲",
+      "category": "アクション",
+      "description": "ブラック先生の拳で切り拓く、シリーズ第2作。",
+      "color": "orange",
+      "icon": "fist",
+      "tags": [
+        "アクション",
+        "バトル",
+        "シリーズ"
+      ],
+      "filename": "59.BlackSensei2-v1.0.0.apk",
+      "size": 58236,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.0.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 8,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "12olhr-A1S0yXWDkuI7czAxgY7az1t_7a",
+          "filename": "59.BlackSensei2-v1.0.0.apk",
+          "version": "1.0.0",
+          "size": 58236,
+          "modifiedAt": "2026-11-09T13:12:54.703Z",
+          "viewUrl": "https://drive.google.com/file/d/12olhr-A1S0yXWDkuI7czAxgY7az1t_7a/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/12olhr-A1S0yXWDkuI7czAxgY7az1t_7a/view?usp=drivesdk",
+      "modifiedAt": "2026-11-09T13:12:54.703Z"
+    },
+    {
+      "id": "black-sensei",
+      "name": "ブラック先生",
+      "subtitle": "放課後の拳",
+      "category": "アクション",
+      "description": "ブラック先生の物語がここから始まる。シリーズ第1作。",
+      "color": "charcoal",
+      "icon": "fist",
+      "tags": [
+        "横スクロール",
+        "バトル",
+        "シリーズ"
+      ],
+      "filename": "57.BlackSensei-v1.0.0.apk",
+      "size": 49977,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.0.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 9,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1v88mNrdceBn_tw-R6Q4NMVB2cbQd_iBb",
+          "filename": "57.BlackSensei-v1.0.0.apk",
+          "version": "1.0.0",
+          "size": 49977,
+          "modifiedAt": "2026-11-10T00:52:39.816Z",
+          "viewUrl": "https://drive.google.com/file/d/1v88mNrdceBn_tw-R6Q4NMVB2cbQd_iBb/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1v88mNrdceBn_tw-R6Q4NMVB2cbQd_iBb/view?usp=drivesdk",
+      "modifiedAt": "2026-11-10T00:52:39.816Z"
+    },
+    {
+      "id": "komorebi",
+      "name": "こもれびワークス",
+      "subtitle": "毎日に、ひとつの選択を",
+      "category": "シミュレーション",
+      "description": "働く日々と出来事を積み重ねていく経営シミュレーション。",
+      "color": "green",
+      "icon": "sprout",
+      "tags": [
+        "経営",
+        "日常",
+        "シミュレーション"
+      ],
+      "filename": "54.KomorebiWorks-v1.0.0.apk",
+      "size": 553964,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.0.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 10,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1qg-f-klWv9NwNZXOL7sOusDAtXwVeycg",
+          "filename": "54.KomorebiWorks-v1.0.0.apk",
+          "version": "1.0.0",
+          "size": 553964,
+          "modifiedAt": "2026-11-09T12:11:08.987Z",
+          "viewUrl": "https://drive.google.com/file/d/1qg-f-klWv9NwNZXOL7sOusDAtXwVeycg/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1346dTGEjDXJZf1VqrBAEZek7UOYVikzW",
+          "filename": "55.KomorebiWorks-v1.0.0.apk",
+          "version": "1.0.0",
+          "size": 553964,
+          "modifiedAt": "2026-11-09T07:07:49.521Z",
+          "viewUrl": "https://drive.google.com/file/d/1346dTGEjDXJZf1VqrBAEZek7UOYVikzW/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1qg-f-klWv9NwNZXOL7sOusDAtXwVeycg/view?usp=drivesdk",
+      "modifiedAt": "2026-11-09T12:11:08.987Z"
+    },
+    {
+      "id": "instant",
+      "name": "Instant",
+      "subtitle": "投稿から始まる物語",
+      "category": "シミュレーション",
+      "description": "投稿や物語を楽しむ、SNSを題材にしたシミュレーション。",
+      "color": "pink",
+      "icon": "camera",
+      "tags": [
+        "SNS",
+        "投稿",
+        "物語"
+      ],
+      "filename": "08.Instant-Login-v4.4.1.apk",
+      "size": 47477987,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "4.4.1",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 11,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "14fwudNShe3GvURCmgPCCvduDFkYHUmSE",
+          "filename": "08.Instant-Login-v4.4.1.apk",
+          "version": "4.4.1",
+          "size": 47477987,
+          "modifiedAt": "2026-11-10T09:35:27.065Z",
+          "viewUrl": "https://drive.google.com/file/d/14fwudNShe3GvURCmgPCCvduDFkYHUmSE/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1skk1xxJjke37WEzgJzRkOc20Rs9tf9l5",
+          "filename": "08.Instant_4.3.1.apk",
+          "version": "4.3.1",
+          "size": 47434508,
+          "modifiedAt": "2026-10-25T03:04:12.393Z",
+          "viewUrl": "https://drive.google.com/file/d/1skk1xxJjke37WEzgJzRkOc20Rs9tf9l5/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1tkV7z6XcSy02W8waavKb6jjSX0ik_Y9W",
+          "filename": "08.Instant_Story-Update.apk",
+          "version": "記載なし",
+          "size": 47478136,
+          "modifiedAt": "2026-11-08T09:22:31.823Z",
+          "viewUrl": "https://drive.google.com/file/d/1tkV7z6XcSy02W8waavKb6jjSX0ik_Y9W/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/14fwudNShe3GvURCmgPCCvduDFkYHUmSE/view?usp=drivesdk",
+      "modifiedAt": "2026-11-10T09:35:27.065Z"
+    },
+    {
+      "id": "sakihana",
+      "name": "咲華と失われた詩",
+      "subtitle": "ことばを探す冒険へ",
+      "category": "RPG",
+      "description": "咲華とともに、失われた詩を探す物語。",
+      "color": "pink",
+      "icon": "flower",
+      "tags": [
+        "咲華",
+        "詩",
+        "冒険"
+      ],
+      "filename": "47.咲華と失われた詩-v1.0.0.apk",
+      "size": 21960632,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.0.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 12,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1unuzAx65uykuXP7hqLQPkCqeVljPI0Yx",
+          "filename": "47.咲華と失われた詩-v1.0.0.apk",
+          "version": "1.0.0",
+          "size": 21960632,
+          "modifiedAt": "2026-11-08T09:36:53.244Z",
+          "viewUrl": "https://drive.google.com/file/d/1unuzAx65uykuXP7hqLQPkCqeVljPI0Yx/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1unuzAx65uykuXP7hqLQPkCqeVljPI0Yx/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T09:36:53.244Z"
+    },
+    {
+      "id": "battlitia",
+      "name": "バトリティア",
+      "subtitle": "カードで切り拓く100の冒険",
+      "category": "RPG",
+      "description": "カードを手に、バトルと冒険の世界へ。",
+      "color": "violet",
+      "icon": "swords",
+      "tags": [
+        "カード",
+        "バトル",
+        "冒険"
+      ],
+      "filename": "27.Battlitia-v1.1.apk",
+      "size": 25133,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.1",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 13,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1D1nOD2Qr3lggAPJXRcEHR1hyI8gt9j6W",
+          "filename": "27.Battlitia-v1.1.apk",
+          "version": "1.1",
+          "size": 25133,
+          "modifiedAt": "2026-10-25T03:04:41.440Z",
+          "viewUrl": "https://drive.google.com/file/d/1D1nOD2Qr3lggAPJXRcEHR1hyI8gt9j6W/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1D1nOD2Qr3lggAPJXRcEHR1hyI8gt9j6W/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:41.440Z"
+    },
+    {
+      "id": "crossroad",
+      "name": "クロスロード",
+      "subtitle": "全国鉄道のことば旅",
+      "category": "学び・クイズ",
+      "description": "都道府県を選び、駅名のクロスワードに挑戦。",
+      "color": "blue",
+      "icon": "train",
+      "tags": [
+        "鉄道",
+        "駅名",
+        "クロスワード"
+      ],
+      "filename": "06.クロスロード_全国鉄道_v2.0.apk",
+      "size": 365714,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "2.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 14,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1-hG8rqp37vGMsdR5dSantDxht4u-QDhY",
+          "filename": "06.クロスロード_全国鉄道_v2.0.apk",
+          "version": "2.0",
+          "size": 365714,
+          "modifiedAt": "2026-11-08T09:19:04.531Z",
+          "viewUrl": "https://drive.google.com/file/d/1-hG8rqp37vGMsdR5dSantDxht4u-QDhY/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1-hG8rqp37vGMsdR5dSantDxht4u-QDhY/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T09:19:04.531Z"
+    },
+    {
+      "id": "warai",
+      "name": "わらい座150",
+      "subtitle": "小さな劇場、大きな笑い。",
+      "category": "エンタメ",
+      "description": "笑いの物語が集まる、小さな劇場へようこそ。",
+      "color": "orange",
+      "icon": "masks",
+      "tags": [
+        "物語",
+        "劇場",
+        "笑い"
+      ],
+      "filename": "39.わらい座150-v2.3.apk",
+      "size": 431618,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "2.3",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 15,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1sxyIFtlb_wR6-TQDtkjcOcrQKWY3F3Yk",
+          "filename": "39.わらい座150-v2.3.apk",
+          "version": "2.3",
+          "size": 431618,
+          "modifiedAt": "2026-11-08T09:51:45.092Z",
+          "viewUrl": "https://drive.google.com/file/d/1sxyIFtlb_wR6-TQDtkjcOcrQKWY3F3Yk/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1tyvZArv5y6UHqsx2ZhHcydN-k-QbP5GN",
+          "filename": "39.わらい座150-v1.6.apk",
+          "version": "1.6",
+          "size": 369774,
+          "modifiedAt": "2026-10-26T10:13:15.284Z",
+          "viewUrl": "https://drive.google.com/file/d/1tyvZArv5y6UHqsx2ZhHcydN-k-QbP5GN/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1myKi_55jzwBdJkCzLJo4dRyrYpLJkC3W",
+          "filename": "39.わらい座-v1.4.apk",
+          "version": "1.4",
+          "size": 123878,
+          "modifiedAt": "2026-10-26T10:13:15.489Z",
+          "viewUrl": "https://drive.google.com/file/d/1myKi_55jzwBdJkCzLJo4dRyrYpLJkC3W/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1sxyIFtlb_wR6-TQDtkjcOcrQKWY3F3Yk/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T09:51:45.092Z"
+    },
+    {
+      "id": "quest-reborn",
+      "name": "エアガイツ QUEST REBORN",
+      "subtitle": "フェニックスの尾",
+      "category": "RPG",
+      "description": "ダンジョンを進み、敵と戦うアクションRPG。",
+      "color": "red",
+      "icon": "swords",
+      "tags": [
+        "ダンジョン",
+        "バトル",
+        "アクション"
+      ],
+      "filename": "52.Ehrgeiz-Quest-Reborn-v2.1.1.apk",
+      "size": 2856219,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "2.1.1",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 16,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1tz4wxlkKQRpSMglHPgXhnQJMZE5LdbMz",
+          "filename": "52.Ehrgeiz-Quest-Reborn-v2.1.1.apk",
+          "version": "2.1.1",
+          "size": 2856219,
+          "modifiedAt": "2026-11-09T12:11:40.120Z",
+          "viewUrl": "https://drive.google.com/file/d/1tz4wxlkKQRpSMglHPgXhnQJMZE5LdbMz/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1CJMo9ogQElsKXkwmEHCkxaWC5HCLbwPH",
+          "filename": "52.エアガイツ-v2.1.0.apk",
+          "version": "2.1.0",
+          "size": 2651281,
+          "modifiedAt": "2026-11-09T00:19:32.601Z",
+          "viewUrl": "https://drive.google.com/file/d/1CJMo9ogQElsKXkwmEHCkxaWC5HCLbwPH/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1tz4wxlkKQRpSMglHPgXhnQJMZE5LdbMz/view?usp=drivesdk",
+      "modifiedAt": "2026-11-09T12:11:40.120Z"
+    },
+    {
+      "id": "entrance",
+      "name": "8番入口",
+      "subtitle": "いつもの通路、その先へ",
+      "category": "アドベンチャー",
+      "description": "通路を探索して進む、異変を探すゲーム。",
+      "color": "charcoal",
+      "icon": "door",
+      "tags": [
+        "探索",
+        "通路",
+        "異変"
+      ],
+      "filename": "04.8ban-iriguchi-v1.3.1.apk",
+      "size": 1114643,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.3.1",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 17,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1gr4oc0Pvq-sAOCKxl4qJRnXuJ4opgiep",
+          "filename": "04.8ban-iriguchi-v1.3.1.apk",
+          "version": "1.3.1",
+          "size": 1114643,
+          "modifiedAt": "2026-11-09T12:12:17.353Z",
+          "viewUrl": "https://drive.google.com/file/d/1gr4oc0Pvq-sAOCKxl4qJRnXuJ4opgiep/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1RHEL0_8KigOpnTly0NiuSNy37vv24Z_l",
+          "filename": "04.8番入口-v1.3.apk",
+          "version": "1.3",
+          "size": 1104641,
+          "modifiedAt": "2026-11-08T09:21:25.319Z",
+          "viewUrl": "https://drive.google.com/file/d/1RHEL0_8KigOpnTly0NiuSNy37vv24Z_l/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1V0H15ZRddcBaPX-dlVdLTBXS610NjILD",
+          "filename": "25.8番入口-v1.0.0.apk",
+          "version": "1.0.0",
+          "size": 21037,
+          "modifiedAt": "2026-10-25T03:04:40.942Z",
+          "viewUrl": "https://drive.google.com/file/d/1V0H15ZRddcBaPX-dlVdLTBXS610NjILD/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1gr4oc0Pvq-sAOCKxl4qJRnXuJ4opgiep/view?usp=drivesdk",
+      "modifiedAt": "2026-11-09T12:12:17.353Z"
+    },
+    {
+      "id": "moving-castle",
+      "name": "動く城",
+      "subtitle": "探索の一歩を踏み出そう",
+      "category": "アドベンチャー",
+      "description": "動く城を題材にしたゲーム。バージョン0.3を収録。",
+      "color": "violet",
+      "icon": "castle",
+      "tags": [
+        "探索",
+        "城",
+        "冒険"
+      ],
+      "filename": "37.動く城_v0.3.apk",
+      "size": 897426,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.3",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 18,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1xo39C50ZUDzJTlAmuWvYgLfJa0xhdKJE",
+          "filename": "37.動く城_v0.3.apk",
+          "version": "0.3",
+          "size": 897426,
+          "modifiedAt": "2026-10-25T04:29:02.124Z",
+          "viewUrl": "https://drive.google.com/file/d/1xo39C50ZUDzJTlAmuWvYgLfJa0xhdKJE/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1xo39C50ZUDzJTlAmuWvYgLfJa0xhdKJE/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T04:29:02.124Z"
+    },
+    {
+      "id": "national-cm",
+      "name": "全国ローカルCM",
+      "subtitle": "地域の魅力を見つけよう",
+      "category": "エンタメ",
+      "description": "全国のローカルCMを題材にしたアプリ。",
+      "color": "blue",
+      "icon": "tv",
+      "tags": [
+        "動画",
+        "地域",
+        "CM"
+      ],
+      "filename": "11.全国ローカル-cm-v3.0.0.apk",
+      "size": 2347541,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "3.0.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 19,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "14vRzsZ8ROKF85EkRc8fHOLkEYyf0ndXQ",
+          "filename": "11.全国ローカル-cm-v3.0.0.apk",
+          "version": "3.0.0",
+          "size": 2347541,
+          "modifiedAt": "2026-11-08T09:31:50.412Z",
+          "viewUrl": "https://drive.google.com/file/d/14vRzsZ8ROKF85EkRc8fHOLkEYyf0ndXQ/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/14vRzsZ8ROKF85EkRc8fHOLkEYyf0ndXQ/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T09:31:50.412Z"
+    },
+    {
+      "id": "clay-museum",
+      "name": "みぃの紙粘土美術館 3D",
+      "subtitle": "手づくりの世界を歩こう",
+      "category": "エンタメ",
+      "description": "紙粘土の作品を題材にした3D美術館。",
+      "color": "orange",
+      "icon": "palette",
+      "tags": [
+        "3D",
+        "美術館",
+        "作品"
+      ],
+      "filename": "16.みぃの紙粘土美術館-3d-v2.0.0.apk",
+      "size": 33217697,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "2.0.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 20,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1RbyDxeJ5PzhZJlo6W9_K99kItLDnIwKk",
+          "filename": "16.みぃの紙粘土美術館-3d-v2.0.0.apk",
+          "version": "2.0.0",
+          "size": 33217697,
+          "modifiedAt": "2026-11-08T09:27:48.974Z",
+          "viewUrl": "https://drive.google.com/file/d/1RbyDxeJ5PzhZJlo6W9_K99kItLDnIwKk/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1RbyDxeJ5PzhZJlo6W9_K99kItLDnIwKk/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T09:27:48.974Z"
+    },
+    {
+      "id": "rhythm",
+      "name": "リズム天国 master",
+      "subtitle": "リズムに乗って、もう一回",
+      "category": "音楽",
+      "description": "リズムに合わせた操作を楽しむ音楽ゲーム。",
+      "color": "mint",
+      "icon": "headphones",
+      "tags": [
+        "リズム",
+        "音楽",
+        "ゲーム"
+      ],
+      "filename": "14.リズム天国_master演出強化版_1.25_別アプリ.apk",
+      "size": 2301775,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.25",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 21,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1lZJ8Fqt11yMI4KS-G6YxOXNs5M25zVzN",
+          "filename": "14.リズム天国_master演出強化版_1.25_別アプリ.apk",
+          "version": "1.25",
+          "size": 2301775,
+          "modifiedAt": "2026-11-08T09:28:32.254Z",
+          "viewUrl": "https://drive.google.com/file/d/1lZJ8Fqt11yMI4KS-G6YxOXNs5M25zVzN/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1lZJ8Fqt11yMI4KS-G6YxOXNs5M25zVzN/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T09:28:32.254Z"
+    },
+    {
+      "id": "can-to-crown",
+      "name": "Can to Crown",
+      "subtitle": "小さな挑戦、大きな一歩",
+      "category": "アクション",
+      "description": "Can to Crownのバージョン2.1を収録。",
+      "color": "orange",
+      "icon": "crown",
+      "tags": [
+        "ゲーム",
+        "チャレンジ"
+      ],
+      "filename": "05.Can-to-Crown-v2.1.apk",
+      "size": 33260,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "2.1",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 22,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1wjYKoRecpWPGd_cjR46UIBmDcNGuaMIa",
+          "filename": "05.Can-to-Crown-v2.1.apk",
+          "version": "2.1",
+          "size": 33260,
+          "modifiedAt": "2026-10-25T03:04:10.821Z",
+          "viewUrl": "https://drive.google.com/file/d/1wjYKoRecpWPGd_cjR46UIBmDcNGuaMIa/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1wjYKoRecpWPGd_cjR46UIBmDcNGuaMIa/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:10.821Z"
+    },
+    {
+      "id": "collection-01",
+      "name": "遊園地パラダイス3D",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アドベンチャー",
+      "description": "「遊園地パラダイス3D」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "violet",
+      "icon": "star",
+      "tags": [
+        "GAMESELECT",
+        "アドベンチャー"
+      ],
+      "filename": "01.遊園地パラダイス3D-0.5.0.apk",
+      "size": 96949761,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.5.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1001,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "11uS3NhoW9kGS3dJUkg5w-V63BMsPXLet",
+          "filename": "01.遊園地パラダイス3D-0.5.0.apk",
+          "version": "0.5.0",
+          "size": 96949761,
+          "modifiedAt": "2026-11-08T09:20:21.027Z",
+          "viewUrl": "https://drive.google.com/file/d/11uS3NhoW9kGS3dJUkg5w-V63BMsPXLet/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1guvQngWI3Fz2es1n9nRDj7bXRW9V6_3k",
+          "filename": "01.遊園地パラダイス_0.2.1.apk",
+          "version": "0.2.1",
+          "size": 100429236,
+          "modifiedAt": "2026-10-25T03:04:00.663Z",
+          "viewUrl": "https://drive.google.com/file/d/1guvQngWI3Fz2es1n9nRDj7bXRW9V6_3k/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/11uS3NhoW9kGS3dJUkg5w-V63BMsPXLet/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T09:20:21.027Z"
+    },
+    {
+      "id": "collection-02",
+      "name": "クルスク塔3D",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "RPG",
+      "description": "「クルスク塔3D」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "blue",
+      "icon": "swords",
+      "tags": [
+        "GAMESELECT",
+        "RPG"
+      ],
+      "filename": "02.クルスク塔3D_v2.2.1.apk",
+      "size": 208315217,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "2.2.1",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1002,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1qTdXB2B0O34I9V-K9L4sk7bfYXZNakig",
+          "filename": "02.クルスク塔3D_v2.2.1.apk",
+          "version": "2.2.1",
+          "size": 208315217,
+          "modifiedAt": "2026-11-08T09:24:08.592Z",
+          "viewUrl": "https://drive.google.com/file/d/1qTdXB2B0O34I9V-K9L4sk7bfYXZNakig/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1brrwyu6nYk1B6CTDW897cfI_O5Pgt6K8",
+          "filename": "02.クルスク塔コレクション_v1.4.2.apk",
+          "version": "1.4.2",
+          "size": 208462569,
+          "modifiedAt": "2026-10-25T03:04:04.802Z",
+          "viewUrl": "https://drive.google.com/file/d/1brrwyu6nYk1B6CTDW897cfI_O5Pgt6K8/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1qTdXB2B0O34I9V-K9L4sk7bfYXZNakig/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T09:24:08.592Z"
+    },
+    {
+      "id": "collection-03",
+      "name": "新クルスク塔コレクション",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "RPG",
+      "description": "「新クルスク塔コレクション」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "blue",
+      "icon": "swords",
+      "tags": [
+        "GAMESELECT",
+        "RPG"
+      ],
+      "filename": "03.新クルスク塔コレクション_v2.1.0.apk",
+      "size": 279722355,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "2.1.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1003,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1ofCU2YgOx5f4olFdQkVYkPvPh5F0Qau1",
+          "filename": "03.新クルスク塔コレクション_v2.1.0.apk",
+          "version": "2.1.0",
+          "size": 279722355,
+          "modifiedAt": "2026-10-25T03:04:10.590Z",
+          "viewUrl": "https://drive.google.com/file/d/1ofCU2YgOx5f4olFdQkVYkPvPh5F0Qau1/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1ofCU2YgOx5f4olFdQkVYkPvPh5F0Qau1/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:10.590Z"
+    },
+    {
+      "id": "collection-07",
+      "name": "フライバトル",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アクション",
+      "description": "「フライバトル」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "orange",
+      "icon": "game",
+      "tags": [
+        "GAMESELECT",
+        "アクション"
+      ],
+      "filename": "07.フライバトル.apk",
+      "size": 381393,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "記載なし",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1007,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1001wecoJaNwh5vTAbLL6DR4Ezh25vObD",
+          "filename": "07.フライバトル.apk",
+          "version": "記載なし",
+          "size": 381393,
+          "modifiedAt": "2026-10-25T03:04:11.182Z",
+          "viewUrl": "https://drive.google.com/file/d/1001wecoJaNwh5vTAbLL6DR4Ezh25vObD/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1001wecoJaNwh5vTAbLL6DR4Ezh25vObD/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:11.182Z"
+    },
+    {
+      "id": "collection-09",
+      "name": "イライラ棒",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アクション",
+      "description": "「イライラ棒」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "orange",
+      "icon": "game",
+      "tags": [
+        "GAMESELECT",
+        "アクション"
+      ],
+      "filename": "09.イライラ棒-v1.0.apk",
+      "size": 25046,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1009,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1B_9nDC5znDYtkiqZGEsXXRHtUAwVc4Xe",
+          "filename": "09.イライラ棒-v1.0.apk",
+          "version": "1.0",
+          "size": 25046,
+          "modifiedAt": "2026-10-25T03:04:12.510Z",
+          "viewUrl": "https://drive.google.com/file/d/1B_9nDC5znDYtkiqZGEsXXRHtUAwVc4Xe/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1B_9nDC5znDYtkiqZGEsXXRHtUAwVc4Xe/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:12.510Z"
+    },
+    {
+      "id": "collection-10",
+      "name": "ことのは占い",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "シミュレーション",
+      "description": "「ことのは占い」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "green",
+      "icon": "sprout",
+      "tags": [
+        "GAMESELECT",
+        "シミュレーション"
+      ],
+      "filename": "10.ことのは占い_1.0.3.apk",
+      "size": 46224,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.0.3",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1010,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1_yOMVwTHZ8GbTVXv7pzVC28WU9kkMAJy",
+          "filename": "10.ことのは占い_1.0.3.apk",
+          "version": "1.0.3",
+          "size": 46224,
+          "modifiedAt": "2026-10-25T03:04:12.633Z",
+          "viewUrl": "https://drive.google.com/file/d/1_yOMVwTHZ8GbTVXv7pzVC28WU9kkMAJy/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1_yOMVwTHZ8GbTVXv7pzVC28WU9kkMAJy/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:12.633Z"
+    },
+    {
+      "id": "collection-12",
+      "name": "自動販売機RPG",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "RPG",
+      "description": "「自動販売機RPG」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "blue",
+      "icon": "swords",
+      "tags": [
+        "GAMESELECT",
+        "RPG"
+      ],
+      "filename": "12.自動販売機RPG-v0.6.1.apk",
+      "size": 289803232,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.6.1",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1012,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "15B7aoHXE0Bw60Dr2_btHSZ-wUwbr80pp",
+          "filename": "12.自動販売機RPG-v0.6.1.apk",
+          "version": "0.6.1",
+          "size": 289803232,
+          "modifiedAt": "2026-11-08T09:30:55.542Z",
+          "viewUrl": "https://drive.google.com/file/d/15B7aoHXE0Bw60Dr2_btHSZ-wUwbr80pp/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/15B7aoHXE0Bw60Dr2_btHSZ-wUwbr80pp/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T09:30:55.542Z"
+    },
+    {
+      "id": "collection-13",
+      "name": "全国ことばRPG",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "学び・クイズ",
+      "description": "「全国ことばRPG」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "green",
+      "icon": "map",
+      "tags": [
+        "GAMESELECT",
+        "学び・クイズ"
+      ],
+      "filename": "13.全国ことばRPG-v2.1.apk",
+      "size": 11792292,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "2.1",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1013,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "156_Uvvqwli41_wQH4X-ij99RvLLzlRtS",
+          "filename": "13.全国ことばRPG-v2.1.apk",
+          "version": "2.1",
+          "size": 11792292,
+          "modifiedAt": "2026-10-25T03:04:16.801Z",
+          "viewUrl": "https://drive.google.com/file/d/156_Uvvqwli41_wQH4X-ij99RvLLzlRtS/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/156_Uvvqwli41_wQH4X-ij99RvLLzlRtS/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:16.801Z"
+    },
+    {
+      "id": "collection-15",
+      "name": "レッツゴーショッピング",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "シミュレーション",
+      "description": "「レッツゴーショッピング」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "green",
+      "icon": "sprout",
+      "tags": [
+        "GAMESELECT",
+        "シミュレーション"
+      ],
+      "filename": "15.レッツゴーショッピング_v0.7.0.apk",
+      "size": 76715577,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.7.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1015,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1wByhunIrTmzaBQnUNoGITggJZ-7gCuk1",
+          "filename": "15.レッツゴーショッピング_v0.7.0.apk",
+          "version": "0.7.0",
+          "size": 76715577,
+          "modifiedAt": "2026-10-25T03:04:19.779Z",
+          "viewUrl": "https://drive.google.com/file/d/1wByhunIrTmzaBQnUNoGITggJZ-7gCuk1/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1ZfbYgnA3Rpk1y-aEGVPJqig5_Tm8A6gG",
+          "filename": "15.レッツゴーショッピング(最古)_v0.2.1.apk",
+          "version": "0.2.1",
+          "size": 47331862,
+          "modifiedAt": "2026-10-25T03:04:18.089Z",
+          "viewUrl": "https://drive.google.com/file/d/1ZfbYgnA3Rpk1y-aEGVPJqig5_Tm8A6gG/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1wByhunIrTmzaBQnUNoGITggJZ-7gCuk1/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:19.779Z"
+    },
+    {
+      "id": "collection-17",
+      "name": "なぞなぞ王",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "学び・クイズ",
+      "description": "「なぞなぞ王」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "green",
+      "icon": "map",
+      "tags": [
+        "GAMESELECT",
+        "学び・クイズ"
+      ],
+      "filename": "17.なぞなぞ王_v1.1.apk",
+      "size": 852618,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.1",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1017,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "15O6hNfG1gl5xQSYjoJztzdPP6ah8Bw4F",
+          "filename": "17.なぞなぞ王_v1.1.apk",
+          "version": "1.1",
+          "size": 852618,
+          "modifiedAt": "2026-10-25T03:04:20.619Z",
+          "viewUrl": "https://drive.google.com/file/d/15O6hNfG1gl5xQSYjoJztzdPP6ah8Bw4F/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/15O6hNfG1gl5xQSYjoJztzdPP6ah8Bw4F/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:20.619Z"
+    },
+    {
+      "id": "collection-18",
+      "name": "グラスマ 強化版",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アクション",
+      "description": "「グラスマ 強化版」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "orange",
+      "icon": "game",
+      "tags": [
+        "GAMESELECT",
+        "アクション"
+      ],
+      "filename": "18.グラスマ_強化版_1.2.0_別アプリ.apk",
+      "size": 66147320,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.2.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1018,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1VXaTPE3d_6Y3cI-zCsbjfnKhvaGbN2Rc",
+          "filename": "18.グラスマ_強化版_1.2.0_別アプリ.apk",
+          "version": "1.2.0",
+          "size": 66147320,
+          "modifiedAt": "2026-11-08T09:23:13.165Z",
+          "viewUrl": "https://drive.google.com/file/d/1VXaTPE3d_6Y3cI-zCsbjfnKhvaGbN2Rc/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1VXaTPE3d_6Y3cI-zCsbjfnKhvaGbN2Rc/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T09:23:13.165Z"
+    },
+    {
+      "id": "collection-19",
+      "name": "SKHN Music",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "音楽",
+      "description": "「SKHN Music」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "pink",
+      "icon": "music",
+      "tags": [
+        "GAMESELECT",
+        "音楽"
+      ],
+      "filename": "19.SKHN_Music.apk",
+      "size": 33301,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "記載なし",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1019,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1lK7C7_PIPDdAS-2IvWz3zO3UafzG4PS7",
+          "filename": "19.SKHN_Music.apk",
+          "version": "記載なし",
+          "size": 33301,
+          "modifiedAt": "2026-10-25T03:04:22.601Z",
+          "viewUrl": "https://drive.google.com/file/d/1lK7C7_PIPDdAS-2IvWz3zO3UafzG4PS7/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1lK7C7_PIPDdAS-2IvWz3zO3UafzG4PS7/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:22.601Z"
+    },
+    {
+      "id": "collection-20",
+      "name": "詩集全集",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "エンタメ",
+      "description": "「詩集全集」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "violet",
+      "icon": "book",
+      "tags": [
+        "GAMESELECT",
+        "エンタメ"
+      ],
+      "filename": "20.詩集全集-3.1.0.apk",
+      "size": 267271640,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "3.1.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1020,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1-L2L6VHJr92bCMyllzbf-BU5GbjJ2hxg",
+          "filename": "20.詩集全集-3.1.0.apk",
+          "version": "3.1.0",
+          "size": 267271640,
+          "modifiedAt": "2026-10-25T03:04:39.684Z",
+          "viewUrl": "https://drive.google.com/file/d/1-L2L6VHJr92bCMyllzbf-BU5GbjJ2hxg/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1wi4kr3RbqjI4U0nXdDEwP5v4L9X8UKqG",
+          "filename": "20.詩集全集【新版】.apk",
+          "version": "記載なし",
+          "size": 266415210,
+          "modifiedAt": "2026-10-25T03:04:33.928Z",
+          "viewUrl": "https://drive.google.com/file/d/1wi4kr3RbqjI4U0nXdDEwP5v4L9X8UKqG/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1nSVgx9nEr7xhJkZWVwTWe2j391MbRrJy",
+          "filename": "20.詩集全集【最新版】.apk",
+          "version": "記載なし",
+          "size": 266157162,
+          "modifiedAt": "2026-10-25T03:04:28.237Z",
+          "viewUrl": "https://drive.google.com/file/d/1nSVgx9nEr7xhJkZWVwTWe2j391MbRrJy/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1-L2L6VHJr92bCMyllzbf-BU5GbjJ2hxg/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:39.684Z"
+    },
+    {
+      "id": "collection-21",
+      "name": "Voice Life",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "エンタメ",
+      "description": "「Voice Life」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "violet",
+      "icon": "book",
+      "tags": [
+        "GAMESELECT",
+        "エンタメ"
+      ],
+      "filename": "21.Voice_Life_v7.apk",
+      "size": 37397,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "7",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1021,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1gbrDD8zr4XJeZWTrKxJJ9ESlsPqOP5TD",
+          "filename": "21.Voice_Life_v7.apk",
+          "version": "7",
+          "size": 37397,
+          "modifiedAt": "2026-10-25T03:04:39.808Z",
+          "viewUrl": "https://drive.google.com/file/d/1gbrDD8zr4XJeZWTrKxJJ9ESlsPqOP5TD/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1gbrDD8zr4XJeZWTrKxJJ9ESlsPqOP5TD/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:39.808Z"
+    },
+    {
+      "id": "collection-22",
+      "name": "ロックマンRe",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アクション",
+      "description": "「ロックマンRe」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "orange",
+      "icon": "game",
+      "tags": [
+        "GAMESELECT",
+        "アクション"
+      ],
+      "filename": "22.ロックマンRe-v1.8.apk",
+      "size": 58278,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.8",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1022,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1K1sLOWOKWSO0HbaBKWH7ntOd_DjqaBy1",
+          "filename": "22.ロックマンRe-v1.8.apk",
+          "version": "1.8",
+          "size": 58278,
+          "modifiedAt": "2026-10-25T03:04:39.943Z",
+          "viewUrl": "https://drive.google.com/file/d/1K1sLOWOKWSO0HbaBKWH7ntOd_DjqaBy1/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1K1sLOWOKWSO0HbaBKWH7ntOd_DjqaBy1/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:39.943Z"
+    },
+    {
+      "id": "collection-23",
+      "name": "ロックマンRe2",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アクション",
+      "description": "「ロックマンRe2」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "orange",
+      "icon": "game",
+      "tags": [
+        "GAMESELECT",
+        "アクション"
+      ],
+      "filename": "23.ロックマンRe2-v1.4.apk",
+      "size": 37801,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.4",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1023,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1p5TX-TXUU4FWCMP6SpMiEqquPWlTnhxr",
+          "filename": "23.ロックマンRe2-v1.4.apk",
+          "version": "1.4",
+          "size": 37801,
+          "modifiedAt": "2026-10-25T03:04:40.085Z",
+          "viewUrl": "https://drive.google.com/file/d/1p5TX-TXUU4FWCMP6SpMiEqquPWlTnhxr/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1p5TX-TXUU4FWCMP6SpMiEqquPWlTnhxr/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:40.085Z"
+    },
+    {
+      "id": "collection-24",
+      "name": "もくもく探検隊",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アドベンチャー",
+      "description": "「もくもく探検隊」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "violet",
+      "icon": "star",
+      "tags": [
+        "GAMESELECT",
+        "アドベンチャー"
+      ],
+      "filename": "24.もくもく探検隊Ver.1.0.apk",
+      "size": 33260053,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1024,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1vF9KI3BnrtnYU3BtDik81S1vtG1prWKV",
+          "filename": "24.もくもく探検隊Ver.1.0.apk",
+          "version": "1.0",
+          "size": 33260053,
+          "modifiedAt": "2026-10-25T03:04:40.836Z",
+          "viewUrl": "https://drive.google.com/file/d/1vF9KI3BnrtnYU3BtDik81S1vtG1prWKV/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1vF9KI3BnrtnYU3BtDik81S1vtG1prWKV/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:40.836Z"
+    },
+    {
+      "id": "collection-26",
+      "name": "人生ゲーム",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "シミュレーション",
+      "description": "「人生ゲーム」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "green",
+      "icon": "sprout",
+      "tags": [
+        "GAMESELECT",
+        "シミュレーション"
+      ],
+      "filename": "26.人生ゲーム-v6.apk",
+      "size": 7861316,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "6",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1026,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "14ZFoErIXbOUbgH-HDRyzvGAPGX2sVpUQ",
+          "filename": "26.人生ゲーム-v6.apk",
+          "version": "6",
+          "size": 7861316,
+          "modifiedAt": "2026-10-25T03:04:41.305Z",
+          "viewUrl": "https://drive.google.com/file/d/14ZFoErIXbOUbgH-HDRyzvGAPGX2sVpUQ/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/14ZFoErIXbOUbgH-HDRyzvGAPGX2sVpUQ/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:41.305Z"
+    },
+    {
+      "id": "collection-28",
+      "name": "ロックマンコレクション",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アクション",
+      "description": "「ロックマンコレクション」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "orange",
+      "icon": "game",
+      "tags": [
+        "GAMESELECT",
+        "アクション"
+      ],
+      "filename": "28.ロックマンコレクション_v1_2.apk",
+      "size": 10557065,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.2",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1028,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "14ZM3S4mnkfltwhtn-72VJ5S8FDMDWsm-",
+          "filename": "28.ロックマンコレクション_v1_2.apk",
+          "version": "1.2",
+          "size": 10557065,
+          "modifiedAt": "2026-10-25T03:04:41.797Z",
+          "viewUrl": "https://drive.google.com/file/d/14ZM3S4mnkfltwhtn-72VJ5S8FDMDWsm-/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/14ZM3S4mnkfltwhtn-72VJ5S8FDMDWsm-/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:41.797Z"
+    },
+    {
+      "id": "collection-29",
+      "name": "恋愛作戦",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "RPG",
+      "description": "「恋愛作戦」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "blue",
+      "icon": "swords",
+      "tags": [
+        "GAMESELECT",
+        "RPG"
+      ],
+      "filename": "29.恋愛作戦-v0.2.0.apk",
+      "size": 16639144,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.2.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1029,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1i9reHiqY3jm6rsyYci9Y1yDI8DVgZEZT",
+          "filename": "29.恋愛作戦-v0.2.0.apk",
+          "version": "0.2.0",
+          "size": 16639144,
+          "modifiedAt": "2026-10-25T03:04:42.312Z",
+          "viewUrl": "https://drive.google.com/file/d/1i9reHiqY3jm6rsyYci9Y1yDI8DVgZEZT/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1i9reHiqY3jm6rsyYci9Y1yDI8DVgZEZT/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:42.312Z"
+    },
+    {
+      "id": "collection-30",
+      "name": "ロックマンコレクション 縦横アクション",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アクション",
+      "description": "「ロックマンコレクション 縦横アクション」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "orange",
+      "icon": "game",
+      "tags": [
+        "GAMESELECT",
+        "アクション"
+      ],
+      "filename": "30.ロックマンコレクション_縦横アクション_v1_3.apk",
+      "size": 10557065,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.3",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1030,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1cNAA9wOrCyEeuw6qjRzMWRI-rOPvlfQ6",
+          "filename": "30.ロックマンコレクション_縦横アクション_v1_3.apk",
+          "version": "1.3",
+          "size": 10557065,
+          "modifiedAt": "2026-10-25T03:04:42.692Z",
+          "viewUrl": "https://drive.google.com/file/d/1cNAA9wOrCyEeuw6qjRzMWRI-rOPvlfQ6/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1cNAA9wOrCyEeuw6qjRzMWRI-rOPvlfQ6/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:04:42.692Z"
+    },
+    {
+      "id": "collection-31",
+      "name": "SlotTen",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "シミュレーション",
+      "description": "「SlotTen」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "green",
+      "icon": "sprout",
+      "tags": [
+        "GAMESELECT",
+        "シミュレーション"
+      ],
+      "filename": "31.SlotTen.apk",
+      "size": 16977,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "記載なし",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1031,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1ubwUHDJXFFfDEW1wF4NMENC0PUpqVrti",
+          "filename": "31.SlotTen.apk",
+          "version": "記載なし",
+          "size": 16977,
+          "modifiedAt": "2026-10-08T11:48:05.295Z",
+          "viewUrl": "https://drive.google.com/file/d/1ubwUHDJXFFfDEW1wF4NMENC0PUpqVrti/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1ubwUHDJXFFfDEW1wF4NMENC0PUpqVrti/view?usp=drivesdk",
+      "modifiedAt": "2026-10-08T11:48:05.295Z"
+    },
+    {
+      "id": "collection-32",
+      "name": "StarBolt",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アクション",
+      "description": "「StarBolt」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "orange",
+      "icon": "game",
+      "tags": [
+        "GAMESELECT",
+        "アクション"
+      ],
+      "filename": "32.StarBolt.apk",
+      "size": 17003,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "記載なし",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1032,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1AOxWIDP5m9H4oqneD5zNH1CRkmXEtsqH",
+          "filename": "32.StarBolt.apk",
+          "version": "記載なし",
+          "size": 17003,
+          "modifiedAt": "2026-10-08T11:50:06.289Z",
+          "viewUrl": "https://drive.google.com/file/d/1AOxWIDP5m9H4oqneD5zNH1CRkmXEtsqH/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1AOxWIDP5m9H4oqneD5zNH1CRkmXEtsqH/view?usp=drivesdk",
+      "modifiedAt": "2026-10-08T11:50:06.289Z"
+    },
+    {
+      "id": "collection-34",
+      "name": "PicrossMV",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "学び・クイズ",
+      "description": "「PicrossMV」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "green",
+      "icon": "map",
+      "tags": [
+        "GAMESELECT",
+        "学び・クイズ"
+      ],
+      "filename": "34.PicrossMV-v0.1.0.apk",
+      "size": 793654,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.1.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1034,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1S5qUq8u4rU5swvex6Mat9GdSHi4b2Ygw",
+          "filename": "34.PicrossMV-v0.1.0.apk",
+          "version": "0.1.0",
+          "size": 793654,
+          "modifiedAt": "2026-10-25T03:31:13.320Z",
+          "viewUrl": "https://drive.google.com/file/d/1S5qUq8u4rU5swvex6Mat9GdSHi4b2Ygw/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1S5qUq8u4rU5swvex6Mat9GdSHi4b2Ygw/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T03:31:13.320Z"
+    },
+    {
+      "id": "collection-35",
+      "name": "FryFriends",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アドベンチャー",
+      "description": "「FryFriends」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "violet",
+      "icon": "star",
+      "tags": [
+        "GAMESELECT",
+        "アドベンチャー"
+      ],
+      "filename": "35.FryFriends-0.3.0.apk",
+      "size": 27824701,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.3.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1035,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1Woon7rZka3faW8CWhyG5qw7eA_nYfxzk",
+          "filename": "35.FryFriends-0.3.0.apk",
+          "version": "0.3.0",
+          "size": 27824701,
+          "modifiedAt": "2026-10-25T04:00:59.552Z",
+          "viewUrl": "https://drive.google.com/file/d/1Woon7rZka3faW8CWhyG5qw7eA_nYfxzk/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1Woon7rZka3faW8CWhyG5qw7eA_nYfxzk/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T04:00:59.552Z"
+    },
+    {
+      "id": "collection-36",
+      "name": "Reリズム天国",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "音楽",
+      "description": "「Reリズム天国」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "pink",
+      "icon": "music",
+      "tags": [
+        "GAMESELECT",
+        "音楽"
+      ],
+      "filename": "36.Reリズム天国-v0.3.0.apk",
+      "size": 2663251,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.3.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1036,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1vDlcrxCpv7WutfGkf8cWfkBgOW_VDbD-",
+          "filename": "36.Reリズム天国-v0.3.0.apk",
+          "version": "0.3.0",
+          "size": 2663251,
+          "modifiedAt": "2026-10-25T04:03:35.848Z",
+          "viewUrl": "https://drive.google.com/file/d/1vDlcrxCpv7WutfGkf8cWfkBgOW_VDbD-/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1vDlcrxCpv7WutfGkf8cWfkBgOW_VDbD-/view?usp=drivesdk",
+      "modifiedAt": "2026-10-25T04:03:35.848Z"
+    },
+    {
+      "id": "collection-38",
+      "name": "干支大レース-3d",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アドベンチャー",
+      "description": "「干支大レース-3d」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "violet",
+      "icon": "star",
+      "tags": [
+        "GAMESELECT",
+        "アドベンチャー"
+      ],
+      "filename": "38.干支大レース-3d-v0.2.apk",
+      "size": 37406,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.2",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1038,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1GGOCyqUkPbPXtPokkHy-HVIFNpjX_Uk7",
+          "filename": "38.干支大レース-3d-v0.2.apk",
+          "version": "0.2",
+          "size": 37406,
+          "modifiedAt": "2026-10-26T10:13:15.034Z",
+          "viewUrl": "https://drive.google.com/file/d/1GGOCyqUkPbPXtPokkHy-HVIFNpjX_Uk7/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1GGOCyqUkPbPXtPokkHy-HVIFNpjX_Uk7/view?usp=drivesdk",
+      "modifiedAt": "2026-10-26T10:13:15.034Z"
+    },
+    {
+      "id": "collection-40",
+      "name": "千客万来落語-150-500",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "エンタメ",
+      "description": "「千客万来落語-150-500」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "violet",
+      "icon": "book",
+      "tags": [
+        "GAMESELECT",
+        "エンタメ"
+      ],
+      "filename": "40.千客万来落語-150-500-v2.3.apk",
+      "size": 1082339,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "2.3",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1040,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "18alA2bQTuqoB4U29-ORjsHEArWQ95ZgK",
+          "filename": "40.千客万来落語-150-500-v2.3.apk",
+          "version": "2.3",
+          "size": 1082339,
+          "modifiedAt": "2026-10-26T10:13:15.928Z",
+          "viewUrl": "https://drive.google.com/file/d/18alA2bQTuqoB4U29-ORjsHEArWQ95ZgK/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1CB42FuQi_As09u8Qu17q_5UI8qYJGNYi",
+          "filename": "40.千客万来　落語寄席-150-500-v2.2.apk",
+          "version": "2.2",
+          "size": 525283,
+          "modifiedAt": "2026-10-26T10:13:15.724Z",
+          "viewUrl": "https://drive.google.com/file/d/1CB42FuQi_As09u8Qu17q_5UI8qYJGNYi/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1Z3PMra8gzwT2MMpz2aEO5H43v8dJ0UtN",
+          "filename": "40.落語-150-500-v2.apk",
+          "version": "2",
+          "size": 58203,
+          "modifiedAt": "2026-10-26T10:13:16.069Z",
+          "viewUrl": "https://drive.google.com/file/d/1Z3PMra8gzwT2MMpz2aEO5H43v8dJ0UtN/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/18alA2bQTuqoB4U29-ORjsHEArWQ95ZgK/view?usp=drivesdk",
+      "modifiedAt": "2026-10-26T10:13:15.928Z"
+    },
+    {
+      "id": "collection-41",
+      "name": "みすゞことばの小道",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "エンタメ",
+      "description": "「みすゞことばの小道」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "violet",
+      "icon": "book",
+      "tags": [
+        "GAMESELECT",
+        "エンタメ"
+      ],
+      "filename": "41.みすゞことばの小道-v0.2.apk",
+      "size": 254917,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.2",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1041,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1iPLKoEZp165_HPKprvxCY3FIkmjnbRNM",
+          "filename": "41.みすゞことばの小道-v0.2.apk",
+          "version": "0.2",
+          "size": 254917,
+          "modifiedAt": "2026-10-26T10:13:16.241Z",
+          "viewUrl": "https://drive.google.com/file/d/1iPLKoEZp165_HPKprvxCY3FIkmjnbRNM/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1iPLKoEZp165_HPKprvxCY3FIkmjnbRNM/view?usp=drivesdk",
+      "modifiedAt": "2026-10-26T10:13:16.241Z"
+    },
+    {
+      "id": "collection-42",
+      "name": "咲華詩界",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "エンタメ",
+      "description": "「咲華詩界」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "violet",
+      "icon": "book",
+      "tags": [
+        "GAMESELECT",
+        "エンタメ"
+      ],
+      "filename": "42.咲華詩界-v0.4.0.apk",
+      "size": 348643,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.4.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1042,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1qKpBZblcLxfOxcxtBg8lgCSM6uXn4GyG",
+          "filename": "42.咲華詩界-v0.4.0.apk",
+          "version": "0.4.0",
+          "size": 348643,
+          "modifiedAt": "2026-10-26T10:13:16.384Z",
+          "viewUrl": "https://drive.google.com/file/d/1qKpBZblcLxfOxcxtBg8lgCSM6uXn4GyG/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1qKpBZblcLxfOxcxtBg8lgCSM6uXn4GyG/view?usp=drivesdk",
+      "modifiedAt": "2026-10-26T10:13:16.384Z"
+    },
+    {
+      "id": "collection-43",
+      "name": "rakugo game",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "アドベンチャー",
+      "description": "「rakugo game」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "violet",
+      "icon": "star",
+      "tags": [
+        "GAMESELECT",
+        "アドベンチャー"
+      ],
+      "filename": "43.rakugo_game.apk",
+      "size": 782870,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "記載なし",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1043,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1NBPLREz3BA6CeqEEYPVeohYyz6tu7DK3",
+          "filename": "43.rakugo_game.apk",
+          "version": "記載なし",
+          "size": 782870,
+          "modifiedAt": "2026-11-01T02:34:32.947Z",
+          "viewUrl": "https://drive.google.com/file/d/1NBPLREz3BA6CeqEEYPVeohYyz6tu7DK3/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1NBPLREz3BA6CeqEEYPVeohYyz6tu7DK3/view?usp=drivesdk",
+      "modifiedAt": "2026-11-01T02:34:32.947Z"
+    },
+    {
+      "id": "collection-44",
+      "name": "漫才 20354871",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "エンタメ",
+      "description": "「漫才 20354871」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "violet",
+      "icon": "book",
+      "tags": [
+        "GAMESELECT",
+        "エンタメ"
+      ],
+      "filename": "44.漫才_20354871.apk",
+      "size": 33186467,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "記載なし",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1044,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1Ra6wVinVutqKWFRBCovbLiS--9LX06sd",
+          "filename": "44.漫才_20354871.apk",
+          "version": "記載なし",
+          "size": 33186467,
+          "modifiedAt": "2026-11-01T02:56:36.864Z",
+          "viewUrl": "https://drive.google.com/file/d/1Ra6wVinVutqKWFRBCovbLiS--9LX06sd/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1Ra6wVinVutqKWFRBCovbLiS--9LX06sd/view?usp=drivesdk",
+      "modifiedAt": "2026-11-01T02:56:36.864Z"
+    },
+    {
+      "id": "collection-48",
+      "name": "人生めぐり3D",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "シミュレーション",
+      "description": "「人生めぐり3D」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "green",
+      "icon": "sprout",
+      "tags": [
+        "GAMESELECT",
+        "シミュレーション"
+      ],
+      "filename": "48.人生めぐり3D-v1.0.apk",
+      "size": 2065072,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1048,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1ayTYqqKokIMZCYJjpf0OGIXkaEkZYOhm",
+          "filename": "48.人生めぐり3D-v1.0.apk",
+          "version": "1.0",
+          "size": 2065072,
+          "modifiedAt": "2026-11-08T11:03:37.636Z",
+          "viewUrl": "https://drive.google.com/file/d/1ayTYqqKokIMZCYJjpf0OGIXkaEkZYOhm/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1ayTYqqKokIMZCYJjpf0OGIXkaEkZYOhm/view?usp=drivesdk",
+      "modifiedAt": "2026-11-08T11:03:37.636Z"
+    },
+    {
+      "id": "collection-50",
+      "name": "DoragonOut",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "RPG",
+      "description": "「DoragonOut」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "blue",
+      "icon": "swords",
+      "tags": [
+        "GAMESELECT",
+        "RPG"
+      ],
+      "filename": "50.DoragonOut-v2.5.2-InstallFix.apk",
+      "size": 314230306,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "2.5.2",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1050,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1MVarkSPhqrU21ijFLFIX-adSiqw1xyjx",
+          "filename": "50.DoragonOut-v2.5.2-InstallFix.apk",
+          "version": "2.5.2",
+          "size": 314230306,
+          "modifiedAt": "2026-11-10T03:57:17.212Z",
+          "viewUrl": "https://drive.google.com/file/d/1MVarkSPhqrU21ijFLFIX-adSiqw1xyjx/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "10cF8jmeoVJeaZR4z5Sj567AVdrnNzDt0",
+          "filename": "50.DoragonOut-v2.5.2-InstallFix.apk",
+          "version": "2.5.2",
+          "size": 314230306,
+          "modifiedAt": "2026-11-10T00:56:50.779Z",
+          "viewUrl": "https://drive.google.com/file/d/10cF8jmeoVJeaZR4z5Sj567AVdrnNzDt0/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1opfI-ZcDyJRfQ6qBty7b3xuL7iOMOqsp",
+          "filename": "50.DoragonOut-v2.5.1-Zack.apk",
+          "version": "2.5.1",
+          "size": 314230290,
+          "modifiedAt": "2026-11-10T00:05:31.562Z",
+          "viewUrl": "https://drive.google.com/file/d/1opfI-ZcDyJRfQ6qBty7b3xuL7iOMOqsp/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1bCqm-6jb4rlWkH9vQk4Qb5RLTr4dncyt",
+          "filename": "50.DoragonOut-v2.5.0.apk",
+          "version": "2.5.0",
+          "size": 313582966,
+          "modifiedAt": "2026-11-10T00:17:02.022Z",
+          "viewUrl": "https://drive.google.com/file/d/1bCqm-6jb4rlWkH9vQk4Qb5RLTr4dncyt/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "107kmUx6TVlWJBf3TnltB28kjh_HpFc4n",
+          "filename": "50.DoragonOut-v2.4.0.apk",
+          "version": "2.4.0",
+          "size": 212325361,
+          "modifiedAt": "2026-11-10T09:15:19.230Z",
+          "viewUrl": "https://drive.google.com/file/d/107kmUx6TVlWJBf3TnltB28kjh_HpFc4n/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1MVarkSPhqrU21ijFLFIX-adSiqw1xyjx/view?usp=drivesdk",
+      "modifiedAt": "2026-11-10T03:57:17.212Z"
+    },
+    {
+      "id": "collection-51",
+      "name": "DoragonOut2",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "RPG",
+      "description": "「DoragonOut2」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "blue",
+      "icon": "swords",
+      "tags": [
+        "GAMESELECT",
+        "RPG"
+      ],
+      "filename": "51.DoragonOut2-v3.2.0.apk",
+      "size": 150000738,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "3.2.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1051,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1iTkXWd4EQb9pcfe9PK_NhecNGkr4wH4d",
+          "filename": "51.DoragonOut2-v3.2.0.apk",
+          "version": "3.2.0",
+          "size": 150000738,
+          "modifiedAt": "2026-11-10T00:05:16.374Z",
+          "viewUrl": "https://drive.google.com/file/d/1iTkXWd4EQb9pcfe9PK_NhecNGkr4wH4d/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "18MzqaonBa4xa3HIzouFLHPkjEfrI3kVu",
+          "filename": "51.DoragonOut2-v3.1.2.apk",
+          "version": "3.1.2",
+          "size": 107291168,
+          "modifiedAt": "2026-11-09T13:17:00.825Z",
+          "viewUrl": "https://drive.google.com/file/d/18MzqaonBa4xa3HIzouFLHPkjEfrI3kVu/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "1DaIWA9mzbczMbsBw9AA3nXY2VhatwnML",
+          "filename": "51.DoragonOut2-v3.0.0.apk",
+          "version": "3.0.0",
+          "size": 103433705,
+          "modifiedAt": "2026-11-09T00:39:13.595Z",
+          "viewUrl": "https://drive.google.com/file/d/1DaIWA9mzbczMbsBw9AA3nXY2VhatwnML/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1iTkXWd4EQb9pcfe9PK_NhecNGkr4wH4d/view?usp=drivesdk",
+      "modifiedAt": "2026-11-10T00:05:16.374Z"
+    },
+    {
+      "id": "collection-53",
+      "name": "DoragonOut3",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "RPG",
+      "description": "「DoragonOut3」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "blue",
+      "icon": "swords",
+      "tags": [
+        "GAMESELECT",
+        "RPG"
+      ],
+      "filename": "53.DoragonOut3-v0.4.0.apk",
+      "size": 77915957,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "0.4.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1053,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1jFav0_PceinQrUvogkkzC-w3vSDE35YD",
+          "filename": "53.DoragonOut3-v0.4.0.apk",
+          "version": "0.4.0",
+          "size": 77915957,
+          "modifiedAt": "2026-11-10T00:04:51.263Z",
+          "viewUrl": "https://drive.google.com/file/d/1jFav0_PceinQrUvogkkzC-w3vSDE35YD/view?usp=drivesdk",
+          "available": true
+        },
+        {
+          "fileId": "18zxmH6HIZ7ZFRRp9aIQHxnjho81Vi6jE",
+          "filename": "53.DoragonOut3-v0.2.1.apk",
+          "version": "0.2.1",
+          "size": 42583720,
+          "modifiedAt": "2026-11-09T03:49:33.798Z",
+          "viewUrl": "https://drive.google.com/file/d/18zxmH6HIZ7ZFRRp9aIQHxnjho81Vi6jE/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1jFav0_PceinQrUvogkkzC-w3vSDE35YD/view?usp=drivesdk",
+      "modifiedAt": "2026-11-10T00:04:51.263Z"
+    },
+    {
+      "id": "collection-62",
+      "name": "DoragonOutEX4",
+      "subtitle": "GAMESELECT コレクション",
+      "category": "RPG",
+      "description": "「DoragonOutEX4」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
+      "color": "blue",
+      "icon": "swords",
+      "tags": [
+        "GAMESELECT",
+        "RPG"
+      ],
+      "filename": "62.DoragonOutEX4-v1.1.0.apk",
+      "size": 324209047,
+      "sha256": "",
+      "parts": [],
+      "package": "",
+      "version": "1.1.0",
+      "minSdk": null,
+      "targetSdk": null,
+      "order": 1062,
+      "checked": "2026-11-10T10:09:38.121Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "1iYFTh5ojVFc_boJkhoFHu8TBWHYAJO9K",
+          "filename": "62.DoragonOutEX4-v1.1.0.apk",
+          "version": "1.1.0",
+          "size": 324209047,
+          "modifiedAt": "2026-11-10T03:06:29.372Z",
+          "viewUrl": "https://drive.google.com/file/d/1iYFTh5ojVFc_boJkhoFHu8TBWHYAJO9K/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/1iYFTh5ojVFc_boJkhoFHu8TBWHYAJO9K/view?usp=drivesdk",
+      "modifiedAt": "2026-11-10T03:06:29.372Z"
+    }
+  ],
+  "revision": "a367ec9446d49f502d7fe14df4f7977f433ea084d8f7a4205316fca7cf4b1221",
+  "checkedAt": "2026-11-10T10:09:38.121Z",
+  "fileCount": 83,
+  "availableCount": 59,
+  "waitingCount": 1
+}
