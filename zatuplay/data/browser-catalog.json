@@ -1,1 +1,13 @@
-{"schemaVersion":1,"apps":[],"updatedAt":null}
+{
+  "schemaVersion": 1,
+  "apps": [
+    {
+      "id": "candy",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/candy/",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-10T22:01:25Z",
+      "note": "キーボード・画面ボタン対応。Chromeで1面クリア、進行保存・JSON読込を確認。音声なし。APKとは自動同期しません。全50面の手動完走・スマホ実機は未検証。"
+    }
+  ],
+  "updatedAt": "2026-11-10T22:01:25Z"
+}
