@@ -1,4 +1,5 @@
 import type {AppRecord} from './catalog';
+import {sitePath} from './paths';
 
 export interface DriveVersion {
   fileId:string; filename:string; version:string; size:number;
@@ -15,7 +16,7 @@ export interface CatalogPayload {
 
 // Only the public catalog is fetched; no credentials or private APIs are used.
 export async function loadCatalog():Promise<CatalogPayload> {
-  const url=new URL('./data/app-catalog.json',document.baseURI);
+  const url=new URL(sitePath('data/app-catalog.json'),location.origin);
   url.searchParams.set('t',String(Date.now()));
   const response=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(15000)});
   if(!response.ok)throw Error('Catalog unavailable');

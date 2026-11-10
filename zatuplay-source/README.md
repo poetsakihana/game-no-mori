@@ -1,17 +1,24 @@
-# ZatuPlay — GitHub Pages
+# ZatuPlay — APK版とブラウザ版
 
-GAMESELECTのAndroidアプリを紹介する静的サイトです。検索、カテゴリー、お気に入り、配布バージョンの選択、入手ページの履歴、ホーム画面への追加に対応します。
+公開入口: https://poetsakihana.github.io/game-no-mori/zatuplay/
 
-公開先: https://poetsakihana.github.io/game-no-mori/zatuplay/
+- Android用APK一覧: https://poetsakihana.github.io/game-no-mori/zatuplay/apk/
+- ブラウザで遊ぶ作品一覧: https://poetsakihana.github.io/game-no-mori/zatuplay/browser/
 
-## 開発と配置
+APK版はGAMESELECTにある作品のAndroid用ファイルです。ブラウザ版はWeb向けに個別に移植・公開した作品です。APKをそのままブラウザで実行するものではありません。ZatuPlay本体の独立APKは、このリポジトリにはありません。
 
-Node.js 22.13以降で `npm ci` → `npm run build` を実行します。`dist/` の中身をリポジトリの `zatuplay/` に配置してください。元のゲームの森のファイルは別の場所に残します。
+## ビルド・配置
 
-## カタログの更新
+Node.js 22.13以降で `npm ci` → `npm run build` を実行し、`dist/` の中身をリポジトリの `zatuplay/` へ配置します。3ページでコードとカタログを共有します。Viteのbaseは `/game-no-mori/zatuplay/` です。
 
-配信中の `zatuplay/data/app-catalog.json` を差し替えるだけで、JavaScriptを作り直さずに更新できます。完全なGAMESELECT走査から生成されたカタログのみ配置し、読み取りに失敗した場合は前回の一覧を保持します。公開JSONには作品紹介と配布ファイル情報だけを含めます。
+既存の `?app=作品ID` 形式はAPK一覧の作品詳細へ引き継ぎます。
 
-既存の「ZatuPlayのアプリ自動更新」が約1時間ごとにGAMESELECTを確認し、追加や変更をこのJSONにも反映します。GitHub Pagesへの反映にはデプロイ完了まで少し時間がかかります。
+## APKカタログ
 
-APK原本はGoogleドライブにあります。各作品の「Googleドライブで入手」から配布ページを開き、Android端末で保存・インストールします。共有権限の変更や自動インストールは行いません。0バイトのAPKは確認待ちとして表示します。
+既存の `zatuplay/data/app-catalog.json` を使用します。自動更新は従来どおりこのファイルを更新します。失敗時に空の一覧で上書きしないでください。APK原本やDriveの共有権限は変更しません。
+
+## ブラウザ版の追加
+
+`BROWSER_RELEASES.md` を参照してください。APKの追加・更新だけではブラウザ版の公開数は増えません。作品ごとに動作確認してから公開URLを追加します。
+
+確認済みのブラウザ公開URLがない作品は「対応準備中」と表示し、起動ボタンは表示しません。所有者限定SitesやソースZIP、DriveのAPKプレビューをプレイURLとして掲載しないでください。
