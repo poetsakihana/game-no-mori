@@ -1,0 +1,6 @@
+.collection-link{color:#c3ccb7;font-size:11px;text-decoration:none;white-space:nowrap;padding:8px;border:1px solid #424c3b}
+.collection-link:hover,.collection-link:focus-visible{color:#fff3df;border-color:#e8574d}
+body:not(.browser-playing) .touch-controls{display:none}
+.touch-controls button{touch-action:none;-webkit-user-select:none;user-select:none}
+@media(max-width:700px){.collection-link{font-size:9px;padding:7px 5px}.brand-name{font-size:11px}.app{padding:0 3%}}
+@media(max-width:450px){.title-content{top:6%;width:68%}h1{font-size:clamp(31px,8.6vw,39px);margin-top:10px}.tagline{font-size:8px;margin:8px 0}.subtitle{margin-bottom:7px}.save-note{font-size:6px;margin-top:7px}.title-actions .primary,.title-actions .secondary{height:31px}.touch-controls{flex-wrap:wrap;gap:10px}.touch-controls .dpad{margin-right:auto}.action-pad{margin-left:auto}.touch-controls button{min-height:44px}.screen-overlay h2{font-size:27px}.screen-overlay p{font-size:8px}.result-stats{margin:8px 0}.screen-overlay .primary,.screen-overlay .secondary{height:31px;margin-top:5px}}
