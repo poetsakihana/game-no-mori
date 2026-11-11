@@ -1,0 +1,102 @@
+{
+  "version": "1.25-web.1",
+  "sourceApk": {
+    "name": "14.リズム天国_master演出強化版_1.25_別アプリ.apk",
+    "bytes": 2301775,
+    "sha256": "0fbefd2d9bbdbbdc3a5d2f0c710a279ef161b1c083d2efd1e4a7a4f9e9ac0a60"
+  },
+  "sourceIndex": {
+    "bytes": 1873269,
+    "sha256": "088765f3c7cf4f604f302388f2f882ebf608a49368140e9073a0cfd493089261"
+  },
+  "embeddedImages": [
+    {
+      "mime": "jpeg",
+      "bytes": 427151,
+      "sha256": "9c68ba36cb4756f7c2b4f5b74c07be78ef6ae4b36754150976021c1c7f3ea2bf"
+    },
+    {
+      "mime": "png",
+      "bytes": 803967,
+      "sha256": "b6820ae3ff0d4802bdc9c216298d7d38897f75e43e14a2e836c791a7d075c4e9"
+    }
+  ],
+  "copiedAssets": [
+    {
+      "path": "enhancement.css",
+      "bytes": 2062,
+      "sha256": "d2fd0e959ad6f846669826f1f569668a3a35ed9725aa73a72cfd94d096a6624b"
+    },
+    {
+      "path": "enhancement.js",
+      "bytes": 6864,
+      "sha256": "60d62d7b90a351fa7b08cefd8ba58edb9156d7da683df6e01e2310f26e4808ff"
+    },
+    {
+      "path": "art/rhythm-cast-atlas.png",
+      "bytes": 803967,
+      "sha256": "b6820ae3ff0d4802bdc9c216298d7d38897f75e43e14a2e836c791a7d075c4e9"
+    },
+    {
+      "path": "art/rhythm-cast-atlas.json",
+      "bytes": 1606,
+      "sha256": "d47697bba498addbfa5ff3fe086c3743ee4c636ed6d752c4c813bfb8c4995ec9"
+    }
+  ],
+  "unchangedScripts": [
+    {
+      "index": 0,
+      "bytes": 39980,
+      "sha256": "63c7dc596d7d013bc91db6cb2d7c1c72ca0f7d6ba71470c9a373969d53aba53e"
+    },
+    {
+      "index": 1,
+      "bytes": 881,
+      "sha256": "133e4fb36487403896963a81788ce57ddf182a65ec77e5a073a01215a398dc0f"
+    },
+    {
+      "index": 2,
+      "bytes": 3683,
+      "sha256": "efa392e2bfaf778dca752afbfaa2a94f8cd0cbd606ef5216612c6f8b5c8ecff3"
+    },
+    {
+      "index": 12,
+      "bytes": 4826,
+      "sha256": "e59be8c1837bc1496203a7347455aae7890aaa212a423bfd5298f1ab2dc0e804"
+    },
+    {
+      "index": 13,
+      "bytes": 3452,
+      "sha256": "3ce2dd36ab6180e47522a2e5c875d7d8b302af226a3e0cdbe32af314362a5251"
+    },
+    {
+      "index": 14,
+      "bytes": 3466,
+      "sha256": "f98e0e51d0222251bee11350fd1a2f233c53bde65e8d5a95b2e152e37e5bd56e"
+    },
+    {
+      "index": 15,
+      "bytes": 773,
+      "sha256": "7795fd9f66d5e58e0fa42e3f54bb0274d87154ede51f937da83715192c9764e3"
+    },
+    {
+      "index": 17,
+      "bytes": 1072027,
+      "sha256": "88f9f273ac023b42b8f25853daf3a95428d4f975bae4c2de539d1bfe428f3115"
+    }
+  ],
+  "changes": [
+    "Original embedded images, all charts, 82 stages and all side-mode data preserved.",
+    "Guarded browser save validation, non-destructive read/write failure and cross-tab protection.",
+    "Explicit lifecycle pause, isolated audio buses, frozen timers, countdown resume and unfinished hold cue replay.",
+    "Keyboard focus, separate drum input handler, touch cancellation, relative collection navigation and responsive in-page controls.",
+    "Fix original snack no-input timeout deadlock and stale party finish callbacks.",
+    "Persist original voice-cue toggle as well as existing settings.",
+    "Master volume applies to speech, including original forced party name cues.",
+    "Await composer startup and guard stale asynchronous side-mode errors."
+  ],
+  "excluded": [
+    "APK/Android files and signing material"
+  ],
+  "verification": "Native Canvas2D + deterministic DOM/audio-clock model; public Chrome/audio/device verification pending."
+}
