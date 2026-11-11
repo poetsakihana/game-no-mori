@@ -1,0 +1,17 @@
+/* Browser-only additions. Original game presentation is in style.css. */
+.collection-return { color:var(--pale); text-decoration:none; font-size:12px; line-height:1.6; white-space:nowrap; border:1px solid var(--line); padding:8px 11px; border-radius:6px; }
+.header-right { gap:14px; flex-wrap:wrap; justify-content:flex-end; }
+.browser-notice { max-width:450px; font-size:11px; line-height:1.8; color:#aebdc3; margin:20px 0 0; }
+.title-footer { position:relative; }
+.title-header { gap:14px; }
+#browserSaveStatus { position:fixed; z-index:30; left:50%; bottom:12px; transform:translateX(-50%); max-width:min(580px,85vw); padding:10px 14px; border:1px solid #d9b274; background:#171f29f2; color:#ffe3ad; font-size:12px; line-height:1.6; pointer-events:none; }
+#loading { z-index:35; max-width:85vw; background:#0b1219ed; padding:12px; line-height:1.7; }
+#world, #touchControls { touch-action:none; }
+.modal-card a { color:var(--gold); }
+noscript { position:fixed; z-index:50; inset:30% 10% auto; padding:24px; background:#0b1219; }
+@media(max-width:540px) { .title-header { padding:16px 5vw; align-items:flex-start; } .header-right { gap:8px; } .collection-return { font-size:11px; } .browser-notice { font-size:10px; } #browserSaveStatus { bottom:auto; top:38%; } }
+
+@media (any-pointer:coarse) {
+.desktop-controls{display:none}#touchControls{display:block;pointer-events:none;position:absolute;inset:0}.game-bottom{bottom:205px}.game-bottom .equipment{display:none}#joystick{position:absolute;bottom:35px;left:35px;width:115px;height:115px;border:1px solid #d0e4e33a;background:#0e232c50;border-radius:50%;pointer-events:auto;touch-action:none}#stick{position:absolute;left:35px;top:35px;width:45px;height:45px;background:#b8d6d24a;border:1px solid #d0e4e380;border-radius:50%}.touch-actions{display:block;position:absolute;width:205px;height:185px;right:18px;bottom:18px}.touch-actions button{position:absolute;pointer-events:auto;touch-action:none;border:1px solid #d5e3dd60;background:#0d2333b0;border-radius:50%;width:58px;height:58px;font-size:11px}.touch-actions [data-action="attack"]{left:132px;top:78px;width:70px;height:70px;background:#bba071c9;color:#101b22;font-size:16px}.touch-actions [data-action="magic"]{left:68px;top:58px}.touch-actions [data-action="dodge"]{left:68px;top:124px}.touch-actions [data-action="potion"]{left:11px;top:134px;width:43px;height:43px}.touch-actions [data-action="jump"]{left:8px;top:77px;width:45px;height:45px}.touch-actions [data-action="block"]{left:78px;top:0;width:43px;height:43px}.touch-actions [data-action="interact"]{left:148px;top:22px;width:45px;height:45px}#bossHud{bottom:210px;left:24%;width:52%}#toast{bottom:210px}#interactHint{bottom:30%}
+
+}

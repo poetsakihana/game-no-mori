@@ -1,0 +1,33 @@
+{
+  "sourceVersion": "2.1.1",
+  "browserVersion": "2.1.1-web.1",
+  "catalogId": "quest-reborn",
+  "apkSha256": "3f61c1fe7d2aa4351efed09af62dcc573d5ab99f658bbd1dfcf9192a872dc06e",
+  "entry": "index.html",
+  "sourceAssetsRoot": "assets/www/",
+  "unchangedSha256": {
+    "style.css": "346d5a75ed702b81dd488ce2a2a4d57d4bd3394637699313ce21fe4e205f2326",
+    "core.js": "0589da14cabd563bfad49aa0554f386f68c1fc848518867ef313c7cb5aaceaa0",
+    "catalog.js": "caa75f110bfe81716b31ab5c4cc25b48f81077c1c0a849616a993815c6fba581",
+    "models.js": "354b62ac17722a302dfa7430e923814aa5f10aea38074d8025893a674d02ea31",
+    "assets/key-art.png": "162bdf7612702ae3ef09d6d8aefe9549ad41801122c48a80f76d357b00571b6f",
+    "vendor/three.module.js": "ce1fa418de16a19495a9f72495580e3015d7745c296d3ce0485897f902ddedfb"
+  },
+  "thirdPartyNoticesSha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454",
+  "modifiedSourceSha256": {
+    "index.html": "519f8d99e4b299e55686dc26171481776f8dadaedfc9a9e23a061d4193a42a13",
+    "game.js": "631b7c949661765bf24b01621ff7fdd1c51a48b82ea9a4564ad95a68f422c151",
+    "startup.js": "013ebb6010deb9f45239595dff9a9f5cfe9a660d81d098524a800ce25ea7d650"
+  },
+  "added": [
+    "browser.css",
+    "browser-storage.js",
+    "README.md",
+    "SOURCE_ASSETS.json"
+  ],
+  "omitted": {
+    "android.css": "Android-only layout replaced by browser.css coarse-pointer additions.",
+    "game.bundle.js": "Duplicate Android IIFE bundle; original modules and local Three.js are the browser entry."
+  },
+  "notes": "Original core, catalog, models, art, style and Three.js are unchanged. No APK, signing keys or Android binaries are distributed."
+}
