@@ -10,7 +10,7 @@ This is the original APK web application adapted for static subdirectory hosting
 - Source: https://drive.google.com/file/d/1LyXfqpkucYAJLoGXLREhdCHtWVKVUfW_/view
 - APK SHA-256: `b790ce1869a1333d23ff5e6f67c06851a009eb84adb3616035f5a2b8e64b761c`.
 - APK version was not established; the browser version is a separate label.
-- All 62 regional SVG illustrations, the favicon and `THIRD-PARTY-LICENSES.txt` are retained. The original application bundle is unchanged except for its regional SVG URL prefix.
+- All 62 regional SVG illustrations, the favicon and `THIRD-PARTY-LICENSES.txt` are retained. The original application bundle is unchanged except for its regional SVG URL prefix and browser-specific platform/save/offline guidance.
 
 ## Browser changes
 
@@ -20,7 +20,7 @@ This is the original APK web application adapted for static subdirectory hosting
 - Original save key `tokyo-yomimeguri-v1` is retained. The browser does not read APK app data and does not synchronize devices. Clearing this site's data removes progress. Private browsing or restrictive storage settings can prevent durable saves.
 - No service worker, remote game-data API, accounts or additional dependencies were introduced.
 
-## Manual release QA, still required
+## Broader manual release QA
 
 Open the production subdirectory URL with a trailing slash in desktop Chrome, mobile Safari and mobile Chrome:
 
@@ -33,3 +33,11 @@ Open the production subdirectory URL with a trailing slash in desktop Chrome, mo
 7. Inspect console/network for runtime failures, missing files and unwanted remote font requests. Check keyboard focus and mobile touch controls.
 
 Static preservation, JavaScript syntax and subdirectory-path checks are in the sibling batch test directory. These checks are not a visual or device-play QA pass.
+
+## Public Chrome QA, 2026-11-11
+
+Confirmed startup; wards, Tama and islands navigation with representative illustrations; wrong answer, hint, correct answer and next-question flow in Chiyoda; reload persistence at 1/60 Chiyoda and 1/1,706 overall; resume to Iidabashi; Toshima island completion and treasure receipt (1/62); quiz/help dialog closing and collection navigation. No internal game state or storage was manipulated.
+
+QA found inherited Android-only save/offline help copy and the Android footer. These labels were corrected to Browser, local browser saves independent from APK, and communication required for initial/reload access.
+
+All regions/questions, IME composition Enter, physical mobile devices, audible sound, blocked-network/storage scenarios and exhaustive console/network inspection remain unverified.

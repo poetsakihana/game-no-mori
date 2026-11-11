@@ -25,3 +25,7 @@ SHA-256: `6d3a629d0a2a06f69e5d2c05bb95a1bf57f2cff4334965b6f31e679a2d115a09`
 ## Verification status
 
 Automated source/path/security checks and engine tests passed: six work categories, plan validation, upgrades, recruitment, JSON save round trips, malformed-save rejection and a controlled 1,188-month engine simulation through the 99-year ending. The simulation used high starting cash as a test fixture, handled 121 health confirmations and 121 return-to-work reviews, and does not represent a normal-difficulty playthrough. Public-browser rendering, image loading, file dialogs and responsive layout had not run when this release was prepared.
+
+## Public Chrome QA, 2026-11-11
+
+Confirmed startup, workshop illustration, normal monthly progression from April to May, forecast/result agreement (+39,300 yen), closing results, reload persistence (year 1 May, 3,239,300 yen, confidence 89, one elapsed month), settings/help dialog closing and collection navigation. No internal game state or storage was manipulated. JSON end-to-end restore, full-length play, physical mobile devices and audible sound require separate verification.
