@@ -1,5 +1,5 @@
 {
-  "browserVersion": "3.0.0-web.1",
+  "browserVersion": "3.0.0-web.2",
   "apkName": "11.全国ローカル-cm-v3.0.0.apk",
   "apkSHA256": "618840440e851411a09b0463d0edc9228372f704acee95645e77cb2d8e1675e8",
   "originalHTMLSHA256": "15fa62882ddab9aac823813d42d10bac75313340dd56a910e9ec70151bd3d533",
@@ -16,13 +16,14 @@
   "changes": [
     "Extracted original CSS and JS; original records, municipalities, statistics and CSS illustration design retained.",
     "Split all catalog records into original official records and lazily loaded legacy chunks; no video or thumbnail copied.",
-    "Browser-only safe local storage, explicit network guidance, relative collection link, asynchronous player lifecycle guards, mobile accessibility improvements."
+    "Browser-only safe local storage, explicit network guidance, relative collection link, asynchronous player lifecycle guards, mobile accessibility improvements.",
+    "web.2: keep manual reload available after iframe ready; show external YouTube guidance after 30 seconds of continuous buffering, with lifecycle-safe cancellation and no automatic retries."
   ],
   "originalCSSSHA256": "4dc4915456f6234abc5d9073bae608bebf419488438519aca2c3b32190ac7bfb",
   "files": {
     "app.js": {
-      "bytes": 27254,
-      "sha256": "af4de07320da71dbec8150c35eff7c6c87e46d6f4badbae62ba670e73a3f89ce"
+      "bytes": 28816,
+      "sha256": "a959dbbe0af0647cb44fb703fcb3b4443edbc0a4f4ac41daec6b9ac82af347cf"
     },
     "browser.css": {
       "bytes": 1915,
@@ -102,7 +103,7 @@
     },
     "index.html": {
       "bytes": 9600,
-      "sha256": "c27678ad5891b1d17b41d8a23986ed6a975a0265b81d46075baff1fd54eff4a8"
+      "sha256": "ea789ea7dcef3c9829e3f86295eefc133757a0822829956d32e5d48ea6f28193"
     },
     "style.css": {
       "bytes": 11725,

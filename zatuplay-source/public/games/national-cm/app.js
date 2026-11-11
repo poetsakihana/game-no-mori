@@ -38,7 +38,7 @@ function readSaved(){
  }catch{storageBlocked=true;storageMessage('保存記録を読み込めませんでした。元の記録は上書きしません。このタブでは操作できますが、変更は保存できません。');return {favorites:Object.create(null),history:Object.create(null),custom:[]}}
 }
 let saved=readSaved();
-let playerGeneration=0, readyTimer=null, playerOpener=null;
+let playerGeneration=0, readyTimer=null, bufferTimer=null, playerOpener=null;
 let state={tab:'discover',pref:'',city:'',scope:'',q:'',tier:'official',era:'',page:0}, current=null, player=null, apiPromise=null, timer=null;
 const records=CATALOG.concat(saved.custom), byId=new Map(records.map(x=>[x.id,x]));
 const regionGroups=[['北海道・東北',0,7],['関東',7,14],['中部',14,23],['近畿',23,30],['中国・四国',30,39],['九州・沖縄',39,47]];
@@ -63,7 +63,7 @@ async function ensureLegacy(){
   try{
    dataMessage('継承候補を読み込んでいます。初回は約36 MBのデータを受信します…');
    let next=0;
-   const outcomes=await Promise.allSettled(Array.from({length:3},async()=>{while(next<LEGACY_CHUNKS.length){const file=LEGACY_CHUNKS[next++];if(legacyCache.has(file))continue;const response=await fetch(file+'?v=3.0.0-web.1');if(!response.ok)throw Error('HTTP '+response.status);const rows=await response.json();if(!Array.isArray(rows)||rows.some(r=>!r||!/^yt_[\w-]{11}$/.test(r.id)||!Array.isArray(r.municipalities)))throw Error('data');legacyCache.set(file,rows);dataMessage('継承候補を読み込んでいます… '+legacyCache.size+' / '+LEGACY_CHUNKS.length)}}));if(outcomes.some(x=>x.status==='rejected'))throw Error('network');
+   const outcomes=await Promise.allSettled(Array.from({length:3},async()=>{while(next<LEGACY_CHUNKS.length){const file=LEGACY_CHUNKS[next++];if(legacyCache.has(file))continue;const response=await fetch(file+'?v=3.0.0-web.2');if(!response.ok)throw Error('HTTP '+response.status);const rows=await response.json();if(!Array.isArray(rows)||rows.some(r=>!r||!/^yt_[\w-]{11}$/.test(r.id)||!Array.isArray(r.municipalities)))throw Error('data');legacyCache.set(file,rows);dataMessage('継承候補を読み込んでいます… '+legacyCache.size+' / '+LEGACY_CHUNKS.length)}}));if(outcomes.some(x=>x.status==='rejected'))throw Error('network');
    const all=LEGACY_CHUNKS.flatMap(f=>legacyCache.get(f));if(all.length+CATALOG.length!==STATS.total||new Set([...CATALOG,...all].map(r=>r.id)).size!==STATS.total)throw Error('count');
    for(const r of all){if(!byId.has(r.id)){records.push(r);byId.set(r.id,r);index(r)}}
    legacyLoaded=true;legacyCache.clear();dataMessage('');return true;
@@ -76,10 +76,11 @@ async function loadSavedCandidates(){if([...Object.keys(saved.favorites),...Obje
 function toast(s){$('#toast').textContent=s;$('#toast').hidden=false;clearTimeout(timer);timer=setTimeout(()=>$('#toast').hidden=true,3500)}
 function external(url){try{let u=new URL(url);if(u.protocol!=='https:')throw Error();window.open(u.href,'_blank','noopener')}catch{toast('有効なHTTPSリンクではありません')}}
 function videoId(s){try{const u=new URL(s);if(!['https:','http:'].includes(u.protocol))return null;let id;if(u.hostname==='youtu.be')id=u.pathname.slice(1);else if(['youtube.com','www.youtube.com','m.youtube.com','youtube-nocookie.com','www.youtube-nocookie.com'].includes(u.hostname)){if(u.pathname==='/watch')id=u.searchParams.get('v');else id=u.pathname.match(/^\/(?:embed|shorts)\/([\w-]{11})\/?$/)?.[1]}return /^[\w-]{11}$/.test(id||'')?id:null}catch{return null}}
-function stopPlayer(){playerGeneration++;clearTimeout(readyTimer);readyTimer=null;if(player){try{player.destroy()}catch{}player=null}$('#playerMount').innerHTML='';current=null}
+function clearBufferTimer(){clearTimeout(bufferTimer);bufferTimer=null}
+function stopPlayer(){playerGeneration++;clearTimeout(readyTimer);readyTimer=null;clearBufferTimer();if(player){try{player.destroy()}catch{}player=null}$('#playerMount').innerHTML='';current=null}
 function closePlayer(){stopPlayer();$('#playerDialog').close()}
 function restorePlayerFocus(){let target=playerOpener?.dataset?.open?$('#list').querySelector('[data-open="'+playerOpener.dataset.open+'"]'):playerOpener;if(!target||!target.isConnected)target=$('#listingTitle');target.focus();playerOpener=null}
-function pausePlayer(){if(player){try{player.pauseVideo()}catch{}}}
+function pausePlayer(){clearBufferTimer();if(player){try{player.pauseVideo()}catch{}}}
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pausePlayer()});
 window.addEventListener('pagehide',()=>{stopPlayer();if($('#playerDialog').open)$('#playerDialog').close()});
 function home(){if($('#playerDialog').open)closePlayer();else if($('#addDialog').open)$('#addDialog').close();else if($('#infoDialog').open)$('#infoDialog').close();else{state.tab='discover';render()}}
@@ -140,9 +141,9 @@ function loadAPI(){
  });return apiPromise;
 }
 async function startEmbed(){
- const r=current;if(!r)return;const request=++playerGeneration;clearTimeout(readyTimer);$('#startEmbed').disabled=true;$('#playerStatus').textContent='YouTubeを読み込んでいます…';
+ const r=current;if(!r)return;const request=++playerGeneration;clearTimeout(readyTimer);clearBufferTimer();let bufferWarned=false;$('#startEmbed').disabled=true;$('#playerStatus').textContent='YouTubeを読み込んでいます…';
  const active=()=>request===playerGeneration&&current===r&&$('#playerDialog').open;
- const fail=message=>{if(!active())return;clearTimeout(readyTimer);$('#playerStatus').textContent=message+'「YouTubeで開く」もお試しください。';$('#startEmbed').disabled=false;$('#startEmbed').textContent='もう一度読み込む'};
+ const fail=message=>{if(!active())return;clearTimeout(readyTimer);clearBufferTimer();$('#playerStatus').textContent=message+'「YouTubeで開く」もお試しください。';$('#startEmbed').disabled=false;$('#startEmbed').textContent='もう一度読み込む'};
  try{
   await loadAPI();if(!active())return;
   if(document.hidden){fail('タブが非表示になったため読込を止めました。');return}
@@ -150,7 +151,22 @@ async function startEmbed(){
   $('#playerMount').innerHTML='<div id="youtubePlayer"></div>';
   readyTimer=setTimeout(()=>fail('プレーヤーの準備を確認できませんでした。通信やブラウザの制限をご確認ください。'),16000);
   player=new window.YT.Player('youtubePlayer',{host:'https://www.youtube-nocookie.com',videoId:r.video_id,width:'100%',height:'100%',playerVars:{autoplay:0,playsinline:1,controls:1,fs:0,origin:location.origin},events:{
-   onReady:e=>{if(!active())return;clearTimeout(readyTimer);if(document.hidden){try{e.target.pauseVideo()}catch{}}$('#playerStatus').textContent='YouTubeの再生ボタンを押してください。通信環境や公開設定により視聴できない場合があります。';const f=$('#youtubePlayer');f?.setAttribute('title',r.title);f?.setAttribute('referrerpolicy','strict-origin-when-cross-origin')},
+   onReady:e=>{if(!active())return;clearTimeout(readyTimer);if(document.hidden){try{e.target.pauseVideo()}catch{}}$('#startEmbed').disabled=false;$('#startEmbed').textContent='もう一度読み込む';if(bufferTimer===null)$('#playerStatus').textContent='YouTubeの再生ボタンを押してください。進まない場合は「もう一度読み込む」か「YouTubeで開く」をお試しください。';const f=$('#youtubePlayer');f?.setAttribute('title',r.title);f?.setAttribute('referrerpolicy','strict-origin-when-cross-origin')},
+   onStateChange:e=>{
+    if(!active())return;
+    if(e.data===3){
+     if(document.hidden){pausePlayer();return}
+     if(bufferWarned)return;
+     $('#playerStatus').textContent='動画を読み込んでいます。30秒以上進まない場合は、別の視聴方法をご案内します。';
+     // Repeated BUFFERING events must not extend the same 30-second wait.
+     if(bufferTimer===null)bufferTimer=setTimeout(()=>{if(!active())return;bufferWarned=true;fail('動画の読み込みが30秒以上続いています。通信やYouTube側の再生条件により、この画面では進まない場合があります。')},30000);
+    }else{
+     clearBufferTimer();bufferWarned=false;
+     if(e.data===1)$('#playerStatus').textContent='YouTubeプレーヤーから再生開始の通知を受け取りました。映像が進まない場合は「もう一度読み込む」か「YouTubeで開く」をお試しください。';
+     else if(e.data===2)$('#playerStatus').textContent='一時停止中です。再開する場合はYouTubeの再生ボタンを押してください。';
+     else if(e.data===0)$('#playerStatus').textContent='YouTubeプレーヤーから再生終了の通知を受け取りました。';
+    }
+   },
    onError:e=>{const messages={100:'削除・非公開などにより視聴できません。',101:'投稿者が外部サイトへの埋め込みを許可していません。',150:'投稿者が外部サイトへの埋め込みを許可していません。',153:'YouTubeがブラウザの再生元を確認できませんでした。',2:'動画IDが正しくありません。',5:'この環境では動画を再生できません。'};fail(messages[e.data]||'再生中に問題が起きました。')}
   }});
  }catch{fail('YouTubeに接続できませんでした。')}
