@@ -41,3 +41,5 @@ Confirmed startup; wards, Tama and islands navigation with representative illust
 QA found inherited Android-only save/offline help copy and the Android footer. These labels were corrected to Browser, local browser saves independent from APK, and communication required for initial/reload access.
 
 All regions/questions, IME composition Enter, physical mobile devices, audible sound, blocked-network/storage scenarios and exhaustive console/network inspection remain unverified.
+
+The entry HTML versions its JavaScript URL with a content hash so existing browser caches receive revised browser-specific guidance.

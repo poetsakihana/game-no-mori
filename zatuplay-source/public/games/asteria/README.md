@@ -30,3 +30,5 @@ Automated source/path/security checks and engine tests passed: 88 constellation 
 Confirmed title/start flow, chapter 1 stage 1 clear through normal controls, +60 stardust and stage 2 unlock, pause/resume, reload persistence (1/440 stages and 660 stardust), JSON download and restore through the real browser file chooser, repeating the same-file restore, settings, browser-save notice and collection navigation/Back. No internal game state or storage was manipulated. The only captured error logs came from the browser extension, not the app.
 
 Full 440-stage completion, constellation drawing/summon UI, malformed JSON through the picker, mobile widths/devices, Firefox/Safari and audible sound remain unverified. Engine tests cover malformed-save validation independently.
+
+The entry HTML versions its JavaScript URL with a content hash so existing browser caches receive revised browser-specific guidance.

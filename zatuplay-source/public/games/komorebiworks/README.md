@@ -28,4 +28,4 @@ Automated source/path/security checks and engine tests passed: six work categori
 
 ## Public Chrome QA, 2026-11-11
 
-Confirmed startup, workshop illustration, normal monthly progression from April to May, forecast/result agreement (+39,300 yen), closing results, reload persistence (year 1 May, 3,239,300 yen, confidence 89, one elapsed month), settings/help dialog closing and collection navigation. No internal game state or storage was manipulated. JSON end-to-end restore, full-length play, physical mobile devices and audible sound require separate verification.
+Confirmed startup, workshop illustration, normal monthly progression from April to May, forecast/result agreement (+39,300 yen), closing results, reload persistence (year 1 May, 3,239,300 yen, confidence 89, one elapsed month), settings/help dialog closing and collection navigation. No internal game state or storage was manipulated. JSON export via a real download, restore after changing the workshop name, and a second restore from the same file also succeeded. Full-length play, physical mobile devices and audible sound require separate verification.
