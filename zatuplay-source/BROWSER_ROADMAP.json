@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-11T06:38:23Z",
+  "updatedAt": "2026-11-11T06:50:28Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -218,12 +218,12 @@
       "name": "全国ローカルCM",
       "status": "blocked",
       "priority": 119,
-      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/national-cm/?v=3.0.0-web.1",
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/national-cm/?v=3.0.0-web.2",
       "browserVersion": "3.0.0-web.2",
       "checkedAt": null,
-      "lastAttemptAt": "2026-11-11T06:38:23Z",
-      "blocker": "初回試験配信3.0.0-web.1の公開Chromeで検索・お気に入り/履歴の再読込保存・CSV実ダウンロード・全32,319件読込・重複追加拒否・公式YouTubeへの通常遷移を確認。埋め込みと外部YouTubeの双方が0:00付近の黒背景・バッファ待ちのまま進まず、実動画の映像/音声再生は未確認。明示的なbot/アクセス拒否表示はなく原因未特定。カタログ未登録。web.2の再読込/30秒バッファ案内は実装・22群自動検証済みで配信後の回帰確認待ち。",
-      "nextStep": "3.0.0-web.2を配信し、準備後の手動再読込と30秒バッファ案内だけを通常UIで回帰確認する。同じ確認環境で動画試行を反復しない。実動画再生を確認できる環境で代表動画の通常再生を確認するまでblockedとcheckedAt=nullを維持し、公開カタログへ登録しない。新規動画追加の実ブラウザ確認・スマホ等も未確認として残す。"
+      "lastAttemptAt": "2026-11-11T06:50:28Z",
+      "blocker": "公開Chromeで検索・お気に入り/履歴の再読込保存・CSV実ダウンロード・全32,319件読込・重複追加拒否・公式YouTubeへの通常遷移を確認。web.2の準備後の手動再読込・30秒バッファ案内・新iframeと自動再生なし・一覧復帰を実確認。ただし埋め込みと外部YouTubeは0:00付近のバッファ待ちで実動画の映像/音声再生は未確認。明示的なbot/アクセス拒否表示はなく原因未特定。カタログ未登録。",
+      "nextStep": "実動画を再生できる環境で代表動画の通常再生を確認するまでblockedとcheckedAt=nullを維持し、公開カタログへ登録しない。同じ確認環境で動画試行を反復しない。新規動画追加の実ブラウザ確認・スマホ等も未確認。"
     },
     {
       "id": "clay-museum",
@@ -240,14 +240,14 @@
     {
       "id": "rhythm",
       "name": "リズム天国 master",
-      "status": "queued",
+      "status": "published",
       "priority": 121,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/rhythm/?v=1.25-web.1",
+      "browserVersion": "1.25-web.1",
+      "checkedAt": "2026-11-11T06:48:13Z",
+      "lastAttemptAt": "2026-11-11T06:48:13Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "can-to-crown",
@@ -751,8 +751,8 @@
       "0.3-web.2では初回ボス戦は再実施せず、0.3-web.1の通常攻略結果と0.3-web.2の17群回帰検証・実章再訪・門移動・保存確認を組み合わせて検証"
     ]
   },
-  "publishedTargetCount": 8,
-  "remainingTargetCount": 44,
+  "publishedTargetCount": 9,
+  "remainingTargetCount": 43,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
