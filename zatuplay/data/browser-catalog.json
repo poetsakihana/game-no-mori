@@ -122,11 +122,11 @@
     },
     {
       "id": "collection-50",
-      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/doragonout/?v=2.5.2-web.1",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/doragonout/?v=2.5.2-web.1&build=e26982e",
       "version": "2.5.2-web.1",
-      "checkedAt": "2026-11-11T23:34:28.192Z",
+      "checkedAt": "2026-11-11T23:41:10.982Z",
       "note": "原作3Disk・741マップ。ChromeでDisk 1の会話・町への移動、画面ボタン、保存・再読込・.lsd書出し読込み、両画像モードを確認。市販曲等のBGMを無音化し、一部画像を差し替えています。APKとは自動同期しません。全編・Disk 2/3の実攻略・スマホ実機・音の実聴取は未確認。"
     }
   ],
-  "updatedAt": "2026-11-11T23:34:28.192Z"
+  "updatedAt": "2026-11-11T23:41:10.982Z"
 }
