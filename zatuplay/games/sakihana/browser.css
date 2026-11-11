@@ -1,0 +1,8 @@
+/* Browser-only presentation. Game logic and original artwork are unchanged. */
+.top { flex-wrap: wrap; }
+.top > div:last-child { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.foot { flex-wrap: wrap; align-items: center; }
+.collection-link { color: #77506f; font-weight: 700; padding: 8px 0; }
+.browser-save-note { width: min(100%, 1000px); color: #775e70; font-size: 12px; line-height: 1.7; margin: 10px 0; }
+.app:fullscreen .browser-save-note, .app.sakura-fullscreen-active .browser-save-note { display: none; }
+@media(max-width:600px) { .top .brand { font-size: 13px; } .browser-save-note { padding: 0 6px; } }
