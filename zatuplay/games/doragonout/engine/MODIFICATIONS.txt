@@ -14,3 +14,5 @@ Version 2.4: index.js _emscripten_async_wget2 calls Module.mobileAssetURL(url), 
 Browser preparation: IDBFS database names are prefixed with ZatuPlay.DoragonOut: to isolate save/configuration storage from other same-origin games. Virtual filesystem paths and WASM remain unchanged.
 
 Browser save recovery (November 11, 2026): onPreRun now rejects the player readiness promise if mobile save preload fails, instead of leaving startup pending. The run dependency remains held, so an uninitialized save directory cannot start gameplay. No IndexedDB namespace, virtual path, game-data or WASM changes.
+
+Browser artwork compatibility (November 11, 2026): app.js passes the documented --patch-easyrpg option only when the optional remake artwork is selected, enabling its bundled 32-bit RGBA FaceSet/Monster images. Original artwork mode does not enable that option. No image pixels, original map/database/event/save data, or WASM are changed.

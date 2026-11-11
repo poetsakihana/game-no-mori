@@ -38,3 +38,8 @@ for(const name of ['index.html','classic.html','rechronicle.html']){
  assert.ok(!/android-runtime/.test(html));
 }
 console.log('PASS same-app return links and browser lifecycle scripts without Android-only bridge');
+
+const app=fs.readFileSync(path.join(root,'app.js'),'utf8');
+assert.ok(app.includes("value==='remake'?'&patch-easyrpg':''"));
+assert.ok(fs.readFileSync(path.join(root,'classic.html'),'utf8').includes('app.js?v=2.5.2-web.1'));
+console.log('PASS remake artwork opts into supported 32-bit EasyRPG images while original mode is unchanged');
