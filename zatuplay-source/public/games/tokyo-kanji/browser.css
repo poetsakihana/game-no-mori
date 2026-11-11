@@ -1,0 +1,11 @@
+/* Browser-only navigation; all game styles stay in the APK assets. */
+.zatu-browser-bar{box-sizing:border-box;position:relative;z-index:2;display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;padding:10px max(16px,env(safe-area-inset-left));border-bottom:1px solid #d3d7cd;background:#f3f1e8;color:#203e40;font:13px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Yu Gothic",sans-serif}
+.zatu-browser-bar a{color:#234f50;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;font-weight:700}
+.zatu-browser-bar p{margin:0;flex:1 1 270px}
+.zatu-browser-bar a:focus-visible,.zatu-browser-loading a:focus-visible{outline:3px solid #b54c39;outline-offset:4px}
+.zatu-browser-loading{box-sizing:border-box;max-width:900px;margin:18px auto;padding:18px;border:1px solid #c4cfc2;border-radius:12px;background:#f3f1e8;color:#203e40;font:15px/1.8 system-ui,sans-serif}
+.zatu-browser-loading[hidden]{display:none}
+.zatu-browser-loading p{margin:0 0 4px}
+.zatu-browser-loading a{color:#234f50;text-decoration:underline}
+#zatu-game[inert]{pointer-events:none}
+@media(max-width:520px){.zatu-browser-bar{font-size:12px;gap:4px;padding:8px 12px}.zatu-browser-bar p{flex-basis:100%}.zatu-browser-loading{margin:12px;padding:14px}}

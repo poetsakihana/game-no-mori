@@ -1,0 +1,8 @@
+/* Browser-only navigation, in document flow so it never covers game controls. */
+.browser-port-info{box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px 20px;padding:10px max(16px,env(safe-area-inset-right)) 10px max(16px,env(safe-area-inset-left));font:12px/1.7 system-ui,sans-serif;border-bottom:1px solid #8ca2b333;background:#0c1728;color:#e7e9e3}
+.browser-port-info>a{color:inherit;min-height:24px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.browser-port-info details{flex:1 1 220px;max-width:900px}
+.browser-port-info summary{display:list-item;list-style:disclosure-closed;cursor:pointer;min-height:24px}
+.browser-port-info details[open] summary{list-style:disclosure-open}
+.browser-port-info p{margin:6px 0 2px;max-width:74em}
+.browser-port-info a:focus-visible,.browser-port-info summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}
