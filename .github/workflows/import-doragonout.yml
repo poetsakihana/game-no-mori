@@ -1,0 +1,41 @@
+name: Import verified DoragonOut browser files
+on:
+  push:
+    branches: [doragonout-browser-import]
+    paths: [.github/workflows/import-doragonout.yml, .doragonout-import/**]
+permissions:
+  contents: write
+concurrency:
+  group: doragonout-browser-import
+  cancel-in-progress: false
+jobs:
+  import:
+    if: github.repository == 'poetsakihana/game-no-mori'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify and restore the prepared release
+        shell: bash
+        run: |
+          set -euo pipefail
+          bundle="$RUNNER_TEMP/doragonout-browser.bundle"
+          test "$(find .doragonout-import -name 'part-*.bin' | wc -l)" -eq 41
+          cat .doragonout-import/part-*.bin > "$bundle"
+          test "$(stat -c %s "$bundle")" -eq 164547266
+          echo "5dcbc0879f3c6344c4762be9be188e11f847c8b774d82b2b07f90453605672f6  $bundle" | sha256sum --check
+          git bundle verify "$bundle"
+          git fetch --no-tags "$bundle" HEAD:refs/remotes/doragonout/verified
+          test "$(git rev-parse refs/remotes/doragonout/verified)" = ca635492a7778dbf442195a16f39f439d2e326e1
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git cherry-pick --no-commit refs/remotes/doragonout/verified
+          git rm -r -- .doragonout-import .github/workflows/import-doragonout.yml
+          git -c core.whitespace=cr-at-eol diff --cached --check
+          node zatuplay-source/scripts/test-doragonout-browser.cjs
+          node zatuplay-source/scripts/test-doragonout-storage.mjs
+          node zatuplay-source/scripts/test-pwa.cjs
+          git commit -m 'Restore verified DoragonOut browser release'
+          git push origin HEAD:refs/heads/doragonout-browser-import
