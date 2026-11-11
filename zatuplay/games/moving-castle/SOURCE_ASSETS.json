@@ -1,0 +1,93 @@
+{
+  "version": "0.3-web.1",
+  "sourceApk": {
+    "name": "37.動く城_v0.3.apk",
+    "size": 897426,
+    "sha256": "852bf4d1c0364c7b0e509c010f93986645e1cb9cc763b6d3763d57b76db4a835"
+  },
+  "sourceIndex": {
+    "path": "assets/index.html",
+    "bytes": 1214863,
+    "sha256": "7964851abbd87a8f885523c5ef18150f2c55f80e6b674d5b41c5b0e5d5800da6"
+  },
+  "chapterDataSha256": "0d9e1b1164cf0150f95c2a4d68cce8d6fd8806b17d86f797096efa0916c66781",
+  "embeddedImages": [
+    {
+      "type": "webp",
+      "bytes": 138912,
+      "sha256": "a08dc284efa12a6551f2567406bc88a1d9270655d8988286ad19ee2d579cc93c"
+    },
+    {
+      "type": "webp",
+      "bytes": 31142,
+      "sha256": "99b20e32acfafd53b56ea2184f2c9beb2319ddb4a9f3d560cb5beabf2ef92baa"
+    },
+    {
+      "type": "webp",
+      "bytes": 32956,
+      "sha256": "257f06a64994f397a61a6944e1cd3500f1c4f14a79b36255d36a49e251d744ed"
+    },
+    {
+      "type": "webp",
+      "bytes": 29940,
+      "sha256": "6275346168f392b3f9583a4478b3f38fd663b361f7ef8d8260c9449c8059c305"
+    },
+    {
+      "type": "webp",
+      "bytes": 29572,
+      "sha256": "ef64ab1e89b67a3d2cd34d8b4a5bf59810222905dd264f4253f08d7710fe4060"
+    },
+    {
+      "type": "webp",
+      "bytes": 33942,
+      "sha256": "9450654200b2f3d22d246639d6e60f5d22310fa9d330d588eb6de75d2a7d1a0c"
+    },
+    {
+      "type": "png",
+      "bytes": 29864,
+      "sha256": "c0796c08969aaeb31d47da064df94dcce967862fd156121c78fca4a9d1da2f42"
+    },
+    {
+      "type": "png",
+      "bytes": 11272,
+      "sha256": "2358c0813b37b734266b81dbc7ca8daee69be564b6e37d71986cb375aa6ccb28"
+    },
+    {
+      "type": "png",
+      "bytes": 12505,
+      "sha256": "0edb4f257cd66ba613df8fa031cd610094a29df59808f61f02539cae8fd9bfae"
+    },
+    {
+      "type": "png",
+      "bytes": 13151,
+      "sha256": "e4402a48a8c93b7d514a60f6b46db8139c4278869450d2d0a77d864ee86a7282"
+    },
+    {
+      "type": "png",
+      "bytes": 11449,
+      "sha256": "6d78904bdc89f741ef0b046412d759992e4ab5484a108ae03de9f9829e17103b"
+    },
+    {
+      "type": "png",
+      "bytes": 336610,
+      "sha256": "95e4f2a8c97ba80eb9cfc6a9d2e2cdb5170217f2580140be99632f3a29d92e10"
+    },
+    {
+      "type": "webp",
+      "bytes": 125582,
+      "sha256": "7a0e3e587e74b36f7c6721ce6d0c188e153e501caaf334ad8d29a54e3a49b877"
+    }
+  ],
+  "changes": [
+    "Browser navigation, accurate save/network guidance and responsive controls.",
+    "Guarded save parsing, validation, failure reporting, overwrite confirmation and legacy migration.",
+    "Lifecycle pause and input reset, touch capture cancellation, cross-tab conflict stop.",
+    "Final-clear flag saved before final-boss checkpoint.",
+    "Removed registration of missing sw.js; no offline reload guarantee.",
+    "Persist sound preference with guarded storage.",
+    "Pause-frame potion and post-victory combat guards; keyboard movement remains available after save/audio button focus."
+  ],
+  "excluded": [
+    "APK, Android platform files and signing material."
+  ]
+}

@@ -1,0 +1,61 @@
+/* Browser shell, safe areas and touch layout. Original artwork is unchanged. */
+html { overscroll-behavior: none; }
+body { -webkit-text-size-adjust: 100%; }
+#app { padding-left: max(10px, env(safe-area-inset-left)); padding-right: max(10px, env(safe-area-inset-right)); padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+.browser-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 0 0 10px; font-size: 12px; color: #c2d8d8; }
+a { color: #f6df9f; text-underline-offset: 3px; }
+.browser-bar a, .browser-bar button { padding: 10px; min-height: 40px; }
+.browser-bar [role=status] { flex: 1 1 220px; }
+.browser-bar [data-state=error] { color: #ffcfad; font-weight: bold; }
+.browser-note { margin: 10px 0 0; font-size: 11px; color: #b7cccd; line-height: 1.7; }
+button:focus-visible, a:focus-visible { outline: 3px solid #fff0a4; outline-offset: 3px; }
+.screen-overlay, .panel-layer { overflow: auto; overscroll-behavior: contain; }
+.intro-card { max-height: 100%; overflow: auto; }
+.panel { overscroll-behavior: contain; }
+.touch-directions button { padding: 0; }
+.touch-ui button { -webkit-touch-callout: none; }
+#prompt { max-width: 92%; white-space: normal; text-align: center; }
+.sidebar-actions { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 800px) {
+  .touch-ui:not(.hidden) { display: block; }
+  .topbar { gap: 5px; flex-wrap: wrap; }
+  .topactions button { min-height: 40px; }
+  .browser-bar { gap: 4px 8px; font-size: 11px; margin-bottom: 6px; }
+  .browser-bar button, .browser-bar a { padding: 6px; }
+  .touch-directions { left: 8px; bottom: 10px; grid-template-columns: repeat(3, 44px); grid-template-rows: repeat(2, 44px); gap: 3px; }
+  .touch-directions button { width: 44px; height: 44px; }
+  .touch-actions { transform: none; bottom: 10px; right: 8px; width: 185px; height: 140px; }
+  .touch-actions .attack { width: 64px; height: 64px; }
+  .touch-actions .skill { width: 52px; height: 52px; right: 68px; bottom: 42px; padding: 4px; font-size: 13px; }
+  .touch-actions .dodge { width: 48px; height: 44px; right: 68px; padding: 3px; }
+  .touch-actions .interact { left: 0; top: 0; width: 64px; height: 44px; padding: 4px; }
+  .touch-actions .castle-switch { top: 0; width: 70px; height: 44px; padding: 4px; }
+  .canvas-footer { display: none; }
+  #prompt { bottom: 155px; }
+  .sidebar-actions button { min-height: 44px; }
+}
+@media (max-width: 600px) and (orientation: portrait) {
+  #app { height: auto; overflow: visible; }
+  .game-frame { height: min(67svh, 630px); min-height: 440px; aspect-ratio: auto; }
+  canvas { object-fit: contain; background: #0b2631; }
+  .hud { top: 8px; }
+  .intro-card h1 { font-size: 27px; }
+  .intro-info { font-size: 10px; }
+  .panel { max-height: 97%; width: 100%; }
+  .sidebar { display: block; }
+  .sidebar-actions { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+@media (max-height: 600px) and (orientation: landscape) {
+  #app { height: auto; overflow: visible; }
+  .topbar { margin-bottom: 4px; }
+  .brand small, .brand-emblem, .browser-version { display: none; }
+  .browser-bar { margin-bottom: 4px; }
+  .browser-bar a, .browser-bar button { min-height: 32px; }
+  .game-frame { height: max(260px, calc(100svh - 110px)); min-height: 260px; aspect-ratio: auto; }
+  canvas { object-fit: contain; }
+  .sidebar, .page-footer, .browser-note { display: none; }
+  .intro-card { padding: 10px 18px; }
+  .intro-card h1 { font-size: 25px; margin: 6px 0; }
+  .intro-card p { margin-bottom: 10px; }
+  .panel { max-height: 98%; }
+}
