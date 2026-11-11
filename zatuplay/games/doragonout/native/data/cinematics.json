@@ -1,0 +1,2742 @@
+{
+  "version": 1,
+  "note": "原作の出来事と再構成版キャンペーンの到達地点をもとにした、新作脚色のアニメーション脚本です。原作会話の逐語再現ではありません。各作品は20シーン×15秒、計300秒。回想はcaptionとshotで明示し、死者・歴史変更で存在しなくなった者を現在へ復活させません。Disk1冒頭の別場所カットは加入前の仲間を示すもので、ザックとの合流ではありません。Disk2終幕はアルベルト喪失後、三振りの剣の探索準備まで。歴史変更と最終決着はDisk3内で描きます。",
+  "films": [
+    {
+      "id": "d1-opening",
+      "disk": 1,
+      "position": "opening",
+      "title": "灰の向こうへ",
+      "subtitle": "まだ、敵の名前だけが道しるべだった。",
+      "duration": 300,
+      "scenes": [
+        {
+          "duration": 15,
+          "world": "ruined-town",
+          "shot": "wide",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "スタル町・夜明け",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "雨上がりの町では、焼けた柱の匂いが土から立ち上った。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "朝になった。今日こそ、出ていく。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "ruined-town",
+          "shot": "memory",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "火災より前の記憶・台所",
+          "lines": [
+            {
+              "speaker": "サレーナの記憶",
+              "text": "冷める前に食べて。出かける話は、それから聞くから。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "……あの時、何を食べたんだっけ。声だけは、覚えているのに。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "ruined-town",
+          "shot": "memory",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "火災より前の記憶・家の戸口",
+          "lines": [
+            {
+              "speaker": "サークの記憶",
+              "text": "戸が引っかかるな。帰ったら見ておこう。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "直しかけの所が、まだ残ってる。父さんの手を待ったままだ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "ruined-town",
+          "shot": "memory",
+          "actors": [
+            1
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 0
+          },
+          "action": "run",
+          "caption": "あの日・火の向こうの影",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "炎の向こうに竜がいた。ザックの記憶は、その輪郭から先へ進まない。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "なぜ、ここだった。なぜ、俺の家だった。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "ruined-town",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "現在・冷えた敷居",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "答えを持っているのは、あいつだ。"
+            },
+            {
+              "speaker": "語り",
+              "text": "剣を取る理由は、まだ一つしか言葉にならなかった。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "ruined-town",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "荷造り",
+          "lines": [
+            {
+              "speaker": "町の人",
+              "text": "その袋、底が抜けかけてるよ。勇ましい顔より、針と糸を先に貸そうか。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "……頼む。旅立つ前に荷物と別れるところだった。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "ruined-town",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "古い鞘の留め具",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "何度も外れる留め具を結び直す。急ぐ指ほど、同じ結び目でつまずいた。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "落ち着け。まだ、誰にも追われてない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "町の井戸",
+          "lines": [
+            {
+              "speaker": "町の人",
+              "text": "水は満たしていきな。洞窟の水が、全部飲めるとは限らない。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "分かった。戻ったら、この水袋を返す。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "travel",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "町外れ・道標",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "リュドホールへ続く道は、雨で一部が崩れていた。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "地図だと、ここはまっすぐなんだな。地図にも泥を踏ませたい。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "memory",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "出発前・最後に聞いた忠告",
+          "lines": [
+            {
+              "speaker": "町の人",
+              "text": "強い相手に会うつもりなら、引き返す道も覚えとくんだよ。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "逃げ道か……。帰り道って呼んでおく。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "coast",
+          "shot": "wide",
+          "actors": [
+            3
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "別の場所・スルト港町",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "竜の話なら何でも聞くぞ。まずは、船が揺れない所で頼む。"
+            },
+            {
+              "speaker": "船乗り",
+              "text": "港に立ってるだけで酔う客は、あんたが初めてだ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "別の場所・旅の途中",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "包帯を上に入れて……。探す時に全部ひっくり返したくないものね。"
+            },
+            {
+              "speaker": "語り",
+              "text": "それぞれの旅が、まだ互いの名も知らずに続いていた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "travel",
+          "actors": [
+            2
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "別の場所・リュドホール",
+          "lines": [
+            {
+              "speaker": "アルベルト",
+              "text": "新しい足跡だ。奥へ入った者がいるのか。"
+            },
+            {
+              "speaker": "語り",
+              "text": "湿った岩に手を置き、一人の旅人が戻る方角を確かめた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "ザック・町を離れて",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "戸締まりはした。水もある。剣も……ある。"
+            },
+            {
+              "speaker": "語り",
+              "text": "それでも何かを忘れた気がして、彼は何度も肩越しに振り返った。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "travel",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "林の細道",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "足の裏がもう痛い。もっと歩いておけばよかったな。"
+            },
+            {
+              "speaker": "語り",
+              "text": "仇を討つ決心に、靴ずれへの備えまでは含まれていなかった。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "wide",
+          "actors": [
+            1
+          ],
+          "enemy": {
+            "kind": "family",
+            "index": 2
+          },
+          "action": "quiet",
+          "caption": "茂みの気配",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "風じゃない。何かいる。"
+            },
+            {
+              "speaker": "語り",
+              "text": "腰を落とす。剣を抜く音まで、やけに遠くへ響いた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "duel",
+          "actors": [
+            1
+          ],
+          "enemy": {
+            "kind": "family",
+            "index": 0
+          },
+          "action": "attack",
+          "caption": "道を塞ぐ魔物",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "どいてくれ……。いや、言っても通じないか。"
+            },
+            {
+              "speaker": "語り",
+              "text": "最初の一歩が遅れた。振り下ろした刃より、息の音が大きかった。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "戦いのあと",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "勝った、のか。手が止まらない。"
+            },
+            {
+              "speaker": "語り",
+              "text": "震えを隠す相手はいない。ザックは岩に腰を下ろし、水を一口飲んだ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "wide",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "リュドホール入口",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "ここを進めば、竜に近づける。"
+            },
+            {
+              "speaker": "語り",
+              "text": "入口の光を背に受けて、洞窟の空気だけが冷たく頬に触れた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "reveal",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "第一の旅・はじまり",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "父さん、母さん。行ってくる。"
+            },
+            {
+              "speaker": "語り",
+              "text": "その言葉が誰に届くのか、まだ知らないまま。ザックは暗がりへ踏み出した。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d1-ending",
+      "disk": 1,
+      "position": "ending",
+      "title": "復讐の、その先に",
+      "subtitle": "分かったことと、許せることは、同じではない。",
+      "duration": 300,
+      "scenes": [
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "wide",
+          "actors": [
+            1,
+            2,
+            3
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 0
+          },
+          "action": "quiet",
+          "caption": "リュドホール・戦いのあと",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "刃が止まると、洞窟には水滴の音が戻った。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "終わったはずなのに、何も軽くならない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 0
+          },
+          "action": "talk",
+          "caption": "竜の証言",
+          "lines": [
+            {
+              "speaker": "最強竜",
+              "text": "お前の親は、宝を求めて俺の父を殺した。俺は、その仕返しに町を焼いた。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "俺が知っていた父さんたちと、その話が、まだ一つにならない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "memory",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "記憶・家にいた両親",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "食卓の声も、玄関の癖も、嘘に変わったわけではなかった。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "知ってる姿だけで、その人の全部だと思ってた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "close",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "受け止めきれない言葉",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "今すぐ、全部を信じて整理しなくてもいいわ。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "でも、聞かなかったことには出来ない。俺も、あいつも。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 0
+          },
+          "action": "talk",
+          "caption": "二つの喪失",
+          "lines": [
+            {
+              "speaker": "最強竜",
+              "text": "町を焼けば、胸の穴が塞がると思った。何も戻らなかった。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "お前が奪った人も、もう戻らない。それは、忘れない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "wide",
+          "actors": [
+            2,
+            3,
+            4
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "少し離れた岩場",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "あいつに何て言えばいい。竜が好きだからって、答えが出る話じゃない。"
+            },
+            {
+              "speaker": "アルベルト",
+              "text": "今は、先に答えを渡すな。ここにいて、聞こう。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 0
+          },
+          "action": "talk",
+          "caption": "帰る場所の話",
+          "lines": [
+            {
+              "speaker": "最強竜",
+              "text": "外へ出ても、人は俺を見て逃げる。ここ以外に、何処へ行く。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "……俺の家へ来い。外でなら、横になれる場所もある。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "close",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "同行の申し出",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "無理をしていない？　後で怒りが戻ることだってあるわ。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "あると思う。だから一度で許したことには、したくないんだ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "travel",
+          "actors": [
+            1,
+            3,
+            8
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 0
+          },
+          "action": "walk",
+          "caption": "町へ続く道",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "ほら、低い枝だ。頭を……いや、竜には言っても間に合わんな。"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "道案内をするなら、自分も枝を避けろ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "wide",
+          "actors": [
+            2,
+            4,
+            5
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "帰路・休憩",
+          "lines": [
+            {
+              "speaker": "クレイス",
+              "text": "手の怪我を見せて。平気という返事だけでは、診られない。"
+            },
+            {
+              "speaker": "アルベルト",
+              "text": "ザックも呼んでくる。強がりの順番待ちになりそうだ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            1
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 0
+          },
+          "action": "appear",
+          "caption": "スタル町の入口",
+          "lines": [
+            {
+              "speaker": "町の人",
+              "text": "竜だ……。どうして、あれを連れて来た。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "怖がるのは当然だ。まず話をさせてほしい。近づけとは言わない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1,
+            3
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "立ち止まる町の人々",
+          "lines": [
+            {
+              "speaker": "町の人",
+              "text": "家族を失った者が、お前だけだと思うなよ。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "思わない。俺だけで、町の答えを決めることも出来ない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            4,
+            5,
+            8
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "町の水場",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "水桶は、ここに置きます。必要な人から取ってください。"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "遠回りの道を空けた。竜に近づかず、家へ帰れる。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 0
+          },
+          "action": "quiet",
+          "caption": "家のそば・空き地",
+          "lines": [
+            {
+              "speaker": "最強竜",
+              "text": "ここで待つ。人を脅かすつもりはない。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "その言葉を、毎日守ってくれ。一日では、伝わらないから。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1,
+            3
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "戸口の寸法",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "よし、まず家へ……。これは、戸口の方を大きくする話か？"
+            },
+            {
+              "speaker": "ザック",
+              "text": "家を洞窟にするな。外で休めるって、言っただろ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            2,
+            4,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "食卓の支度",
+          "lines": [
+            {
+              "speaker": "アルベルト",
+              "text": "人数分の椅子が足りない。"
+            },
+            {
+              "speaker": "クレイス",
+              "text": "木箱を使おう。研究所より、よほど片づいている。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "灯りのついた部屋",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "今日は、眠れなくても横になって。答えを出すのは明日でもいい。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "ああ。誰かの声がする家って、こんなだったんだな。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [],
+          "enemy": {
+            "kind": "boss",
+            "index": 0
+          },
+          "action": "quiet",
+          "caption": "同じ夜・家の外",
+          "lines": [
+            {
+              "speaker": "最強竜",
+              "text": "人の灯りは、小さいのだな。焼く時は、そんなことも見えなかった。"
+            },
+            {
+              "speaker": "語り",
+              "text": "家の窓から漏れる光のそばで、竜は長い尾を静かに畳んだ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1,
+            2,
+            8
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "旅の記録",
+          "lines": [
+            {
+              "speaker": "アルベルト",
+              "text": "出会った場所を書こう。道に迷った所も、役に立つ。"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "迷った回数は、バーンズに数えさせるな。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "farewell",
+          "actors": [
+            1,
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "第一の旅・ひと区切り",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "会いに行って、知らなかったことを聞いた。次は、それを抱えて生きる。"
+            },
+            {
+              "speaker": "語り",
+              "text": "ここまでの旅を記録に残す。帰り着いた場所から、次の物語が続いていく。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2-opening",
+      "disk": 2,
+      "position": "opening",
+      "title": "残された人の朝",
+      "subtitle": "追いかける前に、助けられる命がある。",
+      "duration": 300,
+      "scenes": [
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "memory",
+          "actors": [
+            1,
+            2,
+            3
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "前の旅の記憶・灯りの下",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "次に旅をする時は、もっと大きい鍋を持とう。"
+            },
+            {
+              "speaker": "アルベルト",
+              "text": "まず自分で持ち上げられる物にしてくれ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "現在・滅びたスタル町",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "見慣れた曲がり角が、瓦礫の山に変わっていた。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "道はここだ。……家がないだけで、道まで分からなくなる。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "崩れた戸口",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "また、間に合わなかったのか。"
+            },
+            {
+              "speaker": "語り",
+              "text": "焼け跡に膝をつく。その下で、割れた食器が小さく鳴った。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            2,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "瓦礫の間",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "静かに。今、声がした。"
+            },
+            {
+              "speaker": "アルベルト",
+              "text": "誰かいるなら、叩いてくれ。こちらから動かす前に、場所を確かめる。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            1,
+            3,
+            8
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "退路の確保",
+          "lines": [
+            {
+              "speaker": "ヌチス丸",
+              "text": "北の通りは塞がっている。怪我人は、この細道から運ぶ。"
+            },
+            {
+              "speaker": "バーンズ",
+              "text": "ザック、反対側を持ってくれ。怒るのは、これを持ち上げてからだ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            4,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "応急手当て",
+          "lines": [
+            {
+              "speaker": "クレイス",
+              "text": "布を切ろう。出血している所を先に押さえる。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "水は少しずつ。喉が渇いていても、急に飲まないで。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            1,
+            2
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "壊れた家の前",
+          "lines": [
+            {
+              "speaker": "町の人",
+              "text": "うちの者を見なかったか。最後にここで別れたんだ。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "まだ見つかっていない。名前を教えて。探す人にも、伝える。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "返事を待つ時間",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "大丈夫だって、言ってやりたかった。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "分からない時は、一緒に待ちましょう。待つ人を一人にしないように。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            3,
+            4,
+            8
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "水と食料",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "食べ物を探してくる。今回は、俺の腹だけのためじゃないぞ。"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "その説明が必要なところが、お前らしい。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            4
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "残った井戸",
+          "lines": [
+            {
+              "speaker": "クレイス",
+              "text": "井戸の縁が崩れている。近づかないよう、先に印を付けよう。"
+            },
+            {
+              "speaker": "語り",
+              "text": "剣では直せないものが、町のあちこちに残されていた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "travel",
+          "actors": [
+            2,
+            8
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "ホス村への道を調べる",
+          "lines": [
+            {
+              "speaker": "アルベルト",
+              "text": "歩けない人も通れる幅が要る。荷車を押せる道はあるか。"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "遠回りだが、ある。近道より、全員が着く道を選ぼう。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1,
+            3
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "追跡か、救助か",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "壊した奴が遠くへ行く。その間にも、また誰かが……。"
+            },
+            {
+              "speaker": "バーンズ",
+              "text": "だから急ぐ。でも、ここで助けを待つ人も、その誰かだ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "避難の準備",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "荷物は俺が運ぶ。持っていきたい物を、先に選んでくれ。"
+            },
+            {
+              "speaker": "町の人",
+              "text": "じゃあ、この鍋を。今夜、何か温かい物を作れるように。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "travel",
+          "actors": [
+            3,
+            5,
+            8
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "荷車の脇を歩く",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "鍋は大事だ。さっき俺が言った時より、ずっと説得力がある。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "普段から、今くらい人の分も考えて言えばいいのよ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "wide",
+          "actors": [
+            1,
+            2,
+            4
+          ],
+          "enemy": {
+            "kind": "family",
+            "index": 2
+          },
+          "action": "quiet",
+          "caption": "道の先に残る気配",
+          "lines": [
+            {
+              "speaker": "アルベルト",
+              "text": "前方で止まれ。藪が、不自然に揺れている。"
+            },
+            {
+              "speaker": "クレイス",
+              "text": "荷車を下げよう。ここでは爆薬を使えない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "duel",
+          "actors": [
+            1,
+            3,
+            8
+          ],
+          "enemy": {
+            "kind": "family",
+            "index": 7
+          },
+          "action": "attack",
+          "caption": "避難路を開く",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "こっちだ。荷車から離れろ！"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "退く時も合図を出せ。勝手に追いかけるな。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            2,
+            4,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "通過を確かめる",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "最後の一人まで通ったわ。戻りましょう。"
+            },
+            {
+              "speaker": "アルベルト",
+              "text": "ああ。数え直す。焦っている時ほど、目で確かめる。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "wide",
+          "actors": [
+            1,
+            3
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "ホス村へ続く分かれ道",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "今日を越せる場所が出来た。それで、終わりには出来ないけど。"
+            },
+            {
+              "speaker": "バーンズ",
+              "text": "今日を越せなければ、明日の話も出来んさ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "reveal",
+          "actors": [],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "ドドゴス最大山・遠い物音",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "山の奥から、石を引くような音が響く。まだ、その意味を知る者はいなかった。"
+            },
+            {
+              "speaker": "ヌチス丸の声",
+              "text": "行くなら、帰り道の目印も残す。今度は、用意して入ろう。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "travel",
+          "actors": [
+            1,
+            2,
+            5
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "第二の旅・はじまり",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "残った人たちが、次の朝を迎えられるように。俺たちは、先へ行く。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "帰って話せるようにね。何を見たのか、誰に会ったのか。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2-ending",
+      "disk": 2,
+      "position": "ending",
+      "title": "呼べば、返るはずの声",
+      "subtitle": "失った友を覚えて、まだ始まる前の戦争へ。",
+      "duration": 300,
+      "scenes": [
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "wide",
+          "actors": [
+            1,
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "バグダスとの戦いを振り返る",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "静けさの中で、皆が一度ずつ振り返った。そこに立っていたはずの友を探して。"
+            },
+            {
+              "speaker": "バーンズ",
+              "text": "アルベルト。……なあ、返事くらいしろよ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "memory",
+          "actors": [
+            2
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "記憶・旅を共にしたアルベルト",
+          "lines": [
+            {
+              "speaker": "バグダスの記憶",
+              "text": "そいつは俺が作った機械だ。"
+            },
+            {
+              "speaker": "ザックの声",
+              "text": "それを知ったって、助けてくれた手の重さまで変わらない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "close",
+          "actors": [
+            1,
+            4
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "失われた友",
+          "lines": [
+            {
+              "speaker": "クレイス",
+              "text": "作られた者だと分かっても、壊された事実が軽くなるわけではない。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "あいつが何だったかより、あいつに何をされたかを覚えてる。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "memory",
+          "actors": [
+            1,
+            2
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "記憶・最初に歩いた道",
+          "lines": [
+            {
+              "speaker": "アルベルトの記憶",
+              "text": "息を整えろ。急ぐ時ほど、足元を見ろ。"
+            },
+            {
+              "speaker": "ザックの声",
+              "text": "何度も言われたな。俺は、いつも前しか見てなかった。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "空いた一人分",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "水を配る時、一本余った。俺が数え間違えたと思ったんだ。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "私も、呼ぼうとしてから止まるの。止めなくてもいい気がするのに。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "memory",
+          "actors": [
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "フィオナの記憶・戦争より前",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "子供の頃も、私はアルベルトの名を呼んでいた。寂しさを埋める相手を、心の中に作って。"
+            },
+            {
+              "speaker": "語り",
+              "text": "幼い日の想像と、旅で出会った友。似た名前の二つの記憶を、彼女は抱えていた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "close",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "思い出を疑った日",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "全部、私の思い込みだったのかと怖くなった。でも、この旅は皆が覚えている。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "俺もいる。君が話せない日は、俺があいつの話をする。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "memory",
+          "actors": [
+            3,
+            4
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "仲間たちが見た過去",
+          "lines": [
+            {
+              "speaker": "クレイス",
+              "text": "役に立つはずの物でも、使い道を任せきりには出来なかった。"
+            },
+            {
+              "speaker": "バーンズ",
+              "text": "知らなかったと言えば、痛んだ人まで消えるわけじゃないからな。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "memory",
+          "actors": [],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "森に残された戦争の跡",
+          "lines": [
+            {
+              "speaker": "バグダスの記憶",
+              "text": "人間は、争うために森も獣も焼いた。"
+            },
+            {
+              "speaker": "語り",
+              "text": "憎しみの始まりを知ることは、奪われた命を正しいことに変えはしなかった。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            1,
+            3,
+            8
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "怒りの行き先",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "俺も、憎い相手しか見えない時があった。だからこそ、そこで止めたかった。"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "後から言える言葉でも、次に黙らぬためには要る。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "reveal",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "スティングスの導き",
+          "lines": [
+            {
+              "speaker": "スティングス",
+              "text": "お前たちが見た悲劇より前へ、向かう道はある。戦争が始まる、その前へだ。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "起きた後を直すだけじゃなく、起きる前に止める……。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "close",
+          "actors": [
+            4,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "変わる未来",
+          "lines": [
+            {
+              "speaker": "クレイス",
+              "text": "一つを変えれば、そこから続く出来事も変わる。都合のいい所だけは選べない。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "分かっている、と簡単には言えないわ。それでも、考えたい。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            1,
+            3,
+            8
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "皆で決めるための時間",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "俺が行きたいからといって、皆の答えまで先に決めたくない。"
+            },
+            {
+              "speaker": "バーンズ",
+              "text": "なら聞け。俺は行く。あの景色が違うものになる可能性を、捨てたくない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            4,
+            5,
+            8
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "それぞれの決意",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "怖さがなくなるまで待っていたら、ずっと歩けない気がする。私は行くわ。"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "道を調べる者も要る。返事は、それで足りるだろう。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            1,
+            4,
+            5
+          ],
+          "enemy": null,
+          "action": "appear",
+          "caption": "ギガル城・謁見の間",
+          "lines": [
+            {
+              "speaker": "ギガル王",
+              "text": "必要なのは三振り。天時剣、海時剣、そして時空剣だ。"
+            },
+            {
+              "speaker": "クレイス",
+              "text": "名前だけでなく、手掛かりを書き留めます。聞き違いは、命に関わる。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "coast",
+          "shot": "reveal",
+          "actors": [],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "地図に記された空と海",
+          "lines": [
+            {
+              "speaker": "ギガル王の声",
+              "text": "天時剣は、さざなみの塔の頂上。海時剣は、ホッシス島の近くの海底にある。"
+            },
+            {
+              "speaker": "ザックの声",
+              "text": "まず空、それから海。歩いていくだけでは、届かない場所だな。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "reveal",
+          "actors": [],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "最後の剣への手掛かり",
+          "lines": [
+            {
+              "speaker": "ギガル王の声",
+              "text": "二振りを得て、時空剣へ至る道を探すのだ。焦って順を違えるな。"
+            },
+            {
+              "speaker": "フィオナの声",
+              "text": "場所と順番を残しておくわ。戻って読み直せるように。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            3,
+            4,
+            8
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "出発の荷物",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "伝説の剣が三本なら、食料も三倍必要か？"
+            },
+            {
+              "speaker": "クレイス",
+              "text": "距離で計算してくれ。剣の本数では、胃袋の予定を立てられない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "空いた席のそば",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "アルベルトを置いていく気がしていた。でも、忘れずに歩くことも出来るのね。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "あいつに教わったことを、次の道で使おう。そうやって、連れていく。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "farewell",
+          "actors": [
+            1,
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "第二の旅・次の記録へ",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "三振りの剣を探す。変わる未来に何があるか、皆で見届けよう。"
+            },
+            {
+              "speaker": "語り",
+              "text": "ここまでの旅を保存する。まだ起きていない出来事へ、今を生きる者たちが向かう。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3-opening",
+      "disk": 3,
+      "position": "opening",
+      "title": "まだ来ない明日へ",
+      "subtitle": "剣を集める理由は、戦いを始めさせないために。",
+      "duration": 300,
+      "scenes": [
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            1,
+            4,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "ギガル城・出発の朝",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "地図の端には、書き直した印がいくつも重なっていた。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "天時剣、海時剣、時空剣。名前は覚えた。後は、辿り着かないとな。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            4,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "旅程の確認",
+          "lines": [
+            {
+              "speaker": "クレイス",
+              "text": "塔へ向かう道を先に確かめた。天候が崩れたら、途中で戻る。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "戻ることも予定に入っていると、少し安心するわね。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            3,
+            8
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "荷物の重さ",
+          "lines": [
+            {
+              "speaker": "ヌチス丸",
+              "text": "その袋だけ、明らかに膨らんでいる。何を増やした。"
+            },
+            {
+              "speaker": "バーンズ",
+              "text": "非常食だ。非常に腹が減る時のための。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1,
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "出発前の点検",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "その非常は毎日来るでしょう。少し分けて、皆で持つわよ。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "食べる前から、荷物の分だけ仲間が増えた気分だ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "travel",
+          "actors": [
+            1,
+            4,
+            8
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "さざなみの塔へ",
+          "lines": [
+            {
+              "speaker": "ヌチス丸",
+              "text": "濡れた石は端を踏むな。荷の重さで、足が外へ流れる。"
+            },
+            {
+              "speaker": "クレイス",
+              "text": "紐も締め直しておこう。高い所では、拾いに戻れない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "道の途中・休息",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "剣を手に入れたいのに、剣を振るう場面を減らしたい。変な旅だな。"
+            },
+            {
+              "speaker": "語り",
+              "text": "以前なら矛盾に聞こえた願いが、今は彼を前へ進ませていた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "空を見上げる",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "上にいる竜は、どんな顔をしているんだろうな。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "会う前から仲良くなったつもりにならないで。まず、話を聞きましょう。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "coast",
+          "shot": "wide",
+          "actors": [],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "地図の先・ホッシス島近海",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "空の次には、海が待つ。岸から見える青さでは、その深さは測れない。"
+            },
+            {
+              "speaker": "クレイスの声",
+              "text": "海へ入る準備は別に要る。今日の装備で、全部を済ませようとしないこと。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            4,
+            8
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "準備の役割",
+          "lines": [
+            {
+              "speaker": "クレイス",
+              "text": "調べ物に夢中になると、休む時刻を忘れる。止めてほしい。"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "分かった。食事を忘れた時だけは、バーンズに任せる。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "memory",
+          "actors": [
+            2
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "記憶の中だけにいる友",
+          "lines": [
+            {
+              "speaker": "アルベルトの記憶",
+              "text": "呼吸を整えろ。足が震えている間は、剣を握り直すだけでいい。"
+            },
+            {
+              "speaker": "語り",
+              "text": "アルベルトの姿は、今ここにはない。覚えている言葉が、歩幅の中に残っていた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "立ち止まる理由",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "今、何を思い出していたの。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "最初の洞窟。あいつが、俺の息が戻るまで待ってくれたこと。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "wide",
+          "actors": [
+            1,
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "同じ速さで歩く",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "じゃあ、俺が水を飲むのも待ってくれ。格好のつく理由はないが。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "格好はいいの。喉が渇いたって、ちゃんと言って。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "memory",
+          "actors": [],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "覚えておくべき忠告",
+          "lines": [
+            {
+              "speaker": "スティングスの記憶",
+              "text": "救う命が増えれば、未来は今と同じ形では残らない。"
+            },
+            {
+              "speaker": "語り",
+              "text": "その先に何が待つか、誰も答えを持っていない。それでも、忠告を忘れて進む者はいなかった。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            1,
+            4
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "書き残すこと",
+          "lines": [
+            {
+              "speaker": "クレイス",
+              "text": "今の町と、人の名前を書いておく。変わった後に、比べられるように。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "名前の隣に、どんな人だったかも書こう。数だけには、したくない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            5,
+            8
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "言い切れない決心",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "皆と決めた後でも、怖くなる時があるの。"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "決めたことと、怖くなくなることは別だ。怖い時は、合図を出せ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "wide",
+          "actors": [
+            1,
+            3,
+            4
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "塔へ近づく道",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "あれか。雲の向こうで、上が見えない。"
+            },
+            {
+              "speaker": "バーンズ",
+              "text": "頂上へ着いたら、景色より先に座る場所を探しそうだな。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "cave",
+          "shot": "travel",
+          "actors": [
+            1,
+            5,
+            8
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "さざなみの塔・石の階段",
+          "lines": [
+            {
+              "speaker": "ヌチス丸",
+              "text": "壁側を行け。上から音がしたら、一度止まる。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "足音が返ってくる。こんなに高い場所にも、誰かが来たのね。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "sky",
+          "shot": "wide",
+          "actors": [
+            1,
+            3
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "雲が横切る踊り場",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "窓の外を、雲が音もなく流れる。下を見ると、町は小さな点に変わっていた。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "あそこに人がいる。守りたいのは、あの小ささの中なんだ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "close",
+          "actors": [
+            1,
+            4,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "扉の前",
+          "lines": [
+            {
+              "speaker": "クレイス",
+              "text": "願いを尋ねられたら、何と答える。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "戦争を、始まる前に止めたい。誰かを倒す話から、始めたくはない。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "reveal",
+          "actors": [
+            1,
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "walk",
+          "caption": "第三の旅・はじまり",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "風の向こうで、大きな気配が動く。旅人たちは互いの顔を確かめ、扉へ向かった。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "行きましょう。答えを知っているからではなく、確かめに来たのだから。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3-ending",
+      "disk": 3,
+      "position": "ending",
+      "title": "帰ってこられる場所",
+      "subtitle": "失った名も、迎える声も、この世界の中に。",
+      "duration": 300,
+      "scenes": [
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "wide",
+          "actors": [
+            1,
+            3,
+            5
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 3
+          },
+          "action": "quiet",
+          "caption": "天空の城ディス・戦いのあと",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "城の揺れが収まり、残った石が一つずつ落ちた。皆が、息をしている者の名を呼んだ。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "ここにいる。……もう、剣を下ろそう。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 3
+          },
+          "action": "talk",
+          "caption": "知ることが遅れた理由",
+          "lines": [
+            {
+              "speaker": "ディス",
+              "text": "共に住むという約束を、皆が捨てたのだと思っていた。"
+            },
+            {
+              "speaker": "スティングス",
+              "text": "私たちは城造りを手伝う約束だった。望む暮らしまで聞いたつもりで、聞けていなかった。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "wide",
+          "actors": [],
+          "enemy": {
+            "kind": "boss",
+            "index": 3
+          },
+          "action": "talk",
+          "caption": "すれ違った年月",
+          "lines": [
+            {
+              "speaker": "スティングス",
+              "text": "三年で戻るつもりだった。だが二年目、お前の隕石に皆が怯えた。残したメフォルトも、人々を殺そうとしていた。"
+            },
+            {
+              "speaker": "ディス",
+              "text": "知らぬまま、見捨てられたと決めた。我の怒りが、帰る道を塞いだのか。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "close",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "奪われた二つの命",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "竜とバグダスは戻らない。怒りも、簡単には消えない。でも、次の誰かへ渡したくない。"
+            },
+            {
+              "speaker": "フィオナ",
+              "text": "話を続けられる場所を、今度は私たちが残しましょう。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "wide",
+          "actors": [
+            1,
+            4,
+            8
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 3
+          },
+          "action": "walk",
+          "caption": "壊れた城を直す",
+          "lines": [
+            {
+              "speaker": "ディス",
+              "text": "我は、何をすればよい。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "まず、落ちそうな石を支えてくれ。話すなら、その下にいる人が無事でいないと。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "close",
+          "actors": [
+            3,
+            4,
+            8
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "復旧の手順",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "この柱、俺が持つ。……いや、俺は掛け声を担当する。"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "持つ者が決まってから、掛けろ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "rift",
+          "shot": "wide",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 3
+          },
+          "action": "quiet",
+          "caption": "スティングスとディス",
+          "lines": [
+            {
+              "speaker": "スティングス",
+              "text": "今度の約束は、曖昧にしない。何を望むか、離れる時も確かめ合おう。"
+            },
+            {
+              "speaker": "ディス",
+              "text": "聞こう。分からぬ時は、怒る前に問う。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "memory",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "回想・過去で助けた二人",
+          "lines": [
+            {
+              "speaker": "サークの記憶",
+              "text": "人が暮らす家を作りたい。いつか、そういう仕事がしたいんだ。"
+            },
+            {
+              "speaker": "ザックの声",
+              "text": "父さんは、最初から奪う道を選んだんじゃなかった。あそこで止められて、よかった。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "memory",
+          "actors": [
+            1,
+            5
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 1
+          },
+          "action": "quiet",
+          "caption": "回想・歴史が変わった現在",
+          "lines": [
+            {
+              "speaker": "バグダスの記憶",
+              "text": "戦争が起きず、俺の憎しみも生まれなかった。この歴史では、ロボットを作ってはいない。"
+            },
+            {
+              "speaker": "語り",
+              "text": "救われた命があった。同時に、アルベルトが生まれるはずの道は、なくなっていた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "memory",
+          "actors": [
+            1
+          ],
+          "enemy": {
+            "kind": "boss",
+            "index": 0
+          },
+          "action": "quiet",
+          "caption": "回想・最後の別れより前",
+          "lines": [
+            {
+              "speaker": "最強竜の記憶",
+              "text": "行ってこい。今度は、誰かを憎むためだけの旅ではないのだろう。"
+            },
+            {
+              "speaker": "ザックの声",
+              "text": "そう言って送り出してくれたこと、今もはっきり覚えてる。あの時は、最後の言葉になるなんて思わなかった。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "appear",
+          "caption": "スタル町・家の戸口",
+          "lines": [
+            {
+              "speaker": "サーク",
+              "text": "お帰り、ザック。立っていないで、中へ入れ。"
+            },
+            {
+              "speaker": "サレーナ",
+              "text": "顔を見せて。……よく帰ってきたね。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "生きている両親の声",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "ただいま。言いたいことを考えてきたのに、何から話せばいいんだろう。"
+            },
+            {
+              "speaker": "サレーナ",
+              "text": "まず、座って。食べながら、ゆっくり聞かせておくれ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1,
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "温かい食卓",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "いい匂いだな。俺の話も、皿の数に入れてもらっていいか。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "話を食べ物の単位にするなよ。ちゃんと皆の分もある。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "wide",
+          "actors": [
+            1,
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "最強竜とバグダスの墓",
+          "lines": [
+            {
+              "speaker": "語り",
+              "text": "町の外れには、最強竜とバグダス、二つの名を刻んだ墓が並んでいた。"
+            },
+            {
+              "speaker": "ザック",
+              "text": "今日は城を直した。皆で重い物を運んで、くだらないことで笑ったよ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            1
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "二つの墓に向かって",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "お前たちがしたことも、俺たちにしてくれたことも、どちらも忘れない。"
+            },
+            {
+              "speaker": "語り",
+              "text": "返事はない。草を揺らす風が、長い沈黙の間を通り抜けた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "forest",
+          "shot": "close",
+          "actors": [
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "アルベルトを偲ぶ花",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "ここに、あなたを思い出す花を置くわ。今の世界に生まれなかったとしても、会ったことは忘れない。"
+            },
+            {
+              "speaker": "語り",
+              "text": "花だけが、風に揺れた。旅で支え合った時間は、もう会えなくなっても、彼女の中に残っていた。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            4,
+            8
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "それぞれの仕事へ",
+          "lines": [
+            {
+              "speaker": "クレイス",
+              "text": "これからは薬を作りたい。困っている人が、自分の明日を迎えるための物を。"
+            },
+            {
+              "speaker": "ヌチス丸",
+              "text": "試作品を持ち歩く時は、薬と爆薬の札を間違えるなよ。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "wide",
+          "actors": [
+            1,
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "別れの前の約束",
+          "lines": [
+            {
+              "speaker": "バーンズ",
+              "text": "次に集まるのは、どんな大事件の時だ？"
+            },
+            {
+              "speaker": "ザック",
+              "text": "大事件はいらない。嬉しい時でも、疲れた時でも、スタル町へ来い。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "close",
+          "actors": [
+            1,
+            4,
+            5
+          ],
+          "enemy": null,
+          "action": "talk",
+          "caption": "皆で残す一枚",
+          "lines": [
+            {
+              "speaker": "フィオナ",
+              "text": "写真を撮る間だけ、動かないで。今度は全員、約束を覚えているわね。"
+            },
+            {
+              "speaker": "スティングス",
+              "text": "ああ。いつか見返して、誰が笑わせたのかまで思い出せるようにな。"
+            }
+          ]
+        },
+        {
+          "duration": 15,
+          "world": "starl",
+          "shot": "farewell",
+          "actors": [
+            1,
+            3,
+            5
+          ],
+          "enemy": null,
+          "action": "quiet",
+          "caption": "旅の終わり・暮らしの続き",
+          "lines": [
+            {
+              "speaker": "ザック",
+              "text": "出会った人も、失った友も、俺たちの明日の中にいる。……お茶くらいなら、用意して待ってる。"
+            },
+            {
+              "speaker": "語り",
+              "text": "帰る場所は、待ち続けるだけでは残らない。彼らはまた戸を開け、今日の暮らしを始めた。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

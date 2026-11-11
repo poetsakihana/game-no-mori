@@ -1,0 +1,160 @@
+{
+  "title": "竜外の灯 ― スタル再会祭",
+  "provenance": "New remake scenario, not dialogue from the original disks.",
+  "unlock": "Clear Disk3 and import/retain its completed save.",
+  "premise": "解散からしばらく後。スタル町に、竜と人が同じ灯を囲む再会祭を開くことになった。祭りの準備を通して復興の小さな問題を解き、ザックが次の旅を選ぶ。",
+  "quests": [
+    {
+      "id": "reunion",
+      "title": "約束の場所",
+      "location": "スタル町",
+      "type": "dialogue",
+      "lines": [
+        [
+          "ザック",
+          "悲しい時はここへ集合、って言ったけどさ。今日は、うれしいことで呼んでもいいだろ？"
+        ],
+        [
+          "バーンズ",
+          "呼び出し状に「竜の大集合」と書いたのはお前か！"
+        ],
+        [
+          "フィオナ",
+          "一匹も来ていないのに、もう三周も町を探したのよ。"
+        ],
+        [
+          "クレイス",
+          "竜を待つ前に、町の水路を直そう。祭りの明かりにも水が要る。"
+        ]
+      ],
+      "next": "water"
+    },
+    {
+      "id": "water",
+      "title": "川を止めない修理",
+      "location": "スタル町の水路",
+      "type": "choice",
+      "prompt": "水門の歯車が止まっている。川には竜の幼生がいる。",
+      "choices": [
+        {
+          "label": "クレイスと歯車を直す",
+          "effect": {
+            "trust": 1
+          },
+          "result": "爆薬を置いたクレイスが、小さな工具で歯車をつなぐ。水の流れは戻り、幼生は無事に下流へ。"
+        },
+        {
+          "label": "バーンズと幼生を安全な入り江へ導く",
+          "effect": {
+            "dragonBond": 1
+          },
+          "result": "バーンズが水の召喚術で細い流れを作る。幼生が逃げたあと、町の人が水門を修理した。"
+        }
+      ],
+      "next": "letters"
+    },
+    {
+      "id": "letters",
+      "title": "三つの言葉",
+      "location": "ウルク町の図書館",
+      "type": "puzzle",
+      "prompt": "再会祭の古い灯台には「知る前に裁かず、壊した後には手を貸し、離れた後にも帰る場所を」という碑文。灯をつける三つの銘板を並べよう。",
+      "tokens": [
+        "帰る",
+        "知る",
+        "直す"
+      ],
+      "answer": [
+        "知る",
+        "直す",
+        "帰る"
+      ],
+      "wrong": "フィオナ：急がなくてもいいわ。私たちの旅の順番を思い出して。",
+      "success": "ザック：知って、直して、帰る。今度の冒険は、ずいぶん身近にあるんだな。",
+      "next": "nest"
+    },
+    {
+      "id": "nest",
+      "title": "怖がりな守り手",
+      "location": "リュドホール近くの山道",
+      "type": "encounter",
+      "prompt": "祭りの灯に驚いた若い竜が道を塞ぐ。息は荒いが、足元には小さな卵がある。",
+      "choices": [
+        {
+          "label": "灯を消して、距離を置く",
+          "effect": {
+            "dragonBond": 1
+          },
+          "result": "バーンズが皆を下がらせた。竜は卵を抱き直し、道の脇へゆっくり退いた。"
+        },
+        {
+          "label": "防御して威嚇を受け止める",
+          "effect": {
+            "courage": 1
+          },
+          "result": "ザックは剣を抜かず、盾で爪を受け止めた。攻撃が返ってこないと知った竜は、呼吸を落ち着かせた。"
+        }
+      ],
+      "next": "bridge"
+    },
+    {
+      "id": "bridge",
+      "title": "一緒に渡る橋",
+      "location": "スタル町への橋",
+      "type": "challenge",
+      "mechanic": "3-round cooperative repair. Each round choose Support, Repair or Guard. Enemy is collapsing rubble, not a defeated reconciled character. Support restores stamina, Guard prevents damage, Repair advances bridge. Telegraph falling rubble before a Guard turn. Failure allows retry without losing inherited save.",
+      "lines": [
+        [
+          "クレイス",
+          "橋を壊すのは一瞬だが、直すには皆の手がいる。"
+        ],
+        [
+          "フィオナ",
+          "じゃあ、皆でやればいいのよ。"
+        ],
+        [
+          "ザック",
+          "向こうから来る竜も、こっちの人も。両方が渡れる橋にしよう！"
+        ]
+      ],
+      "next": "festival"
+    },
+    {
+      "id": "festival",
+      "title": "帰ってこられる灯",
+      "location": "スタル町",
+      "type": "ending",
+      "lines": [
+        [
+          "ディス",
+          "私にも、灯を置く場所があるだろうか。"
+        ],
+        [
+          "ザック",
+          "あるさ。城を直した時と同じだ。一緒にやろう。"
+        ],
+        [
+          "バーンズ",
+          "今度こそ本当に竜が来たぞ！"
+        ],
+        [
+          "フィオナ",
+          "また三周する気？　まずは座って食べなさい。"
+        ],
+        [
+          "クレイス",
+          "新しい薬が完成した。次の旅では、戦うより先に役立ってくれるといい。"
+        ]
+      ],
+      "endingVariants": {
+        "dragonBond>=2": "人と竜の灯が川面に並ぶ。ザックは、まだ名を知らない竜の里へ次の旅を選んだ。",
+        "default": "町の子どもが小さな薬箱を持って駆けてくる。ザックは、復興を続ける町々へ次の旅を選んだ。"
+      },
+      "lastLine": [
+        "ザック",
+        "行ってきます。また、ここで話そう。"
+      ],
+      "reward": "再会の灯（後日談クリア記録）"
+    }
+  ]
+}
