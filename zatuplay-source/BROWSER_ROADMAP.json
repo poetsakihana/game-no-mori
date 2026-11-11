@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-11T05:34:06Z",
+  "updatedAt": "2026-11-11T06:00:40Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -204,14 +204,14 @@
     {
       "id": "moving-castle",
       "name": "動く城",
-      "status": "queued",
+      "status": "published",
       "priority": 118,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/moving-castle/?v=0.3-web.1",
+      "browserVersion": "0.3-web.1",
+      "checkedAt": "2026-11-11T06:00:40Z",
+      "lastAttemptAt": "2026-11-11T06:00:40Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "national-cm",
@@ -707,38 +707,44 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-11T05:16:13Z",
+    "checkedAt": "2026-11-11T06:00:40Z",
     "apps": [
       {
-        "id": "sakihana",
-        "checkedAt": "2026-11-11T05:16:13Z",
+        "id": "moving-castle",
+        "checkedAt": "2026-11-11T06:00:40Z",
         "checks": [
-          "公開URLでチュートリアルの移動・攻撃・回避・必殺技・練習戦闘を完了",
-          "仲間ランカー加入、デイリー報酬1枚と編成の再読込後の保持",
-          "通常ステージ1-1を移動・戦闘でクリアして詩を獲得",
-          "再読込後の1/100クリア・1-2挑戦可能・1-3以降未開放を確認",
-          "BGM/SE OFFの再読込保存、あそびかたの開閉を確認",
-          "取得したコンソールログにゲーム由来のerrorなし（拡張機能のログを除く）"
+          "公開URLでタイトル・元の画像・第1章の物語を表示し、新規開始",
+          "剣Lv.1→2、砲台Lv.0→1を購入し、資源24/14/4→11/0/1を確認",
+          "方向キー移動、木材+4の採集、風技F、剣Jで第1章ボス「根喰らいの巨人」を討伐",
+          "回復薬Q・回避Shift・脚部Lv.1→2の購入・城操縦Cと自動砲撃を確認",
+          "城を東端へ運び、門をEで調べて第2章「赤錆の峡谷」を解放",
+          "再読込→つづきからでLv.3・経験54/165・HP156/156・気力108/108・城202/350・資源25/11/8を保持",
+          "第1章討伐済み・第2章解放・第3〜50章未解放と音OFFの再読込保存を確認",
+          "一時停止・再開、タイトル→新規開始の上書き確認をキャンセル→続きからで第2章を維持",
+          "取得した公開版ログにゲーム由来のerrorなし（拡張機能のログは除外）",
+          "ゲーム上部の「ZatuPlay 一覧」から公開ブラウザ一覧への復帰を確認"
         ]
       }
     ],
     "logicChecks": {
-      "progressionPassed": 10,
-      "towerPassed": 36,
+      "passed": 15,
+      "canvas2dRenderedChapters": 50,
+      "chapterProgressionPaths": 50,
+      "unchangedEmbeddedImageHashesMatched": 13,
+      "chapterDataHashMatched": true,
       "browserLifecyclePassed": true,
-      "unchangedAssetHashesMatched": 77,
-      "existingBatchRegressionsPassed": 11,
+      "sourceDeploymentMirrorMatched": true,
       "productionBuildPassed": true
     },
     "limitations": [
-      "スマホ実機・Safari/Firefoxは未確認",
-      "全100ステージ・全イベント・塔の手動完走は未実施",
-      "音声・効果音の実聴取は未確認",
-      "画面上の戦闘ボタンとタッチ移動、実タブ非表示時の停止は未確認（ライフサイクルは自動テスト）"
+      "スマホ実機・タッチ操作・Safari/Firefoxは未確認",
+      "全50章の手動完走・音の実聴取は未確認",
+      "実タブ非表示時の停止は未確認（ライフサイクルは自動テスト）",
+      "カタログ登録後の一覧からの起動は未確認"
     ]
   },
-  "publishedTargetCount": 7,
-  "remainingTargetCount": 45,
+  "publishedTargetCount": 8,
+  "remainingTargetCount": 44,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
@@ -847,6 +853,37 @@
         "スマホ実機・Safari/Firefoxは未確認",
         "全問題・全台本の手動確認は未実施",
         "日本語音声・効果音の実聴取は未確認"
+      ]
+    },
+    {
+      "checkedAt": "2026-11-11T05:16:13Z",
+      "apps": [
+        {
+          "id": "sakihana",
+          "checkedAt": "2026-11-11T05:16:13Z",
+          "checks": [
+            "公開URLでチュートリアルの移動・攻撃・回避・必殺技・練習戦闘を完了",
+            "仲間ランカー加入、デイリー報酬1枚と編成の再読込後の保持",
+            "通常ステージ1-1を移動・戦闘でクリアして詩を獲得",
+            "再読込後の1/100クリア・1-2挑戦可能・1-3以降未開放を確認",
+            "BGM/SE OFFの再読込保存、あそびかたの開閉を確認",
+            "取得したコンソールログにゲーム由来のerrorなし（拡張機能のログを除く）"
+          ]
+        }
+      ],
+      "logicChecks": {
+        "progressionPassed": 10,
+        "towerPassed": 36,
+        "browserLifecyclePassed": true,
+        "unchangedAssetHashesMatched": 77,
+        "existingBatchRegressionsPassed": 11,
+        "productionBuildPassed": true
+      },
+      "limitations": [
+        "スマホ実機・Safari/Firefoxは未確認",
+        "全100ステージ・全イベント・塔の手動完走は未実施",
+        "音声・効果音の実聴取は未確認",
+        "画面上の戦闘ボタンとタッチ移動、実タブ非表示時の停止は未確認（ライフサイクルは自動テスト）"
       ]
     }
   ]
