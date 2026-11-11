@@ -15,7 +15,7 @@ await test('source artwork, 50 chapter data, no missing worker/external runtime,
  for(const name of fs.readdirSync(root))assert.equal(sha(fs.readFileSync(path.join(root,name))),sha(fs.readFileSync(path.resolve(root,'../../../../zatuplay/games/moving-castle',name))));
 });
 await test('real Canvas2D title, decoded hero/atlas/props and colorful actual pixels',async()=>{
- const h=await createHarness();assert.equal(h.window.WalkingCastle.chapterCount,50);assert.equal(h.nodes.get('continueBtn').disabled,true);assert(h.run('tileReady()'));assert(h.images.every(im=>im.complete&&im.naturalWidth));
+ const h=await createHarness();assert.equal(h.window.WalkingCastle.version,'0.3-web.2');assert.equal(h.window.WalkingCastle.chapterCount,50);assert.equal(h.nodes.get('continueBtn').disabled,true);assert(h.run('tileReady()'));assert(h.images.every(im=>im.complete&&im.naturalWidth));
  h.run('drawIntro(0)');const px=h.nodes.get('world').canvas.getContext('2d').getImageData(0,0,960,540).data,colors=new Set();for(let i=0;i<px.length;i+=400)colors.add([...px.slice(i,i+3)].join(','));assert(colors.size>50);h.png('/tmp/moving-castle-title-canvas.png');h.disposeTerrain();
 });
 await test('normal start, movement, hero sword, magic, dodge, castle mode and potion',async()=>{
@@ -45,6 +45,24 @@ await test('save/reload keeps state, regenerates unfinished enemies and saves ev
  const h=await start();h.run("G.player.x=930;G.resources.wood=123;G.player.weapon=3;G.player.atk=48;G.data[0].kills=8;saveGame()");
  const loaded=await createHarness({storage:h.storage});loaded.click('continueBtn');assert.equal(loaded.state().player.x,930);assert.equal(loaded.state().resources.wood,123);assert.equal(loaded.state().player.weapon,3);assert.equal(loaded.state().data[0].kills,8);assert.equal(loaded.run('enemies.find(e=>e.boss).hp'),380);
  const n=loaded.state().saves;loaded.run('autoSaveClock=19.99;update(.02)');assert.equal(loaded.state().saves,n+1);
+});
+await test('Continue reports loaded, not saved; title round-trip and read-only storage retain truthful status',async()=>{
+ const h=await start();h.run('G.resources.wood=777;saveGame()');const raw=h.storage.getItem(SAVE),saves=h.state().saves;
+ const loaded=await createHarness({storage:h.storage});loaded.click('continueBtn');
+ for(const id of ['browserSaveStatus','saveStatus'])assert.equal(loaded.nodes.get(id).textContent,'保存データを読み込みました（再開後は未保存）');
+ assert.equal(loaded.state().saves,saves);assert.equal(loaded.storage.getItem(SAVE),raw);assert.equal(loaded.state().resources.wood,777);
+ loaded.run('title()');assert.equal(loaded.nodes.get('saveStatus').textContent,'タイトル画面');const rawTitle=loaded.storage.getItem(SAVE);loaded.click('continueBtn');
+ assert.equal(loaded.nodes.get('saveStatus').textContent,'保存データを読み込みました（再開後は未保存）');assert.equal(loaded.storage.getItem(SAVE),rawTitle);
+ const readonly=new MemoryStorage({[SAVE]:raw});readonly.failWrite=true;const blocked=await createHarness({storage:readonly});blocked.click('continueBtn');assert.equal(blocked.nodes.get('browserSaveStatus').textContent,'保存データを読み込みました（再開後は未保存）');assert.equal(blocked.state().saves,saves);assert.equal(readonly.getItem(SAVE),raw);
+ blocked.run('saveGame()');assert.match(blocked.nodes.get('browserSaveStatus').textContent,/保存できません/);assert.equal(readonly.getItem(SAVE),raw);
+ loaded.window.emit('storage',{key:SAVE});loaded.confirm(true);loaded.run('title()');loaded.click('continueBtn');assert.match(loaded.nodes.get('browserSaveStatus').textContent,/読み込みました.*上書きを停止/);assert.equal(loaded.nodes.get('browserSaveStatus').dataset.state,'error');
+});
+await test('gate travel and chapter revisit refresh chapter/mode/healed HP before story, without animation frames',async()=>{
+ const h=await start();h.run("G.data[0].cleared=true;G.player.hp=7;G.player.x=2500;G.player.y=790;G.castle.x=2500;G.castle.y=790;hud(true)");
+ assert.equal(h.nodes.get('hpNum').textContent,'7/120');h.run('interact()');
+ assert.equal(h.run('panelName'),'story');assert.equal(h.run('freeze'),true);assert.equal(h.state().chapter,1);assert.equal(h.nodes.get('areaLabel').textContent,'赤錆の峡谷');assert.match(h.nodes.get('chapterBlock').innerHTML,/第2章/);assert.equal(h.nodes.get('hpNum').textContent,'120/120');assert.equal(h.nodes.get('hpFill').style.width,'100%');assert.equal(h.nodes.get('modePill').textContent,'⚔ 冒険モード');assert.match(h.nodes.get('questText').textContent,/鉄錆の大歩獣/);
+ h.run("G.mode='castle';G.player.hp=6;hud(true);action('travel','0')");
+ assert.equal(h.run('panelName'),'story');assert.equal(h.run('freeze'),true);assert.equal(h.nodes.get('areaLabel').textContent,'翠環の森');assert.match(h.nodes.get('chapterBlock').innerHTML,/第1章/);assert.equal(h.nodes.get('hpNum').textContent,'120/120');assert.equal(h.nodes.get('modePill').textContent,'⚔ 冒険モード');assert.match(h.nodes.get('questText').textContent,/門の近くへ/);
 });
 await test('v1 migration retains legacy bytes and final-clear false flag is repaired',async()=>{
  const old={...valid,version:1,chapter:2,maxUnlocked:2,data:valid.data.slice(0,3)};old.data[0].cleared=true;

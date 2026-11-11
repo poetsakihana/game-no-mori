@@ -43,7 +43,7 @@
   <div class="brand"><span class="brand-emblem">♜</span><span><b>歩く城の冒険者</b><small>THE WALKING CITADEL · Ver.0.3 • 50 CHAPTERS</small></span></div>
   <div class="topactions"><button id="helpBtn" title="操作説明">？ 操作</button><button id="muteBtn" title="音の切り替え">♪ 音ON</button><button id="menuBtn" title="一時停止">☰ メニュー</button></div>
  </header>
- <div class="browser-bar"><a id="collectionLink" href="../../browser/">← ZatuPlay 一覧</a><span class="browser-version">動く城 0.3-web.1</span><button id="browserSaveBtn">💾 保存</button><span id="browserSaveStatus" role="status" aria-live="polite">未開始 · 保存先はこのブラウザ</span></div>
+ <div class="browser-bar"><a id="collectionLink" href="../../browser/">← ZatuPlay 一覧</a><span class="browser-version">動く城 0.3-web.2</span><button id="browserSaveBtn">💾 保存</button><span id="browserSaveStatus" role="status" aria-live="polite">未開始 · 保存先はこのブラウザ</span></div>
  <main class="game-layout">
   <section class="game-frame" id="gameFrame" aria-label="ゲームプレイ画面">
    <canvas id="world" width="960" height="540">ブラウザがCanvasに対応していません。</canvas>
@@ -212,7 +212,7 @@ function saveGame(silent=false){
   $('#continueBtn').disabled=false;if(!silent)notice('💾 冒険を記録した');return true;
  }catch(e){storageStatus('保存できません。設定・空き容量を確認し、このページを閉じないでください。',true);if(!silent)notice('⚠ 保存できません: ストレージ設定を確認');return false;}
 }
-function startGame(fromSave){const saved=fromSave?loadSaved():null;if(fromSave&&!saved){notice('保存データを読み込めません。元の記録は保持しています。');return false;}document.activeElement?.blur?.();clearInput();G=saved||newState();G.chapter=clamp(G.chapter,0,WORLD.length-1);G.player.hp=clamp(G.player.hp,1,G.player.maxHp);G.mode='hero';$('#startOverlay').classList.add('hidden');$('#hud').classList.remove('hidden');$('#touchUI').classList.remove('hidden');freeze=false;panelName='';$('#panelOverlay').classList.add('hidden');autoSaveClock=0;last=0;buildEnemies();camera.x=clamp(G.player.x-W/2,0,WORLD_W-W);camera.y=clamp(G.player.y-H/2,0,WORLD_H-H);hud(true);notice(saved?'旅を再開した。アルカとともに進もう！':'旅立ちの刻！ まずは敵を倒し、資源を集めよう。',3500);sound(523,.1,'sine');if(G.completed)openPanel('ending');return true;}
+function startGame(fromSave){const saved=fromSave?loadSaved():null;if(fromSave&&!saved){notice('保存データを読み込めません。元の記録は保持しています。');return false;}document.activeElement?.blur?.();clearInput();G=saved||newState();G.chapter=clamp(G.chapter,0,WORLD.length-1);G.player.hp=clamp(G.player.hp,1,G.player.maxHp);G.mode='hero';$('#startOverlay').classList.add('hidden');$('#hud').classList.remove('hidden');$('#touchUI').classList.remove('hidden');freeze=false;panelName='';$('#panelOverlay').classList.add('hidden');autoSaveClock=0;last=0;buildEnemies();camera.x=clamp(G.player.x-W/2,0,WORLD_W-W);camera.y=clamp(G.player.y-H/2,0,WORLD_H-H);hud(true);if(saved)storageStatus(saveConflict?'保存データを読み込みました。別タブの変更により上書きを停止しています。再読込してください。':'保存データを読み込みました（再開後は未保存）',saveConflict);notice(saved?'旅を再開した。アルカとともに進もう！':'旅立ちの刻！ まずは敵を倒し、資源を集めよう。',3500);sound(523,.1,'sine');if(G.completed)openPanel('ending');return true;}
 function buildEnemies(){
  enemies=[];bullets=[];particles=[];slashes=[];floats=[];
  const z=G.chapter, r=rng(77+z*123),strength=1+z*.065;
@@ -240,7 +240,7 @@ function skill(){if(!G||freeze||panelName||G.mode!=='hero')return;let p=G.player
 function dodge(){if(!G||freeze||panelName||G.mode!=='hero')return;const p=G.player;if(p.dodgeCD>0||p.sp<20)return;p.sp-=20;p.dodgeCD=.9;p.dodgeTimer=.23;p.invuln=.26;const v=moveVector();if(!v.x&&!v.y){p.x=clamp(p.x+Math.cos(p.face)*105,36,WORLD_W-36);p.y=clamp(p.y+Math.sin(p.face)*105,36,WORLD_H-36);}spawnParticles(p.x,p.y,'#c3f5fd',10);sound(610,.13);}
 function moveVector(){let x=0,y=0;if(keys['a']||keys['arrowleft'])x--;if(keys['d']||keys['arrowright'])x++;if(keys['w']||keys['arrowup'])y--;if(keys['s']||keys['arrowdown'])y++;const d=Math.hypot(x,y)||1;return {x:x/d,y:y/d};}
 function interact(){if(!G||freeze||panelName)return;if(G.mode==='castle'){notice('城を降りてから調べよう',1300);return;}const p=G.player,c=G.castle,z=G.chapter;
- if(dist(p,{x:2500,y:790})<155){if(!G.data[z].cleared){notice('封印の扉だ。まず守護者を倒そう。');return;}if(dist(c,{x:2500,y:790})>205){notice('城〈アルカ〉を門のそばまで連れてこよう！',2500);return;}if(z===WORLD.length-1){openPanel('ending');return;}G.chapter++;G.maxUnlocked=Math.max(G.maxUnlocked||0,G.chapter);G.castle.x=360;G.castle.y=790;G.player.x=510;G.player.y=790;G.mode='hero';G.player.hp=G.player.maxHp;buildEnemies();G.storySeen[G.chapter]=true;camera.x=0;camera.y=520;saveGame(true);openPanel('story');return;}
+ if(dist(p,{x:2500,y:790})<155){if(!G.data[z].cleared){notice('封印の扉だ。まず守護者を倒そう。');return;}if(dist(c,{x:2500,y:790})>205){notice('城〈アルカ〉を門のそばまで連れてこよう！',2500);return;}if(z===WORLD.length-1){openPanel('ending');return;}G.chapter++;G.maxUnlocked=Math.max(G.maxUnlocked||0,G.chapter);G.castle.x=360;G.castle.y=790;G.player.x=510;G.player.y=790;G.mode='hero';G.player.hp=G.player.maxHp;buildEnemies();G.storySeen[G.chapter]=true;camera.x=0;camera.y=520;hud(true);saveGame(true);openPanel('story');return;}
  if(dist(p,{x:740,y:750})<100){G.player.hp=G.player.maxHp;G.castle.hp=clamp(G.castle.hp+90,0,G.castle.maxHp);G.player.sp=G.player.maxSp;notice('整備士リト：旅の傷を治しておいたよ！');sound(520,.14);return;}
  let best=null,bd=94;for(const node of worlds[z].nodes){if(G.data[z].collected.includes(node.id))continue;let d=dist(p,node);if(d<bd){bd=d;best=node;}}
  if(best){G.data[z].collected.push(best.id);if(best.type==='chest'){G.resources.wood+=9;G.resources.ore+=7;G.resources.crystal+=3;G.player.potions++;notice('宝箱を発見！ 木材+9 鉱石+7 結晶+3 回復薬+1');}else{G.resources[best.type]+=best.n;notice(`${U[best.type]} +${best.n}`);}spawnParticles(best.x,best.y,'#fbe59b',16);sound(570,.18);saveGame(true);return;}
@@ -434,7 +434,7 @@ function title(){if(!saveGame(true)&&!confirm('保存できませんでした。
 function action(act,key){if(act==='close')closePanel();else if(act==='buy')buy(key);else if(act==='potion'){usePotion();openPanel('items');}else if(act==='panel')openPanel(key);else if(act==='save')saveGame();else if(act==='title')title();else if(act==='collection')leaveCollection();else if(act==='travel'){
  const i=Number(key);if(!Number.isInteger(i)||i<0||i>(G.maxUnlocked||0)||i>=WORLD.length)return;
  G.chapter=i;G.castle.x=360;G.castle.y=790;G.player.x=510;G.player.y=790;G.mode='hero';G.player.hp=G.player.maxHp;
- buildEnemies();camera.x=0;camera.y=520;saveGame(true);openPanel('story');
+ buildEnemies();camera.x=0;camera.y=520;hud(true);saveGame(true);openPanel('story');
  }}
 function clearInput(){keys={};holdTouch.clear();for(const b of document.querySelectorAll('.touch-ui button')){b.classList.remove('pressed');delete b.dataset.pointer;}}
 function suspendGame(){clearInput();last=0;if(G){if(!panelName)openPanel('pause');saveGame(true);}if(audioCtx?.state==='running')audioCtx.suspend().catch(()=>{});}
@@ -482,7 +482,7 @@ $('#panelContent').addEventListener('click',e=>{const b=e.target.closest('[data-
 $('#panelOverlay').addEventListener('click',e=>{if(e.target===$('#panelOverlay'))closePanel();});
 $('#continueBtn').disabled=!loadSaved();
 // Test hooks only expose read-only summaries to keep game state encapsulated.
-window.WalkingCastle={version:'0.3-web.1',chapterCount:WORLD.length, getSummary:()=>G?{zone:G.chapter,level:G.player.level,castleX:Math.round(G.castle.x),playerX:Math.round(G.player.x),resources:{...G.resources},bosses:G.data.map(d=>d.cleared),hp:Math.round(G.player.hp),mode:G.mode,theme:terrainTheme(G.chapter),tilesLoaded:tileReady()}:null};
+window.WalkingCastle={version:'0.3-web.2',chapterCount:WORLD.length, getSummary:()=>G?{zone:G.chapter,level:G.player.level,castleX:Math.round(G.castle.x),playerX:Math.round(G.player.x),resources:{...G.resources},bosses:G.data.map(d=>d.cleared),hp:Math.round(G.player.hp),mode:G.mode,theme:terrainTheme(G.chapter),tilesLoaded:tileReady()}:null};
 requestAnimationFrame(loop);
 })();
 </script>

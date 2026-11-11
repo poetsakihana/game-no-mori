@@ -1,5 +1,5 @@
 {
-  "version": "0.3-web.1",
+  "version": "0.3-web.2",
   "sourceApk": {
     "name": "37.動く城_v0.3.apk",
     "size": 897426,
@@ -85,7 +85,8 @@
     "Final-clear flag saved before final-boss checkpoint.",
     "Removed registration of missing sw.js; no offline reload guarantee.",
     "Persist sound preference with guarded storage.",
-    "Pause-frame potion and post-victory combat guards; keyboard movement remains available after save/audio button focus."
+    "Pause-frame potion and post-victory combat guards; keyboard movement remains available after save/audio button focus.",
+    "0.3-web.2: distinguish loading a saved game from a successful new save; refresh chapter/mode/health HUD before gate-travel and revisit story panels."
   ],
   "excluded": [
     "APK, Android platform files and signing material."
