@@ -1,0 +1,1630 @@
+{
+  "version": 1,
+  "style": "realistic cinematic fantasy 2.5D sprites",
+  "ordinary": {
+    "file": "native/art/enemies.webp",
+    "columns": 4,
+    "rows": 3,
+    "width": 1448,
+    "height": 1086,
+    "cell": 362,
+    "families": [
+      "slime",
+      "bat",
+      "wolf",
+      "hornet",
+      "skeleton",
+      "treant",
+      "golem",
+      "darkknight",
+      "ghost",
+      "wyvern",
+      "eye",
+      "lizardman"
+    ]
+  },
+  "bosses": {
+    "file": "native/art/bosses.webp",
+    "columns": 2,
+    "rows": 2,
+    "width": 1254,
+    "height": 1254,
+    "names": [
+      "最強竜",
+      "バグダス",
+      "メフォルト",
+      "ディス"
+    ]
+  },
+  "specificBossIDs": {
+    "0": [
+      223,
+      225,
+      227
+    ],
+    "1": [
+      155,
+      237
+    ],
+    "2": [
+      258,
+      259,
+      260,
+      277,
+      285
+    ],
+    "3": [
+      279,
+      280,
+      281,
+      282,
+      283,
+      284,
+      286,
+      287,
+      288
+    ]
+  },
+  "notes": [
+    "The atlases contain 12 ordinary archetypes and 4 major boss designs. Other original monsters are mapped to an archetype; they are not 315 individually painted new creatures.",
+    "Dis reconciles in the ending. Mephort and Dis are distinct entities.",
+    "Art uses transparent RGBA; retain alpha when resizing/transcoding.",
+    "Row-major atlas indexing; each full cell is a sprite."
+  ],
+  "enemyIDs": {
+    "1": {
+      "name": "アーリマン",
+      "originalSprite": "アーリマン",
+      "family": 10,
+      "boss": null
+    },
+    "2": {
+      "name": "アスラ",
+      "originalSprite": "アスラ",
+      "family": 0,
+      "boss": null
+    },
+    "3": {
+      "name": "アナコンダ",
+      "originalSprite": "アナコンダ",
+      "family": 11,
+      "boss": null
+    },
+    "5": {
+      "name": "アンデッドナイト",
+      "originalSprite": "アンデッドナイト",
+      "family": 4,
+      "boss": null
+    },
+    "6": {
+      "name": "イフリート",
+      "originalSprite": "イフリート",
+      "family": 9,
+      "boss": null
+    },
+    "7": {
+      "name": "インプ",
+      "originalSprite": "インプ",
+      "family": 8,
+      "boss": null
+    },
+    "8": {
+      "name": "ヴァンパイア",
+      "originalSprite": "ヴァンパイア",
+      "family": 7,
+      "boss": null
+    },
+    "9": {
+      "name": "馬",
+      "originalSprite": "馬",
+      "family": 2,
+      "boss": null
+    },
+    "10": {
+      "name": "ウロボロス",
+      "originalSprite": "ウロボロス",
+      "family": 9,
+      "boss": null
+    },
+    "12": {
+      "name": "オーガ",
+      "originalSprite": "オーガ",
+      "family": 6,
+      "boss": null
+    },
+    "13": {
+      "name": "オーク",
+      "originalSprite": "オーク",
+      "family": 11,
+      "boss": null
+    },
+    "14": {
+      "name": "オーディン",
+      "originalSprite": "オーディン",
+      "family": 7,
+      "boss": null
+    },
+    "15": {
+      "name": "オクトパス",
+      "originalSprite": "オクトパス",
+      "family": 11,
+      "boss": null
+    },
+    "16": {
+      "name": "鬼",
+      "originalSprite": "鬼",
+      "family": 6,
+      "boss": null
+    },
+    "17": {
+      "name": "ガーゴイル",
+      "originalSprite": "ガーゴイル",
+      "family": 1,
+      "boss": null
+    },
+    "18": {
+      "name": "カーバンクル",
+      "originalSprite": "カーバンクル",
+      "family": 7,
+      "boss": null
+    },
+    "19": {
+      "name": "カーミラ",
+      "originalSprite": "カーミラ",
+      "family": 7,
+      "boss": null
+    },
+    "20": {
+      "name": "カッパ",
+      "originalSprite": "カッパ",
+      "family": 11,
+      "boss": null
+    },
+    "22": {
+      "name": "ガルーダ",
+      "originalSprite": "ガルーダ",
+      "family": 1,
+      "boss": null
+    },
+    "23": {
+      "name": "キメラ",
+      "originalSprite": "キメラ",
+      "family": 2,
+      "boss": null
+    },
+    "24": {
+      "name": "九尾の狐",
+      "originalSprite": "九尾の狐",
+      "family": 2,
+      "boss": null
+    },
+    "26": {
+      "name": "グール",
+      "originalSprite": "グール",
+      "family": 4,
+      "boss": null
+    },
+    "27": {
+      "name": "クラーケン",
+      "originalSprite": "クラーケン",
+      "family": 11,
+      "boss": null
+    },
+    "29": {
+      "name": "グリフォン",
+      "originalSprite": "グリフォン",
+      "family": 1,
+      "boss": null
+    },
+    "30": {
+      "name": "グレル",
+      "originalSprite": "グレル",
+      "family": 10,
+      "boss": null
+    },
+    "31": {
+      "name": "クロウラー",
+      "originalSprite": "クロウラー",
+      "family": 3,
+      "boss": null
+    },
+    "32": {
+      "name": "ゲイザー",
+      "originalSprite": "ゲイザー",
+      "family": 10,
+      "boss": null
+    },
+    "33": {
+      "name": "ケツアルクアトル",
+      "originalSprite": "ケツアルクアトル",
+      "family": 9,
+      "boss": null
+    },
+    "34": {
+      "name": "ケット・シー",
+      "originalSprite": "ケットシー",
+      "family": 7,
+      "boss": null
+    },
+    "35": {
+      "name": "ケルベロス",
+      "originalSprite": "ケルベロス",
+      "family": 2,
+      "boss": null
+    },
+    "36": {
+      "name": "ケンタウロス",
+      "originalSprite": "ケンタウロス",
+      "family": 11,
+      "boss": null
+    },
+    "37": {
+      "name": "玄武",
+      "originalSprite": "玄武",
+      "family": 6,
+      "boss": null
+    },
+    "38": {
+      "name": "ゴーゴン",
+      "originalSprite": "ゴーゴン",
+      "family": 2,
+      "boss": null
+    },
+    "39": {
+      "name": "ゴーレム",
+      "originalSprite": "ゴーレム",
+      "family": 6,
+      "boss": null
+    },
+    "40": {
+      "name": "ゴースト",
+      "originalSprite": "ゴースト",
+      "family": 8,
+      "boss": null
+    },
+    "42": {
+      "name": "ゴブリン",
+      "originalSprite": "ゴブリン",
+      "family": 11,
+      "boss": null
+    },
+    "43": {
+      "name": "コボルト",
+      "originalSprite": "コボルト",
+      "family": 11,
+      "boss": null
+    },
+    "44": {
+      "name": "サイクロプス",
+      "originalSprite": "サイクロプス",
+      "family": 6,
+      "boss": null
+    },
+    "45": {
+      "name": "サタナエル",
+      "originalSprite": "サタナエル",
+      "family": 7,
+      "boss": null
+    },
+    "47": {
+      "name": "サラマンダー",
+      "originalSprite": "サラマンダー",
+      "family": 9,
+      "boss": null
+    },
+    "49": {
+      "name": "ジャイアント",
+      "originalSprite": "ジャイアント",
+      "family": 6,
+      "boss": null
+    },
+    "50": {
+      "name": "ジャックオーランタン",
+      "originalSprite": "ジャック・オー・ランタン",
+      "family": 7,
+      "boss": null
+    },
+    "51": {
+      "name": "年寄爺",
+      "originalSprite": "シャドウ",
+      "family": 8,
+      "boss": null
+    },
+    "52": {
+      "name": "シルフ",
+      "originalSprite": "シルフ",
+      "family": 8,
+      "boss": null
+    },
+    "53": {
+      "name": "スキュラ",
+      "originalSprite": "スキュラ",
+      "family": 11,
+      "boss": null
+    },
+    "54": {
+      "name": "スケルトン",
+      "originalSprite": "スケルトン",
+      "family": 4,
+      "boss": null
+    },
+    "55": {
+      "name": "スコーピオン",
+      "originalSprite": "スコーピオン",
+      "family": 3,
+      "boss": null
+    },
+    "56": {
+      "name": "朱雀",
+      "originalSprite": "朱雀",
+      "family": 1,
+      "boss": null
+    },
+    "58": {
+      "name": "スピリッツ",
+      "originalSprite": "スピリッツ",
+      "family": 8,
+      "boss": null
+    },
+    "59": {
+      "name": "スフィンクス",
+      "originalSprite": "スフィンクス",
+      "family": 8,
+      "boss": null
+    },
+    "60": {
+      "name": "スペクター",
+      "originalSprite": "スペクター",
+      "family": 8,
+      "boss": null
+    },
+    "62": {
+      "name": "セイレーン",
+      "originalSprite": "セイレーン",
+      "family": 7,
+      "boss": null
+    },
+    "63": {
+      "name": "セラフィム",
+      "originalSprite": "セラフィム",
+      "family": 7,
+      "boss": null
+    },
+    "64": {
+      "name": "センチピード",
+      "originalSprite": "センチピード",
+      "family": 3,
+      "boss": null
+    },
+    "65": {
+      "name": "ソーサラー",
+      "originalSprite": "ソーサラー",
+      "family": 7,
+      "boss": null
+    },
+    "66": {
+      "name": "ゾンビ",
+      "originalSprite": "ゾンビ",
+      "family": 4,
+      "boss": null
+    },
+    "67": {
+      "name": "ダークエルフ",
+      "originalSprite": "ダークエルフ",
+      "family": 7,
+      "boss": null
+    },
+    "68": {
+      "name": "ダークナイト",
+      "originalSprite": "ダークナイト",
+      "family": 7,
+      "boss": null
+    },
+    "69": {
+      "name": "タイタン",
+      "originalSprite": "タイタン",
+      "family": 6,
+      "boss": null
+    },
+    "71": {
+      "name": "ティアマット",
+      "originalSprite": "ティアマット",
+      "family": 9,
+      "boss": null
+    },
+    "72": {
+      "name": "デーモン",
+      "originalSprite": "デーモン",
+      "family": 8,
+      "boss": null
+    },
+    "73": {
+      "name": "トード",
+      "originalSprite": "トード",
+      "family": 11,
+      "boss": null
+    },
+    "74": {
+      "name": "ドラゴン",
+      "originalSprite": "ドラゴン",
+      "family": 9,
+      "boss": null
+    },
+    "75": {
+      "name": "ドラゴンナイト",
+      "originalSprite": "ドラゴンナイト",
+      "family": 7,
+      "boss": null
+    },
+    "76": {
+      "name": "トレント",
+      "originalSprite": "トレント",
+      "family": 5,
+      "boss": null
+    },
+    "77": {
+      "name": "トロール",
+      "originalSprite": "トロール",
+      "family": 6,
+      "boss": null
+    },
+    "78": {
+      "name": "ネクロマンサー",
+      "originalSprite": "ネクロマンサー",
+      "family": 4,
+      "boss": null
+    },
+    "79": {
+      "name": "ネペンテス",
+      "originalSprite": "ネペンテス",
+      "family": 3,
+      "boss": null
+    },
+    "80": {
+      "name": "バーサーカー",
+      "originalSprite": "バーサーカー",
+      "family": 7,
+      "boss": null
+    },
+    "83": {
+      "name": "バット",
+      "originalSprite": "バット",
+      "family": 1,
+      "boss": null
+    },
+    "84": {
+      "name": "バハムート",
+      "originalSprite": "バハムート",
+      "family": 9,
+      "boss": null
+    },
+    "85": {
+      "name": "パラサイト",
+      "originalSprite": "パラサイト",
+      "family": 3,
+      "boss": null
+    },
+    "86": {
+      "name": "ビッグフット",
+      "originalSprite": "ビッグフット",
+      "family": 2,
+      "boss": null
+    },
+    "87": {
+      "name": "白虎",
+      "originalSprite": "白虎",
+      "family": 2,
+      "boss": null
+    },
+    "88": {
+      "name": "ヒュドラ",
+      "originalSprite": "ヒュドラ",
+      "family": 9,
+      "boss": null
+    },
+    "89": {
+      "name": "フェニックス",
+      "originalSprite": "フェニックス",
+      "family": 1,
+      "boss": null
+    },
+    "91": {
+      "name": "ベヒーモス",
+      "originalSprite": "ベヒーモス",
+      "family": 2,
+      "boss": null
+    },
+    "92": {
+      "name": "ホーネット",
+      "originalSprite": "ホーネット",
+      "family": 3,
+      "boss": null
+    },
+    "93": {
+      "name": "マンティコア",
+      "originalSprite": "マンティコア",
+      "family": 2,
+      "boss": null
+    },
+    "94": {
+      "name": "ケツアルクアトル",
+      "originalSprite": "ケツアルクアトル",
+      "family": 9,
+      "boss": null
+    },
+    "95": {
+      "name": "マンモス",
+      "originalSprite": "マンモス",
+      "family": 2,
+      "boss": null
+    },
+    "96": {
+      "name": "ミイラ男",
+      "originalSprite": "ミイラ男",
+      "family": 4,
+      "boss": null
+    },
+    "97": {
+      "name": "ミドガルズオルム",
+      "originalSprite": "ミドガルズオルム",
+      "family": 9,
+      "boss": null
+    },
+    "98": {
+      "name": "ミノタウルス",
+      "originalSprite": "ミノタウロス",
+      "family": 2,
+      "boss": null
+    },
+    "99": {
+      "name": "ミミック",
+      "originalSprite": "ミミック",
+      "family": 7,
+      "boss": null
+    },
+    "100": {
+      "name": "メデューサ",
+      "originalSprite": "メデューサ",
+      "family": 7,
+      "boss": null
+    },
+    "101": {
+      "name": "リリス",
+      "originalSprite": "リリス",
+      "family": 7,
+      "boss": null
+    },
+    "102": {
+      "name": "ユニコーン",
+      "originalSprite": "ユニコーン",
+      "family": 2,
+      "boss": null
+    },
+    "103": {
+      "name": "ラクシュミ",
+      "originalSprite": "ラクシュミ",
+      "family": 7,
+      "boss": null
+    },
+    "104": {
+      "name": "ラミア",
+      "originalSprite": "ラミア",
+      "family": 11,
+      "boss": null
+    },
+    "106": {
+      "name": "リザード",
+      "originalSprite": "リザード",
+      "family": 11,
+      "boss": null
+    },
+    "107": {
+      "name": "リザードマン",
+      "originalSprite": "リザードマン",
+      "family": 11,
+      "boss": null
+    },
+    "108": {
+      "name": "リッチ",
+      "originalSprite": "リッチ",
+      "family": 4,
+      "boss": null
+    },
+    "109": {
+      "name": "龍",
+      "originalSprite": "龍",
+      "family": 9,
+      "boss": null
+    },
+    "110": {
+      "name": "レイス",
+      "originalSprite": "レイス",
+      "family": 8,
+      "boss": null
+    },
+    "112": {
+      "name": "ワーウルフ",
+      "originalSprite": "ワーウルフ",
+      "family": 2,
+      "boss": null
+    },
+    "113": {
+      "name": "ワーム",
+      "originalSprite": "ワーム",
+      "family": 3,
+      "boss": null
+    },
+    "114": {
+      "name": "ワイト",
+      "originalSprite": "ワイト",
+      "family": 4,
+      "boss": null
+    },
+    "115": {
+      "name": "ワイバーン",
+      "originalSprite": "ワイバーン",
+      "family": 9,
+      "boss": null
+    },
+    "116": {
+      "name": "ドラゴン",
+      "originalSprite": "ドラゴン",
+      "family": 9,
+      "boss": null
+    },
+    "117": {
+      "name": "鶏",
+      "originalSprite": "グリフォン",
+      "family": 1,
+      "boss": null
+    },
+    "118": {
+      "name": "バーリヤン",
+      "originalSprite": "グレル",
+      "family": 10,
+      "boss": null
+    },
+    "120": {
+      "name": "サラマンダー",
+      "originalSprite": "イフリート",
+      "family": 9,
+      "boss": null
+    },
+    "121": {
+      "name": "ウンディーネ",
+      "originalSprite": "ラクシュミ",
+      "family": 7,
+      "boss": null
+    },
+    "122": {
+      "name": "シルフ",
+      "originalSprite": "シルフ",
+      "family": 8,
+      "boss": null
+    },
+    "123": {
+      "name": "シラコレス",
+      "originalSprite": "白虎",
+      "family": 2,
+      "boss": null
+    },
+    "124": {
+      "name": "ノーム",
+      "originalSprite": "サラマンダー",
+      "family": 9,
+      "boss": null
+    },
+    "125": {
+      "name": "プラズマラー",
+      "originalSprite": "プラズマラー",
+      "family": 0,
+      "boss": null
+    },
+    "126": {
+      "name": "ルナ",
+      "originalSprite": "ルナ",
+      "family": 8,
+      "boss": null
+    },
+    "127": {
+      "name": "シャドウ",
+      "originalSprite": "シャドウ",
+      "family": 8,
+      "boss": null
+    },
+    "128": {
+      "name": "レム",
+      "originalSprite": "セラフィム",
+      "family": 7,
+      "boss": null
+    },
+    "129": {
+      "name": "ノルベルス",
+      "originalSprite": "九尾の狐",
+      "family": 2,
+      "boss": null
+    },
+    "130": {
+      "name": "フミラー",
+      "originalSprite": "龍",
+      "family": 9,
+      "boss": null
+    },
+    "132": {
+      "name": "スラーム",
+      "originalSprite": "スライム",
+      "family": 0,
+      "boss": null
+    },
+    "133": {
+      "name": "スパイダラー",
+      "originalSprite": "タランチュラ",
+      "family": 3,
+      "boss": null
+    },
+    "134": {
+      "name": "ギョーレ",
+      "originalSprite": "レモラ",
+      "family": 11,
+      "boss": null
+    },
+    "135": {
+      "name": "ホットゲーター",
+      "originalSprite": "アリゲーター",
+      "family": 11,
+      "boss": null
+    },
+    "136": {
+      "name": "エビルホッパー",
+      "originalSprite": "カトブレパス",
+      "family": 2,
+      "boss": null
+    },
+    "137": {
+      "name": "ジャックオーランタン",
+      "originalSprite": "ジャック・オー・ランタン",
+      "family": 7,
+      "boss": null
+    },
+    "138": {
+      "name": "クルエン",
+      "originalSprite": "グレル",
+      "family": 10,
+      "boss": null
+    },
+    "139": {
+      "name": "ブルーケン",
+      "originalSprite": "グレル",
+      "family": 10,
+      "boss": null
+    },
+    "140": {
+      "name": "グレゲ",
+      "originalSprite": "グレル",
+      "family": 10,
+      "boss": null
+    },
+    "141": {
+      "name": "カーラグレス",
+      "originalSprite": "クラブ",
+      "family": 3,
+      "boss": null
+    },
+    "142": {
+      "name": "魚人雑魚",
+      "originalSprite": "サハギン",
+      "family": 11,
+      "boss": null
+    },
+    "143": {
+      "name": "ジョウザー",
+      "originalSprite": "シャーク",
+      "family": 11,
+      "boss": null
+    },
+    "145": {
+      "name": "リバイアサン",
+      "originalSprite": "リヴァイアサン",
+      "family": 9,
+      "boss": null
+    },
+    "147": {
+      "name": "ウィンガー",
+      "originalSprite": "コカトリス",
+      "family": 1,
+      "boss": null
+    },
+    "148": {
+      "name": "スダルク",
+      "originalSprite": "スネーク",
+      "family": 11,
+      "boss": null
+    },
+    "149": {
+      "name": "マンティスアント",
+      "originalSprite": "マンティス",
+      "family": 3,
+      "boss": null
+    },
+    "150": {
+      "name": "ハーピラー",
+      "originalSprite": "ハーピー",
+      "family": 1,
+      "boss": null
+    },
+    "152": {
+      "name": "コールドル",
+      "originalSprite": "バジリスク",
+      "family": 11,
+      "boss": null
+    },
+    "153": {
+      "name": "フェンリル",
+      "originalSprite": "フェンリル",
+      "family": 2,
+      "boss": null
+    },
+    "155": {
+      "name": "バグダス",
+      "originalSprite": "サタナエル",
+      "family": 7,
+      "boss": 1
+    },
+    "157": {
+      "name": "ヌチス丸",
+      "originalSprite": "ヌチス丸",
+      "family": 7,
+      "boss": null
+    },
+    "159": {
+      "name": "地のワーム",
+      "originalSprite": "クロウラー",
+      "family": 3,
+      "boss": null
+    },
+    "160": {
+      "name": "地の岩男",
+      "originalSprite": "ゴーレム",
+      "family": 6,
+      "boss": null
+    },
+    "162": {
+      "name": "ヌチス丸",
+      "originalSprite": "ヌチス丸",
+      "family": 7,
+      "boss": null
+    },
+    "164": {
+      "name": "バーディレイ",
+      "originalSprite": "コカトリス",
+      "family": 1,
+      "boss": null
+    },
+    "166": {
+      "name": "雷麟（ライリン）",
+      "originalSprite": "麒麟",
+      "family": 2,
+      "boss": null
+    },
+    "167": {
+      "name": "サンダースコーピオン",
+      "originalSprite": "スコーピオン",
+      "family": 3,
+      "boss": null
+    },
+    "169": {
+      "name": "ヌチス丸",
+      "originalSprite": "ヌチス丸",
+      "family": 7,
+      "boss": null
+    },
+    "171": {
+      "name": "カーバンクル",
+      "originalSprite": "カーバンクル",
+      "family": 7,
+      "boss": null
+    },
+    "173": {
+      "name": "ヌチス丸",
+      "originalSprite": "ヌチス丸",
+      "family": 7,
+      "boss": null
+    },
+    "175": {
+      "name": "光エルフ",
+      "originalSprite": "エルフ",
+      "family": 7,
+      "boss": null
+    },
+    "176": {
+      "name": "コールゲイザー",
+      "originalSprite": "ゲイザー",
+      "family": 10,
+      "boss": null
+    },
+    "177": {
+      "name": "ドラゴンホーラル",
+      "originalSprite": "ドラゴンナイト",
+      "family": 7,
+      "boss": null
+    },
+    "178": {
+      "name": "光マンモス",
+      "originalSprite": "マンモス",
+      "family": 2,
+      "boss": null
+    },
+    "179": {
+      "name": "ヒルベロス",
+      "originalSprite": "ケルベロス",
+      "family": 2,
+      "boss": null
+    },
+    "180": {
+      "name": "ミガズオム",
+      "originalSprite": "ミドガルズオルム",
+      "family": 9,
+      "boss": null
+    },
+    "181": {
+      "name": "光の死神",
+      "originalSprite": "リッチ",
+      "family": 4,
+      "boss": null
+    },
+    "182": {
+      "name": "ユニコーン",
+      "originalSprite": "ユニコーン",
+      "family": 2,
+      "boss": null
+    },
+    "183": {
+      "name": "弟ワイバーン",
+      "originalSprite": "ワイバーン",
+      "family": 9,
+      "boss": null
+    },
+    "184": {
+      "name": "兄ワイバーン",
+      "originalSprite": "ワイバーン",
+      "family": 9,
+      "boss": null
+    },
+    "186": {
+      "name": "ライトケファル",
+      "originalSprite": "馬",
+      "family": 2,
+      "boss": null
+    },
+    "188": {
+      "name": "光光線軍",
+      "originalSprite": "光光線軍",
+      "family": 10,
+      "boss": null
+    },
+    "190": {
+      "name": "幽霊族",
+      "originalSprite": "ゴースト",
+      "family": 8,
+      "boss": null
+    },
+    "191": {
+      "name": "アンデッドナイト",
+      "originalSprite": "アンデッドナイト",
+      "family": 4,
+      "boss": null
+    },
+    "192": {
+      "name": "ヴァンパイア男",
+      "originalSprite": "ヴァンパイア",
+      "family": 7,
+      "boss": null
+    },
+    "193": {
+      "name": "グール",
+      "originalSprite": "グール",
+      "family": 4,
+      "boss": null
+    },
+    "194": {
+      "name": "アイゲイザー",
+      "originalSprite": "ゲイザー",
+      "family": 10,
+      "boss": null
+    },
+    "195": {
+      "name": "ゴーザス",
+      "originalSprite": "ゴーゴン",
+      "family": 2,
+      "boss": null
+    },
+    "196": {
+      "name": "スケルトンナイト",
+      "originalSprite": "スケルトン",
+      "family": 4,
+      "boss": null
+    },
+    "197": {
+      "name": "ゾンビサオ",
+      "originalSprite": "ゾンビ",
+      "family": 4,
+      "boss": null
+    },
+    "198": {
+      "name": "ネクロマスター",
+      "originalSprite": "ネクロマンサー",
+      "family": 4,
+      "boss": null
+    },
+    "199": {
+      "name": "メデュサー",
+      "originalSprite": "メデューサ",
+      "family": 7,
+      "boss": null
+    },
+    "200": {
+      "name": "ミイラ男",
+      "originalSprite": "ミイラ男",
+      "family": 4,
+      "boss": null
+    },
+    "201": {
+      "name": "デッド・カオス",
+      "originalSprite": "リッチ",
+      "family": 4,
+      "boss": null
+    },
+    "202": {
+      "name": "岩男",
+      "originalSprite": "ゴーレム",
+      "family": 6,
+      "boss": null
+    },
+    "204": {
+      "name": "ヌチス丸",
+      "originalSprite": "ヌチス丸",
+      "family": 7,
+      "boss": null
+    },
+    "206": {
+      "name": "ゴザレス丸太郎",
+      "originalSprite": "忍者丸",
+      "family": 7,
+      "boss": null
+    },
+    "208": {
+      "name": "壱",
+      "originalSprite": "アナコンダ",
+      "family": 11,
+      "boss": null
+    },
+    "209": {
+      "name": "弐",
+      "originalSprite": "キメラ",
+      "family": 2,
+      "boss": null
+    },
+    "210": {
+      "name": "参",
+      "originalSprite": "スフィンクス",
+      "family": 8,
+      "boss": null
+    },
+    "211": {
+      "name": "四",
+      "originalSprite": "トード",
+      "family": 11,
+      "boss": null
+    },
+    "212": {
+      "name": "伍",
+      "originalSprite": "ジャイアント",
+      "family": 6,
+      "boss": null
+    },
+    "213": {
+      "name": "陸",
+      "originalSprite": "タイタン",
+      "family": 6,
+      "boss": null
+    },
+    "214": {
+      "name": "古代竜",
+      "originalSprite": "ドラゴン",
+      "family": 9,
+      "boss": null
+    },
+    "216": {
+      "name": "特訓１",
+      "originalSprite": "アリゲーター",
+      "family": 11,
+      "boss": null
+    },
+    "217": {
+      "name": "特訓２",
+      "originalSprite": "インプ",
+      "family": 8,
+      "boss": null
+    },
+    "218": {
+      "name": "特訓３",
+      "originalSprite": "ウロボロス",
+      "family": 9,
+      "boss": null
+    },
+    "219": {
+      "name": "特訓４",
+      "originalSprite": "リザードマン",
+      "family": 11,
+      "boss": null
+    },
+    "221": {
+      "name": "無玄武",
+      "originalSprite": "玄武",
+      "family": 6,
+      "boss": null
+    },
+    "223": {
+      "name": "最強竜",
+      "originalSprite": "ドラゴン",
+      "family": 9,
+      "boss": 0
+    },
+    "225": {
+      "name": "最強竜",
+      "originalSprite": "ドラゴン",
+      "family": 9,
+      "boss": 0
+    },
+    "226": {
+      "name": "竜",
+      "originalSprite": "ワイバーン",
+      "family": 9,
+      "boss": null
+    },
+    "227": {
+      "name": "弱っている竜",
+      "originalSprite": "ドラゴン",
+      "family": 9,
+      "boss": 0
+    },
+    "230": {
+      "name": "ザレヘホマ",
+      "originalSprite": "ザレヘホマ",
+      "family": 6,
+      "boss": null
+    },
+    "231": {
+      "name": "ミノタウルス",
+      "originalSprite": "ミノタウロス",
+      "family": 2,
+      "boss": null
+    },
+    "232": {
+      "name": "ザレヘホマ",
+      "originalSprite": "ザレヘホマ",
+      "family": 6,
+      "boss": null
+    },
+    "233": {
+      "name": "ドアガードシステム",
+      "originalSprite": "ドア防御マン",
+      "family": 7,
+      "boss": null
+    },
+    "235": {
+      "name": "ミノタウルス",
+      "originalSprite": "ミノタウロス",
+      "family": 2,
+      "boss": null
+    },
+    "236": {
+      "name": "ザレヘホマ",
+      "originalSprite": "ザレヘホマ",
+      "family": 6,
+      "boss": null
+    },
+    "237": {
+      "name": "バグダス",
+      "originalSprite": "サタナエル",
+      "family": 7,
+      "boss": 1
+    },
+    "238": {
+      "name": "ブレイダーナイト",
+      "originalSprite": "ダークナイト",
+      "family": 7,
+      "boss": null
+    },
+    "239": {
+      "name": "ゴーザレス",
+      "originalSprite": "カッパ",
+      "family": 11,
+      "boss": null
+    },
+    "241": {
+      "name": "火山男",
+      "originalSprite": "バーサーカー",
+      "family": 7,
+      "boss": null
+    },
+    "243": {
+      "name": "天空竜",
+      "originalSprite": "龍",
+      "family": 9,
+      "boss": null
+    },
+    "244": {
+      "name": "海央竜",
+      "originalSprite": "ベヒーモス",
+      "family": 2,
+      "boss": null
+    },
+    "245": {
+      "name": "ゼクンドゥス",
+      "originalSprite": "オーディン",
+      "family": 7,
+      "boss": null
+    },
+    "246": {
+      "name": "川マ男",
+      "originalSprite": "川",
+      "family": 7,
+      "boss": null
+    },
+    "248": {
+      "name": "タイタン",
+      "originalSprite": "タイタン",
+      "family": 6,
+      "boss": null
+    },
+    "249": {
+      "name": "毒魔騎士龍",
+      "originalSprite": "ウロボロス",
+      "family": 9,
+      "boss": null
+    },
+    "250": {
+      "name": "殺竜数万龍",
+      "originalSprite": "ケツアルクアトル",
+      "family": 9,
+      "boss": null
+    },
+    "251": {
+      "name": "伝空士ドドゴン",
+      "originalSprite": "ティアマット",
+      "family": 9,
+      "boss": null
+    },
+    "252": {
+      "name": "冥王・速殺者・ﾛﾊﾞｸ王",
+      "originalSprite": "ﾛﾊﾞｸ王",
+      "family": 7,
+      "boss": null
+    },
+    "254": {
+      "name": "ゴルバス",
+      "originalSprite": "ゴルバス",
+      "family": 4,
+      "boss": null
+    },
+    "255": {
+      "name": "幻想人・アルベルト",
+      "originalSprite": "ヴァンパイア",
+      "family": 7,
+      "boss": null
+    },
+    "256": {
+      "name": "スラ",
+      "originalSprite": "スライム",
+      "family": 0,
+      "boss": null
+    },
+    "258": {
+      "name": "メフォルト",
+      "originalSprite": "邪悪なる神・メフォルト",
+      "family": 7,
+      "boss": 2
+    },
+    "259": {
+      "name": "メフォルト改",
+      "originalSprite": "邪悪なる神・メフォルト改",
+      "family": 7,
+      "boss": 2
+    },
+    "260": {
+      "name": "真メフォルト改",
+      "originalSprite": "邪悪なる神・真メフォルト改",
+      "family": 7,
+      "boss": 2
+    },
+    "262": {
+      "name": "ｼﾞｬｲｱﾝ･ﾜﾗｹﾙｺﾝｸﾞ",
+      "originalSprite": "ジャイアント",
+      "family": 6,
+      "boss": null
+    },
+    "263": {
+      "name": "ミスティル",
+      "originalSprite": "ダークエルフ",
+      "family": 7,
+      "boss": null
+    },
+    "264": {
+      "name": "ﾊﾞｸﾁｸ",
+      "originalSprite": "ホーネット",
+      "family": 3,
+      "boss": null
+    },
+    "265": {
+      "name": "空飛ぶ変体",
+      "originalSprite": "トロール",
+      "family": 6,
+      "boss": null
+    },
+    "267": {
+      "name": "ダークデュザンカス",
+      "originalSprite": "ベヒーモス",
+      "family": 2,
+      "boss": null
+    },
+    "268": {
+      "name": "レイニー",
+      "originalSprite": "トード",
+      "family": 11,
+      "boss": null
+    },
+    "270": {
+      "name": "マリオ",
+      "originalSprite": "マリオ",
+      "family": 7,
+      "boss": null
+    },
+    "271": {
+      "name": "ＺＡＴＵ",
+      "originalSprite": "ＺＡＴＵ",
+      "family": 7,
+      "boss": null
+    },
+    "272": {
+      "name": "マリオ青",
+      "originalSprite": "マリオ",
+      "family": 7,
+      "boss": null
+    },
+    "273": {
+      "name": "マリオ黄",
+      "originalSprite": "マリオ",
+      "family": 7,
+      "boss": null
+    },
+    "274": {
+      "name": "マリオ緑",
+      "originalSprite": "マリオ",
+      "family": 7,
+      "boss": null
+    },
+    "275": {
+      "name": "ロバク・ロード",
+      "originalSprite": "ﾛﾊﾞｸ王",
+      "family": 7,
+      "boss": null
+    },
+    "277": {
+      "name": "真メフォルト改",
+      "originalSprite": "邪悪なる神・真メフォルト改2",
+      "family": 7,
+      "boss": 2
+    },
+    "279": {
+      "name": "アイボール",
+      "originalSprite": "面球",
+      "family": 10,
+      "boss": 3
+    },
+    "280": {
+      "name": "アーム",
+      "originalSprite": "腕上",
+      "family": 10,
+      "boss": 3
+    },
+    "281": {
+      "name": "ムーア",
+      "originalSprite": "腕上㊨",
+      "family": 10,
+      "boss": 3
+    },
+    "282": {
+      "name": "ハンド",
+      "originalSprite": "腕手",
+      "family": 10,
+      "boss": 3
+    },
+    "283": {
+      "name": "ドンハ",
+      "originalSprite": "腕手㊨",
+      "family": 10,
+      "boss": 3
+    },
+    "284": {
+      "name": "マウス",
+      "originalSprite": "口",
+      "family": 10,
+      "boss": 3
+    },
+    "285": {
+      "name": "メフォルト",
+      "originalSprite": "邪悪なる神・メフォルト改",
+      "family": 7,
+      "boss": 2
+    },
+    "286": {
+      "name": "剣下",
+      "originalSprite": "剣下",
+      "family": 7,
+      "boss": 3
+    },
+    "287": {
+      "name": "剣中",
+      "originalSprite": "剣中央",
+      "family": 7,
+      "boss": 3
+    },
+    "288": {
+      "name": "剣先",
+      "originalSprite": "剣先",
+      "family": 7,
+      "boss": 3
+    },
+    "290": {
+      "name": "馬",
+      "originalSprite": "馬",
+      "family": 2,
+      "boss": null
+    },
+    "291": {
+      "name": "オーガ",
+      "originalSprite": "オーガ",
+      "family": 6,
+      "boss": null
+    },
+    "292": {
+      "name": "九尾の狐",
+      "originalSprite": "九尾の狐",
+      "family": 2,
+      "boss": null
+    },
+    "293": {
+      "name": "ケルベロス",
+      "originalSprite": "ケルベロス",
+      "family": 2,
+      "boss": null
+    },
+    "294": {
+      "name": "ネクロマンサー",
+      "originalSprite": "ネクロマンサー",
+      "family": 4,
+      "boss": null
+    },
+    "295": {
+      "name": "サイクロプス",
+      "originalSprite": "サイクロプス",
+      "family": 6,
+      "boss": null
+    },
+    "296": {
+      "name": "アンデッドナイト",
+      "originalSprite": "アンデッドナイト",
+      "family": 4,
+      "boss": null
+    },
+    "297": {
+      "name": "アスラ",
+      "originalSprite": "アスラ",
+      "family": 0,
+      "boss": null
+    },
+    "298": {
+      "name": "イフリート",
+      "originalSprite": "イフリート",
+      "family": 9,
+      "boss": null
+    },
+    "299": {
+      "name": "オーディン",
+      "originalSprite": "オーディン",
+      "family": 7,
+      "boss": null
+    },
+    "300": {
+      "name": "ケツアルクアトル",
+      "originalSprite": "ケツアルクアトル",
+      "family": 9,
+      "boss": null
+    },
+    "301": {
+      "name": "ペガゾヌス",
+      "originalSprite": "ガルーダ",
+      "family": 1,
+      "boss": null
+    },
+    "302": {
+      "name": "鳳凰ドゥザング",
+      "originalSprite": "朱雀",
+      "family": 1,
+      "boss": null
+    },
+    "304": {
+      "name": "ヴォルト",
+      "originalSprite": "ヴォルト（召喚獣類）",
+      "family": 9,
+      "boss": null
+    },
+    "305": {
+      "name": "クロルケン",
+      "originalSprite": "クラーケン",
+      "family": 11,
+      "boss": null
+    },
+    "306": {
+      "name": "チャクラ",
+      "originalSprite": "チャクラ",
+      "family": 0,
+      "boss": null
+    },
+    "307": {
+      "name": "べび",
+      "originalSprite": "べび",
+      "family": 11,
+      "boss": null
+    },
+    "308": {
+      "name": "ドカン",
+      "originalSprite": "ドカン",
+      "family": 6,
+      "boss": null
+    },
+    "309": {
+      "name": "ダークモク",
+      "originalSprite": "ダークモク",
+      "family": 5,
+      "boss": null
+    },
+    "310": {
+      "name": "ホワイトモク",
+      "originalSprite": "ホワイトモク",
+      "family": 4,
+      "boss": null
+    },
+    "311": {
+      "name": "ラビ？",
+      "originalSprite": "ラビ？",
+      "family": 0,
+      "boss": null
+    },
+    "312": {
+      "name": "神獣",
+      "originalSprite": "神獣",
+      "family": 6,
+      "boss": null
+    },
+    "313": {
+      "name": "ダークリッチ",
+      "originalSprite": "ダークリッチ",
+      "family": 4,
+      "boss": null
+    },
+    "314": {
+      "name": "ダークリッチ2",
+      "originalSprite": "ダークリッチ",
+      "family": 4,
+      "boss": null
+    },
+    "315": {
+      "name": "ダークミラクルリッチ",
+      "originalSprite": "ダークリッチ",
+      "family": 4,
+      "boss": null
+    }
+  }
+}

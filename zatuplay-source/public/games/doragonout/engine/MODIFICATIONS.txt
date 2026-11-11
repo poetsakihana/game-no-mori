@@ -1,0 +1,16 @@
+EasyRPG Player web build 0.8.1.1
+Modified November 8, 2026 for DoragonOut Mobile Remake.
+
+index.js: in onPreRun, the initial FS.syncfs(true) now adds the mobile-save-preload run dependency, awaits Module.mobilePreload(FS), then removes the dependency. This lets the mobile save vault hydrate the mounted save directory before --load-game-id is executed. No WASM changes.
+
+Upstream corresponding source:
+source/Player-0.8.1.1.tar.gz
+source/liblcf-0.8.1.tar.gz
+Build instructions: Player resources/emscripten and upstream README.
+Upstream web distribution: https://easyrpg.org/downloads/player/0.8.1.1/easyrpg-player-0.8.1.1-js.tar.gz
+
+Version 2.4: index.js _emscripten_async_wget2 calls Module.mobileAssetURL(url), when supplied, before opening its image request. The application routes only explicit same-origin FaceSet/Monster images to the optional remake skin. No map, database, event, save or WASM changes. The unmodified path is used when the skin is disabled.
+
+Browser preparation: IDBFS database names are prefixed with ZatuPlay.DoragonOut: to isolate save/configuration storage from other same-origin games. Virtual filesystem paths and WASM remain unchanged.
+
+Browser save recovery (November 11, 2026): onPreRun now rejects the player readiness promise if mobile save preload fails, instead of leaving startup pending. The run dependency remains held, so an uninitialized save directory cannot start gameplay. No IndexedDB namespace, virtual path, game-data or WASM changes.

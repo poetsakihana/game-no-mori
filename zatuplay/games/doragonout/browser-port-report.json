@@ -1,0 +1,3578 @@
+{
+  "version": "2.5.2-web.1",
+  "source": "User-provided DoragonOut.apk v2.5.2 InstallFix",
+  "originalMaps": 741,
+  "mapsAndDatabaseUnchanged": true,
+  "coreFileCount": 747,
+  "browserChanges": [
+    {
+      "path": "games/disk1/Music/TRACK02.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/sad1.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/ちょなた.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/sad3.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/01-服部　聖司（DAPAMP）-CORAZON（ちぇいじの声）-Track01.mp3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/TRACK03.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/ファミコンワールドの曲.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/yoru.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/TRACK01.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/TRACK05.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/kinpaku.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/sad2.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/うんこ.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Music/TRACK04.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/TRACK02.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/sad1.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/チャクラの歌１.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/ちょなた.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/sad3.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/スペシャル１.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/チャクラの歌３.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/チャクラの歌７.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/チャクラの歌８.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/01-服部　聖司（DAPAMP）-CORAZON（ちぇいじの声）-Track01.mp3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/TRACK03.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/ファミコンワールドの曲.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/yoru.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/チャクラの歌５.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/チャクラの歌２.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/TRACK01.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/チャクラの歌４.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/TRACK05.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/スペシャル２.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/kinpaku.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/sad2.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/チャクラの歌.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/チャクラの歌９.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/うんこ.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/TRACK04.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk2/Music/チャクラの歌６.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/TRACK02.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/04-レミオロメン-HORIZON-蒼の世界.mp3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/sad1.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/チャクラの歌１.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/ちょなた.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/sad3.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/スペシャル１.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/チャクラの歌３.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/チャクラの歌７.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/チャクラの歌８.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/録音したサウンド.wav9.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/01-服部　聖司（DAPAMP）-CORAZON（ちぇいじの声）-Track01.mp3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/TRACK03.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/ファミコンワールドの曲.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/yoru.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/チャクラの歌５.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/チャクラの歌２.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/TRACK01.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/チャクラの歌４.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/TRACK05.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/12-レミオロメン-HORIZON-流星.mp3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/おもらし.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/スペシャル２.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/kinpaku.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/sad2.mid",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/チャクラの歌.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/11-レミオロメン-HORIZON-粉雪.mp3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/チャクラの歌９.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/うんこ.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/26-不明-服部聖司のドラゴンアウト-Track26.mp3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/TRACK04.MP3",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk3/Music/チャクラの歌６.ogg",
+      "change": "BGM omitted; runtime reference resolves to silence"
+    },
+    {
+      "path": "games/disk1/Backdrop/スーパーマリオ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Backdrop/草原.png"
+    },
+    {
+      "path": "games/disk1/FaceSet/テキキャラ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "FaceSet/主人公1.png"
+    },
+    {
+      "path": "games/disk1/FaceSet/モンスター.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "FaceSet/主人公2.png"
+    },
+    {
+      "path": "games/disk1/Monster/マリオ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/オーク.png"
+    },
+    {
+      "path": "games/disk1/Monster/ドカン.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/ゴーレム.png"
+    },
+    {
+      "path": "games/disk1/Monster/ラビ？.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/スライム.png"
+    },
+    {
+      "path": "games/disk1/Monster/ダークリッチ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/デーモン.png"
+    },
+    {
+      "path": "games/disk1/Monster/神獣.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/ドラゴン.png"
+    },
+    {
+      "path": "games/disk1/Monster/ヴォルト（召喚獣類）.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/スピリッツ.png"
+    },
+    {
+      "path": "games/disk1/Monster/ゴルバス.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/ダークナイト.png"
+    },
+    {
+      "path": "games/disk1/Monster/ザレヘホマ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/アンデッドナイト.png"
+    },
+    {
+      "path": "games/disk1/Panorama/osora.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Panorama/夕焼け1.png"
+    },
+    {
+      "path": "games/disk1/CharSet/ｓｂ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk1/CharSet/ｓｂ2.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk1/Picture/キャラ１.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Panorama/ファイナルしゃしん.png"
+    },
+    {
+      "path": "games/disk1/Picture/キャラ２.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Panorama/ファイナルしゃしん.png"
+    },
+    {
+      "path": "games/disk1/Picture/キャラ３.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Panorama/ファイナルしゃしん.png"
+    },
+    {
+      "path": "games/disk1/Picture/キャラ４.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Panorama/ファイナルしゃしん.png"
+    },
+    {
+      "path": "games/disk2/Backdrop/スーパーマリオ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Backdrop/草原.png"
+    },
+    {
+      "path": "games/disk2/FaceSet/テキキャラ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "FaceSet/主人公1.png"
+    },
+    {
+      "path": "games/disk2/FaceSet/モンスター.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "FaceSet/主人公2.png"
+    },
+    {
+      "path": "games/disk2/Monster/マリオ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/オーク.png"
+    },
+    {
+      "path": "games/disk2/Monster/ドカン.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/ゴーレム.png"
+    },
+    {
+      "path": "games/disk2/Monster/ラビ？.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/スライム.png"
+    },
+    {
+      "path": "games/disk2/Monster/ダークリッチ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/デーモン.png"
+    },
+    {
+      "path": "games/disk2/Monster/神獣.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/ドラゴン.png"
+    },
+    {
+      "path": "games/disk2/Monster/ヴォルト（召喚獣類）.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/スピリッツ.png"
+    },
+    {
+      "path": "games/disk2/Monster/ゴルバス.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/ダークナイト.png"
+    },
+    {
+      "path": "games/disk2/Monster/ザレヘホマ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/アンデッドナイト.png"
+    },
+    {
+      "path": "games/disk2/Panorama/osora.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Panorama/夕焼け1.png"
+    },
+    {
+      "path": "games/disk2/CharSet/ｓｂ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk2/CharSet/ｓｂ2.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk2/CharSet/ｓｂ3.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk2/CharSet/ｓｂ4.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk2/CharSet/ｓｂ9.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk3/Backdrop/スーパーマリオ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Backdrop/草原.png"
+    },
+    {
+      "path": "games/disk3/FaceSet/テキキャラ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "FaceSet/主人公1.png"
+    },
+    {
+      "path": "games/disk3/FaceSet/モンスター.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "FaceSet/主人公2.png"
+    },
+    {
+      "path": "games/disk3/ChipSet/ドカン.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "ChipSet/基本.png"
+    },
+    {
+      "path": "games/disk3/Monster/マリオ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/オーク.png"
+    },
+    {
+      "path": "games/disk3/Monster/ドカン.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/ゴーレム.png"
+    },
+    {
+      "path": "games/disk3/Monster/ラビ？.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/スライム.png"
+    },
+    {
+      "path": "games/disk3/Monster/ダークリッチ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/デーモン.png"
+    },
+    {
+      "path": "games/disk3/Monster/神獣.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/ドラゴン.png"
+    },
+    {
+      "path": "games/disk3/Monster/ヴォルト（召喚獣類）.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/スピリッツ.png"
+    },
+    {
+      "path": "games/disk3/Monster/ゴルバス.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/ダークナイト.png"
+    },
+    {
+      "path": "games/disk3/Monster/ザレヘホマ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Monster/アンデッドナイト.png"
+    },
+    {
+      "path": "games/disk3/Panorama/osora.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Panorama/夕焼け1.png"
+    },
+    {
+      "path": "games/disk3/CharSet/ｓｂ.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk3/CharSet/ｓｂ2.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk3/CharSet/ｓｂ3.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk3/CharSet/ｓｂ4.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk3/CharSet/ｓｂ9.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "CharSet/モンスター1.png"
+    },
+    {
+      "path": "games/disk3/Picture/キャラ１.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Panorama/ファイナルしゃしん.png"
+    },
+    {
+      "path": "games/disk3/Picture/キャラ２.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Panorama/ファイナルしゃしん.png"
+    },
+    {
+      "path": "games/disk3/Picture/キャラ３.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Panorama/ファイナルしゃしん.png"
+    },
+    {
+      "path": "games/disk3/Picture/キャラ４.png",
+      "change": "Image replaced for browser distribution",
+      "replacement": "Panorama/ファイナルしゃしん.png"
+    },
+    {
+      "path": "games/disk1/Sound/録音したサウンド.wav9.ogg",
+      "change": "Duplicate of omitted additional music replaced with silence"
+    }
+  ],
+  "coreFiles": [
+    {
+      "path": "games/disk1/Map0001.lmu",
+      "sha256": "e6f24c9e2e1e17a65c889971f14afca113769662ec35a4287e1bf60df116d2ae"
+    },
+    {
+      "path": "games/disk1/Map0002.lmu",
+      "sha256": "8789417a4cc3306de5354ca0584eecd1317cf9310a589aa686943ac359f6e79e"
+    },
+    {
+      "path": "games/disk1/Map0003.lmu",
+      "sha256": "9c5ee4ba12ea5a6e1748673cdba9354db5d4011486004be2861629e5c1300c74"
+    },
+    {
+      "path": "games/disk1/Map0004.lmu",
+      "sha256": "7f1498025bd0ad7074399642868785dab4f534d0f3aef4b1d23388075267196b"
+    },
+    {
+      "path": "games/disk1/Map0005.lmu",
+      "sha256": "58f9c9b5f8dbedd29cf2787a660ba5f1428ad1c32c26869e02483b6e82b10451"
+    },
+    {
+      "path": "games/disk1/Map0006.lmu",
+      "sha256": "9e63c191a33f072327257c2961b9b24f2ee0c03835e7676a4e252e3eb8a6e274"
+    },
+    {
+      "path": "games/disk1/Map0007.lmu",
+      "sha256": "4a3398bad19c67b0fcf050b0260973834e7bde6436102b58d5a7ddd8bead2e7d"
+    },
+    {
+      "path": "games/disk1/Map0008.lmu",
+      "sha256": "4878478434812fa6101798c6313d46d303c4309b78626b37d3be601fcb1f892e"
+    },
+    {
+      "path": "games/disk1/Map0009.lmu",
+      "sha256": "ac9148203dcf1f4360c47d883a00493c0c647ca3fa93836b8653d92f9f211154"
+    },
+    {
+      "path": "games/disk1/Map0010.lmu",
+      "sha256": "c568bc4e28990fa53eaf68d7c0ccdb95d25e97ce68c6e5d10259c3ab2a2de5fc"
+    },
+    {
+      "path": "games/disk1/Map0011.lmu",
+      "sha256": "6c3337266cba52a4b16207751d3e30e66930ecefa3a83442bd5998789803e654"
+    },
+    {
+      "path": "games/disk1/Map0012.lmu",
+      "sha256": "fb8900373620a80586141796cde864273efdff276e487683d10ca371120af509"
+    },
+    {
+      "path": "games/disk1/Map0013.lmu",
+      "sha256": "f19269fed41692962efdb85654d4f712bfe4c15e80049a20fe652e818ed20fe7"
+    },
+    {
+      "path": "games/disk1/Map0014.lmu",
+      "sha256": "276e08694df47715c67c0d424251a5c1cba71a3a0b4caaf4ab4c17b3f7667e93"
+    },
+    {
+      "path": "games/disk1/Map0015.lmu",
+      "sha256": "0bb09f95e16bf35f348feda7c18ce2a05659a0e3c4acfd448610bbef3bef50c5"
+    },
+    {
+      "path": "games/disk1/Map0016.lmu",
+      "sha256": "24cd752e708ec235415c4ec93d8ef9d0cc10c3be06c3ed6defef93ba8389cf83"
+    },
+    {
+      "path": "games/disk1/Map0017.lmu",
+      "sha256": "8afc2c550e16b21e57ab65499baf36e9379ab8c2725117b27ae743ad4d34e47f"
+    },
+    {
+      "path": "games/disk1/Map0018.lmu",
+      "sha256": "42ac7dd570de0385fff7d67bafffce4269a3485e1eaa3c2e4b98a220c9be1384"
+    },
+    {
+      "path": "games/disk1/Map0019.lmu",
+      "sha256": "cd1a4d1c486c69882b7c8bbdbc495c6ee76d03246cfe5fb8fed1575d4b2763d3"
+    },
+    {
+      "path": "games/disk1/Map0020.lmu",
+      "sha256": "63e74f9c38bae21f4e07f8d2c11ae7bff1b0097d4679e7e9e504b849edaf03f2"
+    },
+    {
+      "path": "games/disk1/Map0021.lmu",
+      "sha256": "cf9dd005efa04c8cb4316fc8aa43244e29305ea7c71b22c5001356db9b9eec98"
+    },
+    {
+      "path": "games/disk1/Map0022.lmu",
+      "sha256": "93d9fc61daa33c6358caedfb24c687ae3c0e66803a3ca939958f532e96ca9bf9"
+    },
+    {
+      "path": "games/disk1/Map0023.lmu",
+      "sha256": "af981c0339b862c7a82e023ffd8d8cd9dda616c0b6ab31f13b15894c7246189e"
+    },
+    {
+      "path": "games/disk1/Map0024.lmu",
+      "sha256": "bedd0ccaa745920f412ea34e278a2e94d3fe998a892c5889f406babd75f522ac"
+    },
+    {
+      "path": "games/disk1/Map0025.lmu",
+      "sha256": "b775c172f97d6438087875a1295a5af6d80d1607e9d4c63e93276b26e6911f65"
+    },
+    {
+      "path": "games/disk1/Map0026.lmu",
+      "sha256": "9c3ce88e33be001898c36cbcddd6e96510586566894fff6fd01f79cd268ab1ef"
+    },
+    {
+      "path": "games/disk1/Map0027.lmu",
+      "sha256": "c8f6be9e4d71324b8fba81530a18e8a3aed0369582420292613cb5fe42a0f63f"
+    },
+    {
+      "path": "games/disk1/Map0028.lmu",
+      "sha256": "4a188756a9998bf8d5a4430cde8da1e2dff4a765b2f374da6b60ca667879bfe8"
+    },
+    {
+      "path": "games/disk1/Map0030.lmu",
+      "sha256": "79d83502308e05c6e1ab804607d9e56c3df5d9b4ee9b7ab36fe9410a89c92117"
+    },
+    {
+      "path": "games/disk1/Map0031.lmu",
+      "sha256": "b940e6045d8310f6c7f661de93f4e8182c6851b49618682b0d7d750433a86dbb"
+    },
+    {
+      "path": "games/disk1/Map0032.lmu",
+      "sha256": "337c3a2897fb6ef6480fb6a36be1f1b2a943381d9ae2baacfcb09947c0f0729f"
+    },
+    {
+      "path": "games/disk1/Map0033.lmu",
+      "sha256": "ace4a2430409c656590986e6526e00dabafd37a9b02290c2ef2ad20c798b9b79"
+    },
+    {
+      "path": "games/disk1/Map0034.lmu",
+      "sha256": "d605136b859fbc56a55a30a1eed799a11020c33d94b06d884cd64ede80b412b6"
+    },
+    {
+      "path": "games/disk1/Map0035.lmu",
+      "sha256": "ee41391ee504eaf0639d29cce2e6f57a6c84f89267b17dce798c464c48187575"
+    },
+    {
+      "path": "games/disk1/Map0036.lmu",
+      "sha256": "d69bb47d706086ea03d0d99c4b38fed47bd948d11e006bbc70bc7d3c84e18318"
+    },
+    {
+      "path": "games/disk1/Map0037.lmu",
+      "sha256": "2fb0f7834520688aacd8ed5e0e8a165721b9438725049f845e067ebb3529af27"
+    },
+    {
+      "path": "games/disk1/Map0038.lmu",
+      "sha256": "2dadf6f2d35fe517f587cdbfb8362c54fa3d65ee0c0cc0ac15ac48ab24ceb329"
+    },
+    {
+      "path": "games/disk1/Map0039.lmu",
+      "sha256": "e3f0a5771e3d3de4943e6f382cc5a27df669384cf6cd4cf6c6792f11102cca1d"
+    },
+    {
+      "path": "games/disk1/Map0040.lmu",
+      "sha256": "c658c0b99636b9090256fb9719d1b8d1b7077866c0c14f62c355833061e19fdd"
+    },
+    {
+      "path": "games/disk1/Map0041.lmu",
+      "sha256": "e304d4ffdde4f32c367837d0e839e991821931df97471cc226e09fe7c070c156"
+    },
+    {
+      "path": "games/disk1/Map0042.lmu",
+      "sha256": "5367b86a7149abc761e4fba5834482389e0a6fc49a35d2714951b60fd7e59d0c"
+    },
+    {
+      "path": "games/disk1/Map0043.lmu",
+      "sha256": "b333ace2a9116a18d46319153ab28ae32f08cbf5d7a568788cc5a1903e6e99f5"
+    },
+    {
+      "path": "games/disk1/Map0044.lmu",
+      "sha256": "652011c1249e7cbea9783747dfc67208e2821afc9e6a25158d62f9332798e3d5"
+    },
+    {
+      "path": "games/disk1/Map0045.lmu",
+      "sha256": "7bb52e34b3fc35db8b7ad8570ab43ec3efdf2b30070b90beeade2a4b831b8a25"
+    },
+    {
+      "path": "games/disk1/Map0046.lmu",
+      "sha256": "5a42b82aff36a1317c66ba6730078eeb7c739bdd3bf459e98cbc939810c63f6d"
+    },
+    {
+      "path": "games/disk1/Map0047.lmu",
+      "sha256": "d3a4ec7bb0772330ab56a2edda448a3afa127fea7a288b6f3922d4867ce28ea5"
+    },
+    {
+      "path": "games/disk1/Map0048.lmu",
+      "sha256": "76fe60c2928289df642d9bc49c8478859afd94e57c00f721a76fad531e0a1758"
+    },
+    {
+      "path": "games/disk1/Map0049.lmu",
+      "sha256": "8de331aa4655bd18523b4f913d9f3a819a10a291171b2cc55747130feb68a8ca"
+    },
+    {
+      "path": "games/disk1/Map0050.lmu",
+      "sha256": "3013bca9e5d49560cd630841c797c811e6698e815d7e3e6956faa78d0ed2212c"
+    },
+    {
+      "path": "games/disk1/Map0051.lmu",
+      "sha256": "833bb2f0dccfaf7b531168bdb2920e7595bcdaeeb3d1ecd67d9238487238abfb"
+    },
+    {
+      "path": "games/disk1/Map0052.lmu",
+      "sha256": "c485f283867449604af9dfeaceaa7d9e7a8188df9ba8e76e61c061269d3ce4c4"
+    },
+    {
+      "path": "games/disk1/Map0053.lmu",
+      "sha256": "6f8655fc6e2f9ac62ce24bfe117fe4b94fe3e006dcbe296d4695f7e7e27dba82"
+    },
+    {
+      "path": "games/disk1/Map0054.lmu",
+      "sha256": "ce3f63bf660d89a5f3f69cbf8a11660dadf3b96a9172c2143cd112722ba6be8c"
+    },
+    {
+      "path": "games/disk1/Map0055.lmu",
+      "sha256": "b88b110bc4144fd0bad6bc38f747864e1a27443516aaea3e2cf71ee9d1d4938e"
+    },
+    {
+      "path": "games/disk1/Map0056.lmu",
+      "sha256": "79179818b0581b59290ab090e02016ce67e44b4249d2ba05b9e95178d077fded"
+    },
+    {
+      "path": "games/disk1/Map0057.lmu",
+      "sha256": "ce6220c448141b9533c6dbf6b3febbe839194670a99b80a56266c7aee3da74c7"
+    },
+    {
+      "path": "games/disk1/Map0058.lmu",
+      "sha256": "6e53f737d99a7b7bec9a0ac17be4360e2648b82c2582d08d2d5bf93d9eaa430c"
+    },
+    {
+      "path": "games/disk1/Map0059.lmu",
+      "sha256": "587ec184ba9e4d2a242ac5c1bab5813dd894aa2d77b3fe51e028d575e38724ca"
+    },
+    {
+      "path": "games/disk1/Map0060.lmu",
+      "sha256": "198f7c9e7e07cedab24beed3ea09bab6a2001dd2ceb7736638860ea05f7b7cce"
+    },
+    {
+      "path": "games/disk1/Map0061.lmu",
+      "sha256": "1a802c21b05d067c85d23c23ddc3c8e6bf39eb5bba8ba679d0e037dea4c6873a"
+    },
+    {
+      "path": "games/disk1/Map0062.lmu",
+      "sha256": "edf04e6347b228c99551caf7117931956f3ce6de9671bf1f507a2adfd1027911"
+    },
+    {
+      "path": "games/disk1/Map0063.lmu",
+      "sha256": "47f250bb7e9bc917af294115d0893e8b7141252f5ccf5a3a4027ff6022a1ae75"
+    },
+    {
+      "path": "games/disk1/Map0065.lmu",
+      "sha256": "d47dc2ac914a3004aa715ea6ea87a7cd2639197dfadcd7646647ec0cb1904fae"
+    },
+    {
+      "path": "games/disk1/Map0066.lmu",
+      "sha256": "5ddbf55888d45d66703b7c6310353f623f00f1eb6ae471a6ad93e639a708aeee"
+    },
+    {
+      "path": "games/disk1/Map0067.lmu",
+      "sha256": "dbc5520b41d63362768993a6df55fd7b911e47f463e26a1fffff24d96b25ee0b"
+    },
+    {
+      "path": "games/disk1/Map0068.lmu",
+      "sha256": "0d6fc063b957c8bd18552e8c5b80e9b3aa35876a1073d80743ee0eb1a0aac0e7"
+    },
+    {
+      "path": "games/disk1/Map0069.lmu",
+      "sha256": "961252e2b4981522f19370ff557434b941b97bf970b6473896d78b6778e30409"
+    },
+    {
+      "path": "games/disk1/Map0070.lmu",
+      "sha256": "263e81c5c3ee15a8f3b0876acd46d0a7db2ff2e2fabaad83ac062bb319b1b962"
+    },
+    {
+      "path": "games/disk1/Map0071.lmu",
+      "sha256": "106907517a004921fe33cc6e887676a3c47c778da296dfdb2c413540e6f49a86"
+    },
+    {
+      "path": "games/disk1/Map0072.lmu",
+      "sha256": "cf71b5bd87b511ff1d39f73544e5d9d9dd45ca247e4adb3e6bdc1419472f3a98"
+    },
+    {
+      "path": "games/disk1/Map0073.lmu",
+      "sha256": "0fb952a1dbb2779c73f298b3eb225b357e3b7d13900626a44d74588126b78615"
+    },
+    {
+      "path": "games/disk1/Map0074.lmu",
+      "sha256": "54a1dfda474d76b4571ecb4d8d4348764fc092c9628aa96ada2bd01fc5dc3d04"
+    },
+    {
+      "path": "games/disk1/Map0075.lmu",
+      "sha256": "3928b9c9c8b17ae3eb2d54e80646f6ca66c0079c4a0977e79f0d0eff290498e9"
+    },
+    {
+      "path": "games/disk1/Map0076.lmu",
+      "sha256": "adfce4c7210569f9cf9adf029e3581c1d2e5ec072e113d26ce86c49096198bd0"
+    },
+    {
+      "path": "games/disk1/Map0077.lmu",
+      "sha256": "4af8900d46a74f793034ceae48988e96159566100674bc28369c57710572897a"
+    },
+    {
+      "path": "games/disk1/Map0078.lmu",
+      "sha256": "ceea5e496a6c054bc23a3ff9b57b5d55f749de1a751c506485dfc6d86b734b67"
+    },
+    {
+      "path": "games/disk1/Map0079.lmu",
+      "sha256": "75266cf9206a46edc6136a07c968a900316408c668300f4ae292ef484b852c1c"
+    },
+    {
+      "path": "games/disk1/Map0080.lmu",
+      "sha256": "d513eb64802d5a9c0584c17985559eb639a84be9315defcade8316166073a7c1"
+    },
+    {
+      "path": "games/disk1/Map0081.lmu",
+      "sha256": "899d138f25a3344bec6cdf5f7a84b97ad5b3ab8b95d38c7cb8b669bc6fef75f7"
+    },
+    {
+      "path": "games/disk1/Map0082.lmu",
+      "sha256": "59ae635d0febec8c5aa249b8a9a4dafca25e0bc25141c70f0691946ab3526b5c"
+    },
+    {
+      "path": "games/disk1/Map0083.lmu",
+      "sha256": "5f5b4b6d67bf0b32bbf55ba08533ce4f09fb53fa49b00292f88e36d1475d9321"
+    },
+    {
+      "path": "games/disk1/Map0084.lmu",
+      "sha256": "afd0c4e46bc18a97fb082ec5609a2fa35aa844d20f6de4ded01dd37fd3b7390d"
+    },
+    {
+      "path": "games/disk1/Map0085.lmu",
+      "sha256": "6508bb7b0ae6e306de043e6ce739b975141fc29281746533568caff9244cbb76"
+    },
+    {
+      "path": "games/disk1/Map0086.lmu",
+      "sha256": "68da4028563178036819311b28d064bcaa279a3c6d55f3a770f5ee159024674d"
+    },
+    {
+      "path": "games/disk1/Map0087.lmu",
+      "sha256": "b9d742f502c567702f5d8625eecde293d434219518fa0827a1be8ba00f607464"
+    },
+    {
+      "path": "games/disk1/Map0088.lmu",
+      "sha256": "8d562058077c3369334e9307ec8cd22a606c0df78b3a97c078172a1738103dbe"
+    },
+    {
+      "path": "games/disk1/Map0089.lmu",
+      "sha256": "affb10e34870e26cdd0ecd4adc48e8328e607593046e21d74a8b79fad3afaea6"
+    },
+    {
+      "path": "games/disk1/Map0090.lmu",
+      "sha256": "ddc99eaf706ebfe3927a751ccd1266359382231789ca3062fd0fa115de2e458e"
+    },
+    {
+      "path": "games/disk1/Map0091.lmu",
+      "sha256": "e9fc409f82d4a1167255dd1ff358a0699d62c18d5799f79c9b9d556d6b009893"
+    },
+    {
+      "path": "games/disk1/Map0092.lmu",
+      "sha256": "3a4d016c92e565fa14402f4cfbb6eea30a375ce05a1706e26a46b1319312f330"
+    },
+    {
+      "path": "games/disk1/Map0093.lmu",
+      "sha256": "0471876d787d3db0e511be4c6ff2cc5e64bc17b90cc396c9842247c1875b4314"
+    },
+    {
+      "path": "games/disk1/Map0094.lmu",
+      "sha256": "9cf5415f03b7bb629ad26633d88114a1195f66da8d6724860e0e9ac064cb34f8"
+    },
+    {
+      "path": "games/disk1/Map0095.lmu",
+      "sha256": "a1e1deac6ac97ace2be95e36a1a87b79590bada58b063123540c70b2cc22095f"
+    },
+    {
+      "path": "games/disk1/Map0096.lmu",
+      "sha256": "e86ff8cddfb9763680ab917f16caf639cfe82a9fc69958795eb92761e5acf941"
+    },
+    {
+      "path": "games/disk1/Map0097.lmu",
+      "sha256": "dac00b3e413fae73930c08e897f75255d2a9dc8a526370241e989b021f9f9783"
+    },
+    {
+      "path": "games/disk1/Map0098.lmu",
+      "sha256": "166f98951f6dbbfe17d91fce261b6a8fa2d17988cd5be640513acecb29b7943d"
+    },
+    {
+      "path": "games/disk1/Map0099.lmu",
+      "sha256": "1c78752188a348588965ae47482efdf8c6ffd364d082af99c17392f4dfbd2e93"
+    },
+    {
+      "path": "games/disk1/Map0100.lmu",
+      "sha256": "2ad6066dbf1b068919ad8c5bb429a0b0a6ca857023fa9c143af799d173f34a92"
+    },
+    {
+      "path": "games/disk1/Map0101.lmu",
+      "sha256": "2d35c10da3fe8b7805190ce378005f0da844b0711205410ef6366e190ce21b95"
+    },
+    {
+      "path": "games/disk1/Map0102.lmu",
+      "sha256": "f5bc4cc23eb34d06eaebd842c2f9c2a876635bfefca31646bfb6228d9017c9be"
+    },
+    {
+      "path": "games/disk1/Map0103.lmu",
+      "sha256": "22c2214ee24e570364104cb6c61edbadc6c77d88a7084ae483795626740a6b8e"
+    },
+    {
+      "path": "games/disk1/Map0104.lmu",
+      "sha256": "bd2535d1ed1ad3d881712f453011b25c6c4c67f6593889724b11ed2995bc81dc"
+    },
+    {
+      "path": "games/disk1/Map0105.lmu",
+      "sha256": "864bd887c4711f79f088be31de998cff4589a71a13916e63e8e98762c24946a5"
+    },
+    {
+      "path": "games/disk1/Map0107.lmu",
+      "sha256": "3e48f41a79691b6af4643b7c67be5354cc7e70e2d3feeb946a46aef0c7bf291f"
+    },
+    {
+      "path": "games/disk1/Map0108.lmu",
+      "sha256": "bcf7525c23945ec5a0d4e6a8e4453fcebe9a6f309aaca69fd7a7651bb05e9ac3"
+    },
+    {
+      "path": "games/disk1/Map0109.lmu",
+      "sha256": "754a12c325ebd1920c6ced52edd5eb57218ef806d83e26c09992a5967fdfc314"
+    },
+    {
+      "path": "games/disk1/Map0110.lmu",
+      "sha256": "ec14e591d2713835eb64b29b3330d5975fa815b77c6d51b67eb4a04e1ef2617a"
+    },
+    {
+      "path": "games/disk1/Map0111.lmu",
+      "sha256": "ac6c557a669893f730ef0d9cc0b52b781a8fbdb90a6e46847852586b6c47a92f"
+    },
+    {
+      "path": "games/disk1/Map0112.lmu",
+      "sha256": "1b7b51e77072b35fdaa106c4698810cbb9418a2792cb5bc56f7d69ebe6ac07c5"
+    },
+    {
+      "path": "games/disk1/Map0113.lmu",
+      "sha256": "f26ff128197f192e3054d9d0b5db2a36a434228e82350b3854e53eb11736842b"
+    },
+    {
+      "path": "games/disk1/Map0114.lmu",
+      "sha256": "0a301da847c71fa49a65b28499ffecdda17deebe5ff189c808c1fd3c04da8dd3"
+    },
+    {
+      "path": "games/disk1/Map0115.lmu",
+      "sha256": "332c0cf8d89ffa8906005fbbc0e1b275899a49a52d15581cb0514e261a9af83a"
+    },
+    {
+      "path": "games/disk1/Map0116.lmu",
+      "sha256": "abfa40f57cdb7b9be2cd474d8263fbe4992c7863335cbbd3ef701768c43afb76"
+    },
+    {
+      "path": "games/disk1/Map0117.lmu",
+      "sha256": "b00623c2578a835ea843db0420a8eac3d7361cfde24bf842e984d8235b62e383"
+    },
+    {
+      "path": "games/disk1/Map0118.lmu",
+      "sha256": "2e08dfd61e3f607eb0c95eb9e13f9615e11ea0ced27b967bb202c4c508b7182f"
+    },
+    {
+      "path": "games/disk1/Map0119.lmu",
+      "sha256": "f03ae3b2ca4d77c13152baa827f71c4814caf1a45be5c46d82a7baf5f786d505"
+    },
+    {
+      "path": "games/disk1/Map0120.lmu",
+      "sha256": "1c6394da0ffd36bef8af4cdaf17618a28ad49269f3ea1d70e10ac8b9bfbbe4af"
+    },
+    {
+      "path": "games/disk1/Map0121.lmu",
+      "sha256": "57ec1f43f5f8ea8f2332edc6972e49269be5dea982d23e59b6f175a901a6cdd8"
+    },
+    {
+      "path": "games/disk1/Map0122.lmu",
+      "sha256": "28a4df019f0dccca7e7dac88a171dc3ee722adc5a43506fc1c01293baefe326a"
+    },
+    {
+      "path": "games/disk1/Map0123.lmu",
+      "sha256": "f22ca650aa4f74d5da20a531193dd2f1f3d0eee3e2a34a400b2840a4af49fe3c"
+    },
+    {
+      "path": "games/disk1/Map0124.lmu",
+      "sha256": "4ab9feb7382204002313810802ae99481719cb38234b70109a586ed21118a4fd"
+    },
+    {
+      "path": "games/disk1/Map0125.lmu",
+      "sha256": "9fe6200760912a4331bfb0b0ea78e412fb0927667d65db8b1ef5fd7561806976"
+    },
+    {
+      "path": "games/disk1/Map0126.lmu",
+      "sha256": "ffbfd1694c4439444cb665bf2d5c44613692c3d94c81254c99abbc81e78ae85b"
+    },
+    {
+      "path": "games/disk1/Map0127.lmu",
+      "sha256": "4d103d860786eec7bfef2a26b4fa335e63eb454d27df98ead9012def2d3f36c5"
+    },
+    {
+      "path": "games/disk1/Map0128.lmu",
+      "sha256": "9e54b14ead8b9a2899819ded85473d70b1d8ac57d6f479fb0c00dca44f614f61"
+    },
+    {
+      "path": "games/disk1/Map0129.lmu",
+      "sha256": "346aad1df79fc17ab07d084b45c2fa09f3cd8c4e23c7fae8fbc8eee986d036b4"
+    },
+    {
+      "path": "games/disk1/Map0130.lmu",
+      "sha256": "4b8452336a5cd59663316bb5fb7e381032304a1150c68645caa1e9aca78e0664"
+    },
+    {
+      "path": "games/disk1/Map0131.lmu",
+      "sha256": "641dfc4845245bd5441558c5b16973cceb92f5e04237576e38b05da0f1734c2e"
+    },
+    {
+      "path": "games/disk1/Map0132.lmu",
+      "sha256": "feb3bbb659613589e85bce4ce7de51d9fe5b1209e5d45ee66c2e825575f3f9cc"
+    },
+    {
+      "path": "games/disk1/Map0133.lmu",
+      "sha256": "d81419b7729ebe4e7e86441d52b79100700abb96c372850252674ca87a1ee4c7"
+    },
+    {
+      "path": "games/disk1/Map0134.lmu",
+      "sha256": "88fd81d29f75e97bb6bec6b5164ff2c133bc16f2f2ee05905e73179571425156"
+    },
+    {
+      "path": "games/disk1/Map0135.lmu",
+      "sha256": "0d97ab45a31d1425601eabb33ad6b8d74f326d222d6e7ed1a74a3d097c928b90"
+    },
+    {
+      "path": "games/disk1/Map0136.lmu",
+      "sha256": "3976d3be476da691ab50dd374bb16d2fc0ff9fb5a780fb5c007d5537f6b7d2de"
+    },
+    {
+      "path": "games/disk1/Map0137.lmu",
+      "sha256": "a36a702739ba1418ec4e1f56524bf48bc017e4a8f8f639f306b61efc8e847042"
+    },
+    {
+      "path": "games/disk1/Map0138.lmu",
+      "sha256": "96152932cf78d725d90ce3ef89755e1c33854ddde6167b374a50fb3c82363cb3"
+    },
+    {
+      "path": "games/disk1/Map0139.lmu",
+      "sha256": "ffa5195dcc23f78217c207fbccebcffceba74a7d7eac0e510ab04df0105e699d"
+    },
+    {
+      "path": "games/disk1/Map0140.lmu",
+      "sha256": "1a8b7e06c78a861144380f2016dea66b97a3ab93a797392902ff4eb392e5f2bd"
+    },
+    {
+      "path": "games/disk1/Map0141.lmu",
+      "sha256": "4b5a5da7f44c26e0ccb8980d6a5add99bed0cad95531412e93a2a35811c6bdcf"
+    },
+    {
+      "path": "games/disk1/Map0142.lmu",
+      "sha256": "2ac54b739503b9fc430981842edf3ad24450a8750f9e4a1779cc12b0665fef3c"
+    },
+    {
+      "path": "games/disk1/Map0143.lmu",
+      "sha256": "73d37f7e75feb0aefeb486112668faaa0b7ad1d0491f699cbc39feacd25efe2d"
+    },
+    {
+      "path": "games/disk1/Map0144.lmu",
+      "sha256": "d3f854b9fcf8033958ec160b1483a7610f592a5ea30b7e35dd3d5330445b2b3d"
+    },
+    {
+      "path": "games/disk1/Map0145.lmu",
+      "sha256": "cd9f655c7aea60c86d13cfc4990d5aac78270490c4e5ad4b9bfb634766ef2083"
+    },
+    {
+      "path": "games/disk1/Map0146.lmu",
+      "sha256": "d73ebddc2e451162c79d77809ba3dfbd2a9500fa2bbe36434609c2499576b541"
+    },
+    {
+      "path": "games/disk1/Map0147.lmu",
+      "sha256": "5b33bde757b1928c42d7ed9c3a363a136a83318d5a3426a5dc6d06d10812b470"
+    },
+    {
+      "path": "games/disk1/Map0148.lmu",
+      "sha256": "6744b8bc0ee1af06c4adc1414049ec164d2d29b8a058b2f5f5e21be71896fd92"
+    },
+    {
+      "path": "games/disk1/Map0149.lmu",
+      "sha256": "aa2b47442f6b44975881a8cd78505af2d7ff4f97ddc0c322fed3c268010d8244"
+    },
+    {
+      "path": "games/disk1/Map0150.lmu",
+      "sha256": "36a4984d266416c41a942dee41d417914a753fb18a7fbf4f6432f139de37b724"
+    },
+    {
+      "path": "games/disk1/Map0151.lmu",
+      "sha256": "814d515abc662985bd20e62f235985624205c82564311c87fc3b5dc7e48c5b59"
+    },
+    {
+      "path": "games/disk1/Map0152.lmu",
+      "sha256": "98d14df8382101a7350156cb85ffb739059a91f78f10bab4866ec93fd92ea2f9"
+    },
+    {
+      "path": "games/disk1/Map0153.lmu",
+      "sha256": "b3905a43b3b350bad12048bc0c8744447a70a65e79df2a54fcab7dc4327e2948"
+    },
+    {
+      "path": "games/disk1/Map0154.lmu",
+      "sha256": "cebd9a554ec95aad4af144665f39d155ba7ebbbacc75ddf3e7fabb12c845fa10"
+    },
+    {
+      "path": "games/disk1/Map0155.lmu",
+      "sha256": "0ab60f6a886123a2837f72774d67cea32809c92a33fe773b0088bd59be357329"
+    },
+    {
+      "path": "games/disk1/Map0156.lmu",
+      "sha256": "0d3e8af5590fb6db94833c70e5cf9adeaef86064fe52562a45fd25663f219e9a"
+    },
+    {
+      "path": "games/disk1/Map0157.lmu",
+      "sha256": "f70f2e3f32e853c0196f5fe43262cd33084931e3bcb92eb796ec62554dc2eada"
+    },
+    {
+      "path": "games/disk1/Map0158.lmu",
+      "sha256": "c700a2af26dad64b6fef548dc81a02d510f766c15abec3ff361eb5725dd438e2"
+    },
+    {
+      "path": "games/disk1/Map0159.lmu",
+      "sha256": "9e3be60421676c314820d9e69743afdc76d9d0d40380796f18815770d5a181c7"
+    },
+    {
+      "path": "games/disk1/Map0160.lmu",
+      "sha256": "473a649591ecec7b5a46162cee98a1ea02c509d5d2b97a4a6a2ee82fe5dc4fbe"
+    },
+    {
+      "path": "games/disk1/Map0161.lmu",
+      "sha256": "06be988fa656a58fe6e15d779829c7634afc6ec2c6039b7ea8caf8cc2f965ed8"
+    },
+    {
+      "path": "games/disk1/Map0162.lmu",
+      "sha256": "682dcc566f4f2625e10edbd6bfe04c6e4e452119019a5748439ba8659da5319d"
+    },
+    {
+      "path": "games/disk1/Map0163.lmu",
+      "sha256": "0fd3fc8beddb8b494e7b02a111d5b805f65112e07aec4eb82135ff823d7b1d6f"
+    },
+    {
+      "path": "games/disk1/Map0164.lmu",
+      "sha256": "8f8685d5c19d9daeddf2f06e2e9164dda4dcdefd7089a8469c60185a031df4a9"
+    },
+    {
+      "path": "games/disk1/Map0165.lmu",
+      "sha256": "c6751add9c45f2415986ede75450a9a4e98fd023cd912feac4c3a73733cf5a41"
+    },
+    {
+      "path": "games/disk1/Map0166.lmu",
+      "sha256": "cb619185f37f6c678d77eb2ec4d167d4c2bd9acd1efb55e3bae2b853f990ce0f"
+    },
+    {
+      "path": "games/disk1/Map0167.lmu",
+      "sha256": "0b977478c1a09e7b9ea592e3336833d6f894411edc829b6de1985810cc42af50"
+    },
+    {
+      "path": "games/disk1/Map0168.lmu",
+      "sha256": "c527cb1b0a4d46811c8f65ab2045444aa39d4056b560382cc3b5d82e380ffd7d"
+    },
+    {
+      "path": "games/disk1/Map0169.lmu",
+      "sha256": "13579551c3ee7429dabd42a81d12ed8b45c1df0766529e2b27cb8e2c6213b2ba"
+    },
+    {
+      "path": "games/disk1/Map0170.lmu",
+      "sha256": "6f25be5ec12ce37e13b42ad088b7999adf6b2b66a534339bbcb2e529c5972d9e"
+    },
+    {
+      "path": "games/disk1/Map0172.lmu",
+      "sha256": "16c8c5a4ab233a7b44d10ad70eb93cfee49633d59b998b6d9584dfa50b599be7"
+    },
+    {
+      "path": "games/disk1/Map0173.lmu",
+      "sha256": "dd87d52db60a1ddade5268fa53fa7422ddbed23f3823fdd5515cb4229fbca1a9"
+    },
+    {
+      "path": "games/disk1/Map0174.lmu",
+      "sha256": "0ad6f4b97ee29e5103c6412e8b24b1407ea33d06ad4b5b6e618f47b182411e7c"
+    },
+    {
+      "path": "games/disk1/Map0175.lmu",
+      "sha256": "f0b9f44c37c75513cf4862cb07dc7364c6a735a12d3807a2fc73d88c6d573f6c"
+    },
+    {
+      "path": "games/disk1/Map0176.lmu",
+      "sha256": "fe370a410c7bf2f2643732c0fefc074ad4107d1c86b8290aeed88a62fd3a7702"
+    },
+    {
+      "path": "games/disk1/Map0180.lmu",
+      "sha256": "db2e1a8235a6c0752b231d8434c1718836f7b9691bc1b2c735427e37a6b130da"
+    },
+    {
+      "path": "games/disk1/Map0185.lmu",
+      "sha256": "38f88d0cf36a4fb7c059e4e8b608642f10b29e3fe65d95f6170b9f6395c0a1f8"
+    },
+    {
+      "path": "games/disk1/Map0215.lmu",
+      "sha256": "1e21d7ae3218f3670623ad42fe553f9fd2193ae5dc5524a5586fa22e12e20bb0"
+    },
+    {
+      "path": "games/disk1/Map0216.lmu",
+      "sha256": "2ba5fadbd22db642f39a9f488ae42203c79b643dafbdc21aec37115f56cbe225"
+    },
+    {
+      "path": "games/disk1/Map0217.lmu",
+      "sha256": "ef128fc421f9d725947095f5c59196839f0b837371dbf2eb087c0372941968fe"
+    },
+    {
+      "path": "games/disk1/Map0218.lmu",
+      "sha256": "40bacf3739508826d5babba35d3af8a209bc147efc12a3fcfd28d4f08530d6e2"
+    },
+    {
+      "path": "games/disk1/Map0219.lmu",
+      "sha256": "9bcad8141fa82817f5ba33d286b4e5077af9c7f9a90db7d393c8a9b76f4ef207"
+    },
+    {
+      "path": "games/disk1/Map0220.lmu",
+      "sha256": "88616963d254eb62cad2dac045186243f35de1f92c85a55a28fe74d92a08fcec"
+    },
+    {
+      "path": "games/disk1/Map0221.lmu",
+      "sha256": "97cf31cd80c855cf0c8e9d031ff4f5a47ccf66f8e8b5912726929bb729b5f5e1"
+    },
+    {
+      "path": "games/disk1/Map0222.lmu",
+      "sha256": "8e29b35670247d8b9283b54ebb18e02d037e41366b3bf715d29b4e87f281849d"
+    },
+    {
+      "path": "games/disk1/Map0226.lmu",
+      "sha256": "5def87f4e2ca2d225fe29c0816cdc9c6a3b2084c871ad2e285079ee593d55ea9"
+    },
+    {
+      "path": "games/disk1/Map0227.lmu",
+      "sha256": "09c00bfd87e48c7d20588daa351ce0c7f89b1025cad1e80bbb44ba9275935e7b"
+    },
+    {
+      "path": "games/disk1/Map0228.lmu",
+      "sha256": "3f8329afa3a893e36f8dc3e327dd5967f4a442da20841d570c513d8b60b6c2f0"
+    },
+    {
+      "path": "games/disk1/Map0229.lmu",
+      "sha256": "cc0e8aa89b7b6a75fe164d1fbe0d1b74dadd09ab08a04ddae959ab11a23d054c"
+    },
+    {
+      "path": "games/disk1/Map0230.lmu",
+      "sha256": "af954a75b86ae63b2d0cbf593ad766f7a2324c109841f68c240b70a3fe036c60"
+    },
+    {
+      "path": "games/disk1/Map0339.lmu",
+      "sha256": "f72972bf8dcd5ddf5ac42b472ba448fb2aff6d706ecb5c43ace98a60f6107b38"
+    },
+    {
+      "path": "games/disk1/Map0340.lmu",
+      "sha256": "72b663110fb148890c75f9bf609dffb012fc8c8dead8d616a551e3b742888aa0"
+    },
+    {
+      "path": "games/disk1/Map0341.lmu",
+      "sha256": "2beb988b028ea56208e800b14d191f7c749f3c31722e8cbb1b7fd541f938134e"
+    },
+    {
+      "path": "games/disk1/Map0370.lmu",
+      "sha256": "a579092abde5acc0999ebf7882acff9b506788cf9f7aa185eeed43fde14f0105"
+    },
+    {
+      "path": "games/disk1/Map0372.lmu",
+      "sha256": "a75c91100882d1967ec6957720908b04728b6a8d5212df42663ae0c7aefb613b"
+    },
+    {
+      "path": "games/disk1/RPG_RT.ldb",
+      "sha256": "883383bba1d75d0038d00063e0388a63ba5bbb40d5aa4ab433486225ba1a54f2"
+    },
+    {
+      "path": "games/disk1/RPG_RT.lmt",
+      "sha256": "643eeb7f721fb8ba44bd160bd25c40ae8f1758f96d972cc2de59dcf2993e22c1"
+    },
+    {
+      "path": "games/disk2/Map0001.lmu",
+      "sha256": "f64105c1831008f68bddd78b21752f550c657be460cff83a271f6ca6e1ecdfec"
+    },
+    {
+      "path": "games/disk2/Map0002.lmu",
+      "sha256": "b6eb9a30c1750427534af2f93b137178593d53a1fadbb801807925f30282707e"
+    },
+    {
+      "path": "games/disk2/Map0003.lmu",
+      "sha256": "c625d2641ed442a1a58379059f77cc43b5345f043ee0894a905ce695a161d0e1"
+    },
+    {
+      "path": "games/disk2/Map0004.lmu",
+      "sha256": "32569cefcada70b4f6aed0c7d8abf4992a349f4c204db2d0510c711cb6281b56"
+    },
+    {
+      "path": "games/disk2/Map0005.lmu",
+      "sha256": "5a3a1cd1b9cabbde7f1787af0362f26121363b0ea81cad6d3ce995a8721ea375"
+    },
+    {
+      "path": "games/disk2/Map0006.lmu",
+      "sha256": "51fc5025de67bf6e2d9a6af57433d70a35060d8ba4943f56c6ad4cfe1f62d040"
+    },
+    {
+      "path": "games/disk2/Map0007.lmu",
+      "sha256": "a8fd82b16e879e74638d49a959ce85de6482f6be49b41b87921397e7eb4cbbe1"
+    },
+    {
+      "path": "games/disk2/Map0008.lmu",
+      "sha256": "51a79512b3ec84ff2e41c24211dca9debd769b880279f954296347f544952a2c"
+    },
+    {
+      "path": "games/disk2/Map0009.lmu",
+      "sha256": "16d80567a7444413eebe4f511e2ef4fcaf24f1710c7c6e5f42b6a09fea0bfce2"
+    },
+    {
+      "path": "games/disk2/Map0010.lmu",
+      "sha256": "b963d8f5f120a25c99de8ccb3c696c3dd649fe0f4a61047cbdbb5a03284ca2b1"
+    },
+    {
+      "path": "games/disk2/Map0011.lmu",
+      "sha256": "c2ea6771a476fed9d565f2f4b18e8455740f9899a3458ce5cffb3445aac26ec6"
+    },
+    {
+      "path": "games/disk2/Map0012.lmu",
+      "sha256": "fb2409dc61a6cbcc67ddad270d3e705bb8f637e50b35103ba7931284459c0ea9"
+    },
+    {
+      "path": "games/disk2/Map0013.lmu",
+      "sha256": "fc8a985bd4b57eedeeaaef47b015809e0b1638812e6478716b44fc7e780bb186"
+    },
+    {
+      "path": "games/disk2/Map0014.lmu",
+      "sha256": "e7c8a9ecf2dd0086d852f0289610fa2d383f6cec7748381678fffec1460a9599"
+    },
+    {
+      "path": "games/disk2/Map0015.lmu",
+      "sha256": "9fd2093c96be324c542905160d5621bbb6537043c2522c87b306e0c9c1b91c62"
+    },
+    {
+      "path": "games/disk2/Map0016.lmu",
+      "sha256": "e0f4f054b2fe6a62b1bfd6142bb1a2a725c9380acb0ef1565a43c88160c71dca"
+    },
+    {
+      "path": "games/disk2/Map0017.lmu",
+      "sha256": "d13b225391558a9222844b12be6749c0db5abeba76a42d3d87b09e0c83d64ed1"
+    },
+    {
+      "path": "games/disk2/Map0018.lmu",
+      "sha256": "3c15fee7650d3dde8b29cf87534af570b08dbfd5aedfaa072fa4cf2e1a6f69f5"
+    },
+    {
+      "path": "games/disk2/Map0019.lmu",
+      "sha256": "9363729bdfef3ed16ca3e778485f346b485926e3bf92ba9060bc31ac722c5ae7"
+    },
+    {
+      "path": "games/disk2/Map0020.lmu",
+      "sha256": "edceedde8955f826ded6c5223b0fd0e084c857ac3cbf01956d1f46fa26fd2753"
+    },
+    {
+      "path": "games/disk2/Map0021.lmu",
+      "sha256": "e2f3c1f66e08bdee617c36afc65b4518cad5f585d9b58f4dce93aae538380a22"
+    },
+    {
+      "path": "games/disk2/Map0022.lmu",
+      "sha256": "842d21f7efac0e3ee84352248bbadadce3e835b7dc336b3e0252317c984cd804"
+    },
+    {
+      "path": "games/disk2/Map0023.lmu",
+      "sha256": "cd72b8656841abed9457e3a278f4a8e2df927a4cbf163b680aed9195984e5da7"
+    },
+    {
+      "path": "games/disk2/Map0024.lmu",
+      "sha256": "13efa78429ebc5f2422626434fbb0a7bd59121cdd0aa8791d5ace35904ed9b39"
+    },
+    {
+      "path": "games/disk2/Map0025.lmu",
+      "sha256": "6b1e730e4d1679a770b3a10c8671c4d988e431833330aec38281d89f9dd09711"
+    },
+    {
+      "path": "games/disk2/Map0026.lmu",
+      "sha256": "21ded5f6ed879beb75cfc06932ced7298a98c2d81dec02cca61d799c5d06efd7"
+    },
+    {
+      "path": "games/disk2/Map0027.lmu",
+      "sha256": "40179424f17715b0139a8d5cba41481a42da902f67877bdbbecd35be4cff197b"
+    },
+    {
+      "path": "games/disk2/Map0028.lmu",
+      "sha256": "1bd4c483898e5a1d3ebedb3a3f85abf85b022eeedd38883e8a7e85f2ea8ce6b1"
+    },
+    {
+      "path": "games/disk2/Map0030.lmu",
+      "sha256": "20c59c2b9f8fbecf6ecc7620344f139ae71e4e1aabf584ceac45080d71bbcdcc"
+    },
+    {
+      "path": "games/disk2/Map0031.lmu",
+      "sha256": "695150f918b240ddbbb03c9da84110164e70192f587f824c3811183f478fac92"
+    },
+    {
+      "path": "games/disk2/Map0032.lmu",
+      "sha256": "f1998d2433056bed6c94960340a9ab5aecf02ea68429ef1f85afe8a5db3da1e5"
+    },
+    {
+      "path": "games/disk2/Map0033.lmu",
+      "sha256": "b1707cce2f06f4c8293afa4729479a3970e5d66eda1047c2ea3c84ef6f28c2ec"
+    },
+    {
+      "path": "games/disk2/Map0034.lmu",
+      "sha256": "fcaf9d0318f4712feb261ab19898375f726d5afa2d8dd76f30ef571939091cdf"
+    },
+    {
+      "path": "games/disk2/Map0035.lmu",
+      "sha256": "0acf6ebdeb2a4d1d190dc459ffa0056cebcbf2715c4ad4119b0ba4c7919e4f12"
+    },
+    {
+      "path": "games/disk2/Map0036.lmu",
+      "sha256": "4632b8603eb13ddf75aa708a98bd235b6712374db89243ef173d40d25d3810b6"
+    },
+    {
+      "path": "games/disk2/Map0037.lmu",
+      "sha256": "704bd70f1fab2b567f3a6e56b5af2a2e6fd2d32888e5c96836b7f3c9c962c6e7"
+    },
+    {
+      "path": "games/disk2/Map0038.lmu",
+      "sha256": "661cd38045ad7b13ce03b4248b0f013c1ed4d7b25478f0345c49490845e8779f"
+    },
+    {
+      "path": "games/disk2/Map0039.lmu",
+      "sha256": "97590d501b03fc49765f1a7d5a71c91c13a4491f07b840d3d1515fa3f24c77ac"
+    },
+    {
+      "path": "games/disk2/Map0040.lmu",
+      "sha256": "641adc31d47b25db09bc2eee9cf14eb6622c4bdd609766340ef7c01f62ffc0aa"
+    },
+    {
+      "path": "games/disk2/Map0041.lmu",
+      "sha256": "1161c37828c5dd6860621ea6bdbd032974ac742d11f1f21a62a08b7eb3ef91ca"
+    },
+    {
+      "path": "games/disk2/Map0042.lmu",
+      "sha256": "03de8c30afc938126fc9dc53d74203904f9b4738e84301128b8a5aba688afaa4"
+    },
+    {
+      "path": "games/disk2/Map0043.lmu",
+      "sha256": "c40e7fb6efa1a4f9d6c3f3afb665bca73ad48d4b341b9db7e36a8685cf1296b3"
+    },
+    {
+      "path": "games/disk2/Map0044.lmu",
+      "sha256": "d44f6d96874a9c9308c63a1ac6fe00196297bb98a1e2016bbb2180475658cb5d"
+    },
+    {
+      "path": "games/disk2/Map0045.lmu",
+      "sha256": "662b15204d54629501929d85d16ac444981870db25f7d979806ab0adb525859a"
+    },
+    {
+      "path": "games/disk2/Map0046.lmu",
+      "sha256": "dc9d15780b09a0a9b34fe213d3e930c83e54be9affd5748206d25ab7a147388d"
+    },
+    {
+      "path": "games/disk2/Map0047.lmu",
+      "sha256": "b94b3e7ac576daf0a87fed85c5a5e5b54cd4d2640893a726459f568e0b487f4b"
+    },
+    {
+      "path": "games/disk2/Map0048.lmu",
+      "sha256": "3a59a35eb2f9a4cc5fa5dd732394d11d3be1080932ded6b3a2051120fde359da"
+    },
+    {
+      "path": "games/disk2/Map0049.lmu",
+      "sha256": "5383dda11797c5ee416262ad2d54f36a4e947fbe87229371181d04cb66fef072"
+    },
+    {
+      "path": "games/disk2/Map0050.lmu",
+      "sha256": "2b289b8178a67448f2b965f6231df1b9882beec04153dbe1a7da1bb1dcce02c9"
+    },
+    {
+      "path": "games/disk2/Map0051.lmu",
+      "sha256": "381ba069436bb43c7d69b7dfd2a0f3daaf1f4a4ca23921643cc30fd0b9779d59"
+    },
+    {
+      "path": "games/disk2/Map0052.lmu",
+      "sha256": "e268b9e126f478b07e4e9a17b568127a5f9c0e140f650063544bfda6d72c541d"
+    },
+    {
+      "path": "games/disk2/Map0053.lmu",
+      "sha256": "d5261de6bf71950534923c9c11ad135399641f65e094f44114d55a057789cc23"
+    },
+    {
+      "path": "games/disk2/Map0055.lmu",
+      "sha256": "0e938df877ba0ef7312e8b4f10a97698391a205252af933d80503dd533eb7915"
+    },
+    {
+      "path": "games/disk2/Map0056.lmu",
+      "sha256": "9d4ea48864a430c720a4031ef5dbc63c243c35a21d3b55ad56c694c0805d2669"
+    },
+    {
+      "path": "games/disk2/Map0057.lmu",
+      "sha256": "7d4d4c20ddd111d7283217f5493341bf3eca3fd9e7bc2578ecebfe6766f1129d"
+    },
+    {
+      "path": "games/disk2/Map0058.lmu",
+      "sha256": "9605709293fb8ef44608522f1e51e3fe8cfa709e5b0d090c1454345fa19a696c"
+    },
+    {
+      "path": "games/disk2/Map0060.lmu",
+      "sha256": "d8004c680eec0ecb71e32a86ef56e1094541cd7acbe1047a964cf6a77ee6b5b5"
+    },
+    {
+      "path": "games/disk2/Map0061.lmu",
+      "sha256": "99381c3ec4f84c52ebc191f4aae80248a41a2eac8a72fa8a83d0569279068abe"
+    },
+    {
+      "path": "games/disk2/Map0062.lmu",
+      "sha256": "e4c1ab854fbe331662fdca4a8303b5efd509d4b83514f0f755878da808414f86"
+    },
+    {
+      "path": "games/disk2/Map0063.lmu",
+      "sha256": "b265e0b7cda0941ec17fd1a9019c5bd50bc3dd91671374b788413b8adbfef5e7"
+    },
+    {
+      "path": "games/disk2/Map0065.lmu",
+      "sha256": "048015cc6488c62c68f41206d29d467984255fecf7ee37abd9ca876ef6f92243"
+    },
+    {
+      "path": "games/disk2/Map0066.lmu",
+      "sha256": "2a70d80aa8810e42cf1068fd1ebcf0cde0e70533fc308834b2a716be6258abdb"
+    },
+    {
+      "path": "games/disk2/Map0067.lmu",
+      "sha256": "e4a092092d3e988e0ba1512c0de4519ab10d5fa22d1f95f7be8f836109ab2b2a"
+    },
+    {
+      "path": "games/disk2/Map0068.lmu",
+      "sha256": "3a395114959449f705bc8d00c07c8ac15e3257e973e618c12e776e7aa59e1808"
+    },
+    {
+      "path": "games/disk2/Map0071.lmu",
+      "sha256": "74d28b6184309bcca44f857a2ff3caa2a754bf377dafa9d37ecf25a1aeeb9849"
+    },
+    {
+      "path": "games/disk2/Map0072.lmu",
+      "sha256": "4f5312dfe24c6b2c7907e0dc9d3c734286f2720e9ec54b562c00095b07fd88b6"
+    },
+    {
+      "path": "games/disk2/Map0073.lmu",
+      "sha256": "4498e0ca5b690ffd2eb5938f7c323c5e7de8560c60418e47c6b1fc6e3f7e5b34"
+    },
+    {
+      "path": "games/disk2/Map0074.lmu",
+      "sha256": "2a2fd0525250055ab8c86642c989a716fe99f94fc8aa2ab8754d726b9d175f1b"
+    },
+    {
+      "path": "games/disk2/Map0075.lmu",
+      "sha256": "6d04ab817c7fc53775b9e7fe474119faccce658e261b00a8f78b11c447d6e9a1"
+    },
+    {
+      "path": "games/disk2/Map0076.lmu",
+      "sha256": "033916336198da9fe02ed7362149ded2f125c5199058f65654bbb98b69f40a7e"
+    },
+    {
+      "path": "games/disk2/Map0077.lmu",
+      "sha256": "c6dbf46c34b555e2301df1db2021e6b4de06ca68b15e09a331d7fd64dd9f1e7b"
+    },
+    {
+      "path": "games/disk2/Map0078.lmu",
+      "sha256": "b7195f1e34d4a106a5bc4b82b50ea0bebc8de6562c887247423fcd8001852c2f"
+    },
+    {
+      "path": "games/disk2/Map0079.lmu",
+      "sha256": "5842c831959b8c3aaa66ddeb6be22426f4c4e54e0ff3dcb95969190380c42370"
+    },
+    {
+      "path": "games/disk2/Map0080.lmu",
+      "sha256": "8576618395d515f20ad0e9a55ad68e7b71df76497e34331f27580b0b9618e9df"
+    },
+    {
+      "path": "games/disk2/Map0081.lmu",
+      "sha256": "2b8fcd90389d84191ec7030e9cb52d9f017ee2e58f5351ebe12675039cfbb00b"
+    },
+    {
+      "path": "games/disk2/Map0082.lmu",
+      "sha256": "220286fedec3b2fb1f2ffd1d09749823448d61fd7745532b4a04fa9d20e27382"
+    },
+    {
+      "path": "games/disk2/Map0083.lmu",
+      "sha256": "b851b79f1bf3a54f7c86f3bdc9f737c1b94504ef2b3aaa8d1451e02965f10d96"
+    },
+    {
+      "path": "games/disk2/Map0084.lmu",
+      "sha256": "49d124c34511e3b1114dfe60fe92ee013f978718222c5d25e04ae7e79ee3f0d4"
+    },
+    {
+      "path": "games/disk2/Map0085.lmu",
+      "sha256": "eeeb52ee4111506dc35e5a5747c97970c2f76bd86c8a738ff277f40160cd472c"
+    },
+    {
+      "path": "games/disk2/Map0086.lmu",
+      "sha256": "7c795a556895ea6825345e721b30f9925f22c62e1fb84b3381bddc1766618911"
+    },
+    {
+      "path": "games/disk2/Map0087.lmu",
+      "sha256": "d015675c63a9b0ff73a7b9445866a74b95b49bac96a7fd785cd97a40182de78d"
+    },
+    {
+      "path": "games/disk2/Map0088.lmu",
+      "sha256": "010c8d2d05d0468c2b40a41b066a3462e8c17ca39185cd04ecd3c4092b46115b"
+    },
+    {
+      "path": "games/disk2/Map0089.lmu",
+      "sha256": "3a703144c8c35927b582919f98db80775d5da5c7c4f12dbd67dd81bffed8cf67"
+    },
+    {
+      "path": "games/disk2/Map0090.lmu",
+      "sha256": "5e134d694dde805e1bb3c58cd42b725e4eadda8a1eaf4bbf512d3c57c18eb8f0"
+    },
+    {
+      "path": "games/disk2/Map0091.lmu",
+      "sha256": "a0744dbdb1f39eff9c5d629b1499e5d804a356aef87fa5bc19ed125344a4227b"
+    },
+    {
+      "path": "games/disk2/Map0092.lmu",
+      "sha256": "ce4afa9e34b586abadd7237df1363135a9f88f7d9f9a09851ca532d8bdb5c328"
+    },
+    {
+      "path": "games/disk2/Map0093.lmu",
+      "sha256": "ab415a384d501b3e7898c2bd0987bce4c0327f166581a2d52cb8d638b01e8781"
+    },
+    {
+      "path": "games/disk2/Map0094.lmu",
+      "sha256": "f0e57394fd37a999b552bf5e7b8885b5931956228060b04f3fa9d24e5c29aad9"
+    },
+    {
+      "path": "games/disk2/Map0095.lmu",
+      "sha256": "af76ac8735b0c98380931c5ff5fb36ef80b69ca2ea7924613401c4ea6c6aff5b"
+    },
+    {
+      "path": "games/disk2/Map0096.lmu",
+      "sha256": "0bfd0c7619253029110b5a640ae4d7374367c05253def952c1692d63e3d16f8a"
+    },
+    {
+      "path": "games/disk2/Map0097.lmu",
+      "sha256": "a9a939a3e46d97eb7ba34bfd8b5c8b269e56f4388d5274ec0c23b92f74669849"
+    },
+    {
+      "path": "games/disk2/Map0098.lmu",
+      "sha256": "b2801f4eb44b1c8357d1eaf8839d2cc3a5c6bb954a6a4d2938d8d8fe78f9b2f1"
+    },
+    {
+      "path": "games/disk2/Map0099.lmu",
+      "sha256": "d17f07f5760d7bf669c62bde978797e6b115f0b9b716ad1efbd686dc82642f16"
+    },
+    {
+      "path": "games/disk2/Map0100.lmu",
+      "sha256": "ca11b5d5fed9ee10f42766cc9d8f66eddb75df8acfdb47a6472ba5088ab18a38"
+    },
+    {
+      "path": "games/disk2/Map0101.lmu",
+      "sha256": "936fec87d78774e47e580e42471f52c674c0c85c9c2d1ab791f2bc5323f419c4"
+    },
+    {
+      "path": "games/disk2/Map0102.lmu",
+      "sha256": "54c266ec520cfcf7d5790b2e6be824179db2f83c7003514f4ca560c37375b0d9"
+    },
+    {
+      "path": "games/disk2/Map0103.lmu",
+      "sha256": "8adbbd7ad96508698d2aacf49c7e2ae51ff0615327bc8e33c4d22881f874cbd7"
+    },
+    {
+      "path": "games/disk2/Map0104.lmu",
+      "sha256": "e2a94667ca8ad55aad8b68167ed0f5efe950c05cd0588ce0a2a1aa5474bcdad3"
+    },
+    {
+      "path": "games/disk2/Map0107.lmu",
+      "sha256": "9c0a95f3dd44bb5e18cee8e22779bf5fb470471e3a0b6f870120d1df4193b250"
+    },
+    {
+      "path": "games/disk2/Map0108.lmu",
+      "sha256": "142d72d88f4c5b32e094b4ee12d22f4015439ed3098538544290dc53715ab4f1"
+    },
+    {
+      "path": "games/disk2/Map0109.lmu",
+      "sha256": "b88b443657cadbd03acd6df09ed3969d7de8501e76e58932d55027dde242fe13"
+    },
+    {
+      "path": "games/disk2/Map0110.lmu",
+      "sha256": "3b6698ae203729099548e3c9aaab51f7c7d3481250ee2c240b7c588d5dc5280b"
+    },
+    {
+      "path": "games/disk2/Map0111.lmu",
+      "sha256": "17577165f1fb3f1452eb5aa824f69e15595b03e81c84e05879b27d3087d40e79"
+    },
+    {
+      "path": "games/disk2/Map0112.lmu",
+      "sha256": "80d4479dd7fef23c86deb9bb0a42c702f4163b66af4167584f807237ec4e02c6"
+    },
+    {
+      "path": "games/disk2/Map0113.lmu",
+      "sha256": "d51f4c271c7468ab0481a0cbff2cc1f4c477be84d7097171843e9e9fa07545fa"
+    },
+    {
+      "path": "games/disk2/Map0114.lmu",
+      "sha256": "3e333dca2df0b004dc53734ca0fb4eb27d103e343e85ed9e31378f33a4146de2"
+    },
+    {
+      "path": "games/disk2/Map0115.lmu",
+      "sha256": "3a5317ea25822e05e89bad6c28d43198f7e924f3c962ec2018448fc62868a179"
+    },
+    {
+      "path": "games/disk2/Map0116.lmu",
+      "sha256": "409a5a95b5555bad8e572431fda52feb94cf8a4cf2bf3f75ca8cc9aa71273f95"
+    },
+    {
+      "path": "games/disk2/Map0117.lmu",
+      "sha256": "0bf765b117029c33deefbc840b3a63a13181d43993d56aeb0d2bc747f5c877d1"
+    },
+    {
+      "path": "games/disk2/Map0118.lmu",
+      "sha256": "e87f3050586993b7d9acb86fe16d7dd68189df4400e507e31de388991c29bd0a"
+    },
+    {
+      "path": "games/disk2/Map0119.lmu",
+      "sha256": "125d70a766a18e001f15550072696c992206f450e357066fd3bd3f9d99ce1c32"
+    },
+    {
+      "path": "games/disk2/Map0120.lmu",
+      "sha256": "af74436d1069a5bb25eb3d35411bf9f28202aabfaffc7c6da276653ec09732cc"
+    },
+    {
+      "path": "games/disk2/Map0121.lmu",
+      "sha256": "321c23b9c98eab3f9b57b75932d26ffeb780912ec60ad7ab5da33d4e22570a71"
+    },
+    {
+      "path": "games/disk2/Map0122.lmu",
+      "sha256": "7f5162afdc220222168d70c2faa5feb306a7cdd050a48579bb2394a2268e36b3"
+    },
+    {
+      "path": "games/disk2/Map0123.lmu",
+      "sha256": "109237330e0d86bc5624cdaaacf7f6a683d06cd165a9baa4fcd53c2269128f73"
+    },
+    {
+      "path": "games/disk2/Map0124.lmu",
+      "sha256": "ee0b529d9980efe56d523a7ce9c460edffc0e857fade1c156bdb018bc704f8b5"
+    },
+    {
+      "path": "games/disk2/Map0125.lmu",
+      "sha256": "434ba4d3596a8c9cc2e632546db217ed1b35dfd7505d778ebd0fd2afaec30b39"
+    },
+    {
+      "path": "games/disk2/Map0126.lmu",
+      "sha256": "d923877f9897054bcef4ee8930f69257e290e049ebd276c4b7fda359858a116b"
+    },
+    {
+      "path": "games/disk2/Map0127.lmu",
+      "sha256": "1baccf71f17f79aac82b3e4dd27de757cfe970b5018fc52360e2ac40d02623a6"
+    },
+    {
+      "path": "games/disk2/Map0128.lmu",
+      "sha256": "520bfc7f2acab0190cba541eba6aac0b2e9a990d893d83c772112408eead18b4"
+    },
+    {
+      "path": "games/disk2/Map0129.lmu",
+      "sha256": "4cf537b2664ee336590799f528041a77a90821e78871d5a88891175352b4e5af"
+    },
+    {
+      "path": "games/disk2/Map0130.lmu",
+      "sha256": "ed586640ce58e495ab4571e710dcb030b14890e492efad9616faf0caa0f8f2e1"
+    },
+    {
+      "path": "games/disk2/Map0131.lmu",
+      "sha256": "6650e284ede379151a92aec3eb928723104626e1887885e2bf2fe21f05b98d2d"
+    },
+    {
+      "path": "games/disk2/Map0132.lmu",
+      "sha256": "bff7d8e6d64a0e4a70f40d36a0209cd96770084e7acd69a7bdd6b7be2e3eaed8"
+    },
+    {
+      "path": "games/disk2/Map0133.lmu",
+      "sha256": "71ccdd2438be5a535a7924e68973b785b7fecc87e5f3a2949b46e10d5b5107b5"
+    },
+    {
+      "path": "games/disk2/Map0134.lmu",
+      "sha256": "00e63f5fa1c7084da08485ccf7d2e5e91fa9b0723fd0b49058efdf0f032aaf89"
+    },
+    {
+      "path": "games/disk2/Map0135.lmu",
+      "sha256": "ca0c1d60da5dafbb0b7d0b8708542a26ccbc982b81e1b18895d04127843b6379"
+    },
+    {
+      "path": "games/disk2/Map0136.lmu",
+      "sha256": "425af55e08a81a2bd5d3253aafbf734fb2642dbad944967dd951f91e2a716ffe"
+    },
+    {
+      "path": "games/disk2/Map0137.lmu",
+      "sha256": "6f6723785c00dc045c60908cce99146f71a3cfb29888b897ef5c2a9de99eb85f"
+    },
+    {
+      "path": "games/disk2/Map0138.lmu",
+      "sha256": "f1da4d6f67cade2655f2794345b4de49b77dd8000843e859ac3251411ec76937"
+    },
+    {
+      "path": "games/disk2/Map0139.lmu",
+      "sha256": "19295074f08e9185a1d4226c677a6fadcd8e19b0e004871906bd92241d2a2b78"
+    },
+    {
+      "path": "games/disk2/Map0140.lmu",
+      "sha256": "9014e37be2784a8373c5de1f6285a79ee64468334e4f9e67c0b34e36a24e9657"
+    },
+    {
+      "path": "games/disk2/Map0141.lmu",
+      "sha256": "0bcf0fe3904b494326ad5a1ceb2f932af425e82afc9c36d267c675be1b6b5147"
+    },
+    {
+      "path": "games/disk2/Map0142.lmu",
+      "sha256": "68bb3de6135ac58763debf384a5051aea465daecd73ea61e7c213667ccfd70ac"
+    },
+    {
+      "path": "games/disk2/Map0143.lmu",
+      "sha256": "eee1183a81041b02fc6011ac9544ece26cb20c34315e14228372269c937300e8"
+    },
+    {
+      "path": "games/disk2/Map0144.lmu",
+      "sha256": "5831b4ec111b4dcb91563387906b7ff5436c2e0e1502940ed46e16833c26f353"
+    },
+    {
+      "path": "games/disk2/Map0145.lmu",
+      "sha256": "6bcc1f1102bf104da33791dfa5d5ce62ba953b2b50e54b6c640368d2607f4a9a"
+    },
+    {
+      "path": "games/disk2/Map0146.lmu",
+      "sha256": "9451634593285cde2fbcf0c37f79353733e617084136f933116db78e72a532f8"
+    },
+    {
+      "path": "games/disk2/Map0147.lmu",
+      "sha256": "142ec4e9dd3ea9b1c232c25c07a6f3065e40496644f31272fbe2d225cb3e6c95"
+    },
+    {
+      "path": "games/disk2/Map0148.lmu",
+      "sha256": "0006cff94c6670d027a9dad04c04de211b52c79c6a10aace997485fd995e57cb"
+    },
+    {
+      "path": "games/disk2/Map0149.lmu",
+      "sha256": "1f8fda988c994da5fcc2d4834c5c4762fe6144338761f3a0598f781288ea4e09"
+    },
+    {
+      "path": "games/disk2/Map0150.lmu",
+      "sha256": "40d60cb1d4678dd2ebd3ed200efc32dc6e6e5da2f4437027a05dee38e4ca92dc"
+    },
+    {
+      "path": "games/disk2/Map0151.lmu",
+      "sha256": "5d46bc1c85aa49ce2794bd5347d5d71f3588e8f303cae4792cbaac2feb449ef2"
+    },
+    {
+      "path": "games/disk2/Map0152.lmu",
+      "sha256": "d337b3e88e297be4b00c632483532f1e34071f8a5348ba2cac0f7c5ab79c5b04"
+    },
+    {
+      "path": "games/disk2/Map0153.lmu",
+      "sha256": "7a1ad1767a206c62ae0b41809665f13773e31a16308253ce6a6e17945589c740"
+    },
+    {
+      "path": "games/disk2/Map0154.lmu",
+      "sha256": "f36206d015e37cd70bf71a977ad76cfdf20ea1b6a6dc200417379448b99dfe45"
+    },
+    {
+      "path": "games/disk2/Map0155.lmu",
+      "sha256": "708c8ef69af1db1701c97ae38a53004201b35e8f12022b3c6eeaa8583270d745"
+    },
+    {
+      "path": "games/disk2/Map0156.lmu",
+      "sha256": "43187153c7754ec9a98a91d3d3932a7cffb57eaf5c47584a505a479a67680904"
+    },
+    {
+      "path": "games/disk2/Map0157.lmu",
+      "sha256": "fac717532721b4d8768ea88b6c56eda83330894f45f8c9dd51513535bc4ba97c"
+    },
+    {
+      "path": "games/disk2/Map0158.lmu",
+      "sha256": "8b69bb67d48c40a4ea1e20b5a6ed74bcaea89a4b4215cae86e2fac1752f32939"
+    },
+    {
+      "path": "games/disk2/Map0159.lmu",
+      "sha256": "3790b4a2719fae580203f25800d42b7b89debc04de88a4e676e80a4644e3a336"
+    },
+    {
+      "path": "games/disk2/Map0160.lmu",
+      "sha256": "1eb37ea44abaf9d8c8b039e035674be46b9c7275b668c3f7625654350f28abc4"
+    },
+    {
+      "path": "games/disk2/Map0161.lmu",
+      "sha256": "3264ebea069b2d4d46664ff36623f93490817cc5d7f2510690e5d59a4150f754"
+    },
+    {
+      "path": "games/disk2/Map0162.lmu",
+      "sha256": "638ac40148577ca5c2da5dc622a8f7955c8310834b46552d19a0fbcf18fd6c1e"
+    },
+    {
+      "path": "games/disk2/Map0163.lmu",
+      "sha256": "61fad3dc530b61e4b5031ebb5f803ceba5c4d6878e349cafa538252da2e55556"
+    },
+    {
+      "path": "games/disk2/Map0164.lmu",
+      "sha256": "03e6231325642e2821079d916f050f39789ae8156332fc4b3cd98ff296cb798e"
+    },
+    {
+      "path": "games/disk2/Map0165.lmu",
+      "sha256": "94842cc95dd0354d1229a730690e7841b7a98adeeb99b6824a2f6f7ccc65b564"
+    },
+    {
+      "path": "games/disk2/Map0166.lmu",
+      "sha256": "2bafb5be7b3d3a09cec6fda8dcc404be0718da4753583f940225f425a9403ae0"
+    },
+    {
+      "path": "games/disk2/Map0167.lmu",
+      "sha256": "8a72c6551e6d3a4306ea3cf55213305f8c96f9dae6e31f6faee273c0410fb65e"
+    },
+    {
+      "path": "games/disk2/Map0171.lmu",
+      "sha256": "9c3ce88e33be001898c36cbcddd6e96510586566894fff6fd01f79cd268ab1ef"
+    },
+    {
+      "path": "games/disk2/Map0173.lmu",
+      "sha256": "72cce6a6c64b1d10d82eb9f2b01aed5a4acbd5abfa63c804c1eede1405258140"
+    },
+    {
+      "path": "games/disk2/Map0174.lmu",
+      "sha256": "18ff91109ab1887a17852ebf7089322802af034e01b1282b9ba0b54f2147535f"
+    },
+    {
+      "path": "games/disk2/Map0175.lmu",
+      "sha256": "91a068e2ef65e2366b228729b9c9969cb8b2e8c932ca65fb199b4291a1613bc3"
+    },
+    {
+      "path": "games/disk2/Map0176.lmu",
+      "sha256": "d64043cb34182b85ac9b0852e0f7fb913204dbec660eb59676fb93f0dcbce20f"
+    },
+    {
+      "path": "games/disk2/Map0177.lmu",
+      "sha256": "b22723ba625a6b6ecbc9b4287ca3bfab74e1411f20d342a4be7f94cbe3806115"
+    },
+    {
+      "path": "games/disk2/Map0178.lmu",
+      "sha256": "f058cb9bfa5c59049174fb4cc7cb5c40b795b796bf3f7ca7614175be305b9cf0"
+    },
+    {
+      "path": "games/disk2/Map0179.lmu",
+      "sha256": "1317132605df9e226fefbed73abd8d29f17d0eba5214baa59cb13746de1dd331"
+    },
+    {
+      "path": "games/disk2/Map0180.lmu",
+      "sha256": "a832cb6313a9c501a52f6d467b94c0c8389f281bdaa9757987d1ee9d8cdcb570"
+    },
+    {
+      "path": "games/disk2/Map0181.lmu",
+      "sha256": "28430126cf5480764950b9d4630a2aa6c92624226ecd393ad2520e206aee3172"
+    },
+    {
+      "path": "games/disk2/Map0182.lmu",
+      "sha256": "a1ed57a26b2365d9b43297cf68f580a1c6c1a8c8f35a4b0d5aa38ab6070f6e6f"
+    },
+    {
+      "path": "games/disk2/Map0183.lmu",
+      "sha256": "ff8ac51c7feeb5624163864afbb0d27f17ca1454a187f562a6feab115e545f89"
+    },
+    {
+      "path": "games/disk2/Map0184.lmu",
+      "sha256": "026f87908b1a2085e1a42395ab2effb48620a09366781c5236010d4603592fe4"
+    },
+    {
+      "path": "games/disk2/Map0185.lmu",
+      "sha256": "df0c7aaebdf910c36c4dbef7871228fbbd0af2ce169aa9b99c9719d7a15a1551"
+    },
+    {
+      "path": "games/disk2/Map0186.lmu",
+      "sha256": "58c63b1a7187514605581610702559fd03a96f8938e195570f3e285bf2b48585"
+    },
+    {
+      "path": "games/disk2/Map0187.lmu",
+      "sha256": "8a2fa7fc502d9bbfb0542b761a8f5e6319a0c8eb914b3cfdacba1a0ca8289ead"
+    },
+    {
+      "path": "games/disk2/Map0188.lmu",
+      "sha256": "b8f259c6116fc32793d2b72ea6810c083990a09746c60ae12071a24412862644"
+    },
+    {
+      "path": "games/disk2/Map0189.lmu",
+      "sha256": "186cf0ffddbdd0f51ed654e924cd24f1b9c70d5d0f1c0f9d78afce3bb9070ecd"
+    },
+    {
+      "path": "games/disk2/Map0190.lmu",
+      "sha256": "656988e0e67f34037e6c761940a640872e0f8acd1668067f20b801f24a9b02b3"
+    },
+    {
+      "path": "games/disk2/Map0191.lmu",
+      "sha256": "f9f15492acc7d98bf0f37ee605f6578188e22d5af0f73e67d411cf9ce1d78086"
+    },
+    {
+      "path": "games/disk2/Map0192.lmu",
+      "sha256": "daf263af6dcb6f84886d48292955edfa64ed7b68b9c6983a3be57a396dac2721"
+    },
+    {
+      "path": "games/disk2/Map0193.lmu",
+      "sha256": "5bf72750db655b9c2dd8ff566962ac6d83587151130a3351394620759be0f180"
+    },
+    {
+      "path": "games/disk2/Map0194.lmu",
+      "sha256": "3ddb6a79b9d506ac1d0b05dac3497ed3f56a8887729578f8ab527d95bd9b7aa1"
+    },
+    {
+      "path": "games/disk2/Map0195.lmu",
+      "sha256": "3b6d88d5e6f71c2e8bb915d783b85170593618069378a7d67c0d67a7e8cdaac2"
+    },
+    {
+      "path": "games/disk2/Map0196.lmu",
+      "sha256": "9fa9fd5d2db8dbde2ac6d4011d9fbf84deb337a77954adaa59fa542367a23052"
+    },
+    {
+      "path": "games/disk2/Map0197.lmu",
+      "sha256": "8c9ffc95fb69a807be427ef34e2dcd76beee765be5621144263fbf5e54137832"
+    },
+    {
+      "path": "games/disk2/Map0198.lmu",
+      "sha256": "32aae7c772a5d2c43dc38cd6f64d58dd930b5c309e83f1e8fe5a83ca6376d12f"
+    },
+    {
+      "path": "games/disk2/Map0199.lmu",
+      "sha256": "4493e62b4177902e07b4cd31f73a58e5792b21602e33280013a88fcdae7dca09"
+    },
+    {
+      "path": "games/disk2/Map0200.lmu",
+      "sha256": "16c72f488e09b3a62ab863eb8990ff2fefbf68ab1c22dbd98ca1cd0cd4208f40"
+    },
+    {
+      "path": "games/disk2/Map0201.lmu",
+      "sha256": "b3c8eb9a8e43e8310167d01a44d5536b3dd637574a83593cf6b7bd5b0a7df8a6"
+    },
+    {
+      "path": "games/disk2/Map0202.lmu",
+      "sha256": "10d41779c5ed62fe7140b71fdce2d0c65910490c22842cfae7a0121a671b61c9"
+    },
+    {
+      "path": "games/disk2/Map0203.lmu",
+      "sha256": "b66af75e395a9d5e34df1bcc8318914a6827b9c1bf9ce14e356f8ec4b90872da"
+    },
+    {
+      "path": "games/disk2/Map0204.lmu",
+      "sha256": "d72e07c663814b89367aa3c8cedc9a7878f56d066ec7df8729674d31f9686f8a"
+    },
+    {
+      "path": "games/disk2/Map0205.lmu",
+      "sha256": "073aa9744ba711c7e40367c04d71bb708a3400f2ac6033d4d055c921ba94a6a0"
+    },
+    {
+      "path": "games/disk2/Map0206.lmu",
+      "sha256": "473939c9c6e191878db90eacab19e6153ceab918f1220df25dd51e524c326e89"
+    },
+    {
+      "path": "games/disk2/Map0207.lmu",
+      "sha256": "60a32037eaa757aeb321fcd8f42124ba584f3b13b32f84935f45018cc777d3c4"
+    },
+    {
+      "path": "games/disk2/Map0208.lmu",
+      "sha256": "74c59ee56f860ce4202670c1315c3157992ef16c58c11a820c08c6d17fb17539"
+    },
+    {
+      "path": "games/disk2/Map0209.lmu",
+      "sha256": "c5e7e64ae235f5cdc68309606ddcedc995ca31e05d9712e9e84709ff4fd3098b"
+    },
+    {
+      "path": "games/disk2/Map0210.lmu",
+      "sha256": "b5f03d8c7e9a1b7cd77138afa4921cc97b13c39c2689258ace1bbf7fba090d15"
+    },
+    {
+      "path": "games/disk2/Map0211.lmu",
+      "sha256": "c045618350983ac4cc8fbe934a28262b8af2cabd6322686944c7f085b6a15a66"
+    },
+    {
+      "path": "games/disk2/Map0212.lmu",
+      "sha256": "35fd03307748e65afbfa69f5e0848a5ae6c09e7f2273caa7284d0d882d8398d3"
+    },
+    {
+      "path": "games/disk2/Map0213.lmu",
+      "sha256": "78f0476fc9e263e41570af693294ed319039884c34f700fe241be7c1475c1db1"
+    },
+    {
+      "path": "games/disk2/Map0214.lmu",
+      "sha256": "b8526a64847d9ce89ae08cefa78a21e767e4be1c0347d562ba7dc47f9749c15a"
+    },
+    {
+      "path": "games/disk2/Map0215.lmu",
+      "sha256": "9014522739f9a8cef2ab25164a0b0a543cfef7b3abd8f495fffd429a8d2d643c"
+    },
+    {
+      "path": "games/disk2/Map0216.lmu",
+      "sha256": "684e338491850d04328abebc75f5a305a2197f54789c641cfe0a19f23690ddf7"
+    },
+    {
+      "path": "games/disk2/Map0217.lmu",
+      "sha256": "b0d2285de2189d12897c05c34d17504a7510cf6cfda0d03a4b837c01137281c8"
+    },
+    {
+      "path": "games/disk2/Map0218.lmu",
+      "sha256": "33a0af6ce64083640c0f8702b761b433b9308125ecdfe3e39f090f4e8fcd5e52"
+    },
+    {
+      "path": "games/disk2/Map0219.lmu",
+      "sha256": "9cc1da9ac62c8aab8f7abc745e78c1a7370593c49cd83ef525deb619300c7452"
+    },
+    {
+      "path": "games/disk2/Map0220.lmu",
+      "sha256": "f66857212e5badbafcd61eb0142b93b59709f9670816b23d4cf4d708fb3969f6"
+    },
+    {
+      "path": "games/disk2/Map0221.lmu",
+      "sha256": "b9589b7bde0b85f7e652998e33ba3a207e7cb6ae2e900ab5780b76070458eea7"
+    },
+    {
+      "path": "games/disk2/Map0222.lmu",
+      "sha256": "8fe86f24822ca534dea73df7eea8675a78d0708583d0b7208084af8659eb638e"
+    },
+    {
+      "path": "games/disk2/Map0226.lmu",
+      "sha256": "f270d2065fd7088e38c2971e8fc9e4ac4e6a238fd4da5f600fdbe278a851fbec"
+    },
+    {
+      "path": "games/disk2/Map0227.lmu",
+      "sha256": "1a73430a213c28412effbf1b415b244561cb13285641c234eee3328799ea3893"
+    },
+    {
+      "path": "games/disk2/Map0228.lmu",
+      "sha256": "480361b81ca973f01d0c7d1438280d25aa19117f86731d14463a7affa417df95"
+    },
+    {
+      "path": "games/disk2/Map0229.lmu",
+      "sha256": "3fbaacd1ddf0478685cd0e7758630400cdbd15aa41540838828357e0aa9d0d8a"
+    },
+    {
+      "path": "games/disk2/Map0230.lmu",
+      "sha256": "3c2987daace2004adb03756f3aba7ed23ee8f958c83ccc679ab6b5c7f9f189d3"
+    },
+    {
+      "path": "games/disk2/Map0259.lmu",
+      "sha256": "19fab575f73091d84e5e842fc11dbd3da25e1ed67a6ff206c3728add227b3df6"
+    },
+    {
+      "path": "games/disk2/Map0336.lmu",
+      "sha256": "f62c8eb4321351f039f176d7d351806ea214d5f742d8e85ec13268e5a96d71e2"
+    },
+    {
+      "path": "games/disk2/Map0337.lmu",
+      "sha256": "1f161f7c9d190657185a35d2e61eba684e6e716f5bf7f0fd736beebf6891cc05"
+    },
+    {
+      "path": "games/disk2/Map0338.lmu",
+      "sha256": "0faf5af3e59149a411e5844aa750656ff651b1a65ac8ae381d6b3c8d4b31f0a2"
+    },
+    {
+      "path": "games/disk2/Map0339.lmu",
+      "sha256": "bfe114d3c3cdd3232524d21304a3142eee378f8e9303d458cbdcd730eacb4154"
+    },
+    {
+      "path": "games/disk2/Map0340.lmu",
+      "sha256": "5ff7658d3229e9fd3b164434d606fc2716cf20118e753410f694926ae1773b95"
+    },
+    {
+      "path": "games/disk2/Map0341.lmu",
+      "sha256": "eca9b32cab3bc1a827e9866001440d55c4ce485a704174e46c70daeac350f238"
+    },
+    {
+      "path": "games/disk2/Map0342.lmu",
+      "sha256": "d73f53a2620f77d661c63da98f2b784386f0ab1e0442e836dc02b65623da6e4a"
+    },
+    {
+      "path": "games/disk2/Map0359.lmu",
+      "sha256": "e5eb0f6b9ae43ffdc7a976474a3cbb241e82ea73da3a5aa3bf5530184847057f"
+    },
+    {
+      "path": "games/disk2/Map0360.lmu",
+      "sha256": "15f969474f0a9285aa14841500b266b0f44a9f7ebf57460706da14115c7721be"
+    },
+    {
+      "path": "games/disk2/Map0361.lmu",
+      "sha256": "007c239926218ea8144c7d8fcc6c996e1c210b796b6fafb6fff5302a29fe1b31"
+    },
+    {
+      "path": "games/disk2/Map0362.lmu",
+      "sha256": "2cc2bee4e5d485679068842974bf10d75d6378571a18597bccdf282d3a0f2ab8"
+    },
+    {
+      "path": "games/disk2/Map0363.lmu",
+      "sha256": "0c3b9f566520dc21c9ba8446fb7542b699f9dffcf4d6b61d0477fd39c9ba8de5"
+    },
+    {
+      "path": "games/disk2/Map0364.lmu",
+      "sha256": "2ceff6ed262d5034dbb4761d1ad7c74d0a321b1fbc38b599fa45aaf0cee25a7a"
+    },
+    {
+      "path": "games/disk2/Map0365.lmu",
+      "sha256": "a5018550a7e7e4a24329eac4eff9b3d7b1fb48e45cb3ee86ab659952d31f3c5d"
+    },
+    {
+      "path": "games/disk2/Map0366.lmu",
+      "sha256": "e4d1ffc6b4ea583bd55f92b371f38a7db96a3c5fa399306071d0a39a6ec4190b"
+    },
+    {
+      "path": "games/disk2/Map0370.lmu",
+      "sha256": "a02612bb60ae75e486e80ca9dfc29abe6069ce4b1ee38cbac2328e195507e3c5"
+    },
+    {
+      "path": "games/disk2/RPG_RT.ldb",
+      "sha256": "2b35ca735b4bdfe63c2123f80c7f6127d3c869cd720c4a9afa006d470b298be6"
+    },
+    {
+      "path": "games/disk2/RPG_RT.lmt",
+      "sha256": "8a6a925f6d36a70328a4cd4e30dedfa47beda26ad149c5db87ed1a3252d9f805"
+    },
+    {
+      "path": "games/disk3/Map0001.lmu",
+      "sha256": "a5e2a520ca7d065a3fc485face20cccaf90ddb517939784888c5aa6639cf3f37"
+    },
+    {
+      "path": "games/disk3/Map0002.lmu",
+      "sha256": "963add2932868e99bb95ba7028d4293598ec1d20ce57f8b70d7b3d6cdcfb0d2e"
+    },
+    {
+      "path": "games/disk3/Map0003.lmu",
+      "sha256": "54a3510b8dd1fdb35d0eec3380e95953e47757624f7e9f4f60adb4a712dd2c8c"
+    },
+    {
+      "path": "games/disk3/Map0004.lmu",
+      "sha256": "1c48f7c677d0b5fe1d882b0d6a3da4edfc3341b2c1a9819083c83b8b29423c01"
+    },
+    {
+      "path": "games/disk3/Map0005.lmu",
+      "sha256": "e7bf8e6fd86779d59206efcd4fa676074457546a7b5e1f0cdf7dc307c26380da"
+    },
+    {
+      "path": "games/disk3/Map0006.lmu",
+      "sha256": "f0d0da6fa39b20c3324cedee1dbb7b5147406b55ee61e3c6201de75db20b0d94"
+    },
+    {
+      "path": "games/disk3/Map0007.lmu",
+      "sha256": "98c6997a52e65bdcdffaa156fed7b43b3a8c49167c6aaa716bee346d39d909f5"
+    },
+    {
+      "path": "games/disk3/Map0008.lmu",
+      "sha256": "eead56f9ebad404f16c8df8bae61666dc8769fb84e8429251f5a0cba7ff06b0d"
+    },
+    {
+      "path": "games/disk3/Map0009.lmu",
+      "sha256": "d9bf68a0448f3b9894145d092aa818f0fe82f576a9b225461273ee9227e59a3a"
+    },
+    {
+      "path": "games/disk3/Map0010.lmu",
+      "sha256": "9588456a4cdade16db2df368e741263a81aaf1588a2c2207d43ca91a0b9ae88b"
+    },
+    {
+      "path": "games/disk3/Map0011.lmu",
+      "sha256": "6a5ab61037de1744895869b04be4ec53859f3af1b7f86e751dc55bd22e705708"
+    },
+    {
+      "path": "games/disk3/Map0012.lmu",
+      "sha256": "225112623d0dba6e363d1b335aa5768daf4ed5ad123b86d47b95d94d0a9b295a"
+    },
+    {
+      "path": "games/disk3/Map0013.lmu",
+      "sha256": "86868374b4fdd284288fc9234365b04869e3dba26d8ecf12dd0abe47e9cb0d2f"
+    },
+    {
+      "path": "games/disk3/Map0014.lmu",
+      "sha256": "f3df1d09c03cd50b860faab2934af7b6452d96a8b11912f99290b41b81373263"
+    },
+    {
+      "path": "games/disk3/Map0015.lmu",
+      "sha256": "6d05bdc086db37032f8406e1ce5b5a662bd5558be05f25e28664aeff61e5f1a4"
+    },
+    {
+      "path": "games/disk3/Map0016.lmu",
+      "sha256": "bd784686e849f35250766e76dc88259399566482c767e1b1936dfe75b907c906"
+    },
+    {
+      "path": "games/disk3/Map0018.lmu",
+      "sha256": "678f01d653640bf059daaf0bdac2f5318365cbb189d18b5cc290c21274575d55"
+    },
+    {
+      "path": "games/disk3/Map0019.lmu",
+      "sha256": "efd297c176ccc7c4847ca61079e1974d5c2927ad56d3ed08220b1bdab7b61c41"
+    },
+    {
+      "path": "games/disk3/Map0020.lmu",
+      "sha256": "cfcd72f301960bb6c71df88e32550f2c9d794f25a091ea4dc5de79ed3ae1fde3"
+    },
+    {
+      "path": "games/disk3/Map0021.lmu",
+      "sha256": "ac5125ba0501079a061a39e2ba5dc20c3ace28da24561556e24acbe8c556b5e4"
+    },
+    {
+      "path": "games/disk3/Map0022.lmu",
+      "sha256": "7fee15fb7968d62e8624f5a3dcbc5a110e46aa7f6d1fd6ec9430a7fc327447fe"
+    },
+    {
+      "path": "games/disk3/Map0023.lmu",
+      "sha256": "3ee4b9bc3a3bffda7b31c5caa5cbd32257bbca9e674749c17032e7de680df2e3"
+    },
+    {
+      "path": "games/disk3/Map0025.lmu",
+      "sha256": "28809025f0a62739af1f76defbd19888b05632bc2122ac00e0d91f7bd493209e"
+    },
+    {
+      "path": "games/disk3/Map0026.lmu",
+      "sha256": "7f005dfbdf5b87ab1543dd53128da3cd830ef8d7081c9d67957fb5550028937b"
+    },
+    {
+      "path": "games/disk3/Map0027.lmu",
+      "sha256": "11acbbc2e2c7acf2802a5d5d2d1536431434b56b49b298e707ac2f2613514e06"
+    },
+    {
+      "path": "games/disk3/Map0028.lmu",
+      "sha256": "246d819897c60c49debd113b876c24197d06129259e5308cd5a96d0bcb62114f"
+    },
+    {
+      "path": "games/disk3/Map0030.lmu",
+      "sha256": "2a83380a3b941cd79031365b7d31e9ed29f42a91f7e2debdfc56721a4e1e1e92"
+    },
+    {
+      "path": "games/disk3/Map0031.lmu",
+      "sha256": "c2d22157a8410f58139a7c3c2656b5bc602b24ebb7f7325234eb565e69833649"
+    },
+    {
+      "path": "games/disk3/Map0032.lmu",
+      "sha256": "017d06c65f9f5f488ef2493985d66c931cbe32f404af8a017a7b43c0646fcf83"
+    },
+    {
+      "path": "games/disk3/Map0033.lmu",
+      "sha256": "f4291c055e6e994cdd1d93349f11e5ce8772039e32fdba1ff9d93c000a969c06"
+    },
+    {
+      "path": "games/disk3/Map0034.lmu",
+      "sha256": "607eed4b1738166b90a9fab916c85f5ea7713dfdeafab4dd7d178a8aa2e3225c"
+    },
+    {
+      "path": "games/disk3/Map0035.lmu",
+      "sha256": "e2e95403d782f84534bc8a00a9f61285027802b8cfc688e13d680cde6ac541ec"
+    },
+    {
+      "path": "games/disk3/Map0036.lmu",
+      "sha256": "37c6884f622d607609dad0a672d92aff457394a15f2cdbc5800f6f75cd4fb775"
+    },
+    {
+      "path": "games/disk3/Map0037.lmu",
+      "sha256": "02819b57f873ccfe5dbaab24141879e6127502b4edd7f56c3d4e76377d6cd4bf"
+    },
+    {
+      "path": "games/disk3/Map0038.lmu",
+      "sha256": "2be6b5bac81fa4d00a09a9d7f03d5cc9e042ae350e7a95a1746a9b96b4aaf493"
+    },
+    {
+      "path": "games/disk3/Map0039.lmu",
+      "sha256": "a2451bfbe9045b29f9406edf8a994fc1debdb62aa165f609028613ab72bbe826"
+    },
+    {
+      "path": "games/disk3/Map0040.lmu",
+      "sha256": "7c1b877616a92aecae38a44d44736146eb7efdca4a9ce8ce2d500f67a41d5f26"
+    },
+    {
+      "path": "games/disk3/Map0041.lmu",
+      "sha256": "7d6a4aa03afdc3f4334d809198210607bc4f004c6c7e313d60f006b60082be0a"
+    },
+    {
+      "path": "games/disk3/Map0042.lmu",
+      "sha256": "8fa59eb2e03e6ae650b928def06e5fcccc6b2debb643cd04915d0e8b5210aade"
+    },
+    {
+      "path": "games/disk3/Map0043.lmu",
+      "sha256": "35a30e7a70838de775245edbf975e8f0e8bdbecde14b6c57067355d68f38b28f"
+    },
+    {
+      "path": "games/disk3/Map0044.lmu",
+      "sha256": "73d4a3049b84548a453c17fff164d2bc6676223704d3e521673e1576d9643ede"
+    },
+    {
+      "path": "games/disk3/Map0045.lmu",
+      "sha256": "06d2192b0d86887db33651973e872066ca2c8c8031886280a256cb446ab2d9de"
+    },
+    {
+      "path": "games/disk3/Map0046.lmu",
+      "sha256": "f98fb938dcf769e86c93d92f7438476cdf7ab44d289e3a0220c4939e2f84e4fe"
+    },
+    {
+      "path": "games/disk3/Map0047.lmu",
+      "sha256": "1a9322a1148ec68ce7440b58b729b573c57b075e81e3671958f5df96ebf321d2"
+    },
+    {
+      "path": "games/disk3/Map0048.lmu",
+      "sha256": "85a9a82fef5bfc78265037731e5e18c664cd246215aaa49fed26e9b2269329a2"
+    },
+    {
+      "path": "games/disk3/Map0050.lmu",
+      "sha256": "75f9c3dc99cf342844d015cdeedebff2bb3b45e2aa263b0bbb2b38599f238fb8"
+    },
+    {
+      "path": "games/disk3/Map0051.lmu",
+      "sha256": "d4c81145815fc367d51bce6d870c32807ae27b0842c868e747d1067085b6c38b"
+    },
+    {
+      "path": "games/disk3/Map0052.lmu",
+      "sha256": "23be3292f9c343742cdadc712b6b2398e23ca290f10b6f5506a4d1c0bc283a11"
+    },
+    {
+      "path": "games/disk3/Map0053.lmu",
+      "sha256": "c7c0d074d427f153541cfc6e98b2b210b01e22f020cf7d90e7e5e7ce0f25256f"
+    },
+    {
+      "path": "games/disk3/Map0055.lmu",
+      "sha256": "fdefb39aa29fb12062015e59d4b7d610453a92badc955d46e4da2971c6d8bd32"
+    },
+    {
+      "path": "games/disk3/Map0056.lmu",
+      "sha256": "1082cffe1c4fe80fac608fe69a9cdc0044936f92ac7b83b4ba6df8054f4ad805"
+    },
+    {
+      "path": "games/disk3/Map0057.lmu",
+      "sha256": "883c902d402eb6a15adf5fe985333894474d35715bfd3e3351f840b4f7112547"
+    },
+    {
+      "path": "games/disk3/Map0058.lmu",
+      "sha256": "0b4b7e13dd1fc35b7ffe9919be280b5cccc4d6f7618d818538abff5d811b95ac"
+    },
+    {
+      "path": "games/disk3/Map0060.lmu",
+      "sha256": "af3b133692ad3cb2de964239a6019e00f5336d16ea9b40661930a2094a3dca0a"
+    },
+    {
+      "path": "games/disk3/Map0061.lmu",
+      "sha256": "5dff8d93f1dfb3002f87d9bef619e47bcf26e7c6867d16eac0c596e137d94947"
+    },
+    {
+      "path": "games/disk3/Map0062.lmu",
+      "sha256": "e3778f082d0f41d2cd191ce27abec49d43357f4352057350b94a5c1cecb4cf02"
+    },
+    {
+      "path": "games/disk3/Map0063.lmu",
+      "sha256": "cc071abc49e1642ad5446f76ca651caa9d50cc1b0cbe98ed33e36854ef3a7a21"
+    },
+    {
+      "path": "games/disk3/Map0065.lmu",
+      "sha256": "224774185aacd7b150fddea3cabc3b3c2c434aa9b9c1c030d454bed2f73dd0b1"
+    },
+    {
+      "path": "games/disk3/Map0066.lmu",
+      "sha256": "685bc8ee465d3d0245c8e9fd48fdbc0c3e5fb1f5e6be498839b29d7503972eda"
+    },
+    {
+      "path": "games/disk3/Map0067.lmu",
+      "sha256": "42d07aaecea16d68a5780eec064e751db8955025c8fbe7ca00fc48446cb6a1e2"
+    },
+    {
+      "path": "games/disk3/Map0068.lmu",
+      "sha256": "f27118e5fc452cbfeeaf97b14a00a61c123e2fa9690402d03aace66486301174"
+    },
+    {
+      "path": "games/disk3/Map0071.lmu",
+      "sha256": "fc1d4aee8e473aee7f62657c19617f869a6fc2be26c4252fb36f8cd37f5683eb"
+    },
+    {
+      "path": "games/disk3/Map0072.lmu",
+      "sha256": "849d351b16488e13e97f625639a348e3be63ecc7d3df03c80da238fc4861a6c6"
+    },
+    {
+      "path": "games/disk3/Map0073.lmu",
+      "sha256": "058707dcf0fa82fe787da1801718a48089f3701aa76c42f2631cc8d375f0ed3c"
+    },
+    {
+      "path": "games/disk3/Map0074.lmu",
+      "sha256": "c7fe9a6f33464a1b19f96cc3371d4d573acd991e2bdadd685ff4232b45772f64"
+    },
+    {
+      "path": "games/disk3/Map0075.lmu",
+      "sha256": "0db7aa986f35b56db17af4ff9cb0a48828fc201cecc0aed861d103362aa5b252"
+    },
+    {
+      "path": "games/disk3/Map0076.lmu",
+      "sha256": "94c56fdc13380ce57b81538721341d5b02e9dbf86555e1deedb62226c9b126ba"
+    },
+    {
+      "path": "games/disk3/Map0077.lmu",
+      "sha256": "6760b7b5f5f81755e1099cd623c881f35b96dd0c411ab284c08bdda97bf175e9"
+    },
+    {
+      "path": "games/disk3/Map0078.lmu",
+      "sha256": "0289161366305b1f4ccdd5172721b4cf4223367c22855e7f01de15bc4e7ebddb"
+    },
+    {
+      "path": "games/disk3/Map0079.lmu",
+      "sha256": "0dba2d9f4ddc7c5b09470c1661e006ec1168ef1b7a5e55b99ff9d04746db1611"
+    },
+    {
+      "path": "games/disk3/Map0080.lmu",
+      "sha256": "6b169c8bb5f1c0dd0ddd78d8efc9acf8426659c95303cee73f43d1591456e46d"
+    },
+    {
+      "path": "games/disk3/Map0081.lmu",
+      "sha256": "b4e767d48bd7305cceed0e3e0b385916fdd2e64071d7fa3b1fff2feb7734df9d"
+    },
+    {
+      "path": "games/disk3/Map0082.lmu",
+      "sha256": "21602c82f29c0fc97daf23fe954542e5d14408b4e21ea0e7d3e3f3ce886d174b"
+    },
+    {
+      "path": "games/disk3/Map0083.lmu",
+      "sha256": "be5efc51564601d03e3c2002a0af10dde79a8b5e8086bbf7cd7b8d68f1aafed9"
+    },
+    {
+      "path": "games/disk3/Map0084.lmu",
+      "sha256": "4d520083f96cb5fe130691a4bc3d75ea7deb35453aa0b36a15c56e4f2fc7e7af"
+    },
+    {
+      "path": "games/disk3/Map0085.lmu",
+      "sha256": "ee27ffd6e6ab591bb18c8567b72ff9eabf86d77fff3efc885757f9413b980fe9"
+    },
+    {
+      "path": "games/disk3/Map0086.lmu",
+      "sha256": "15329c8e7532592bc94d97dc0d9c9db4d894fc2a1a3a13358b765cb774f66d55"
+    },
+    {
+      "path": "games/disk3/Map0087.lmu",
+      "sha256": "0c32adbef463551ea8e9cb9161351361b6291a09ed55a5d1568918d9a8f53b26"
+    },
+    {
+      "path": "games/disk3/Map0088.lmu",
+      "sha256": "9188872b92c885ffaa023cb921433bdc0e42a084b8582983bfa8375f343c85b2"
+    },
+    {
+      "path": "games/disk3/Map0089.lmu",
+      "sha256": "591c066d1ba0c6f6baf6e0e5f90ffeb2a111df120aa5416305c32da74c7e01e6"
+    },
+    {
+      "path": "games/disk3/Map0090.lmu",
+      "sha256": "3ebcc49673dcc1053964eb6ea57dad380d4ca8611c3e757b758b48ee26a033c1"
+    },
+    {
+      "path": "games/disk3/Map0091.lmu",
+      "sha256": "e627d898edbc357d1fd34e89ff23ee3f761e321471e7462196110801230ad7eb"
+    },
+    {
+      "path": "games/disk3/Map0092.lmu",
+      "sha256": "b49409103609e2fd6d34925911dbc0f358ee5acdef7f1120cfb7537d83b758ab"
+    },
+    {
+      "path": "games/disk3/Map0093.lmu",
+      "sha256": "297d1dd43c50800f5efe9b2cc81cd6606e1b5e7e37c42071605ae31b0e0c1cca"
+    },
+    {
+      "path": "games/disk3/Map0094.lmu",
+      "sha256": "c512f3613e6ba48cddfe927e567a8a13b50c78b2b57edb83d2be625770a42bbb"
+    },
+    {
+      "path": "games/disk3/Map0095.lmu",
+      "sha256": "15f254865c5b1945b00714ff3a1a0f047b06d7c2ec03ed7f5e45f6ebac3cde95"
+    },
+    {
+      "path": "games/disk3/Map0096.lmu",
+      "sha256": "223026a3cee45b8810cd00e0ade79f688317da7cae494d715978f298b7806c07"
+    },
+    {
+      "path": "games/disk3/Map0097.lmu",
+      "sha256": "56c4614460508d8a6e31fbce87adb0b549e7e1409544ad859d01a4d3a2eb2b1c"
+    },
+    {
+      "path": "games/disk3/Map0098.lmu",
+      "sha256": "6e34252c00afcd4c797f733c2754b116a29c6ab55d0858d36988f3d540f87e87"
+    },
+    {
+      "path": "games/disk3/Map0099.lmu",
+      "sha256": "8e4a297bca414e7075c9856cb0ebc32fbf7e15f34e71775132b7b5befe35ca1f"
+    },
+    {
+      "path": "games/disk3/Map0100.lmu",
+      "sha256": "e4383c6ec47e4481df245828079da24e404cb81ebbf4f90ac653923fca229b9c"
+    },
+    {
+      "path": "games/disk3/Map0101.lmu",
+      "sha256": "1c67aa9d9e705ef1f8e5793f4848842fb91dd901ad546c7ddc9739652a772693"
+    },
+    {
+      "path": "games/disk3/Map0102.lmu",
+      "sha256": "efa695ded28c4b177dd05135d4e8facfe0a60a2ec0a377728af4e85ae15a59b9"
+    },
+    {
+      "path": "games/disk3/Map0103.lmu",
+      "sha256": "9ebf619a517a1f465e975dc4b1a7ac8bb4557444c241d76e830f41e2f4b03e29"
+    },
+    {
+      "path": "games/disk3/Map0104.lmu",
+      "sha256": "2abed627283222beac758d9c36e997158acebaaff83f440a6410441cce99e1f8"
+    },
+    {
+      "path": "games/disk3/Map0107.lmu",
+      "sha256": "c6e7ba35171483621f3556642100b0465f9dd4ade1d86dfd229d17046282ca4a"
+    },
+    {
+      "path": "games/disk3/Map0108.lmu",
+      "sha256": "ef340404a279931318f37631b284039b5250ca23392339c89e1b3eb041208878"
+    },
+    {
+      "path": "games/disk3/Map0109.lmu",
+      "sha256": "50819c2a3afe26258ef30db4d4a69befc20752cf3c53beef3f2017e5512644b6"
+    },
+    {
+      "path": "games/disk3/Map0110.lmu",
+      "sha256": "68e03947a9cfefbe0c17d3d1c92b8817294fd27802981296727ff788ef992c13"
+    },
+    {
+      "path": "games/disk3/Map0111.lmu",
+      "sha256": "950646e2667e8e6c0495428b65cd48b9c03982f4fe28421408e4aa90f1877376"
+    },
+    {
+      "path": "games/disk3/Map0112.lmu",
+      "sha256": "55af5396b913fbbff6f843b74c22ac297a2c5bdf389f9828036c64a7cf7774c0"
+    },
+    {
+      "path": "games/disk3/Map0113.lmu",
+      "sha256": "0e1e5b8aad5974c416e1bb246e33f0b33b97e73370f1a6501dba608d986cc0e2"
+    },
+    {
+      "path": "games/disk3/Map0114.lmu",
+      "sha256": "67d1108203748388f02e8cbd0a2ab37a61cc4e028056ea73787c580ea3c4aea4"
+    },
+    {
+      "path": "games/disk3/Map0115.lmu",
+      "sha256": "33fe20fae290d04b1a7514615282ec2c763c1d21adc2b6bd6bb13c9eb8bd737c"
+    },
+    {
+      "path": "games/disk3/Map0116.lmu",
+      "sha256": "f678caee18528070465a7b1ddbfccb77cb361e530185d2c215c1e8592a17af6c"
+    },
+    {
+      "path": "games/disk3/Map0117.lmu",
+      "sha256": "c4b51b1e1cb791227ab9b52db5bdbf37dcb584e9370f482d44c3bde2dee19e43"
+    },
+    {
+      "path": "games/disk3/Map0118.lmu",
+      "sha256": "e5382a4ac3526f77f5a385f195d0bedd9ebc30a7ac8a67c7638df2ca5aa9b5eb"
+    },
+    {
+      "path": "games/disk3/Map0119.lmu",
+      "sha256": "8d1f97c338e188774d6c4cc7982b29bcb4fcc41515e86d03edae651098b03643"
+    },
+    {
+      "path": "games/disk3/Map0120.lmu",
+      "sha256": "c09da3eee5da696adbab421b80106e3d7e13a152e2a5c9c89230368d07d59e7c"
+    },
+    {
+      "path": "games/disk3/Map0121.lmu",
+      "sha256": "a58480ec29ea67ebb9123c8d7039036a74b1d8821afccb40e6a4574999e06cd6"
+    },
+    {
+      "path": "games/disk3/Map0122.lmu",
+      "sha256": "54eadb3b297ee0547250683dfab39f8c1ec58165dafcfa1783edcea79b07fb6a"
+    },
+    {
+      "path": "games/disk3/Map0123.lmu",
+      "sha256": "0c9489a131cc8341f02ef9aaf569a6c4e7fad41b2059ae8cf3dbfd010d0f9577"
+    },
+    {
+      "path": "games/disk3/Map0124.lmu",
+      "sha256": "9ad1b1c78ddee5db2b3777514872244ea84f898549e19bb58ea229a2abf70f91"
+    },
+    {
+      "path": "games/disk3/Map0125.lmu",
+      "sha256": "5b47b23ce310b8ccd403a0b1ba1a2dab12535fc88714036643905eda5209f3b9"
+    },
+    {
+      "path": "games/disk3/Map0126.lmu",
+      "sha256": "2e2dd7c59eff7bdf03f50d933eb474addce02195dc3329cdffcb7fb68e7db676"
+    },
+    {
+      "path": "games/disk3/Map0127.lmu",
+      "sha256": "6c094c581fbdcdd47e23d136bcfd4212d9eb308ff04d9abf9603b04a67c898c5"
+    },
+    {
+      "path": "games/disk3/Map0128.lmu",
+      "sha256": "4ab80f958593d6815fe4994472b13943427685d1d23824758999dc2a4cdad196"
+    },
+    {
+      "path": "games/disk3/Map0129.lmu",
+      "sha256": "922654e144dbc433c3dc2321f1d956bc43bd25f8d53cb3990881cdeb799f9ff8"
+    },
+    {
+      "path": "games/disk3/Map0130.lmu",
+      "sha256": "af32898ff4173dea24f5d0a080c3a082f00e31252a7422310c213837282adf09"
+    },
+    {
+      "path": "games/disk3/Map0131.lmu",
+      "sha256": "57f6d2fe58f63d461a2eba120b2d3cfb1d44993d98862fb3a9f5a1d07500265f"
+    },
+    {
+      "path": "games/disk3/Map0132.lmu",
+      "sha256": "b39be16f0382df18fb7d29418faacecb2241fde64b95d8eecb185ddf51fcd8d1"
+    },
+    {
+      "path": "games/disk3/Map0133.lmu",
+      "sha256": "801d737a829a7c9e211f152964343e8093a1b28dc46083714f8b5527d64f7fe0"
+    },
+    {
+      "path": "games/disk3/Map0134.lmu",
+      "sha256": "902283c0d26e27b2b2588cc59e854e4d34742bd7063d3d5d99ef5792b22bce56"
+    },
+    {
+      "path": "games/disk3/Map0135.lmu",
+      "sha256": "6a87dd4bb24c60a6ac8f9be0f390789b8f183213360c255b7053824a4ff562cc"
+    },
+    {
+      "path": "games/disk3/Map0136.lmu",
+      "sha256": "6fc79b699c64db8ad7851b562e2cab8e7a47d835333b4ade50bd29e7a7b02576"
+    },
+    {
+      "path": "games/disk3/Map0137.lmu",
+      "sha256": "406a14076931771f2637a9edda4a6d8e6a45daeb4ca24e78e528e7e9027bce04"
+    },
+    {
+      "path": "games/disk3/Map0138.lmu",
+      "sha256": "ba394695d132eba8c03453546b44ca1a46ab47a658052c879b85dd1b50705ae3"
+    },
+    {
+      "path": "games/disk3/Map0139.lmu",
+      "sha256": "821a32db3cdceb603b6a0534362e3234b64f8080e395230dacdc18f5c6e61b58"
+    },
+    {
+      "path": "games/disk3/Map0140.lmu",
+      "sha256": "70696989ca81ae2887caa2648bd6405a25d936fffad0e0a067cf670af3575777"
+    },
+    {
+      "path": "games/disk3/Map0141.lmu",
+      "sha256": "c43d03e7d7d7153a7c20f09bab828d62e11f771e323760de924e006c8669d1fd"
+    },
+    {
+      "path": "games/disk3/Map0142.lmu",
+      "sha256": "b97faf2a2cf92e49d7d2678d22aa664ff0a519b5bf8ff84fc3bb01f33c32a4ff"
+    },
+    {
+      "path": "games/disk3/Map0143.lmu",
+      "sha256": "e084e5ba62f77e04ac0e736e5cbe1e53efe687e47444f651b42a16e7bc1b5c8b"
+    },
+    {
+      "path": "games/disk3/Map0144.lmu",
+      "sha256": "3c56225bef637f14229d140a086ca3a6a1871e87560ca42dfd3e05a7debc5611"
+    },
+    {
+      "path": "games/disk3/Map0145.lmu",
+      "sha256": "ba292ac8ac80a2c4782a71ffd40bb7a302e3b4e509d64283229f69f6fd3bf0af"
+    },
+    {
+      "path": "games/disk3/Map0146.lmu",
+      "sha256": "f8a7d41ef4a8fce5ddd8ca2d5f01436ee2a26bd1779c34ef033917449589552a"
+    },
+    {
+      "path": "games/disk3/Map0147.lmu",
+      "sha256": "fc6f47209e92c86e61cd6b4c7c7c00952a18fe5daa7adeb01c457bacef80b30f"
+    },
+    {
+      "path": "games/disk3/Map0148.lmu",
+      "sha256": "4f1407a16deb67ffc1bb4ea18dd7fe83bc3b48c8f18f74de15c2dda496682ee3"
+    },
+    {
+      "path": "games/disk3/Map0149.lmu",
+      "sha256": "1644a1d2eeca6e077c1fa8f79863fda0d58051fa7499f936b9533ae179a80221"
+    },
+    {
+      "path": "games/disk3/Map0150.lmu",
+      "sha256": "5529f567b990d36d53b8b7a3b97076928ba8071264b46b056ef7de1fd5d684e2"
+    },
+    {
+      "path": "games/disk3/Map0151.lmu",
+      "sha256": "6e4e57726a0857aadb693c75cfd0fc220689dd1139bc3201529cc1a8630735bb"
+    },
+    {
+      "path": "games/disk3/Map0152.lmu",
+      "sha256": "3320db82ce1022fb2cd96c41ef27eb93b40543fc2e1d7de95312863abb367bba"
+    },
+    {
+      "path": "games/disk3/Map0153.lmu",
+      "sha256": "ad7478fe9d72ec5e1aaf74509e4ee02241faf7c812f63774867eb29aea812b86"
+    },
+    {
+      "path": "games/disk3/Map0154.lmu",
+      "sha256": "50cf0f1fd96c8618677a352959fea19dc718e230b8e67c53cf4e3a5e96d8a271"
+    },
+    {
+      "path": "games/disk3/Map0155.lmu",
+      "sha256": "ea9bb0ea0ed929268848e03759c875213db8346fd6b5a9830f32ed603f5f6fdf"
+    },
+    {
+      "path": "games/disk3/Map0156.lmu",
+      "sha256": "e61b5213671e03e4ce6d2cb6f88b0c6a134c7a96c950290beddfe26ddee38973"
+    },
+    {
+      "path": "games/disk3/Map0157.lmu",
+      "sha256": "82408922e65c3a102b6bb64617531e2e0c768cd332bea086829c2d6ce2981079"
+    },
+    {
+      "path": "games/disk3/Map0158.lmu",
+      "sha256": "95f0e52d41a6bd6754aba2fda5f7c5494b3d8d8f3dea2ee84c66b6a50b2dfade"
+    },
+    {
+      "path": "games/disk3/Map0159.lmu",
+      "sha256": "a7d6b083c4fea2c8dbde94ee181bef59aebc16cbb14da48ab154bf21ed9f6def"
+    },
+    {
+      "path": "games/disk3/Map0160.lmu",
+      "sha256": "c3137dad0cb8fe648bb2fb375e4edc1f7f9dbcecf67eaaae74c74ce7f4072263"
+    },
+    {
+      "path": "games/disk3/Map0161.lmu",
+      "sha256": "1fcdba28691d5de565c08f589e30b82d69df7223df97b06312b4f343402f9a11"
+    },
+    {
+      "path": "games/disk3/Map0162.lmu",
+      "sha256": "5e96d7e0632600090ec171e88f459f8a58a8405b9aec6a405404deb5727671a5"
+    },
+    {
+      "path": "games/disk3/Map0173.lmu",
+      "sha256": "83af77976acb700da74415e0339481a976cb9675e1b2dd0a745e3766ee1f72a1"
+    },
+    {
+      "path": "games/disk3/Map0174.lmu",
+      "sha256": "83f09f558f7fd014e833eda482695abebb74eeadd3a5a4ae8f8c9d9b01ba427d"
+    },
+    {
+      "path": "games/disk3/Map0175.lmu",
+      "sha256": "0d8d7c3e9d0394312a5d221fad2593c444881c4ef63725086f8980fcb1fb7930"
+    },
+    {
+      "path": "games/disk3/Map0176.lmu",
+      "sha256": "43cd96b4a6d2f33c93c60f74bbab448fa32bf8f09bc206259383ff3368618e31"
+    },
+    {
+      "path": "games/disk3/Map0180.lmu",
+      "sha256": "73e9f387770091e54952fdf5deecc83d2c80116db5b73ae163cdfcae0cc420f6"
+    },
+    {
+      "path": "games/disk3/Map0181.lmu",
+      "sha256": "3804dae57cf5b140079ba6451aad762333d5ea0719088586bcd6e94d9b48494a"
+    },
+    {
+      "path": "games/disk3/Map0182.lmu",
+      "sha256": "22da89d25e2ad368c617c48bcdba5db045bf49f4f191b961893b75f41a050f2c"
+    },
+    {
+      "path": "games/disk3/Map0183.lmu",
+      "sha256": "05c8df15bbf5c16f1aaea08bdb79a6050746d01da37c7e685e4b50293dab0c39"
+    },
+    {
+      "path": "games/disk3/Map0184.lmu",
+      "sha256": "79b6782c5ccae5f695771e4e0803658090c7546eea16c0a53d7800c18859728c"
+    },
+    {
+      "path": "games/disk3/Map0189.lmu",
+      "sha256": "34968ea0171305dde4291b8e83c19e693a183d82ba97bbba10e03edf03577808"
+    },
+    {
+      "path": "games/disk3/Map0215.lmu",
+      "sha256": "2e5d18b149ba3de65f77e2d00ca5221acdbd432dd1ac091d6ee5be16e6945982"
+    },
+    {
+      "path": "games/disk3/Map0216.lmu",
+      "sha256": "34d130b99e77eddb69d0625aff010c3c58dc705acfd0fa76d38de45768216a14"
+    },
+    {
+      "path": "games/disk3/Map0217.lmu",
+      "sha256": "b9b218294eff1fdcd87131b23d3445d592d8ed1d1a71752e6b9c74cdcefc5846"
+    },
+    {
+      "path": "games/disk3/Map0218.lmu",
+      "sha256": "17e52506de739c13600ac4e1dd883e93e3599223831b70009d78bd3d9193818e"
+    },
+    {
+      "path": "games/disk3/Map0219.lmu",
+      "sha256": "35f278e2df8598215a7ca1a3d367a4d260ddb48102ac2b264e010733960434d9"
+    },
+    {
+      "path": "games/disk3/Map0220.lmu",
+      "sha256": "92ae42c279ac1a24245f51d8a2709016af98e82a780f820f394bce09152d2fea"
+    },
+    {
+      "path": "games/disk3/Map0221.lmu",
+      "sha256": "7c1584b476b61e70c615694e80f1d6883449e813a2bfcea6dbddd23b2219cc07"
+    },
+    {
+      "path": "games/disk3/Map0222.lmu",
+      "sha256": "423d5f5898c4b36d1f35771b3d56610ee894a98b6d31f61155b5fc0741e3b970"
+    },
+    {
+      "path": "games/disk3/Map0223.lmu",
+      "sha256": "abc1db15d1a5f2fd3939a55d7d529a0fe899197b700f61a587223dc0611e2e74"
+    },
+    {
+      "path": "games/disk3/Map0224.lmu",
+      "sha256": "285071b6079548190d1a6af5d4f76afbb3bea4bcbc73719fe1c11c5be66d87c1"
+    },
+    {
+      "path": "games/disk3/Map0225.lmu",
+      "sha256": "b55c154a27470804ca28f6c1e78eda490b922c5db4361651b5d7a98bdafed759"
+    },
+    {
+      "path": "games/disk3/Map0226.lmu",
+      "sha256": "ec548554b0c7993e8834bfb971e85316919f7c751f09d91d1f33320e98374ed9"
+    },
+    {
+      "path": "games/disk3/Map0227.lmu",
+      "sha256": "5c49bf817a2ee0d6b314b58cb382865c349ec7e1747c14e846e5f3db9e9dbc45"
+    },
+    {
+      "path": "games/disk3/Map0228.lmu",
+      "sha256": "758de08b6b9f8d68f9cd2cae1fa8781135f5decd7ea04908288d3719dc09bf78"
+    },
+    {
+      "path": "games/disk3/Map0229.lmu",
+      "sha256": "837fa1d774ca613bacd54a2f3480a13aee017d9382708509480c7ec3e25ede7a"
+    },
+    {
+      "path": "games/disk3/Map0230.lmu",
+      "sha256": "abef27315b6f72f1d7b9ce786ab879c43366e0ea39e61f7d405f6ef61e059d92"
+    },
+    {
+      "path": "games/disk3/Map0231.lmu",
+      "sha256": "9f5e637a7dde187d16fbcba585a9921fb87112296cdd85cd38f8860560a12ec8"
+    },
+    {
+      "path": "games/disk3/Map0232.lmu",
+      "sha256": "ea45bd0eca26987878a72425a117be17830b78ba7f61a44f6ff2f87fabf38f3c"
+    },
+    {
+      "path": "games/disk3/Map0233.lmu",
+      "sha256": "53469fa2a377716a1dc6cff7f7fb213c9a70af6fd0ffbae29b6bf9fde92e990d"
+    },
+    {
+      "path": "games/disk3/Map0234.lmu",
+      "sha256": "332b5a718669d550f25caff53fdf3090e8d268665193784b9fccd302c17b0681"
+    },
+    {
+      "path": "games/disk3/Map0235.lmu",
+      "sha256": "2d9371629be3b6ad6f910bbf6592561957dde5540d973b0ab6583188d63340d8"
+    },
+    {
+      "path": "games/disk3/Map0236.lmu",
+      "sha256": "a76cf2d01bd2e3acb3258986b8b0ce6b5df3e32ddd7a9127f7f1c7b1aa1731fc"
+    },
+    {
+      "path": "games/disk3/Map0237.lmu",
+      "sha256": "8d7f237e740b46fe01bbea4ef85d965c8ade73d360a5475087c56076c7458c30"
+    },
+    {
+      "path": "games/disk3/Map0238.lmu",
+      "sha256": "fbf5dbc2e8d93d741634550c1fa6e6a772a25392d1d3ad9acefc52463217bc68"
+    },
+    {
+      "path": "games/disk3/Map0239.lmu",
+      "sha256": "a11fc5d034c71415f1b296bdb8b1a930667f6c32207025a616fab9bacb5bdf20"
+    },
+    {
+      "path": "games/disk3/Map0240.lmu",
+      "sha256": "514b2ceffc1beeceb4f7347e1c8738791ef7be330c34ff39158819adc7a2bad5"
+    },
+    {
+      "path": "games/disk3/Map0241.lmu",
+      "sha256": "fc9cba9118fb8a2a58dab4bb2a29910ead2afa6042e35ce28411f1ff6f4d47c8"
+    },
+    {
+      "path": "games/disk3/Map0242.lmu",
+      "sha256": "cfa801af814be3519a5fc762db4d29c781d71fd65667d67cffd19df3947b162b"
+    },
+    {
+      "path": "games/disk3/Map0243.lmu",
+      "sha256": "a33ea3a4db2632ccbd2fa5f92314f349f478b8d6153ab35c9089a1b7e6071297"
+    },
+    {
+      "path": "games/disk3/Map0244.lmu",
+      "sha256": "2efb41bdc862cc16939f3f1b3e77897f38c50af170534856fbf97c7674a50af6"
+    },
+    {
+      "path": "games/disk3/Map0245.lmu",
+      "sha256": "30253f70b3369ac45163266d6630f989c43b417fff5c5071a196a1a01ec72b0e"
+    },
+    {
+      "path": "games/disk3/Map0246.lmu",
+      "sha256": "c5deb4f6201f1ba2c31cd8ad3af629cc0fa8f873b94a923672d9cf1fb45072fd"
+    },
+    {
+      "path": "games/disk3/Map0247.lmu",
+      "sha256": "eb90e888bd5795f4a88bec501a043e8ed6d1a2cccf460130efed39f53c5bb055"
+    },
+    {
+      "path": "games/disk3/Map0248.lmu",
+      "sha256": "6916b825729eafc7d8a7e0786b071e5dcf7da009f2c7fea60aae4e9e22f9b14d"
+    },
+    {
+      "path": "games/disk3/Map0249.lmu",
+      "sha256": "a427d68809ef332962011a4369b77d1d855b08dab1de23717ac979e4ba35c240"
+    },
+    {
+      "path": "games/disk3/Map0250.lmu",
+      "sha256": "b9e648d8c6eed7c1b6bfc84b3e7ea6a8f6eb9202b394b2e93db3f83d123ee840"
+    },
+    {
+      "path": "games/disk3/Map0251.lmu",
+      "sha256": "ae61a5f293ed39c743fd3fcb66171b8012213df7444d8e2c9c3f59b1aea3fc95"
+    },
+    {
+      "path": "games/disk3/Map0252.lmu",
+      "sha256": "0c19c63d0c52b6758e2375d60553c5b76ce6c49aa649639fa88fb5deb53a035d"
+    },
+    {
+      "path": "games/disk3/Map0253.lmu",
+      "sha256": "41a17c22021bce9a71c457ea8904accd1e5e431344df1a0e2908777dc8f4b8c2"
+    },
+    {
+      "path": "games/disk3/Map0254.lmu",
+      "sha256": "0be01d32f9f8234020e03a764a5efc87dfae9501955c79527825198f961f7fba"
+    },
+    {
+      "path": "games/disk3/Map0255.lmu",
+      "sha256": "f5e993e0eabd1da2fe4a96a41073418c5bb3ed78fc7e445fac854ef052c62430"
+    },
+    {
+      "path": "games/disk3/Map0256.lmu",
+      "sha256": "953720fcbc5e0215344d87a67418ad6c324a735b74fbd3b9cb512b406db9111a"
+    },
+    {
+      "path": "games/disk3/Map0257.lmu",
+      "sha256": "8ba6198efd202a7bb885a72b103ad1eb4855502838c7bc08da971fe827d8f7de"
+    },
+    {
+      "path": "games/disk3/Map0258.lmu",
+      "sha256": "e62be2b639098ec09b8b921c3b826edb8e4db36257a303c54e26667e12eb7ba6"
+    },
+    {
+      "path": "games/disk3/Map0259.lmu",
+      "sha256": "721a4dea42ca55ba56e34cba29c7b214495f87065420701d70aab4a4ddca1fff"
+    },
+    {
+      "path": "games/disk3/Map0260.lmu",
+      "sha256": "b163d620396eef655b1f82f557a3322d7331cfdb8fba85f2bf26cf82836a125d"
+    },
+    {
+      "path": "games/disk3/Map0261.lmu",
+      "sha256": "7c7802de8d82d2bc3e91cef5d2598bcb7b6d5e67b8d810db05e7844f2fcbb4ca"
+    },
+    {
+      "path": "games/disk3/Map0262.lmu",
+      "sha256": "d70456be3ac44626438edb17132909e435fac3f439b8a9cdccd88dc0cc00ae3f"
+    },
+    {
+      "path": "games/disk3/Map0263.lmu",
+      "sha256": "c537cdfb0a11856b363cfea72958d245808978f52c885fb360c1b90bbb9144b5"
+    },
+    {
+      "path": "games/disk3/Map0264.lmu",
+      "sha256": "ac6028619415d03e5eefcfc2e29aa6af3cf49a769f0a3a695fc5245704a4c961"
+    },
+    {
+      "path": "games/disk3/Map0265.lmu",
+      "sha256": "673f8d63043233d91bd818e5d38ea274fb29e2fe7f27c0c5a2066148309be225"
+    },
+    {
+      "path": "games/disk3/Map0266.lmu",
+      "sha256": "4b6945ffca8ef06fe99f20ae2d7e32481183d5088fdd22b88235b28a2315ba1a"
+    },
+    {
+      "path": "games/disk3/Map0267.lmu",
+      "sha256": "3079ec5a61e025a4d0f722a51caebd94ca4ab8c42e9db5a39a20e94681d74e68"
+    },
+    {
+      "path": "games/disk3/Map0268.lmu",
+      "sha256": "497dbb45c9ef2297372e142a553ec844fdc92ad4be48d42d12413130f01bd1bc"
+    },
+    {
+      "path": "games/disk3/Map0269.lmu",
+      "sha256": "6f055f16ad3713c1c7a361d0dfd3a8627e040e705e212293a119548bd959620c"
+    },
+    {
+      "path": "games/disk3/Map0270.lmu",
+      "sha256": "f7552a826ad37e95d2d01b19d2b190954fc498e47d280e7886af555fddaf3495"
+    },
+    {
+      "path": "games/disk3/Map0271.lmu",
+      "sha256": "665ee93ac6c4d2c4045907583c84ef408f551081a72fc28b7966ebba613d30e3"
+    },
+    {
+      "path": "games/disk3/Map0272.lmu",
+      "sha256": "85684e3d2a876b959f32cf05353ffee01362615d918e1e2673b42c3223a47ea9"
+    },
+    {
+      "path": "games/disk3/Map0273.lmu",
+      "sha256": "64225cace4536ef87cd7d9b7d658afd724cf87dbac7d4715f0fe89a5a84733d9"
+    },
+    {
+      "path": "games/disk3/Map0274.lmu",
+      "sha256": "86f672853d3b2728899803a65ef8692722a86407f6977d89e3dc2330dd06180a"
+    },
+    {
+      "path": "games/disk3/Map0275.lmu",
+      "sha256": "e9071ad2ced71daf954cc61e8c89bfee0403e672662f904ed337b0e9db4e587f"
+    },
+    {
+      "path": "games/disk3/Map0276.lmu",
+      "sha256": "fab416ef14ed043925de91c397be3ff501a625349ccd41b618adbefa841e4fde"
+    },
+    {
+      "path": "games/disk3/Map0277.lmu",
+      "sha256": "69056c92560fd8d5f0ae01123abdaab27d2ff6252f0da69957d7cad56b60165a"
+    },
+    {
+      "path": "games/disk3/Map0278.lmu",
+      "sha256": "014f5e28ce1ff490d93a57e1e7ba13a466fab9e606d6144dcec3d09bde4d0f20"
+    },
+    {
+      "path": "games/disk3/Map0279.lmu",
+      "sha256": "7ae916854d68dc476bd8e1b85872ec5d4c89b79217964a1ae25a6070a43cf53a"
+    },
+    {
+      "path": "games/disk3/Map0280.lmu",
+      "sha256": "b5e0c366438d0e37fa8379c65c1fd0b4a6cc73fbd76dfd4b3b8c476cdd2836c0"
+    },
+    {
+      "path": "games/disk3/Map0281.lmu",
+      "sha256": "6a1e0cd3cbad2ba97389fcfdc945e6a9c8a1c8db0b3882e5eb346d45b7103a24"
+    },
+    {
+      "path": "games/disk3/Map0282.lmu",
+      "sha256": "f6655800db52426292c24bf4dc6910428d74ef6ed7f0c284a1b46b869b64a80a"
+    },
+    {
+      "path": "games/disk3/Map0283.lmu",
+      "sha256": "77c402ee403c141d173b3047d8cbc8323a77e71670c64f7567c49c197405465f"
+    },
+    {
+      "path": "games/disk3/Map0284.lmu",
+      "sha256": "2d1bb51a7b55591d9f59e6e4144ebe926acdae34d9db6cbadfc3339a7990e3bd"
+    },
+    {
+      "path": "games/disk3/Map0285.lmu",
+      "sha256": "71b42b638ee5bc319f27c3ad375027ee136e67d3df4f51b3bb892e5d3f797027"
+    },
+    {
+      "path": "games/disk3/Map0286.lmu",
+      "sha256": "405cdda241032bea39c45a762ddf21830062b93df2970c7e46839a53a6eeda81"
+    },
+    {
+      "path": "games/disk3/Map0287.lmu",
+      "sha256": "2d955ffb3224c8ab30c828674cc81a2510acf191623f8e408bc1a9f398e74d1a"
+    },
+    {
+      "path": "games/disk3/Map0288.lmu",
+      "sha256": "dbb1d85062a8ab95813109841c63433cdfd92e2871a2ce4b13e0faf5cfc394ec"
+    },
+    {
+      "path": "games/disk3/Map0289.lmu",
+      "sha256": "e2e291d5a634c9f408c2ffe1825493f0063ee35b8a783e64d952a1c32a7a5946"
+    },
+    {
+      "path": "games/disk3/Map0290.lmu",
+      "sha256": "1293e872bd37bdb7358e732ce9844692f9f344cdc647747594a335bc45f93628"
+    },
+    {
+      "path": "games/disk3/Map0291.lmu",
+      "sha256": "2a048bba85ef5b9ac1fddb073162fcdc9ee21a38fbdfb8692a4826277c914617"
+    },
+    {
+      "path": "games/disk3/Map0292.lmu",
+      "sha256": "d68f638044216a60712613a39522fd37671db585916b9705672970549eda5172"
+    },
+    {
+      "path": "games/disk3/Map0293.lmu",
+      "sha256": "b3e96b741de4c7c80348fd7ffc1df2401b3456d383bd47d3cd92db21804b1d11"
+    },
+    {
+      "path": "games/disk3/Map0294.lmu",
+      "sha256": "22c0239e2f3fa6ada1bb69b0b1639492e083472654907e4a7ab308d1bb87dd07"
+    },
+    {
+      "path": "games/disk3/Map0295.lmu",
+      "sha256": "7729ad0fbde59c26a51a8a3a6fda046e428573e99db4685ed905e4d384d5fe0f"
+    },
+    {
+      "path": "games/disk3/Map0296.lmu",
+      "sha256": "c156a3e5fde4b767adfaa705a6554e57c4d94756e9b2504701e052a41c45dd83"
+    },
+    {
+      "path": "games/disk3/Map0297.lmu",
+      "sha256": "73ddeb62555d2edb187d9cfde6186dba579660fd0f56bcc815fccf81351df00b"
+    },
+    {
+      "path": "games/disk3/Map0298.lmu",
+      "sha256": "cb96e9981a3418dc134e9b88b8ba0cf8f7f45a4561ff44e9638fbf83609d1d05"
+    },
+    {
+      "path": "games/disk3/Map0299.lmu",
+      "sha256": "5d894255918b7462d3ae05954d897211e22ecf2a49fcfa98fbf2d5b6667447da"
+    },
+    {
+      "path": "games/disk3/Map0300.lmu",
+      "sha256": "e53cff09d2e00a4e869341e1b9d738dd2a353e6316898fa9099e9ac369c54374"
+    },
+    {
+      "path": "games/disk3/Map0301.lmu",
+      "sha256": "d7067c0e02d2489aaf68a4a237f09fcf85138bf52b77e8269e9c3ae6df33b158"
+    },
+    {
+      "path": "games/disk3/Map0302.lmu",
+      "sha256": "19b467c0036af573ee0e1abb9299f156d5751c53b7682aefd80f183d90b71241"
+    },
+    {
+      "path": "games/disk3/Map0303.lmu",
+      "sha256": "92473d4d76dbd9e10b6db302150af79e2240f45557417742af9695535009e5c6"
+    },
+    {
+      "path": "games/disk3/Map0304.lmu",
+      "sha256": "bd4a38ff26fa64c3e9a85abf7c143bb3032362faa4bd1d2f012b6ecc7cefb482"
+    },
+    {
+      "path": "games/disk3/Map0305.lmu",
+      "sha256": "13514446bbbaa115d8e05bbe2473704ac069e5aff50d340eef1e949e62994437"
+    },
+    {
+      "path": "games/disk3/Map0306.lmu",
+      "sha256": "4343d8104991e01977a8179784734eefc014ee7edfe26df4b2cb4a893db03afe"
+    },
+    {
+      "path": "games/disk3/Map0307.lmu",
+      "sha256": "5aae81387e5e9b0f7d59a08ef657906b013eafec73f35635eea24e878d2bf7d0"
+    },
+    {
+      "path": "games/disk3/Map0308.lmu",
+      "sha256": "b09cb1689e03d49100ced77f524169e214bd82d950de1048b1c4d200f479575c"
+    },
+    {
+      "path": "games/disk3/Map0309.lmu",
+      "sha256": "b6f8c72a7fba5830e5d0a0d2455c9288bbe1e0fce559fda05633a3c2a13a253c"
+    },
+    {
+      "path": "games/disk3/Map0310.lmu",
+      "sha256": "a3ab7d591ae5138cc298e162ff52cfe5302a683975f393d7e242962adcf44770"
+    },
+    {
+      "path": "games/disk3/Map0311.lmu",
+      "sha256": "e0cca41c3dc8a91137b11d2100fa52cf1424d5642bd671d417286090d9335389"
+    },
+    {
+      "path": "games/disk3/Map0312.lmu",
+      "sha256": "88cc714ab0e518e5f36d07a16a98a80f711186dde7c6bbf67304cd0fe0317aca"
+    },
+    {
+      "path": "games/disk3/Map0313.lmu",
+      "sha256": "51226039b2e1a38639c83ad53994cfddb8729da38ca2126bb3bde57e4a9488fa"
+    },
+    {
+      "path": "games/disk3/Map0314.lmu",
+      "sha256": "94e2637d56c5e570c8a150070a90770f6cc2b909a049b9ad9624a3c20e42455c"
+    },
+    {
+      "path": "games/disk3/Map0315.lmu",
+      "sha256": "623c0ebea85d2377e1e584aff16305a39736176317bab2336954d2baec226d44"
+    },
+    {
+      "path": "games/disk3/Map0316.lmu",
+      "sha256": "37290f8f88c4f321f61cf7473e0157ee7f30a93c24ce80d24e4ad31886d45d01"
+    },
+    {
+      "path": "games/disk3/Map0317.lmu",
+      "sha256": "722d470dc2bc3bcea14b5ff5aa53216c01f29a2990c1e89d9d0342aab12f1bdf"
+    },
+    {
+      "path": "games/disk3/Map0318.lmu",
+      "sha256": "83f6391b0504a3aae6a70a48156af1bca6bbb49e4b3e69124811fe856c0c5e93"
+    },
+    {
+      "path": "games/disk3/Map0319.lmu",
+      "sha256": "a78bc42ae3ee479d108d9b4360068532ee0b3323e89689431530eacc61567929"
+    },
+    {
+      "path": "games/disk3/Map0320.lmu",
+      "sha256": "4aa72682d22bde81234de326b2f976b8d15c37290a6ecb54d187d840c15c4531"
+    },
+    {
+      "path": "games/disk3/Map0321.lmu",
+      "sha256": "8eecd720f2e2bcfebf9c19c0c9adf40f5013d38ba38b81363ff63cf98031b246"
+    },
+    {
+      "path": "games/disk3/Map0322.lmu",
+      "sha256": "9c56d486d59bbf385f39d9087ee950c1ff1f962dd1a928055c7d64647bf8fa1b"
+    },
+    {
+      "path": "games/disk3/Map0323.lmu",
+      "sha256": "a0f6c99b2e856180c585c1b6faa62145d6ab0d5c8db3b12d4cf0b6022c71db61"
+    },
+    {
+      "path": "games/disk3/Map0324.lmu",
+      "sha256": "2d74d571f7be6010b7cfe448b8e145a0694a7ccd5f82679bc4648940378a3385"
+    },
+    {
+      "path": "games/disk3/Map0325.lmu",
+      "sha256": "a5f1f21a5553b94ff214e03da36fd14dbb1955b46f8a08629d415a585a5c3270"
+    },
+    {
+      "path": "games/disk3/Map0326.lmu",
+      "sha256": "a094935528d8dac0b9f2adb8d08be320ed38ab52f9c7c3281b803589c695928d"
+    },
+    {
+      "path": "games/disk3/Map0327.lmu",
+      "sha256": "af97d36b8ff0bd023f37171d2956480b21c8b60f5175cccc4f08b6f4aaca23b0"
+    },
+    {
+      "path": "games/disk3/Map0328.lmu",
+      "sha256": "92fa15487a58f011c7048146b0b5a61893b7c550d2737353079e7cd4246b1877"
+    },
+    {
+      "path": "games/disk3/Map0329.lmu",
+      "sha256": "bf8572de1623f28239b74f815ba3f1e23242cc456530884320949f063e3cd490"
+    },
+    {
+      "path": "games/disk3/Map0330.lmu",
+      "sha256": "88b6bf7243f3b9da69370d22675c7bd3e3c9932b138c11325bca5d85f1febad5"
+    },
+    {
+      "path": "games/disk3/Map0331.lmu",
+      "sha256": "e7624753b306893596bbeb3e50252ee10c0306ca3838659a1da93562ba6ae05b"
+    },
+    {
+      "path": "games/disk3/Map0332.lmu",
+      "sha256": "5055065ba41b27385e49957a2eca0294283f8b77024b80bc2e50face5bedb3ee"
+    },
+    {
+      "path": "games/disk3/Map0333.lmu",
+      "sha256": "051c008b772fb2fe3fb0e2685e7aa39f8924111ab9506ff09fdc5b3819b34ee5"
+    },
+    {
+      "path": "games/disk3/Map0335.lmu",
+      "sha256": "970933c6ce71b0088a385c68868511f2b410e4783ca23b01b6dac277a11c2b91"
+    },
+    {
+      "path": "games/disk3/Map0336.lmu",
+      "sha256": "a90083361f43d4a1256969586c69ad321b7fb798457ce219c4ce57803dfc9fec"
+    },
+    {
+      "path": "games/disk3/Map0337.lmu",
+      "sha256": "ccf16b114fa059f717051ce9149ca6362c6cc63d498a41ddcef51257ab23581e"
+    },
+    {
+      "path": "games/disk3/Map0338.lmu",
+      "sha256": "f384d89d08f71cc662ca2dd9f24d37d1f0e96855e434dbe8ae35da66cb8526f5"
+    },
+    {
+      "path": "games/disk3/Map0339.lmu",
+      "sha256": "687f517ed71c099909af4ca4e12e4889ab82bdaf359ca67ece571b9be24062f5"
+    },
+    {
+      "path": "games/disk3/Map0340.lmu",
+      "sha256": "819dc9823f42687b8a0d357a428b8d3409796da9cee9bcf81e70920408f7f62f"
+    },
+    {
+      "path": "games/disk3/Map0341.lmu",
+      "sha256": "e74f0cedee552a5888a4864f04d4c1640946233ffa445655b9b2b23cc644cf55"
+    },
+    {
+      "path": "games/disk3/Map0342.lmu",
+      "sha256": "769881f10254f508f6093110150ae6723fa611a90b41795d9fc21d5d313c89ae"
+    },
+    {
+      "path": "games/disk3/Map0343.lmu",
+      "sha256": "6eaf21a322983c313cfbfcabd08890c674595c81d32fa03e402698d3ed5518a0"
+    },
+    {
+      "path": "games/disk3/Map0344.lmu",
+      "sha256": "78017750dee1a3d782d680a9175b5361e7016079acefd9d5c50002b54ba5aa8a"
+    },
+    {
+      "path": "games/disk3/Map0345.lmu",
+      "sha256": "23075f8890d6619ea7db0471418017e925e4f1e39f8c8320908570d5185f1fd6"
+    },
+    {
+      "path": "games/disk3/Map0346.lmu",
+      "sha256": "cff7549ccc4922eba517b101a003ed0a40130c38032310e1c310965812710538"
+    },
+    {
+      "path": "games/disk3/Map0347.lmu",
+      "sha256": "1a4a09722785e25052f8f272cb18e61143e527c2e3d1f9ae31da081daa24eb59"
+    },
+    {
+      "path": "games/disk3/Map0348.lmu",
+      "sha256": "c53c963ed3ea52385e672979a18c818837d58c4e6f248add0d171dfe2d7c5275"
+    },
+    {
+      "path": "games/disk3/Map0349.lmu",
+      "sha256": "da1e1cee4c21f287cd47c349357722981d762ceb53cfda22a0ef4919a6c8c86b"
+    },
+    {
+      "path": "games/disk3/Map0350.lmu",
+      "sha256": "1e084f0e9a1bf8820469ba250683c1408e4e4aeae8543782140a54b5c1875367"
+    },
+    {
+      "path": "games/disk3/Map0351.lmu",
+      "sha256": "d793277c26876323eba5e8c3dde8defa0decd22e1c6dee928b70084079652378"
+    },
+    {
+      "path": "games/disk3/Map0352.lmu",
+      "sha256": "e12d7ac5605062d0b250a900b38f5ecc3cd22df18e8a888d3e651ae2f53235b8"
+    },
+    {
+      "path": "games/disk3/Map0353.lmu",
+      "sha256": "4b3624ab8be710f56a14e0348885abf081294ba7e4f2f52d9f08ef39fffa4120"
+    },
+    {
+      "path": "games/disk3/Map0355.lmu",
+      "sha256": "ba4c5275017dd0b80452994f1ec05eaede16297b546d0563ef5ba3ab2271c0b1"
+    },
+    {
+      "path": "games/disk3/Map0356.lmu",
+      "sha256": "2359c99fb418c4d7f9cc18e9694f62b1da6378ba5a306d15929c59e0db414f73"
+    },
+    {
+      "path": "games/disk3/Map0357.lmu",
+      "sha256": "608828089d781614045ba87c6cd279fd6d662604c4ac085aa2fd048319a2e7f7"
+    },
+    {
+      "path": "games/disk3/Map0358.lmu",
+      "sha256": "37e8852154b87ba020cae16095f0c82f26064fb6ae91add0d6cd4424b6e11b5d"
+    },
+    {
+      "path": "games/disk3/Map0359.lmu",
+      "sha256": "c3e6ceca4c0e9b36a1904cdfdf77e1e70f879fb9506c79f35bc65688053c1435"
+    },
+    {
+      "path": "games/disk3/Map0360.lmu",
+      "sha256": "412c2b2a6ff128ceae0c4f540edf56664eb74c41b952e6f780ca01dd88951cca"
+    },
+    {
+      "path": "games/disk3/Map0361.lmu",
+      "sha256": "02b50a0940eed7fdf36d01b57c920194b54f054ae0081b97abd1430600c73c1e"
+    },
+    {
+      "path": "games/disk3/Map0362.lmu",
+      "sha256": "e598491dd4c4d350b73fe6119c6c7761fdaa59469d608a53f786b3389b152243"
+    },
+    {
+      "path": "games/disk3/Map0363.lmu",
+      "sha256": "0618e4adb6b484a53347a3ef2a182516def4822e2864d8d8d7ac1013ce8668dc"
+    },
+    {
+      "path": "games/disk3/Map0364.lmu",
+      "sha256": "82ebe883d4246abee12c518824e431645546d5744f058b1e0239e3ce6f5633a6"
+    },
+    {
+      "path": "games/disk3/Map0365.lmu",
+      "sha256": "c91692eb7c7e98e426c00457a402fdc301746e6fd0471e2217c5fa3e0b544784"
+    },
+    {
+      "path": "games/disk3/Map0366.lmu",
+      "sha256": "f2a3c1c926e89c7e76d035a735c12a49d239642c1456fb09bcbf1953216afb2d"
+    },
+    {
+      "path": "games/disk3/Map0367.lmu",
+      "sha256": "4f9c6131d094b75cb4109af4115ab813b7d6cd9513ecb3872d3eda3726988a36"
+    },
+    {
+      "path": "games/disk3/Map0368.lmu",
+      "sha256": "b70ce5c59ed81f6e1fd012b84220ddcd006ceb3fff4b9d9faab101f21a3a711d"
+    },
+    {
+      "path": "games/disk3/Map0369.lmu",
+      "sha256": "bb03d8170042a914fe2aa219caaf30cee867c4f8077ea6f618e9da8b7c2532a7"
+    },
+    {
+      "path": "games/disk3/Map0370.lmu",
+      "sha256": "40d24fa0acd7a6a070b9e9ff100ecddbc4b813a2769473aa82bb2abd07041562"
+    },
+    {
+      "path": "games/disk3/Map0371.lmu",
+      "sha256": "a8df4cd78f52b8434ded600f70d916f37d3d830097d16e274840953cd267bbe0"
+    },
+    {
+      "path": "games/disk3/Map0372.lmu",
+      "sha256": "c13a9b0222e0c1e5af086146d70c86c9d9a70ceb08e864dcc560d0f04a2106d6"
+    },
+    {
+      "path": "games/disk3/RPG_RT.ldb",
+      "sha256": "bdeb3ef3065276e4e370f2c4cf4d33fcfb7003975f0ec9d81e8cd97eeeb68187"
+    },
+    {
+      "path": "games/disk3/RPG_RT.lmt",
+      "sha256": "4cdf197716ef4532c68d64cc469762bb8a068318b6b5c7fee5c76df3df08be57"
+    }
+  ],
+  "verificationScope": "Files compared with the supplied APK. This is not a full gameplay test or a blanket rights clearance.",
+  "movieEncoding": "720p H.264 CRF 28, original AAC copied, faststart; 300 seconds each"
+}

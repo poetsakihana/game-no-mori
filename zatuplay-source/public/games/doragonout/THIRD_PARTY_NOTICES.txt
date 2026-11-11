@@ -1,0 +1,37 @@
+DoragonOut browser edition 2.5.2-web.1
+
+This edition uses the three original game disks supplied by the creator.
+The original map files, database and map trees are preserved. Some music and
+images are omitted or substituted for this public browser distribution.
+See browser-port-report.json for the file-level modifications.
+The supplied APK and the player's existing saves are not modified.
+
+RPG Maker materials
+RPG Maker 2000: ©2000,2003,2012 Gotcha Gotcha Games Inc./YOJI OJIMA
+RPG Maker 2003: ©Gotcha Gotcha Games Inc./YOJI OJIMA 2020
+RPG MAKER is a trademark of Gotcha Gotcha Games Inc.
+Used by a licensed purchaser under the applicable material terms:
+https://rpgmakerofficial.com/en/support/rule/
+The RPG Maker materials are distributed solely as part of this game.
+Do not extract, redistribute, sell or modify these materials as standalone assets.
+The open-source engine licenses do not apply to these game materials.
+
+EasyRPG Player 0.8.1.1 (GPL-3.0)
+https://easyrpg.org/
+License: engine/COPYING
+Corresponding source: engine/source/Player-0.8.1.1.tar.gz
+liblcf source: engine/source/liblcf-0.8.1.tar.gz
+Browser glue modification: engine/MODIFICATIONS.txt
+
+TimGM6mb soundfont (GPL-2.0)
+Copyright and attribution: engine/TimGM6mb-COPYRIGHT
+License: engine/GPL-2
+
+The public edition does not redistribute the MP3 music from the supplied game.
+Unverified additional background music resolves to a generated silent OGG.
+Identifiable third-party character images and some unverified images have been
+replaced with RPG Maker materials already included in the supplied game.
+
+Browser persistence is local to this browser profile and site origin. It does
+not automatically sync with an APK or another browser. Export backups before
+clearing site data, switching devices, or using private browsing.
