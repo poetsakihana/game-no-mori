@@ -1,0 +1,2 @@
+.browser-info{padding:10px max(20px,env(safe-area-inset-left));font:12px/1.7 system-ui;display:flex;gap:10px 24px;align-items:flex-start;flex-wrap:wrap;background:#e9efe6;border-bottom:1px solid #d9e0d8}.browser-info a{color:#193941;white-space:nowrap;min-height:24px}.browser-info details{flex:1 1 240px;max-width:850px}.browser-info summary{cursor:pointer;min-height:24px}.browser-info p{margin:5px 0}.browser-info a:focus-visible,.browser-info summary:focus-visible{outline:2px solid #227960;outline-offset:3px}
+.station-carousel{scroll-behavior:auto}
