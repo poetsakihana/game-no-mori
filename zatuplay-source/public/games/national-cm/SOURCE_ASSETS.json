@@ -1,0 +1,112 @@
+{
+  "browserVersion": "3.0.0-web.1",
+  "apkName": "11.全国ローカル-cm-v3.0.0.apk",
+  "apkSHA256": "618840440e851411a09b0463d0edc9228372f704acee95645e77cb2d8e1675e8",
+  "originalHTMLSHA256": "15fa62882ddab9aac823813d42d10bac75313340dd56a910e9ec70151bd3d533",
+  "catalogCount": 32319,
+  "officialCount": 227,
+  "legacyCount": 32092,
+  "prefectureCount": 47,
+  "municipalityCount": 1917,
+  "sourceDataSHA256": {
+    "CATALOG": "194300dd35073c7d58d74635181bb89fd49f2a37a216a53364e640644f06d9ef",
+    "MUNICIPALITIES": "82cbf05fc506541660ecb45f0026b16811f5480bae88380258c1233b77deaff7",
+    "STATS": "96bd718b66da4d44a2eacf513f02b184412e2df8590992084fb168ec3f7de519"
+  },
+  "changes": [
+    "Extracted original CSS and JS; original records, municipalities, statistics and CSS illustration design retained.",
+    "Split all catalog records into original official records and lazily loaded legacy chunks; no video or thumbnail copied.",
+    "Browser-only safe local storage, explicit network guidance, relative collection link, asynchronous player lifecycle guards, mobile accessibility improvements."
+  ],
+  "originalCSSSHA256": "4dc4915456f6234abc5d9073bae608bebf419488438519aca2c3b32190ac7bfb",
+  "files": {
+    "app.js": {
+      "bytes": 27254,
+      "sha256": "af4de07320da71dbec8150c35eff7c6c87e46d6f4badbae62ba670e73a3f89ce"
+    },
+    "browser.css": {
+      "bytes": 1915,
+      "sha256": "610ef94347545c01d1eeaade60dcb53a3b955fc04f482f6383f86dee2b845e90"
+    },
+    "data/core.js": {
+      "bytes": 303476,
+      "sha256": "f0662c8e3e4d783bbfc298b3e74f321eda94a5ee120fd9d7b57abfe056534b41"
+    },
+    "data/legacy-01.json": {
+      "bytes": 2201471,
+      "sha256": "200145f8dcfcd462ddb7943e485df76da83b9e54713c02b7c15d2e5f63eba150"
+    },
+    "data/legacy-02.json": {
+      "bytes": 2241726,
+      "sha256": "e357e10cd44428a7ff7d3adb2978dd05f5576375167ab28ff73df0382bd45435"
+    },
+    "data/legacy-03.json": {
+      "bytes": 2263293,
+      "sha256": "1f6fb29b735377eeb8f50fd08d48c81805762d795edbb497c592d3821321cc12"
+    },
+    "data/legacy-04.json": {
+      "bytes": 2258523,
+      "sha256": "2d670ec534207122d1e52fba5189317ff244cbe691d4b2d5a090bf66197a00cb"
+    },
+    "data/legacy-05.json": {
+      "bytes": 2263317,
+      "sha256": "da5bf6cbf647dd8dc5835ff1a5fb834c1ad540ef246440d214079307a259db30"
+    },
+    "data/legacy-06.json": {
+      "bytes": 2139949,
+      "sha256": "4f148e45146a5248e77c30d8021ff1979eb8377d3f4631b13fb3f577b9fb6321"
+    },
+    "data/legacy-07.json": {
+      "bytes": 2245337,
+      "sha256": "0144c1458b033d03ccb74d59157a65bda86d501bcd4451ff0633197a45b9216d"
+    },
+    "data/legacy-08.json": {
+      "bytes": 2236284,
+      "sha256": "97fec2dfe8bbd16148df778a59778e395014785f858335a90b48633d427e5184"
+    },
+    "data/legacy-09.json": {
+      "bytes": 2251632,
+      "sha256": "8a3a83134261194f62221f1c15649f9f89d36202e590abb6f4b1cb8679a940a4"
+    },
+    "data/legacy-10.json": {
+      "bytes": 2247066,
+      "sha256": "8533afd80c2ce470010f58c0d12a8a2e8e347cce5e0623e08c54273806c4c1b0"
+    },
+    "data/legacy-11.json": {
+      "bytes": 2266109,
+      "sha256": "1e22135d717d6c1f1b0e071e89db2dccc5ddd0f333650982f18859501d84f9e6"
+    },
+    "data/legacy-12.json": {
+      "bytes": 2223871,
+      "sha256": "778cb04883cde70a59db0c1d7b903236ae01e904fb2d9f0d3e3bf4199a8f6055"
+    },
+    "data/legacy-13.json": {
+      "bytes": 2264854,
+      "sha256": "ea4290d039d4a3eb17141ea8fae65c131d88a5fbb71f4a2629c6f53f80c181bb"
+    },
+    "data/legacy-14.json": {
+      "bytes": 2257789,
+      "sha256": "a9b4593b2e740f0eaaa82769bb1d190921b8824dcfb25724a9de199c916abcbd"
+    },
+    "data/legacy-15.json": {
+      "bytes": 2226251,
+      "sha256": "25bff1fb645ce29025d6e9fc51d330690b22f790a0a0f92d62a269b7f778f45f"
+    },
+    "data/legacy-16.json": {
+      "bytes": 1873611,
+      "sha256": "171d80a5bb2ed898854ad39d74b28c1e4bf8c01d10b01aa2d381c3ca03adf9bf"
+    },
+    "data/legacy-17.json": {
+      "bytes": 84377,
+      "sha256": "84c11f7c2444719e54ced6b156f2ee9bb1412db4615d651559c423c174087a56"
+    },
+    "index.html": {
+      "bytes": 9600,
+      "sha256": "c27678ad5891b1d17b41d8a23986ed6a975a0265b81d46075baff1fd54eff4a8"
+    },
+    "style.css": {
+      "bytes": 11725,
+      "sha256": "4dc4915456f6234abc5d9073bae608bebf419488438519aca2c3b32190ac7bfb"
+    }
+  }
+}

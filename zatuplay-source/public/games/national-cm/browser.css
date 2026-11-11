@@ -1,0 +1,35 @@
+/* Browser adaptation. Original CSS illustrations and layout are retained. */
+html { scroll-padding-top: 12px; }
+[hidden] { display: none !important; }
+.browserBar { max-width: 1200px; margin: auto; padding: 10px 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+.browserBar a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; }
+.browserBar span { align-self: center; color: var(--muted); }
+#storageNotice, #dataNotice, .browserNotice { margin: 0 auto; padding: 12px 24px; max-width: 1200px; background: #fff0ce; color: #653b12; border: 1px solid #c99445; font-size: 13px; overflow-wrap: anywhere; }
+#dataNotice { background: #e5efe8; color: #254939; border-color: #95b29d; }
+button, .favorite, .watchBtn, .tools button, .tools select, .titleButton { min-height: 44px; }
+#listingTitle:focus { outline: 2px solid #d48d35; outline-offset: 5px; }
+#playerMeta, #playerTitle, #playerPlace, .playerStatus { overflow-wrap: anywhere; }
+dialog { max-height: calc(100dvh - 32px); overscroll-behavior: contain; }
+#playerMount iframe { border: 0; width: 100%; height: 100%; }
+input, select { font-size: 16px; }
+@media(max-width: 760px) {
+ .browserBar { padding: 6px 16px; }
+ .top { flex-wrap: wrap; }
+ .topActions { margin-left: auto; }
+ main { padding-bottom: max(32px, env(safe-area-inset-bottom)); }
+ dialog { max-width: calc(100vw - 20px); width: calc(100vw - 20px); }
+ .playerActions button { flex: 1 1 130px; }
+ .playerActions { align-items: stretch; }
+}
+@media(max-width: 390px) {
+ .grid { grid-template-columns: 1fr; }
+ .cardArt { height: 150px; }
+ .brand { font-size: 15px; }
+ .stats b { font-size: 20px; }
+ .stats small { font-size: 10px; }
+ .topActions #add { font-size: 12px; }
+ .topActions #add:before { content: none; }
+ .pagination { gap: 12px; }
+ .filters { grid-template-columns: 1fr; }
+ .filters .search { grid-column: auto; }
+}
