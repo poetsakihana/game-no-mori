@@ -35,7 +35,28 @@
       "version": "1.0.0-web.1",
       "checkedAt": "2026-11-10T22:38:00Z",
       "note": "Chromeで1-1クリア、進行保存・1-2海中面の再開、陸海空の訓練起動を確認。APKとは自動同期しません。画面ボタン・音声・全250面の手動完走・スマホ実機は未検証。"
+    },
+    {
+      "id": "zatsu",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/zatsu/",
+      "version": "2.2.1-web.1",
+      "checkedAt": "2026-11-11T00:37:14.893Z",
+      "note": "300体・100ステージ。Chromeで起動・図鑑・仲間獲得と再読込後の保存を確認。なぞり消し・終了判定・再挑戦はローカル確認済み。APKとは自動同期しません。スマホ実機・全ステージ完走・音の実聴取は未確認。"
+    },
+    {
+      "id": "song-chronicle",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/song-chronicle/",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-11T00:38:01.279Z",
+      "note": "Chromeで第1話クリア・第2話解放・再読込後の保存を確認。67アルバム・610曲の歌物語。原曲音源は未同梱で、手元の音源を読み込む方式です。APKとは自動同期しません。スマホ実機・全話完走・音源の読込と実聴取は未確認。"
+    },
+    {
+      "id": "asteria",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/asteria/",
+      "version": "1.1.0-web.1",
+      "checkedAt": "2026-11-11T00:36:16.775Z",
+      "note": "Chromeで起動・拠点・星屑の保存と再読込を確認。戦闘の起動・移動・星の力・停止と復帰はローカル確認済み。88星座・440ステージ。APKとは自動同期しません。ステージクリア・スマホ実機・音の実聴取は未確認。"
     }
   ],
-  "updatedAt": "2026-11-10T22:46:52Z"
+  "updatedAt": "2026-11-11T00:38:26.845Z"
 }
