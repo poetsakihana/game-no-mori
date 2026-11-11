@@ -70,7 +70,21 @@
       "version": "1.0.0-web.1",
       "checkedAt": "2026-11-11T00:41:16Z",
       "note": "Chromeで正誤判定・ヒント・地域画像・お宝獲得・再読込後の保存を確認。APKとは自動同期しません。全62地域・1,706問の手動完走・スマホ実機・音の実聴取は未確認。"
+    },
+    {
+      "id": "battlitia",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/battlitia/",
+      "version": "1.1-web.1",
+      "checkedAt": "2026-11-11T01:03:32.777Z",
+      "note": "ソリティア・100面のカードバトル。敵へのダメージ・解放・設定を保存します。配札の途中は保存対象外。APKとは自動同期しません。Chromeで起動・山札操作・設定保存を確認済み。スマホ実機・全100面の手動完走・音の実聴取は未確認。"
+    },
+    {
+      "id": "crossroad",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/crossroad/",
+      "version": "2.0-web.1",
+      "checkedAt": "2026-11-11T01:05:00.842Z",
+      "note": "47都道府県・8,987駅×10盤面。入力途中を保存し、設定でJSONを書出し・復元できます。APKとは自動同期しません。Chromeで札幌問題1クリアと2問目の再開を確認済み。スマホ実機・全盤面の手動完走・音の実聴取は未確認。"
     }
   ],
-  "updatedAt": "2026-11-11T00:41:16Z"
+  "updatedAt": "2026-11-11T01:05:00.843Z"
 }

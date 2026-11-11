@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-11T00:46:31.837Z",
+  "updatedAt": "2026-11-11T01:05:00.843Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -76,9 +76,9 @@
   "targetTotalBrowserCount": 60,
   "preferredBatchSize": 2,
   "nextCandidateIds": [
-    "battlitia",
-    "crossroad",
-    "tokai"
+    "tokai",
+    "warai",
+    "entrance"
   ],
   "completionRule": "対象52作品すべてを元の作品としてブラウザ移植し、一般公開URLで起動・代表的なゲーム操作・保存/再開と必要な進行解放を確認してカタログに登録する。未確認の機能と全ステージ未完走などは明記する。",
   "targets": [
@@ -145,26 +145,26 @@
     {
       "id": "battlitia",
       "name": "バトリティア",
-      "status": "queued",
+      "status": "published",
       "priority": 0,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/battlitia/",
+      "browserVersion": "1.1-web.1",
+      "checkedAt": "2026-11-11T01:03:32.777Z",
+      "lastAttemptAt": "2026-11-11T01:05:00.843Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "crossroad",
       "name": "クロスロード",
-      "status": "queued",
+      "status": "published",
       "priority": 1,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/crossroad/",
+      "browserVersion": "2.0-web.1",
+      "checkedAt": "2026-11-11T01:05:00.842Z",
+      "lastAttemptAt": "2026-11-11T01:05:00.843Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "warai",
@@ -708,36 +708,78 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-11T00:46:31.837Z",
+    "checkedAt": "2026-11-11T01:05:00.843Z",
     "apps": [
       {
-        "id": "komorebi",
-        "checkedAt": "2026-11-11T00:43:21.633Z",
+        "id": "battlitia",
+        "checkedAt": "2026-11-11T01:03:32.777Z",
         "checks": [
-          "公開URLの起動",
-          "通常の月次進行（1年目4月→5月）",
-          "予測・決算一致（+42,300円）",
-          "再読込後の5月・資金3,242,300円の保存確認"
+          "公開URLの第1面起動",
+          "山札24→23枚、戻すと24枚・手数0",
+          "再読込後の効果音OFF・テーマ保存",
+          "ローカルでヒントとA♦の組札移動"
+        ],
+        "limitations": [
+          "配札の途中は元の仕様により保存されない",
+          "クエストの手動クリアは未確認"
         ]
       },
       {
-        "id": "tokyo",
-        "checkedAt": "2026-11-11T00:45:11.358Z",
+        "id": "crossroad",
+        "checkedAt": "2026-11-11T01:05:00.842Z",
         "checks": [
-          "公開URLの起動",
-          "誤答・ヒント・正答・次問",
-          "再読込後の千代田区1/60",
-          "利島村全問正解・お宝獲得",
-          "再読込後の1/62地域・2/1706問・お宝1個の保存確認"
+          "公開URLで札幌の問題1クリア",
+          "35コインと市区町村マーク獲得",
+          "再読込後の95コイン・問題2の6/20マスから再開",
+          "ローカルの駅連続切替（1→2→1）",
+          "実際にダウンロードしたJSONから復元・不正なJSONを拒否"
         ]
       }
     ],
+    "logicChecks": {
+      "passed": 11,
+      "crosswordSampleStations": 8,
+      "crosswordSampleBoards": 80
+    },
     "limitations": [
-      "スマホ実機は未確認",
-      "全ステージ・全問題の手動完走は未実施",
-      "音声の実聴取は未確認"
+      "スマホ実機・Safari/Firefoxは未確認",
+      "全100面・全89,870盤面の手動完走は未実施",
+      "音の実聴取は未確認"
     ]
   },
-  "publishedTargetCount": 2,
-  "remainingTargetCount": 50
+  "publishedTargetCount": 4,
+  "remainingTargetCount": 48,
+  "batches": [
+    {
+      "checkedAt": "2026-11-11T00:46:31.837Z",
+      "apps": [
+        {
+          "id": "komorebi",
+          "checkedAt": "2026-11-11T00:43:21.633Z",
+          "checks": [
+            "公開URLの起動",
+            "通常の月次進行（1年目4月→5月）",
+            "予測・決算一致（+42,300円）",
+            "再読込後の5月・資金3,242,300円の保存確認"
+          ]
+        },
+        {
+          "id": "tokyo",
+          "checkedAt": "2026-11-11T00:45:11.358Z",
+          "checks": [
+            "公開URLの起動",
+            "誤答・ヒント・正答・次問",
+            "再読込後の千代田区1/60",
+            "利島村全問正解・お宝獲得",
+            "再読込後の1/62地域・2/1706問・お宝1個の保存確認"
+          ]
+        }
+      ],
+      "limitations": [
+        "スマホ実機は未確認",
+        "全ステージ・全問題の手動完走は未実施",
+        "音声の実聴取は未確認"
+      ]
+    }
+  ]
 }
