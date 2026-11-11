@@ -1,0 +1,198 @@
+{
+  "source": "国土交通省 国土数値情報（行政区域データ）2026年版",
+  "sourceUrl": "https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03-2026.html",
+  "downloadUrl": "https://nlftp.mlit.go.jp/ksj/gml/data/N03/N03-2026/N03-20260101_23_GML.zip",
+  "dataDate": "2026-01-01",
+  "retrievedDate": "2026-11-07",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "termsUrl": "https://nlftp.mlit.go.jp/ksj/other/agreement_01.html",
+  "attribution": "国土数値情報（行政区域データ・2026年1月1日時点）（国土交通省）を加工して作成。",
+  "processing": "名古屋市16区を抽出。北を上とする正距円筒図法（標準緯線35.16度）で投影し、15mの許容差で輪郭を簡略化。海岸部の分離した区域を保持。区ごとに縦横比を保って最大辺2に正規化し、厚みを付けるバッジ用途の輪郭と三角形面を作成。高低差を示す地形モデルではない。",
+  "simplificationMeters": 15,
+  "contract": {
+    "coordinates": "x=east,y=north; north-up, centered bounding box, maximum extent 2",
+    "rings": "open rings (last point != first); outer rings CCW; holes CW; all 19 polygon components retained",
+    "triangles": "ward-shapes.js: flat counter-clockwise vertex indices; front normal +Z",
+    "label": "maximum inscribed circle center in largest component",
+    "labelRadius": "maximum inscribed circle radius in normalized units"
+  },
+  "validation": [
+    {
+      "id": "chikusa",
+      "code": "23101",
+      "name": "千種区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 125,
+      "triangles": 123,
+      "areaDifferencePercent": 0.02117,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "higashi",
+      "code": "23102",
+      "name": "東区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 87,
+      "triangles": 85,
+      "areaDifferencePercent": 0.15431,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "kita",
+      "code": "23103",
+      "name": "北区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 158,
+      "triangles": 156,
+      "areaDifferencePercent": 0.15976,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "nishi",
+      "code": "23104",
+      "name": "西区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 118,
+      "triangles": 116,
+      "areaDifferencePercent": 0.07401,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "nakamura",
+      "code": "23105",
+      "name": "中村区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 77,
+      "triangles": 75,
+      "areaDifferencePercent": 0.05411,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "naka",
+      "code": "23106",
+      "name": "中区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 77,
+      "triangles": 75,
+      "areaDifferencePercent": 0.16841,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "showa",
+      "code": "23107",
+      "name": "昭和区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 70,
+      "triangles": 68,
+      "areaDifferencePercent": 0.04559,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "mizuho",
+      "code": "23108",
+      "name": "瑞穂区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 69,
+      "triangles": 67,
+      "areaDifferencePercent": 0.27064,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "atsuta",
+      "code": "23109",
+      "name": "熱田区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 47,
+      "triangles": 45,
+      "areaDifferencePercent": 0.12723,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "nakagawa",
+      "code": "23110",
+      "name": "中川区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 173,
+      "triangles": 171,
+      "areaDifferencePercent": 0.07363,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "minato",
+      "code": "23111",
+      "name": "港区",
+      "components": 4,
+      "holes": 0,
+      "vertices": 290,
+      "triangles": 282,
+      "areaDifferencePercent": 0.03974,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "minami",
+      "code": "23112",
+      "name": "南区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 83,
+      "triangles": 81,
+      "areaDifferencePercent": 0.06394,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "moriyama",
+      "code": "23113",
+      "name": "守山区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 219,
+      "triangles": 217,
+      "areaDifferencePercent": 0.00631,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "midori",
+      "code": "23114",
+      "name": "緑区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 283,
+      "triangles": 281,
+      "areaDifferencePercent": 0.03277,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "meito",
+      "code": "23115",
+      "name": "名東区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 173,
+      "triangles": 171,
+      "areaDifferencePercent": 0.00532,
+      "triangulationDifferenceM2": 0.0
+    },
+    {
+      "id": "tempaku",
+      "code": "23116",
+      "name": "天白区",
+      "components": 1,
+      "holes": 0,
+      "vertices": 156,
+      "triangles": 154,
+      "areaDifferencePercent": 0.00178,
+      "triangulationDifferenceM2": 0.0
+    }
+  ]
+}

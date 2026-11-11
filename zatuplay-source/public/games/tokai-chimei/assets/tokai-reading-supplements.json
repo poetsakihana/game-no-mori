@@ -1,0 +1,221 @@
+[
+  {
+    "dataId": "21209-0087000",
+    "municipalityId": "c21209",
+    "name": "正木町上大浦",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "マサキチョウカミオオウラ",
+    "method": "exact_unique_parent_in_same_municipality",
+    "evidenceDataIds": [
+      "21209-0087001",
+      "21209-0087002",
+      "21209-0087003",
+      "21209-0087004",
+      "21209-0087005",
+      "21209-0087006",
+      "21209-0087007"
+    ],
+    "source": "https://www.digital.go.jp/policies/base_registry_address"
+  },
+  {
+    "dataId": "21501-0006000",
+    "municipalityId": "c21501",
+    "name": "酒倉深田",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "サカクラフカタ",
+    "method": "exact_unique_parent_in_same_municipality",
+    "evidenceDataIds": [
+      "21501-0006001",
+      "21501-0006002",
+      "21501-0006003"
+    ],
+    "source": "https://www.digital.go.jp/policies/base_registry_address"
+  },
+  {
+    "dataId": "24202-0340000",
+    "municipalityId": "c24202",
+    "name": "中町",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "ナカマチ",
+    "method": "exact_unique_parent_in_same_municipality",
+    "evidenceDataIds": [
+      "24202-0331000"
+    ],
+    "source": "https://www.digital.go.jp/policies/base_registry_address"
+  },
+  {
+    "dataId": "24202-0350000",
+    "municipalityId": "c24202",
+    "name": "前田町",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "マエダチョウ",
+    "method": "exact_unique_parent_in_same_municipality",
+    "evidenceDataIds": [
+      "24202-0238000"
+    ],
+    "source": "https://www.digital.go.jp/policies/base_registry_address"
+  },
+  {
+    "dataId": "24202-0355000",
+    "municipalityId": "c24202",
+    "name": "北町",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "キタマチ",
+    "method": "exact_unique_parent_in_same_municipality",
+    "evidenceDataIds": [
+      "24202-0332000"
+    ],
+    "source": "https://www.digital.go.jp/policies/base_registry_address"
+  },
+  {
+    "dataId": "24202-0408000",
+    "municipalityId": "c24202",
+    "name": "宝町",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "タカラマチ",
+    "method": "exact_unique_parent_in_same_municipality",
+    "evidenceDataIds": [
+      "24202-0158000"
+    ],
+    "source": "https://www.digital.go.jp/policies/base_registry_address"
+  },
+  {
+    "dataId": "24202-0433000",
+    "municipalityId": "c24202",
+    "name": "新浜町",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "シンハマチヨウ",
+    "method": "exact_unique_parent_in_same_municipality",
+    "evidenceDataIds": [
+      "24202-0333000"
+    ],
+    "source": "https://www.digital.go.jp/policies/base_registry_address"
+  },
+  {
+    "dataId": "24202-0434000",
+    "municipalityId": "c24202",
+    "name": "新町",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "シンマチ",
+    "method": "exact_unique_parent_in_same_municipality",
+    "evidenceDataIds": [
+      "24202-0334000"
+    ],
+    "source": "https://www.digital.go.jp/policies/base_registry_address"
+  },
+  {
+    "dataId": "24202-0450000",
+    "municipalityId": "c24202",
+    "name": "栄町",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "サカエマチ",
+    "method": "exact_unique_parent_in_same_municipality",
+    "evidenceDataIds": [
+      "24202-0335000"
+    ],
+    "source": "https://www.digital.go.jp/policies/base_registry_address"
+  },
+  {
+    "dataId": "24210-0071000",
+    "municipalityId": "c24210",
+    "name": "東町",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "ヒガシマチ",
+    "method": "exact_unique_parent_in_same_municipality",
+    "evidenceDataIds": [
+      "24210-0071001",
+      "24210-0071002"
+    ],
+    "source": "https://www.digital.go.jp/policies/base_registry_address"
+  },
+  {
+    "dataId": "24202-0380000",
+    "municipalityId": "c24202",
+    "name": "塩浜栄町",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "シオハマサカエマチ",
+    "method": "exact_official_postal_name_match",
+    "source": "https://www.post.japanpost.jp/service/search/zipcode/download/utf-zip.html",
+    "sourceDate": "2026-10-30"
+  },
+  {
+    "dataId": "24202-0407000",
+    "municipalityId": "c24202",
+    "name": "大里町",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "オオザトチョウ",
+    "method": "exact_official_postal_name_match",
+    "source": "https://www.post.japanpost.jp/service/search/zipcode/download/utf-zip.html",
+    "sourceDate": "2026-10-30"
+  },
+  {
+    "dataId": "24205-0242001",
+    "municipalityId": "c24205",
+    "name": "多度町小山台一丁目",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "タドチョウオヤマダイ",
+    "method": "exact_official_postal_name_match",
+    "source": "https://www.post.japanpost.jp/service/search/zipcode/download/utf-zip.html",
+    "sourceDate": "2026-10-30"
+  },
+  {
+    "dataId": "24205-0242002",
+    "municipalityId": "c24205",
+    "name": "多度町小山台二丁目",
+    "field": "oaza_cho_kana",
+    "before": "",
+    "after": "タドチョウオヤマダイ",
+    "method": "exact_official_postal_name_match",
+    "source": "https://www.post.japanpost.jp/service/search/zipcode/download/utf-zip.html",
+    "sourceDate": "2026-10-30"
+  },
+  {
+    "dataId": "24202-0144000",
+    "municipalityId": "c24202",
+    "name": "菅原町",
+    "field": "oaza_cho_kana",
+    "before": "スガワラチョウ",
+    "after": "スガハラチヨウ",
+    "method": "municipal_reading_preferred_with_abr_alias",
+    "source": "https://www.city.yokkaichi.lg.jp/www/contents/1001000000147/index.html",
+    "sourceDate": "2026-06-17",
+    "note": "市公式の明示的な町名カナを表示用に優先。ABRにも読みの記録があるため原文と受理別名を保持。"
+  },
+  {
+    "dataId": "24202-0334000",
+    "municipalityId": "c24202",
+    "name": "新町",
+    "field": "oaza_cho_kana",
+    "before": "シンマチ",
+    "after": "シンチヨウ",
+    "method": "municipal_reading_preferred_with_abr_alias",
+    "source": "https://www.city.yokkaichi.lg.jp/www/contents/1001000000147/index.html",
+    "sourceDate": "2026-06-17",
+    "note": "市公式の明示的な町名カナを表示用に優先。ABRにも読みの記録があるため原文と受理別名を保持。"
+  },
+  {
+    "dataId": "24202-0434000",
+    "municipalityId": "c24202",
+    "name": "新町",
+    "field": "oaza_cho_kana",
+    "before": "シンマチ",
+    "after": "シンチヨウ",
+    "method": "municipal_reading_preferred_with_abr_alias",
+    "source": "https://www.city.yokkaichi.lg.jp/www/contents/1001000000147/index.html",
+    "sourceDate": "2026-06-17",
+    "note": "市公式の明示的な町名カナを表示用に優先。ABRにも読みの記録があるため原文と受理別名を保持。"
+  }
+]

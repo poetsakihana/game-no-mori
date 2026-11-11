@@ -1,0 +1,86 @@
+東海3県版への追加データ：岐阜県・三重県
+
+対象と件数
+既存の愛知県68,569問は変更せず、岐阜42市町村・三重29市町を追加するためのデータ。
+岐阜県：出典12,398行＝出題12,364問＋読み未確認21行＋名称なし2行＋同一ID重複11行。
+三重県：出典3,700行＝出題3,555問＋読み未確認141行＋同一ID重複4行。
+追加出題合計15,919問。愛知を含む合計84,488問。
+両県とも、出典の廃止日による除外0、将来の効力発生日による除外0。
+
+自治体・圏域
+岐阜42＝21市19町2村。三重29＝14市15町。
+岐阜県公式一覧の全42自治体名とABR市区町村マスターを照合。
+https://www.pref.gifu.lg.jp/page/6058.html
+https://www.pref.gifu.lg.jp/page/5129.html
+三重県令和8年度市町要覧の29自治体とABR市区町村マスターを照合。
+https://www.pref.mie.lg.jp/SHICHOS/HP/000222064_000070005.htm
+https://www.pref.mie.lg.jp/common/content/001128955.pdf
+岐阜のgroupは県公式の岐阜・西濃・中濃・東濃・飛騨。
+三重のgroupは県移住ポータルの北勢・中勢・伊勢志摩・伊賀・東紀州。大紀町は伊勢志摩、亀山市は北勢。資料ごとに異なる区分を混ぜず、この出典の名称と範囲に統一。
+https://www.ijyu.pref.mie.lg.jp/about/hokusei-area/
+https://www.ijyu.pref.mie.lg.jp/about/chusei-area/
+https://www.ijyu.pref.mie.lg.jp/about/iseshima-area/
+https://www.ijyu.pref.mie.lg.jp/about/iga-area/
+https://www.ijyu.pref.mie.lg.jp/about/higashikishu-area/
+
+主出典
+アドレス・ベース・レジストリ（デジタル庁）
+https://www.digital.go.jp/policies/base_registry_address
+公式ZIP：https://data.address-br.digital.go.jp/mt_town_fullset/mt_town_fullset_all.csv.zip
+公開ミラー：https://huggingface.co/datasets/yuiseki/abr-src-2026-09
+公開日2026-09-25、ミラー保存日2026-09-26。本作業での取得日2026-11-07。
+既存の愛知作業で取得・保存した全国ZIPを再利用し、岐阜・三重の行だけを抽出。愛知の既存成果物は複製・変更していない。
+公式ホストは地域制限403を返したため、ミラーZIPのMD5が同ミラーのMANIFEST.md5と一致することを検証した。公式の現在ファイルとの同一性は独立確認できていない。この版を「最新ABR」と表示しないこと。
+MD5 e850d37e4e74f26c3f267189e47161f8
+SHA256 74b2af2be4c2161e55859fe8789ecd9d0507374b58f391385ab5427d90e74271
+取得したfullsetの全国実測は727,429行。ミラーREADMEの727,428行とは1行差がある。岐阜・三重の集計はCSV実データから行った。
+
+網羅性の範囲
+出典に登録された町名・丁目・小字の全行を処理し、難読かどうかで代表例を選別していない。
+ただし、ABRに未登録の小字・通称・歴史地名も含め、実在する全地名を網羅したという意味ではない。
+岐阜の出典内訳は大字・町2,605行、丁目4,525行、小字5,266行、名称なし2行。
+三重の出典内訳は大字・町2,920行、丁目768行、小字12行。三重の小字収録は少ないため、この点を隠して「三重の全小字収録」と表示しないこと。
+読み未確認162件は検索可能な別一覧とし、クリア対象は出題できる15,919問。
+
+形式
+自治体id=c+JIS5桁、問題dataId=JIS5桁-町字ID7桁。先頭ゼロを保持。
+自治体にpref（gifu/mie）、prefName、group、groupSourceを収録。
+問題name/readingは全町字名と全読み。ABR原文カナはsourceKanaに残す。
+小字は出典のoaza_cho/koazaの構造に従ってparent/local/localReadingを分離する。先頭の字と対応するアザだけを小字出題表示で省略。
+丁目は町名と合わせて出題し、localを丁目だけにしない。
+普通の出典URLは自治体sourceを継承。別資料で補完・修正した問題だけquestion.sourceあり。
+大書きのヨ・ユ・ヤ・ツ等を勝手に小書きへ修正せず保持。入力判定で大書き小書きを許容できる。
+数字のままの原文読みを保持する。名称と数字+チョウメ/チヨウメが一致する1〜17丁目に限り、いっちょうめ等の標準読みをaliasesに収録。
+岐阜県神戸町「大字八条字佐流尾」の原文に全角ハイフン「サロ－」がある。ambiguous-rows.jsonに記録。長音としての入力正規化は可能。
+
+補完と出典間の違い
+同一自治体・同一親町名の一意なABRカナ再利用10項目、公式郵便番号CSVの完全一致町名による補完4項目。
+日本郵便2026-10-30更新UTF-8 CSV：
+https://www.post.japanpost.jp/service/search/zipcode/download/utf-zip.html
+https://www.post.japanpost.jp/service/search/zipcode/download/utf-readme.html
+日本郵便は郵便番号データについて著作権を主張せず配布を許容する。郵便番号の町域が公称町名であることを保証するものではないため、既にABRに存在する同一名称だけに適用。
+
+四日市市公式町名一覧（2026-06-17更新）449行と照合した結果、次の2名称でABRの読みと違いがあった。
+菅原町：ABRスガワラチョウ／市公式スガハラチヨウ
+新町：ABRシンマチ／市公式シンチヨウ（同名の別町字IDを含む2問）
+市公式の明示読みを表示用に優先し、ABR原文をsourceKanaと受理別名aliasesに残す。合わせて3問の修正。出典間に違いがあることをreading-supplements.jsonとyokkaichi-source-differences.jsonに記録。
+https://www.city.yokkaichi.lg.jp/www/contents/1001000000147/index.html
+この表には残る読み未確認名称の完全一致がなかったため、類似名からの推測補完は行わなかった。
+
+利用条件と表示例
+ABRはPDL1.0。CC BY4.0による利用も認められる。
+https://www.digital.go.jp/policies/base_registry_address_tos
+https://www.digital.go.jp/resources/open_data/public_data_license_v1.0
+表示例：出典：「アドレス・ベース・レジストリ」（デジタル庁）、PDL1.0。本アプリがクイズ用に抽出・ひらがな化・重複統合し、明示した公式資料で読みを補完して作成。
+
+ファイル
+- gifu-data.json / mie-data.json：県別自治体配列と出題問題
+- municipalities.json：新規71自治体のメタデータ
+- excluded-rows.json：読み未確認162行＋名称なし2行
+- report.json：件数・出典・ハッシュ・県別市町村別集計
+- reading-supplements.json：17項目の補完・修正根拠
+- numeric-readings.json：数字を含む読みの監査用一覧
+- ambiguous-rows.json：非標準記号の監査用一覧
+- duplicate-rows.json：統合した15行
+- retired-rows.json / future-effective-rows.json：ともに空
+- build_data.py：再生成スクリプト。既存aichi-data内のZIPを読み取り、tokai-data内だけへ書き込む

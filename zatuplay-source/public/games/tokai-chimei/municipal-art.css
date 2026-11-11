@@ -1,0 +1,48 @@
+/* Original local-feature vignettes. Region outlines belong only to earned badges. */
+.illustration-intro{font-size:12px;letter-spacing:.045em;color:#69755f;margin:18px 0 0;line-height:1.8}
+.ward-card.illustrated-card{min-height:282px;padding:17px 16px 14px;display:flex;flex-direction:column;align-items:stretch;transition:transform .2s,box-shadow .2s,border-color .2s}
+.illustrated-card h3{max-width:none;font-size:27px;margin:6px 0 0;line-height:1.35;letter-spacing:.04em}
+.region-vignette{position:relative;display:block;width:100%;height:151px;margin:-3px 0 0;pointer-events:none}
+.region-vignette:before{content:"";position:absolute;inset:19px 10% 8px;border-radius:50%;background:radial-gradient(ellipse at 47% 40%,#fffdf18c,transparent 71%);z-index:-1}
+.region-vignette .municipal-illustration,.region-vignette .ward-art{position:static;display:block;width:100%;height:100%;max-width:230px;margin:0 auto;object-fit:contain;z-index:auto;filter:drop-shadow(0 4px 2px #3546350a);transition:transform .25s}
+.illustrated-card:hover .region-vignette img{transform:translateY(-3px)}
+.illustrated-card:focus-visible{outline:3px solid #a34c32;outline-offset:3px}
+.motif-caption{display:block;font-size:11px;font-weight:500;letter-spacing:.035em;color:#52634c;line-height:1.6;min-height:28px;text-align:center;margin:1px 0 7px;overflow-wrap:anywhere}
+.illustrated-card .card-foot{border-top:1px solid #7a8b6e2b;padding-top:10px;margin-top:auto;gap:5px}
+.illustrated-card .circle{background:#fffdf0b3;flex:0 0 22px}
+.ward-modal-head:has(.municipal-illustration){min-height:148px;padding-right:45%}
+.ward-modal-head .municipal-illustration{position:absolute;right:-6px;top:0;width:47%;height:100%;object-fit:contain}
+.region-story{padding:14px 16px;background:#eff0e5;border:1px solid #dfe1d1;border-radius:9px;margin:9px 0 20px}
+.story-label{font-size:9px;letter-spacing:.15em;color:#849079;font-weight:600}
+.sheet .region-story h3{font:600 16px/1.5 var(--serif);margin:5px 0 3px;color:#345142}
+.sheet .region-story p{font-size:12px;line-height:1.9;margin:0;color:#56674f}
+.story-sources{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:9px}
+.story-sources a{font-size:10px;line-height:1.7;color:#607759;text-decoration:underline;text-underline-offset:2px}
+.aggregate-art-head{display:flex;align-items:center;min-height:143px;justify-content:space-between}
+.aggregate-art-head h2{flex-shrink:0}
+.aggregate-illustration{width:56%;max-width:235px;height:155px}
+.aggregate-illustration img{width:100%;height:100%;object-fit:contain}
+.art-source-section{margin-top:27px}.art-source-item{border-bottom:1px solid #dce0d2}
+.art-source-item summary{cursor:pointer;padding:13px 0;font-size:14px;font-weight:600}
+.art-source-item summary>span{display:block;padding-left:18px;font-size:10px;font-weight:400;color:#7b856e;margin-top:4px}
+.art-source-item .region-story{margin:0 0 10px}
+.nagoya-child-grid .illustrated-card{min-height:262px}
+@media(max-width:900px) and (min-width:721px){.ward-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){
+ .ward-card.illustrated-card{min-height:244px;padding:13px 11px 11px}
+ .illustrated-card h3{font-size:22px;line-height:1.4;margin:5px 0 0;letter-spacing:.01em}
+ .region-vignette{height:121px;margin:0}
+ .motif-caption{font-size:10px;min-height:31px;margin:0 0 5px;line-height:1.6;letter-spacing:0}
+ .illustrated-card .english{letter-spacing:.07em;font-size:8px}
+ .illustrated-card .card-foot{padding-top:9px;font-size:9px}
+ .illustration-intro{font-size:11px;letter-spacing:0;margin-top:14px}
+ .region-story{padding:12px;margin-top:6px}
+ .sheet .region-story h3{font-size:15px}
+ .sheet .region-story p{font-size:12px}
+ .ward-modal-head:has(.municipal-illustration){min-height:125px;padding-right:44%}
+ .ward-modal-head .municipal-illustration{right:-5px;width:46%}
+ .aggregate-art-head{min-height:120px}.aggregate-illustration{height:125px;width:55%}
+ .nagoya-child-grid .illustrated-card{min-height:237px}.nagoya-child-grid .region-vignette{height:111px}
+}
+@media(max-width:360px){.illustrated-card h3{font-size:20px}.ward-card.illustrated-card{padding-left:9px;padding-right:9px;min-height:233px}.region-vignette{height:111px}.motif-caption{font-size:9px}.illustrated-card .card-foot{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.illustrated-card,.illustrated-card .region-vignette img{transition:none}.illustrated-card:hover .region-vignette img{transform:none}}

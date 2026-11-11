@@ -1,0 +1,466 @@
+{
+  "snapshotLabel": "2026年9月25日公開ABR・2026年9月26日保存ミラー",
+  "sourceDate": "2026-09-25",
+  "mirrorSavedDate": "2026-09-26",
+  "retrievedDate": "2026-11-07",
+  "mirrorUrl": "https://huggingface.co/datasets/yuiseki/abr-src-2026-09",
+  "mirrorDownloadUrl": "https://huggingface.co/datasets/yuiseki/abr-src-2026-09/resolve/main/csv/mt_town_fullset_all.csv.zip",
+  "officialUrl": "https://www.digital.go.jp/policies/base_registry_address",
+  "officialDownloadUrl": "https://data.address-br.digital.go.jp/mt_town_fullset/mt_town_fullset_all.csv.zip",
+  "municipalitySource": "https://www.pref.aichi.jp/site/userguide/link-citytown.html",
+  "license": "PDL1.0（CC BY 4.0互換）",
+  "termsUrl": "https://www.digital.go.jp/policies/base_registry_address_tos",
+  "licenseUrl": "https://www.digital.go.jp/resources/open_data/public_data_license_v1.0",
+  "sourceRows": 60984,
+  "sourceAichiRows": 69749,
+  "nationalFullsetRowCount": 727429,
+  "mirrorDocumentedNationalCount": 727428,
+  "nationalCountNote": "取得したfullsetの実測値とミラーREADMEの件数には1行差がある。愛知県抽出件数はCSVから集計。",
+  "municipalityCount": 53,
+  "questionCount": 59742,
+  "rawMissingReadingCount": 1243,
+  "missingReadingCount": 1224,
+  "unnamedCount": 1,
+  "duplicateRowCount": 17,
+  "retiredCount": 0,
+  "futureEffectiveCount": 0,
+  "numericReadingCount": 6784,
+  "spokenAliasQuestionCount": 6713,
+  "rawNumericReadingCount": 6800,
+  "readingSupplementFieldCount": 88,
+  "sameNameDifferentIds": [
+    {
+      "municipalityId": "c23221",
+      "name": "連合字大木和田",
+      "dataIds": [
+        "23221-0137132",
+        "23221-0158000"
+      ],
+      "readings": [
+        "れんごくあざおおきわだ",
+        "れんごくおおきわだ"
+      ],
+      "reason": "異なる公式町字IDを維持（小字コード等による識別あり）"
+    },
+    {
+      "municipalityId": "c23233",
+      "name": "春日四辻",
+      "dataIds": [
+        "23233-0250000",
+        "23233-0259106"
+      ],
+      "readings": [
+        "はるひよつじ",
+        "はるひよつじ"
+      ],
+      "reason": "異なる公式町字IDを維持（小字コード等による識別あり）"
+    },
+    {
+      "municipalityId": "c23561",
+      "name": "東納庫字上ノ平",
+      "dataIds": [
+        "23561-0015172",
+        "23561-0015256"
+      ],
+      "readings": [
+        "ひがしなぐらあざうえのたいら",
+        "ひがしなぐらあざうえのたいら"
+      ],
+      "reason": "異なる公式町字IDを維持（小字コード等による識別あり）"
+    },
+    {
+      "municipalityId": "c23561",
+      "name": "東納庫字城山",
+      "dataIds": [
+        "23561-0015177",
+        "23561-0015257"
+      ],
+      "readings": [
+        "ひがしなぐらあざしろやま",
+        "ひがしなぐらあざしろやま"
+      ],
+      "reason": "異なる公式町字IDを維持（小字コード等による識別あり）"
+    }
+  ],
+  "archiveMD5": "e850d37e4e74f26c3f267189e47161f8",
+  "archiveSHA256": "74b2af2be4c2161e55859fe8789ecd9d0507374b58f391385ab5427d90e74271",
+  "manifestIntegrityVerified": true,
+  "upstreamIndependentlyDownloaded": false,
+  "upstreamLimitation": "公式配布ホストが地域制限403を返したため、公開ミラーとそのチェックサムを検証。公式現在ファイルとの同一性は独立検証していない。",
+  "scope": "ABRスナップショットに記録された町名・丁目・小字。歴史的地名、通称のすべてを保証するものではない。読み未確認の名称は別一覧に保存し出題対象外。",
+  "transformation": "愛知県の名古屋市以外53市町村を抽出。カタカナをひらがなに変換。小字の先頭の字/アザだけを出題表示で省略。町字IDを維持。同一ID・名称・読みの住居表示フラグ重複を統合。ABR原文カナはsourceKanaと元CSVに保持。",
+  "attribution": "出典：「アドレス・ベース・レジストリ」（デジタル庁）、PDL1.0。本アプリがクイズ用に抽出・ひらがな化・重複統合し、明示した公式資料による読みの補完を行いました。",
+  "perMunicipality": [
+    {
+      "id": "c23201",
+      "name": "豊橋市",
+      "sourceRowCount": 2555,
+      "questionCount": 2555,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23202",
+      "name": "岡崎市",
+      "sourceRowCount": 5012,
+      "questionCount": 5012,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23203",
+      "name": "一宮市",
+      "sourceRowCount": 3614,
+      "questionCount": 3599,
+      "missingReadingCount": 13
+    },
+    {
+      "id": "c23204",
+      "name": "瀬戸市",
+      "sourceRowCount": 409,
+      "questionCount": 385,
+      "missingReadingCount": 16
+    },
+    {
+      "id": "c23205",
+      "name": "半田市",
+      "sourceRowCount": 609,
+      "questionCount": 609,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23206",
+      "name": "春日井市",
+      "sourceRowCount": 1044,
+      "questionCount": 1016,
+      "missingReadingCount": 28
+    },
+    {
+      "id": "c23207",
+      "name": "豊川市",
+      "sourceRowCount": 2071,
+      "questionCount": 1917,
+      "missingReadingCount": 154
+    },
+    {
+      "id": "c23208",
+      "name": "津島市",
+      "sourceRowCount": 622,
+      "questionCount": 542,
+      "missingReadingCount": 80
+    },
+    {
+      "id": "c23209",
+      "name": "碧南市",
+      "sourceRowCount": 635,
+      "questionCount": 635,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23210",
+      "name": "刈谷市",
+      "sourceRowCount": 1613,
+      "questionCount": 1084,
+      "missingReadingCount": 529
+    },
+    {
+      "id": "c23211",
+      "name": "豊田市",
+      "sourceRowCount": 8803,
+      "questionCount": 8803,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23212",
+      "name": "安城市",
+      "sourceRowCount": 1281,
+      "questionCount": 1226,
+      "missingReadingCount": 48
+    },
+    {
+      "id": "c23213",
+      "name": "西尾市",
+      "sourceRowCount": 3287,
+      "questionCount": 3281,
+      "missingReadingCount": 5
+    },
+    {
+      "id": "c23214",
+      "name": "蒲郡市",
+      "sourceRowCount": 892,
+      "questionCount": 892,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23215",
+      "name": "犬山市",
+      "sourceRowCount": 1029,
+      "questionCount": 988,
+      "missingReadingCount": 41
+    },
+    {
+      "id": "c23216",
+      "name": "常滑市",
+      "sourceRowCount": 723,
+      "questionCount": 723,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23217",
+      "name": "江南市",
+      "sourceRowCount": 507,
+      "questionCount": 507,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23219",
+      "name": "小牧市",
+      "sourceRowCount": 829,
+      "questionCount": 829,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23220",
+      "name": "稲沢市",
+      "sourceRowCount": 4001,
+      "questionCount": 4001,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23221",
+      "name": "新城市",
+      "sourceRowCount": 2933,
+      "questionCount": 2933,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23222",
+      "name": "東海市",
+      "sourceRowCount": 796,
+      "questionCount": 796,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23223",
+      "name": "大府市",
+      "sourceRowCount": 395,
+      "questionCount": 395,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23224",
+      "name": "知多市",
+      "sourceRowCount": 665,
+      "questionCount": 665,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23225",
+      "name": "知立市",
+      "sourceRowCount": 418,
+      "questionCount": 374,
+      "missingReadingCount": 44
+    },
+    {
+      "id": "c23226",
+      "name": "尾張旭市",
+      "sourceRowCount": 187,
+      "questionCount": 187,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23227",
+      "name": "高浜市",
+      "sourceRowCount": 124,
+      "questionCount": 124,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23228",
+      "name": "岩倉市",
+      "sourceRowCount": 526,
+      "questionCount": 440,
+      "missingReadingCount": 86
+    },
+    {
+      "id": "c23229",
+      "name": "豊明市",
+      "sourceRowCount": 240,
+      "questionCount": 240,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23230",
+      "name": "日進市",
+      "sourceRowCount": 326,
+      "questionCount": 326,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23231",
+      "name": "田原市",
+      "sourceRowCount": 2169,
+      "questionCount": 2169,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23232",
+      "name": "愛西市",
+      "sourceRowCount": 1080,
+      "questionCount": 1000,
+      "missingReadingCount": 80
+    },
+    {
+      "id": "c23233",
+      "name": "清須市",
+      "sourceRowCount": 481,
+      "questionCount": 479,
+      "missingReadingCount": 2
+    },
+    {
+      "id": "c23234",
+      "name": "北名古屋市",
+      "sourceRowCount": 517,
+      "questionCount": 517,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23235",
+      "name": "弥富市",
+      "sourceRowCount": 619,
+      "questionCount": 586,
+      "missingReadingCount": 33
+    },
+    {
+      "id": "c23236",
+      "name": "みよし市",
+      "sourceRowCount": 515,
+      "questionCount": 515,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23237",
+      "name": "あま市",
+      "sourceRowCount": 1003,
+      "questionCount": 1003,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23238",
+      "name": "長久手市",
+      "sourceRowCount": 217,
+      "questionCount": 217,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23302",
+      "name": "東郷町",
+      "sourceRowCount": 195,
+      "questionCount": 195,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23342",
+      "name": "豊山町",
+      "sourceRowCount": 148,
+      "questionCount": 145,
+      "missingReadingCount": 3
+    },
+    {
+      "id": "c23361",
+      "name": "大口町",
+      "sourceRowCount": 332,
+      "questionCount": 332,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23362",
+      "name": "扶桑町",
+      "sourceRowCount": 305,
+      "questionCount": 305,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23424",
+      "name": "大治町",
+      "sourceRowCount": 166,
+      "questionCount": 166,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23425",
+      "name": "蟹江町",
+      "sourceRowCount": 237,
+      "questionCount": 234,
+      "missingReadingCount": 3
+    },
+    {
+      "id": "c23427",
+      "name": "飛島村",
+      "sourceRowCount": 144,
+      "questionCount": 119,
+      "missingReadingCount": 25
+    },
+    {
+      "id": "c23441",
+      "name": "阿久比町",
+      "sourceRowCount": 694,
+      "questionCount": 694,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23442",
+      "name": "東浦町",
+      "sourceRowCount": 469,
+      "questionCount": 465,
+      "missingReadingCount": 4
+    },
+    {
+      "id": "c23445",
+      "name": "南知多町",
+      "sourceRowCount": 670,
+      "questionCount": 644,
+      "missingReadingCount": 26
+    },
+    {
+      "id": "c23446",
+      "name": "美浜町",
+      "sourceRowCount": 406,
+      "questionCount": 406,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23447",
+      "name": "武豊町",
+      "sourceRowCount": 316,
+      "questionCount": 316,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23501",
+      "name": "幸田町",
+      "sourceRowCount": 972,
+      "questionCount": 972,
+      "missingReadingCount": 0
+    },
+    {
+      "id": "c23561",
+      "name": "設楽町",
+      "sourceRowCount": 2197,
+      "questionCount": 2196,
+      "missingReadingCount": 1
+    },
+    {
+      "id": "c23562",
+      "name": "東栄町",
+      "sourceRowCount": 662,
+      "questionCount": 660,
+      "missingReadingCount": 2
+    },
+    {
+      "id": "c23563",
+      "name": "豊根村",
+      "sourceRowCount": 324,
+      "questionCount": 323,
+      "missingReadingCount": 1
+    }
+  ]
+}
