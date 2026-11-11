@@ -52,11 +52,25 @@
     },
     {
       "id": "asteria",
-      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/asteria/",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/asteria/?v=1.1.0-web.1",
       "version": "1.1.0-web.1",
-      "checkedAt": "2026-11-11T00:36:16.775Z",
-      "note": "Chromeで起動・拠点・星屑の保存と再読込を確認。戦闘の起動・移動・星の力・停止と復帰はローカル確認済み。88星座・440ステージ。APKとは自動同期しません。ステージクリア・スマホ実機・音の実聴取は未確認。"
+      "checkedAt": "2026-11-11T00:41:16Z",
+      "note": "Chromeで1面クリア・2面解放・再読込後の保存、JSON書出し・復元・同じファイルの再読込を確認。88星座・440ステージ。APKとは自動同期しません。全ステージ完走・スマホ実機・音の実聴取は未確認。"
+    },
+    {
+      "id": "komorebi",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/komorebiworks/",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-11T00:41:16Z",
+      "note": "Chromeで作業所画像・1か月の運営・結果表示・再読込後の保存、JSON書出しと復元を確認。APKとは自動同期しません。99年間の通常プレイ完走・スマホ実機・音の実聴取は未確認。"
+    },
+    {
+      "id": "tokyo",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/tokyo-kanji/?v=1.0.0-web.1",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-11T00:41:16Z",
+      "note": "Chromeで正誤判定・ヒント・地域画像・お宝獲得・再読込後の保存を確認。APKとは自動同期しません。全62地域・1,706問の手動完走・スマホ実機・音の実聴取は未確認。"
     }
   ],
-  "updatedAt": "2026-11-11T00:38:26.845Z"
+  "updatedAt": "2026-11-11T00:41:16Z"
 }
