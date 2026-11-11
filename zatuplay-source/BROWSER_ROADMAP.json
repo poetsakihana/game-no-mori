@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-11T06:50:28Z",
+  "updatedAt": "2026-11-11T23:34:28.192Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -660,14 +660,14 @@
     {
       "id": "collection-50",
       "name": "DoragonOut",
-      "status": "queued",
+      "status": "published",
       "priority": 1150,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/doragonout/?v=2.5.2-web.1",
+      "browserVersion": "2.5.2-web.1",
+      "checkedAt": "2026-11-11T23:34:28.192Z",
+      "lastAttemptAt": "2026-11-11T23:34:28.192Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-51",
@@ -707,52 +707,39 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-11T06:15:09Z",
+    "checkedAt": "2026-11-11T23:34:28.192Z",
     "apps": [
       {
-        "id": "moving-castle",
-        "checkedAt": "2026-11-11T06:15:09Z",
+        "id": "collection-50",
+        "checkedAt": "2026-11-11T23:34:28.192Z",
         "checks": [
-          "公開URLでタイトル・元の画像・第1章の物語を表示し、新規開始",
-          "剣Lv.1→2、砲台Lv.0→1を購入し、資源24/14/4→11/0/1を確認",
-          "方向キー移動、木材+4の採集、風技F、剣Jで第1章ボス「根喰らいの巨人」を討伐",
-          "回復薬Q・回避Shift・脚部Lv.1→2の購入・城操縦Cと自動砲撃を確認",
-          "城を東端へ運び、門をEで調べて第2章「赤錆の峡谷」を解放",
-          "再読込→つづきからでLv.3・経験54/165・HP156/156・気力108/108・城202/350・資源25/11/8を保持",
-          "第1章討伐済み・第2章解放・第3〜50章未解放と音OFFの再読込保存を確認",
-          "一時停止・再開、タイトル→新規開始の上書き確認をキャンセル→続きからで第2章を維持",
-          "取得した公開版ログにゲーム由来のerrorなし（拡張機能のログは除外）",
-          "ゲーム上部の「ZatuPlay 一覧」から公開ブラウザ一覧への復帰を確認",
-          "2026-11-11T06:07:08Z、登録後の公開一覧で16公開・44準備と動く城の公開中を確認。一覧のリンクから0.3-web.1を起動し、つづきからで第2章・Lv.3・資源25/11/8・音OFFを保持",
-          "2026-11-11T06:15:09Z、0.3-web.2のつづきから直後に上下の保存欄が「保存データを読み込みました（再開後は未保存）」と表示されることを確認",
-          "0.3-web.2の冒険の書から第1章へ再訪し、物語表示時点でHUD・サイド欄の第1章、冒険モード、HP156が一致",
-          "0.3-web.2の討伐済み第1章で城を修理して操縦し、門から第2章へ再移動。物語表示時点でHUD・サイド欄の第2章、冒険モード、回復後HP156が一致",
-          "0.3-web.2の再読込→つづきからで第2章・Lv.3・経験96/165・HP156・気力108・城241/350・資源20/11/8・音OFFと読み込み済み表示を確認。ゲームログerrorなし"
-        ],
-        "initialGameplayVersion": "0.3-web.1",
-        "initialGameplayCheckedAt": "2026-11-11T06:00:40Z"
+          "公開URLでOPをスキップし、EasyRPG Playerで原作Disk 1の冒頭会話と第1章を開始",
+          "キーボード・画面A/B・方向ボタンで会話、移動、メニューを操作し、寝室から町へ移動",
+          "ゲーム内で枠1/2に保存し、ページ全体の再読込後も同じ場所から再開",
+          "通常UIで.lsdを書出し、読込みで枠3へ追加。元の枠1/2を保持し、追加した枠から同位置に再開",
+          "原作ドット絵と新デザインの主人公顔を確認。新デザインの32bit画像互換修正後に警告とチェッカー表示が解消",
+          "ZatuPlayのブラウザ一覧へ同じアプリ内で戻るリンクを確認"
+        ]
       }
     ],
     "logicChecks": {
-      "passed": 17,
-      "canvas2dRenderedChapters": 50,
-      "chapterProgressionPaths": 50,
-      "unchangedEmbeddedImageHashesMatched": 13,
-      "chapterDataHashMatched": true,
-      "browserLifecyclePassed": true,
-      "sourceDeploymentMirrorMatched": true,
-      "productionBuildPassed": true,
-      "loadStatusAndImmediateHudRegressionPassed": true
+      "originalMaps": 741,
+      "unchangedCoreFileHashes": 747,
+      "storageAndInputRegressions": 24,
+      "existingBatchRegressions": 11,
+      "allDiskCacheReferencesPresent": true,
+      "sourceDeploymentMirrorMatched": true
     },
     "limitations": [
-      "スマホ実機・タッチ操作・Safari/Firefoxは未確認",
-      "全50章の手動完走・音の実聴取は未確認",
-      "実タブ非表示時の停止は未確認（ライフサイクルは自動テスト）",
-      "0.3-web.2では初回ボス戦は再実施せず、0.3-web.1の通常攻略結果と0.3-web.2の17群回帰検証・実章再訪・門移動・保存確認を組み合わせて検証"
+      "原作全741マップ・全イベント・全戦闘・Disk 2/3の実攻略とDisk間引継ぎの通常UI試験は未実施",
+      "スマホ実機・Safari/Firefox・音の実聴取は未確認",
+      "市販曲・権利未確認の追加BGMは無音、一部画像は同梱RPGツクール素材に差替え",
+      "原作の冒頭に技による強制終了の注意あり。ブラウザでの再現を確認したものではない",
+      "登録後の一覧からの起動は、この記録の検証範囲にまだ含まない"
     ]
   },
-  "publishedTargetCount": 9,
-  "remainingTargetCount": 43,
+  "publishedTargetCount": 10,
+  "remainingTargetCount": 42,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
@@ -892,6 +879,83 @@
         "全100ステージ・全イベント・塔の手動完走は未実施",
         "音声・効果音の実聴取は未確認",
         "画面上の戦闘ボタンとタッチ移動、実タブ非表示時の停止は未確認（ライフサイクルは自動テスト）"
+      ]
+    },
+    {
+      "checkedAt": "2026-11-11T06:15:09Z",
+      "apps": [
+        {
+          "id": "moving-castle",
+          "checkedAt": "2026-11-11T06:15:09Z",
+          "checks": [
+            "公開URLでタイトル・元の画像・第1章の物語を表示し、新規開始",
+            "剣Lv.1→2、砲台Lv.0→1を購入し、資源24/14/4→11/0/1を確認",
+            "方向キー移動、木材+4の採集、風技F、剣Jで第1章ボス「根喰らいの巨人」を討伐",
+            "回復薬Q・回避Shift・脚部Lv.1→2の購入・城操縦Cと自動砲撃を確認",
+            "城を東端へ運び、門をEで調べて第2章「赤錆の峡谷」を解放",
+            "再読込→つづきからでLv.3・経験54/165・HP156/156・気力108/108・城202/350・資源25/11/8を保持",
+            "第1章討伐済み・第2章解放・第3〜50章未解放と音OFFの再読込保存を確認",
+            "一時停止・再開、タイトル→新規開始の上書き確認をキャンセル→続きからで第2章を維持",
+            "取得した公開版ログにゲーム由来のerrorなし（拡張機能のログは除外）",
+            "ゲーム上部の「ZatuPlay 一覧」から公開ブラウザ一覧への復帰を確認",
+            "2026-11-11T06:07:08Z、登録後の公開一覧で16公開・44準備と動く城の公開中を確認。一覧のリンクから0.3-web.1を起動し、つづきからで第2章・Lv.3・資源25/11/8・音OFFを保持",
+            "2026-11-11T06:15:09Z、0.3-web.2のつづきから直後に上下の保存欄が「保存データを読み込みました（再開後は未保存）」と表示されることを確認",
+            "0.3-web.2の冒険の書から第1章へ再訪し、物語表示時点でHUD・サイド欄の第1章、冒険モード、HP156が一致",
+            "0.3-web.2の討伐済み第1章で城を修理して操縦し、門から第2章へ再移動。物語表示時点でHUD・サイド欄の第2章、冒険モード、回復後HP156が一致",
+            "0.3-web.2の再読込→つづきからで第2章・Lv.3・経験96/165・HP156・気力108・城241/350・資源20/11/8・音OFFと読み込み済み表示を確認。ゲームログerrorなし"
+          ],
+          "initialGameplayVersion": "0.3-web.1",
+          "initialGameplayCheckedAt": "2026-11-11T06:00:40Z"
+        }
+      ],
+      "logicChecks": {
+        "passed": 17,
+        "canvas2dRenderedChapters": 50,
+        "chapterProgressionPaths": 50,
+        "unchangedEmbeddedImageHashesMatched": 13,
+        "chapterDataHashMatched": true,
+        "browserLifecyclePassed": true,
+        "sourceDeploymentMirrorMatched": true,
+        "productionBuildPassed": true,
+        "loadStatusAndImmediateHudRegressionPassed": true
+      },
+      "limitations": [
+        "スマホ実機・タッチ操作・Safari/Firefoxは未確認",
+        "全50章の手動完走・音の実聴取は未確認",
+        "実タブ非表示時の停止は未確認（ライフサイクルは自動テスト）",
+        "0.3-web.2では初回ボス戦は再実施せず、0.3-web.1の通常攻略結果と0.3-web.2の17群回帰検証・実章再訪・門移動・保存確認を組み合わせて検証"
+      ]
+    },
+    {
+      "checkedAt": "2026-11-11T23:34:28.192Z",
+      "apps": [
+        {
+          "id": "collection-50",
+          "checkedAt": "2026-11-11T23:34:28.192Z",
+          "checks": [
+            "公開URLでOPをスキップし、EasyRPG Playerで原作Disk 1の冒頭会話と第1章を開始",
+            "キーボード・画面A/B・方向ボタンで会話、移動、メニューを操作し、寝室から町へ移動",
+            "ゲーム内で枠1/2に保存し、ページ全体の再読込後も同じ場所から再開",
+            "通常UIで.lsdを書出し、読込みで枠3へ追加。元の枠1/2を保持し、追加した枠から同位置に再開",
+            "原作ドット絵と新デザインの主人公顔を確認。新デザインの32bit画像互換修正後に警告とチェッカー表示が解消",
+            "ZatuPlayのブラウザ一覧へ同じアプリ内で戻るリンクを確認"
+          ]
+        }
+      ],
+      "logicChecks": {
+        "originalMaps": 741,
+        "unchangedCoreFileHashes": 747,
+        "storageAndInputRegressions": 24,
+        "existingBatchRegressions": 11,
+        "allDiskCacheReferencesPresent": true,
+        "sourceDeploymentMirrorMatched": true
+      },
+      "limitations": [
+        "原作全741マップ・全イベント・全戦闘・Disk 2/3の実攻略とDisk間引継ぎの通常UI試験は未実施",
+        "スマホ実機・Safari/Firefox・音の実聴取は未確認",
+        "市販曲・権利未確認の追加BGMは無音、一部画像は同梱RPGツクール素材に差替え",
+        "原作の冒頭に技による強制終了の注意あり。ブラウザでの再現を確認したものではない",
+        "登録後の一覧からの起動は、この記録の検証範囲にまだ含まない"
       ]
     }
   ]

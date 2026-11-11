@@ -119,7 +119,14 @@
       "version": "1.25-web.1",
       "checkedAt": "2026-11-11T06:48:13Z",
       "note": "Chromeで通常Lv1神経衰弱を完走し、リング保存・トロッコ解放・停止再開・設定保存を確認。全82ステージの音楽ゲーム。メイン1-1の通常クリア・音の実聴取・スマホ実機・全編手動完走は未確認。APKとは自動同期しません。"
+    },
+    {
+      "id": "collection-50",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/doragonout/?v=2.5.2-web.1",
+      "version": "2.5.2-web.1",
+      "checkedAt": "2026-11-11T23:34:28.192Z",
+      "note": "原作3Disk・741マップ。ChromeでDisk 1の会話・町への移動、画面ボタン、保存・再読込・.lsd書出し読込み、両画像モードを確認。市販曲等のBGMを無音化し、一部画像を差し替えています。APKとは自動同期しません。全編・Disk 2/3の実攻略・スマホ実機・音の実聴取は未確認。"
     }
   ],
-  "updatedAt": "2026-11-11T06:48:13Z"
+  "updatedAt": "2026-11-11T23:34:28.192Z"
 }
