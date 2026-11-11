@@ -108,11 +108,11 @@
     },
     {
       "id": "moving-castle",
-      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/moving-castle/?v=0.3-web.1",
-      "version": "0.3-web.1",
-      "checkedAt": "2026-11-11T06:00:40Z",
-      "note": "Chromeの公開URLで第1章ボス討伐、第2章解放、再読込後の進行・装備・資源・音OFFの保存を確認。全50章の歩行城アクションRPG。APKとは自動同期しません。スマホ実機・タッチ操作・全50章の手動完走・音の実聴取は未確認。"
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/moving-castle/?v=0.3-web.2",
+      "version": "0.3-web.2",
+      "checkedAt": "2026-11-11T06:15:09Z",
+      "note": "Chromeで初回ボス討伐・第2章解放（0.3-web.1）、再開表示・章再訪・門移動・進行と音OFFの保存（0.3-web.2）を確認。全50章の歩行城アクションRPG。APKとは自動同期しません。スマホ実機・タッチ操作・全50章の手動完走・音の実聴取は未確認。"
     }
   ],
-  "updatedAt": "2026-11-11T06:00:40Z"
+  "updatedAt": "2026-11-11T06:15:09Z"
 }

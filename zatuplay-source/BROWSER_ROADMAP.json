@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-11T06:00:40Z",
+  "updatedAt": "2026-11-11T06:15:09Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -206,10 +206,10 @@
       "name": "動く城",
       "status": "published",
       "priority": 118,
-      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/moving-castle/?v=0.3-web.1",
-      "browserVersion": "0.3-web.1",
-      "checkedAt": "2026-11-11T06:00:40Z",
-      "lastAttemptAt": "2026-11-11T06:00:40Z",
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/moving-castle/?v=0.3-web.2",
+      "browserVersion": "0.3-web.2",
+      "checkedAt": "2026-11-11T06:15:09Z",
+      "lastAttemptAt": "2026-11-11T06:15:09Z",
       "blocker": null,
       "nextStep": null
     },
@@ -707,11 +707,11 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-11T06:00:40Z",
+    "checkedAt": "2026-11-11T06:15:09Z",
     "apps": [
       {
         "id": "moving-castle",
-        "checkedAt": "2026-11-11T06:00:40Z",
+        "checkedAt": "2026-11-11T06:15:09Z",
         "checks": [
           "公開URLでタイトル・元の画像・第1章の物語を表示し、新規開始",
           "剣Lv.1→2、砲台Lv.0→1を購入し、資源24/14/4→11/0/1を確認",
@@ -722,25 +722,33 @@
           "第1章討伐済み・第2章解放・第3〜50章未解放と音OFFの再読込保存を確認",
           "一時停止・再開、タイトル→新規開始の上書き確認をキャンセル→続きからで第2章を維持",
           "取得した公開版ログにゲーム由来のerrorなし（拡張機能のログは除外）",
-          "ゲーム上部の「ZatuPlay 一覧」から公開ブラウザ一覧への復帰を確認"
-        ]
+          "ゲーム上部の「ZatuPlay 一覧」から公開ブラウザ一覧への復帰を確認",
+          "2026-11-11T06:07:08Z、登録後の公開一覧で16公開・44準備と動く城の公開中を確認。一覧のリンクから0.3-web.1を起動し、つづきからで第2章・Lv.3・資源25/11/8・音OFFを保持",
+          "2026-11-11T06:15:09Z、0.3-web.2のつづきから直後に上下の保存欄が「保存データを読み込みました（再開後は未保存）」と表示されることを確認",
+          "0.3-web.2の冒険の書から第1章へ再訪し、物語表示時点でHUD・サイド欄の第1章、冒険モード、HP156が一致",
+          "0.3-web.2の討伐済み第1章で城を修理して操縦し、門から第2章へ再移動。物語表示時点でHUD・サイド欄の第2章、冒険モード、回復後HP156が一致",
+          "0.3-web.2の再読込→つづきからで第2章・Lv.3・経験96/165・HP156・気力108・城241/350・資源20/11/8・音OFFと読み込み済み表示を確認。ゲームログerrorなし"
+        ],
+        "initialGameplayVersion": "0.3-web.1",
+        "initialGameplayCheckedAt": "2026-11-11T06:00:40Z"
       }
     ],
     "logicChecks": {
-      "passed": 15,
+      "passed": 17,
       "canvas2dRenderedChapters": 50,
       "chapterProgressionPaths": 50,
       "unchangedEmbeddedImageHashesMatched": 13,
       "chapterDataHashMatched": true,
       "browserLifecyclePassed": true,
       "sourceDeploymentMirrorMatched": true,
-      "productionBuildPassed": true
+      "productionBuildPassed": true,
+      "loadStatusAndImmediateHudRegressionPassed": true
     },
     "limitations": [
       "スマホ実機・タッチ操作・Safari/Firefoxは未確認",
       "全50章の手動完走・音の実聴取は未確認",
       "実タブ非表示時の停止は未確認（ライフサイクルは自動テスト）",
-      "カタログ登録後の一覧からの起動は未確認"
+      "0.3-web.2では初回ボス戦は再実施せず、0.3-web.1の通常攻略結果と0.3-web.2の17群回帰検証・実章再訪・門移動・保存確認を組み合わせて検証"
     ]
   },
   "publishedTargetCount": 8,
