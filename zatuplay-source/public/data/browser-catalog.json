@@ -84,7 +84,21 @@
       "version": "2.0-web.1",
       "checkedAt": "2026-11-11T01:05:00.842Z",
       "note": "47都道府県・8,987駅×10盤面。入力途中を保存し、設定でJSONを書出し・復元できます。APKとは自動同期しません。Chromeで札幌問題1クリアと2問目の再開を確認済み。スマホ実機・全盤面の手動完走・音の実聴取は未確認。"
+    },
+    {
+      "id": "tokai",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/tokai-chimei/",
+      "version": "3.1.0-web.1",
+      "checkedAt": "2026-11-11T02:56:04.291Z",
+      "note": "愛知・岐阜・三重の125市町村と名古屋16区、84,488問の入力式地名クイズ。正解とバッジ獲得状況はブラウザに保存します。Chromeで東白川村の全3問・バッジ獲得・再読込を確認済み。スマホ実機は未確認。"
+    },
+    {
+      "id": "warai",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/warai-za/",
+      "version": "2.3-web.1",
+      "checkedAt": "2026-11-11T02:57:03.200Z",
+      "note": "芸人150人・ゲーム用台本1,500本の字幕公演。観覧ポイント・図鑑・設定はブラウザに保存します。日本語の読み上げ音声は端末の設定を使います。Chromeで公演完走・ガチャ・再読込を確認済み。音声の実聴取・スマホ実機は未確認。"
     }
   ],
-  "updatedAt": "2026-11-11T01:05:00.843Z"
+  "updatedAt": "2026-11-11T02:57:57.571Z"
 }

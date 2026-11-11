@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-11T01:05:00.843Z",
+  "updatedAt": "2026-11-11T02:57:57.571Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -76,23 +76,23 @@
   "targetTotalBrowserCount": 60,
   "preferredBatchSize": 2,
   "nextCandidateIds": [
-    "tokai",
-    "warai",
-    "entrance"
+    "entrance",
+    "instant",
+    "sakihana"
   ],
   "completionRule": "対象52作品すべてを元の作品としてブラウザ移植し、一般公開URLで起動・代表的なゲーム操作・保存/再開と必要な進行解放を確認してカタログに登録する。未確認の機能と全ステージ未完走などは明記する。",
   "targets": [
     {
       "id": "tokai",
       "name": "東海地名手帖",
-      "status": "queued",
+      "status": "published",
       "priority": 2,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/tokai-chimei/",
+      "browserVersion": "3.1.0-web.1",
+      "checkedAt": "2026-11-11T02:56:04.291Z",
+      "lastAttemptAt": "2026-11-11T02:57:57.571Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "tokyo",
@@ -169,14 +169,14 @@
     {
       "id": "warai",
       "name": "わらい座150",
-      "status": "queued",
+      "status": "published",
       "priority": 115,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/warai-za/",
+      "browserVersion": "2.3-web.1",
+      "checkedAt": "2026-11-11T02:57:03.200Z",
+      "lastAttemptAt": "2026-11-11T02:57:57.571Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "quest-reborn",
@@ -708,47 +708,45 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-11T01:05:00.843Z",
+    "checkedAt": "2026-11-11T02:57:57.571Z",
     "apps": [
       {
-        "id": "battlitia",
-        "checkedAt": "2026-11-11T01:03:32.777Z",
+        "id": "tokai",
+        "checkedAt": "2026-11-11T02:56:04.291Z",
         "checks": [
-          "公開URLの第1面起動",
-          "山札24→23枚、戻すと24枚・手数0",
-          "再読込後の効果音OFF・テーマ保存",
-          "ローカルでヒントとA♦の組札移動"
-        ],
-        "limitations": [
-          "配札の途中は元の仕様により保存されない",
-          "クエストの手動クリアは未確認"
+          "公開URLで84,488問・3県の地域一覧を起動",
+          "東白川村の3問をクリアしてかたちバッジを受取",
+          "再読込後1/141バッジ・3/84,488問を保持",
+          "ローカルで主税町の検索・誤答・ヒント・カタカナ正解・次問",
+          "ローカルで名古屋城の回転画像と名古屋踏破記念品のロックを確認"
         ]
       },
       {
-        "id": "crossroad",
-        "checkedAt": "2026-11-11T01:05:00.842Z",
+        "id": "warai",
+        "checkedAt": "2026-11-11T02:57:03.200Z",
         "checks": [
-          "公開URLで札幌の問題1クリア",
-          "35コインと市区町村マーク獲得",
-          "再読込後の95コイン・問題2の6/20マスから再開",
-          "ローカルの駅連続切替（1→2→1）",
-          "実際にダウンロードしたJSONから復元・不正なJSONを拒否"
+          "公開URLで書き下ろしピン公演を字幕で完走し120ptを獲得",
+          "ガチャで2人目を入手し20pt残存",
+          "再読込後20pt・2/150人・1公演と読み上げ/アドリブ設定を保持",
+          "ローカルで一時停止・再開とアドリブありの字幕公演を完走"
         ]
       }
     ],
     "logicChecks": {
-      "passed": 11,
-      "crosswordSampleStations": 8,
-      "crosswordSampleBoards": 80
+      "tokaiQuestions": 84488,
+      "tokaiBadges": 141,
+      "splitDataMatchesApk": true,
+      "saveRecovery": true,
+      "badgeEligibility": true
     },
     "limitations": [
       "スマホ実機・Safari/Firefoxは未確認",
-      "全100面・全89,870盤面の手動完走は未実施",
-      "音の実聴取は未確認"
+      "全問題・全台本の手動確認は未実施",
+      "日本語音声・効果音の実聴取は未確認"
     ]
   },
-  "publishedTargetCount": 4,
-  "remainingTargetCount": 48,
+  "publishedTargetCount": 6,
+  "remainingTargetCount": 46,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
@@ -779,6 +777,46 @@
         "スマホ実機は未確認",
         "全ステージ・全問題の手動完走は未実施",
         "音声の実聴取は未確認"
+      ]
+    },
+    {
+      "checkedAt": "2026-11-11T01:05:00.843Z",
+      "apps": [
+        {
+          "id": "battlitia",
+          "checkedAt": "2026-11-11T01:03:32.777Z",
+          "checks": [
+            "公開URLの第1面起動",
+            "山札24→23枚、戻すと24枚・手数0",
+            "再読込後の効果音OFF・テーマ保存",
+            "ローカルでヒントとA♦の組札移動"
+          ],
+          "limitations": [
+            "配札の途中は元の仕様により保存されない",
+            "クエストの手動クリアは未確認"
+          ]
+        },
+        {
+          "id": "crossroad",
+          "checkedAt": "2026-11-11T01:05:00.842Z",
+          "checks": [
+            "公開URLで札幌の問題1クリア",
+            "35コインと市区町村マーク獲得",
+            "再読込後の95コイン・問題2の6/20マスから再開",
+            "ローカルの駅連続切替（1→2→1）",
+            "実際にダウンロードしたJSONから復元・不正なJSONを拒否"
+          ]
+        }
+      ],
+      "logicChecks": {
+        "passed": 11,
+        "crosswordSampleStations": 8,
+        "crosswordSampleBoards": 80
+      },
+      "limitations": [
+        "スマホ実機・Safari/Firefoxは未確認",
+        "全100面・全89,870盤面の手動完走は未実施",
+        "音の実聴取は未確認"
       ]
     }
   ]
