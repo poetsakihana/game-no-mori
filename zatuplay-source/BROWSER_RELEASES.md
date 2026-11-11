@@ -102,3 +102,15 @@ Node VMの11件のロジック検証も通過。カードの攻撃・勝利・�
 元の育成・塔のNode検証46件、ブラウザ停止処理と素材一致、既存作品の11件の回帰テスト、TypeScript/Vite本番ビルドを通過。取得した公開版コンソールログにゲーム由来のerrorはありませんでした（ブラウザ拡張のエラーは除く）。ローカルブラウザはソケット制約で起動できず、実操作は公開版で実施しました。
 
 元APK・APKカタログ・既存14作品を保持。別の作業で進行中の8番入口・Instantは変更していません。スマホ実機・Safari/Firefox・全100面とイベント/塔の手動完走・画面上の戦闘ボタン/タッチ移動・実タブ非表示時の停止・音声/効果音の実聴取は未確認です。検証の詳細は `public/games/sakihana/README.md` を参照してください。
+
+## QUEST REBORNの検証用配信・登録保留
+
+2026-11-11、エアガイツ QUEST REBORN（id: quest-reborn、2.1.1-web.1）を[検証用URL](https://poetsakihana.github.io/game-no-mori/zatuplay/games/quest-reborn/?v=2.1.1-web.1)へ配信しました。確認対象はコミット `f68d503b83177200b499ac8dc823c4cdb6a2d7e9`、[GitHub Pages実行42966193683](https://github.com/poetsakihana/game-no-mori/actions/runs/42966193683)の配信は成功しています。
+
+公開Chromeでタイトル・元のキービジュアル・主人公選択・遊び方、通常魔物100種類とボス21体のタブ、不死鳥地域のB19・B20・B21、開始失敗後のタイトル復帰、一覧リンクを確認しました。音量0・難易度ふつう・描画標準・振動OFFを設定し、再読込後も4設定が保持されました。
+
+一方、開始時は `WEBGL_INIT` となりました。確認環境は `GL_VENDOR=Disabled` / `GL_RENDERER=Disabled` を報告し、`Error creating WebGL context` と `BindToCurrentSequence failed` が発生しています。この確認環境ではWebGLを開始できないため、通常3D戦闘・B1ボス撃破・B2解放・ゲーム進行の保存再開は未確認です。設定保存の確認とは区別し、完成扱い・ブラウザカタログへの追加は保留します。
+
+Nodeの28テスト群では全21階のシーン構築と進行、1,260迷宮の到達性、保存・中断・WebGL失敗時の保護等を確認し、TypeScript/Vite本番ビルドと既存作品の回帰テストも成功しました。ただし模擬WebGLRendererによるロジック検証であり、実GPU描画と通常攻略を代替しません。
+
+ロードマップのquest-rebornを `blocked` とし、`checkedAt` は `null` を維持。次はWebGL 2を使える環境で通常戦闘→B1攻略→B2解放→再読込再開を確認し、完了基準を満たしてから登録します。既存の公開履歴・recentBatch・APKカタログ・ブラウザカタログは変更していません。公開カタログは15作品、固定52作品の対象は7作品完了・残り45作品のままです。

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-11T05:16:13Z",
+  "updatedAt": "2026-11-11T05:34:06Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -180,14 +180,14 @@
     {
       "id": "quest-reborn",
       "name": "エアガイツ QUEST REBORN",
-      "status": "queued",
+      "status": "blocked",
       "priority": 116,
-      "browserUrl": null,
-      "browserVersion": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/quest-reborn/?v=2.1.1-web.1",
+      "browserVersion": "2.1.1-web.1",
       "checkedAt": null,
-      "lastAttemptAt": null,
-      "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "lastAttemptAt": "2026-11-11T05:34:06Z",
+      "blocker": "検証用URLの配信とタイトル・図鑑・設定の再読込保存は確認済み。確認環境のChromeでGL_VENDOR=Disabled / GL_RENDERER=Disabledとなり、WebGL初期化がWEBGL_INITで停止。通常3D戦闘、B1ボス撃破・B2解放、ゲーム進行の保存再開は未確認のため完成・カタログ登録を保留。",
+      "nextStep": "WebGL 2が利用できる確認環境で検証用URLを開き、通常戦闘→B1ボス撃破→B2解放→再読込後のゲーム進行再開を実操作確認する。描画・画面操作・音声・タブ切替も確認し、完了基準を満たしてからcheckedAtを設定してカタログ登録する。"
     },
     {
       "id": "entrance",
