@@ -1,0 +1,4 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const source=path.resolve(__dirname,'../public/games/skhn-music'),target=path.resolve(__dirname,'../../zatuplay/games/skhn-music');
+function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)])}
+const lines=walk(source).filter(p=>!p.endsWith('checksums.sha256')).sort().map(p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex')+'  '+path.relative(source,p));fs.writeFileSync(path.join(source,'checksums.sha256'),lines.join('\n')+'\n');fs.mkdirSync(target,{recursive:true});fs.cpSync(source,target,{recursive:true});for(const p of walk(source)){if(!fs.readFileSync(p).equals(fs.readFileSync(path.join(target,path.relative(source,p)))))throw Error('Mirror mismatch '+p)}console.log('SKHN Music source/mirror verified: '+walk(source).length+' files');

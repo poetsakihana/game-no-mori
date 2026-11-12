@@ -1,0 +1,32 @@
+{
+  "title": "咲華 SKHN Music",
+  "collection": 19,
+  "browserVersion": "1.0-web.1",
+  "native": {
+    "package": "jp.sakihana.skhn",
+    "version": "1.0",
+    "versionCode": 1,
+    "apkBytes": 33301,
+    "apkSHA256": "dbac8a684f780faafb5aad2568f6f8f3256fcac0ca18b083975e7dcab933eaba",
+    "htmlBytes": 7674,
+    "htmlSHA256": "871a3bb9d460b0c1c7af2ce9ff190c18c37fe7c6c64819afe235dc42dabeba4e"
+  },
+  "changes": [
+    "Original UI retained with local browser bridge",
+    "Transactional IndexedDB Blob/catalog storage",
+    "Bounded ZIP stored/deflate parsing and CRC checks",
+    "Real HTMLMediaElement imported-byte playback",
+    "Explicit browser resource limits and storage/codec disclosures",
+    "Per-track lossless non-destructive export"
+  ],
+  "qa": {
+    "modelTestGroupsPassed": 16,
+    "realBrowser": "pending coordinator assignment",
+    "speakerListening": "not performed",
+    "groups": {
+      "parserZIPPlayerIndexedDB": 12,
+      "DOMBackend": 4
+    }
+  },
+  "runtimeThirdPartyDependencies": []
+}
