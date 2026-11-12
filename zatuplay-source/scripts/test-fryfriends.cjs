@@ -154,7 +154,7 @@ await test('Catalog departure warns only when current record is unsaved, and can
  const h=createHarness({lockManager:null});start(h);h.setConfirm(false);const before=h.state(),e=h.click('catalogLink');assert.equal(e.defaultPrevented,true);assert.deepEqual(h.state(),before);assert.match(h.confirmations.at(-1),/保存が完了/);h.setConfirm(true);assert.equal(h.click('catalogLink').defaultPrevented,false);const t=createHarness();start(t);await t.settle();t.click('catalogLink');assert.equal(t.confirmations.length,0);
 });
 await test('Versioned resources, safety/credits, relative catalog link, checksums and exact mirror',()=>{
- const html=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.match(html,/href="\.\.\/\.\.\/index.html"/);assert.match(html,/実際の油には入らない/);for(const m of html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css))([^" ]*)"/g))assert.equal(m[2],'?v=0.3.0-web.3');
+ const html=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.match(html,/href="\.\.\/\.\.\/index.html"/);assert.match(html,/実際の油には入らない/);for(const m of html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css))([^" ]*)"/g))assert.equal(m[2],'?v=0.3.0-web.4');
  const list=fs.readFileSync(path.join(root,'CHECKSUMS.sha256'),'utf8').trim().split('\n');for(const line of list){const [hash,file]=line.split('  ');const b=fs.readFileSync(path.join(root,file));assert.equal(sha(b),hash,file);assert.deepEqual(b,fs.readFileSync(path.resolve(root,'../../../../zatuplay/games/fryfriends',file)))}
 });
 console.log(`PASS: ${tests.length} suites. DOM/storage/locks/input models plus real image decode. Public Chrome and actual downloads remain separate.`);
