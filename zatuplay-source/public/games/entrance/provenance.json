@@ -1,0 +1,69 @@
+{
+  "id": "entrance",
+  "title": "8番入口",
+  "browserVersion": "1.3.1-web.1",
+  "originalAPK": {
+    "filename": "04.8ban-iriguchi-v1.3.1.apk",
+    "sha256": "88e22dde528c1f2f1cf52b752d905731df45c2c671f460aa5a1edf53bf29e692"
+  },
+  "originalHTML": {
+    "bytes": 1477331,
+    "sha256": "e8e2c27a0a39bda24fdfd6c0ddf85ab586b4e05c87abda298be3b494c13cc936"
+  },
+  "retained": {
+    "anomalies": 30,
+    "embeddedPNGs": 5,
+    "renderer": "original WebGL shaders and Canvas2D geometry/perspective renderer",
+    "audio": "original local WebAudio synthesis"
+  },
+  "images": [
+    {
+      "path": "assets/wall.png",
+      "bytes": 208432,
+      "sha256": "a3618d938285d5f2c5c20cd4b692f8e72f1ceaaa06d270c2bcf8765b8b83e549",
+      "byteIdenticalToOriginalEmbeddedPNG": true
+    },
+    {
+      "path": "assets/floor.png",
+      "bytes": 330115,
+      "sha256": "c911f36ff1083e22569d5a31e83f4f63b3a6e475ed7f7807bf630edcb6af23b2",
+      "byteIdenticalToOriginalEmbeddedPNG": true
+    },
+    {
+      "path": "assets/ceiling.png",
+      "bytes": 257989,
+      "sha256": "3c108b4b7718fa12d465ed16695e5befdc834e8333c3bec8ded0601111d5c321",
+      "byteIdenticalToOriginalEmbeddedPNG": true
+    },
+    {
+      "path": "assets/red.png",
+      "bytes": 97448,
+      "sha256": "49baa4c09f6820499ba32b90c2e20e4e336e86f58823d2356ffd68b4b3ddba5c",
+      "byteIdenticalToOriginalEmbeddedPNG": true
+    },
+    {
+      "path": "assets/commuter.png",
+      "bytes": 174080,
+      "sha256": "de76dec358fcd7c742f72841c3ca8b6e14c2f3ec9ec29c6d159a4d380f557ebd",
+      "byteIdenticalToOriginalEmbeddedPNG": true
+    }
+  ],
+  "qa": {
+    "modelAssertionsPassed": 93,
+    "actualChrome": "not-run",
+    "naturalEightPassages": "not-run",
+    "physicalMobileTouch": "not-run",
+    "speakerListening": "not-run"
+  },
+  "rights": "User-supplied APK provenance; commuter/red inspected, no specific third-party copying evidence; independent artwork authorship/license not verified.",
+  "browserChanges": [
+    "isolated validated atomic settings/checkpoint/recovery record with exclusive Web Lock",
+    "same hallway-start checkpoint, not walking coordinates/time",
+    "cancelable transitions and I/O, pause and input reset on lifecycle",
+    "local JSON backup and confirmation-gated replacement",
+    "same-tab catalog and honest save status",
+    "lossless local PNG extraction; original image fallback stays",
+    "no automatic fullscreen/orientation permission",
+    "remove development mutation API; no original game content shortened"
+  ]
+}
