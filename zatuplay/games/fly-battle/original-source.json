@@ -1,0 +1,32 @@
+{
+  "game": "揚げどき！フライバトル",
+  "catalogId": "collection-07",
+  "browserVersion": "1.0-web.1",
+  "original": {
+    "filename": "07.フライバトル.apk",
+    "version": "1.0",
+    "package": "jp.sakihana.frybattle",
+    "bytes": 381393,
+    "sha256": "06b322eeab609a372330bb6a4996bd3af9708c4c67e9951f1e7008bfb5257fea"
+  },
+  "files": [
+    {
+      "path": "reference/classes.dex",
+      "bytes": 18764,
+      "sha256": "fd9ef9e30954a63c185bc123f5c428c31352d5e10acb7cde0a244c69d5570aa0",
+      "unchanged": true
+    },
+    {
+      "path": "assets/bgm.wav",
+      "bytes": 352844,
+      "sha256": "d29cc9959fb29551f80ca832ee898383f64056c89fe0880fa5187c546249fb54",
+      "unchanged": true
+    },
+    {
+      "path": "assets/scoop.wav",
+      "bytes": 9746,
+      "sha256": "bcf926cc189399670d538852e2c2dfd4c17b3f658960186f6926cb025ca02c21",
+      "unchanged": true
+    }
+  ]
+}

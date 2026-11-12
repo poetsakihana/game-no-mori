@@ -1,0 +1,40 @@
+{
+  "version": "1.0.3-web.1",
+  "source": "APK 1.0.3 assets/www (runtime-expanded original data tables)",
+  "counts": {
+    "methods": 10,
+    "themes": 20,
+    "angles": 5,
+    "guides": 4,
+    "oracleThemes": 500,
+    "arts": 100,
+    "basicArts": 11,
+    "workArts": 29,
+    "journalArts": 60,
+    "commercialDecks": 115,
+    "galleryCards": 11114
+  },
+  "tableSha256": {
+    "methods": "a39f8ea367cfd8998a353bdb4b5807b789cc38e7d62c69bcc910d36f19d0d760",
+    "themes": "1d518a365f37ecb0a3a52bf88a1fffb5275a0bdda3912c006445bbfb6e82dfb3",
+    "angles": "49ac7190afe8726bbda8844395b45f1b7b5ae2664de55cb119d9dbbc26e7418a",
+    "tarot": "ce0530de2111d839485828e42e738b663fcf142e011d5bcb30e9ebd946b21cff",
+    "words": "56097aa5c34657b73ec4c0001a8101d6d1e87fa18c5a02d684612485e9b5d923",
+    "advice": "98d828749c106cdb0e75d7d97b24ab43832107d899dd05bbc45297eace7fdb65",
+    "oracleWorlds": "8f3447dd86ee8b1efd30275c6395d837af55e4e736dbea20c2665a53aec33142",
+    "oracleIntents": "4dd1ab2c0a5dbdbc80111b7c7ad06596e29aad373c299cfe0a0f41c7363fc851",
+    "oracleTypes": "754ab78cc0255631303540a67337ad237fb55ee40ce2ecdfbe53f0ac9c42b92d",
+    "commercialDecks": "9f83e226b2042658053e775904d1211fabaefc500ec9be5cd81a144618c84deb",
+    "commercialTarots": "df29cc5985c20edfd30fb8493bc753a72ba9c71199c6c92210503f907e247542",
+    "commercialLenormands": "165424f0c1c726c1fb109798648915d478e35ee70e0bce5e2ed1520f529af44d",
+    "fortuneGuides": "38d59c099f6849f2702591ad8871c8d38830fe342b0c2a473cb5f7492365bf8c",
+    "artCategories": "800695775c2953fcaa14cb0e9fb1a71b17f7d17136f2265f95189bb1f15b8375",
+    "artBasicModes": "d32dfcd631e2640ccb883c8f44f78356db48f3627a9741b22223e4b073a9c691",
+    "artWorkNames": "d16fb6568864efec8fc368407118b5dba3a85263fe6e5fb1220e70096c192c7b",
+    "artPrompts": "e933a977ccbf1ffc13f4f1edfbcc5c48c126a84baabe9d895680d3c96e16ad48",
+    "arts": "c33007ccfd9806d482b25e98434733febb0b72fd107196c5e6274ea6ac6cf3c8",
+    "lenormandSymbols": "fcb30417565b5d6d8cbcb28095b3c4407336a79db863a9805800d8fb2e07b4fb",
+    "galleryTarot": "5a3c20b89f12bbd86d92f7425d78f442c18f907af77e90cd53a31a176794fbe5",
+    "lenormandMotifs": "0eec5fd9b1498e76123e239a553fdb41f0dc1d1d9a7b1730977842279106526f"
+  }
+}

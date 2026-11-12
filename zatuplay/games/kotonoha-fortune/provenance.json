@@ -1,0 +1,69 @@
+{
+  "title": "ことのは占い",
+  "browserVersion": "1.0.3-web.1",
+  "catalogId": "collection-10",
+  "apk": {
+    "name": "10.ことのは占い_1.0.3.apk",
+    "bytes": 46224,
+    "sha256": "581ca398ca990ea48d3425144ebb713ccf8320e3b28774ef6ffcf400fa67a1cb",
+    "version": "1.0.3",
+    "package": "jp.sakihana.kotono1"
+  },
+  "source": "APK assets/www",
+  "originalFiles": {
+    "index.html": {
+      "bytes": 23584,
+      "sha256": "7ec19b86a6746fdeae3e8d25b6673536015818a89b312add434cdb97f2354656",
+      "disposition": "browser adaptation"
+    },
+    "app.js": {
+      "bytes": 38687,
+      "sha256": "5c31aecb9c2ad3f86fcb0cac5da653025563fc976157760ac462bd9e71131f4e",
+      "disposition": "browser adaptation"
+    },
+    "arts.js": {
+      "bytes": 16114,
+      "sha256": "2054ad1797b7f642dff63c49f42d9edfecc20dffbcfce1c8a0becc6cb30f980f",
+      "disposition": "browser adaptation"
+    },
+    "gallery.js": {
+      "bytes": 12920,
+      "sha256": "d437a00d16017b5839a812bfb005f729959a7ab8c36b416c5e90f1db366b7bb0",
+      "disposition": "unchanged"
+    },
+    "android.js": {
+      "bytes": 633,
+      "sha256": "61ad6114af5afbfc0bf4a29f9365eda3c7a2179ef61ebda6f04061b83ecd8f47",
+      "disposition": "excluded Android-only export bridge"
+    }
+  },
+  "addedFiles": [
+    "storage.js",
+    "browser.js",
+    "browser.css",
+    "README.md",
+    "content-manifest.json",
+    "provenance.json",
+    "CHECKSUMS.sha256"
+  ],
+  "changes": [
+    "Namespaced atomic Web Locks persistence with stale-writer blocking; memory-only fallback when unsupported.",
+    "Drafts/settings/active history restoration and interrupted-ritual completion without reroll.",
+    "Validated JSON import with confirmation, cancellation, same-file reselection; failed writes do not replace current data.",
+    "Lifecycle, date and accessibility/browser compatibility fixes; no added external content or communication."
+  ],
+  "qa": {
+    "automated": "VM/linkedom DOM events; modeled browser storage/locks/timers/download; native SVG decode samples. See dedicated test output.",
+    "realBrowser": "Not performed by this worker. Parent release process verifies deployed Chrome separately."
+  },
+  "excluded": [
+    "APK signature META-INF",
+    "Android native bridge",
+    "credentials and private input paths"
+  ],
+  "limitations": [
+    "Original rules are simplified entertainment; 60 of 100 arts are journals, 29 reflective work.",
+    "Commercial deck metadata and prices remain unverified original reference information.",
+    "Browser storage may be unavailable/cleared; abrupt termination can interrupt the last asynchronous save."
+  ]
+}
