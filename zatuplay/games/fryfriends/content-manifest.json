@@ -1,0 +1,159 @@
+{
+  "chapters": [
+    {
+      "id": 1,
+      "title": "はじめての あげあげ温泉",
+      "target": 450,
+      "moves": 18,
+      "type": -1,
+      "chainGoal": null
+    },
+    {
+      "id": 2,
+      "title": "サクサク大会",
+      "target": 650,
+      "moves": 18,
+      "type": -1,
+      "chainGoal": null
+    },
+    {
+      "id": 3,
+      "title": "コロッケ村からのお客さん",
+      "target": 12,
+      "moves": 22,
+      "type": 1,
+      "chainGoal": null
+    },
+    {
+      "id": 4,
+      "title": "タミーちゃんの悩み",
+      "target": 12,
+      "moves": 22,
+      "type": 3,
+      "chainGoal": null
+    },
+    {
+      "id": 5,
+      "title": "雨の日の温泉",
+      "target": 12,
+      "moves": 22,
+      "type": 6,
+      "chainGoal": null
+    },
+    {
+      "id": 6,
+      "title": "チップくんの温泉当番",
+      "target": 15,
+      "moves": 24,
+      "type": 4,
+      "chainGoal": null
+    },
+    {
+      "id": 7,
+      "title": "あげあげ祭り",
+      "target": 1000,
+      "moves": 24,
+      "type": -1,
+      "chainGoal": null
+    },
+    {
+      "id": 8,
+      "title": "伝説の金色温泉",
+      "target": 3,
+      "moves": 28,
+      "type": -1,
+      "chainGoal": 5
+    },
+    {
+      "id": 9,
+      "title": "ありがとう温泉",
+      "target": 18,
+      "moves": 28,
+      "type": 6,
+      "chainGoal": null
+    },
+    {
+      "id": 10,
+      "title": "また会おうね！",
+      "target": 1400,
+      "moves": 28,
+      "type": -1,
+      "chainGoal": null
+    },
+    {
+      "id": 11,
+      "title": "アジキくんのチーズ大作戦",
+      "target": 18,
+      "moves": 28,
+      "type": 4,
+      "chainGoal": null
+    },
+    {
+      "id": 12,
+      "title": "カツコさんの旅館へようこそ！",
+      "target": 18,
+      "moves": 28,
+      "type": 0,
+      "chainGoal": null
+    },
+    {
+      "id": 13,
+      "title": "まぼろしのチーズ温泉",
+      "target": 4,
+      "moves": 30,
+      "type": -1,
+      "chainGoal": 5
+    },
+    {
+      "id": 14,
+      "title": "カツコさんのおもてなし修業",
+      "target": 1600,
+      "moves": 30,
+      "type": -1,
+      "chainGoal": null
+    },
+    {
+      "id": 15,
+      "title": "フライフレンズ大集合！",
+      "target": 1800,
+      "moves": 32,
+      "type": -1,
+      "chainGoal": null
+    }
+  ],
+  "chapterCount": 15,
+  "mainCharacters": 7,
+  "scoreChapters": [
+    1,
+    2,
+    7,
+    10,
+    14,
+    15
+  ],
+  "typeChapters": [
+    3,
+    4,
+    5,
+    6,
+    9,
+    11,
+    12
+  ],
+  "chainChapters": [
+    8,
+    13
+  ],
+  "storyPageCount": 105,
+  "maxStars": 45,
+  "originalArt": {
+    "comicPages": 105,
+    "mainCharacterImages": 7,
+    "guestImages": 3
+  },
+  "guestUnlocks": [
+    3,
+    9,
+    10
+  ]
+}
