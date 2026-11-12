@@ -129,7 +129,7 @@
     "Persist current page, can variants and pending event in addition to original saved fields"
   ],
   "publication": {
-    "status": "published_pending_catalog_recheck",
+    "status": "published",
     "catalogAdded": true,
     "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/can-to-crown/?v=2.1-web.1",
     "qa": {
@@ -173,6 +173,9 @@
         "Forced termination, slow network and extreme storage contention",
         "Android-device comparison with the original APK"
       ]
-    }
+    },
+    "catalogVerifiedAt": "2026-11-12T01:16:18Z",
+    "registrationCommit": "001a150309b9e69bcb7e15878d9e0ad2cc87172d",
+    "pagesRunId": 43132892681
   }
 }

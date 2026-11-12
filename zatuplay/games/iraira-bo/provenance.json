@@ -57,7 +57,10 @@
       "Low-speed loading, forced shutdown and extreme delay in a real browser",
       "Mobile orientation and narrow-screen layout"
     ],
-    "catalogRegistration": "Separate step; consult the current browser catalog",
-    "modelTestsAreNotManualCompletion": true
+    "catalogRegistration": "Published; live catalog launch and preserved stage 2 progress verified",
+    "modelTestsAreNotManualCompletion": true,
+    "catalogVerifiedAt": "2026-11-12T01:16:18Z",
+    "registrationCommit": "001a150309b9e69bcb7e15878d9e0ad2cc87172d",
+    "registrationPagesRunId": 43132892681
   }
 }

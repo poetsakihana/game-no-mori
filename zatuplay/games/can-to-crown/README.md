@@ -2,7 +2,7 @@
 
 元作品: `05.Can-to-Crown-v2.1.apk` / `jp.sakihana.cantycoon`
 ブラウザ版: `2.1-web.1`
-状態: ローカル自動検証と公開Chromeの通常操作検証を完了。カタログへ登録済み。登録後の公開一覧反映は確認中。
+状態: ローカル自動検証と公開Chromeの通常操作検証を完了。カタログへ登録済み。公開一覧からの起動と保存保持も確認済み。
 
 ## 保持した原作
 
@@ -66,7 +66,7 @@ cmp extracted-can-to-crown.json public/games/can-to-crown/reference/original-dat
 
 ## 公開Chromeの通常操作確認（2026-11-12）
 
-[公開URL](https://poetsakihana.github.io/game-no-mori/zatuplay/games/can-to-crown/?v=2.1-web.1) をChromeの通常UIで確認しました。試験配置コミットは `bd392bfc5eed7e15998c092c1faed5e2328bb958`。[GitHub Pages実行43130731661](https://github.com/poetsakihana/game-no-mori/actions/runs/43130731661) は当該headの配信に成功しています。初回QA時点では未登録で、その後カタログへ追加しました。公開一覧からの起動は追加確認中です。
+[公開URL](https://poetsakihana.github.io/game-no-mori/zatuplay/games/can-to-crown/?v=2.1-web.1) をChromeの通常UIで確認しました。試験配置コミットは `bd392bfc5eed7e15998c092c1faed5e2328bb958`。[GitHub Pages実行43130731661](https://github.com/poetsakihana/game-no-mori/actions/runs/43130731661) は当該headの配信に成功しています。初回QA時点では未登録で、その後カタログへ追加しました。公開一覧からの起動も追加確認済みです。
 
 - 初回開始と20個の缶を確認。「清掃員・まこと」と初めて交流して120円・評判＋1を獲得。
 - 「川岸をきれいに」の依頼を受注。25クリックで31個の缶を回収し、途中で袋を空けながら全31個を売却。依頼を報告して300円・評判＋2を獲得し、図鑑の「★041」を確認。
@@ -83,3 +83,5 @@ cmp extracted-can-to-crown.json public/games/can-to-crown/reference/original-dat
 ## 未確認の範囲
 
 実画面での全5地区と所持金1億円までの完走、全100項目の収集・全依頼攻略、今回の公開Chromeでのキーボードによる缶拾い、スマホ実機／実タッチ、Safari/Firefox、音の実聴取、強制終了・低速回線・極端なストレージ競合の実機試験は未実施です。実際の非表示／blur時停止と期限経過の網羅的確認も未実施です。これらのロジック検証と、上記の通常UI検証を混同しないでください。
+
+2026-11-12T01:16:18Zまでに登録コミット `001a150309b9e69bcb7e15878d9e0ad2cc87172d`、Pages実行 `43132892681` の成功と公開一覧22/62を確認。一覧の「遊ぶ」から起動し、イベント広場/事業3段階/各強化Lv1の保存を保持して一覧へ戻れました。
