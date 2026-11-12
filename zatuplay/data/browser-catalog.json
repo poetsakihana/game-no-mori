@@ -168,7 +168,21 @@
       "version": "1.0.3-web.1",
       "checkedAt": "2026-11-12T02:00:26Z",
       "note": "元APKの1000メニュー・11,114枚のオリジナルカード図鑑を保持。100占術は11簡易実行/29ワーク/60記録専用の娯楽用仕様です。Chromeで抽選/深掘り/履歴、36枚配置、入力復帰、JSON復元、2タブ保護を確認。スマホ実機・全項目の手動一巡は未確認。APKと自動同期しません。"
+    },
+    {
+      "id": "collection-41",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/misuzu-komichi/?v=0.2-web.2",
+      "version": "0.2-web.2",
+      "checkedAt": "2026-11-12T04:07:41Z",
+      "note": "元APKの516詩・530表記・全12章と36会話イベントを保持。Chromeで探索/読詩/お気に入り/会話、保存再開、実JSON復元、2タブ保護を確認。web.2は一覧への直接復帰と旧版記録保持を再確認。詩文は提供資料のままで未校訂。全詩の手動一巡・スマホ実機・音の実聴取は未確認。APKと自動同期しません。"
+    },
+    {
+      "id": "collection-42",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/sakihana-shikai/?v=0.4.0-web.2",
+      "version": "0.4.0-web.2",
+      "checkedAt": "2026-11-12T04:07:41Z",
+      "note": "元APKの2,183詩・50人・全10章を保持。Chromeで通常4詩読了、光の途中保存、JSON復元、2タブ保護を確認。第2章は明示した9詩テスト記録から10詩目を実操作して境界確認し、元記録へ復元。全詩手動攻略・スマホ実機・音の実聴取は未確認。APKと自動同期しません。"
     }
   ],
-  "updatedAt": "2026-11-12T02:00:26Z"
+  "updatedAt": "2026-11-12T04:07:41Z"
 }

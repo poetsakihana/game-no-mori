@@ -97,13 +97,32 @@
       "Actual visibility/blur/pointercancel and delayed import races remain model-only",
       "No real quota/storage refusal/unsupported-lock test",
       "Audio listening and offline relaunch unverified",
-      "Catalog registration/launch belongs to release coordinator"
+      "Catalog registration and launch remain to be verified"
     ]
   },
   "browserIntegrationRevision": {
     "version": "0.2-web.2",
     "previousVersion": "0.2-web.1",
     "change": "Return link now targets ../../browser/ rather than ../../index.html, in the same browsing context. Display/asset cache versions updated. Gameplay, content, persistence implementation and save namespace unchanged.",
-    "actualReturnLinkRetest": "Pending deployment and public Chrome retest. publicBrowserQA above remains historical evidence for 0.2-web.1."
+    "actualReturnLinkRetest": "Passed public Chrome on 2026-11-12 at efbaa54ad6e39e7f21a2f142d872b4c270829134; details are separate in publicBrowserIntegrationQA. publicBrowserQA remains historical 0.2-web.1 evidence."
+  },
+  "publicBrowserIntegrationQA": {
+    "date": "2026-11-12",
+    "testedCommit": "efbaa54ad6e39e7f21a2f142d872b4c270829134",
+    "version": "0.2-web.2",
+    "pagesRun": 43149554534,
+    "buildJob": 130955239084,
+    "checkoutShaVerified": true,
+    "deployJob": 130955601046,
+    "deployConclusion": "success",
+    "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/misuzu-komichi/?v=0.2-web.2",
+    "returnUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/browser/",
+    "verified": [
+      "Visible 0.2-web.2 version",
+      "Existing save retained across reload: chapter 1, 2/516 poems, 1/36 encounters, near poem 2",
+      "Normal return-link click reaches fully loaded browser collection in the same tab",
+      "No game-origin error/warning in captured console log"
+    ],
+    "limits": "Targeted integration regression only. No repeat of web.1 gameplay/import testing; catalog launch not yet applicable before registration. Earlier documented unverified limits remain."
   }
 }

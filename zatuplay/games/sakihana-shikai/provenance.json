@@ -302,5 +302,54 @@
     "Browser save protection, lifecycle/input handling and 180 units/second movement added; see README.md.",
     "No APK signatures, DEX, Android wrapper, private source identifiers or signing material distributed.",
     "Public Chrome verification is separate from model and native Canvas tests."
-  ]
+  ],
+  "publicQa": {
+    "date": "2026-11-12",
+    "browserVersion": "0.4.0-web.2",
+    "deploymentCommit": "f6b85a98d02261381f40f9a90a268d039280d40b",
+    "pagesRun": 43148863399,
+    "pagesConclusion": "success",
+    "verifiedUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/sakihana-shikai/?v=0.4.0-web.2",
+    "verifiedCatalogReturn": "https://poetsakihana.github.io/game-no-mori/zatuplay/browser/",
+    "ordinaryPlay": {
+      "distinctReadIds": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "currentPoem": 5,
+      "currentPoemCollectedSlots": [
+        0
+      ],
+      "reloadRetained": true
+    },
+    "separateFixtureBoundary": {
+      "importedDistinctReads": 9,
+      "poemCompletedNormallyAfterImport": 10,
+      "chapter2UnlockedAndRetainedOnReload": true,
+      "chapter3LockedAt50": true,
+      "earnedRecordAndBackupRestored": true
+    },
+    "checks": [
+      "Real Chrome canvas and catalog render original Shizuku pale blue",
+      "Guide conversation, favorites and search",
+      "Explicit pause, resume, typed WASD search and Escape",
+      "Native JSON download, cancel, same-file confirmed restore, backup and reload",
+      "Second tab cannot overwrite primary saved progress",
+      "Final primary, backup and post-input-test exports equal original earned four-read data"
+    ],
+    "priorWeb1Checks": [
+      "Unrestricted jump to poem 2183 at zero reads",
+      "Previous and next wrapping",
+      "50-character catalog count and character search"
+    ],
+    "limits": [
+      "Only four poems completed in ordinary public play; ten-read boundary used a labeled nine-read fixture",
+      "Very slow rendering in this test environment; no general performance claim",
+      "No physical touch, mobile, other-browser, actual listening or offline-startup verification",
+      "Hidden/blur, corrupt storage and quota failures were model-tested, not independently triggered in public Chrome",
+      "No full 2183-poem manual completion"
+    ]
+  }
 }

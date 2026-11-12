@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-12T02:11:00Z",
+  "updatedAt": "2026-11-12T04:07:41Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -600,26 +600,26 @@
     {
       "id": "collection-41",
       "name": "みすゞことばの小道",
-      "status": "queued",
+      "status": "published",
       "priority": 1141,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/misuzu-komichi/?v=0.2-web.2",
+      "browserVersion": "0.2-web.2",
+      "checkedAt": "2026-11-12T04:07:41Z",
+      "lastAttemptAt": "2026-11-12T04:07:41Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-42",
       "name": "咲華詩界",
-      "status": "queued",
+      "status": "published",
       "priority": 1142,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/sakihana-shikai/?v=0.4.0-web.2",
+      "browserVersion": "0.4.0-web.2",
+      "checkedAt": "2026-11-12T04:07:41Z",
+      "lastAttemptAt": "2026-11-12T04:07:41Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-43",
@@ -707,57 +707,54 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-12T02:00:26Z",
+    "checkedAt": "2026-11-12T04:07:41Z",
     "apps": [
       {
-        "id": "collection-07",
-        "checkedAt": "2026-11-12T02:00:26Z",
+        "id": "collection-41",
+        "checkedAt": "2026-11-12T04:07:41Z",
         "checks": [
-          "タイトル/名前の取消と保存、100面5ページ、通常キー入力で初戦30240点/精度88.9%の勝利、2面解放/3面ロック、TOP10・名前・音OFFの再読込保持",
-          "2面の途中41秒/890点から停止・再読込、実810byteJSON書出し・取消・同一ファイル再選択・確認復元・再読込",
-          "実2タブで二重書込を拒否、操作説明・一覧復帰、ゲーム由来console error0件",
-          "web.2でボタン取消とEscape取消の案内修正、旧版進行保持、同一実ファイルの復元再読込を再確認",
-          "登録後の公開一覧24/62作品を確認。「遊ぶ」から同じ画面で起動し保存済み記録の保持と一覧復帰を再確認"
+          "web.1で通常移動・おさかな/お魚の両表記、シオリの両選択、4人と全12章/図鑑の代表操作を確認",
+          "実JSON書出し/取消/同一ファイル確認復元/再読込、実2タブの競合保護、Escape停止と再開",
+          "web.2で0.2-web.2表示、既存2/516詩・1/36イベントの再読込保持、同じ画面でブラウザ一覧へ直接復帰、ゲーム由来console error0"
         ]
       },
       {
-        "id": "collection-10",
-        "checkedAt": "2026-11-12T02:00:26Z",
+        "id": "collection-42",
+        "checkedAt": "2026-11-12T04:07:41Z",
         "checks": [
-          "タロット3枚の全演出、深掘り、同じカード/履歴の再読込、入力途中とプロフィールの復帰、未来日拒否から有効日保存",
-          "36枚グランタブローの演出途中リロード復帰、数秘4、記録専用メモ、カード図鑑の絞込/検索/拡大/表裏と手動ジャーナル",
-          "実JSONダウンロード、復元取消で後の2記録を保持、同一ファイル再選択・確認復元で1記録へ戻り再読込保持",
-          "実2タブの競合停止と入力保持/書出し、先行保存の非上書き、ゲーム由来console error/warn0件",
-          "登録後の公開一覧24/62作品を確認。「遊ぶ」から同じ画面で起動し保存済み記録の保持と一覧復帰を再確認"
+          "web.2で通常操作から4詩読了、5詩目の光1個を収集、部分収集/位置の再読込保持、案内役の会話としずくの実描画",
+          "別の境界試験として明示した9詩fixtureを通常JSON画面から復元し、10詩目の光3個/本文を通常操作。第2章解放・第3章未解放を再読込保持",
+          "実ダウンロードした通常4詩記録を2回復元し、本保存と退避を通常記録へ戻した。通常10詩完走とは区別",
+          "実JSON取消/同一ファイル再選択/復元、2タブの書込保護、停止・WASD文字入力、お気に入り、一覧復帰を確認"
         ]
       }
     ],
     "logicChecks": {
-      "flyBattleTestGroups": 18,
-      "kotonohaTestGroups": 18,
-      "flyIndependentDexCases": 950,
-      "fortuneGalleryCards": 11114,
-      "fortuneArts": 100,
+      "misuzuTestGroups": 18,
+      "shikaiTestGroups": 15,
+      "misuzuPoems": 516,
+      "misuzuVariants": 530,
+      "shikaiPoems": 2183,
+      "shikaiLightFragments": 6549,
       "independentReviewPassed": true,
       "sourceDeploymentMirrorMatched": true
     },
     "limitations": [
-      "全100面/全100占術/全カードの手動一巡ではない。全件データとルールの自動モデル検査と実Chrome代表操作を区別する",
-      "スマホ実機/物理タッチ/狭幅、Safari/Firefox、音の実聴取、実非表示/blur、実容量制限/保存拒否/Web Locks非対応、低速回線/強制終了は未確認",
-      "占いは元APKの簡易な娯楽用ルール。100項目の内訳は11簡易実行・29ワーク・60記録専用。市販115デッキは原作参考情報で現在価格・公式画像ではない",
-      "Web Locks非対応では既存保存を保全して書込しない。APKや他端末との自動同期なし"
+      "咲華詩界は通常4詩の実プレイ。第2章境界試験は9詩fixtureを通常のJSON復元画面から入れた別試験で、通常10詩完走ではない",
+      "全詩/全会話/全章の手動一巡、スマホ実機/物理タッチ/狭幅、Safari/Firefox、音の実聴取、実容量制限/保存拒否/Web Locks非対応、低速回線/強制終了は未確認",
+      "みすゞ詩文は提供資料のまま未校訂。探索の風景・問い・会話はゲーム独自の創作",
+      "元APKや別端末と自動同期しない。Web Locks非対応時は既存保存を書き換えずメモリ内で動作する"
     ],
-    "testDeploymentCommit": "467ae7f1bc3fa7622a4a62302ab287db3d8f9737",
-    "testPagesRunId": 43135799869,
-    "flyCorrectionCommit": "7a900eecd01711c58733d5b871d69fa8a6d3f314",
-    "flyCorrectionPagesRunId": 43137818751,
-    "catalogVerifiedAt": "2026-11-12T02:11:00Z",
-    "registrationCommit": "e3209667811bbbd3256fc113eefd726b8f1bbbab",
-    "pagesRunId": 43138736605,
-    "pagesCommitEvidence": "run head_shaは直前版。build job130920272415のgit log -1 --format=%Hで登録commit e3209667811bbbd3256fc113eefd726b8f1bbbabを確認しbuild/deploy成功。"
+    "testDeploymentCommit": "eea233ce2686be9706f13b2e3ba8adccc013e5eb",
+    "testPagesRunId": 43141231419,
+    "shikaiCorrectionCommit": "f6b85a98d02261381f40f9a90a268d039280d40b",
+    "shikaiCorrectionPagesRunId": 43148863399,
+    "misuzuCorrectionCommit": "efbaa54ad6e39e7f21a2f142d872b4c270829134",
+    "misuzuCorrectionPagesRunId": 43149554534,
+    "misuzuPagesCommitEvidence": "run head metadataは直前版。build job130955239084のgit logでefbaa54を確認しdeploy130955601046成功。"
   },
-  "publishedTargetCount": 16,
-  "remainingTargetCount": 36,
+  "publishedTargetCount": 18,
+  "remainingTargetCount": 34,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
@@ -1122,6 +1119,53 @@
       "registrationCommit": "e3209667811bbbd3256fc113eefd726b8f1bbbab",
       "pagesRunId": 43138736605,
       "pagesCommitEvidence": "run head_shaは直前版。build job130920272415のgit log -1 --format=%Hで登録commit e3209667811bbbd3256fc113eefd726b8f1bbbabを確認しbuild/deploy成功。"
+    },
+    {
+      "checkedAt": "2026-11-12T04:07:41Z",
+      "apps": [
+        {
+          "id": "collection-41",
+          "checkedAt": "2026-11-12T04:07:41Z",
+          "checks": [
+            "web.1で通常移動・おさかな/お魚の両表記、シオリの両選択、4人と全12章/図鑑の代表操作を確認",
+            "実JSON書出し/取消/同一ファイル確認復元/再読込、実2タブの競合保護、Escape停止と再開",
+            "web.2で0.2-web.2表示、既存2/516詩・1/36イベントの再読込保持、同じ画面でブラウザ一覧へ直接復帰、ゲーム由来console error0"
+          ]
+        },
+        {
+          "id": "collection-42",
+          "checkedAt": "2026-11-12T04:07:41Z",
+          "checks": [
+            "web.2で通常操作から4詩読了、5詩目の光1個を収集、部分収集/位置の再読込保持、案内役の会話としずくの実描画",
+            "別の境界試験として明示した9詩fixtureを通常JSON画面から復元し、10詩目の光3個/本文を通常操作。第2章解放・第3章未解放を再読込保持",
+            "実ダウンロードした通常4詩記録を2回復元し、本保存と退避を通常記録へ戻した。通常10詩完走とは区別",
+            "実JSON取消/同一ファイル再選択/復元、2タブの書込保護、停止・WASD文字入力、お気に入り、一覧復帰を確認"
+          ]
+        }
+      ],
+      "logicChecks": {
+        "misuzuTestGroups": 18,
+        "shikaiTestGroups": 15,
+        "misuzuPoems": 516,
+        "misuzuVariants": 530,
+        "shikaiPoems": 2183,
+        "shikaiLightFragments": 6549,
+        "independentReviewPassed": true,
+        "sourceDeploymentMirrorMatched": true
+      },
+      "limitations": [
+        "咲華詩界は通常4詩の実プレイ。第2章境界試験は9詩fixtureを通常のJSON復元画面から入れた別試験で、通常10詩完走ではない",
+        "全詩/全会話/全章の手動一巡、スマホ実機/物理タッチ/狭幅、Safari/Firefox、音の実聴取、実容量制限/保存拒否/Web Locks非対応、低速回線/強制終了は未確認",
+        "みすゞ詩文は提供資料のまま未校訂。探索の風景・問い・会話はゲーム独自の創作",
+        "元APKや別端末と自動同期しない。Web Locks非対応時は既存保存を書き換えずメモリ内で動作する"
+      ],
+      "testDeploymentCommit": "eea233ce2686be9706f13b2e3ba8adccc013e5eb",
+      "testPagesRunId": 43141231419,
+      "shikaiCorrectionCommit": "f6b85a98d02261381f40f9a90a268d039280d40b",
+      "shikaiCorrectionPagesRunId": 43148863399,
+      "misuzuCorrectionCommit": "efbaa54ad6e39e7f21a2f142d872b4c270829134",
+      "misuzuCorrectionPagesRunId": 43149554534,
+      "misuzuPagesCommitEvidence": "run head metadataは直前版。build job130955239084のgit logでefbaa54を確認しdeploy130955601046成功。"
     }
   ]
 }
