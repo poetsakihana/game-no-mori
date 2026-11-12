@@ -28,5 +28,33 @@
       "sha256": "bcf926cc189399670d538852e2c2dfd4c17b3f658960186f6926cb025ca02c21",
       "unchanged": true
     }
-  ]
+  ],
+  "verification": {
+    "browserVersion": "1.0-web.2",
+    "publicChrome": {
+      "checkedAt": "2026-11-12T01:58:05Z",
+      "commit": "7a900eecd01711c58733d5b871d69fa8a6d3f314",
+      "pagesRunId": "43137818751",
+      "pagesStatus": "success",
+      "method": "実Chromeの通常UI。対戦中の内部状態注入なし。",
+      "scope": [
+        "通常ページの1.0-web.2版表示",
+        "web.1記録の2面・表示残り41秒・890点・BEST30240・音OFFを保持",
+        "実810バイトJSONのボタン取消・同一ファイル再選択・Escape取消・再選択・確認復元・再読込",
+        "取消メッセージ正常・取消による進行変更なし・復元後の途中戦況維持",
+        "ゲーム由来のコンソールエラー0件"
+      ],
+      "notVerified": [
+        "全100面の人手完走",
+        "物理スマートフォン・実タッチ",
+        "Safari/Firefox",
+        "音の実聴取",
+        "OSによる強制終了",
+        "非表示・フォーカス離脱",
+        "低速回線"
+      ]
+    },
+    "automatedTestGroupsPassed": 18,
+    "independentReview": "1.0-web.2再検査合格。取消・保存不変・非同期読込競合・版付きURL・原素材・配布一致を確認。"
+  }
 }

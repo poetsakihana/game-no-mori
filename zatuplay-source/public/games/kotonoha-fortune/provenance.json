@@ -54,7 +54,33 @@
   ],
   "qa": {
     "automated": "VM/linkedom DOM events; modeled browser storage/locks/timers/download; native SVG decode samples. See dedicated test output.",
-    "realBrowser": "Not performed by this worker. Parent release process verifies deployed Chrome separately."
+    "realBrowser": {
+      "date": "2026-11-12",
+      "browser": "Chrome (public UI operations)",
+      "testedCommit": "467ae7f1bc3fa7622a4a62302ab287db3d8f9737",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/kotonoha-fortune/?v=1.0.3-web.1",
+      "result": "Passed representative public UI QA; no new runtime fix required.",
+      "verified": [
+        "Guide/topic/basic three-card ritual through reveal, deepening and same results/history after reload.",
+        "Unfinished consultation/manual drafts and profile reload; future birthday rejected then valid birthday saved.",
+        "Grand tableau 36-card order restored after reload during ritual, numerology 4, journal-only art notes.",
+        "11,114-card count, Lenormand filter/search, enlarged SVG front/back, manual journal save.",
+        "Actual JSON download and file selection; canceled restore preserves later entries; reselecting same file and confirming restore persists after reload.",
+        "Two-tab stale-write blocking, retained local draft, retry blocking, export and unchanged first-tab data after reload."
+      ],
+      "screenshotsInspected": 12,
+      "gameConsoleErrorsOrWarnings": 0,
+      "consoleNote": "Observed extension metadata-send errors were distinguished from game logs.",
+      "notVerified": [
+        "Physical touch or narrow viewport",
+        "Safari/Firefox",
+        "Actual quota/storage denial or Web Locks unsupported browser",
+        "Full manual traversal of all 100 arts",
+        "Actual visibilitychange/blur interruption: cloud tab creation did not change visibility; reload during ritual verified instead",
+        "OS-specific native file picker UI differences"
+      ],
+      "checkedAt": "2026-11-12T02:00:26Z"
+    }
   },
   "excluded": [
     "APK signature META-INF",

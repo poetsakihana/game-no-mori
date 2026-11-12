@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-12T01:16:18Z",
+  "updatedAt": "2026-11-12T02:00:26Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -300,14 +300,14 @@
     {
       "id": "collection-07",
       "name": "フライバトル",
-      "status": "queued",
+      "status": "published",
       "priority": 1107,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/fly-battle/?v=1.0-web.2",
+      "browserVersion": "1.0-web.2",
+      "checkedAt": "2026-11-12T02:00:26Z",
+      "lastAttemptAt": "2026-11-12T02:00:26Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-09",
@@ -324,14 +324,14 @@
     {
       "id": "collection-10",
       "name": "ことのは占い",
-      "status": "queued",
+      "status": "published",
       "priority": 1110,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/kotonoha-fortune/?v=1.0.3-web.1",
+      "browserVersion": "1.0.3-web.1",
+      "checkedAt": "2026-11-12T02:00:26Z",
+      "lastAttemptAt": "2026-11-12T02:00:26Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-12",
@@ -707,57 +707,51 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-12T01:09:27Z",
+    "checkedAt": "2026-11-12T02:00:26Z",
     "apps": [
       {
-        "id": "can-to-crown",
-        "checkedAt": "2026-11-12T01:09:27Z",
+        "id": "collection-07",
+        "checkedAt": "2026-11-12T02:00:26Z",
         "checks": [
-          "公開Chromeで31個の回収/売却、川岸の依頼達成・300円報酬、実績受取/済表示、移動制限とイベント広場への移動を通常UIで確認",
-          "道具/袋/売却を各1段階、事業3段階リサイクル店まで購入。毎秒721円、音OFF・地区・強化・依頼記録を再読込保持",
-          "川の清掃大会の選択待ちを再読込復元し参加。別イベントで休憩も確認",
-          "JSON961 bytesを実ダウンロード・内容検査、復元取消/同一ファイル再選択/確認付き復元/再読込。手動停止・やり直し取消・実2タブの同時プレイ拒否を確認",
-          "依頼図鑑の達成★/内容、一覧復帰、ゲームパスのconsole errorなしを確認",
-          "登録後の公開一覧22/62作品を確認。「遊ぶ」から同じ画面で起動し保存済み進行の保持と一覧復帰を再確認"
+          "タイトル/名前の取消と保存、100面5ページ、通常キー入力で初戦30240点/精度88.9%の勝利、2面解放/3面ロック、TOP10・名前・音OFFの再読込保持",
+          "2面の途中41秒/890点から停止・再読込、実810byteJSON書出し・取消・同一ファイル再選択・確認復元・再読込",
+          "実2タブで二重書込を拒否、操作説明・一覧復帰、ゲーム由来console error0件",
+          "web.2でボタン取消とEscape取消の案内修正、旧版進行保持、同一実ファイルの復元再読込を再確認"
         ]
       },
       {
-        "id": "collection-09",
-        "checkedAt": "2026-11-12T01:09:27Z",
+        "id": "collection-10",
+        "checkedAt": "2026-11-12T02:00:26Z",
         "checks": [
-          "公開Chromeで3ページ全30面の選択とロック、壁衝突/リトライ、キー移動/停止/途中位置の再読込を確認",
-          "通常ドラッグ20区間でSTAGE1クリア23.56秒。1/30クリア、2面解放/3面ロック、BEST23.56秒を再読込保持",
-          "STAGE2の途中移動、残り73.7秒の停止再開、音OFFの保存を確認",
-          "実2タブで新しい保存への更新時に旧タブを停止。確認付きの保存読み直しで最新途中状態を保持",
-          "操作説明、一覧復帰、ゲームパスのconsole errorなしを確認",
-          "登録後の公開一覧22/62作品を確認。「遊ぶ」から同じ画面で起動し保存済み進行の保持と一覧復帰を再確認"
+          "タロット3枚の全演出、深掘り、同じカード/履歴の再読込、入力途中とプロフィールの復帰、未来日拒否から有効日保存",
+          "36枚グランタブローの演出途中リロード復帰、数秘4、記録専用メモ、カード図鑑の絞込/検索/拡大/表裏と手動ジャーナル",
+          "実JSONダウンロード、復元取消で後の2記録を保持、同一ファイル再選択・確認復元で1記録へ戻り再読込保持",
+          "実2タブの競合停止と入力保持/書出し、先行保存の非上書き、ゲーム由来console error/warn0件"
         ]
       }
     ],
     "logicChecks": {
-      "canToCrownTestGroups": 20,
-      "irairaTestGroups": 18,
-      "canToCrownExpansionValues": 240,
-      "canToCrownBaseArrays": 8,
-      "irairaCourses": 30,
-      "irairaVertices": 6630,
+      "flyBattleTestGroups": 18,
+      "kotonohaTestGroups": 18,
+      "flyIndependentDexCases": 950,
+      "fortuneGalleryCards": 11114,
+      "fortuneArts": 100,
       "independentReviewPassed": true,
       "sourceDeploymentMirrorMatched": true
     },
     "limitations": [
-      "全編のモデル自動試験は実ブラウザの手動攻略ではない。Can to Crownの1億円ED/全5地区/全100図鑑収集、イライラ棒全30面の手動完走は未確認",
-      "スマホ実機/実タッチ、Safari/Firefox、音の実聴取、実非表示/blur、低速回線、強制終了/極端な保存競合は未確認",
-      "原作のToneGenerator効果音は65ms等のWebAudio合成へ置換し、同一波形ではない。両APKにBGM/画像資産はない",
-      "Web Locks非対応時は既存保存を保全して書込を停止する。Can to Crownは一時プレイとJSON書出しのみ"
+      "全100面/全100占術/全カードの手動一巡ではない。全件データとルールの自動モデル検査と実Chrome代表操作を区別する",
+      "スマホ実機/物理タッチ/狭幅、Safari/Firefox、音の実聴取、実非表示/blur、実容量制限/保存拒否/Web Locks非対応、低速回線/強制終了は未確認",
+      "占いは元APKの簡易な娯楽用ルール。100項目の内訳は11簡易実行・29ワーク・60記録専用。市販115デッキは原作参考情報で現在価格・公式画像ではない",
+      "Web Locks非対応では既存保存を保全して書込しない。APKや他端末との自動同期なし"
     ],
-    "testDeploymentCommit": "bd392bfc5eed7e15998c092c1faed5e2328bb958",
-    "testPagesRunId": 43130731661,
-    "catalogVerifiedAt": "2026-11-12T01:16:18Z",
-    "registrationCommit": "001a150309b9e69bcb7e15878d9e0ad2cc87172d",
-    "pagesRunId": 43132892681
+    "testDeploymentCommit": "467ae7f1bc3fa7622a4a62302ab287db3d8f9737",
+    "testPagesRunId": 43135799869,
+    "flyCorrectionCommit": "7a900eecd01711c58733d5b871d69fa8a6d3f314",
+    "flyCorrectionPagesRunId": 43137818751
   },
-  "publishedTargetCount": 14,
-  "remainingTargetCount": 38,
+  "publishedTargetCount": 16,
+  "remainingTargetCount": 36,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
@@ -1072,6 +1066,50 @@
       "catalogVerifiedAt": "2026-11-12T01:16:18Z",
       "registrationCommit": "001a150309b9e69bcb7e15878d9e0ad2cc87172d",
       "pagesRunId": 43132892681
+    },
+    {
+      "checkedAt": "2026-11-12T02:00:26Z",
+      "apps": [
+        {
+          "id": "collection-07",
+          "checkedAt": "2026-11-12T02:00:26Z",
+          "checks": [
+            "タイトル/名前の取消と保存、100面5ページ、通常キー入力で初戦30240点/精度88.9%の勝利、2面解放/3面ロック、TOP10・名前・音OFFの再読込保持",
+            "2面の途中41秒/890点から停止・再読込、実810byteJSON書出し・取消・同一ファイル再選択・確認復元・再読込",
+            "実2タブで二重書込を拒否、操作説明・一覧復帰、ゲーム由来console error0件",
+            "web.2でボタン取消とEscape取消の案内修正、旧版進行保持、同一実ファイルの復元再読込を再確認"
+          ]
+        },
+        {
+          "id": "collection-10",
+          "checkedAt": "2026-11-12T02:00:26Z",
+          "checks": [
+            "タロット3枚の全演出、深掘り、同じカード/履歴の再読込、入力途中とプロフィールの復帰、未来日拒否から有効日保存",
+            "36枚グランタブローの演出途中リロード復帰、数秘4、記録専用メモ、カード図鑑の絞込/検索/拡大/表裏と手動ジャーナル",
+            "実JSONダウンロード、復元取消で後の2記録を保持、同一ファイル再選択・確認復元で1記録へ戻り再読込保持",
+            "実2タブの競合停止と入力保持/書出し、先行保存の非上書き、ゲーム由来console error/warn0件"
+          ]
+        }
+      ],
+      "logicChecks": {
+        "flyBattleTestGroups": 18,
+        "kotonohaTestGroups": 18,
+        "flyIndependentDexCases": 950,
+        "fortuneGalleryCards": 11114,
+        "fortuneArts": 100,
+        "independentReviewPassed": true,
+        "sourceDeploymentMirrorMatched": true
+      },
+      "limitations": [
+        "全100面/全100占術/全カードの手動一巡ではない。全件データとルールの自動モデル検査と実Chrome代表操作を区別する",
+        "スマホ実機/物理タッチ/狭幅、Safari/Firefox、音の実聴取、実非表示/blur、実容量制限/保存拒否/Web Locks非対応、低速回線/強制終了は未確認",
+        "占いは元APKの簡易な娯楽用ルール。100項目の内訳は11簡易実行・29ワーク・60記録専用。市販115デッキは原作参考情報で現在価格・公式画像ではない",
+        "Web Locks非対応では既存保存を保全して書込しない。APKや他端末との自動同期なし"
+      ],
+      "testDeploymentCommit": "467ae7f1bc3fa7622a4a62302ab287db3d8f9737",
+      "testPagesRunId": 43135799869,
+      "flyCorrectionCommit": "7a900eecd01711c58733d5b871d69fa8a6d3f314",
+      "flyCorrectionPagesRunId": 43137818751
     }
   ]
 }
