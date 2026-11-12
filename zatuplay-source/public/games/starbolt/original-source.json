@@ -12,10 +12,71 @@
     "source": "https://drive.google.com/file/d/1AOxWIDP5m9H4oqneD5zNH1CRkmXEtsqH/view"
   },
   "files": [
-    {"originalPath":"assets/engine.js","path":"reference/engine.js.txt","bytes":8991,"sha256":"c3446bfc98583833208473d4c7b53e1880f6b240b5c32e4b87ea79d8d9064245"},
-    {"originalPath":"assets/index.html","path":"reference/index.html.txt","bytes":2059,"sha256":"c0f4248cd493d84731f97e2e224963ab4e8e3fdddb7e8b1ae0da8706db1235cf"}
+    {
+      "originalPath": "assets/engine.js",
+      "path": "reference/engine.js.txt",
+      "bytes": 8991,
+      "sha256": "c3446bfc98583833208473d4c7b53e1880f6b240b5c32e4b87ea79d8d9064245"
+    },
+    {
+      "originalPath": "assets/index.html",
+      "path": "reference/index.html.txt",
+      "bytes": 2059,
+      "sha256": "c0f4248cd493d84731f97e2e224963ab4e8e3fdddb7e8b1ae0da8706db1235cf"
+    }
   ],
-  "verification": "Both unchanged web source files byte-compared with original APK ZIP members, 2026-11-12. No actual Chrome/publication claim.",
-  "storage": {"originalKey":"starbolt-v1","browserKey":"zatuplay:starbolt:1","migration":false,"durableFields":["cleared","sound"],"sessionOnly":["stage","checkpoint","player","weapon","bullets","pause"]},
-  "counts": {"fortresses":8,"bosses":8,"weapons":9,"worldWidth":4800,"platformsPerStage":17,"enemiesPerStage":11,"hazardsPerStage":4}
+  "verification": "Both unchanged web source files byte-compared with original APK ZIP members, 2026-11-12. Public Chrome verification is separately scoped below.",
+  "storage": {
+    "originalKey": "starbolt-v1",
+    "browserKey": "zatuplay:starbolt:1",
+    "migration": false,
+    "durableFields": [
+      "cleared",
+      "sound"
+    ],
+    "sessionOnly": [
+      "stage",
+      "checkpoint",
+      "player",
+      "weapon",
+      "bullets",
+      "pause"
+    ]
+  },
+  "counts": {
+    "fortresses": 8,
+    "bosses": 8,
+    "weapons": 9,
+    "worldWidth": 4800,
+    "platformsPerStage": 17,
+    "enemiesPerStage": 11,
+    "hazardsPerStage": 4
+  },
+  "publicChromeQA": {
+    "date": "2026-11-12",
+    "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/starbolt/?v=1.0-web.1",
+    "deploymentCommit": "58292425df3670c4d16db83f125f2264488bcf63",
+    "deploymentTree": "2b7e85952f6ecff1f7ea712838596c176ec146d0",
+    "pagesRun": 43159436529,
+    "deploymentStatus": "completed/success verified before QA",
+    "ordinaryFortressesCompleted": 8,
+    "ordinaryBossesDefeated": 8,
+    "endingObserved": true,
+    "injectedGameStateOrSyntheticEvents": false,
+    "usedOnlyEarnedWeapons": true,
+    "checkpointLossAndRetryObserved": true,
+    "clearsAndSoundReloadVerified": true,
+    "realJSONExportCancelAndSameFileRestoreVerified": true,
+    "realTwoTabProtectionVerified": true,
+    "sameTabCatalogReturnVerified": true,
+    "runtimeChangedDuringPublicQA": false,
+    "limits": [
+      "physical mobile/touch",
+      "narrow viewport/orientation",
+      "Safari/Firefox",
+      "audible sound",
+      "real-browser reset execution and storage-corruption/quota tests",
+      "all input combinations; on-screen jump animation not captured"
+    ]
+  }
 }

@@ -1190,6 +1190,7 @@
   "adaptation": "Original offline DOM puzzle and all 115 original images preserved. Browser save, backup, input-lifecycle and navigation additions. No APK wrapper or signing files.",
   "browserValidation": {
     "automatedSuites": 23,
-    "publicChrome": "Partial web.2 test: restored genuine chapter-1 board; diagonal taps followed by outside-board Commit earned 30 points; Enter/Space selection and backtracking then Commit reached 60 points, 16 moves. Normal drag revealed cancellation across board gaps. The web.3 fix and red/green regression preserve interior gaps while cancelling true outside/null/interrupted input. Independent gap review passed 10/10 groups. Actual web.3 public Chrome retest remains pending. No manual chapter clear, real file import/export, two-tab or endless completion is claimed."
+    "publicChrome": "web.3: genuine saved60points/16moves restored; native mouse drag across tile gaps scored90/15; ordinary hint+commit first chapter clear450/3,star1,20coins,next chapter unlock,reload retained. web.4 commit583c22a3e4b79c07daf4e6230ba8a8f62b136f90, Pages43169216593 exact checkout succeeded. Real JSON download, file chooser, restore confirmation cancellation, same-file reselection, accepted restoration and reload retained actual record. Actual mobile/touch, audio listening, full15/endless completion and two-tab acceptance not claimed.",
+    "nativeFileInputRegression": "PASS; independent old-order mutation fails as expected"
   }
 }

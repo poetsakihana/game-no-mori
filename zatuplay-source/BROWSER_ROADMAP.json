@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-12T05:50:52.599Z",
+  "updatedAt": "2026-11-12T06:41:08Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -528,14 +528,14 @@
     {
       "id": "collection-32",
       "name": "StarBolt",
-      "status": "queued",
+      "status": "published",
       "priority": 1132,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/starbolt/?v=1.0-web.1",
+      "browserVersion": "1.0-web.1",
+      "checkedAt": "2026-11-12T06:41:08Z",
+      "lastAttemptAt": "2026-11-12T06:41:08Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-34",
@@ -552,14 +552,14 @@
     {
       "id": "collection-35",
       "name": "FryFriends",
-      "status": "queued",
+      "status": "published",
       "priority": 1135,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/fryfriends/?v=0.3.0-web.4",
+      "browserVersion": "0.3.0-web.4",
+      "checkedAt": "2026-11-12T06:41:08Z",
+      "lastAttemptAt": "2026-11-12T06:41:08Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-36",
@@ -707,58 +707,41 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-12T05:33:32.570Z",
+    "checkedAt": "2026-11-12T06:41:08Z",
+    "checkedAtEvidence": "2026-11-12実公開Chrome QAの記録照合時刻。StarBoltのREADME/original-source.jsonと担当者のFryFriends実QA報告に基づく。",
     "apps": [
       {
-        "id": "collection-29",
-        "checkedAt": "2026-11-12T05:33:32.570Z",
+        "id": "collection-32",
+        "checkedAt": "2026-11-12T06:41:08Z",
         "checks": [
-          "通常UIで150選択を完走し結末45「ふたり分の朝ごはん」・結末帳1/100。全24人物画と3保存枠の復元を確認",
-          "最初/最終返答と結末の再読込、実JSON書出し/取消/同一ファイル反復復元、初期化と直前バックアップ回復",
-          "実2タブで競合通知・メモリ内続行/書出しと先行保存の非上書き、一覧復帰",
-          "公開一覧28/62から同じタブで起動し、結末45「ふたり分の朝ごはん」・1/100を保持。上部リンクから一覧へ復帰。"
-        ],
-        "checkedAtEvidence": "最終実ダウンロード19-final-preserved-backup.jsonのexportedAt"
+          "元APKの全8要塞を保持。公開Chromeの通常操作で全8ボス撃破・エンディング・全9武器切替、再読込8/8保持、実JSON書出し/取消/同一ファイル反復復元、実2タブ保護を確認。道中の途中状態は保存しません。スマホ実機/タッチ/狭幅・Safari/Firefox・音の実聴取は未確認。APKと自動同期しません。"
+        ]
       },
       {
-        "id": "collection-31",
-        "checkedAt": "2026-11-12T05:25:11.696Z",
+        "id": "collection-35",
+        "checkedAt": "2026-11-12T06:41:08Z",
         "checks": [
-          "全10台・4BET・3速度を実操作。78回目にBET5・氷3個の自然当たり149枚、残高1119/当たり1/獲得149を再読込保持",
-          "回転中の再読込で37→38回・665→660枚、再再読込で不変。一度だけの精算と無料補充50→1050枚を確認",
-          "実JSON書出し/取消/同一ファイル反復復元、実ファイル選択取消、初期化/バックアップ回復、実2タブの競合保護、一覧復帰",
-          "公開一覧28/62から同じタブで起動し、残高1119・78回転・当たり1・獲得149・氷3個・BET5・音OFFを保持。上部リンクから一覧へ復帰。"
-        ],
-        "checkedAtEvidence": "実QA returned-catalog-ax.txtの保存時刻（UTC）。QA_REPORT.mdとui-log.jsonに操作結果を記録"
+          "全15話。公開Chromeでドラッグ操作と第1話450点・残3手・星1・20コインのクリア/再読込保持を確認。web.4で実JSON書出し→ファイル選択→復元取消→同一ファイル再選択/復元→保存済み→再読込保持を確認。全15話手動完走・とことんモード実機・スマホ実機・音の実聴取は未確認。APKと自動同期しません。"
+        ]
       }
     ],
     "logicChecks": {
-      "renaiTestGroups": 21,
-      "slottenTestGroups": 18,
-      "slottenPayoutCases": 8640,
-      "sourceDeploymentMirrorMatched": true
+      "starboltTestGroups": 25,
+      "fryfriendsExistingTestGroups": 23,
+      "fryfriendsNativeFileClearRegressionPassed": true,
+      "fryfriendsOldOrderMutationRejected": true
     },
     "limitations": [
-      "恋愛作戦は通常150選択の1周・結末1/100。全100結末の手動到達や特別8%フラグの実プレイ確認ではない",
-      "SlotTenの450ms自動間隔内の停止は操作遅延で次回転へ入り、実確認未完。モデル試験とは区別する。課金/換金/現金取引なし",
-      "スマホ実機/物理タッチ/狭幅、Safari/Firefox、音の実聴取、実容量制限/保存拒否/Web Locks非対応、実active-spin非表示/blurは未確認。異常保存/競合の深い境界はモデル試験",
-      "APKや他端末と自動同期しない。QA後は文書/チェックサムのみ変更しゲーム実装は無変更"
+      "FryFriends第1話通常クリア/ドラッグはweb.3で確認。web.4は同一ファイル復元修正と実復元後の再読込保持を確認。全15話手動完走・とことんモード実機は未確認。",
+      "両作品の実スマホ/物理タッチ/狭幅・Safari/Firefox・音の実聴取は未確認。StarBolt実ブラウザのリセット・保存破損/容量不足は未確認。",
+      "APKや他端末と自動同期しない。"
     ],
-    "testDeploymentCommit": "58292425df3670c4d16db83f125f2264488bcf63",
-    "testPagesRunId": 43159436529,
-    "testPagesConclusion": "success",
-    "postQAManifestSha256": {
-      "renai-sakusen": "4fbc8da85404f48a62bb64229071dbff65942fe31458faa87d435b78943e02ab",
-      "slotten": "0392930580f2e78edfe6f90e61be82bdc5ff71decaf659c344f52ca2ac990145"
-    },
-    "catalogVerificationStatus": "公開一覧28/62・34準備中を実確認。検索から同じタブで起動し、保存保持と一覧復帰を両作品で確認。",
-    "catalogVerifiedAt": "2026-11-12T05:50:52.599Z",
-    "registrationCommit": "c420d42bb6a95a5bb90d6a3a1d3a964f6123481f",
-    "pagesRunId": 43163720925,
-    "pagesCommitEvidence": "同一headのPages成功。build131000602782/deploy131000962279。"
+    "fryfriendsPagesRunId": 43169216593,
+    "fryfriendsPagesCommitEvidence": "担当者がbuild checkout exact 583c22a3e4b79c07daf4e6230ba8a8f62b136f90とPages成功を確認。完全SHAは各作品QA文書を参照。",
+    "catalogVerificationStatus": "ローカル登録候補30/62。カタログのGitHub公開と公開一覧からの往復確認は担当者が別途実施する。"
   },
-  "publishedTargetCount": 20,
-  "remainingTargetCount": 32,
+  "publishedTargetCount": 22,
+  "remainingTargetCount": 30,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
@@ -1227,6 +1210,40 @@
       "registrationCommit": "c420d42bb6a95a5bb90d6a3a1d3a964f6123481f",
       "pagesRunId": 43163720925,
       "pagesCommitEvidence": "同一headのPages成功。build131000602782/deploy131000962279。"
+    },
+    {
+      "checkedAt": "2026-11-12T06:41:08Z",
+      "checkedAtEvidence": "2026-11-12実公開Chrome QAの記録照合時刻。StarBoltのREADME/original-source.jsonと担当者のFryFriends実QA報告に基づく。",
+      "apps": [
+        {
+          "id": "collection-32",
+          "checkedAt": "2026-11-12T06:41:08Z",
+          "checks": [
+            "元APKの全8要塞を保持。公開Chromeの通常操作で全8ボス撃破・エンディング・全9武器切替、再読込8/8保持、実JSON書出し/取消/同一ファイル反復復元、実2タブ保護を確認。道中の途中状態は保存しません。スマホ実機/タッチ/狭幅・Safari/Firefox・音の実聴取は未確認。APKと自動同期しません。"
+          ]
+        },
+        {
+          "id": "collection-35",
+          "checkedAt": "2026-11-12T06:41:08Z",
+          "checks": [
+            "全15話。公開Chromeでドラッグ操作と第1話450点・残3手・星1・20コインのクリア/再読込保持を確認。web.4で実JSON書出し→ファイル選択→復元取消→同一ファイル再選択/復元→保存済み→再読込保持を確認。全15話手動完走・とことんモード実機・スマホ実機・音の実聴取は未確認。APKと自動同期しません。"
+          ]
+        }
+      ],
+      "logicChecks": {
+        "starboltTestGroups": 25,
+        "fryfriendsExistingTestGroups": 23,
+        "fryfriendsNativeFileClearRegressionPassed": true,
+        "fryfriendsOldOrderMutationRejected": true
+      },
+      "limitations": [
+        "FryFriends第1話通常クリア/ドラッグはweb.3で確認。web.4は同一ファイル復元修正と実復元後の再読込保持を確認。全15話手動完走・とことんモード実機は未確認。",
+        "両作品の実スマホ/物理タッチ/狭幅・Safari/Firefox・音の実聴取は未確認。StarBolt実ブラウザのリセット・保存破損/容量不足は未確認。",
+        "APKや他端末と自動同期しない。"
+      ],
+      "fryfriendsPagesRunId": 43169216593,
+      "fryfriendsPagesCommitEvidence": "担当者がbuild checkout exact 583c22a3e4b79c07daf4e6230ba8a8f62b136f90とPages成功を確認。完全SHAは各作品QA文書を参照。",
+      "catalogVerificationStatus": "ローカル登録候補30/62。カタログのGitHub公開と公開一覧からの往復確認は担当者が別途実施する。"
     }
   ]
 }

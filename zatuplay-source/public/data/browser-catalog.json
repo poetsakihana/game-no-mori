@@ -196,7 +196,21 @@
       "version": "1.0-web.1",
       "checkedAt": "2026-11-12T05:25:11.696Z",
       "note": "元APKの10台・4BET・3速度を保持。無料ゲーム内コインのみで課金・換金なし。Chromeで自然当たり149枚と残高1,119の再読込、回転途中の一度だけの精算、補充、実JSON復元、実2タブ保護を確認。450ms自動間隔内の停止・スマホ実機/タッチ/狭幅・Safari/Firefox・音の実聴取は未確認。APKと自動同期しません。"
+    },
+    {
+      "id": "collection-32",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/starbolt/?v=1.0-web.1",
+      "version": "1.0-web.1",
+      "checkedAt": "2026-11-12T06:41:08Z",
+      "note": "元APKの全8要塞を保持。公開Chromeの通常操作で全8ボス撃破・エンディング・全9武器切替、再読込8/8保持、実JSON書出し/取消/同一ファイル反復復元、実2タブ保護を確認。道中の途中状態は保存しません。スマホ実機/タッチ/狭幅・Safari/Firefox・音の実聴取は未確認。APKと自動同期しません。"
+    },
+    {
+      "id": "collection-35",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/fryfriends/?v=0.3.0-web.4",
+      "version": "0.3.0-web.4",
+      "checkedAt": "2026-11-12T06:41:08Z",
+      "note": "全15話。公開Chromeでドラッグ操作と第1話450点・残3手・星1・20コインのクリア/再読込保持を確認。web.4で実JSON書出し→ファイル選択→復元取消→同一ファイル再選択/復元→保存済み→再読込保持を確認。全15話手動完走・とことんモード実機・スマホ実機・音の実聴取は未確認。APKと自動同期しません。"
     }
   ],
-  "updatedAt": "2026-11-12T05:33:32.570Z"
+  "updatedAt": "2026-11-12T06:41:08Z"
 }
