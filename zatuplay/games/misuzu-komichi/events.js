@@ -1,6 +1,6 @@
 // Original game characters and dialogue. These are not quotations or author commentary.
 const CAST={traveler:{name:'旅人',role:'ことばを集める主人公',desc:'麦わら帽子に緑のケープ。小さな手帳に、自分だけの発見を書き留める。'},shiori:{name:'しおり',role:'小径の案内人',desc:'白い花の髪飾りと赤土色のスカート。本を抱えて、旅の入り口で待っている。'},suzu:{name:'すず',role:'鈴をつけた小鳥',desc:'生成り色の頬、緑のスカーフと金色の鈴。地面に近い、小さな発見が得意。'},akari:{name:'あかり',role:'灯りの配達人',desc:'藍色の髪と星を縫った外套。琥珀色のランタンで、帰り道をそっと照らす。'}};
-const portraits={};Object.keys(CAST).forEach(k=>{portraits[k]=new Image();portraits[k].src='assets/'+k+'.svg?v=0.2-web.1'});
+const portraits={};Object.keys(CAST).forEach(k=>{portraits[k]=new Image();portraits[k].src='assets/'+k+'.svg?v=0.2-web.2'});
 state.events=Array.isArray(state.events)?state.events.filter(i=>Number.isInteger(i)&&i>=0&&i<36):[];
 state.eventChoices=state.eventChoices&&typeof state.eventChoices==='object'?state.eventChoices:{};
 let activeEvent=null,eventPage=0,eventChoice=0,autoCooldown=0;
@@ -19,7 +19,7 @@ const SCENES=[
  ['長い旅の先で、案内人がいつものようにほほえんだ。','小鳥が、旅のはじまりと同じ音で鈴を鳴らす。','帰り道の灯りを持って、配達人が立っていた。']
 ];
 function eventDef(id){const ch=Math.floor(id/3),slot=id%3,k=['shiori','suzu','akari'][slot],p=POEMS[ch*43+[0,21,42][slot]];return {id,ch,slot,k,p,title:[`「${chapters[ch][0]}」の入り口`,`すずが見つけた小さな道`,`あかりの帰り便り`][slot],scene:SCENES[ch][slot],x:[735,460,700][slot],y:[200,910,1780][slot]}}
-function eventPortrait(k,extra=''){return `<img class="character-art ${extra}" src="assets/${k}.svg?v=0.2-web.1" alt="${CAST[k].name}の全身立ち絵">`}
+function eventPortrait(k,extra=''){return `<img class="character-art ${extra}" src="assets/${k}.svg?v=0.2-web.2" alt="${CAST[k].name}の全身立ち絵">`}
 function showEvent(id){if(busy||paused)return;activeEvent=id;eventPage=0;eventChoice=0;renderEvent()}
 function renderEvent(){const e=eventDef(activeEvent),c=CAST[e.k];const dialogue=e.slot===0?['ようこそ。私はしおり。この小径では、急がなくても大丈夫。気になった灯りに、あなたの速さで近づいてね。',`この章には43の灯りがあるの。たとえば「${e.p.title}」。まずは景色を眺める？　それとも、題名から会いに行ってみる？`]:e.slot===1?['こんにちは！　ぼくはすず。上から見るのと、草のそばから見るのとで、道はずいぶん違って見えるんだ。',`この近くに「${e.p.title}」の灯りがあるよ。ぼくと一緒に、いつもと違う高さで景色を眺めてみない？`]:['私はあかり。灯りの配達をしているんだ。見つけたことばを持って帰る人の、足元を照らすのが仕事だよ。',`この小径の最後の灯りは「${e.p.title}」。読み終えたあと、何を手帳に残したい？　答えはひとつじゃなくていい。`];
 const choices=[['景色をゆっくり眺める','題名の灯りを探す'],['小鳥の目線になってみる','風の音に耳をすます'],['出会った景色を思い出す','気になる詩をもう一度読む']][e.slot];

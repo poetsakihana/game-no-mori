@@ -1,7 +1,7 @@
 {
   "title": "みすゞことばの小道 / ことばの小径",
   "catalogId": "collection-41",
-  "browserVersion": "0.2-web.1",
+  "browserVersion": "0.2-web.2",
   "source": {
     "filename": "41.みすゞことばの小道-v0.2.apk",
     "versionName": "0.2",
@@ -99,5 +99,11 @@
       "Audio listening and offline relaunch unverified",
       "Catalog registration/launch belongs to release coordinator"
     ]
+  },
+  "browserIntegrationRevision": {
+    "version": "0.2-web.2",
+    "previousVersion": "0.2-web.1",
+    "change": "Return link now targets ../../browser/ rather than ../../index.html, in the same browsing context. Display/asset cache versions updated. Gameplay, content, persistence implementation and save namespace unchanged.",
+    "actualReturnLinkRetest": "Pending deployment and public Chrome retest. publicBrowserQA above remains historical evidence for 0.2-web.1."
   }
 }
