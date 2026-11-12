@@ -1,0 +1,1098 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "collection-34",
+  "version": "0.1.0-web.1",
+  "baseCommit": "2b06a759c584ddcdccafa7464bc89152906d6a5d",
+  "sourceDirectory": "zatuplay-source/public/games/picross-mv",
+  "deliveryDirectory": "zatuplay/games/picross-mv",
+  "apk": {
+    "filename": "34.PicrossMV-v0.1.0.apk",
+    "size": 793654,
+    "sha256": "87aa87bd90ea12d6b27bbc11792d6bc9abec8d569c75db25c95339fbac4224e1"
+  },
+  "sourceAssetCount": 97,
+  "browserAdaptationCount": 6,
+  "gameFileCount": 103,
+  "gameTotalBytes": 13121126,
+  "allChanges": [
+    "zatuplay-source/public/games/picross-mv/Game.rpgproject",
+    "zatuplay-source/public/games/picross-mv/LICENSE",
+    "zatuplay-source/public/games/picross-mv/MV_CORE_LICENSE.txt",
+    "zatuplay-source/public/games/picross-mv/README.md",
+    "zatuplay-source/public/games/picross-mv/README.txt",
+    "zatuplay-source/public/games/picross-mv/SOURCE_ASSETS.json",
+    "zatuplay-source/public/games/picross-mv/browser-storage.js",
+    "zatuplay-source/public/games/picross-mv/browser.css",
+    "zatuplay-source/public/games/picross-mv/data/Actors.json",
+    "zatuplay-source/public/games/picross-mv/data/Animations.json",
+    "zatuplay-source/public/games/picross-mv/data/Armors.json",
+    "zatuplay-source/public/games/picross-mv/data/Classes.json",
+    "zatuplay-source/public/games/picross-mv/data/CommonEvents.json",
+    "zatuplay-source/public/games/picross-mv/data/Enemies.json",
+    "zatuplay-source/public/games/picross-mv/data/Items.json",
+    "zatuplay-source/public/games/picross-mv/data/Map001.json",
+    "zatuplay-source/public/games/picross-mv/data/Map002.json",
+    "zatuplay-source/public/games/picross-mv/data/Map003.json",
+    "zatuplay-source/public/games/picross-mv/data/Map004.json",
+    "zatuplay-source/public/games/picross-mv/data/Map005.json",
+    "zatuplay-source/public/games/picross-mv/data/Map006.json",
+    "zatuplay-source/public/games/picross-mv/data/Map007.json",
+    "zatuplay-source/public/games/picross-mv/data/Map008.json",
+    "zatuplay-source/public/games/picross-mv/data/Map009.json",
+    "zatuplay-source/public/games/picross-mv/data/Map010.json",
+    "zatuplay-source/public/games/picross-mv/data/Map011.json",
+    "zatuplay-source/public/games/picross-mv/data/Map012.json",
+    "zatuplay-source/public/games/picross-mv/data/Map013.json",
+    "zatuplay-source/public/games/picross-mv/data/Map014.json",
+    "zatuplay-source/public/games/picross-mv/data/Map015.json",
+    "zatuplay-source/public/games/picross-mv/data/Map016.json",
+    "zatuplay-source/public/games/picross-mv/data/Map017.json",
+    "zatuplay-source/public/games/picross-mv/data/Map018.json",
+    "zatuplay-source/public/games/picross-mv/data/Map019.json",
+    "zatuplay-source/public/games/picross-mv/data/Map020.json",
+    "zatuplay-source/public/games/picross-mv/data/Map021.json",
+    "zatuplay-source/public/games/picross-mv/data/Map022.json",
+    "zatuplay-source/public/games/picross-mv/data/Map023.json",
+    "zatuplay-source/public/games/picross-mv/data/Map024.json",
+    "zatuplay-source/public/games/picross-mv/data/Map025.json",
+    "zatuplay-source/public/games/picross-mv/data/Map026.json",
+    "zatuplay-source/public/games/picross-mv/data/Map027.json",
+    "zatuplay-source/public/games/picross-mv/data/Map028.json",
+    "zatuplay-source/public/games/picross-mv/data/Map029.json",
+    "zatuplay-source/public/games/picross-mv/data/Map030.json",
+    "zatuplay-source/public/games/picross-mv/data/Map031.json",
+    "zatuplay-source/public/games/picross-mv/data/Map032.json",
+    "zatuplay-source/public/games/picross-mv/data/Map033.json",
+    "zatuplay-source/public/games/picross-mv/data/Map034.json",
+    "zatuplay-source/public/games/picross-mv/data/Map035.json",
+    "zatuplay-source/public/games/picross-mv/data/Map036.json",
+    "zatuplay-source/public/games/picross-mv/data/Map037.json",
+    "zatuplay-source/public/games/picross-mv/data/Map038.json",
+    "zatuplay-source/public/games/picross-mv/data/Map039.json",
+    "zatuplay-source/public/games/picross-mv/data/Map040.json",
+    "zatuplay-source/public/games/picross-mv/data/Map041.json",
+    "zatuplay-source/public/games/picross-mv/data/Map042.json",
+    "zatuplay-source/public/games/picross-mv/data/Map043.json",
+    "zatuplay-source/public/games/picross-mv/data/Map044.json",
+    "zatuplay-source/public/games/picross-mv/data/Map045.json",
+    "zatuplay-source/public/games/picross-mv/data/Map046.json",
+    "zatuplay-source/public/games/picross-mv/data/Map047.json",
+    "zatuplay-source/public/games/picross-mv/data/Map048.json",
+    "zatuplay-source/public/games/picross-mv/data/Map049.json",
+    "zatuplay-source/public/games/picross-mv/data/Map050.json",
+    "zatuplay-source/public/games/picross-mv/data/Map051.json",
+    "zatuplay-source/public/games/picross-mv/data/Map052.json",
+    "zatuplay-source/public/games/picross-mv/data/Map053.json",
+    "zatuplay-source/public/games/picross-mv/data/Map054.json",
+    "zatuplay-source/public/games/picross-mv/data/Map055.json",
+    "zatuplay-source/public/games/picross-mv/data/MapInfos.json",
+    "zatuplay-source/public/games/picross-mv/data/Skills.json",
+    "zatuplay-source/public/games/picross-mv/data/States.json",
+    "zatuplay-source/public/games/picross-mv/data/System.json",
+    "zatuplay-source/public/games/picross-mv/data/Tilesets.json",
+    "zatuplay-source/public/games/picross-mv/data/Troops.json",
+    "zatuplay-source/public/games/picross-mv/data/Weapons.json",
+    "zatuplay-source/public/games/picross-mv/img/system/Loading.png",
+    "zatuplay-source/public/games/picross-mv/index.html",
+    "zatuplay-source/public/games/picross-mv/js/libs/fpsmeter.js",
+    "zatuplay-source/public/games/picross-mv/js/libs/iphone-inline-video.browser.js",
+    "zatuplay-source/public/games/picross-mv/js/libs/lz-string.js",
+    "zatuplay-source/public/games/picross-mv/js/libs/pixi-picture.js",
+    "zatuplay-source/public/games/picross-mv/js/libs/pixi-tilemap.js",
+    "zatuplay-source/public/games/picross-mv/js/libs/pixi.js",
+    "zatuplay-source/public/games/picross-mv/js/main.js",
+    "zatuplay-source/public/games/picross-mv/js/plugins/PicrossPort.js",
+    "zatuplay-source/public/games/picross-mv/js/plugins.js",
+    "zatuplay-source/public/games/picross-mv/js/puzzles.js",
+    "zatuplay-source/public/games/picross-mv/js/rpg_core.js",
+    "zatuplay-source/public/games/picross-mv/js/rpg_managers.js",
+    "zatuplay-source/public/games/picross-mv/js/rpg_objects.js",
+    "zatuplay-source/public/games/picross-mv/js/rpg_scenes.js",
+    "zatuplay-source/public/games/picross-mv/js/rpg_sprites.js",
+    "zatuplay-source/public/games/picross-mv/js/rpg_windows.js",
+    "zatuplay-source/public/games/picross-mv/migration/original-events.json",
+    "zatuplay-source/public/games/picross-mv/migration/report.json",
+    "zatuplay-source/public/games/picross-mv/original/PicrossPort.js",
+    "zatuplay-source/public/games/picross-mv/original/index.html",
+    "zatuplay-source/public/games/picross-mv/port.css",
+    "zatuplay-source/public/games/picross-mv/tools/convert.py",
+    "zatuplay-source/public/games/picross-mv/tools/event_commands.py",
+    "zatuplay-source/public/games/picross-mv/tools/parse.py",
+    "zatuplay/games/picross-mv/Game.rpgproject",
+    "zatuplay/games/picross-mv/LICENSE",
+    "zatuplay/games/picross-mv/MV_CORE_LICENSE.txt",
+    "zatuplay/games/picross-mv/README.md",
+    "zatuplay/games/picross-mv/README.txt",
+    "zatuplay/games/picross-mv/SOURCE_ASSETS.json",
+    "zatuplay/games/picross-mv/browser-storage.js",
+    "zatuplay/games/picross-mv/browser.css",
+    "zatuplay/games/picross-mv/data/Actors.json",
+    "zatuplay/games/picross-mv/data/Animations.json",
+    "zatuplay/games/picross-mv/data/Armors.json",
+    "zatuplay/games/picross-mv/data/Classes.json",
+    "zatuplay/games/picross-mv/data/CommonEvents.json",
+    "zatuplay/games/picross-mv/data/Enemies.json",
+    "zatuplay/games/picross-mv/data/Items.json",
+    "zatuplay/games/picross-mv/data/Map001.json",
+    "zatuplay/games/picross-mv/data/Map002.json",
+    "zatuplay/games/picross-mv/data/Map003.json",
+    "zatuplay/games/picross-mv/data/Map004.json",
+    "zatuplay/games/picross-mv/data/Map005.json",
+    "zatuplay/games/picross-mv/data/Map006.json",
+    "zatuplay/games/picross-mv/data/Map007.json",
+    "zatuplay/games/picross-mv/data/Map008.json",
+    "zatuplay/games/picross-mv/data/Map009.json",
+    "zatuplay/games/picross-mv/data/Map010.json",
+    "zatuplay/games/picross-mv/data/Map011.json",
+    "zatuplay/games/picross-mv/data/Map012.json",
+    "zatuplay/games/picross-mv/data/Map013.json",
+    "zatuplay/games/picross-mv/data/Map014.json",
+    "zatuplay/games/picross-mv/data/Map015.json",
+    "zatuplay/games/picross-mv/data/Map016.json",
+    "zatuplay/games/picross-mv/data/Map017.json",
+    "zatuplay/games/picross-mv/data/Map018.json",
+    "zatuplay/games/picross-mv/data/Map019.json",
+    "zatuplay/games/picross-mv/data/Map020.json",
+    "zatuplay/games/picross-mv/data/Map021.json",
+    "zatuplay/games/picross-mv/data/Map022.json",
+    "zatuplay/games/picross-mv/data/Map023.json",
+    "zatuplay/games/picross-mv/data/Map024.json",
+    "zatuplay/games/picross-mv/data/Map025.json",
+    "zatuplay/games/picross-mv/data/Map026.json",
+    "zatuplay/games/picross-mv/data/Map027.json",
+    "zatuplay/games/picross-mv/data/Map028.json",
+    "zatuplay/games/picross-mv/data/Map029.json",
+    "zatuplay/games/picross-mv/data/Map030.json",
+    "zatuplay/games/picross-mv/data/Map031.json",
+    "zatuplay/games/picross-mv/data/Map032.json",
+    "zatuplay/games/picross-mv/data/Map033.json",
+    "zatuplay/games/picross-mv/data/Map034.json",
+    "zatuplay/games/picross-mv/data/Map035.json",
+    "zatuplay/games/picross-mv/data/Map036.json",
+    "zatuplay/games/picross-mv/data/Map037.json",
+    "zatuplay/games/picross-mv/data/Map038.json",
+    "zatuplay/games/picross-mv/data/Map039.json",
+    "zatuplay/games/picross-mv/data/Map040.json",
+    "zatuplay/games/picross-mv/data/Map041.json",
+    "zatuplay/games/picross-mv/data/Map042.json",
+    "zatuplay/games/picross-mv/data/Map043.json",
+    "zatuplay/games/picross-mv/data/Map044.json",
+    "zatuplay/games/picross-mv/data/Map045.json",
+    "zatuplay/games/picross-mv/data/Map046.json",
+    "zatuplay/games/picross-mv/data/Map047.json",
+    "zatuplay/games/picross-mv/data/Map048.json",
+    "zatuplay/games/picross-mv/data/Map049.json",
+    "zatuplay/games/picross-mv/data/Map050.json",
+    "zatuplay/games/picross-mv/data/Map051.json",
+    "zatuplay/games/picross-mv/data/Map052.json",
+    "zatuplay/games/picross-mv/data/Map053.json",
+    "zatuplay/games/picross-mv/data/Map054.json",
+    "zatuplay/games/picross-mv/data/Map055.json",
+    "zatuplay/games/picross-mv/data/MapInfos.json",
+    "zatuplay/games/picross-mv/data/Skills.json",
+    "zatuplay/games/picross-mv/data/States.json",
+    "zatuplay/games/picross-mv/data/System.json",
+    "zatuplay/games/picross-mv/data/Tilesets.json",
+    "zatuplay/games/picross-mv/data/Troops.json",
+    "zatuplay/games/picross-mv/data/Weapons.json",
+    "zatuplay/games/picross-mv/img/system/Loading.png",
+    "zatuplay/games/picross-mv/index.html",
+    "zatuplay/games/picross-mv/js/libs/fpsmeter.js",
+    "zatuplay/games/picross-mv/js/libs/iphone-inline-video.browser.js",
+    "zatuplay/games/picross-mv/js/libs/lz-string.js",
+    "zatuplay/games/picross-mv/js/libs/pixi-picture.js",
+    "zatuplay/games/picross-mv/js/libs/pixi-tilemap.js",
+    "zatuplay/games/picross-mv/js/libs/pixi.js",
+    "zatuplay/games/picross-mv/js/main.js",
+    "zatuplay/games/picross-mv/js/plugins/PicrossPort.js",
+    "zatuplay/games/picross-mv/js/plugins.js",
+    "zatuplay/games/picross-mv/js/puzzles.js",
+    "zatuplay/games/picross-mv/js/rpg_core.js",
+    "zatuplay/games/picross-mv/js/rpg_managers.js",
+    "zatuplay/games/picross-mv/js/rpg_objects.js",
+    "zatuplay/games/picross-mv/js/rpg_scenes.js",
+    "zatuplay/games/picross-mv/js/rpg_sprites.js",
+    "zatuplay/games/picross-mv/js/rpg_windows.js",
+    "zatuplay/games/picross-mv/migration/original-events.json",
+    "zatuplay/games/picross-mv/migration/report.json",
+    "zatuplay/games/picross-mv/original/PicrossPort.js",
+    "zatuplay/games/picross-mv/original/index.html",
+    "zatuplay/games/picross-mv/port.css",
+    "zatuplay/games/picross-mv/tools/convert.py",
+    "zatuplay/games/picross-mv/tools/event_commands.py",
+    "zatuplay/games/picross-mv/tools/parse.py",
+    "zatuplay-source/scripts/picross-harness.cjs",
+    "zatuplay-source/scripts/test-picross-mv.cjs",
+    "zatuplay-source/scripts/picross-files.sha256",
+    "zatuplay-source/scripts/picross-manifest.json"
+  ],
+  "gameFiles": [
+    {
+      "path": "Game.rpgproject",
+      "bytes": 11,
+      "sha256": "ab778d66aa589838d6954dce19ea3338b6f4338be68d69dd3952ff233524a732",
+      "gitBlobSha1": "e2ed5ce46ac34417838cb6d48d72638ec5ce354f",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/Game.rpgproject"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1089,
+      "sha256": "e3563d4b3ff63e95a154f75d207444d71c108dc1bb64f0bb8230c5ee65a13922",
+      "gitBlobSha1": "8365e056d2a2b297e7c6b95abbac671d0a860609",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/LICENSE"
+    },
+    {
+      "path": "MV_CORE_LICENSE.txt",
+      "bytes": 1089,
+      "sha256": "e3563d4b3ff63e95a154f75d207444d71c108dc1bb64f0bb8230c5ee65a13922",
+      "gitBlobSha1": "8365e056d2a2b297e7c6b95abbac671d0a860609",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/MV_CORE_LICENSE.txt"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11701,
+      "sha256": "9d74642f60308e4c92e9063551b3fad414f1078ddf015948cbce54ddf8d4d7b4",
+      "gitBlobSha1": "91e12616edb1a79a6e57c435f7aa00c47e2e6cbc",
+      "kind": "browser-adaptation"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 3266,
+      "sha256": "230cb4458ecc7794df215d57d4cac29ab3d95dec9db0a7e0396efffb9c137aa5",
+      "gitBlobSha1": "d2186d48b36226c95f6120a8fa21eb4d863af6d6",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/README.txt"
+    },
+    {
+      "path": "SOURCE_ASSETS.json",
+      "bytes": 15223,
+      "sha256": "27c2b727a95a8f8c59fbb0896b9fe4dcf3b3c097e72b7b94c9285078f62a2cf3",
+      "gitBlobSha1": "ad295347431848d88ebcf3b6ee5e288105414872",
+      "kind": "browser-adaptation"
+    },
+    {
+      "path": "browser-storage.js",
+      "bytes": 5330,
+      "sha256": "720cb8d72516e2ea262789830e0d730853020e124f6fea912080f2c54d2d8826",
+      "gitBlobSha1": "26becf106fb7c50d35b8b9d2442ed1aa9639eea9",
+      "kind": "browser-adaptation"
+    },
+    {
+      "path": "browser.css",
+      "bytes": 2187,
+      "sha256": "706392c438c9b74efacba2177e70df9550d90444f7b4fafaf8598c064e10a30c",
+      "gitBlobSha1": "178a1a61d567b3bc92f826df7497e7b4df5229c0",
+      "kind": "browser-adaptation"
+    },
+    {
+      "path": "data/Actors.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "gitBlobSha1": "500db4a86aa30072b5b264d7757986e759205514",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Actors.json"
+    },
+    {
+      "path": "data/Animations.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "gitBlobSha1": "500db4a86aa30072b5b264d7757986e759205514",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Animations.json"
+    },
+    {
+      "path": "data/Armors.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "gitBlobSha1": "500db4a86aa30072b5b264d7757986e759205514",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Armors.json"
+    },
+    {
+      "path": "data/Classes.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "gitBlobSha1": "500db4a86aa30072b5b264d7757986e759205514",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Classes.json"
+    },
+    {
+      "path": "data/CommonEvents.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "gitBlobSha1": "500db4a86aa30072b5b264d7757986e759205514",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/CommonEvents.json"
+    },
+    {
+      "path": "data/Enemies.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "gitBlobSha1": "500db4a86aa30072b5b264d7757986e759205514",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Enemies.json"
+    },
+    {
+      "path": "data/Items.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "gitBlobSha1": "500db4a86aa30072b5b264d7757986e759205514",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Items.json"
+    },
+    {
+      "path": "data/Map001.json",
+      "bytes": 26515,
+      "sha256": "9f71d373842cae846a92a768d6934378d43036708d0ff42b01489546834b9ad7",
+      "gitBlobSha1": "9eca8d56820431235d7141528a428c268dcf3cae",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map001.json"
+    },
+    {
+      "path": "data/Map002.json",
+      "bytes": 26515,
+      "sha256": "3f601d862838b9b965cd371628c4a5f427be1969c6bb16dcbacd940d26443b6a",
+      "gitBlobSha1": "475b6cf7c548a02f7e33f26a56b949740254f1e7",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map002.json"
+    },
+    {
+      "path": "data/Map003.json",
+      "bytes": 26515,
+      "sha256": "73f1623f5b1ad77e7aedc30755544791ed87675e36b3558055b159a0644aee3a",
+      "gitBlobSha1": "7f710a7869e607b678732e57cd72f8ac40396490",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map003.json"
+    },
+    {
+      "path": "data/Map004.json",
+      "bytes": 26515,
+      "sha256": "6887a15aa6e82ef78ed0ebb55445a254d77af505a9e8f28d2ff2f1772d94a198",
+      "gitBlobSha1": "acd4a28315b8f788bdfc97eaee28ce2da310eeed",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map004.json"
+    },
+    {
+      "path": "data/Map005.json",
+      "bytes": 26515,
+      "sha256": "e47ecb35128cc069f1a06d1e6199a39e7a6444871c25d12ba3abc1eba9c54243",
+      "gitBlobSha1": "2c0b5e92d97b918ba25b96c9dfed5a7145152268",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map005.json"
+    },
+    {
+      "path": "data/Map006.json",
+      "bytes": 92497,
+      "sha256": "532565aa19e96ded1eef2ff9a9c923c0af409bc95821c798622e8dbf9120b041",
+      "gitBlobSha1": "111d66ff9ca7179c26848909220bd714663ca54d",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map006.json"
+    },
+    {
+      "path": "data/Map007.json",
+      "bytes": 92497,
+      "sha256": "aaf333c6514f1d1fe0e417679dc11c88e5f08da2035c65a6d64e105c311e316e",
+      "gitBlobSha1": "911fbb68c026ba71fd50bd2be83006df5c471888",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map007.json"
+    },
+    {
+      "path": "data/Map008.json",
+      "bytes": 92497,
+      "sha256": "bb7079568356f07df97089cfb73c05481a239b3b2068c4cb7ef5b5aab5931f25",
+      "gitBlobSha1": "f0712a3f34dfe6d9adcfc0087a720c9e0f45a836",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map008.json"
+    },
+    {
+      "path": "data/Map009.json",
+      "bytes": 92497,
+      "sha256": "aa194ef90b9e7000f1b0e1d2ce4a51c9e2568172973ece5325793f8f40d3703d",
+      "gitBlobSha1": "e6dcde87202cfeac12bfde38d9cbd398844700e8",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map009.json"
+    },
+    {
+      "path": "data/Map010.json",
+      "bytes": 92497,
+      "sha256": "54800aeccbe46b896cf0d7bd5c883c7c67dd8ffebbbdf1ce11a83963ae889225",
+      "gitBlobSha1": "661d56ff6bc85d9d612678909c2486d78a5bd26c",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map010.json"
+    },
+    {
+      "path": "data/Map011.json",
+      "bytes": 92497,
+      "sha256": "e8f463fea12d5fc656d71958f3704db6f52e6affe622c934cf0ee911e29396fd",
+      "gitBlobSha1": "17d74dbca7ea1d08608233d972185dc61abc5523",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map011.json"
+    },
+    {
+      "path": "data/Map012.json",
+      "bytes": 92497,
+      "sha256": "2380ebfef334c91168826243328b0d58b6292eefcb6d9af29decd4738d9a54f9",
+      "gitBlobSha1": "f7a3cc365e7f5cc0df97c2a55cf4c33e8ea0c533",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map012.json"
+    },
+    {
+      "path": "data/Map013.json",
+      "bytes": 92497,
+      "sha256": "8f9eb2a0e1f27b1ec23b3324ddef8c2a2f9e5a608989e160e482f6ee94c40a79",
+      "gitBlobSha1": "a5ca3893d2e3fe9f9ef8697ddb074dd81a0d492d",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map013.json"
+    },
+    {
+      "path": "data/Map014.json",
+      "bytes": 92497,
+      "sha256": "3f28e9f493affc5450f02283643eb281d181fcceba885e4ffdb384a7fa5c56a1",
+      "gitBlobSha1": "a5bd9bb6390174917f51e6a7206112449dd5d150",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map014.json"
+    },
+    {
+      "path": "data/Map015.json",
+      "bytes": 92497,
+      "sha256": "7ac692354414f716a6cbc3bed188fd4eb4a8e2783b4efd258b44a82858ed6511",
+      "gitBlobSha1": "5eb0ffeabe8c14aef90093c2acd8081564436b06",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map015.json"
+    },
+    {
+      "path": "data/Map016.json",
+      "bytes": 92497,
+      "sha256": "3c257de030e4c819f1f91c2868ae885004f7b699f533b8d2a65ad7d6fcf38c61",
+      "gitBlobSha1": "40c31709687c8f44f1df77efa7f802029fa42e53",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map016.json"
+    },
+    {
+      "path": "data/Map017.json",
+      "bytes": 92497,
+      "sha256": "c46e5711bc3cc94dfdb2caa4774918af60d3296137976c1a9a9d63dfe8cea38b",
+      "gitBlobSha1": "ef3ec112df3437776023e48f693dfda62474961c",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map017.json"
+    },
+    {
+      "path": "data/Map018.json",
+      "bytes": 92497,
+      "sha256": "0b2ee73a2e1d6b679c6359b4adabfbb24d04e0096d860b0a92f84db9231e15f0",
+      "gitBlobSha1": "129f593702c97254b8700cc7ae0c2145206388ee",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map018.json"
+    },
+    {
+      "path": "data/Map019.json",
+      "bytes": 92497,
+      "sha256": "2e16922ad33cd3115a1e86592b56f61b3fd56e4e1c6f2e503f3d32156fa11247",
+      "gitBlobSha1": "3642b5869e62946958356095c6743c23a322bc47",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map019.json"
+    },
+    {
+      "path": "data/Map020.json",
+      "bytes": 92497,
+      "sha256": "faf0e0fb553f6bef1cee4a44762fecedf9e6db64ed3301a919c0fc85599b5c23",
+      "gitBlobSha1": "65e79e4bd801ab81c8bd115b55c1238256e3411a",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map020.json"
+    },
+    {
+      "path": "data/Map021.json",
+      "bytes": 26516,
+      "sha256": "522d0f2bd6c7f7496d3b2f287c518b7d14d03c951cc78dcf0cd528efae2e89b2",
+      "gitBlobSha1": "1f637c91c77cf21bd7377def01a31604cb10038d",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map021.json"
+    },
+    {
+      "path": "data/Map022.json",
+      "bytes": 26516,
+      "sha256": "6318e7214eef32e5a155113d7b52f43650d8e5622e9c4a5cea2a78ec3fb0ba08",
+      "gitBlobSha1": "8c66288b9b3f4fac0c89214840c97ebb43427dd6",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map022.json"
+    },
+    {
+      "path": "data/Map023.json",
+      "bytes": 26516,
+      "sha256": "f6072303d10c92cb9a79c8ac860616c18f858436d4d7639f7bc278ad811b4e4a",
+      "gitBlobSha1": "0f88c76342b4c1b3811e18b8a6900802003334bb",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map023.json"
+    },
+    {
+      "path": "data/Map024.json",
+      "bytes": 60812,
+      "sha256": "52f5e61e4dcb7165cc88a6ab0f99b9317616fc8296b5a1d6a5e15e34078ee148",
+      "gitBlobSha1": "a097f869097da69ffe6e7e3af2693983bd8131b1",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map024.json"
+    },
+    {
+      "path": "data/Map025.json",
+      "bytes": 60812,
+      "sha256": "89bf68c40201b0ee9024b0efa1863eebcfc7a9ff48cf73462433e7fce42b9168",
+      "gitBlobSha1": "ec4b2190935d6645fa8d87218728cbba30f03d3c",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map025.json"
+    },
+    {
+      "path": "data/Map026.json",
+      "bytes": 60812,
+      "sha256": "e2da52b61d0a9eb19b49cbdbe5d850f2004487a3527acf7cd4bb168d2b46c949",
+      "gitBlobSha1": "48dd0a4317ddc4ae92fdfa47bc8f85336b403031",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map026.json"
+    },
+    {
+      "path": "data/Map027.json",
+      "bytes": 131651,
+      "sha256": "f985cbafababb2e299a4d9e02ea30e3b067393419271d4ed4dd14113bc25c067",
+      "gitBlobSha1": "cca413fc77d6d1eebfcb7b73dab435176572c898",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map027.json"
+    },
+    {
+      "path": "data/Map028.json",
+      "bytes": 131651,
+      "sha256": "9a183b92c3f073375f5d6876e6aaf23def7ddd7a7a977faecc6eca86ba5e1bb5",
+      "gitBlobSha1": "9deb21e677ac88ca8e4eeeaac082ec22a063af7b",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map028.json"
+    },
+    {
+      "path": "data/Map029.json",
+      "bytes": 204131,
+      "sha256": "a87c4ee586e4ad212517c8c9b0b48f11f3856d00d462f89adffea4d609f31aa2",
+      "gitBlobSha1": "29c9c47cae5551c905cdfb478d34bdf605edacc5",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map029.json"
+    },
+    {
+      "path": "data/Map030.json",
+      "bytes": 204116,
+      "sha256": "45d8830df4ace15600b7112787ad4ed8e8ea0b9cd5ff8a83da7882fbaad4e7a4",
+      "gitBlobSha1": "de77b331bc4ae5b0c11a7de8e2991c070ae690c1",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map030.json"
+    },
+    {
+      "path": "data/Map031.json",
+      "bytes": 362331,
+      "sha256": "6dd9ea178118103260c0dcb82cc4bc3c222a76e50f47b439c321785f796d50f7",
+      "gitBlobSha1": "ae943ef8c841527f2d104d8e9c7626a12d039212",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map031.json"
+    },
+    {
+      "path": "data/Map032.json",
+      "bytes": 1108002,
+      "sha256": "dce1db4a4f20cbede7d323fb08fd26490dc8fdf9016f71b048f8812f6db22dad",
+      "gitBlobSha1": "66c70efc81859065a1e7dc6e1da8de06a5b43066",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map032.json"
+    },
+    {
+      "path": "data/Map033.json",
+      "bytes": 565676,
+      "sha256": "322ed3c1199ba3bffc80d3b4eadfaaac0c4d0c68c3c5c4abaf9e979b67325a78",
+      "gitBlobSha1": "52c46fa6b98e424c0a43cc386d5447e485c33cc5",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map033.json"
+    },
+    {
+      "path": "data/Map034.json",
+      "bytes": 814151,
+      "sha256": "008d79662dd30678f477b845515497fa6cab4541012d8d5062ff6f715b8519f9",
+      "gitBlobSha1": "b81a9de0bb76f5c27369c47e052414c094522a9d",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map034.json"
+    },
+    {
+      "path": "data/Map035.json",
+      "bytes": 362291,
+      "sha256": "03836b316703ca0e387fc281920ca8aaa6d26731b56ac4ed23ead667baf59cf3",
+      "gitBlobSha1": "c1a50a70672e1bbb7dcfdb0eaf2c5c0ae7b3445d",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map035.json"
+    },
+    {
+      "path": "data/Map036.json",
+      "bytes": 26516,
+      "sha256": "570a093fa1b78dafa2790cb8ac9aa50b1c229b1e61a0502517ce54e36cc71218",
+      "gitBlobSha1": "ec71a0f994af9bb406861b4102bc279711ea266b",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map036.json"
+    },
+    {
+      "path": "data/Map037.json",
+      "bytes": 26516,
+      "sha256": "bdb6568d30d3bc438862c8d7b6f9e5199bdd422ec573bc480826027f391c387d",
+      "gitBlobSha1": "e2cdf3c19925e8c3d140847b8c1c5a3a0e4a17bf",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map037.json"
+    },
+    {
+      "path": "data/Map038.json",
+      "bytes": 26516,
+      "sha256": "a8633ba11154cad459db927f48f832db6b8f151121dd68d2bd2876eb20ad375b",
+      "gitBlobSha1": "b857db4d77a196bc206bf307139c9eeadca1ecd8",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map038.json"
+    },
+    {
+      "path": "data/Map039.json",
+      "bytes": 26516,
+      "sha256": "640101a17fef0667fa79fb443044f4634cd24d600e4961167564b438d259a9b4",
+      "gitBlobSha1": "73ce24a062f8d2c83bc2cf9756caaa7a40f46066",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map039.json"
+    },
+    {
+      "path": "data/Map040.json",
+      "bytes": 26516,
+      "sha256": "724ef1bc01b2fe5d55b342f0f2da051b3d6bb8092ea4371a0758f43ab55932f0",
+      "gitBlobSha1": "5309da8fa98877fd951bb2875dfd6fc351feb1d9",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map040.json"
+    },
+    {
+      "path": "data/Map041.json",
+      "bytes": 92497,
+      "sha256": "4b7a34037844e6cf585afb7fc1ea1500545a5623d0a1c70d4972f3c45f9dbd66",
+      "gitBlobSha1": "9553f2b1b883433ac3f587c58bdc818e85fea867",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map041.json"
+    },
+    {
+      "path": "data/Map042.json",
+      "bytes": 92497,
+      "sha256": "46733ea15699b686177bb4042c18983aec7dd36bcd3f77a5acb1fac0ff4a8bb6",
+      "gitBlobSha1": "ba49c7b6de6c36b0115242f69bccffa7dde7a30d",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map042.json"
+    },
+    {
+      "path": "data/Map043.json",
+      "bytes": 92497,
+      "sha256": "51c9af7a60370c402c473abb5a70136adf6d5d3ae04fcf266d30874d8079fd80",
+      "gitBlobSha1": "4ea6ef21939b9abd805abe0c2841e945781c316d",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map043.json"
+    },
+    {
+      "path": "data/Map044.json",
+      "bytes": 92497,
+      "sha256": "0b18d331c44396e0f8f90afd9d6d5d6951353c110e3c98bde1ea6a769100708b",
+      "gitBlobSha1": "49e8fd7dc9fc882ce68c8dfd18cb0cc5663cdc11",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map044.json"
+    },
+    {
+      "path": "data/Map045.json",
+      "bytes": 92497,
+      "sha256": "8e0706f8ca0373ae1e87b8e9c3b89de1f8235f659b0069cc6bf225b66d3f6d8b",
+      "gitBlobSha1": "cd72803c5c41b48b5493daaa2d6b17fd9e60066f",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map045.json"
+    },
+    {
+      "path": "data/Map046.json",
+      "bytes": 92497,
+      "sha256": "63a80b724562034511d8dcbb03de9365852e4566b33f55cea112e5ff5b735b0e",
+      "gitBlobSha1": "7e544db41f84e6ef6ddfa4c4ec8f8dea543848a2",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map046.json"
+    },
+    {
+      "path": "data/Map047.json",
+      "bytes": 92497,
+      "sha256": "bff5b824ef7c6059505484fc251b77bf68ebb6f1c9f29b429772597a7ef1e191",
+      "gitBlobSha1": "6a425b5a3bfac2b3655b0dce490f65069f4c50a7",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map047.json"
+    },
+    {
+      "path": "data/Map048.json",
+      "bytes": 92497,
+      "sha256": "fabded3d3d2fe86d049ab84baa63af1ea2993fe5bcdeae9142608334c33a84db",
+      "gitBlobSha1": "f4ee1620b5de3f847bfb0fcca05e2ec2c41bd028",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map048.json"
+    },
+    {
+      "path": "data/Map049.json",
+      "bytes": 92497,
+      "sha256": "f914d5d063a1d28229505bacc3aea813b288812628a6da56c5890434fbcbf1c5",
+      "gitBlobSha1": "afe99460b92b8e50a822e8880442ac0cbb68a19a",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map049.json"
+    },
+    {
+      "path": "data/Map050.json",
+      "bytes": 92497,
+      "sha256": "f0243bb9c5f26051f4504887dd82825c95da79ac513ec1a6f6fbec7d44fc42f8",
+      "gitBlobSha1": "aa138c2570c62f83ff66c2a688e4d16f3672451a",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map050.json"
+    },
+    {
+      "path": "data/Map051.json",
+      "bytes": 92497,
+      "sha256": "c8b70febbc2aa68e5f3d9f13fce2277d68c1f63d315684895bccff7df6ac2249",
+      "gitBlobSha1": "f7477915f71225f8b55cd02273a96d9bc1c5f7ec",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map051.json"
+    },
+    {
+      "path": "data/Map052.json",
+      "bytes": 92497,
+      "sha256": "f05987fc05423b0ac6c3bf218e5b037c201b5ae2609516c361b21e128914941e",
+      "gitBlobSha1": "86a09ee423ac6c51567daa1ef11d436562cded3f",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map052.json"
+    },
+    {
+      "path": "data/Map053.json",
+      "bytes": 92497,
+      "sha256": "675b0f404448916a13c3dea104064cc868f7805b1289515952f87ff11b77d01c",
+      "gitBlobSha1": "61b20e7d47a7807134e745bf4d31e18302bd3a8a",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map053.json"
+    },
+    {
+      "path": "data/Map054.json",
+      "bytes": 92497,
+      "sha256": "dca5da4ec35cce87d5ed113f3c9cc2fc5b50bc22c41184576e992666aefd2abf",
+      "gitBlobSha1": "84001029ef4d779a95ecf0e309df89ece037f578",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map054.json"
+    },
+    {
+      "path": "data/Map055.json",
+      "bytes": 92497,
+      "sha256": "0041eec658e6dc8691fd6913e67a3911e784068333cb3d5dddc2cf9f1c42c40b",
+      "gitBlobSha1": "f58524bda26d50c9d94cd0cd720bcb2411834b00",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Map055.json"
+    },
+    {
+      "path": "data/MapInfos.json",
+      "bytes": 6478,
+      "sha256": "14ce7b7ea11451b6ec41cb418b81a864c06974255731ce3bfe4dd4f800f02291",
+      "gitBlobSha1": "661b1b65e089f22bdf46b7c1b1c9e5bdd606b3ba",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/MapInfos.json"
+    },
+    {
+      "path": "data/Skills.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "gitBlobSha1": "500db4a86aa30072b5b264d7757986e759205514",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Skills.json"
+    },
+    {
+      "path": "data/States.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "gitBlobSha1": "500db4a86aa30072b5b264d7757986e759205514",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/States.json"
+    },
+    {
+      "path": "data/System.json",
+      "bytes": 4498,
+      "sha256": "f3434f32d4e261775179bc4fefda07edb0ac6a75839363fb57f247529202bb3c",
+      "gitBlobSha1": "4332a38c303ff18968d48f1a6a0a0c829a447da9",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/System.json"
+    },
+    {
+      "path": "data/Tilesets.json",
+      "bytes": 24753,
+      "sha256": "aeb8aac83b3de77bb3f6eb172236ffe5344371cd974f5783f358cbed066800f9",
+      "gitBlobSha1": "52aec2c5a43ee5f93accf845bf451211238b4ab3",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Tilesets.json"
+    },
+    {
+      "path": "data/Troops.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "gitBlobSha1": "500db4a86aa30072b5b264d7757986e759205514",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Troops.json"
+    },
+    {
+      "path": "data/Weapons.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd",
+      "gitBlobSha1": "500db4a86aa30072b5b264d7757986e759205514",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/data/Weapons.json"
+    },
+    {
+      "path": "img/system/Loading.png",
+      "bytes": 153,
+      "sha256": "550f14c397d60514968e48b4b6f435198c4ce279e0ff86051a2e8f91ba8e0fe9",
+      "gitBlobSha1": "c82ce2df4b3d2936891f041aa12b152fc3a01780",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/img/system/Loading.png"
+    },
+    {
+      "path": "index.html",
+      "bytes": 782,
+      "sha256": "9d8ea0dacbec5172b87f01637e49d820b0f9a4dbc35e6b4ccc2cb25c6e2ff15c",
+      "gitBlobSha1": "c4a5538672cb3b763cb4d07e85e0c48e2a4f6e7f",
+      "kind": "browser-adaptation"
+    },
+    {
+      "path": "js/libs/fpsmeter.js",
+      "bytes": 7571,
+      "sha256": "fec43a13a522dafe9c28c3d30635a275af350edf3423de0349fb6fb9c01e9450",
+      "gitBlobSha1": "481da374887ffc82702be77c79fb5acf9245ba6a",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/libs/fpsmeter.js"
+    },
+    {
+      "path": "js/libs/iphone-inline-video.browser.js",
+      "bytes": 3664,
+      "sha256": "688ce9e9460d08399b898519b6d6811f8bd6722369e266b1f2761002be608f72",
+      "gitBlobSha1": "d4d0b4ecb7c7a933ff9641a3df5c0f3a308d6e49",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/libs/iphone-inline-video.browser.js"
+    },
+    {
+      "path": "js/libs/lz-string.js",
+      "bytes": 6702,
+      "sha256": "7acc5ae524455fb67dee09375b4246386241f7dc4708dcdf8af0e78ca8267de7",
+      "gitBlobSha1": "971371d0610873115ec762ead1d8079cd1c401ac",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/libs/lz-string.js"
+    },
+    {
+      "path": "js/libs/pixi-picture.js",
+      "bytes": 22927,
+      "sha256": "f0e2af6190f2c53361047379ff0ae041568097f1b5beadcad28012f0aa5a99bb",
+      "gitBlobSha1": "6eb8ee6c4c69a120fbc1e7a7d0b4a944fdf49253",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/libs/pixi-picture.js"
+    },
+    {
+      "path": "js/libs/pixi-tilemap.js",
+      "bytes": 42752,
+      "sha256": "7401aeac40f9af7f7e777ce7a03a99c39571fa744fdb97add34732d7f8984e06",
+      "gitBlobSha1": "c6cc109d8b66b8705bb32587ab7aed809ec8ed21",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/libs/pixi-tilemap.js"
+    },
+    {
+      "path": "js/libs/pixi.js",
+      "bytes": 1295220,
+      "sha256": "47097d24b261679366419f9e36196a3303c35fa3d06d0518edb7f1ab5417def0",
+      "gitBlobSha1": "4d0e32ca44a8e52aa14a60a7a1686282e2470de8",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/libs/pixi.js"
+    },
+    {
+      "path": "js/main.js",
+      "bytes": 88,
+      "sha256": "34730d648e6556e06ae818718018dd7c09d08dc7002fbd6fb352614ac9d7cce3",
+      "gitBlobSha1": "767420b34b1977dd4de630935c39f8d599448efe",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/main.js"
+    },
+    {
+      "path": "js/plugins/PicrossPort.js",
+      "bytes": 15463,
+      "sha256": "0da816d4a540c32577dcb9da0b4c9cff95357878fcbae014fa84b01f54b293f3",
+      "gitBlobSha1": "f310fb2214b28f6e7f94ef3fe164cc22216272e9",
+      "kind": "browser-adaptation"
+    },
+    {
+      "path": "js/plugins.js",
+      "bytes": 123,
+      "sha256": "ae3956f75ee8a0dfe20ec94ddad8cce81c3627e0107ced3d12332b78dd729444",
+      "gitBlobSha1": "d86432d004c8171c89ed01d4e277c30cd2588846",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/plugins.js"
+    },
+    {
+      "path": "js/puzzles.js",
+      "bytes": 31310,
+      "sha256": "0e814135b47efae8a6a474221c80ceb9a42f324af767929136c982d280b6ae9e",
+      "gitBlobSha1": "f621428c44c2f87a0fe5b2d549eb952479491d78",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/puzzles.js"
+    },
+    {
+      "path": "js/rpg_core.js",
+      "bytes": 246637,
+      "sha256": "cce476804212b28049fef8b5c117577d0e356eac4abe33804628931e1826dd41",
+      "gitBlobSha1": "9577d8d8ba07e4fd7e058a855040f9eb61c50c9c",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/rpg_core.js"
+    },
+    {
+      "path": "js/rpg_managers.js",
+      "bytes": 83846,
+      "sha256": "aef81821786b12a3c27f8db510089663f6c2aabb1b1708dd065f765f3d1f9c18",
+      "gitBlobSha1": "eee61a089194bf02a628e2661f9d0694f21acc20",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/rpg_managers.js"
+    },
+    {
+      "path": "js/rpg_objects.js",
+      "bytes": 297572,
+      "sha256": "d4278c2161193d9105787ee6b1ff5167c07ed23af4deef190b7705a326f1926e",
+      "gitBlobSha1": "c08dd6b98bc71c28a21b6262381616799b7829de",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/rpg_objects.js"
+    },
+    {
+      "path": "js/rpg_scenes.js",
+      "bytes": 78975,
+      "sha256": "b10b50dcb62793e42fd807fa3034fb82a89c6cb7ab32afafbb366d6d0a7f248a",
+      "gitBlobSha1": "4ce4aed27a9c95fb4ed932e341494190f13af456",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/rpg_scenes.js"
+    },
+    {
+      "path": "js/rpg_sprites.js",
+      "bytes": 78084,
+      "sha256": "3b434c9b81c4081d00dd9eca3900fe7564545c6b5a70e3b00cd263de4170a4c8",
+      "gitBlobSha1": "95ae801dddca085f0932c66cfd178533c4b8aa10",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/rpg_sprites.js"
+    },
+    {
+      "path": "js/rpg_windows.js",
+      "bytes": 177274,
+      "sha256": "81343a9b3fb1c957f1c6098776f8ca263aac8431f3996b647caab36d6a03c5f3",
+      "gitBlobSha1": "df4af639dc11afee524688af9eadda2a78e23d03",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/rpg_windows.js"
+    },
+    {
+      "path": "migration/original-events.json",
+      "bytes": 3449794,
+      "sha256": "9550a37c4599ac7ba0cd817d8a19558f45ed350dec3114cff0c3cc9164e54c0b",
+      "gitBlobSha1": "b44b19f210cea36eec6e97c45ea569b08eb7a53b",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/migration/original-events.json"
+    },
+    {
+      "path": "migration/report.json",
+      "bytes": 511,
+      "sha256": "d588f6de097e9f0552633e31368fc4a66707cf3360296e9ac411310f6f9810b6",
+      "gitBlobSha1": "e617507b68f611da15e32dcdad7a79b628daa862",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/migration/report.json"
+    },
+    {
+      "path": "original/PicrossPort.js",
+      "bytes": 9029,
+      "sha256": "6a37451e0e3c2e1c2ed864b4fb4f3929d331b54197e73a0494aac3d255823e6c",
+      "gitBlobSha1": "ffcd9de1c0d23be7f9d0d931d8bba9434c2c63eb",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/js/plugins/PicrossPort.js"
+    },
+    {
+      "path": "original/index.html",
+      "bytes": 874,
+      "sha256": "62f8856621efbead504ac0b3bd1948f867fe698c34e00f58c3b764fecce2c6b6",
+      "gitBlobSha1": "2c6887f7269cf35f3a6bbeae1c5cf8ef41be3d45",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/index.html"
+    },
+    {
+      "path": "port.css",
+      "bytes": 2868,
+      "sha256": "cefeff11aeeadbc0f35af1608cbaea752b46fd8a78a255d2d70b24b188d4265f",
+      "gitBlobSha1": "50a91a469663cbd488ec56a25b138eeb5e0ed3f9",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/port.css"
+    },
+    {
+      "path": "tools/convert.py",
+      "bytes": 6347,
+      "sha256": "c15c32d7ec2d98c25b2ac5e682523830e356cd1d2ce38c532557e8665a210594",
+      "gitBlobSha1": "cd04e4c761962b25541181455f261ce510954f9d",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/tools/convert.py"
+    },
+    {
+      "path": "tools/event_commands.py",
+      "bytes": 181,
+      "sha256": "9f291bdb6959be11d1521ecaabf2304306f4263891045bcb99a6b9266740692f",
+      "gitBlobSha1": "e7a66b757345c0770b3f07275c689ec452698579",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/tools/event_commands.py"
+    },
+    {
+      "path": "tools/parse.py",
+      "bytes": 639,
+      "sha256": "b0c195cfe917e2071ced1aa8a041e8760ce1fdb49263d2a2dd0c26c28930c0cd",
+      "gitBlobSha1": "9e0ee503283eff2d4d2b54b3c945794c591151b6",
+      "kind": "original-preserved",
+      "apkAssetPath": "assets/tools/parse.py"
+    }
+  ],
+  "testFiles": [
+    {
+      "path": "zatuplay-source/scripts/picross-harness.cjs",
+      "bytes": 4176,
+      "sha256": "a5e989bca7d9fffa5b3e9c96b71adb2a06ec34fbd3b10acb5c37dc912c99ceb1",
+      "gitBlobSha1": "8bf57ba45403f473b10109c0e5bb3188036237b5"
+    },
+    {
+      "path": "zatuplay-source/scripts/test-picross-mv.cjs",
+      "bytes": 13963,
+      "sha256": "6c4cbc1a524c8e2d5523cc9170215dd922688c746ded97c52b113da353fba7d4",
+      "gitBlobSha1": "f195f6888812425e190de0b3d2335753aa6dcfd3"
+    },
+    {
+      "path": "zatuplay-source/scripts/picross-files.sha256",
+      "bytes": 8612,
+      "sha256": "604faf963cc13d853d2f85dae70293b6857c8050e935b4a67c5ab7660e8e9679",
+      "gitBlobSha1": "dcb53a4c40909b2fbb719123734a17eceb6f7ddf"
+    }
+  ],
+  "manifestSelfHash": "Not embedded; self-referential hash omitted. Compute externally after writing.",
+  "securityReview": {
+    "privateKeySignaturesFound": 0,
+    "credentialSignaturesFound": 0,
+    "androidPlatformOrSigningFilesIncluded": false,
+    "runtimeExternalRequests": false,
+    "runtimeScripts": [
+      "js/puzzles.js",
+      "browser-storage.js",
+      "js/plugins/PicrossPort.js"
+    ],
+    "unusedMVLayerExecuted": false,
+    "vendorContactReferences": "Only two existing public PixiJS vendor-author e-mail comments found; retained with original license/library.",
+    "scope": "Read-only filename, text-signature and active-entry review. No accounts, tokens, signing keys, AndroidManifest, classes.dex or platform config were included.",
+    "sourceLocationIdentifiers": "Private source-location identifiers are omitted from public documentation."
+  },
+  "validation": {
+    "nodeTestGroups": 12,
+    "allBoardCount": 55,
+    "sourceCells": 7805,
+    "originalArchivedMaps": 113,
+    "allBoardsCompletedUsingCellInputEvents": true,
+    "originalHashesMatch": true,
+    "deliveryAndBuildMirrorsMatch": true,
+    "productionBuildPassed": true,
+    "diffCheckPassed": true,
+    "independentReview": "12 groups independently passed; no remaining blocking findings.",
+    "realBrowserQA": "Not run by implementation worker; parent to perform public Chrome QA before catalog inclusion."
+  }
+}

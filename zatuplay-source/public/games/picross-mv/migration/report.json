@@ -1,0 +1,22 @@
+{
+  "status": "partial-port",
+  "sourceMapCount": 113,
+  "playableBoardCount": 55,
+  "exceptions": [
+    {
+      "map": 30,
+      "outsideBoard": 1
+    },
+    {
+      "map": 30,
+      "reason": "no filled cells inside board; only scoring event is outside board"
+    }
+  ],
+  "unported": [
+    "原作のマップ移動・会話・解放条件",
+    "画像重ね合わせ型の後半問題",
+    "タイムアタック専用イベント",
+    "元のBGM・効果音・演出",
+    "2003セーブデータ"
+  ]
+}

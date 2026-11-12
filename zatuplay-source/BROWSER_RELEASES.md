@@ -177,6 +177,10 @@ web.2の公開回帰確認は未実施です。次は再読込ボタン・30秒�
 
 全国ローカルCMとQUEST REBORNは `blocked`・`checkedAt=null`・カタログ未登録を維持。元APK・APKカタログ・他作品・既存recentBatch/履歴は変更していません。
 
+2026-11-11T06:54:35Z、登録コミット `c090e2d3e6a9e258eda0268c34701ac4c80c9b1a` の公開一覧で17/60公開・43準備を追加確認しました。「リズム天国 master」の検索結果は1件・公開中。「ブラウザで遊ぶ」から1.25-web.1の[公開URL](https://poetsakihana.github.io/game-no-mori/zatuplay/games/rhythm/?v=1.25-web.1)が起動し、モード画面のリング💍1/30も保持していました。上記の初回記録で未確認としていた登録後の一覧表示・一覧からの起動を、今回追加確認しています。
+
+[Pages実行42975521570](https://github.com/poetsakihana/game-no-mori/actions/runs/42975521570)はbuild・deploy・reportがすべて成功。実行メタデータのhead_shaは前コミット `dee92cf1237114813c393f89f945e3b067b7d2ef` でしたが、[buildジョブ130373598383](https://github.com/poetsakihana/game-no-mori/actions/runs/42975521570/job/130373598383)の `git log -1` が登録コミット `c090e2d3e6a9e258eda0268c34701ac4c80c9b1a` を示し、公開実内容も一致しました。メインステージの通常クリア・音の実聴取・未確認端末等の制限は変更していません。
+
 
 ## 全国ローカルCM 3.0.0-web.2 公開回帰確認
 

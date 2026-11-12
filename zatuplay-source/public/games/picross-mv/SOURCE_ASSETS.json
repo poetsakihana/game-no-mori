@@ -1,0 +1,500 @@
+{
+  "schemaVersion": 1,
+  "browserVersion": "0.1.0-web.1",
+  "catalogId": "collection-34",
+  "apk": {
+    "filename": "34.PicrossMV-v0.1.0.apk",
+    "size": 793654,
+    "sha256": "87aa87bd90ea12d6b27bbc11792d6bc9abec8d569c75db25c95339fbac4224e1"
+  },
+  "scope": "元APK自体が113マップ中55盤面の部分移植。原作全編や500問ではない。",
+  "sourceFiles": [
+    {
+      "path": "Game.rpgproject",
+      "bytes": 11,
+      "sha256": "ab778d66aa589838d6954dce19ea3338b6f4338be68d69dd3952ff233524a732"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1089,
+      "sha256": "e3563d4b3ff63e95a154f75d207444d71c108dc1bb64f0bb8230c5ee65a13922"
+    },
+    {
+      "path": "MV_CORE_LICENSE.txt",
+      "bytes": 1089,
+      "sha256": "e3563d4b3ff63e95a154f75d207444d71c108dc1bb64f0bb8230c5ee65a13922"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 3266,
+      "sha256": "230cb4458ecc7794df215d57d4cac29ab3d95dec9db0a7e0396efffb9c137aa5"
+    },
+    {
+      "path": "data/Actors.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "path": "data/Animations.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "path": "data/Armors.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "path": "data/Classes.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "path": "data/CommonEvents.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "path": "data/Enemies.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "path": "data/Items.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "path": "data/Map001.json",
+      "bytes": 26515,
+      "sha256": "9f71d373842cae846a92a768d6934378d43036708d0ff42b01489546834b9ad7"
+    },
+    {
+      "path": "data/Map002.json",
+      "bytes": 26515,
+      "sha256": "3f601d862838b9b965cd371628c4a5f427be1969c6bb16dcbacd940d26443b6a"
+    },
+    {
+      "path": "data/Map003.json",
+      "bytes": 26515,
+      "sha256": "73f1623f5b1ad77e7aedc30755544791ed87675e36b3558055b159a0644aee3a"
+    },
+    {
+      "path": "data/Map004.json",
+      "bytes": 26515,
+      "sha256": "6887a15aa6e82ef78ed0ebb55445a254d77af505a9e8f28d2ff2f1772d94a198"
+    },
+    {
+      "path": "data/Map005.json",
+      "bytes": 26515,
+      "sha256": "e47ecb35128cc069f1a06d1e6199a39e7a6444871c25d12ba3abc1eba9c54243"
+    },
+    {
+      "path": "data/Map006.json",
+      "bytes": 92497,
+      "sha256": "532565aa19e96ded1eef2ff9a9c923c0af409bc95821c798622e8dbf9120b041"
+    },
+    {
+      "path": "data/Map007.json",
+      "bytes": 92497,
+      "sha256": "aaf333c6514f1d1fe0e417679dc11c88e5f08da2035c65a6d64e105c311e316e"
+    },
+    {
+      "path": "data/Map008.json",
+      "bytes": 92497,
+      "sha256": "bb7079568356f07df97089cfb73c05481a239b3b2068c4cb7ef5b5aab5931f25"
+    },
+    {
+      "path": "data/Map009.json",
+      "bytes": 92497,
+      "sha256": "aa194ef90b9e7000f1b0e1d2ce4a51c9e2568172973ece5325793f8f40d3703d"
+    },
+    {
+      "path": "data/Map010.json",
+      "bytes": 92497,
+      "sha256": "54800aeccbe46b896cf0d7bd5c883c7c67dd8ffebbbdf1ce11a83963ae889225"
+    },
+    {
+      "path": "data/Map011.json",
+      "bytes": 92497,
+      "sha256": "e8f463fea12d5fc656d71958f3704db6f52e6affe622c934cf0ee911e29396fd"
+    },
+    {
+      "path": "data/Map012.json",
+      "bytes": 92497,
+      "sha256": "2380ebfef334c91168826243328b0d58b6292eefcb6d9af29decd4738d9a54f9"
+    },
+    {
+      "path": "data/Map013.json",
+      "bytes": 92497,
+      "sha256": "8f9eb2a0e1f27b1ec23b3324ddef8c2a2f9e5a608989e160e482f6ee94c40a79"
+    },
+    {
+      "path": "data/Map014.json",
+      "bytes": 92497,
+      "sha256": "3f28e9f493affc5450f02283643eb281d181fcceba885e4ffdb384a7fa5c56a1"
+    },
+    {
+      "path": "data/Map015.json",
+      "bytes": 92497,
+      "sha256": "7ac692354414f716a6cbc3bed188fd4eb4a8e2783b4efd258b44a82858ed6511"
+    },
+    {
+      "path": "data/Map016.json",
+      "bytes": 92497,
+      "sha256": "3c257de030e4c819f1f91c2868ae885004f7b699f533b8d2a65ad7d6fcf38c61"
+    },
+    {
+      "path": "data/Map017.json",
+      "bytes": 92497,
+      "sha256": "c46e5711bc3cc94dfdb2caa4774918af60d3296137976c1a9a9d63dfe8cea38b"
+    },
+    {
+      "path": "data/Map018.json",
+      "bytes": 92497,
+      "sha256": "0b2ee73a2e1d6b679c6359b4adabfbb24d04e0096d860b0a92f84db9231e15f0"
+    },
+    {
+      "path": "data/Map019.json",
+      "bytes": 92497,
+      "sha256": "2e16922ad33cd3115a1e86592b56f61b3fd56e4e1c6f2e503f3d32156fa11247"
+    },
+    {
+      "path": "data/Map020.json",
+      "bytes": 92497,
+      "sha256": "faf0e0fb553f6bef1cee4a44762fecedf9e6db64ed3301a919c0fc85599b5c23"
+    },
+    {
+      "path": "data/Map021.json",
+      "bytes": 26516,
+      "sha256": "522d0f2bd6c7f7496d3b2f287c518b7d14d03c951cc78dcf0cd528efae2e89b2"
+    },
+    {
+      "path": "data/Map022.json",
+      "bytes": 26516,
+      "sha256": "6318e7214eef32e5a155113d7b52f43650d8e5622e9c4a5cea2a78ec3fb0ba08"
+    },
+    {
+      "path": "data/Map023.json",
+      "bytes": 26516,
+      "sha256": "f6072303d10c92cb9a79c8ac860616c18f858436d4d7639f7bc278ad811b4e4a"
+    },
+    {
+      "path": "data/Map024.json",
+      "bytes": 60812,
+      "sha256": "52f5e61e4dcb7165cc88a6ab0f99b9317616fc8296b5a1d6a5e15e34078ee148"
+    },
+    {
+      "path": "data/Map025.json",
+      "bytes": 60812,
+      "sha256": "89bf68c40201b0ee9024b0efa1863eebcfc7a9ff48cf73462433e7fce42b9168"
+    },
+    {
+      "path": "data/Map026.json",
+      "bytes": 60812,
+      "sha256": "e2da52b61d0a9eb19b49cbdbe5d850f2004487a3527acf7cd4bb168d2b46c949"
+    },
+    {
+      "path": "data/Map027.json",
+      "bytes": 131651,
+      "sha256": "f985cbafababb2e299a4d9e02ea30e3b067393419271d4ed4dd14113bc25c067"
+    },
+    {
+      "path": "data/Map028.json",
+      "bytes": 131651,
+      "sha256": "9a183b92c3f073375f5d6876e6aaf23def7ddd7a7a977faecc6eca86ba5e1bb5"
+    },
+    {
+      "path": "data/Map029.json",
+      "bytes": 204131,
+      "sha256": "a87c4ee586e4ad212517c8c9b0b48f11f3856d00d462f89adffea4d609f31aa2"
+    },
+    {
+      "path": "data/Map030.json",
+      "bytes": 204116,
+      "sha256": "45d8830df4ace15600b7112787ad4ed8e8ea0b9cd5ff8a83da7882fbaad4e7a4"
+    },
+    {
+      "path": "data/Map031.json",
+      "bytes": 362331,
+      "sha256": "6dd9ea178118103260c0dcb82cc4bc3c222a76e50f47b439c321785f796d50f7"
+    },
+    {
+      "path": "data/Map032.json",
+      "bytes": 1108002,
+      "sha256": "dce1db4a4f20cbede7d323fb08fd26490dc8fdf9016f71b048f8812f6db22dad"
+    },
+    {
+      "path": "data/Map033.json",
+      "bytes": 565676,
+      "sha256": "322ed3c1199ba3bffc80d3b4eadfaaac0c4d0c68c3c5c4abaf9e979b67325a78"
+    },
+    {
+      "path": "data/Map034.json",
+      "bytes": 814151,
+      "sha256": "008d79662dd30678f477b845515497fa6cab4541012d8d5062ff6f715b8519f9"
+    },
+    {
+      "path": "data/Map035.json",
+      "bytes": 362291,
+      "sha256": "03836b316703ca0e387fc281920ca8aaa6d26731b56ac4ed23ead667baf59cf3"
+    },
+    {
+      "path": "data/Map036.json",
+      "bytes": 26516,
+      "sha256": "570a093fa1b78dafa2790cb8ac9aa50b1c229b1e61a0502517ce54e36cc71218"
+    },
+    {
+      "path": "data/Map037.json",
+      "bytes": 26516,
+      "sha256": "bdb6568d30d3bc438862c8d7b6f9e5199bdd422ec573bc480826027f391c387d"
+    },
+    {
+      "path": "data/Map038.json",
+      "bytes": 26516,
+      "sha256": "a8633ba11154cad459db927f48f832db6b8f151121dd68d2bd2876eb20ad375b"
+    },
+    {
+      "path": "data/Map039.json",
+      "bytes": 26516,
+      "sha256": "640101a17fef0667fa79fb443044f4634cd24d600e4961167564b438d259a9b4"
+    },
+    {
+      "path": "data/Map040.json",
+      "bytes": 26516,
+      "sha256": "724ef1bc01b2fe5d55b342f0f2da051b3d6bb8092ea4371a0758f43ab55932f0"
+    },
+    {
+      "path": "data/Map041.json",
+      "bytes": 92497,
+      "sha256": "4b7a34037844e6cf585afb7fc1ea1500545a5623d0a1c70d4972f3c45f9dbd66"
+    },
+    {
+      "path": "data/Map042.json",
+      "bytes": 92497,
+      "sha256": "46733ea15699b686177bb4042c18983aec7dd36bcd3f77a5acb1fac0ff4a8bb6"
+    },
+    {
+      "path": "data/Map043.json",
+      "bytes": 92497,
+      "sha256": "51c9af7a60370c402c473abb5a70136adf6d5d3ae04fcf266d30874d8079fd80"
+    },
+    {
+      "path": "data/Map044.json",
+      "bytes": 92497,
+      "sha256": "0b18d331c44396e0f8f90afd9d6d5d6951353c110e3c98bde1ea6a769100708b"
+    },
+    {
+      "path": "data/Map045.json",
+      "bytes": 92497,
+      "sha256": "8e0706f8ca0373ae1e87b8e9c3b89de1f8235f659b0069cc6bf225b66d3f6d8b"
+    },
+    {
+      "path": "data/Map046.json",
+      "bytes": 92497,
+      "sha256": "63a80b724562034511d8dcbb03de9365852e4566b33f55cea112e5ff5b735b0e"
+    },
+    {
+      "path": "data/Map047.json",
+      "bytes": 92497,
+      "sha256": "bff5b824ef7c6059505484fc251b77bf68ebb6f1c9f29b429772597a7ef1e191"
+    },
+    {
+      "path": "data/Map048.json",
+      "bytes": 92497,
+      "sha256": "fabded3d3d2fe86d049ab84baa63af1ea2993fe5bcdeae9142608334c33a84db"
+    },
+    {
+      "path": "data/Map049.json",
+      "bytes": 92497,
+      "sha256": "f914d5d063a1d28229505bacc3aea813b288812628a6da56c5890434fbcbf1c5"
+    },
+    {
+      "path": "data/Map050.json",
+      "bytes": 92497,
+      "sha256": "f0243bb9c5f26051f4504887dd82825c95da79ac513ec1a6f6fbec7d44fc42f8"
+    },
+    {
+      "path": "data/Map051.json",
+      "bytes": 92497,
+      "sha256": "c8b70febbc2aa68e5f3d9f13fce2277d68c1f63d315684895bccff7df6ac2249"
+    },
+    {
+      "path": "data/Map052.json",
+      "bytes": 92497,
+      "sha256": "f05987fc05423b0ac6c3bf218e5b037c201b5ae2609516c361b21e128914941e"
+    },
+    {
+      "path": "data/Map053.json",
+      "bytes": 92497,
+      "sha256": "675b0f404448916a13c3dea104064cc868f7805b1289515952f87ff11b77d01c"
+    },
+    {
+      "path": "data/Map054.json",
+      "bytes": 92497,
+      "sha256": "dca5da4ec35cce87d5ed113f3c9cc2fc5b50bc22c41184576e992666aefd2abf"
+    },
+    {
+      "path": "data/Map055.json",
+      "bytes": 92497,
+      "sha256": "0041eec658e6dc8691fd6913e67a3911e784068333cb3d5dddc2cf9f1c42c40b"
+    },
+    {
+      "path": "data/MapInfos.json",
+      "bytes": 6478,
+      "sha256": "14ce7b7ea11451b6ec41cb418b81a864c06974255731ce3bfe4dd4f800f02291"
+    },
+    {
+      "path": "data/Skills.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "path": "data/States.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "path": "data/System.json",
+      "bytes": 4498,
+      "sha256": "f3434f32d4e261775179bc4fefda07edb0ac6a75839363fb57f247529202bb3c"
+    },
+    {
+      "path": "data/Tilesets.json",
+      "bytes": 24753,
+      "sha256": "aeb8aac83b3de77bb3f6eb172236ffe5344371cd974f5783f358cbed066800f9"
+    },
+    {
+      "path": "data/Troops.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "path": "data/Weapons.json",
+      "bytes": 6,
+      "sha256": "1d8fc6ceb1f94c6326d6d5483d258fcb2e179e9869325b245d105c2219bf69fd"
+    },
+    {
+      "path": "img/system/Loading.png",
+      "bytes": 153,
+      "sha256": "550f14c397d60514968e48b4b6f435198c4ce279e0ff86051a2e8f91ba8e0fe9"
+    },
+    {
+      "path": "index.html",
+      "bytes": 874,
+      "sha256": "62f8856621efbead504ac0b3bd1948f867fe698c34e00f58c3b764fecce2c6b6",
+      "preservedAt": "original/index.html"
+    },
+    {
+      "path": "js/libs/fpsmeter.js",
+      "bytes": 7571,
+      "sha256": "fec43a13a522dafe9c28c3d30635a275af350edf3423de0349fb6fb9c01e9450"
+    },
+    {
+      "path": "js/libs/iphone-inline-video.browser.js",
+      "bytes": 3664,
+      "sha256": "688ce9e9460d08399b898519b6d6811f8bd6722369e266b1f2761002be608f72"
+    },
+    {
+      "path": "js/libs/lz-string.js",
+      "bytes": 6702,
+      "sha256": "7acc5ae524455fb67dee09375b4246386241f7dc4708dcdf8af0e78ca8267de7"
+    },
+    {
+      "path": "js/libs/pixi-picture.js",
+      "bytes": 22927,
+      "sha256": "f0e2af6190f2c53361047379ff0ae041568097f1b5beadcad28012f0aa5a99bb"
+    },
+    {
+      "path": "js/libs/pixi-tilemap.js",
+      "bytes": 42752,
+      "sha256": "7401aeac40f9af7f7e777ce7a03a99c39571fa744fdb97add34732d7f8984e06"
+    },
+    {
+      "path": "js/libs/pixi.js",
+      "bytes": 1295220,
+      "sha256": "47097d24b261679366419f9e36196a3303c35fa3d06d0518edb7f1ab5417def0"
+    },
+    {
+      "path": "js/main.js",
+      "bytes": 88,
+      "sha256": "34730d648e6556e06ae818718018dd7c09d08dc7002fbd6fb352614ac9d7cce3"
+    },
+    {
+      "path": "js/plugins/PicrossPort.js",
+      "bytes": 9029,
+      "sha256": "6a37451e0e3c2e1c2ed864b4fb4f3929d331b54197e73a0494aac3d255823e6c",
+      "preservedAt": "original/PicrossPort.js"
+    },
+    {
+      "path": "js/plugins.js",
+      "bytes": 123,
+      "sha256": "ae3956f75ee8a0dfe20ec94ddad8cce81c3627e0107ced3d12332b78dd729444"
+    },
+    {
+      "path": "js/puzzles.js",
+      "bytes": 31310,
+      "sha256": "0e814135b47efae8a6a474221c80ceb9a42f324af767929136c982d280b6ae9e"
+    },
+    {
+      "path": "js/rpg_core.js",
+      "bytes": 246637,
+      "sha256": "cce476804212b28049fef8b5c117577d0e356eac4abe33804628931e1826dd41"
+    },
+    {
+      "path": "js/rpg_managers.js",
+      "bytes": 83846,
+      "sha256": "aef81821786b12a3c27f8db510089663f6c2aabb1b1708dd065f765f3d1f9c18"
+    },
+    {
+      "path": "js/rpg_objects.js",
+      "bytes": 297572,
+      "sha256": "d4278c2161193d9105787ee6b1ff5167c07ed23af4deef190b7705a326f1926e"
+    },
+    {
+      "path": "js/rpg_scenes.js",
+      "bytes": 78975,
+      "sha256": "b10b50dcb62793e42fd807fa3034fb82a89c6cb7ab32afafbb366d6d0a7f248a"
+    },
+    {
+      "path": "js/rpg_sprites.js",
+      "bytes": 78084,
+      "sha256": "3b434c9b81c4081d00dd9eca3900fe7564545c6b5a70e3b00cd263de4170a4c8"
+    },
+    {
+      "path": "js/rpg_windows.js",
+      "bytes": 177274,
+      "sha256": "81343a9b3fb1c957f1c6098776f8ca263aac8431f3996b647caab36d6a03c5f3"
+    },
+    {
+      "path": "migration/original-events.json",
+      "bytes": 3449794,
+      "sha256": "9550a37c4599ac7ba0cd817d8a19558f45ed350dec3114cff0c3cc9164e54c0b"
+    },
+    {
+      "path": "migration/report.json",
+      "bytes": 511,
+      "sha256": "d588f6de097e9f0552633e31368fc4a66707cf3360296e9ac411310f6f9810b6"
+    },
+    {
+      "path": "port.css",
+      "bytes": 2868,
+      "sha256": "cefeff11aeeadbc0f35af1608cbaea752b46fd8a78a255d2d70b24b188d4265f"
+    },
+    {
+      "path": "tools/convert.py",
+      "bytes": 6347,
+      "sha256": "c15c32d7ec2d98c25b2ac5e682523830e356cd1d2ce38c532557e8665a210594"
+    },
+    {
+      "path": "tools/event_commands.py",
+      "bytes": 181,
+      "sha256": "9f291bdb6959be11d1521ecaabf2304306f4263891045bcb99a6b9266740692f"
+    },
+    {
+      "path": "tools/parse.py",
+      "bytes": 639,
+      "sha256": "b0c195cfe917e2071ced1aa8a041e8760ce1fdb49263d2a2dd0c26c28930c0cd"
+    }
+  ]
+}
