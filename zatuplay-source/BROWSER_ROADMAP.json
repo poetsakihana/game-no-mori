@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-12T05:33:32.570Z",
+  "updatedAt": "2026-11-12T05:50:52.599Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -715,7 +715,8 @@
         "checks": [
           "通常UIで150選択を完走し結末45「ふたり分の朝ごはん」・結末帳1/100。全24人物画と3保存枠の復元を確認",
           "最初/最終返答と結末の再読込、実JSON書出し/取消/同一ファイル反復復元、初期化と直前バックアップ回復",
-          "実2タブで競合通知・メモリ内続行/書出しと先行保存の非上書き、一覧復帰"
+          "実2タブで競合通知・メモリ内続行/書出しと先行保存の非上書き、一覧復帰",
+          "公開一覧28/62から同じタブで起動し、結末45「ふたり分の朝ごはん」・1/100を保持。上部リンクから一覧へ復帰。"
         ],
         "checkedAtEvidence": "最終実ダウンロード19-final-preserved-backup.jsonのexportedAt"
       },
@@ -725,7 +726,8 @@
         "checks": [
           "全10台・4BET・3速度を実操作。78回目にBET5・氷3個の自然当たり149枚、残高1119/当たり1/獲得149を再読込保持",
           "回転中の再読込で37→38回・665→660枚、再再読込で不変。一度だけの精算と無料補充50→1050枚を確認",
-          "実JSON書出し/取消/同一ファイル反復復元、実ファイル選択取消、初期化/バックアップ回復、実2タブの競合保護、一覧復帰"
+          "実JSON書出し/取消/同一ファイル反復復元、実ファイル選択取消、初期化/バックアップ回復、実2タブの競合保護、一覧復帰",
+          "公開一覧28/62から同じタブで起動し、残高1119・78回転・当たり1・獲得149・氷3個・BET5・音OFFを保持。上部リンクから一覧へ復帰。"
         ],
         "checkedAtEvidence": "実QA returned-catalog-ax.txtの保存時刻（UTC）。QA_REPORT.mdとui-log.jsonに操作結果を記録"
       }
@@ -749,7 +751,11 @@
       "renai-sakusen": "4fbc8da85404f48a62bb64229071dbff65942fe31458faa87d435b78943e02ab",
       "slotten": "0392930580f2e78edfe6f90e61be82bdc5ff71decaf659c344f52ca2ac990145"
     },
-    "catalogVerificationStatus": "ローカル登録準備済み。登録後のPages成功・公開一覧28/62と実リンクは未確認"
+    "catalogVerificationStatus": "公開一覧28/62・34準備中を実確認。検索から同じタブで起動し、保存保持と一覧復帰を両作品で確認。",
+    "catalogVerifiedAt": "2026-11-12T05:50:52.599Z",
+    "registrationCommit": "c420d42bb6a95a5bb90d6a3a1d3a964f6123481f",
+    "pagesRunId": 43163720925,
+    "pagesCommitEvidence": "同一headのPages成功。build131000602782/deploy131000962279。"
   },
   "publishedTargetCount": 20,
   "remainingTargetCount": 32,
@@ -1180,7 +1186,8 @@
           "checks": [
             "通常UIで150選択を完走し結末45「ふたり分の朝ごはん」・結末帳1/100。全24人物画と3保存枠の復元を確認",
             "最初/最終返答と結末の再読込、実JSON書出し/取消/同一ファイル反復復元、初期化と直前バックアップ回復",
-            "実2タブで競合通知・メモリ内続行/書出しと先行保存の非上書き、一覧復帰"
+            "実2タブで競合通知・メモリ内続行/書出しと先行保存の非上書き、一覧復帰",
+            "公開一覧28/62から同じタブで起動し、結末45「ふたり分の朝ごはん」・1/100を保持。上部リンクから一覧へ復帰。"
           ],
           "checkedAtEvidence": "最終実ダウンロード19-final-preserved-backup.jsonのexportedAt"
         },
@@ -1190,7 +1197,8 @@
           "checks": [
             "全10台・4BET・3速度を実操作。78回目にBET5・氷3個の自然当たり149枚、残高1119/当たり1/獲得149を再読込保持",
             "回転中の再読込で37→38回・665→660枚、再再読込で不変。一度だけの精算と無料補充50→1050枚を確認",
-            "実JSON書出し/取消/同一ファイル反復復元、実ファイル選択取消、初期化/バックアップ回復、実2タブの競合保護、一覧復帰"
+            "実JSON書出し/取消/同一ファイル反復復元、実ファイル選択取消、初期化/バックアップ回復、実2タブの競合保護、一覧復帰",
+            "公開一覧28/62から同じタブで起動し、残高1119・78回転・当たり1・獲得149・氷3個・BET5・音OFFを保持。上部リンクから一覧へ復帰。"
           ],
           "checkedAtEvidence": "実QA returned-catalog-ax.txtの保存時刻（UTC）。QA_REPORT.mdとui-log.jsonに操作結果を記録"
         }
@@ -1214,7 +1222,11 @@
         "renai-sakusen": "4fbc8da85404f48a62bb64229071dbff65942fe31458faa87d435b78943e02ab",
         "slotten": "0392930580f2e78edfe6f90e61be82bdc5ff71decaf659c344f52ca2ac990145"
       },
-      "catalogVerificationStatus": "ローカル登録準備済み。登録後のPages成功・公開一覧28/62と実リンクは未確認"
+      "catalogVerificationStatus": "公開一覧28/62・34準備中を実確認。検索から同じタブで起動し、保存保持と一覧復帰を両作品で確認。",
+      "catalogVerifiedAt": "2026-11-12T05:50:52.599Z",
+      "registrationCommit": "c420d42bb6a95a5bb90d6a3a1d3a964f6123481f",
+      "pagesRunId": 43163720925,
+      "pagesCommitEvidence": "同一headのPages成功。build131000602782/deploy131000962279。"
     }
   ]
 }

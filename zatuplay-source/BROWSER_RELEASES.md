@@ -281,3 +281,5 @@ Can to Crownの1億円EDまでの手動完走・全5地区/全100図鑑収集、
 作者のモデル試験は恋愛作戦21群、SlotTen18群（8,640配当ケース）。実Chromeの操作範囲と区別します。QA後の変更は文書・チェックサムのみで、ゲーム実装/画像/音は無変更。最終チェックサム一覧SHA-256は恋愛作戦 `4fbc8da85404f48a62bb64229071dbff65942fe31458faa87d435b78943e02ab`、SlotTen `0392930580f2e78edfe6f90e61be82bdc5ff71decaf659c344f52ca2ac990145`。詳細は各作品のREADME/provenance、SlotTenのQA_RESULTS.mdを参照。
 
 スマホ実機/物理タッチ/狭幅、Safari/Firefox、音の実聴取、実容量制限/保存拒否/Web Locks非対応、独立した回転中の非表示/blurは未確認。APKや別端末との自動同期はありません。元APK・APK一覧・既存登録と履歴を保持し、QUEST REBORN/全国ローカルCMは保留・未登録、8番入口/Instantなど他作品のロードマップは変更していません。StarBolt・Fryは今回登録しません。
+
+登録コミット `c420d42bb6a95a5bb90d6a3a1d3a964f6123481f` の[Pages実行43163720925](https://github.com/poetsakihana/game-no-mori/actions/runs/43163720925)は同一headで成功。2026-11-12T05:50:52.599Zに公開一覧28/62作品・34準備中を確認しました。作品名検索→「遊ぶ」で同じタブから起動し、恋愛作戦は結末45「ふたり分の朝ごはん」・1/100、SlotTenは残高1,119・78回転・当たり1・累計獲得149・氷3個・BET5・音OFFを保持。両作品の一覧復帰も確認し、ゲーム画面はアンロードしています。取得した一覧/ゲーム由来console warn/errorは0件でした。
