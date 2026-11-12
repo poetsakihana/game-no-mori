@@ -1,0 +1,1 @@
+Run node zatuplay-source/scripts/pair-jinsei-kotoba/run.cjs from any cwd. Install official npm linkedom for the included DOM test. No fake-indexeddb dependency is used by this pair. Model/DOM stubs do not certify real browser rendering. This source-only QA package includes original fixtures.

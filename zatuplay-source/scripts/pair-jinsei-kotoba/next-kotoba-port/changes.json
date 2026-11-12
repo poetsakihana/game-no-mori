@@ -1,0 +1,34 @@
+[
+  {
+    "path": "store.js",
+    "change": "added"
+  },
+  {
+    "path": "national-data.js",
+    "change": "modified"
+  },
+  {
+    "path": "style.css",
+    "change": "modified"
+  },
+  {
+    "path": "index.html",
+    "change": "modified"
+  },
+  {
+    "path": "SOURCES.html",
+    "change": "added"
+  },
+  {
+    "path": "browser.js",
+    "change": "added"
+  },
+  {
+    "path": "map.js",
+    "change": "modified"
+  },
+  {
+    "path": "game.js",
+    "change": "modified"
+  }
+]

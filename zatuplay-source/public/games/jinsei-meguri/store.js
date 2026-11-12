@@ -1,0 +1,23 @@
+'use strict';
+const LifeStore=(()=>{
+ const KEY='zatuplay:jinsei-meguri:1',LIMIT=65536;
+ const blank=()=>null;const copy=v=>JSON.parse(JSON.stringify(v));
+ const exact=(v,k)=>v&&typeof v==='object'&&!Array.isArray(v)&&Object.keys(v).sort().join('|')===[...k].sort().join('|');const int=(v,a,b)=>Number.isSafeInteger(v)&&v>=a&&v<=b;
+ function check(v){if(v===null)return null;const fail=()=>{throw Error('記録の形式・値が不正です')};const keys=['map','unit','players','phase','groups','queue','values','order','turn','arrivals','dice','logs','message'];if(v.art!==undefined)keys.push('art');if(!exact(v,keys))fail();const ends=[64,80,96,112,72,80,96,88,104,96,112,128];if(!int(v.map,0,11)||![1,1000,10000,50000].includes(v.unit)||!['order','move','next','steal','end'].includes(v.phase)||!int(v.turn,0,3)||!int(v.arrivals,0,4)||!int(v.dice,1,6)||!Array.isArray(v.players)||v.players.length!==4)fail();
+ const ids=a=>Array.isArray(a)&&a.length<=4&&new Set(a).size===a.length&&a.every(x=>int(x,0,3));
+ v.players.forEach((p,i)=>{if(!exact(p,['id','name','cash','pos','done'])||p.id!==i||typeof p.name!=='string'||p.name.length<1||p.name.length>16||!int(p.cash,0,1e9)||!int(p.pos,0,ends[v.map])||typeof p.done!=='boolean'||p.done!==(p.pos===ends[v.map]))fail()});
+ if(v.arrivals!==v.players.filter(p=>p.done).length||!ids(v.order)||!ids(v.queue)||!Array.isArray(v.groups)||v.groups.length<1||v.groups.length>4||v.groups.some(g=>!ids(g)||!g.length)||!ids(v.groups.flat())||v.groups.flat().length!==4)fail();
+ if(!v.values||typeof v.values!=='object'||Array.isArray(v.values)||Object.entries(v.values).some(([k,n])=>!['0','1','2','3'].includes(k)||!int(n,1,6)))fail();
+ if(v.phase==='order'){const rolled=Object.keys(v.values).map(Number);if(!ids([...v.queue,...rolled])||v.queue.length+rolled.length!==4)fail();if(v.order.length||!v.queue.length||v.arrivals||v.players.some(p=>p.pos||p.cash)||v.queue.some(i=>!v.groups.some(g=>g.length>1&&g.includes(i))))fail()}else{if(v.order.length!==4||v.queue.length||v.groups.some(g=>g.length!==1)||v.groups.flat().some((n,i)=>n!==v.order[i]))fail();if(['move','steal'].includes(v.phase)&&v.players[v.order[v.turn]].done)fail();if(v.phase==='end'&&v.arrivals!==4)fail()}
+ if(!Array.isArray(v.logs)||v.logs.length>70||v.logs.some(t=>typeof t!=='string'||t.length>500)||typeof v.message!=='string'||v.message.length>500||(v.art!==undefined&&!int(v.art,0,15)))fail();return copy(v)}
+ function decode(raw){if(typeof raw!=='string'||new TextEncoder().encode(raw).length>LIMIT)throw Error('64KB以下のJSONを選んでください');const d=JSON.parse(raw);if(!exact(d,['format','version','data','previous'])||d.format!=='jinsei-meguri-browser'||d.version!==1)throw Error('このブラウザ版の保存ではありません');return {data:check(d.data),previous:d.previous===null?null:check(d.previous)}}
+ const encode=(data,previous=null)=>JSON.stringify({format:'jinsei-meguri-browser',version:1,data:check(data),previous:previous===null?null:check(previous)});
+ let data=blank(),previous=null,baseline=null,phase='loading',owner=false,releaseLock,listen=()=>{};
+ try{baseline=localStorage.getItem(KEY);if(baseline!==null){let d=decode(baseline);data=d.data;previous=d.previous}}catch{phase=baseline===null?'unavailable':'corrupt'}
+ const initial=copy(data),notify=()=>listen(phase),set=p=>{phase=p;notify()};let departed=false,dirty=false;
+ const ready=(async()=>{if(phase!=='loading')return;if(!navigator.locks){set('memory');return}await new Promise(resolve=>{navigator.locks.request(KEY,{ifAvailable:true},async lock=>{if(!lock||departed){set('memory');resolve();return}owner=true;set('saved');if(dirty)write(data);resolve();await new Promise(r=>releaseLock=r)}).catch(()=>{owner=false;set('memory');resolve()})})})();
+ function write(next,{replace=false}={}){next=check(next);dirty=true;const old=data;data=copy(next);if(replace)previous=old;if(!owner||!['saved','quota'].includes(phase)){notify();return false}try{if(localStorage.getItem(KEY)!==baseline){owner=false;set('conflict');return false}let text=encode(data,previous);localStorage.setItem(KEY,text);baseline=text;dirty=false;set('saved');return true}catch{set('quota');return false}}
+ function release(){departed=true;owner=false;if(releaseLock){releaseLock();releaseLock=null}if(['loading','saved','quota'].includes(phase))set('memory')}
+ addEventListener('storage',e=>{if(e.key===KEY&&e.newValue!==baseline){owner=false;set('conflict')}});
+ return {KEY,LIMIT,blank,check,decode,encode,initial,ready,write,release,subscribe(fn){listen=fn;notify()},get data(){return copy(data)},get previous(){return previous&&copy(previous)},get raw(){return baseline},get phase(){return phase}};
+})();

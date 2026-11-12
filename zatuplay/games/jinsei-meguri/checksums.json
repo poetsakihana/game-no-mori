@@ -1,0 +1,26 @@
+{
+  "store.js": {
+    "bytes": 4696,
+    "sha256": "c35bb7b210d8dc0b4df92b3e2b180270769512e0e4f88cc87a3f31f3971f01ad"
+  },
+  "world.js": {
+    "bytes": 8761,
+    "sha256": "eff56954daf5092be710474c064c5c8f1aeeb14e7dafc8bb679008086596fcf6"
+  },
+  "index.html": {
+    "bytes": 10375,
+    "sha256": "13971205ac34a2fd18f66cdb0af484d2fe9f9f0b0727bbe17ee1ec8b5f3ecbce"
+  },
+  "browser.js": {
+    "bytes": 3387,
+    "sha256": "e8a9fbd2d56b58821b07411ae23d1cbd450ad2b0125aba7ff638dacbe7e36e76"
+  },
+  "game.js": {
+    "bytes": 11555,
+    "sha256": "5ce34f5a4635660ba729661441eb8fe0b58e20fca64c9df58e65dd1e2dc6ff01"
+  },
+  "assets/events.png": {
+    "bytes": 2038592,
+    "sha256": "2772a07431497d3db9a4774e07c74104ab559184a4aa1355539b16f0584f9133"
+  }
+}
