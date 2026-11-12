@@ -351,5 +351,23 @@
       "Hidden/blur, corrupt storage and quota failures were model-tested, not independently triggered in public Chrome",
       "No full 2183-poem manual completion"
     ]
+  },
+  "publicCatalogQA": {
+    "checkedAt": "2026-11-12T04:17:35Z",
+    "registrationCommit": "ab17dcd4d19cf6fc3d04394f26403d1c3d9bdc75",
+    "pagesRun": 43153375621,
+    "checkoutShaVerified": true,
+    "buildJob": 130967579959,
+    "deployJob": 130967961114,
+    "catalogUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/browser/",
+    "counts": {
+      "published": 26,
+      "total": 62,
+      "preparing": 36
+    },
+    "sameTabSearchPlayAndReturn": true,
+    "retainedRecord": "4/2183 genuinely earned reads, partial poem5 さんぽ, story1/10; not fixture progress",
+    "gameAndCatalogConsoleErrors": 0,
+    "scope": "Catalog launch, existing-save display and return only. Earlier gameplay and other unverified limits remain separate."
   }
 }

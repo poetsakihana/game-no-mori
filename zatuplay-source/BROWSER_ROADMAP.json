@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-12T04:07:41Z",
+  "updatedAt": "2026-11-12T04:17:35Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -715,7 +715,8 @@
         "checks": [
           "web.1で通常移動・おさかな/お魚の両表記、シオリの両選択、4人と全12章/図鑑の代表操作を確認",
           "実JSON書出し/取消/同一ファイル確認復元/再読込、実2タブの競合保護、Escape停止と再開",
-          "web.2で0.2-web.2表示、既存2/516詩・1/36イベントの再読込保持、同じ画面でブラウザ一覧へ直接復帰、ゲーム由来console error0"
+          "web.2で0.2-web.2表示、既存2/516詩・1/36イベントの再読込保持、同じ画面でブラウザ一覧へ直接復帰、ゲーム由来console error0",
+          "公開一覧26/62作品・36準備中を実確認。作品名検索→「遊ぶ」から同じ画面で起動し、保存保持と一覧復帰を確認。みすゞ2/516詩・会話1/36を保持。"
         ]
       },
       {
@@ -725,7 +726,8 @@
           "web.2で通常操作から4詩読了、5詩目の光1個を収集、部分収集/位置の再読込保持、案内役の会話としずくの実描画",
           "別の境界試験として明示した9詩fixtureを通常JSON画面から復元し、10詩目の光3個/本文を通常操作。第2章解放・第3章未解放を再読込保持",
           "実ダウンロードした通常4詩記録を2回復元し、本保存と退避を通常記録へ戻した。通常10詩完走とは区別",
-          "実JSON取消/同一ファイル再選択/復元、2タブの書込保護、停止・WASD文字入力、お気に入り、一覧復帰を確認"
+          "実JSON取消/同一ファイル再選択/復元、2タブの書込保護、停止・WASD文字入力、お気に入り、一覧復帰を確認",
+          "公開一覧26/62作品・36準備中を実確認。作品名検索→「遊ぶ」から同じ画面で起動し、保存保持と一覧復帰を確認。咲華は通常獲得4/2183詩・5篇目さんぽの断片・第1章を保持し、fixtureの10詩ではないことを確認。"
         ]
       }
     ],
@@ -751,7 +753,11 @@
     "shikaiCorrectionPagesRunId": 43148863399,
     "misuzuCorrectionCommit": "efbaa54ad6e39e7f21a2f142d872b4c270829134",
     "misuzuCorrectionPagesRunId": 43149554534,
-    "misuzuPagesCommitEvidence": "run head metadataは直前版。build job130955239084のgit logでefbaa54を確認しdeploy130955601046成功。"
+    "misuzuPagesCommitEvidence": "run head metadataは直前版。build job130955239084のgit logでefbaa54を確認しdeploy130955601046成功。",
+    "catalogVerifiedAt": "2026-11-12T04:17:35Z",
+    "registrationCommit": "ab17dcd4d19cf6fc3d04394f26403d1c3d9bdc75",
+    "pagesRunId": 43153375621,
+    "pagesCommitEvidence": "同一headのPages成功。build job130967579959のgit logでも登録commitを確認、deploy130967961114成功。"
   },
   "publishedTargetCount": 18,
   "remainingTargetCount": 34,
@@ -1129,7 +1135,8 @@
           "checks": [
             "web.1で通常移動・おさかな/お魚の両表記、シオリの両選択、4人と全12章/図鑑の代表操作を確認",
             "実JSON書出し/取消/同一ファイル確認復元/再読込、実2タブの競合保護、Escape停止と再開",
-            "web.2で0.2-web.2表示、既存2/516詩・1/36イベントの再読込保持、同じ画面でブラウザ一覧へ直接復帰、ゲーム由来console error0"
+            "web.2で0.2-web.2表示、既存2/516詩・1/36イベントの再読込保持、同じ画面でブラウザ一覧へ直接復帰、ゲーム由来console error0",
+            "公開一覧26/62作品・36準備中を実確認。作品名検索→「遊ぶ」から同じ画面で起動し、保存保持と一覧復帰を確認。みすゞ2/516詩・会話1/36を保持。"
           ]
         },
         {
@@ -1139,7 +1146,8 @@
             "web.2で通常操作から4詩読了、5詩目の光1個を収集、部分収集/位置の再読込保持、案内役の会話としずくの実描画",
             "別の境界試験として明示した9詩fixtureを通常JSON画面から復元し、10詩目の光3個/本文を通常操作。第2章解放・第3章未解放を再読込保持",
             "実ダウンロードした通常4詩記録を2回復元し、本保存と退避を通常記録へ戻した。通常10詩完走とは区別",
-            "実JSON取消/同一ファイル再選択/復元、2タブの書込保護、停止・WASD文字入力、お気に入り、一覧復帰を確認"
+            "実JSON取消/同一ファイル再選択/復元、2タブの書込保護、停止・WASD文字入力、お気に入り、一覧復帰を確認",
+            "公開一覧26/62作品・36準備中を実確認。作品名検索→「遊ぶ」から同じ画面で起動し、保存保持と一覧復帰を確認。咲華は通常獲得4/2183詩・5篇目さんぽの断片・第1章を保持し、fixtureの10詩ではないことを確認。"
           ]
         }
       ],
@@ -1165,7 +1173,11 @@
       "shikaiCorrectionPagesRunId": 43148863399,
       "misuzuCorrectionCommit": "efbaa54ad6e39e7f21a2f142d872b4c270829134",
       "misuzuCorrectionPagesRunId": 43149554534,
-      "misuzuPagesCommitEvidence": "run head metadataは直前版。build job130955239084のgit logでefbaa54を確認しdeploy130955601046成功。"
+      "misuzuPagesCommitEvidence": "run head metadataは直前版。build job130955239084のgit logでefbaa54を確認しdeploy130955601046成功。",
+      "catalogVerifiedAt": "2026-11-12T04:17:35Z",
+      "registrationCommit": "ab17dcd4d19cf6fc3d04394f26403d1c3d9bdc75",
+      "pagesRunId": 43153375621,
+      "pagesCommitEvidence": "同一headのPages成功。build job130967579959のgit logでも登録commitを確認、deploy130967961114成功。"
     }
   ]
 }

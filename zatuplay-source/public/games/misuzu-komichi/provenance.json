@@ -97,7 +97,7 @@
       "Actual visibility/blur/pointercancel and delayed import races remain model-only",
       "No real quota/storage refusal/unsupported-lock test",
       "Audio listening and offline relaunch unverified",
-      "Catalog registration and launch remain to be verified"
+      "Catalog launch was checked separately after registration; see publicCatalogQA"
     ]
   },
   "browserIntegrationRevision": {
@@ -124,5 +124,23 @@
       "No game-origin error/warning in captured console log"
     ],
     "limits": "Targeted integration regression only. No repeat of web.1 gameplay/import testing; catalog launch not yet applicable before registration. Earlier documented unverified limits remain."
+  },
+  "publicCatalogQA": {
+    "checkedAt": "2026-11-12T04:17:35Z",
+    "registrationCommit": "ab17dcd4d19cf6fc3d04394f26403d1c3d9bdc75",
+    "pagesRun": 43153375621,
+    "checkoutShaVerified": true,
+    "buildJob": 130967579959,
+    "deployJob": 130967961114,
+    "catalogUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/browser/",
+    "counts": {
+      "published": 26,
+      "total": 62,
+      "preparing": 36
+    },
+    "sameTabSearchPlayAndReturn": true,
+    "retainedRecord": "2/516 poems and 1/36 encounters",
+    "gameAndCatalogConsoleErrors": 0,
+    "scope": "Catalog launch, existing-save display and return only. Earlier gameplay and other unverified limits remain separate."
   }
 }
