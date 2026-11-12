@@ -2,7 +2,7 @@
   "title": "フライフレンズ / FryFriends",
   "collectionId": "collection-35",
   "apkVersion": "0.3.0",
-  "browserVersion": "0.3.0-web.2",
+  "browserVersion": "0.3.0-web.3",
   "originalApk": {
     "filename": "35.FryFriends-0.3.0.apk",
     "bytes": 27824701,
@@ -1187,5 +1187,9 @@
     "start": "const names=",
     "sha256": "93038a4fcdf92537427380c290be041ad145dddfc2f246d32c61cf881ab592d7"
   },
-  "adaptation": "Original offline DOM puzzle and all 115 original images preserved. Browser save, backup, input-lifecycle and navigation additions. No APK wrapper or signing files."
+  "adaptation": "Original offline DOM puzzle and all 115 original images preserved. Browser save, backup, input-lifecycle and navigation additions. No APK wrapper or signing files.",
+  "browserValidation": {
+    "automatedSuites": 23,
+    "publicChrome": "Partial web.2 test: restored genuine chapter-1 board; diagonal taps followed by outside-board Commit earned 30 points; Enter/Space selection and backtracking then Commit reached 60 points, 16 moves. Normal drag revealed cancellation across board gaps. The web.3 fix and red/green regression preserve interior gaps while cancelling true outside/null/interrupted input. Independent gap review passed 10/10 groups. Actual web.3 public Chrome retest remains pending. No manual chapter clear, real file import/export, two-tab or endless completion is claimed."
+  }
 }

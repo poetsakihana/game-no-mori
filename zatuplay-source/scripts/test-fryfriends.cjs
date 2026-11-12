@@ -80,6 +80,23 @@ await test('Completed taps survive leaving the board for Commit; active drags st
  assert.deepEqual(h.game().selected,[0,7,12]);h.pointer('pointerleave',null);assert.deepEqual(h.game().selected,[0,7,12]);h.click('commit');assert.equal(h.game().score,30);assert.equal(h.game().moves,29);
  for(const ending of ['pointerleave','lostpointercapture']){h.run('game.board=Array(36).fill(0);paint()');h.pointer('pointerdown',0);h.pointer('pointermove',7);h.pointer('pointermove',12);h.pointer(ending,null);h.pointer('pointerup',12);h.click('commit');assert.deepEqual(h.game().selected,[]);assert.equal(h.game().score,30);assert.equal(h.game().moves,29)}await h.settle();
 });
+await test('Drag traverses board gaps/padding/descendants; outside/null/cancel/leave and released input remain safe',async()=>{
+ const h=createHarness();h.click('endless');h.run('game.board=Array(36).fill(0);paint()');
+ const moveOver=hit=>{const original=h.document.elementFromPoint;h.document.elementFromPoint=()=>hit;h.pointer('pointermove',null);h.document.elementFromPoint=original};
+ h.pointer('pointerdown',0);h.pointer('pointermove',null);assert.deepEqual(h.game().selected,[0]);assert.ok(h.run('drag'));
+ const decoration=h.document.createElement('span');h.document.querySelector('.board').append(decoration);moveOver(decoration);assert.deepEqual(h.game().selected,[0]);assert.ok(h.run('drag'));
+ moveOver(h.document.querySelector('[data-tile="7"] img'));h.pointer('pointermove',null);h.pointer('pointermove',14);assert.deepEqual(h.game().selected,[0,7,14]);
+ h.pointer('pointermove',null);h.pointer('pointermove',7);h.pointer('pointermove',null);h.pointer('pointermove',0);assert.deepEqual(h.game().selected,[0]);
+ h.pointer('pointermove',7);h.pointer('pointermove',null);h.pointer('pointermove',14);h.pointer('pointerup',null);assert.equal(h.game().score,30);assert.equal(h.game().moves,29);
+ h.pointer('pointermove',null);h.pointer('pointermove',2);h.pointer('pointerup',2);assert.deepEqual(h.game().selected,[]);assert.equal(h.game().moves,29);
+ for(const finish of ['outside','null','pointerleave','pointercancel','lostpointercapture','blur']){
+  h.run('game.board=Array(36).fill(0);paint()');h.pointer('pointerdown',0);h.pointer('pointermove',null);h.pointer('pointermove',7);
+  if(finish==='outside'||finish==='null')moveOver(finish==='null'?null:h.document.body);else if(finish==='blur')h.windowEvent('blur');else h.pointer(finish,null);
+  h.pointer('pointermove',14);h.pointer('pointerup',14);h.click('commit');assert.deepEqual(h.game().selected,[]);assert.equal(h.game().moves,29);assert.equal(h.game().score,30);if(finish==='blur')h.click('resumeInput');
+ }
+ h.pointer('pointerdown',0);h.pointer('pointerup',0);h.pointer('pointermove',null);assert.deepEqual(h.game().selected,[0]);h.pointer('pointermove',7);assert.deepEqual(h.game().selected,[0]);
+ await h.settle();
+});
 await test('Unfinished board preserved through home/reload; abandonment cancel or backed-up confirmation',async()=>{
  const h=createHarness();start(h);ordinaryTurn(h);h.click('shuffle');h.click('sound');const a=h.state().attempt;h.click('back');assert.deepEqual(h.state().attempt,a);await h.settle();const r=createHarness({storage:h.storage});assert.equal(r.state().sound,true);assert.deepEqual(r.state().attempt,a);assert.equal(r.state().screen,'home');r.click('resume');assert.deepEqual(r.state().attempt,a);assert.deepEqual(r.game().selected,[]);r.click('back');r.setConfirm(false);r.click('endless');await r.settle();assert.deepEqual(r.state().attempt,a);r.setConfirm(true);r.click('endless');await r.settle();assert.equal(r.game().index,-1);assert.deepEqual(r.run('FryStore.decodeBackup(FryStore.backup()).attempt')&&json(r.run('FryStore.decodeBackup(FryStore.backup()).attempt')),a);
 });
@@ -137,7 +154,7 @@ await test('Catalog departure warns only when current record is unsaved, and can
  const h=createHarness({lockManager:null});start(h);h.setConfirm(false);const before=h.state(),e=h.click('catalogLink');assert.equal(e.defaultPrevented,true);assert.deepEqual(h.state(),before);assert.match(h.confirmations.at(-1),/保存が完了/);h.setConfirm(true);assert.equal(h.click('catalogLink').defaultPrevented,false);const t=createHarness();start(t);await t.settle();t.click('catalogLink');assert.equal(t.confirmations.length,0);
 });
 await test('Versioned resources, safety/credits, relative catalog link, checksums and exact mirror',()=>{
- const html=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.match(html,/href="\.\.\/\.\.\/index.html"/);assert.match(html,/実際の油には入らない/);for(const m of html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css))([^" ]*)"/g))assert.equal(m[2],'?v=0.3.0-web.2');
+ const html=fs.readFileSync(path.join(root,'index.html'),'utf8');assert.match(html,/href="\.\.\/\.\.\/index.html"/);assert.match(html,/実際の油には入らない/);for(const m of html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css))([^" ]*)"/g))assert.equal(m[2],'?v=0.3.0-web.3');
  const list=fs.readFileSync(path.join(root,'CHECKSUMS.sha256'),'utf8').trim().split('\n');for(const line of list){const [hash,file]=line.split('  ');const b=fs.readFileSync(path.join(root,file));assert.equal(sha(b),hash,file);assert.deepEqual(b,fs.readFileSync(path.resolve(root,'../../../../zatuplay/games/fryfriends',file)))}
 });
 console.log(`PASS: ${tests.length} suites. DOM/storage/locks/input models plus real image decode. Public Chrome and actual downloads remain separate.`);
