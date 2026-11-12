@@ -2,7 +2,7 @@
 
 ## Local modeled evidence
 
-`node scripts/test-model.cjs` currently reports 109 assertions. `node scripts/test-interruptions.cjs` reports 8 interrupted-flow assertions. Independent production regression: storage 32, validator 12, extended fixtures 10, long-term fixtures 20, async 9 checks pass. The long-term suite includes the 10 extended cases; do not sum these as unique coverage. Test imports use synthetic locally constructed state; no real user credentials/media are involved. Fake IndexedDB and linkedom are testing implementations, not browser verification. All 37 original scripts load along with the extracted inline script and adapters. Story branch tests exercise all 64 paths and post gates in the original story functions; they are not manual story playthroughs.
+`node scripts/test-model.cjs` currently reports 109 assertions. `node scripts/test-interruptions.cjs` reports 17 interrupted-flow assertions. Independent production regression: storage 32, validator 12, extended fixtures 10, long-term fixtures 20, async 9 checks pass. The long-term suite includes the 10 extended cases; do not sum these as unique coverage. Test imports use synthetic locally constructed state; no real user credentials/media are involved. Fake IndexedDB and linkedom are testing implementations, not browser verification. All 37 original scripts load along with the extracted inline script and adapters. Story branch tests exercise all 64 paths and post gates in the original story functions; they are not manual story playthroughs.
 
 ## Required actual public/local browser checklist
 
@@ -22,3 +22,7 @@ Independent findings addressed: late async/profile/dialog/CPU cache work, CPU re
 ## Independent review
 
 Review date 2026-11-12. The separate reviewer ran the production validator/store against synthetic data and original runtime-generated monthly and seasonal settlement records. Every original path is retained: 335 unchanged, 15 intentionally changed, zero missing; all original asset bytes are unchanged. See the accompanying independent-review report and portable test scripts. This is not exhaustive proof for every long-lived extension state.
+
+### Conflict-message regression
+
+Composer save failure now distinguishes another-tab conflict, corrupt records, unavailable storage and quota. A modeled competing write verifies the form explains the conflict without claiming low capacity, rolls back the unsaved post and preserves competing durable bytes. The 17 interrupted-flow checks include five message mappings and four actual modeled publish-conflict outcomes. Actual Chrome recheck belongs to the coordinator.

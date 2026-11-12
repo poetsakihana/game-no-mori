@@ -21,6 +21,6 @@ This is a fictional, device-local SNS simulation, not an online social network. 
 
 ## Verification status
 
-Local full-source DOM/IndexedDB model tests currently pass **109 assertions**, including local registration/real PBKDF2, original text posting, six chapter gates and completion, all 64 choice branches, 17 route renders, JSON cancel/accept, reload/remembered account, and reader isolation. Eight additional interrupted-flow model assertions pass. Independent review results are recorded in QA.md. These are modeled DOM, locks and IndexedDB, not physical browser/phone/media acceptance.
+Local full-source DOM/IndexedDB model tests currently pass **109 assertions**, including local registration/real PBKDF2, original text posting, six chapter gates and completion, all 64 choice branches, 17 route renders, JSON cancel/accept, reload/remembered account, and reader isolation. Seventeen additional interrupted-flow model assertions pass. Independent review results are recorded in QA.md. These are modeled DOM, locks and IndexedDB, not physical browser/phone/media acceptance.
 
 Independent security/import-schema findings have been addressed and production regression passed with no remaining reproduced blocker in tested paths. Actual browser acceptance remains pending. This folder is a candidate, not approval to publish or add to the catalogue. See QA.md. No actual Chrome UI, image/video/audio picker/playback, physical device, Safari/Firefox, or full simulation-time acceptance has been completed for this port.
