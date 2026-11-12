@@ -1,0 +1,35 @@
+{
+  "sourceFilename": "09.イライラ棒-v1.0.apk",
+  "sourceBytes": 25046,
+  "sourceSha256": "07efe7a802952055b06bcee6917030abda0eeffaa924ebfa49feabc55cad9132",
+  "nativePackage": "jp.sakihana.irairabo",
+  "browserVersion": "1.0-web.1",
+  "sourceType": "Android native Canvas; no assets directory or recorded media",
+  "sourceEntries": [
+    {
+      "path": "AndroidManifest.xml",
+      "bytes": 2252,
+      "sha256": "b1975d245c8a68db320272e3b02d7d08c4bc4ea3a3f09a1d0979633d9ec0a767"
+    },
+    {
+      "path": "res/drawable/icon.xml",
+      "bytes": 944,
+      "sha256": "77d5d938e3a6b27f6bc5d5ad4a989a7eb51fc61552d6eb49e760ac995fd29986"
+    },
+    {
+      "path": "resources.arsc",
+      "bytes": 572,
+      "sha256": "ef6c64b5ec8d73c24997bc8ff36efbfdab8be9667613e4583911bac1188a4a92"
+    },
+    {
+      "path": "classes.dex",
+      "bytes": 13932,
+      "sha256": "f0f517082720eabe499588bbccdade04903a457abff4ae8d740257b220c9edc0"
+    }
+  ],
+  "rules": "NATIVE_SPEC.md",
+  "stageCount": 30,
+  "verticesPerStage": 221,
+  "sourceBinaryModified": false,
+  "note": "Original APK retained unchanged. Only the four non-signature entries are enumerated here. Browser code is a transcription of the native implementation, not an extracted web game."
+}

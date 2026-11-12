@@ -1,0 +1,135 @@
+{
+  "game": "Can to Crown",
+  "browserVersion": "2.1-web.1",
+  "original": {
+    "filename": "05.Can-to-Crown-v2.1.apk",
+    "bytes": 33260,
+    "sha256": "751fac70a6da76834e0ad668040e0a84bf3f178b944a90def2ea32bcf650e30d",
+    "package": "jp.sakihana.cantycoon",
+    "files": [
+      {
+        "name": "AndroidManifest.xml",
+        "bytes": 2016,
+        "sha256": "7ab0ba4dbfc0ac92522ae5e8058851a0a36f1aa960a7f8f4e7735576c46a5227"
+      },
+      {
+        "name": "res/drawable/icon.xml",
+        "bytes": 4540,
+        "sha256": "78550dfbe6c4123b78e8b63c18ac49cd78da75523e2bfc02130ab5bdf41de079"
+      },
+      {
+        "name": "resources.arsc",
+        "bytes": 572,
+        "sha256": "d9b22d43c5f41325ea3400955b96e3b91d13b9320c847b6de910c254ebdc30fc"
+      },
+      {
+        "name": "classes.dex",
+        "bytes": 43656,
+        "sha256": "e84a0887e007fd1346ac15911a3b937b0184d8e4beae3c737e8602915cd9e028"
+      }
+    ]
+  },
+  "preservedExecutable": {
+    "path": "reference/classes.dex",
+    "bytes": 43656,
+    "sha256": "e84a0887e007fd1346ac15911a3b937b0184d8e4beae3c737e8602915cd9e028"
+  },
+  "extractedData": {
+    "path": "reference/original-data.json",
+    "bytes": 7817,
+    "sha256": "a6e105ac5843edf89fc17fdb63f35354234696f0e19b81484ec0773f1d791d10",
+    "tables": {
+      "expansion.EVENTS": {
+        "length": 20,
+        "sha256CanonicalUtf8": "1a363e44283eb9b85623624e356050e7421afb6420d93b1aa5a287544ee3f0d4"
+      },
+      "expansion.DETAILS": {
+        "length": 20,
+        "sha256CanonicalUtf8": "ae1ae49fe6ab4c8673de6f556396d95e8d34e5ee06e83d7a35042c8626d102a9"
+      },
+      "expansion.EFFECT": {
+        "length": 20,
+        "sha256CanonicalUtf8": "f402ad619d7636fdd7ad09752569320a68343e4ca246822de7639cf6b90a7e8b"
+      },
+      "expansion.PEOPLE": {
+        "length": 20,
+        "sha256CanonicalUtf8": "96e3963c824eb102dd35d8fe8dadcff36026227fb7cecb2fd299e273df44ac80"
+      },
+      "expansion.TALKS": {
+        "length": 20,
+        "sha256CanonicalUtf8": "24ec6683984b83b1abaeb4ecb7f5d8a56aaf4312c631e131ac974e40513af255"
+      },
+      "expansion.QUESTS": {
+        "length": 20,
+        "sha256CanonicalUtf8": "18ca273d4b6cc46303091773394c51437f67c1a282011a0179174830ed675fab"
+      },
+      "expansion.QTYPE": {
+        "length": 20,
+        "sha256CanonicalUtf8": "5745538ed755d8f5e97a1b5b3f2d3f7a67d6e689333d8bf8bc9ec19d83d87198"
+      },
+      "expansion.NEED": {
+        "length": 20,
+        "sha256CanonicalUtf8": "a2f083598e53e28f11e8c92fbf4892439690cf08268f974ec25b72f65c014e12"
+      },
+      "expansion.ITEMS": {
+        "length": 20,
+        "sha256CanonicalUtf8": "c1104ac47d620a2dbd2b46f62a55e207f7179e00f0e75da0131617bcec8327e2"
+      },
+      "expansion.ACHIEVEMENTS": {
+        "length": 20,
+        "sha256CanonicalUtf8": "241957fe27823fd18c4550d02fc7fe872ad671a5f09343919e529f6ad1f5a0aa"
+      },
+      "expansion.ATYPE": {
+        "length": 20,
+        "sha256CanonicalUtf8": "f2a174ea130f51ffdfac7df085301bbb9ae827ecd060909ab1fa3f48bdde6ac6"
+      },
+      "expansion.ANEED": {
+        "length": 20,
+        "sha256CanonicalUtf8": "bcec4c3356d83b3c120cde6dbf3c06627e411594f0bdc4d967dcda2bbe56edf0"
+      },
+      "base.areas": {
+        "length": 5
+      },
+      "base.prices": {
+        "length": 5
+      },
+      "base.unlock": {
+        "length": 5
+      },
+      "base.costs": {
+        "length": 6
+      },
+      "base.bizNames": {
+        "length": 6
+      },
+      "base.income": {
+        "length": 6
+      },
+      "base.questDescriptions": {
+        "length": 6
+      },
+      "base.homeNames": {
+        "length": 5
+      }
+    }
+  },
+  "nativePresentation": {
+    "width": 400,
+    "height": 800,
+    "renderer": "Android Canvas 2D",
+    "externalImages": 0,
+    "externalAudio": 0,
+    "audio": "ToneGenerator notification tones, 65 ms"
+  },
+  "browserAdaptations": [
+    "Canvas 2D with accessible DOM controls at the original coordinates",
+    "Web Audio synthesized notification tones; not a waveform-identical Android audio implementation",
+    "Validated local browser persistence, JSON backup/restore, explicit pause/resume and conflict protection",
+    "Preserve wall-clock buff expirations; activity-clock business income and event interval",
+    "Persist current page, can variants and pending event in addition to original saved fields"
+  ],
+  "publication": {
+    "status": "awaiting_real_browser_QA",
+    "catalogAdded": false
+  }
+}

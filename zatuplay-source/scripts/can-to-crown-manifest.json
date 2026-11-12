@@ -1,0 +1,115 @@
+{
+  "game": "Can to Crown",
+  "version": "2.1-web.1",
+  "files": [
+    {
+      "path": "zatuplay/games/can-to-crown/PORTING_NOTES.md",
+      "bytes": 4430,
+      "sha256": "d3be7f6547cf6ff28c99161249d659082083afd9bd42ee9f54148c08ccfbc305"
+    },
+    {
+      "path": "zatuplay/games/can-to-crown/README.md",
+      "bytes": 8394,
+      "sha256": "bc2959553cb1a5134fa2747b62adfb9322759ba57a4eae82a1944b8c9369b38a"
+    },
+    {
+      "path": "zatuplay/games/can-to-crown/app.js",
+      "bytes": 26908,
+      "sha256": "9b9f36b441553f6efa8b9ce051bf1108a4ff44cf1afda25c2b07e7fec550e8b0"
+    },
+    {
+      "path": "zatuplay/games/can-to-crown/core.js",
+      "bytes": 12424,
+      "sha256": "7ab34cd363dbce4012118504c35c90c6648d4313192e1abbc3e1f38f65f1244b"
+    },
+    {
+      "path": "zatuplay/games/can-to-crown/index.html",
+      "bytes": 3179,
+      "sha256": "848d33d7ca7cdb1db1a45cfe58919f9787c95fedf32a4f21c6593eeb5b05bc37"
+    },
+    {
+      "path": "zatuplay/games/can-to-crown/original-source.json",
+      "bytes": 4421,
+      "sha256": "25e10627626f42f7ff7c7eaadc4a94eb0726dd810642e1d97c22de1055e8103d"
+    },
+    {
+      "path": "zatuplay/games/can-to-crown/reference/classes.dex",
+      "bytes": 43656,
+      "sha256": "e84a0887e007fd1346ac15911a3b937b0184d8e4beae3c737e8602915cd9e028"
+    },
+    {
+      "path": "zatuplay/games/can-to-crown/reference/original-data.json",
+      "bytes": 7817,
+      "sha256": "a6e105ac5843edf89fc17fdb63f35354234696f0e19b81484ec0773f1d791d10"
+    },
+    {
+      "path": "zatuplay/games/can-to-crown/style.css",
+      "bytes": 3152,
+      "sha256": "5bcc7accf5e2dd1a73702f1d64c4725c513d05a925eb29d348a0149e59edb9a7"
+    },
+    {
+      "path": "zatuplay-source/public/games/can-to-crown/PORTING_NOTES.md",
+      "bytes": 4430,
+      "sha256": "d3be7f6547cf6ff28c99161249d659082083afd9bd42ee9f54148c08ccfbc305"
+    },
+    {
+      "path": "zatuplay-source/public/games/can-to-crown/README.md",
+      "bytes": 8394,
+      "sha256": "bc2959553cb1a5134fa2747b62adfb9322759ba57a4eae82a1944b8c9369b38a"
+    },
+    {
+      "path": "zatuplay-source/public/games/can-to-crown/app.js",
+      "bytes": 26908,
+      "sha256": "9b9f36b441553f6efa8b9ce051bf1108a4ff44cf1afda25c2b07e7fec550e8b0"
+    },
+    {
+      "path": "zatuplay-source/public/games/can-to-crown/core.js",
+      "bytes": 12424,
+      "sha256": "7ab34cd363dbce4012118504c35c90c6648d4313192e1abbc3e1f38f65f1244b"
+    },
+    {
+      "path": "zatuplay-source/public/games/can-to-crown/index.html",
+      "bytes": 3179,
+      "sha256": "848d33d7ca7cdb1db1a45cfe58919f9787c95fedf32a4f21c6593eeb5b05bc37"
+    },
+    {
+      "path": "zatuplay-source/public/games/can-to-crown/original-source.json",
+      "bytes": 4421,
+      "sha256": "25e10627626f42f7ff7c7eaadc4a94eb0726dd810642e1d97c22de1055e8103d"
+    },
+    {
+      "path": "zatuplay-source/public/games/can-to-crown/reference/classes.dex",
+      "bytes": 43656,
+      "sha256": "e84a0887e007fd1346ac15911a3b937b0184d8e4beae3c737e8602915cd9e028"
+    },
+    {
+      "path": "zatuplay-source/public/games/can-to-crown/reference/original-data.json",
+      "bytes": 7817,
+      "sha256": "a6e105ac5843edf89fc17fdb63f35354234696f0e19b81484ec0773f1d791d10"
+    },
+    {
+      "path": "zatuplay-source/public/games/can-to-crown/style.css",
+      "bytes": 3152,
+      "sha256": "5bcc7accf5e2dd1a73702f1d64c4725c513d05a925eb29d348a0149e59edb9a7"
+    },
+    {
+      "path": "zatuplay-source/scripts/extract-can-to-crown.py",
+      "bytes": 3375,
+      "sha256": "bef5af4ef3c1bbd7529c39994bc093e71fb9c25fa5fd35b149c00bb39fb562d6"
+    },
+    {
+      "path": "zatuplay-source/scripts/can-to-crown-harness.cjs",
+      "bytes": 5334,
+      "sha256": "293f114febee9c6f18509d3bc62a5830fa74519d27dfe2651b3c1361ac7a3c05"
+    },
+    {
+      "path": "zatuplay-source/scripts/test-can-to-crown.cjs",
+      "bytes": 19422,
+      "sha256": "77b473aa38eaf9e540c3036d743e77a0319ffbb458d7dad640c082afd90a2ce8"
+    }
+  ],
+  "excludedSelfReferences": [
+    "zatuplay-source/scripts/can-to-crown-manifest.json",
+    "zatuplay-source/scripts/can-to-crown-files.sha256"
+  ]
+}

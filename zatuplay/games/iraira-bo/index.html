@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#070f1d"><title>イライラ棒 · NEON MAZE | ZatuPlay</title><link rel="stylesheet" href="style.css?v=18414bd471e6"></head>
+<body><header><a href="../../browser/">← ZatuPlay 一覧</a><span>イライラ棒 <small>1.0-web.1</small></span></header>
+<main><p id="load-error" role="alert">ゲームを読み込み中です。表示されない場合は通信を確認し、再読み込みしてください。</p>
+<div id="game-frame" class="game-frame" hidden><canvas id="game" width="720" height="1600" tabindex="0" aria-label="ネオン迷路。棒の近くを押してドラッグ、または矢印キーで移動。Escで一時停止。"></canvas><div id="buttons" aria-label="ゲーム操作"></div></div>
+<p id="game-status" class="sr-only" aria-live="polite"></p>
+<div class="utility"><button id="pause" disabled>一時停止</button><button id="sound">効果音 ON</button><button id="help-button" aria-expanded="false" aria-controls="help">操作説明</button></div>
+<p id="save-status" role="status">保存を確認しています</p><div class="utility"><button id="retry-save" hidden>保存を再試行</button><button id="reload" hidden>保存を読み直す</button></div>
+<p id="audio-status" role="status"></p>
+<section id="help" hidden><h1>イライラ棒の遊び方</h1><p>金色の棒から65px以内を押してドラッグ。指・マウスの移動量の80%だけ棒が動きます。離すと棒は止まりますが、残り時間は減ります。水色の道の壁に触れず、上のGOALを目指してください。</p><p>キーボードは矢印 / WASDで移動、Shiftでゆっくり移動。Esc / Spaceは一時停止。TabとEnterでボタンを選べます。下の方向ボタンは押している間だけ動きます。</p><div id="direction-pad" aria-label="方向ボタン"><button data-direction="ArrowUp" aria-label="上へ">↑</button><button data-direction="ArrowLeft" aria-label="左へ">←</button><button data-direction="ArrowDown" aria-label="下へ">↓</button><button data-direction="ArrowRight" aria-label="右へ">→</button></div><p>全30ステージ。クリアすると次の1面が開き、最短タイムを記録します。停止・タブ切替・画面を離れた後は「つづける」で再開してください。</p><p>進行・設定・途中位置をこのブラウザに保存します。Android版との自動同期はありません。保存は約1秒ごとと操作の区切りに行うため、強制終了直前の操作が残らない場合があります。</p><p>起動時は通信が必要です。オフライン保証はありません。効果音はブラウザで合成しており、端末により音色が異なります。原作にはBGMはありません。</p></section>
+<footer>元APKの全30コース・ルールを移植。<a href="README.md">移植内容・確認範囲</a></footer></main>
+<noscript>遊ぶにはJavaScriptを有効にしてください。</noscript>
+<script src="model.js?v=c87f0db0fb20"></script><script src="game.js?v=8875f1605f9e"></script>
+</body></html>
