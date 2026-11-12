@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-11T23:41:10.982Z",
+  "updatedAt": "2026-11-12T00:22:40Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -372,14 +372,14 @@
     {
       "id": "collection-17",
       "name": "なぞなぞ王",
-      "status": "queued",
+      "status": "published",
       "priority": 1117,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/riddle-king/?v=1.1-web.1",
+      "browserVersion": "1.1-web.1",
+      "checkedAt": "2026-11-12T00:22:40Z",
+      "lastAttemptAt": "2026-11-12T00:22:40Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-18",
@@ -540,14 +540,14 @@
     {
       "id": "collection-34",
       "name": "PicrossMV",
-      "status": "queued",
+      "status": "published",
       "priority": 1134,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/picross-mv/?v=0.1.0-web.1",
+      "browserVersion": "0.1.0-web.1",
+      "checkedAt": "2026-11-12T00:22:40Z",
+      "lastAttemptAt": "2026-11-12T00:22:40Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-35",
@@ -707,39 +707,49 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-11T23:41:10.982Z",
+    "checkedAt": "2026-11-12T00:22:40Z",
     "apps": [
       {
-        "id": "collection-50",
-        "checkedAt": "2026-11-11T23:41:10.982Z",
+        "id": "collection-17",
+        "checkedAt": "2026-11-12T00:22:40Z",
         "checks": [
-          "公開URLでOPをスキップし、EasyRPG Playerで原作Disk 1の冒頭会話と第1章を開始",
-          "キーボード・画面A/B・方向ボタンで会話、移動、メニューを操作し、寝室から町へ移動",
-          "ゲーム内で枠1/2に保存し、ページ全体の再読込後も同じ場所から再開",
-          "通常UIで.lsdを書出し、読込みで枠3へ追加。元の枠1/2を保持し、追加した枠から同位置に再開",
-          "原作ドット絵と新デザインの主人公顔を確認。新デザインの32bit画像互換修正後に警告とチェッカー表示が解消",
-          "ZatuPlayのブラウザ一覧へ同じアプリ内で戻るリンクを確認",
-          "登録後の公開一覧18作品とDoragonOut実リンクを確認。古いHTMLのキャッシュを避けるbuild指定入口から枠2の町へ再開し、新デザイン顔の正常表示と一覧復帰を再確認"
+          "公開Chromeで1〜22問を通常の回答UIから正答し、20問時点の21解放/22ロック、最終22/16000を確認",
+          "第2問の入力途中、第21問の正解画面を再読込保持。手動停止再開と音設定の保持を確認",
+          "21問済み・第22問途中のJSONを実ダウンロードして213 bytesの内容を検査。進行後の復元取消、同ファイル再選択・確認付き復元・再読込を確認",
+          "実2タブで保存更新を検出して古いタブの上書きを停止。古いタブに入力後も再読込で新しい22問済みの保存を保持",
+          "一覧への通常リンク遷移とゲーム由来error/warnなしを確認"
+        ]
+      },
+      {
+        "id": "collection-34",
+        "checkedAt": "2026-11-12T00:22:40Z",
+        "checks": [
+          "公開Chromeで55盤面と元APKの部分移植注記を確認。可視ヒントに従うセルクリックでBOARD01をクリアし1/55を再読込保持",
+          "塗り/右クリック×/一手戻す/矢印Enter/やり直し取消と確認、BOARD02の途中盤面と5秒以上の時間保存を確認",
+          "手動停止、12〜35サイズ絞込、35×35盤面の拡大/縮小・縦横スクロール・固定ヒント、操作説明Escを確認",
+          "実2タブで別タブ更新の警告と保存停止を確認。一覧への通常リンク遷移とゲーム由来error/warnなしを確認"
         ]
       }
     ],
     "logicChecks": {
-      "originalMaps": 741,
-      "unchangedCoreFileHashes": 747,
-      "storageAndInputRegressions": 24,
-      "existingBatchRegressions": 11,
-      "allDiskCacheReferencesPresent": true,
+      "picrossTestGroups": 12,
+      "picrossBoards": 55,
+      "picrossCells": 7805,
+      "riddleTestGroups": 20,
+      "riddleQuestions": 16000,
+      "independentlyCheckedNumericQuestions": 14980,
+      "independentlyCheckedCiphers": 1000,
       "sourceDeploymentMirrorMatched": true
     },
     "limitations": [
-      "原作全741マップ・全イベント・全戦闘・Disk 2/3の実攻略とDisk間引継ぎの通常UI試験は未実施",
-      "スマホ実機・Safari/Firefox・音の実聴取は未確認",
-      "市販曲・権利未確認の追加BGMは無音、一部画像は同梱RPGツクール素材に差替え",
-      "原作の冒頭に技による強制終了の注意あり。ブラウザでの再現を確認したものではない"
+      "Picross元APK自体が55盤面の部分移植・試作版。2003原作全編・500問・後半画像式問題・会話・解放条件・音声は元APKにも未収録",
+      "全55盤面と全16000問の通常イベント自動テストはテストモデル。全編の手動攻略ではない",
+      "スマホ実機/実タッチ、Safari/Firefox、実非表示/blur、低速回線、異常終了時の保存、なぞなぞ王の音実聴取は未確認",
+      "Picrossの解の一意性、Web Locks非対応時の完全同時保存は保証しない"
     ]
   },
-  "publishedTargetCount": 10,
-  "remainingTargetCount": 42,
+  "publishedTargetCount": 12,
+  "remainingTargetCount": 40,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
@@ -956,6 +966,48 @@
         "スマホ実機・Safari/Firefox・音の実聴取は未確認",
         "市販曲・権利未確認の追加BGMは無音、一部画像は同梱RPGツクール素材に差替え",
         "原作の冒頭に技による強制終了の注意あり。ブラウザでの再現を確認したものではない"
+      ]
+    },
+    {
+      "checkedAt": "2026-11-12T00:22:40Z",
+      "apps": [
+        {
+          "id": "collection-17",
+          "checkedAt": "2026-11-12T00:22:40Z",
+          "checks": [
+            "公開Chromeで1〜22問を通常の回答UIから正答し、20問時点の21解放/22ロック、最終22/16000を確認",
+            "第2問の入力途中、第21問の正解画面を再読込保持。手動停止再開と音設定の保持を確認",
+            "21問済み・第22問途中のJSONを実ダウンロードして213 bytesの内容を検査。進行後の復元取消、同ファイル再選択・確認付き復元・再読込を確認",
+            "実2タブで保存更新を検出して古いタブの上書きを停止。古いタブに入力後も再読込で新しい22問済みの保存を保持",
+            "一覧への通常リンク遷移とゲーム由来error/warnなしを確認"
+          ]
+        },
+        {
+          "id": "collection-34",
+          "checkedAt": "2026-11-12T00:22:40Z",
+          "checks": [
+            "公開Chromeで55盤面と元APKの部分移植注記を確認。可視ヒントに従うセルクリックでBOARD01をクリアし1/55を再読込保持",
+            "塗り/右クリック×/一手戻す/矢印Enter/やり直し取消と確認、BOARD02の途中盤面と5秒以上の時間保存を確認",
+            "手動停止、12〜35サイズ絞込、35×35盤面の拡大/縮小・縦横スクロール・固定ヒント、操作説明Escを確認",
+            "実2タブで別タブ更新の警告と保存停止を確認。一覧への通常リンク遷移とゲーム由来error/warnなしを確認"
+          ]
+        }
+      ],
+      "logicChecks": {
+        "picrossTestGroups": 12,
+        "picrossBoards": 55,
+        "picrossCells": 7805,
+        "riddleTestGroups": 20,
+        "riddleQuestions": 16000,
+        "independentlyCheckedNumericQuestions": 14980,
+        "independentlyCheckedCiphers": 1000,
+        "sourceDeploymentMirrorMatched": true
+      },
+      "limitations": [
+        "Picross元APK自体が55盤面の部分移植・試作版。2003原作全編・500問・後半画像式問題・会話・解放条件・音声は元APKにも未収録",
+        "全55盤面と全16000問の通常イベント自動テストはテストモデル。全編の手動攻略ではない",
+        "スマホ実機/実タッチ、Safari/Firefox、実非表示/blur、低速回線、異常終了時の保存、なぞなぞ王の音実聴取は未確認",
+        "Picrossの解の一意性、Web Locks非対応時の完全同時保存は保証しない"
       ]
     }
   ]

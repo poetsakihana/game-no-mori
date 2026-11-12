@@ -13,7 +13,7 @@
   "sourceAssetCount": 97,
   "browserAdaptationCount": 6,
   "gameFileCount": 103,
-  "gameTotalBytes": 13121126,
+  "gameTotalBytes": 13121997,
   "allChanges": [
     "zatuplay-source/public/games/picross-mv/Game.rpgproject",
     "zatuplay-source/public/games/picross-mv/LICENSE",
@@ -253,9 +253,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 11701,
-      "sha256": "9d74642f60308e4c92e9063551b3fad414f1078ddf015948cbce54ddf8d4d7b4",
-      "gitBlobSha1": "91e12616edb1a79a6e57c435f7aa00c47e2e6cbc",
+      "bytes": 12572,
+      "sha256": "ab609a19c14101fdf24c2c86f9598c97e99a003627dee4fa708b1dec412fa78e",
+      "gitBlobSha1": "0dc71038279922ee3bbb808ee1ccdd8b29b27579",
       "kind": "browser-adaptation"
     },
     {
@@ -1062,8 +1062,8 @@
     {
       "path": "zatuplay-source/scripts/picross-files.sha256",
       "bytes": 8612,
-      "sha256": "604faf963cc13d853d2f85dae70293b6857c8050e935b4a67c5ab7660e8e9679",
-      "gitBlobSha1": "dcb53a4c40909b2fbb719123734a17eceb6f7ddf"
+      "sha256": "2d4c67235c523921c84a45c42a85aaa51606d5ad84c285258cce67adbab12927",
+      "gitBlobSha1": "35204a97006dcaf80379d24d89a14e7278d33f2d"
     }
   ],
   "manifestSelfHash": "Not embedded; self-referential hash omitted. Compute externally after writing.",
@@ -1093,6 +1093,8 @@
     "productionBuildPassed": true,
     "diffCheckPassed": true,
     "independentReview": "12 groups independently passed; no remaining blocking findings.",
-    "realBrowserQA": "Not run by implementation worker; parent to perform public Chrome QA before catalog inclusion."
+    "realBrowserQA": "Public Chrome: BOARD01 normal cell-input clear and reload, BOARD02 partial cells/time reload, keyboard/undo/restart, manual pause, 35x35 zoom/scroll, cross-tab save protection and list return verified. Mobile, full manual walkthrough and abnormal close remain unverified.",
+    "publicChromeCheckedAt": "2026-11-12T00:22:40Z",
+    "publicChromeUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/picross-mv/?v=0.1.0-web.1"
   }
 }

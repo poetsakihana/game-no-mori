@@ -126,7 +126,21 @@
       "version": "2.5.2-web.1",
       "checkedAt": "2026-11-11T23:41:10.982Z",
       "note": "原作3Disk・741マップ。ChromeでDisk 1の会話・町への移動、画面ボタン、保存・再読込・.lsd書出し読込み、両画像モードを確認。市販曲等のBGMを無音化し、一部画像を差し替えています。APKとは自動同期しません。全編・Disk 2/3の実攻略・スマホ実機・音の実聴取は未確認。"
+    },
+    {
+      "id": "collection-17",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/riddle-king/?v=1.1-web.1",
+      "version": "1.1-web.1",
+      "checkedAt": "2026-11-12T00:22:40Z",
+      "note": "元APKの16,000問を保持。Chromeで22問の正答・順次解放、入力途中/正解画面の再読込、JSON書出し/確認付き復元、別タブの上書き防止を確認。音設定の保持は確認済み、実聴取・全問の手動攻略・スマホ実機・Safari/Firefoxは未確認。APKとは自動同期しません。"
+    },
+    {
+      "id": "collection-34",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/picross-mv/?v=0.1.0-web.1",
+      "version": "0.1.0-web.1",
+      "checkedAt": "2026-11-12T00:22:40Z",
+      "note": "元APKも55盤面の部分移植・試作版で原作全編ではありません。Chromeで最初の盤面クリア、塗り/×/時間とクリア記録の再読込、キー入力、手動停止、35×35表示/拡大/スクロール、別タブの保存保護を確認。元APKに音声なし。全55面の手動攻略・スマホ実機・Safari/Firefoxは未確認。APKとは自動同期しません。"
     }
   ],
-  "updatedAt": "2026-11-11T23:41:10.982Z"
+  "updatedAt": "2026-11-12T00:22:40Z"
 }
