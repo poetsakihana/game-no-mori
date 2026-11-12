@@ -67,9 +67,11 @@ $('import').addEventListener('change',async()=>{
   const value=C.decode(raw);pendingImport=raw;$('import-info').textContent=`${value.state.name} · 解放 ${value.state.unlocked}面 · BEST ${value.state.best}点`;openDialog('import-dialog');status('内容を確認して復元するか選んでください。');
  }catch(e){if(generation===importGeneration)status('読み込めません：'+e.message);}
 });
-$('import-cancel').addEventListener('click',()=>{importGeneration++;pendingImport=null;closeDialog('import-dialog');});
+function cancelImport(){importGeneration++;pendingImport=null;closeDialog('import-dialog');status('復元をキャンセルしました。記録の置き換えは行っていません。');}
+$('import-cancel').addEventListener('click',cancelImport);
 $('import-confirm').addEventListener('click',()=>{const raw=pendingImport;importGeneration++;pendingImport=null;if(!raw||memoryOnly||!ownsLock)return;closeDialog('import-dialog');try{const s=store.import(raw);originalRaw=store.expected;if(s.screen==='play')s.paused=true;attachGame(s);sound.stop();failed=false;ready=false;draw();curtain('記録を復元しました','はじめるを押して進んでください。途中の戦況は停止状態です。',{begin:true});$('begin').textContent='はじめる';status('記録を復元しました。以前の記録もバックアップに保管しています。');}catch(e){protect(e);}});
-for(const id of ['name-dialog','import-dialog'])$(id).addEventListener('cancel',()=>{importGeneration++;pendingImport=null;last=performance.now();});
+$('import-dialog').addEventListener('cancel',e=>{e.preventDefault();cancelImport();});
+$('name-dialog').addEventListener('cancel',()=>{last=performance.now();});
 $('fullscreen').addEventListener('click',async()=>{try{if(document.fullscreenElement&&document.exitFullscreen)await document.exitFullscreen();else if($('board').requestFullscreen)await $('board').requestFullscreen();else status('このブラウザでは全画面に対応していません。横向きでお遊びください。');}catch(e){status('全画面に切り替えられませんでした。通常表示で遊べます。');}});
 document.addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.altKey||e.metaKey||inDialog()||/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||''))return;const key=e.key.toLowerCase();if(/^[1-4]$/.test(key)&&game&&game.s.screen==='play'){e.preventDefault();action('food-'+(Number(key)-1));}else if(key==='m'){e.preventDefault();action('sound');}else if(key==='p'||key==='escape'){if(game&&game.s.screen==='play'){e.preventDefault();action('pause');}else if(key==='escape'&&ready&&!failed){game.s.screen='title';save();draw();}}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){syncTime();pause('画面を離れたため一時停止しました。');sound.stop();}last=performance.now();});
