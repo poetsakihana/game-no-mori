@@ -74,5 +74,30 @@
     }
   ],
   "contentBoundary": "提供資料 KanekoPoems.xlsx の516作品・530表記。全文性・転記・異体字は未校訂。章・景色・問い・キャラクター会話は創作。",
-  "excluded": "Android native wrappers, APK signature metadata and signing material are not shipped."
+  "excluded": "Android native wrappers, APK signature metadata and signing material are not shipped.",
+  "publicBrowserQA": {
+    "date": "2026-11-12",
+    "testedCommit": "eea233ce2686be9706f13b2e3ba8adccc013e5eb",
+    "version": "0.2-web.1",
+    "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/misuzu-komichi/?v=0.2-web.1",
+    "method": "Actual public Chrome UI, normal input, real downloads/file selection; no injected game state or direct localStorage access.",
+    "verified": [
+      "Original walking to poem 2 and both variants",
+      "Favorite/reflection/location preserved after reload",
+      "Direct unlocked chapter 12 and alternate original branch",
+      "Four original character images, title search and favorite filter",
+      "Import cancellation and same-file confirmed full restoration/reload",
+      "Backup export and reset cancellation",
+      "Two real tabs: conflict blocks overwrites while retaining exportable memory state",
+      "Return link to ZatuPlay; zero game-origin errors/warnings in captured console logs"
+    ],
+    "limits": [
+      "Not manual full-corpus/full-event completion",
+      "No physical touch/narrow-device or Safari/Firefox pass",
+      "Actual visibility/blur/pointercancel and delayed import races remain model-only",
+      "No real quota/storage refusal/unsupported-lock test",
+      "Audio listening and offline relaunch unverified",
+      "Catalog registration/launch belongs to release coordinator"
+    ]
+  }
 }
