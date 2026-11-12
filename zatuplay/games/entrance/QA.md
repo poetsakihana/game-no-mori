@@ -1,4 +1,19 @@
-# Actual browser acceptance: pending
+# Public Chrome observation — 2026-11-12 10:22 UTC
+
+Reported by the coordinating tester after public browser interaction. GitHub Pages run **43198292067** succeeded for commit prefix **435117bc**. These observations are distinct from the 93 modeled assertions.
+
+## Observed
+- Standard URL started using the original Canvas2D lightweight fallback because WebGL was unavailable. Explicit `#light` also started. This does not verify hardware WebGL/GPU rendering.
+- Normal W movement and turning supported natural progression from entrance 1 through entrance 6. Red anomalies and a bending tactile paving anomaly were correctly handled by turning back. Overlooking white footprints caused the original reset to entrance 1.
+- At entrance 2, reload and saved-hallway resume worked.
+- Actual local JSON download → restore cancellation → reselect the same file → confirmed restore → reload retained the save and allowed resume. Reset cancellation was checked.
+- A second tab displayed memory-only mode. Changing its headbob setting and reloading did not overwrite the writer's saved `true` setting.
+- Following the catalogue link and going back stopped play and displayed the memory-only warning.
+
+## Not yet verified
+Natural final escape / all eight successful passages; all 30 anomalies by manual play; audible sound listening; hardware WebGL/GPU rendering; physical mobile/touch devices; invalid JSON rejection through actual file-picker UI. Safari/Firefox and offline reload are not verified. The observations above do not establish complete gameplay acceptance or cover every checklist scenario below.
+
+# Remaining acceptance checklist (not all completed)
 
 Do not treat modeled scenario/geometry tests as manual play. No user personal data or permission is needed.
 

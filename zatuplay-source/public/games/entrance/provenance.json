@@ -50,10 +50,32 @@
   ],
   "qa": {
     "modelAssertionsPassed": 93,
-    "actualChrome": "not-run",
+    "actualChrome": "partial-public-observations",
     "naturalEightPassages": "not-run",
     "physicalMobileTouch": "not-run",
-    "speakerListening": "not-run"
+    "speakerListening": "not-run",
+    "publicObservation": {
+      "atUTC": "2026-11-12T10:22:00Z",
+      "pagesRun": "43198292067",
+      "commitPrefix": "435117bc",
+      "source": "coordinating tester public Chrome interaction report",
+      "renderer": "original Canvas2D automatic fallback; explicit #light also booted; WebGL unavailable",
+      "observed": [
+        "natural W movement/turning progression entrances 1 to 6",
+        "red anomalies and bending tactile paving correctly turned back",
+        "missed white footprints reset to entrance 1",
+        "entrance2 reload and checkpoint resume",
+        "actual JSON download, restore cancel, same-file reselect, confirmed restore, reload persistence and resume",
+        "reset cancellation",
+        "second tab memory-only headbob change did not overwrite writer true after reload",
+        "catalogue and back paused with memory-only warning"
+      ]
+    },
+    "all30ManualAnomalies": "not-verified",
+    "hardwareWebGL": "not-verified",
+    "invalidJSONActualUI": "not-verified",
+    "SafariFirefox": "not-run",
+    "offlineReload": "not-run"
   },
   "rights": "User-supplied APK provenance; commuter/red inspected, no specific third-party copying evidence; independent artwork authorship/license not verified.",
   "browserChanges": [

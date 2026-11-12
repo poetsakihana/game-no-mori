@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "zatuplay/games/voice-life/QA.md",
-      "bytes": 6323,
-      "sha256": "c0472ef5ccfc296f0065f4ebb3dcbb75c4f098913fdfb908c73b23c3dedd3675"
+      "bytes": 8968,
+      "sha256": "b28240f822fe2750ea30d4372cfbe15d3e8ff0175db170b5542b74957833793c"
     },
     {
       "path": "zatuplay/games/voice-life/README.md",
@@ -28,8 +28,8 @@
     },
     {
       "path": "zatuplay/games/voice-life/provenance.json",
-      "bytes": 1351,
-      "sha256": "a26e01f0e6b33e675f0e448b490be311f56965af1d2c85017f057bba515d4e58"
+      "bytes": 2081,
+      "sha256": "81f965bffd47d8de5df40c39b096f230cc0ffd8489cdd7f068048702dcb44335"
     },
     {
       "path": "zatuplay/games/voice-life/storage.js",
@@ -38,8 +38,8 @@
     },
     {
       "path": "zatuplay-source/public/games/voice-life/QA.md",
-      "bytes": 6323,
-      "sha256": "c0472ef5ccfc296f0065f4ebb3dcbb75c4f098913fdfb908c73b23c3dedd3675"
+      "bytes": 8968,
+      "sha256": "b28240f822fe2750ea30d4372cfbe15d3e8ff0175db170b5542b74957833793c"
     },
     {
       "path": "zatuplay-source/public/games/voice-life/README.md",
@@ -63,8 +63,8 @@
     },
     {
       "path": "zatuplay-source/public/games/voice-life/provenance.json",
-      "bytes": 1351,
-      "sha256": "a26e01f0e6b33e675f0e448b490be311f56965af1d2c85017f057bba515d4e58"
+      "bytes": 2081,
+      "sha256": "81f965bffd47d8de5df40c39b096f230cc0ffd8489cdd7f068048702dcb44335"
     },
     {
       "path": "zatuplay-source/public/games/voice-life/storage.js",

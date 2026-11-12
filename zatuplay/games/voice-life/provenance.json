@@ -55,5 +55,28 @@
     "offlineReload": "not-run",
     "publication": "not-performed"
   },
-  "knownRightsConcern": "No third-party media identified; authorship/license not independently audited."
+  "knownRightsConcern": "No third-party media identified; authorship/license not independently audited.",
+  "coordinatorQA": {
+    "currentRecoveryRun": {
+      "atUTC": "2026-11-12 approximately 10:02–10:04",
+      "version": "7.0-web.1",
+      "scope": "public Chrome no-microphone LIVE smoke and reload persistence",
+      "observed": {
+        "likes": 136,
+        "gifts": 2,
+        "giftCoins": 6,
+        "streams": 1,
+        "minutes": 1,
+        "rankPoints": 33
+      },
+      "data": "fictitious local profile only",
+      "microphoneRequested": false
+    },
+    "earlierRecoveredObservations": {
+      "commit": "c50574b87a8bb2f0383848feb3a3725c4a898a60",
+      "status": "retained tool-backed report; original logs lost; not current-run re-verification"
+    },
+    "details": "QA.md",
+    "fullAcceptance": false
+  }
 }

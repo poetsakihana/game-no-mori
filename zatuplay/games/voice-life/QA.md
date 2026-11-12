@@ -1,6 +1,8 @@
 # Voice Life normal-UI acceptance recipe
 
-## Scope and current evidence
+## Historical implementation-task scope
+
+This paragraph is retained as the historical implementation-task record, not a statement that subsequent coordinator checks never happened.
 
 **Not run by the implementation task:** actual browser/HTTPS/public launch, file chooser/download, two actual tabs, actual microphone/audio hardware, actual midnight observation, phone/tablet, Safari/Firefox, offline refresh. Model tests are not substitutes for these checks. Do not request/accept microphone permission unless the owner has explicitly authorized that current challenge; no such permission was requested during implementation.
 
@@ -22,3 +24,19 @@
 ## Optional microphone acceptance, only after owner permission
 
 Use a real input device on HTTPS/localhost. Select mic explicitly and start. Cover denied permission, unavailable device, pending permission then Cancel/changed mode/navigation/pagehide/reset, late grant after cancel, repeated starts, track-ended events and browser back/forward. Verify all tracks end on every exit and no audio leaves the page. No recording/playback/speech recognition is implemented, so there is no voice-recognition or audio-output success claim. A mocked MediaStream passing tests does not establish hardware behavior.
+
+## Coordinator public Chrome QA: current recovery run
+
+On 2026-11-12 around 10:02–10:04 UTC, a newly clean Chrome loaded public HTTPS version 7.0-web.1 normally. A fictitious local profile (`架空の復旧確認`) was registered. Default no-microphone LIVE, ×10 likes, normal CPU participation/comments/gifts, and explicit stream end were exercised. End returned OFF AIR with 33 rank points. Reload retained the synthetic name and 136 likes / 2 gifts / 6 gift coins / 1 stream / 1 minute / 33 points. No microphone permission was triggered. This is a new limited smoke test, not a recreation of the older three-stream state.
+
+## Recovered earlier coordinator observations (original logs lost)
+
+The following is retained from tool-backed observations reported before environment restoration, for test commit `c50574b87a8bb2f0383848feb3a3725c4a898a60`, version 7.0-web.1. The original logs and artifacts are no longer available. This is historical evidence, **not a current-run re-verification**.
+
+- Actual no-mic LIVE CPU comments/likes/gifts; cohost cancel/join/end; normal stream end and one-time navigation settlement. Three sessions reached 248 likes / 4 gifts / 10,102 gift coins / 2,118 rank points / level 8, retained after reload. Seven CPU family members and chat were retained; eight gift and five lifestyle entries were observed.
+- Actual JSON download, fictional display-name change, import cancellation, same-file reselection/confirmation and reload restored the original synthetic profile and 111 rank points. Recovery restored the pre-replacement changed profile. A second actual tab showed memory-only mode; its local synthetic name change did not overwrite the writer on reload.
+- Only fictitious adult profile data was used (30s, handle `fiction_adult_30`, `https://example.test`). Invalid handle and `javascript:` URL were rejected. No microphone permission was requested.
+- Earlier local model tests reported 56,045 assertions plus static verification. Those old logs/workspace were lost; this section does not claim they were rerun now.
+
+### Remaining gaps
+Microphone capture/hardware, profile image chooser/downsize, all families/listeners/hosts, midnight rewards, confirmed-reset recovery branch, actual malformed/oversized JSON UI, network audit, physical phones/touch, Safari/Firefox and offline behavior remain unverified. Counts above are observed examples, not full-product certification. The detailed recipe above remains a checklist, not a blanket pass claim.
