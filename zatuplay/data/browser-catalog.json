@@ -182,7 +182,21 @@
       "version": "0.4.0-web.2",
       "checkedAt": "2026-11-12T04:07:41Z",
       "note": "元APKの2,183詩・50人・全10章を保持。Chromeで通常4詩読了、光の途中保存、JSON復元、2タブ保護を確認。第2章は明示した9詩テスト記録から10詩目を実操作して境界確認し、元記録へ復元。全詩手動攻略・スマホ実機・音の実聴取は未確認。APKと自動同期しません。"
+    },
+    {
+      "id": "collection-29",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/renai-sakusen/?v=0.2.0-web.1",
+      "version": "0.2.0-web.1",
+      "checkedAt": "2026-11-12T05:33:32.570Z",
+      "note": "元APKの24人・150選択・100結末を保持。Chromeで通常150選択を完走し結末45「ふたり分の朝ごはん」・1/100を獲得。3保存枠、実JSON復元、初期化回復、実2タブ保護を確認。全100結末の手動攻略・スマホ実機/タッチ/狭幅・Safari/Firefox・音の実聴取は未確認。APKと自動同期しません。"
+    },
+    {
+      "id": "collection-31",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/slotten/?v=1.0-web.1",
+      "version": "1.0-web.1",
+      "checkedAt": "2026-11-12T05:25:11.696Z",
+      "note": "元APKの10台・4BET・3速度を保持。無料ゲーム内コインのみで課金・換金なし。Chromeで自然当たり149枚と残高1,119の再読込、回転途中の一度だけの精算、補充、実JSON復元、実2タブ保護を確認。450ms自動間隔内の停止・スマホ実機/タッチ/狭幅・Safari/Firefox・音の実聴取は未確認。APKと自動同期しません。"
     }
   ],
-  "updatedAt": "2026-11-12T04:07:41Z"
+  "updatedAt": "2026-11-12T05:33:32.570Z"
 }

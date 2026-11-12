@@ -2,7 +2,7 @@
   "title": "スロット・テン",
   "catalogId": "collection-31",
   "browserVersion": "1.0-web.1",
-  "status": "local implementation; not registered or published by this task",
+  "status": "public test deployment checked in desktop Chrome; catalog registration is a separate step",
   "original": {
     "filename": "31.SlotTen.apk",
     "bytes": 16977,
@@ -90,12 +90,46 @@
     "independentOriginalPayoutOracleCases": 8640,
     "winningCases": 240,
     "maximumPayout": 3450,
-    "actualChrome": "not run",
+    "actualChrome": "passed documented desktop checks on public test deployment; see QA_RESULTS.md",
     "actualMobile": "not run",
-    "actualNativeFilePicker": "not run",
-    "actualTwoTabs": "not run",
+    "actualNativeFilePicker": "native Open File dialog and Escape cancellation verified; real download/import/cancel/reset/backup/same-file restore verified",
+    "actualTwoTabs": "verified conflict lockout and reload recovery with two real tabs",
     "actualAudioAudibility": "not tested",
-    "naturalWinningSpin": "not observed; forced model outcomes are separate",
-    "publication": "not performed"
+    "naturalWinningSpin": {
+      "spins": 78,
+      "machine": "氷のクリスタル",
+      "bet": 5,
+      "reels": [
+        "🧊",
+        "🧊",
+        "🧊"
+      ],
+      "payout": 149,
+      "coinsBefore": 975,
+      "coinsAfter": 1119,
+      "wins": 1,
+      "earned": 149,
+      "reloadPreserved": true,
+      "randomnessManipulated": false
+    },
+    "publication": "test deployed by coordinating task; this worker did not upload/commit/register",
+    "actualRefill": {
+      "coinsBefore": 50,
+      "coinsAfter": 1050,
+      "secondRefillRefused": true
+    },
+    "actualAutoGapStop": "not verified in 450ms gap because action latency crossed into next spin; model tests passed",
+    "actualVisibilityBlur": "individual active-spin hidden/blur cases not separately verified; settings/page reload checked",
+    "deployment": {
+      "commit": "58292425df3670c4d16db83f125f2264488bcf63",
+      "tree": "2b7e85952f6ecff1f7ea712838596c176ec146d0",
+      "pagesRun": 43159436529,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/slotten/?v=1.0-web.1"
+    },
+    "gameConsoleWarningsErrors": 0,
+    "consoleCaveat": "Browser-extension metadata transport errors were observed separately; no network HAR audit performed",
+    "finalGameUnloaded": true
   }
 }

@@ -120,5 +120,47 @@
     "provenance.json",
     "content-manifest.json",
     "checksums.sha256"
-  ]
+  ],
+  "publicChromeQA": {
+    "dateUTC": "2026-11-12",
+    "browser": "Desktop Chrome",
+    "method": "CUA ordinary observed UI only; no hidden state injection or synthetic DOM events",
+    "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/renai-sakusen/?v=0.2.0-web.1",
+    "deployment": {
+      "commit": "58292425df3670c4d16db83f125f2264488bcf63",
+      "pagesRun": 43159436529,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "ordinaryRun": {
+      "protagonist": "春瀬陽斗",
+      "randomTarget": "胡桃沢まどか",
+      "decisions": 150,
+      "choicePolicy": "A at every ordinary choice",
+      "endingNumber": 45,
+      "endingId": "c11-0",
+      "endingTitle": "ふたり分の朝ごはん",
+      "collectionCount": 1,
+      "track": "創作の道"
+    },
+    "verified": [
+      "First and final reply reload persistence",
+      "Three real reply slots at decisions 1, 75, 150, each restored",
+      "All 24 portraits visually rendered; roster filters 24/20/12/12",
+      "Both protagonist starts and random targets; character and support profiles; six track descriptions",
+      "Actual full JSON download, import confirmation cancel, identical-file repeat restore and reload",
+      "Occupied-slot/load/new-game/reset confirmations and cancellation; confirmed reset and recovery",
+      "Two actual tabs: conflict warning, memory-only continuation/export, durable progress not overwritten",
+      "Sound setting persisted; Enter/Space/Escape keyboard UI; sound returned to OFF",
+      "Both game tabs unloaded through verified ZatuPlay return link"
+    ],
+    "notClaimed": [
+      "All 100 endings reached by ordinary play",
+      "Special 8 percent flag encountered in the live run",
+      "Mobile or narrow-screen device QA",
+      "Audible sound verification",
+      "Injected storage failures, legacy migrations or adversarial JSON in public Chrome; covered separately by model tests"
+    ],
+    "implementationChangesRequired": false
+  }
 }

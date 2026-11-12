@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-12T04:17:35Z",
+  "updatedAt": "2026-11-12T05:33:32.570Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -492,14 +492,14 @@
     {
       "id": "collection-29",
       "name": "恋愛作戦",
-      "status": "queued",
+      "status": "published",
       "priority": 1129,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/renai-sakusen/?v=0.2.0-web.1",
+      "browserVersion": "0.2.0-web.1",
+      "checkedAt": "2026-11-12T05:33:32.570Z",
+      "lastAttemptAt": "2026-11-12T05:33:32.570Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-30",
@@ -516,14 +516,14 @@
     {
       "id": "collection-31",
       "name": "SlotTen",
-      "status": "queued",
+      "status": "published",
       "priority": 1131,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/slotten/?v=1.0-web.1",
+      "browserVersion": "1.0-web.1",
+      "checkedAt": "2026-11-12T05:25:11.696Z",
+      "lastAttemptAt": "2026-11-12T05:25:11.696Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-32",
@@ -707,60 +707,52 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-12T04:07:41Z",
+    "checkedAt": "2026-11-12T05:33:32.570Z",
     "apps": [
       {
-        "id": "collection-41",
-        "checkedAt": "2026-11-12T04:07:41Z",
+        "id": "collection-29",
+        "checkedAt": "2026-11-12T05:33:32.570Z",
         "checks": [
-          "web.1で通常移動・おさかな/お魚の両表記、シオリの両選択、4人と全12章/図鑑の代表操作を確認",
-          "実JSON書出し/取消/同一ファイル確認復元/再読込、実2タブの競合保護、Escape停止と再開",
-          "web.2で0.2-web.2表示、既存2/516詩・1/36イベントの再読込保持、同じ画面でブラウザ一覧へ直接復帰、ゲーム由来console error0",
-          "公開一覧26/62作品・36準備中を実確認。作品名検索→「遊ぶ」から同じ画面で起動し、保存保持と一覧復帰を確認。みすゞ2/516詩・会話1/36を保持。"
-        ]
+          "通常UIで150選択を完走し結末45「ふたり分の朝ごはん」・結末帳1/100。全24人物画と3保存枠の復元を確認",
+          "最初/最終返答と結末の再読込、実JSON書出し/取消/同一ファイル反復復元、初期化と直前バックアップ回復",
+          "実2タブで競合通知・メモリ内続行/書出しと先行保存の非上書き、一覧復帰"
+        ],
+        "checkedAtEvidence": "最終実ダウンロード19-final-preserved-backup.jsonのexportedAt"
       },
       {
-        "id": "collection-42",
-        "checkedAt": "2026-11-12T04:07:41Z",
+        "id": "collection-31",
+        "checkedAt": "2026-11-12T05:25:11.696Z",
         "checks": [
-          "web.2で通常操作から4詩読了、5詩目の光1個を収集、部分収集/位置の再読込保持、案内役の会話としずくの実描画",
-          "別の境界試験として明示した9詩fixtureを通常JSON画面から復元し、10詩目の光3個/本文を通常操作。第2章解放・第3章未解放を再読込保持",
-          "実ダウンロードした通常4詩記録を2回復元し、本保存と退避を通常記録へ戻した。通常10詩完走とは区別",
-          "実JSON取消/同一ファイル再選択/復元、2タブの書込保護、停止・WASD文字入力、お気に入り、一覧復帰を確認",
-          "公開一覧26/62作品・36準備中を実確認。作品名検索→「遊ぶ」から同じ画面で起動し、保存保持と一覧復帰を確認。咲華は通常獲得4/2183詩・5篇目さんぽの断片・第1章を保持し、fixtureの10詩ではないことを確認。"
-        ]
+          "全10台・4BET・3速度を実操作。78回目にBET5・氷3個の自然当たり149枚、残高1119/当たり1/獲得149を再読込保持",
+          "回転中の再読込で37→38回・665→660枚、再再読込で不変。一度だけの精算と無料補充50→1050枚を確認",
+          "実JSON書出し/取消/同一ファイル反復復元、実ファイル選択取消、初期化/バックアップ回復、実2タブの競合保護、一覧復帰"
+        ],
+        "checkedAtEvidence": "実QA returned-catalog-ax.txtの保存時刻（UTC）。QA_REPORT.mdとui-log.jsonに操作結果を記録"
       }
     ],
     "logicChecks": {
-      "misuzuTestGroups": 18,
-      "shikaiTestGroups": 15,
-      "misuzuPoems": 516,
-      "misuzuVariants": 530,
-      "shikaiPoems": 2183,
-      "shikaiLightFragments": 6549,
-      "independentReviewPassed": true,
+      "renaiTestGroups": 21,
+      "slottenTestGroups": 18,
+      "slottenPayoutCases": 8640,
       "sourceDeploymentMirrorMatched": true
     },
     "limitations": [
-      "咲華詩界は通常4詩の実プレイ。第2章境界試験は9詩fixtureを通常のJSON復元画面から入れた別試験で、通常10詩完走ではない",
-      "全詩/全会話/全章の手動一巡、スマホ実機/物理タッチ/狭幅、Safari/Firefox、音の実聴取、実容量制限/保存拒否/Web Locks非対応、低速回線/強制終了は未確認",
-      "みすゞ詩文は提供資料のまま未校訂。探索の風景・問い・会話はゲーム独自の創作",
-      "元APKや別端末と自動同期しない。Web Locks非対応時は既存保存を書き換えずメモリ内で動作する"
+      "恋愛作戦は通常150選択の1周・結末1/100。全100結末の手動到達や特別8%フラグの実プレイ確認ではない",
+      "SlotTenの450ms自動間隔内の停止は操作遅延で次回転へ入り、実確認未完。モデル試験とは区別する。課金/換金/現金取引なし",
+      "スマホ実機/物理タッチ/狭幅、Safari/Firefox、音の実聴取、実容量制限/保存拒否/Web Locks非対応、実active-spin非表示/blurは未確認。異常保存/競合の深い境界はモデル試験",
+      "APKや他端末と自動同期しない。QA後は文書/チェックサムのみ変更しゲーム実装は無変更"
     ],
-    "testDeploymentCommit": "eea233ce2686be9706f13b2e3ba8adccc013e5eb",
-    "testPagesRunId": 43141231419,
-    "shikaiCorrectionCommit": "f6b85a98d02261381f40f9a90a268d039280d40b",
-    "shikaiCorrectionPagesRunId": 43148863399,
-    "misuzuCorrectionCommit": "efbaa54ad6e39e7f21a2f142d872b4c270829134",
-    "misuzuCorrectionPagesRunId": 43149554534,
-    "misuzuPagesCommitEvidence": "run head metadataは直前版。build job130955239084のgit logでefbaa54を確認しdeploy130955601046成功。",
-    "catalogVerifiedAt": "2026-11-12T04:17:35Z",
-    "registrationCommit": "ab17dcd4d19cf6fc3d04394f26403d1c3d9bdc75",
-    "pagesRunId": 43153375621,
-    "pagesCommitEvidence": "同一headのPages成功。build job130967579959のgit logでも登録commitを確認、deploy130967961114成功。"
+    "testDeploymentCommit": "58292425df3670c4d16db83f125f2264488bcf63",
+    "testPagesRunId": 43159436529,
+    "testPagesConclusion": "success",
+    "postQAManifestSha256": {
+      "renai-sakusen": "4fbc8da85404f48a62bb64229071dbff65942fe31458faa87d435b78943e02ab",
+      "slotten": "0392930580f2e78edfe6f90e61be82bdc5ff71decaf659c344f52ca2ac990145"
+    },
+    "catalogVerificationStatus": "ローカル登録準備済み。登録後のPages成功・公開一覧28/62と実リンクは未確認"
   },
-  "publishedTargetCount": 18,
-  "remainingTargetCount": 34,
+  "publishedTargetCount": 20,
+  "remainingTargetCount": 32,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
@@ -1178,6 +1170,51 @@
       "registrationCommit": "ab17dcd4d19cf6fc3d04394f26403d1c3d9bdc75",
       "pagesRunId": 43153375621,
       "pagesCommitEvidence": "同一headのPages成功。build job130967579959のgit logでも登録commitを確認、deploy130967961114成功。"
+    },
+    {
+      "checkedAt": "2026-11-12T05:33:32.570Z",
+      "apps": [
+        {
+          "id": "collection-29",
+          "checkedAt": "2026-11-12T05:33:32.570Z",
+          "checks": [
+            "通常UIで150選択を完走し結末45「ふたり分の朝ごはん」・結末帳1/100。全24人物画と3保存枠の復元を確認",
+            "最初/最終返答と結末の再読込、実JSON書出し/取消/同一ファイル反復復元、初期化と直前バックアップ回復",
+            "実2タブで競合通知・メモリ内続行/書出しと先行保存の非上書き、一覧復帰"
+          ],
+          "checkedAtEvidence": "最終実ダウンロード19-final-preserved-backup.jsonのexportedAt"
+        },
+        {
+          "id": "collection-31",
+          "checkedAt": "2026-11-12T05:25:11.696Z",
+          "checks": [
+            "全10台・4BET・3速度を実操作。78回目にBET5・氷3個の自然当たり149枚、残高1119/当たり1/獲得149を再読込保持",
+            "回転中の再読込で37→38回・665→660枚、再再読込で不変。一度だけの精算と無料補充50→1050枚を確認",
+            "実JSON書出し/取消/同一ファイル反復復元、実ファイル選択取消、初期化/バックアップ回復、実2タブの競合保護、一覧復帰"
+          ],
+          "checkedAtEvidence": "実QA returned-catalog-ax.txtの保存時刻（UTC）。QA_REPORT.mdとui-log.jsonに操作結果を記録"
+        }
+      ],
+      "logicChecks": {
+        "renaiTestGroups": 21,
+        "slottenTestGroups": 18,
+        "slottenPayoutCases": 8640,
+        "sourceDeploymentMirrorMatched": true
+      },
+      "limitations": [
+        "恋愛作戦は通常150選択の1周・結末1/100。全100結末の手動到達や特別8%フラグの実プレイ確認ではない",
+        "SlotTenの450ms自動間隔内の停止は操作遅延で次回転へ入り、実確認未完。モデル試験とは区別する。課金/換金/現金取引なし",
+        "スマホ実機/物理タッチ/狭幅、Safari/Firefox、音の実聴取、実容量制限/保存拒否/Web Locks非対応、実active-spin非表示/blurは未確認。異常保存/競合の深い境界はモデル試験",
+        "APKや他端末と自動同期しない。QA後は文書/チェックサムのみ変更しゲーム実装は無変更"
+      ],
+      "testDeploymentCommit": "58292425df3670c4d16db83f125f2264488bcf63",
+      "testPagesRunId": 43159436529,
+      "testPagesConclusion": "success",
+      "postQAManifestSha256": {
+        "renai-sakusen": "4fbc8da85404f48a62bb64229071dbff65942fe31458faa87d435b78943e02ab",
+        "slotten": "0392930580f2e78edfe6f90e61be82bdc5ff71decaf659c344f52ca2ac990145"
+      },
+      "catalogVerificationStatus": "ローカル登録準備済み。登録後のPages成功・公開一覧28/62と実リンクは未確認"
     }
   ]
 }
