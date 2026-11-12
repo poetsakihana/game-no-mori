@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111323"><title>スロット・テン | ZatuPlay ブラウザ版</title><link rel="stylesheet" href="style.css?v=1.0-web.1"></head><body>
+<nav class="browsernav" aria-label="ブラウザ版メニュー"><a id="returnLink" href="../../browser/">← ZatuPlayに戻る</a><span class="browserversion">ブラウザ版 1.0-web.1</span><button id="settings">設定・記録</button></nav>
+<header><div><small>AUTO SLOT COLLECTION</small><h1>スロット・テン</h1></div><div class="coin">🪙 <span id="coins">1,000</span><span class="sr-only"> ゲーム内コイン</span></div></header>
+<div class="label">10種類のマシンから選ぶ</div><div class="grid" id="machines" aria-label="マシン選択"></div>
+<main><section class="cabinet" id="cabinet" aria-labelledby="name"><div class="top"><small id="number"></small><h2 id="name"></h2><div class="subtitle" id="sub"></div></div>
+<div class="reels" aria-label="リール"><div class="reel">🍒</div><div class="reel">🍋</div><div class="reel">🍊</div></div><div class="result" id="result" aria-live="polite">3つそろえてコイン獲得！</div>
+<div class="controls"><label>使うゲーム内コイン<select id="bet"><option value="5">BET 5 コイン</option><option value="10" selected>BET 10 コイン</option><option value="25">BET 25 コイン</option><option value="50">BET 50 コイン</option></select></label><label>回転速度<select id="speed"><option value="1800">ゆったり</option><option value="1000" selected>ふつう</option><option value="500">高速</option></select></label></div>
+<button class="auto" id="auto">▶ 自動スタート</button><button class="manual" id="manual">1回まわす</button>
+<div class="stats"><div>回転数<b id="spins">0</b></div><div>当たり回数<b id="wins">0</b></div><div>累計獲得<b id="earned">0</b></div></div></section>
+<div class="save-status" id="saveStatus" role="status"></div>
+<details id="help"><summary>遊び方・この台の配当</summary><p>中央の3つの絵柄がすべてそろうと当たり！毎回BET分のコインを使います。6種類の絵柄はほぼ同じ確率で出現し、当たり確率は各台およそ1/36です。下の数字はBETに対する配当倍率（端数は四捨五入）です。</p><table id="paytable" aria-label="この台の配当倍率"></table><p>開始コイン：1,000枚。100枚未満になると無料で1,000枚を追加できます。自動回転は停止ボタンで終了。停止しても、回転中の1回は最後まで精算します。アプリを離れたり設定を開いたりすると自動停止します。再開は自動スタートを押してください。</p><p>このブラウザに保存できる場合、回転開始時に結果も保存し、途中で再読込しても同じ結果を1回だけ精算します。保存状態は上に表示します。保存不可の時は、このタブを閉じると未保存分が失われます。</p></details>
+<div class="bottom"><button id="refill">🪙 無料コイン補充</button><button id="sound" aria-pressed="true">♪ 効果音 ON</button></div>
+<p class="note">ゲーム内コイン専用／換金・課金・購入・賞金なし<br>原版 Android 1.0 · 読込後は外部通信なしで遊べます。オフラインでの再起動は保証しません。</p></main>
+<dialog id="settingsDialog" aria-labelledby="settingsTitle"><div class="dialoghead"><h2 id="settingsTitle">設定・記録</h2><button id="closeSettings" aria-label="設定を閉じる">閉じる</button></div><p id="settingsNotice" role="status"></p><div class="settings-actions"><button id="export">記録を書き出す</button><button id="import">記録を読み込む</button><button id="backup">直前の退避記録を書き出す</button><button id="rawExport">ブラウザ保存の原データ</button><button id="retry">保存を再試行</button><button id="reset" class="danger">最初から（記録をリセット）</button></div><input type="file" id="fileInput" accept=".json,application/json" aria-label="記録ファイル">
+<p>コイン・成績・マシン・音・BET・速度・リール・未精算の回転をJSONで保存・復元します。この作品のブラウザ版JSON専用です。Androidの保存キーは変更しません。記録の読み込みとリセットは確認後に行い、直前の状態と保存原文を退避します。取消時は元の記録を保ちます。</p>
+<p>記録はこのブラウザ・このサイト内のみで、端末間の同期はありません。サイトデータ削除で失われるので、大切な記録は書き出してください。他タブの変更を検知したら上書きを停止します。今の記録を書き出し、再読込してください。安全な排他保存（Web Locks）が利用できない場合はメモリ内だけで遊べます。設定を閉じても自動回転は再開しません。</p>
+<p>効果音は任意の短い合成音です。端末やブラウザの音声設定によって鳴らない場合があります。記録を置き換える直前の退避は1世代です。異常に大きい保存原文を退避できない場合は置き換えを止めます。</p><p><a href="README.md">原版のルール・変更点・検証範囲</a> · <a href="provenance.json">出典とハッシュ</a></p></dialog>
+<script src="engine.js?v=1.0-web.1"></script><script src="core.js?v=1.0-web.1"></script><script src="storage.js?v=1.0-web.1"></script><script src="browser.js?v=1.0-web.1"></script>
+</body></html>

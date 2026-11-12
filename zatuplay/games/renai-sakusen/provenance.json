@@ -1,0 +1,124 @@
+{
+  "game": "恋愛作戦実行中",
+  "catalogId": "collection-29",
+  "originalVersion": "0.2.0",
+  "browserVersion": "0.2.0-web.1",
+  "sourceDescription": "Owner-provided completed Android release. Web assets extracted and byte-compared to their APK entries; only web content is distributed.",
+  "apkFileName": "29.恋愛作戦-v0.2.0.apk",
+  "apkBytes": 16639144,
+  "apkSha256": "b82d0687c95776c196ceeda78ca1544e5f040b1001f215a27a176dad7f280154",
+  "originalAssetCount": 11,
+  "originalAssetBytes": 16669754,
+  "originalAssetManifestSha256": "2f904d1428ed0d3ee951c53919d0f2b775a96ca3a3ce4da48f142816f7cad908",
+  "originalFiles": [
+    {
+      "path": "app.js",
+      "bytes": 22166,
+      "sha256": "b9fcf30dfde2d5ff1e627ca5aa9fe2e7762ae6b1f65dcc59fb1997a84518337d"
+    },
+    {
+      "path": "assets/cast-1.png",
+      "bytes": 2665517,
+      "sha256": "e4a16d41e7a486ab2fd6f4a0ededb8846350b40b4d1811e8d4d63953a04ad762"
+    },
+    {
+      "path": "assets/cast-2.png",
+      "bytes": 2884818,
+      "sha256": "9d3549af25f69233161d38ece863cbdf3770e77201030a61d778ef50aa68ab41"
+    },
+    {
+      "path": "assets/cast-3.png",
+      "bytes": 2631994,
+      "sha256": "dbc3eba45d36bfcfaf072e3d3576a14e4cf55c400fc6e47bd4d86c7efeae5094"
+    },
+    {
+      "path": "assets/cast-4.png",
+      "bytes": 2936685,
+      "sha256": "337e6f51a08c8d6ec6df762ce600ed097e552520f8bfc2235fc4ab4905a4ceab"
+    },
+    {
+      "path": "assets/cast-5.png",
+      "bytes": 2812802,
+      "sha256": "ec6818a079fa8dd3cd0294ad838e64b28893eff13b4b7855880d89578b2cc253"
+    },
+    {
+      "path": "assets/cast.png",
+      "bytes": 2660969,
+      "sha256": "60a808a60434a11c08c08c17efa5a69c652d172c23bcba448bcf4abf68f3944f"
+    },
+    {
+      "path": "expansion.js",
+      "bytes": 19132,
+      "sha256": "b83fcea491e33576b83fd6b06e784c1cbb88b11df5a1ec9a6b649d3a8d0c7203"
+    },
+    {
+      "path": "index.html",
+      "bytes": 706,
+      "sha256": "324a91be4b0077e85e7a6521d3faa04068b536061a9b37b10be6e369eb07bf61"
+    },
+    {
+      "path": "story.js",
+      "bytes": 26624,
+      "sha256": "9e05845f07c096bca4d1db5cf9fb1a46a5cd01a465a3257400918b53330bce22"
+    },
+    {
+      "path": "style.css",
+      "bytes": 8341,
+      "sha256": "20386ce402c64a26c3bc129e494b0f3407e16c9dd756dd724ba09298005c9120"
+    }
+  ],
+  "unchangedFiles": [
+    {
+      "path": "assets/cast-1.png",
+      "bytes": 2665517,
+      "sha256": "e4a16d41e7a486ab2fd6f4a0ededb8846350b40b4d1811e8d4d63953a04ad762"
+    },
+    {
+      "path": "assets/cast-2.png",
+      "bytes": 2884818,
+      "sha256": "9d3549af25f69233161d38ece863cbdf3770e77201030a61d778ef50aa68ab41"
+    },
+    {
+      "path": "assets/cast-3.png",
+      "bytes": 2631994,
+      "sha256": "dbc3eba45d36bfcfaf072e3d3576a14e4cf55c400fc6e47bd4d86c7efeae5094"
+    },
+    {
+      "path": "assets/cast-4.png",
+      "bytes": 2936685,
+      "sha256": "337e6f51a08c8d6ec6df762ce600ed097e552520f8bfc2235fc4ab4905a4ceab"
+    },
+    {
+      "path": "assets/cast-5.png",
+      "bytes": 2812802,
+      "sha256": "ec6818a079fa8dd3cd0294ad838e64b28893eff13b4b7855880d89578b2cc253"
+    },
+    {
+      "path": "assets/cast.png",
+      "bytes": 2660969,
+      "sha256": "60a808a60434a11c08c08c17efa5a69c652d172c23bcba448bcf4abf68f3944f"
+    },
+    {
+      "path": "expansion.js",
+      "bytes": 19132,
+      "sha256": "b83fcea491e33576b83fd6b06e784c1cbb88b11df5a1ec9a6b649d3a8d0c7203"
+    },
+    {
+      "path": "story.js",
+      "bytes": 26624,
+      "sha256": "9e05845f07c096bca4d1db5cf9fb1a46a5cd01a465a3257400918b53330bce22"
+    }
+  ],
+  "changedFiles": [
+    "app.js",
+    "index.html",
+    "style.css"
+  ],
+  "browserAdditions": [
+    "browser.js",
+    "README.md",
+    "provenance.json",
+    "content-manifest.json",
+    "checksums.sha256"
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "title": "スロット・テン",
+  "catalogId": "collection-31",
+  "browserVersion": "1.0-web.1",
+  "status": "local implementation; not registered or published by this task",
+  "original": {
+    "filename": "31.SlotTen.apk",
+    "bytes": 16977,
+    "sha256": "5dd143bfe01044829217d4169117f1aa8b2b53c051f62783a88e5f00537d2b4c",
+    "package": "jp.sakihana.slotten",
+    "versionName": "1.0",
+    "versionCode": 1,
+    "label": "スロット・テン",
+    "permissions": [],
+    "originUrl": "https://drive.google.com/file/d/1ubwUHDJXFFfDEW1wF4NMENC0PUpqVrti/view"
+  },
+  "assetVerification": {
+    "completeApkWebAssetCount": 2,
+    "completeApkWebAssetBytes": 10587,
+    "byteComparedAgainstOriginalApk": true,
+    "assets": [
+      {
+        "apkPath": "assets/engine.js",
+        "archivePath": "original/engine.js",
+        "bytes": 1780,
+        "sha256": "89b96d523382037ef4e04b7d578a46d6848af527c46d56fcd636c1e4273b7160"
+      },
+      {
+        "apkPath": "assets/index.html",
+        "archivePath": "original/index.html.txt",
+        "bytes": 8807,
+        "sha256": "6258240cfbeacfeba1babb84dbe2698c3222f4ea7de28f05535e2abb79c880bb"
+      }
+    ]
+  },
+  "unchangedRuntimeAssets": [
+    {
+      "path": "engine.js",
+      "bytes": 1780,
+      "sha256": "89b96d523382037ef4e04b7d578a46d6848af527c46d56fcd636c1e4273b7160"
+    }
+  ],
+  "art": "Original DOM/CSS/emoji; no external images or AI redrawing",
+  "audio": "Original optional generated WebAudio tones; no recordings or BGM",
+  "rules": {
+    "initialCoins": 1000,
+    "initialMachine": 0,
+    "initialSound": true,
+    "initialBet": 10,
+    "initialSpeedMs": 1000,
+    "bets": [
+      5,
+      10,
+      25,
+      50
+    ],
+    "speedsMs": [
+      1800,
+      1000,
+      500
+    ],
+    "autoGapMs": 450,
+    "freeRefillBelow": 100,
+    "freeRefillAdds": 1000,
+    "payout": "Math.round(bet * (8 + matchingSymbolIndex * 3) * machine.mult); 0 unless all three match",
+    "random": "Independent crypto.getRandomValues Uint32 modulo 6, unchanged",
+    "realMoney": false,
+    "payments": false,
+    "cashConversion": false
+  },
+  "browserChanges": [
+    "Atomic pending spin with preselected original outcome, exactly-once recovery and settlement",
+    "Namespaced strict full-state JSON and Web Lock compare-before-write persistence",
+    "Corrupt/quota/denied preservation and explicit no-lock no-write memory mode",
+    "Confirmed reset/import with previous state and original raw backup; stale read/lock cancellation guards",
+    "Auto/lifecycle/old-frame and timer guards, optional audio lifecycle/error hardening",
+    "BET/speed/reels and pending result persistence; direct browser return; versioned runtime references; responsive/accessibility improvements"
+  ],
+  "storage": {
+    "key": "zatuplay:slotten:v1",
+    "backupKey": "zatuplay:slotten:v1:backup",
+    "lock": "zatuplay:slotten:v1:writer",
+    "untouchedOriginalKey": "slotten",
+    "normalJsonMaxUtf8Bytes": 32768,
+    "backupJsonMaxUtf8Bytes": 98304
+  },
+  "verification": {
+    "date": "2026-11-12",
+    "deterministicSuites": 18,
+    "independentOriginalPayoutOracleCases": 8640,
+    "winningCases": 240,
+    "maximumPayout": 3450,
+    "actualChrome": "not run",
+    "actualMobile": "not run",
+    "actualNativeFilePicker": "not run",
+    "actualTwoTabs": "not run",
+    "actualAudioAudibility": "not tested",
+    "naturalWinningSpin": "not observed; forced model outcomes are separate",
+    "publication": "not performed"
+  }
+}

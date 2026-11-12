@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "originalVersion": "0.2.0",
+  "characters": 24,
+  "chapters": 11,
+  "commonScenes": 99,
+  "branchSlots": 51,
+  "decisionsPerRun": 150,
+  "tracks": 6,
+  "endings": 100,
+  "sceneVariants": 21600,
+  "sceneVariantsSha256": "3e79b3bbdefcf8b5a384e7e9ecfa14194206e4b43540e5f92c87bc1369d08431",
+  "originalTracePolicies": [
+    "always A",
+    "always B",
+    "alternating A/B",
+    "maximum immediate love delta, tie A"
+  ],
+  "originalTraceRuns": 192,
+  "originalTraceDecisions": 28800,
+  "originalTraceSha256": "5d9916cfd6bb29c3979d13413d9b128b9302599deb338e6d3f908ebea9f10473",
+  "originalEngineFunctions": [
+    {
+      "name": "fresh",
+      "sha256": "2414464ab00d1dabe6bc1cb758adc09739216aa935d7addcb8d70a70918975dd"
+    },
+    {
+      "name": "relation",
+      "sha256": "8b6bda2cd9fb3265da3e4faf3bcba0ffe627ea1eab16dd7ac94160d1aebd5aff"
+    },
+    {
+      "name": "effects",
+      "sha256": "438484654eb177edaeb02b19df56d8ea9e258ab72bf9441f67a5d23ef226d7f4"
+    },
+    {
+      "name": "apply",
+      "sha256": "1d27ef5131a592f2d48adec4c4fee9f1d10f82924c46e51b115f7cb23898259c"
+    },
+    {
+      "name": "getEnding",
+      "sha256": "00da51519c020c89a8149284c6b26a60158cef9d725efb24f1401ba553834ce3"
+    }
+  ]
+}

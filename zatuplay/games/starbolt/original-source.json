@@ -1,0 +1,21 @@
+{
+  "game": "collection-32",
+  "title": "スターボルト：8つの機械要塞",
+  "browserVersion": "1.0-web.1",
+  "original": {
+    "filename": "32.StarBolt.apk",
+    "bytes": 17003,
+    "sha256": "cb255357a1a9e12bca46594cceb98d6a3024370d4e2ee03454254654b294118c",
+    "package": "jp.sakihana.starbolt",
+    "versionName": "1.0",
+    "versionCode": 1,
+    "source": "https://drive.google.com/file/d/1AOxWIDP5m9H4oqneD5zNH1CRkmXEtsqH/view"
+  },
+  "files": [
+    {"originalPath":"assets/engine.js","path":"reference/engine.js.txt","bytes":8991,"sha256":"c3446bfc98583833208473d4c7b53e1880f6b240b5c32e4b87ea79d8d9064245"},
+    {"originalPath":"assets/index.html","path":"reference/index.html.txt","bytes":2059,"sha256":"c0f4248cd493d84731f97e2e224963ab4e8e3fdddb7e8b1ae0da8706db1235cf"}
+  ],
+  "verification": "Both unchanged web source files byte-compared with original APK ZIP members, 2026-11-12. No actual Chrome/publication claim.",
+  "storage": {"originalKey":"starbolt-v1","browserKey":"zatuplay:starbolt:1","migration":false,"durableFields":["cleared","sound"],"sessionOnly":["stage","checkpoint","player","weapon","bullets","pause"]},
+  "counts": {"fortresses":8,"bosses":8,"weapons":9,"worldWidth":4800,"platformsPerStage":17,"enemiesPerStage":11,"hazardsPerStage":4}
+}

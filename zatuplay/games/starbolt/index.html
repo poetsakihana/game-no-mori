@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#080d20"><meta name="description" content="スターボルト：8つの機械要塞。8つの要塞を自由な順番で攻略するオリジナル横スクロールアクション。">
+<title>スターボルト：8つの機械要塞 | ZatuPlay</title>
+<link rel="stylesheet" href="./style.css?v=1.0-web.1">
+</head>
+<body>
+<header><a id="return-link" href="../../browser/">← ブラウザゲーム一覧</a><span>STAR BOLT <small>1.0-web.1</small></span><button id="records">記録・設定</button></header>
+<main>
+<section id="arena" aria-label="ゲーム画面">
+<canvas id="c" width="960" height="540" aria-label="スターボルトのゲーム画面。操作方法は画面の下にあります。"></canvas>
+<section id="menu"><h1>STAR BOLT / スターボルト</h1><p>8つの機械要塞。好きなボスから攻略しよう</p><div id="grid"></div><p id="clear-count"></p><p class="menu-help">ボス撃破で特殊武器を獲得。弱点はボスの色のひとつ前の武器（最初のボスは影）。</p></section>
+<section id="msg" hidden aria-live="polite"><h2 id="result-title"></h2><p id="result-text"></p><p id="ending"></p><div><button id="retry">再挑戦</button><button id="result-select">ステージ選択</button></div></section>
+</section>
+<nav id="top" aria-label="ゲーム操作"><span id="game-status">ステージを選んでください</span><div><button id="weapon" disabled>武器</button><button id="pause" disabled>一時停止</button><button id="select" disabled>選択へ</button></div></nav>
+<div id="controls" aria-label="タッチ操作"><div><button data-key="left" aria-label="左へ移動">◀</button><button data-key="right" aria-label="右へ移動">▶</button></div><div><button data-key="jump" aria-label="ジャンプ">跳</button><button data-key="fire" aria-label="射撃">撃</button></div></div>
+<p id="save-status" role="status"></p><p id="notice" role="status"></p>
+<details><summary>遊び方・記録について</summary><p>← → / A D：移動　Space：ジャンプ　Z：射撃（長押し可）　X：武器切替　P：一時停止・再開。画面のボタンでも操作できます。</p><p>HPは28。敵・トゲに触れると3、ボスに触れると4、敵の弾で2ダメージ。敵を倒すとHPが1回復。8ボスを倒すとエンディングです。</p><p>ボス前まで進むと、同じ挑戦中の再挑戦はボス前から。ページを閉じる・再読み込み・ステージ選択で途中の状態は失われます。自動保存するのは撃破済みボスと音設定のみです。</p><p>画面を離れると一時停止します。再開は手動です。音は短い合成効果音のみ。ネット接続、課金、アカウントは不要です。</p><p>APK版1.0に基づくブラウザ版。操作不能や保存の失敗を防ぐ改善を追加しています。<a href="./README.md">移植・検証メモ</a></p></details>
+</main>
+<dialog id="settings" aria-labelledby="settings-title"><div class="dialog-body"><h2 id="settings-title">記録・設定</h2><p>保存対象：撃破済みボスと音設定。進行中のステージは含みません。</p><button id="sound">音：ON</button><p id="audio-status" role="status"></p><button id="export">バックアップを書き出す</button><button id="choose-import">バックアップを読み込む</button><input id="import-file" type="file" accept="application/json,.json" hidden><button id="cancel-import" hidden>読み込みをキャンセル</button><p id="import-status" role="status"></p><button id="reset" class="danger">撃破記録をリセット</button><p>読込・リセットの前に、現在の記録のバックアップを書き出してから確認します。元のAPKの保存データや他作品の記録は変更しません。</p><button id="close-settings">閉じる</button></div></dialog>
+<noscript>このゲームにはJavaScriptが必要です。</noscript>
+<script type="module" src="./app.js?v=1.0-web.1"></script>
+</body></html>
