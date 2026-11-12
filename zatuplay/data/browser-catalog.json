@@ -224,7 +224,21 @@
       "version": "1.3.1-web.1",
       "checkedAt": "2026-11-12T10:21:52Z",
       "note": "元APKの30異変・原画5点・合成音を保持。公開Chromeの軽量描画で通常移動・振返りから自然に1→6進行、異変判定/誤答の1番戻り、2番からの保存再開、実JSON書出し/取消/同一ファイル復元、別タブ保護を確認。通路入口から再開し途中座標は保存しません。最終脱出・全30異変の実操作・GPU描画・音の実聴取・スマホ実機・実不正JSONは未確認。APKと自動同期しません。"
+    },
+    {
+      "id": "instant",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/instant/?v=4.4.1-web.1",
+      "version": "4.4.1-web.1",
+      "checkedAt": "2026-11-12T11:58:26Z",
+      "note": "原本の端末内SNS・写真素材・6章の物語を保持。Chromeで登録/再ログイン、投稿/写真/カルーセル、6章1結末、実JSON復元と競合保護を確認。外部SNSではありません。動画・音声、残り2結末の実プレイ、全長期イベント、実機/他ブラウザ/オフラインは未確認。APKとは別保存です。"
+    },
+    {
+      "id": "collection-38",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/eto-race/?v=0.2-web.1",
+      "version": "0.2-web.1",
+      "checkedAt": "2026-11-12T11:58:26Z",
+      "note": "原本12干支・12コース・育成/無料予想レースを保持。ChromeのCPU3D投影で自然完走、育成、保存、実JSON復元、複数タブ保護を確認。GPU描画・実機・全12コース自然達成・音の聴取・オフラインは未確認。途中走行は離脱で中止し無報酬、APKと別保存です。"
     }
   ],
-  "updatedAt": "2026-11-12T10:21:52Z"
+  "updatedAt": "2026-11-12T11:58:26Z"
 }

@@ -1,4 +1,4 @@
-# Instant browser port — 4.4.1-web.1 (local candidate)
+# Instant browser port — 4.4.1-web.1 (browser release)
 
 ## Original and scope
 
@@ -23,4 +23,8 @@ This is a fictional, device-local SNS simulation, not an online social network. 
 
 Local full-source DOM/IndexedDB model tests currently pass **109 assertions**, including local registration/real PBKDF2, original text posting, six chapter gates and completion, all 64 choice branches, 17 route renders, JSON cancel/accept, reload/remembered account, and reader isolation. Seventeen additional interrupted-flow model assertions pass. Independent review results are recorded in QA.md. These are modeled DOM, locks and IndexedDB, not physical browser/phone/media acceptance.
 
-Independent security/import-schema findings have been addressed and production regression passed with no remaining reproduced blocker in tested paths. Actual browser acceptance remains pending. This folder is a candidate, not approval to publish or add to the catalogue. See QA.md. No actual Chrome UI, image/video/audio picker/playback, physical device, Safari/Firefox, or full simulation-time acceptance has been completed for this port.
+Independent security/import-schema findings have been addressed and production regression passed with no remaining reproduced blocker in tested paths. Actual Chrome core-flow acceptance is recorded below and in QA.md. This is not exhaustive acceptance: actual video/audio picker/playback, physical devices, Safari/Firefox and full simulation-time coverage remain unverified.
+
+## Public browser acceptance
+
+Actual Chrome: local registration/login, six-chapter one-ending playthrough, text carousel and built-in photo posts, downloaded JSON cancel/reselect/restore/previous recovery, CPU follow/DM reply, and competing-tab protection passed. The conflict-message fix was rechecked on the public build. See QA.md for exact commits and limitations. Video/audio, physical mobile, other browser engines, installed PWA/offline and every long-term feature remain unverified.

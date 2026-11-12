@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-12T10:21:52Z",
+  "updatedAt": "2026-11-12T11:58:26Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -75,9 +75,7 @@
   "targetCount": 52,
   "targetTotalBrowserCount": 60,
   "preferredBatchSize": 2,
-  "nextCandidateIds": [
-    "instant"
-  ],
+  "nextCandidateIds": [],
   "completionRule": "対象52作品すべてを元の作品としてブラウザ移植し、一般公開URLで起動・代表的なゲーム操作・保存/再開と必要な進行解放を確認してカタログに登録する。未確認の機能と全ステージ未完走などは明記する。",
   "targets": [
     {
@@ -119,14 +117,14 @@
     {
       "id": "instant",
       "name": "Instant",
-      "status": "queued",
+      "status": "published",
       "priority": 111,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/instant/?v=4.4.1-web.1",
+      "browserVersion": "4.4.1-web.1",
+      "checkedAt": "2026-11-12T11:58:26Z",
+      "lastAttemptAt": "2026-11-12T11:58:26Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "sakihana",
@@ -575,14 +573,14 @@
     {
       "id": "collection-38",
       "name": "干支大レース-3d",
-      "status": "queued",
+      "status": "published",
       "priority": 1138,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/eto-race/?v=0.2-web.1",
+      "browserVersion": "0.2-web.1",
+      "checkedAt": "2026-11-12T11:58:26Z",
+      "lastAttemptAt": "2026-11-12T11:58:26Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-40",
@@ -706,43 +704,57 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-12T10:21:52Z",
-    "checkedAtEvidence": "担当者の2026-11-12公開Chrome実QA報告を照合した時刻。各操作の実施時刻を秒単位で表すものではない。",
-    "testDeploymentCommit": "435117bc6336ba29bb807eddd8e31a50b6b8e219",
+    "checkedAt": "2026-11-12T11:58:26Z",
+    "checkedAtEvidence": "実Chrome正常操作と公開版修正再試験。Pagesの実checkoutと成功をログ照合。カタログ32件とAPK62件を同commitから再読し既存バイト同一を確認。",
     "apps": [
       {
-        "id": "collection-21",
-        "checkedAt": "2026-11-12T10:21:52Z",
+        "id": "instant",
+        "checkedAt": "2026-11-12T11:58:26Z",
+        "testDeploymentCommit": "46e5d6e8470da28c5474b663b7f7e118643632e9",
+        "pagesRunId": 43213117002,
         "checks": [
-          "マイクを許可せず通常配信を開始し、CPUコメント・いいね・ギフト・コラボ参加/取消/終了と一度だけの精算を確認。",
-          "実JSON書出し・取消・同じファイルの再選択と確認復元・再読込、別タブの保存非上書きを確認。",
-          "復旧後の公開7.0-web.1を通常操作し、終了後の136いいね/2ギフト/6ギフトコイン/1配信/1分/33ポイントと名前を再読込保持。",
-          "実マイク入力、画像選択、全ファミリー/イベント、日付境界報酬、初期化復元、実不正/過大JSON、ネットワーク監査、オフライン、実機は未確認。"
+          "原本350パス保持・全素材バイト同一、公開360ファイルSHA照合",
+          "架空端末内登録・誤パスワード拒否・再ログイン・再読込保持",
+          "全6章を通常操作で読了し結末1種を保存。2/4/6章の投稿条件を確認",
+          "文字2枚カルーセル・原作写真ライブラリ・取消再開・二重クリックの重複抑止",
+          "実JSONダウンロード・取消・同ファイル再選択・3件復元・直前4件への復旧",
+          "CPUフォローとDM返信、季節/グループDM画面",
+          "副タブ競合による投稿拒否と下書き保持・元4投稿保護。競合を容量不足扱いする表示を修正し公開再試験",
+          "一覧往復/BFCache再読込案内と復帰"
+        ],
+        "limitations": [
+          "物語の残る2結末は実操作未完。全64経路はモデル検証",
+          "実動画・音声・リールのファイル選択や再生は未確認。通常JSONに動画/音声/アカウント資格情報は含まない",
+          "実機Android/iOS・タッチ・Safari/Firefox・インストールPWA/オフラインは未確認",
+          "全CPU/スタジオ/グループ機能/長期間イベントの網羅操作は未完。GPU不要だが低性能端末未測定",
+          "破損/quota/悪意JSON/非同期境界はモデル検証、実容量枯渇試験ではない"
         ]
       },
       {
-        "id": "entrance",
-        "checkedAt": "2026-11-12T10:21:52Z",
+        "id": "collection-38",
+        "checkedAt": "2026-11-12T11:58:26Z",
+        "testDeploymentCommit": "c7f2854299c16fca9dea43f64f406e325c36c920",
+        "pagesRunId": 43203910307,
         "checks": [
-          "原作Canvas2D自動fallbackと明示light起動。通常W移動・振返りで自然1→6進行。赤い異変と曲がる点字ブロックの引返し正解、白足跡見落としで1番へ戻る判定を確認。",
-          "2番入口の再読込・同じ通路からの再開、実JSONダウンロード→確認取消→同一ファイル再選択/承認→再読込保持を確認。",
-          "初期化取消、実第二タブのメモリ内変更後の再読込で先行保存保持、一覧への移動で停止・戻る操作でBFCacheメモリ内警告を確認。",
-          "自然な最終脱出、全30異変の実操作、GPU描画、音の実聴取、スマホ実機/タッチ、Safari/Firefox、実不正JSON選択は未確認。"
+          "原本12干支/12コース/低ポリゴンCPU投影を保持",
+          "公開Chrome自然完走・予想的中・ポイント80→160・星1/12・育成と再読込保持",
+          "実JSON取消/再選択/復元/前世代復旧",
+          "副タブ一時変更で元保存保護",
+          "コース12選択・手動一時停止/再開・未完走離脱無報酬",
+          "一覧往復とBFCache復帰案内・再読込維持"
+        ],
+        "limitations": [
+          "GPU/WebGLは環境非対応、原作のCPU3D投影を実確認",
+          "全12コース自然完走/全星達成、音声の聴取、物理端末/他ブラウザ/オフライン未確認",
+          "走行途中座標・現在コース・選択干支は保存しない。離脱中止は無報酬",
+          "実不正JSON/容量枯渇/非表示による自動停止は未確認。モデル試験は別証拠"
         ]
       }
     ],
-    "logicChecks": {
-      "entranceAuthorAssertions": 93,
-      "entranceIndependentAssertions": 13
-    },
-    "limitations": [
-      "実スマホ/タッチ、Safari/Firefox、音声の実聴取は未確認。",
-      "APKや別端末と自動同期しない。8番入口は通路入口から再開、歩行途中の座標は保存しない。"
-    ],
-    "catalogVerificationStatus": "登録候補準備済み。GitHub登録は未実施。登録後の一覧32/62と両作品往復は未確認。"
+    "catalogVerificationStatus": "登録候補。まだこのpacketは適用していない。反映後の34/62一覧と両作品への往復を担当者が確認する。"
   },
-  "publishedTargetCount": 24,
-  "remainingTargetCount": 28,
+  "publishedTargetCount": 26,
+  "remainingTargetCount": 26,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
@@ -1281,6 +1293,56 @@
         "APKや別端末と自動同期しない。8番入口は通路入口から再開、歩行途中の座標は保存しない。"
       ],
       "catalogVerificationStatus": "登録候補準備済み。GitHub登録は未実施。登録後の一覧32/62と両作品往復は未確認。"
+    },
+    {
+      "checkedAt": "2026-11-12T11:58:26Z",
+      "checkedAtEvidence": "実Chrome正常操作と公開版修正再試験。Pagesの実checkoutと成功をログ照合。カタログ32件とAPK62件を同commitから再読し既存バイト同一を確認。",
+      "apps": [
+        {
+          "id": "instant",
+          "checkedAt": "2026-11-12T11:58:26Z",
+          "testDeploymentCommit": "46e5d6e8470da28c5474b663b7f7e118643632e9",
+          "pagesRunId": 43213117002,
+          "checks": [
+            "原本350パス保持・全素材バイト同一、公開360ファイルSHA照合",
+            "架空端末内登録・誤パスワード拒否・再ログイン・再読込保持",
+            "全6章を通常操作で読了し結末1種を保存。2/4/6章の投稿条件を確認",
+            "文字2枚カルーセル・原作写真ライブラリ・取消再開・二重クリックの重複抑止",
+            "実JSONダウンロード・取消・同ファイル再選択・3件復元・直前4件への復旧",
+            "CPUフォローとDM返信、季節/グループDM画面",
+            "副タブ競合による投稿拒否と下書き保持・元4投稿保護。競合を容量不足扱いする表示を修正し公開再試験",
+            "一覧往復/BFCache再読込案内と復帰"
+          ],
+          "limitations": [
+            "物語の残る2結末は実操作未完。全64経路はモデル検証",
+            "実動画・音声・リールのファイル選択や再生は未確認。通常JSONに動画/音声/アカウント資格情報は含まない",
+            "実機Android/iOS・タッチ・Safari/Firefox・インストールPWA/オフラインは未確認",
+            "全CPU/スタジオ/グループ機能/長期間イベントの網羅操作は未完。GPU不要だが低性能端末未測定",
+            "破損/quota/悪意JSON/非同期境界はモデル検証、実容量枯渇試験ではない"
+          ]
+        },
+        {
+          "id": "collection-38",
+          "checkedAt": "2026-11-12T11:58:26Z",
+          "testDeploymentCommit": "c7f2854299c16fca9dea43f64f406e325c36c920",
+          "pagesRunId": 43203910307,
+          "checks": [
+            "原本12干支/12コース/低ポリゴンCPU投影を保持",
+            "公開Chrome自然完走・予想的中・ポイント80→160・星1/12・育成と再読込保持",
+            "実JSON取消/再選択/復元/前世代復旧",
+            "副タブ一時変更で元保存保護",
+            "コース12選択・手動一時停止/再開・未完走離脱無報酬",
+            "一覧往復とBFCache復帰案内・再読込維持"
+          ],
+          "limitations": [
+            "GPU/WebGLは環境非対応、原作のCPU3D投影を実確認",
+            "全12コース自然完走/全星達成、音声の聴取、物理端末/他ブラウザ/オフライン未確認",
+            "走行途中座標・現在コース・選択干支は保存しない。離脱中止は無報酬",
+            "実不正JSON/容量枯渇/非表示による自動停止は未確認。モデル試験は別証拠"
+          ]
+        }
+      ],
+      "catalogVerificationStatus": "登録候補。まだこのpacketは適用していない。反映後の34/62一覧と両作品への往復を担当者が確認する。"
     }
   ]
 }

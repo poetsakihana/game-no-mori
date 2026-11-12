@@ -26,10 +26,10 @@
   "qa": {
     "authorDOMModelAssertions": 109,
     "authorInterruptionModelAssertions": 17,
-    "actualBrowser": "not-run",
+    "actualBrowser": "Chrome core flows passed; exact evidence and untested areas in QA.md",
     "physicalDevices": "not-run",
     "mediaPlayback": "not-run",
-    "independentReview": "model-passed-browser-pending",
+    "independentReview": "model-passed; conflict message patch separately reviewed; scope in QA.md",
     "independentChecks": {
       "store": 32,
       "validator": 12,
@@ -40,5 +40,5 @@
     },
     "syntaxChecks": 42
   },
-  "scope": "All original 350 source asset paths retained. No external publishing/APK/catalog edits. Browser safety changes documented in README.md."
+  "scope": "All original350 source paths retained; originalassetbytes unchanged. Published browser port only; APK unchanged. Browser safety changes in README.md."
 }
