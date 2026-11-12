@@ -1,0 +1,130 @@
+{
+  "version": "7.0-web.1",
+  "files": [
+    {
+      "path": "zatuplay/games/voice-life/QA.md",
+      "bytes": 6323,
+      "sha256": "c0472ef5ccfc296f0065f4ebb3dcbb75c4f098913fdfb908c73b23c3dedd3675"
+    },
+    {
+      "path": "zatuplay/games/voice-life/README.md",
+      "bytes": 9590,
+      "sha256": "f730fc289902f1255597549b0b0aff1b3a65c56dc0f793ffbbf5cdff00153022"
+    },
+    {
+      "path": "zatuplay/games/voice-life/app.js",
+      "bytes": 50032,
+      "sha256": "498e0005a19d5ccd7374dbeaafd9bbd6ba118d4bff903f7d846510f2b966c102"
+    },
+    {
+      "path": "zatuplay/games/voice-life/browser.css",
+      "bytes": 1231,
+      "sha256": "bcaba77c92211515ab760d2f12d1ac173268e2d24bd7f4b4fd2b47bd6bd13b44"
+    },
+    {
+      "path": "zatuplay/games/voice-life/index.html",
+      "bytes": 13086,
+      "sha256": "b998ba83bc2fdb768650b07e4a7849fcb1918562c610ce0799394071a898844f"
+    },
+    {
+      "path": "zatuplay/games/voice-life/provenance.json",
+      "bytes": 1351,
+      "sha256": "a26e01f0e6b33e675f0e448b490be311f56965af1d2c85017f057bba515d4e58"
+    },
+    {
+      "path": "zatuplay/games/voice-life/storage.js",
+      "bytes": 12436,
+      "sha256": "9034219e24e6265df9b1557d4f72caafdaad287155f5e2e2b9c7c2d8eadd1478"
+    },
+    {
+      "path": "zatuplay-source/public/games/voice-life/QA.md",
+      "bytes": 6323,
+      "sha256": "c0472ef5ccfc296f0065f4ebb3dcbb75c4f098913fdfb908c73b23c3dedd3675"
+    },
+    {
+      "path": "zatuplay-source/public/games/voice-life/README.md",
+      "bytes": 9590,
+      "sha256": "f730fc289902f1255597549b0b0aff1b3a65c56dc0f793ffbbf5cdff00153022"
+    },
+    {
+      "path": "zatuplay-source/public/games/voice-life/app.js",
+      "bytes": 50032,
+      "sha256": "498e0005a19d5ccd7374dbeaafd9bbd6ba118d4bff903f7d846510f2b966c102"
+    },
+    {
+      "path": "zatuplay-source/public/games/voice-life/browser.css",
+      "bytes": 1231,
+      "sha256": "bcaba77c92211515ab760d2f12d1ac173268e2d24bd7f4b4fd2b47bd6bd13b44"
+    },
+    {
+      "path": "zatuplay-source/public/games/voice-life/index.html",
+      "bytes": 13086,
+      "sha256": "b998ba83bc2fdb768650b07e4a7849fcb1918562c610ce0799394071a898844f"
+    },
+    {
+      "path": "zatuplay-source/public/games/voice-life/provenance.json",
+      "bytes": 1351,
+      "sha256": "a26e01f0e6b33e675f0e448b490be311f56965af1d2c85017f057bba515d4e58"
+    },
+    {
+      "path": "zatuplay-source/public/games/voice-life/storage.js",
+      "bytes": 12436,
+      "sha256": "9034219e24e6265df9b1557d4f72caafdaad287155f5e2e2b9c7c2d8eadd1478"
+    },
+    {
+      "path": "zatuplay-source/scripts/generate-voice-life.py",
+      "bytes": 9499,
+      "sha256": "0cd3bf9ce0c50cdfb1649363b0e79082b6249804911ad05c89b819a19f66afd7"
+    },
+    {
+      "path": "zatuplay-source/scripts/test-voice-life.cjs",
+      "bytes": 29534,
+      "sha256": "f18e1028fc02ad3d965713f76e5ec503d3c48950b41a0f4f5fa18e7192fa3b14"
+    },
+    {
+      "path": "zatuplay-source/scripts/verify-voice-life.py",
+      "bytes": 2309,
+      "sha256": "cc75fc59c69a3cf6774b7d3cbcbff416727269c56a21c6c8575f1dab425470b7"
+    },
+    {
+      "path": "zatuplay-source/scripts/voice-life-defaults.js",
+      "bytes": 608,
+      "sha256": "a6ef9180e8f58d0721c7dfe449c8376b5c3d809c798f9344d7871a6d73114050"
+    },
+    {
+      "path": "zatuplay-source/scripts/voice-life-image.js",
+      "bytes": 3506,
+      "sha256": "1cf5448558374175d84b8b597cdf9f3089430d85b4347fafdcb43732fd8f8f78"
+    },
+    {
+      "path": "zatuplay-source/scripts/voice-life-original.html",
+      "bytes": 50990,
+      "sha256": "bdd27499adc865024ab8ef492a1ce13b765d7fc79c556540df3cd60254b58a79"
+    },
+    {
+      "path": "zatuplay-source/scripts/voice-life-runtime-head.js",
+      "bytes": 701,
+      "sha256": "720c029c22d44feecd5220011c4692dd61a637d8933742690dd6cb3c7d6a67e3"
+    },
+    {
+      "path": "zatuplay-source/scripts/voice-life-runtime-tail.js",
+      "bytes": 5372,
+      "sha256": "eb1ad9fd7fae8a05739397b4fbafdb920da64e949f9646ec9988d0ad5d1f94c9"
+    },
+    {
+      "path": "zatuplay-source/scripts/voice-life-test-report.json",
+      "bytes": 394,
+      "sha256": "5712ea0681c33aa53ec9563feeb719090237f62056357529c99e57c5c7e25db7"
+    },
+    {
+      "path": "zatuplay-source/scripts/voice-life-toggle.js",
+      "bytes": 2407,
+      "sha256": "5476f1c1d4bc7204ccefcd053defb1856c7717b94f64ac19965f296e91fcdbc6"
+    },
+    {
+      "path": "zatuplay-source/scripts/voice-life-toolbar.html",
+      "bytes": 1758,
+      "sha256": "c6ac104243b49c214a82ee349a997ac44143dec7b9aaf02f80ad7f17d7532633"
+    }
+  ]
+}

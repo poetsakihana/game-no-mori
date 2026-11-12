@@ -1,0 +1,59 @@
+{
+  "id": "collection-21",
+  "title": "Voice Life",
+  "apk": {
+    "filename": "21.Voice_Life_v7.apk",
+    "bytes": 37397,
+    "sha256": "3c25fd980bb97e69e32aa6c22fb8e3cdd72ad558590eb46ffe4003d479557b4f",
+    "package": "jp.sakihana.voicelife",
+    "versionName": "7.0",
+    "versionCode": 7
+  },
+  "source": {
+    "apkMember": "assets/index.html",
+    "bytes": 50990,
+    "sha256": "bdd27499adc865024ab8ef492a1ce13b765d7fc79c556540df3cd60254b58a79",
+    "byteIdenticalToApk": true
+  },
+  "browserVersion": "7.0-web.1",
+  "content": {
+    "listenerIds": 1200,
+    "distinctListenerNames": 1200,
+    "hostIds": 500,
+    "distinctHostNames": 120,
+    "traits": 8,
+    "topics": 6,
+    "lifestyleSchedules": 5,
+    "jstEvents": 5,
+    "rankThresholds": [
+      0,
+      120,
+      400,
+      1000,
+      2500,
+      6000,
+      14000
+    ],
+    "giftCosts": [
+      1,
+      5,
+      30,
+      100,
+      300,
+      800,
+      3000,
+      10000
+    ],
+    "rankEntries": 501
+  },
+  "status": {
+    "localAuthorTests": "passed",
+    "actualBrowser": "not-run",
+    "microphonePermission": "not-requested",
+    "microphoneHardware": "not-run",
+    "mobileHardware": "not-run",
+    "offlineReload": "not-run",
+    "publication": "not-performed"
+  },
+  "knownRightsConcern": "No third-party media identified; authorship/license not independently audited."
+}

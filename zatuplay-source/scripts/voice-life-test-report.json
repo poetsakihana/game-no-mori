@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "assertions": 56045,
+  "scope": "Source-derived model and LinkeDOM author harness. Not actual browser/microphone/mobile/audio/offline QA.",
+  "content": {
+    "listeners": 1200,
+    "listenerNames": 1200,
+    "hosts": 500,
+    "hostNames": 120,
+    "ranks": 7,
+    "gifts": 8
+  },
+  "originalSha256": "bdd27499adc865024ab8ef492a1ce13b765d7fc79c556540df3cd60254b58a79"
+}

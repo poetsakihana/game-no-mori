@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "mirrorFiles": 7,
+  "sourceOracleHashVerified": true,
+  "apkBytesVerified": true,
+  "versionedAssets": true,
+  "staticNetworkAndNativeKeyChecks": true,
+  "scope": "Static/source checksum verification, not actual browser QA"
+}
