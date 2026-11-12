@@ -1,0 +1,78 @@
+{
+  "title": "みすゞことばの小道 / ことばの小径",
+  "catalogId": "collection-41",
+  "browserVersion": "0.2-web.1",
+  "source": {
+    "filename": "41.みすゞことばの小道-v0.2.apk",
+    "versionName": "0.2",
+    "versionCode": 2,
+    "sha256": "05093f95c8d008968040e8c01724aaf5abc343835502919d6fc4598688a59517",
+    "bytes": 254917
+  },
+  "originalWebFiles": [
+    {
+      "path": "assets/www/assets/akari.svg",
+      "bytes": 2664,
+      "sha256": "45c22d1f8e5fe2973a1403ca805ecc85c64ff49089212d32218565bbbeee376d"
+    },
+    {
+      "path": "assets/www/assets/shiori.svg",
+      "bytes": 2906,
+      "sha256": "dd4ebdf88a118a415e21e5eb83335c0fd7d268549b71e7de484719c7a125eaef"
+    },
+    {
+      "path": "assets/www/assets/suzu.svg",
+      "bytes": 1520,
+      "sha256": "133f7913b5e4e5fb5db9c0a2a5865dd5870084e01ccb63c1d94f923a88fe2826"
+    },
+    {
+      "path": "assets/www/assets/traveler.svg",
+      "bytes": 2998,
+      "sha256": "7a7230497ed80c9865ada2055e86ce2db5b5fc1da548fc2690e638b2a89cf862"
+    },
+    {
+      "path": "assets/www/events.js",
+      "bytes": 11259,
+      "sha256": "d78464607a6f15c5c1b77773656278038a994d52a10b2175a41fae93c6793d55"
+    },
+    {
+      "path": "assets/www/index.html",
+      "bytes": 393834,
+      "sha256": "fcb0f3a5525ca00329ab4ba5dea6682c7e9bf33ea8b9413a2e9c81ed5748fd98"
+    },
+    {
+      "path": "assets/www/poems.json",
+      "bytes": 364051,
+      "sha256": "3038f0470d064e7fe3e5e573f2ea8f97512ef15659522369728e0c88daf7b4a2"
+    }
+  ],
+  "unchangedAssets": [
+    {
+      "path": "assets/akari.svg",
+      "sha256": "45c22d1f8e5fe2973a1403ca805ecc85c64ff49089212d32218565bbbeee376d",
+      "bytes": 2664
+    },
+    {
+      "path": "assets/shiori.svg",
+      "sha256": "dd4ebdf88a118a415e21e5eb83335c0fd7d268549b71e7de484719c7a125eaef",
+      "bytes": 2906
+    },
+    {
+      "path": "assets/suzu.svg",
+      "sha256": "133f7913b5e4e5fb5db9c0a2a5865dd5870084e01ccb63c1d94f923a88fe2826",
+      "bytes": 1520
+    },
+    {
+      "path": "assets/traveler.svg",
+      "sha256": "7a7230497ed80c9865ada2055e86ce2db5b5fc1da548fc2690e638b2a89cf862",
+      "bytes": 2998
+    },
+    {
+      "path": "poems.json",
+      "sha256": "3038f0470d064e7fe3e5e573f2ea8f97512ef15659522369728e0c88daf7b4a2",
+      "bytes": 364051
+    }
+  ],
+  "contentBoundary": "提供資料 KanekoPoems.xlsx の516作品・530表記。全文性・転記・異体字は未校訂。章・景色・問い・キャラクター会話は創作。",
+  "excluded": "Android native wrappers, APK signature metadata and signing material are not shipped."
+}

@@ -1,0 +1,121 @@
+{
+  "poems": 516,
+  "variants": 530,
+  "chapters": 12,
+  "poemsPerChapter": 43,
+  "events": 36,
+  "eventChoices": 72,
+  "characters": 4,
+  "allChaptersInitiallyAvailable": true,
+  "poemDataSha256": "39105e795df9a754c22f55621266217177f2a1ed839a3d3756cdca9a3e40ecec",
+  "chapterBoundaries": [
+    [
+      1,
+      43
+    ],
+    [
+      44,
+      86
+    ],
+    [
+      87,
+      129
+    ],
+    [
+      130,
+      172
+    ],
+    [
+      173,
+      215
+    ],
+    [
+      216,
+      258
+    ],
+    [
+      259,
+      301
+    ],
+    [
+      302,
+      344
+    ],
+    [
+      345,
+      387
+    ],
+    [
+      388,
+      430
+    ],
+    [
+      431,
+      473
+    ],
+    [
+      474,
+      516
+    ]
+  ],
+  "multiVariantIds": [
+    2,
+    5,
+    58,
+    67,
+    110,
+    173,
+    181,
+    194,
+    234,
+    308,
+    316,
+    328,
+    436,
+    472
+  ],
+  "originalCodeSections": [
+    {
+      "file": "events.js",
+      "start": "const CAST=",
+      "end": "\nconst portraits",
+      "sha256": "98e1e7fb7a0f5201ce8ce2cbdb31a635aab1ae926e185c1a9f92109127b67d31"
+    },
+    {
+      "file": "events.js",
+      "start": "const SCENES=",
+      "end": "\nfunction eventDef",
+      "sha256": "be139257277864568b4ca057def553eaa05ccbf61b434b7edb77985fa6287e0a"
+    },
+    {
+      "file": "events.js",
+      "start": "function eventDef",
+      "end": "\nfunction eventPortrait",
+      "sha256": "a8788d8522e13cc6edc213c7f341ceb5d7d3b112cad6e20691fdbf3c3730b7f0"
+    },
+    {
+      "file": "events.js",
+      "start": "function renderEvent",
+      "end": "\nwindow.eventNext",
+      "sha256": "caee8ae7261f3856f1343549bb93c7286ff32c9fa5784c58a8223c0bcbf2d12d"
+    },
+    {
+      "file": "app.js",
+      "start": "const chapters=",
+      "end": "\nconst $=",
+      "sha256": "a25ee9a1134da0c605aeafd2d56c096051cbb73851931e0ba997378086fb187f"
+    },
+    {
+      "file": "app.js",
+      "start": "function nodePos",
+      "end": "\nfunction scenery",
+      "sha256": "8f46849daa19aee7d212749ecd19e903611540594c824c9cad61c57f1056fcbc"
+    },
+    {
+      "file": "app.js",
+      "start": "function scenery",
+      "end": "\nlet last=",
+      "sha256": "2a17ad2fa566fc77e87a9e62db96bccdf257d6fdd8514775b57226fe96ac64ff"
+    }
+  ]
+}
