@@ -1,0 +1,14 @@
+const fs=require('fs'),path=require('path'),vm=require('vm');
+const {parseHTML}=require('linkedom');const {indexedDB,IDBKeyRange}=require('fake-indexeddb');
+async function create({data=new Map(),owner=true}={}){
+ const root=path.resolve(__dirname,'../public/games/instant'),{window}=parseHTML(fs.readFileSync(path.join(root,'index.html'),'utf8'));const document=window.document,events={};let timer=0;const timers=new Map();
+ const proto=window.HTMLElement.prototype;proto.showModal=function(){this.open=true};proto.close=function(){this.open=false;this.dispatchEvent(new window.Event('close'))};proto.scrollIntoView=function(){};proto.focus=function(){};proto.pause=function(){};proto.play=async function(){};
+ Object.defineProperty(window.HTMLInputElement.prototype,'files',{configurable:true,get(){return this._files||[]},set(v){this._files=v}});
+ Object.defineProperty(window.HTMLSelectElement.prototype,'value',{configurable:true,get(){return this._value??this.querySelector('option')?.value??''},set(v){this._value=v}});
+ const c={console,TextEncoder,TextDecoder,Blob,URL,URLSearchParams,structuredClone,crypto:require('crypto').webcrypto,indexedDB,IDBKeyRange,document,MutationObserver:window.MutationObserver,HTMLElement:window.HTMLElement,Image:class{},navigator:{locks:{request:(n,opt,fn)=>fn(owner?{}:null)},clipboard:{writeText:async()=>{}}},location:{reload(){},hash:'',search:'',href:'https://example.test/zatuplay/games/instant/'},localStorage:{getItem:k=>data.get(k)??null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)},innerWidth:1000,innerHeight:700,devicePixelRatio:1,confirm:()=>true,prompt:()=>null,alert:()=>{},performance:{now:()=>Date.now()},setTimeout:(fn,ms)=>{timers.set(++timer,{fn,ms});return timer},clearTimeout:id=>timers.delete(id),setInterval:()=>++timer,clearInterval(){},requestAnimationFrame:()=>1,matchMedia:()=>({matches:false}),scrollTo(){},addEventListener:(k,fn)=>{(events[k]??=[]).push(fn)},fetch:()=>Promise.reject(Error('network forbidden'))};
+ c.window=c;document.hidden=false;for(const el of document.querySelectorAll('[id]'))c[el.id]=el;vm.createContext(c);const run=(s)=>vm.runInContext(s,c,{timeout:20000});
+ const load=f=>{try{run(fs.readFileSync(path.join(root,f),'utf8'))}catch(e){e.message=f+': '+e.message;throw e}};
+ load('browser-validation.js');load('browser-store.js');await run('InstantStorage.ready');let src=fs.readFileSync(path.join(root,'browser-boot.js'),'utf8');let files=JSON.parse(src.match(/for\(const path of (\[[^\]]+\])/)[1]);for(const f of files)load(f);await new Promise(r=>setImmediate(r));
+ return {c,run,load,data,events,timers,document,files};
+}
+module.exports={create};if(require.main===module)create().then(g=>{console.log('BOOT',g.run('authReady'),g.run('typeof render'),g.run('PHOTO_BASE_CATALOG.length'));process.exit(0)}).catch(e=>{console.error(e);process.exit(1)});

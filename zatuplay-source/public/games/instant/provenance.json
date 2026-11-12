@@ -1,0 +1,44 @@
+{
+  "id": "instant",
+  "version": "4.4.1-web.1",
+  "original": {
+    "filename": "Instant-Login-v4.4.1.apk",
+    "bytes": 47477987,
+    "sha256": "799ebf9b373c3d626224c59f7a4efbc9ee2fda5e376a834a5e658a821e2178b8",
+    "gitBlobSha": "c1528d09095e053f2f220aa69d0f3fb68556b28f",
+    "sourceAssetCount": 350,
+    "sourceAssetBytes": 48087851
+  },
+  "source": "User-created APK retrieved from authorized Library, matching catalog version/name/size; Drive metadata read separately.",
+  "pastConversationEvidence": [
+    {
+      "conversation": "6af13adc-f314-83ec-a492-d612cf59a1bc",
+      "message": "10dd9e20-f807-5ee2-8a5d-e7ede3a484ea",
+      "observation": "4.4.1 APK repackaging fix, Android physical installation unverified"
+    },
+    {
+      "conversation": "6aebd3ec-4e54-83ee-843b-e3be7148999a",
+      "message": "1689aa56-de84-58ed-89a1-2fab3b905fc8",
+      "observation": "social/story selection and six chapters, saves per local account"
+    }
+  ],
+  "rights": "Original labels CPU images game-generated shared assets, fictitious portraits/original characters. Representative asset sheets inspected; no specific third-party-copy concern. Independent authorship/license verification of every image not performed.",
+  "qa": {
+    "authorDOMModelAssertions": 109,
+    "authorInterruptionModelAssertions": 8,
+    "actualBrowser": "not-run",
+    "physicalDevices": "not-run",
+    "mediaPlayback": "not-run",
+    "independentReview": "model-passed-browser-pending",
+    "independentChecks": {
+      "store": 32,
+      "validator": 12,
+      "extended": 10,
+      "longterm": 20,
+      "async": 9,
+      "countsOverlap": true
+    },
+    "syntaxChecks": 42
+  },
+  "scope": "All original 350 source asset paths retained. No external publishing/APK/catalog edits. Browser safety changes documented in README.md."
+}

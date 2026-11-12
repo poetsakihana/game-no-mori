@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Instant app icon">
+<defs><linearGradient id="base" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6550d8"/><stop offset="0.48" stop-color="#c832a8"/><stop offset="1" stop-color="#ef4d69"/></linearGradient><radialGradient id="sun" cx="0.16" cy="1.08" r="1.05"><stop offset="0" stop-color="#ffdf76"/><stop offset="0.32" stop-color="#ff983e"/><stop offset="0.64" stop-color="#f25c68" stop-opacity="0.75"/><stop offset="1" stop-color="#e44d94" stop-opacity="0"/></radialGradient></defs>
+<rect width="512" height="512" rx="112" fill="url(#base)"/><rect width="512" height="512" rx="112" fill="url(#sun)"/>
+<rect x="125" y="125" width="262" height="262" rx="78" fill="none" stroke="#fff" stroke-width="23"/>
+<circle cx="256" cy="256" r="65" fill="none" stroke="#fff" stroke-width="23"/>
+<g fill="#fff"><ellipse cx="333" cy="174" rx="7" ry="10"/><ellipse cx="333" cy="190" rx="7" ry="10"/><ellipse cx="325" cy="182" rx="10" ry="7"/><ellipse cx="341" cy="182" rx="10" ry="7"/></g>
+</svg>
