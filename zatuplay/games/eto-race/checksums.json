@@ -1,0 +1,22 @@
+{
+  "index.html": {
+    "bytes": 9624,
+    "sha256": "9ac3d1b475f3d71ba7cfe5c090457fc7722c61a59f3c1be6232ced57ac295c89"
+  },
+  "game.js": {
+    "bytes": 20978,
+    "sha256": "7de3e7786bb0db7e9c524c6527b0232d9f984a35eaab7d326bb43cb4bf15077b"
+  },
+  "store.js": {
+    "bytes": 3540,
+    "sha256": "c527e45ef303f62368f4255a0c61c686a1a9d8be1e44cfe20a1e7e45ec06f4ab"
+  },
+  "browser.js": {
+    "bytes": 4886,
+    "sha256": "c8bfc5444cfe783f2389b3c8dfe1d0e8b60115fe20413e9caea5ec66486874f5"
+  },
+  "README.md": {
+    "bytes": 3567,
+    "sha256": "f3c60114a3b44fc06666c5fac29ee90e591a255dba84733671a3d70659714ae0"
+  }
+}
