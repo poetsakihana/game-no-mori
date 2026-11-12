@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-12T00:29:34Z",
+  "updatedAt": "2026-11-12T01:09:27Z",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -252,14 +252,14 @@
     {
       "id": "can-to-crown",
       "name": "Can to Crown",
-      "status": "queued",
+      "status": "published",
       "priority": 122,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/can-to-crown/?v=2.1-web.1",
+      "browserVersion": "2.1-web.1",
+      "checkedAt": "2026-11-12T01:09:27Z",
+      "lastAttemptAt": "2026-11-12T01:09:27Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-01",
@@ -312,14 +312,14 @@
     {
       "id": "collection-09",
       "name": "イライラ棒",
-      "status": "queued",
+      "status": "published",
       "priority": 1109,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/iraira-bo/?v=1.0-web.1",
+      "browserVersion": "1.0-web.1",
+      "checkedAt": "2026-11-12T01:09:27Z",
+      "lastAttemptAt": "2026-11-12T01:09:27Z",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-10",
@@ -707,54 +707,52 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-12T00:22:40Z",
+    "checkedAt": "2026-11-12T01:09:27Z",
     "apps": [
       {
-        "id": "collection-17",
-        "checkedAt": "2026-11-12T00:22:40Z",
+        "id": "can-to-crown",
+        "checkedAt": "2026-11-12T01:09:27Z",
         "checks": [
-          "公開Chromeで1〜22問を通常の回答UIから正答し、20問時点の21解放/22ロック、最終22/16000を確認",
-          "第2問の入力途中、第21問の正解画面を再読込保持。手動停止再開と音設定の保持を確認",
-          "21問済み・第22問途中のJSONを実ダウンロードして213 bytesの内容を検査。進行後の復元取消、同ファイル再選択・確認付き復元・再読込を確認",
-          "実2タブで保存更新を検出して古いタブの上書きを停止。古いタブに入力後も再読込で新しい22問済みの保存を保持",
-          "一覧への通常リンク遷移とゲーム由来error/warnなしを確認",
-          "登録後の一覧20公開/62作品を確認し、検索した「遊ぶ」から起動。保存済み進行の保持と一覧復帰を再確認"
+          "公開Chromeで31個の回収/売却、川岸の依頼達成・300円報酬、実績受取/済表示、移動制限とイベント広場への移動を通常UIで確認",
+          "道具/袋/売却を各1段階、事業3段階リサイクル店まで購入。毎秒721円、音OFF・地区・強化・依頼記録を再読込保持",
+          "川の清掃大会の選択待ちを再読込復元し参加。別イベントで休憩も確認",
+          "JSON961 bytesを実ダウンロード・内容検査、復元取消/同一ファイル再選択/確認付き復元/再読込。手動停止・やり直し取消・実2タブの同時プレイ拒否を確認",
+          "依頼図鑑の達成★/内容、一覧復帰、ゲームパスのconsole errorなしを確認"
         ]
       },
       {
-        "id": "collection-34",
-        "checkedAt": "2026-11-12T00:22:40Z",
+        "id": "collection-09",
+        "checkedAt": "2026-11-12T01:09:27Z",
         "checks": [
-          "公開Chromeで55盤面と元APKの部分移植注記を確認。可視ヒントに従うセルクリックでBOARD01をクリアし1/55を再読込保持",
-          "塗り/右クリック×/一手戻す/矢印Enter/やり直し取消と確認、BOARD02の途中盤面と5秒以上の時間保存を確認",
-          "手動停止、12〜35サイズ絞込、35×35盤面の拡大/縮小・縦横スクロール・固定ヒント、操作説明Escを確認",
-          "実2タブで別タブ更新の警告と保存停止を確認。一覧への通常リンク遷移とゲーム由来error/warnなしを確認",
-          "登録後の一覧20公開/62作品を確認し、検索した「遊ぶ」から起動。保存済み進行の保持と一覧復帰を再確認"
+          "公開Chromeで3ページ全30面の選択とロック、壁衝突/リトライ、キー移動/停止/途中位置の再読込を確認",
+          "通常ドラッグ20区間でSTAGE1クリア23.56秒。1/30クリア、2面解放/3面ロック、BEST23.56秒を再読込保持",
+          "STAGE2の途中移動、残り73.7秒の停止再開、音OFFの保存を確認",
+          "実2タブで新しい保存への更新時に旧タブを停止。確認付きの保存読み直しで最新途中状態を保持",
+          "操作説明、一覧復帰、ゲームパスのconsole errorなしを確認"
         ]
       }
     ],
     "logicChecks": {
-      "picrossTestGroups": 12,
-      "picrossBoards": 55,
-      "picrossCells": 7805,
-      "riddleTestGroups": 20,
-      "riddleQuestions": 16000,
-      "independentlyCheckedNumericQuestions": 14980,
-      "independentlyCheckedCiphers": 1000,
+      "canToCrownTestGroups": 20,
+      "irairaTestGroups": 18,
+      "canToCrownExpansionValues": 240,
+      "canToCrownBaseArrays": 8,
+      "irairaCourses": 30,
+      "irairaVertices": 6630,
+      "independentReviewPassed": true,
       "sourceDeploymentMirrorMatched": true
     },
     "limitations": [
-      "Picross元APK自体が55盤面の部分移植・試作版。2003原作全編・500問・後半画像式問題・会話・解放条件・音声は元APKにも未収録",
-      "全55盤面と全16000問の通常イベント自動テストはテストモデル。全編の手動攻略ではない",
-      "スマホ実機/実タッチ、Safari/Firefox、実非表示/blur、低速回線、異常終了時の保存、なぞなぞ王の音実聴取は未確認",
-      "Picrossの解の一意性、Web Locks非対応時の完全同時保存は保証しない"
+      "全編のモデル自動試験は実ブラウザの手動攻略ではない。Can to Crownの1億円ED/全5地区/全100図鑑収集、イライラ棒全30面の手動完走は未確認",
+      "スマホ実機/実タッチ、Safari/Firefox、音の実聴取、実非表示/blur、低速回線、強制終了/極端な保存競合は未確認",
+      "原作のToneGenerator効果音は65ms等のWebAudio合成へ置換し、同一波形ではない。両APKにBGM/画像資産はない",
+      "Web Locks非対応時は既存保存を保全して書込を停止する。Can to Crownは一時プレイとJSON書出しのみ"
     ],
-    "catalogVerifiedAt": "2026-11-12T00:29:34Z",
-    "registrationCommit": "bcfec9bf53a50ae4fd07e675526d50f4848cb63d",
-    "pagesRunId": 43127268024
+    "testDeploymentCommit": "bd392bfc5eed7e15998c092c1faed5e2328bb958",
+    "testPagesRunId": 43130731661
   },
-  "publishedTargetCount": 12,
-  "remainingTargetCount": 40,
+  "publishedTargetCount": 14,
+  "remainingTargetCount": 38,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
@@ -1019,6 +1017,51 @@
       "catalogVerifiedAt": "2026-11-12T00:29:34Z",
       "registrationCommit": "bcfec9bf53a50ae4fd07e675526d50f4848cb63d",
       "pagesRunId": 43127268024
+    },
+    {
+      "checkedAt": "2026-11-12T01:09:27Z",
+      "apps": [
+        {
+          "id": "can-to-crown",
+          "checkedAt": "2026-11-12T01:09:27Z",
+          "checks": [
+            "公開Chromeで31個の回収/売却、川岸の依頼達成・300円報酬、実績受取/済表示、移動制限とイベント広場への移動を通常UIで確認",
+            "道具/袋/売却を各1段階、事業3段階リサイクル店まで購入。毎秒721円、音OFF・地区・強化・依頼記録を再読込保持",
+            "川の清掃大会の選択待ちを再読込復元し参加。別イベントで休憩も確認",
+            "JSON961 bytesを実ダウンロード・内容検査、復元取消/同一ファイル再選択/確認付き復元/再読込。手動停止・やり直し取消・実2タブの同時プレイ拒否を確認",
+            "依頼図鑑の達成★/内容、一覧復帰、ゲームパスのconsole errorなしを確認"
+          ]
+        },
+        {
+          "id": "collection-09",
+          "checkedAt": "2026-11-12T01:09:27Z",
+          "checks": [
+            "公開Chromeで3ページ全30面の選択とロック、壁衝突/リトライ、キー移動/停止/途中位置の再読込を確認",
+            "通常ドラッグ20区間でSTAGE1クリア23.56秒。1/30クリア、2面解放/3面ロック、BEST23.56秒を再読込保持",
+            "STAGE2の途中移動、残り73.7秒の停止再開、音OFFの保存を確認",
+            "実2タブで新しい保存への更新時に旧タブを停止。確認付きの保存読み直しで最新途中状態を保持",
+            "操作説明、一覧復帰、ゲームパスのconsole errorなしを確認"
+          ]
+        }
+      ],
+      "logicChecks": {
+        "canToCrownTestGroups": 20,
+        "irairaTestGroups": 18,
+        "canToCrownExpansionValues": 240,
+        "canToCrownBaseArrays": 8,
+        "irairaCourses": 30,
+        "irairaVertices": 6630,
+        "independentReviewPassed": true,
+        "sourceDeploymentMirrorMatched": true
+      },
+      "limitations": [
+        "全編のモデル自動試験は実ブラウザの手動攻略ではない。Can to Crownの1億円ED/全5地区/全100図鑑収集、イライラ棒全30面の手動完走は未確認",
+        "スマホ実機/実タッチ、Safari/Firefox、音の実聴取、実非表示/blur、低速回線、強制終了/極端な保存競合は未確認",
+        "原作のToneGenerator効果音は65ms等のWebAudio合成へ置換し、同一波形ではない。両APKにBGM/画像資産はない",
+        "Web Locks非対応時は既存保存を保全して書込を停止する。Can to Crownは一時プレイとJSON書出しのみ"
+      ],
+      "testDeploymentCommit": "bd392bfc5eed7e15998c092c1faed5e2328bb958",
+      "testPagesRunId": 43130731661
     }
   ]
 }

@@ -4,13 +4,13 @@
   "files": [
     {
       "path": "zatuplay/games/can-to-crown/PORTING_NOTES.md",
-      "bytes": 4430,
-      "sha256": "d3be7f6547cf6ff28c99161249d659082083afd9bd42ee9f54148c08ccfbc305"
+      "bytes": 5229,
+      "sha256": "db8316caf1aabc599d42ecafe3e4c54b652557ef17c0c65550538b82627b3f9c"
     },
     {
       "path": "zatuplay/games/can-to-crown/README.md",
-      "bytes": 8394,
-      "sha256": "bc2959553cb1a5134fa2747b62adfb9322759ba57a4eae82a1944b8c9369b38a"
+      "bytes": 9833,
+      "sha256": "70099302c7e40ac5b534f28b0550e6f6f987a81e1b3e33286d8477344b96e2d1"
     },
     {
       "path": "zatuplay/games/can-to-crown/app.js",
@@ -29,8 +29,8 @@
     },
     {
       "path": "zatuplay/games/can-to-crown/original-source.json",
-      "bytes": 4421,
-      "sha256": "25e10627626f42f7ff7c7eaadc4a94eb0726dd810642e1d97c22de1055e8103d"
+      "bytes": 6707,
+      "sha256": "ba66f5e9be5f0be2ccd70d63c28ee3a18fadb56487f3e602ddbe1dc819cbb554"
     },
     {
       "path": "zatuplay/games/can-to-crown/reference/classes.dex",
@@ -49,13 +49,13 @@
     },
     {
       "path": "zatuplay-source/public/games/can-to-crown/PORTING_NOTES.md",
-      "bytes": 4430,
-      "sha256": "d3be7f6547cf6ff28c99161249d659082083afd9bd42ee9f54148c08ccfbc305"
+      "bytes": 5229,
+      "sha256": "db8316caf1aabc599d42ecafe3e4c54b652557ef17c0c65550538b82627b3f9c"
     },
     {
       "path": "zatuplay-source/public/games/can-to-crown/README.md",
-      "bytes": 8394,
-      "sha256": "bc2959553cb1a5134fa2747b62adfb9322759ba57a4eae82a1944b8c9369b38a"
+      "bytes": 9833,
+      "sha256": "70099302c7e40ac5b534f28b0550e6f6f987a81e1b3e33286d8477344b96e2d1"
     },
     {
       "path": "zatuplay-source/public/games/can-to-crown/app.js",
@@ -74,8 +74,8 @@
     },
     {
       "path": "zatuplay-source/public/games/can-to-crown/original-source.json",
-      "bytes": 4421,
-      "sha256": "25e10627626f42f7ff7c7eaadc4a94eb0726dd810642e1d97c22de1055e8103d"
+      "bytes": 6707,
+      "sha256": "ba66f5e9be5f0be2ccd70d63c28ee3a18fadb56487f3e602ddbe1dc819cbb554"
     },
     {
       "path": "zatuplay-source/public/games/can-to-crown/reference/classes.dex",

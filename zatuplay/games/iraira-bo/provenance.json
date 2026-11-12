@@ -31,5 +31,33 @@
   "stageCount": 30,
   "verticesPerStage": 221,
   "sourceBinaryModified": false,
-  "note": "Original APK retained unchanged. Only the four non-signature entries are enumerated here. Browser code is a transcription of the native implementation, not an extracted web game."
+  "note": "Original APK retained unchanged. Only the four non-signature entries are enumerated here. Browser code is a transcription of the native implementation, not an extracted web game.",
+  "publicVerification": {
+    "verifiedOn": "2026-11-12",
+    "browser": "Chrome",
+    "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/iraira-bo/?v=1.0-web.1",
+    "testedCommit": "bd392bfc5eed7e15998c092c1faed5e2328bb958",
+    "pagesRunId": 43130731661,
+    "pagesHeadMatched": true,
+    "checks": [
+      "Title, all three selection pages, 30 stages and initial locks",
+      "Stage 1 wall collision and retry",
+      "Keyboard movement, manual pause and reload of intermediate position/time",
+      "Stage 1 cleared using normal relative drags: 23.56 seconds",
+      "Reload retains 1/30 cleared, stage 2 unlocked, stage 3 locked and best 23.56 seconds",
+      "Stage 2 intermediate position, 73.7 seconds remaining and sound OFF retained after reload",
+      "Real two-tab save conflict blocks stale tab; confirmed reload resumes latest save",
+      "Help, return to collection and zero game-path console errors"
+    ],
+    "notVerified": [
+      "Manual completion of all 30 stages",
+      "Real mobile touch and vibration",
+      "Safari and Firefox",
+      "Audible sound verification",
+      "Low-speed loading, forced shutdown and extreme delay in a real browser",
+      "Mobile orientation and narrow-screen layout"
+    ],
+    "catalogRegistration": "Separate step; consult the current browser catalog",
+    "modelTestsAreNotManualCompletion": true
+  }
 }

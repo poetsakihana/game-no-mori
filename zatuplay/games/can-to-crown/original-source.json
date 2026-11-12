@@ -129,7 +129,50 @@
     "Persist current page, can variants and pending event in addition to original saved fields"
   ],
   "publication": {
-    "status": "awaiting_real_browser_QA",
-    "catalogAdded": false
+    "status": "published_pending_catalog_recheck",
+    "catalogAdded": true,
+    "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/can-to-crown/?v=2.1-web.1",
+    "qa": {
+      "date": "2026-11-12",
+      "browser": "Chrome",
+      "method": "normal UI without internal state modification or test-code injection",
+      "commit": "bd392bfc5eed7e15998c092c1faed5e2328bb958",
+      "pagesRun": "https://github.com/poetsakihana/game-no-mori/actions/runs/43130731661",
+      "pagesExactHeadSucceeded": true,
+      "verified": [
+        "Initial start and 20 cans",
+        "First NPC interaction: 120 yen and reputation +1",
+        "First quest: 31 cans picked and sold from 25 clicks, report reward 300 yen and reputation +2",
+        "First-can achievement reward 200 yen and claimed status; first-friend original reward about 230000 yen",
+        "Cumulative area unlock, carried-can travel restriction and travel to Event Plaza after sale",
+        "Tool, capacity and sale level 1; business level 3 and 721 yen per second",
+        "Pending river event restored after reload and joined; station event rested; shopping-street event joined",
+        "Progress, location, sound off and quest journal entry 041 retained after reload",
+        "Manual pause/resume and reset cancellation",
+        "961-byte JSON download, restore cancellation, same-file reselection, confirmed restore and reload",
+        "Second-tab play lock rejection and return link to ZatuPlay collection"
+      ],
+      "gamePathConsoleErrors": 0,
+      "extensionErrorsExcluded": true,
+      "lastObservedState": {
+        "cashApproxYen": 241000,
+        "totalApproxYen": 281000,
+        "picked": 31,
+        "sold": 31,
+        "area": "イベント広場",
+        "businessLevel": 3
+      },
+      "notVerified": [
+        "Manual full five-area and 100-million-yen ending completion",
+        "All 100 entries collected and all quests completed manually",
+        "Keyboard can picking in the published Chrome session",
+        "Mobile devices and real touch input",
+        "Safari and Firefox",
+        "Audible audio verification",
+        "Exhaustive real visibility/blur and wall-clock buff expiry tests",
+        "Forced termination, slow network and extreme storage contention",
+        "Android-device comparison with the original APK"
+      ]
+    }
   }
 }

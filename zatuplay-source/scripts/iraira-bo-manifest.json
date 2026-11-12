@@ -8,8 +8,8 @@
     },
     {
       "path": "zatuplay/games/iraira-bo/README.md",
-      "bytes": 7639,
-      "sha256": "f2df048cdbe9dae5d57572b214544d4d9053bef01fb9c752af8d91f8334c4eae"
+      "bytes": 9572,
+      "sha256": "c80ffa05258cec25d789aa9273bbcba1ac3a257cebb7485d17ecd3cf11643696"
     },
     {
       "path": "zatuplay/games/iraira-bo/game.js",
@@ -28,8 +28,8 @@
     },
     {
       "path": "zatuplay/games/iraira-bo/provenance.json",
-      "bytes": 1250,
-      "sha256": "ddd76716e45ead94acc151d9a5820d9a740e4b3169ab7f5bd9bdf5137768ff95"
+      "bytes": 2633,
+      "sha256": "234daacadadca85caa152eade1b49bcec23bbf0d022a9aa0f0eb32afa2526669"
     },
     {
       "path": "zatuplay/games/iraira-bo/style.css",
@@ -43,8 +43,8 @@
     },
     {
       "path": "zatuplay-source/public/games/iraira-bo/README.md",
-      "bytes": 7639,
-      "sha256": "f2df048cdbe9dae5d57572b214544d4d9053bef01fb9c752af8d91f8334c4eae"
+      "bytes": 9572,
+      "sha256": "c80ffa05258cec25d789aa9273bbcba1ac3a257cebb7485d17ecd3cf11643696"
     },
     {
       "path": "zatuplay-source/public/games/iraira-bo/game.js",
@@ -63,8 +63,8 @@
     },
     {
       "path": "zatuplay-source/public/games/iraira-bo/provenance.json",
-      "bytes": 1250,
-      "sha256": "ddd76716e45ead94acc151d9a5820d9a740e4b3169ab7f5bd9bdf5137768ff95"
+      "bytes": 2633,
+      "sha256": "234daacadadca85caa152eade1b49bcec23bbf0d022a9aa0f0eb32afa2526669"
     },
     {
       "path": "zatuplay-source/public/games/iraira-bo/style.css",

@@ -140,7 +140,21 @@
       "version": "0.1.0-web.1",
       "checkedAt": "2026-11-12T00:22:40Z",
       "note": "元APKも55盤面の部分移植・試作版で原作全編ではありません。Chromeで最初の盤面クリア、塗り/×/時間とクリア記録の再読込、キー入力、手動停止、35×35表示/拡大/スクロール、別タブの保存保護を確認。元APKに音声なし。全55面の手動攻略・スマホ実機・Safari/Firefoxは未確認。APKとは自動同期しません。"
+    },
+    {
+      "id": "can-to-crown",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/can-to-crown/?v=2.1-web.1",
+      "version": "2.1-web.1",
+      "checkedAt": "2026-11-12T01:09:27Z",
+      "note": "元APKの5地区・100図鑑を保持。Chromeで缶拾い/売却、依頼達成、地区移動、事業3段階、保存再開、イベント復元、JSON書出し/確認付き復元、二重プレイ防止を確認。1億円エンディングまでの手動攻略・全図鑑収集・スマホ実機・音の実聴取は未確認。APKとは自動同期しません。"
+    },
+    {
+      "id": "collection-09",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/iraira-bo/?v=1.0-web.1",
+      "version": "1.0-web.1",
+      "checkedAt": "2026-11-12T01:09:27Z",
+      "note": "元APKの全30コース・ルールを保持。Chromeでドラッグによる1面クリア、2面解放/BEST保存、壁衝突/再挑戦、キー移動、途中位置/時間/音設定の保存再開、別タブの上書き防止を確認。全30面の手動攻略・スマホ実機/タッチ・音の実聴取は未確認。APKとは自動同期しません。"
     }
   ],
-  "updatedAt": "2026-11-12T00:22:40Z"
+  "updatedAt": "2026-11-12T01:09:27Z"
 }
