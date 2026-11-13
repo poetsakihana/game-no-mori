@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "title": "ZatuPlay ブラウザ版 継続制作",
   "createdAt": "2026-11-11T00:46:31.837Z",
-  "updatedAt": "2026-11-12T11:58:26Z",
+  "updatedAt": "2026-11-13T00:20:34.766368+00:00",
   "repository": "poetsakihana/game-no-mori",
   "branch": "main",
   "catalogPath": "zatuplay/data/browser-catalog.json",
@@ -345,14 +345,14 @@
     {
       "id": "collection-13",
       "name": "全国ことばRPG",
-      "status": "queued",
+      "status": "published",
       "priority": 1113,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/kotoba-rpg/?v=2.1-web.1",
+      "browserVersion": "2.1-web.1",
+      "checkedAt": "2026-11-13T00:20:34.766368+00:00",
+      "lastAttemptAt": "2026-11-13T00:20:34.766368+00:00",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-15",
@@ -645,14 +645,14 @@
     {
       "id": "collection-48",
       "name": "人生めぐり3D",
-      "status": "queued",
+      "status": "published",
       "priority": 1148,
-      "browserUrl": null,
-      "browserVersion": null,
-      "checkedAt": null,
-      "lastAttemptAt": null,
+      "browserUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/jinsei-meguri/?v=1.0-web.1",
+      "browserVersion": "1.0-web.1",
+      "checkedAt": "2026-11-13T00:20:34.766368+00:00",
+      "lastAttemptAt": "2026-11-13T00:20:34.766368+00:00",
       "blocker": null,
-      "nextStep": "最新のAPKメタデータと原本/制作ソースを確認し、Web移植・動作確認へ進む。"
+      "nextStep": null
     },
     {
       "id": "collection-50",
@@ -704,57 +704,54 @@
     }
   ],
   "recentBatch": {
-    "checkedAt": "2026-11-12T11:58:26Z",
-    "checkedAtEvidence": "実Chrome正常操作と公開版修正再試験。Pagesの実checkoutと成功をログ照合。カタログ32件とAPK62件を同commitから再読し既存バイト同一を確認。",
+    "checkedAt": "2026-11-13T00:20:34.766368+00:00",
+    "checkedAtEvidence": "UTC tool clock and public Chrome UI verification on 2026-11-13; GitHub Pages checkout log and successful run 43335535363.",
     "apps": [
       {
-        "id": "instant",
-        "checkedAt": "2026-11-12T11:58:26Z",
-        "testDeploymentCommit": "46e5d6e8470da28c5474b663b7f7e118643632e9",
-        "pagesRunId": 43213117002,
+        "id": "collection-48",
+        "checkedAt": "2026-11-13T00:20:34.766368+00:00",
+        "testDeploymentCommit": "a4cfb55af5e1652dc4b55102436d07bbcbfdea60",
+        "pagesRunId": 43335535363,
         "checks": [
-          "原本350パス保持・全素材バイト同一、公開360ファイルSHA照合",
-          "架空端末内登録・誤パスワード拒否・再ログイン・再読込保持",
-          "全6章を通常操作で読了し結末1種を保存。2/4/6章の投稿条件を確認",
-          "文字2枚カルーセル・原作写真ライブラリ・取消再開・二重クリックの重複抑止",
-          "実JSONダウンロード・取消・同ファイル再選択・3件復元・直前4件への復旧",
-          "CPUフォローとDM返信、季節/グループDM画面",
-          "副タブ競合による投稿拒否と下書き保持・元4投稿保護。競合を容量不足扱いする表示を修正し公開再試験",
-          "一覧往復/BFCache再読込案内と復帰"
+          "Public Chrome start with 12 courses, original image atlas, 4 named test players, order dice and movement",
+          "Stage 1 completed by all four players using UI buttons only; no state mutation; finish money 480000/340000/200000/60000",
+          "Arrival bonuses 60000/40000/20000/10000 and final money ranking",
+          "Zoom in/out/full view; normal and lightweight board visibly rendered",
+          "Export actual JSON; reset cancel; reset and previous-generation recovery; JSON import; same file reselection cancel; reload and resume preserves final state",
+          "Roll interrupted by stage selector returns to prior committed turn",
+          "Second tab reports memory-only mode"
         ],
         "limitations": [
-          "物語の残る2結末は実操作未完。全64経路はモデル検証",
-          "実動画・音声・リールのファイル選択や再生は未確認。通常JSONに動画/音声/アカウント資格情報は含まない",
-          "実機Android/iOS・タッチ・Safari/Firefox・インストールPWA/オフラインは未確認",
-          "全CPU/スタジオ/グループ機能/長期間イベントの網羅操作は未完。GPU不要だが低性能端末未測定",
-          "破損/quota/悪意JSON/非同期境界はモデル検証、実容量枯渇試験ではない"
+          "Only first of 12 courses completed in real UI; all 12 covered by model tests",
+          "No physical mobile/touch, narrow viewport, Safari/Firefox, forced WebGL failure, real quota/offline failure or same-score reroll in actual UI",
+          "Original has no audio; no audio added"
         ]
       },
       {
-        "id": "collection-38",
-        "checkedAt": "2026-11-12T11:58:26Z",
-        "testDeploymentCommit": "c7f2854299c16fca9dea43f64f406e325c36c920",
-        "pagesRunId": 43203910307,
+        "id": "collection-13",
+        "checkedAt": "2026-11-13T00:20:34.766368+00:00",
+        "testDeploymentCommit": "a4cfb55af5e1652dc4b55102436d07bbcbfdea60",
+        "pagesRunId": 43335535363,
         "checks": [
-          "原本12干支/12コース/低ポリゴンCPU投影を保持",
-          "公開Chrome自然完走・予想的中・ポイント80→160・星1/12・育成と再読込保持",
-          "実JSON取消/再選択/復元/前世代復旧",
-          "副タブ一時変更で元保存保護",
-          "コース12選択・手動一時停止/再開・未完走離脱無報酬",
-          "一覧往復とBFCache復帰案内・再読込維持"
+          "Public Chrome starts with 47 stages, 6571 questions, next stages locked",
+          "Sapporo 2 questions completed through visible answers; unit reward only once, 2 correct, 2 orbs, XP16/gold16 in actual downloaded JSON",
+          "Repeat Sapporo unit retains correct count and orbs",
+          "Export actual JSON; reset cancel; reset without duplicate daily reward; previous-generation recovery; actual file import; same file reselection cancel; reload retains 2 correct/2 orbs",
+          "Hokkaido local boundary rendered, 235 places, Sapporo search returns 57 places; external GSI background displayed when ON and removed when OFF",
+          "Second tab reports memory-only mode",
+          "Toolbar link contrast improved and verified in deployed screenshot"
         ],
         "limitations": [
-          "GPU/WebGLは環境非対応、原作のCPU3D投影を実確認",
-          "全12コース自然完走/全星達成、音声の聴取、物理端末/他ブラウザ/オフライン未確認",
-          "走行途中座標・現在コース・選択干支は保存しない。離脱中止は無報酬",
-          "実不正JSON/容量枯渇/非表示による自動停止は未確認。モデル試験は別証拠"
+          "No natural completion of all 47 prefectures/6571 questions; model full-prefecture checks are separate",
+          "No physical mobile/touch, narrow viewport, Safari/Firefox, actual network-failure/quota injection",
+          "Audio listening unverified; all 629 source pages and all product facts not exhaustively checked"
         ]
       }
     ],
-    "catalogVerificationStatus": "登録候補。まだこのpacketは適用していない。反映後の34/62一覧と両作品への往復を担当者が確認する。"
+    "catalogVerificationStatus": "登録候補。まだこのpacketは適用していない。反映後の36/62一覧と両作品への往復を担当者が確認する。"
   },
-  "publishedTargetCount": 26,
-  "remainingTargetCount": 26,
+  "publishedTargetCount": 28,
+  "remainingTargetCount": 24,
   "batches": [
     {
       "checkedAt": "2026-11-11T00:46:31.837Z",
@@ -1343,6 +1340,53 @@
         }
       ],
       "catalogVerificationStatus": "登録候補。まだこのpacketは適用していない。反映後の34/62一覧と両作品への往復を担当者が確認する。"
+    },
+    {
+      "checkedAt": "2026-11-13T00:20:34.766368+00:00",
+      "checkedAtEvidence": "UTC tool clock and public Chrome UI verification on 2026-11-13; GitHub Pages checkout log and successful run 43335535363.",
+      "apps": [
+        {
+          "id": "collection-48",
+          "checkedAt": "2026-11-13T00:20:34.766368+00:00",
+          "testDeploymentCommit": "a4cfb55af5e1652dc4b55102436d07bbcbfdea60",
+          "pagesRunId": 43335535363,
+          "checks": [
+            "Public Chrome start with 12 courses, original image atlas, 4 named test players, order dice and movement",
+            "Stage 1 completed by all four players using UI buttons only; no state mutation; finish money 480000/340000/200000/60000",
+            "Arrival bonuses 60000/40000/20000/10000 and final money ranking",
+            "Zoom in/out/full view; normal and lightweight board visibly rendered",
+            "Export actual JSON; reset cancel; reset and previous-generation recovery; JSON import; same file reselection cancel; reload and resume preserves final state",
+            "Roll interrupted by stage selector returns to prior committed turn",
+            "Second tab reports memory-only mode"
+          ],
+          "limitations": [
+            "Only first of 12 courses completed in real UI; all 12 covered by model tests",
+            "No physical mobile/touch, narrow viewport, Safari/Firefox, forced WebGL failure, real quota/offline failure or same-score reroll in actual UI",
+            "Original has no audio; no audio added"
+          ]
+        },
+        {
+          "id": "collection-13",
+          "checkedAt": "2026-11-13T00:20:34.766368+00:00",
+          "testDeploymentCommit": "a4cfb55af5e1652dc4b55102436d07bbcbfdea60",
+          "pagesRunId": 43335535363,
+          "checks": [
+            "Public Chrome starts with 47 stages, 6571 questions, next stages locked",
+            "Sapporo 2 questions completed through visible answers; unit reward only once, 2 correct, 2 orbs, XP16/gold16 in actual downloaded JSON",
+            "Repeat Sapporo unit retains correct count and orbs",
+            "Export actual JSON; reset cancel; reset without duplicate daily reward; previous-generation recovery; actual file import; same file reselection cancel; reload retains 2 correct/2 orbs",
+            "Hokkaido local boundary rendered, 235 places, Sapporo search returns 57 places; external GSI background displayed when ON and removed when OFF",
+            "Second tab reports memory-only mode",
+            "Toolbar link contrast improved and verified in deployed screenshot"
+          ],
+          "limitations": [
+            "No natural completion of all 47 prefectures/6571 questions; model full-prefecture checks are separate",
+            "No physical mobile/touch, narrow viewport, Safari/Firefox, actual network-failure/quota injection",
+            "Audio listening unverified; all 629 source pages and all product facts not exhaustively checked"
+          ]
+        }
+      ],
+      "catalogVerificationStatus": "登録候補。まだこのpacketは適用していない。反映後の36/62一覧と両作品への往復を担当者が確認する。"
     }
   ]
 }

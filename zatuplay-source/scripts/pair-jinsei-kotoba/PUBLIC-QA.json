@@ -1,0 +1,67 @@
+{
+  "actualBrowserAcceptancePassed": true,
+  "latestMainReadCommit": "a4cfb55af5e1652dc4b55102436d07bbcbfdea60",
+  "reviewedBaseCommit": "a4cfb55af5e1652dc4b55102436d07bbcbfdea60",
+  "noConflictingCatalogueChanges": true,
+  "apkPreserved": true,
+  "currentCatalogueCount": 34,
+  "currentTargetPublishedCount": 26,
+  "checkedAt": "2026-11-13T00:20:34.766368+00:00",
+  "checkedAtEvidence": "UTC tool clock and public Chrome UI verification on 2026-11-13; GitHub Pages checkout log and successful run 43335535363.",
+  "apps": [
+    {
+      "id": "collection-48",
+      "version": "1.0-web.1",
+      "publicUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/jinsei-meguri/?v=1.0-web.1",
+      "publicUrlOpened": true,
+      "actualBrowserAcceptancePassed": true,
+      "pagesStatus": "success",
+      "deploymentCommit": "a4cfb55af5e1652dc4b55102436d07bbcbfdea60",
+      "actualCheckoutCommit": "a4cfb55af5e1652dc4b55102436d07bbcbfdea60",
+      "pagesRunId": 43335535363,
+      "checkedAt": "2026-11-13T00:20:34.766368+00:00",
+      "checks": [
+        "Public Chrome start with 12 courses, original image atlas, 4 named test players, order dice and movement",
+        "Stage 1 completed by all four players using UI buttons only; no state mutation; finish money 480000/340000/200000/60000",
+        "Arrival bonuses 60000/40000/20000/10000 and final money ranking",
+        "Zoom in/out/full view; normal and lightweight board visibly rendered",
+        "Export actual JSON; reset cancel; reset and previous-generation recovery; JSON import; same file reselection cancel; reload and resume preserves final state",
+        "Roll interrupted by stage selector returns to prior committed turn",
+        "Second tab reports memory-only mode"
+      ],
+      "limitations": [
+        "Only first of 12 courses completed in real UI; all 12 covered by model tests",
+        "No physical mobile/touch, narrow viewport, Safari/Firefox, forced WebGL failure, real quota/offline failure or same-score reroll in actual UI",
+        "Original has no audio; no audio added"
+      ],
+      "note": "Chromeで第1コースを4人全員通常操作で完走。到着報酬・所持金順位・保存再開・JSON復元/取消・一世代復旧・中断取消・軽量表示・別タブ保護を確認。全12コース自然完走、狭幅/スマホ実機、Safari/Firefoxは未検証。原作に音声なし。APK原本は変更せず自動同期もしません。"
+    },
+    {
+      "id": "collection-13",
+      "version": "2.1-web.1",
+      "publicUrl": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/kotoba-rpg/?v=2.1-web.1",
+      "publicUrlOpened": true,
+      "actualBrowserAcceptancePassed": true,
+      "pagesStatus": "success",
+      "deploymentCommit": "a4cfb55af5e1652dc4b55102436d07bbcbfdea60",
+      "actualCheckoutCommit": "a4cfb55af5e1652dc4b55102436d07bbcbfdea60",
+      "pagesRunId": 43335535363,
+      "checkedAt": "2026-11-13T00:20:34.766368+00:00",
+      "checks": [
+        "Public Chrome starts with 47 stages, 6571 questions, next stages locked",
+        "Sapporo 2 questions completed through visible answers; unit reward only once, 2 correct, 2 orbs, XP16/gold16 in actual downloaded JSON",
+        "Repeat Sapporo unit retains correct count and orbs",
+        "Export actual JSON; reset cancel; reset without duplicate daily reward; previous-generation recovery; actual file import; same file reselection cancel; reload retains 2 correct/2 orbs",
+        "Hokkaido local boundary rendered, 235 places, Sapporo search returns 57 places; external GSI background displayed when ON and removed when OFF",
+        "Second tab reports memory-only mode",
+        "Toolbar link contrast improved and verified in deployed screenshot"
+      ],
+      "limitations": [
+        "No natural completion of all 47 prefectures/6571 questions; model full-prefecture checks are separate",
+        "No physical mobile/touch, narrow viewport, Safari/Firefox, actual network-failure/quota injection",
+        "Audio listening unverified; all 629 source pages and all product facts not exhaustively checked"
+      ],
+      "note": "Chromeで札幌市2問完了・復習・報酬重複防止・保存再読込・実JSON復元/取消・一世代復旧・別タブ保護を確認。北海道境界/検索/地理院背景ON・OFF確認。47県6571問全自然完走、狭幅/スマホ実機・音聴取・全629出典照合は未検証。APK原本は変更せず自動同期もしません。"
+    }
+  ]
+}
