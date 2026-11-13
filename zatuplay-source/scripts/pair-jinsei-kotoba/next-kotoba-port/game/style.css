@@ -5,3 +5,6 @@
 @media(max-width:850px){.atlas-layout{grid-template-columns:minmax(0,1fr) 250px;gap:10px}.atlas-sidebar{padding:10px}.map-heading .muted{font-size:12px}#atlasCanvas{min-height:380px}.atlas-wide{grid-template-columns:1fr}.atlas-wide .atlas-sidebar{grid-template-columns:1fr 1fr}}
 @media(max-width:620px) and (orientation:portrait){.atlas-layout{grid-template-columns:1fr}.map-heading{align-items:start}.map-heading .ghost{font-size:11px;padding:10px}.map-heading h1{font-size:28px}#atlasCanvas{height:58vh;min-height:340px}.atlas-wide .atlas-sidebar{display:flex}.map-attribution{max-width:62%}.map-legend{font-size:10px}.atlas-sidebar{padding:14px}.map-results{max-height:230px}}
 #webTools{padding:12px;max-width:1400px;margin:auto}#webTools button{margin:3px}#webTools p{font-size:13px;overflow-wrap:anywhere}*:focus-visible{outline:3px solid #ffc557;outline-offset:3px}@media(max-width:420px){#webTools button{padding:9px;font-size:12px}}
+
+/* Browser toolbar: readable links on the dark game background. */
+#webTools{padding:12px;line-height:1.7}#webTools a,#webTools a:visited{color:#b7f2e1;text-decoration:underline;text-underline-offset:.2em}#webTools a:hover{color:#fff}#webTools a:focus-visible{outline:3px solid #ffd77c;outline-offset:3px}
