@@ -296,7 +296,21 @@
         ],
         "order": 6.6
       }
+    },
+    {
+      "id": "collection-26",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/jinsei-kantei/",
+      "version": "6-web.1",
+      "checkedAt": "2026-11-14T09:06:43.300Z",
+      "note": "APK v6を移植。Chromeで人生の選択・年齢進行・再読込保存、4問鑑定と自動保存、500体図鑑の簡易描画を確認。Nodeで0〜110歳・不正保存・500モデル同一性を検証。鑑定は娯楽。スマホ実機、GPU描画、音声聴取、バックアップUIは未検証。APKとは別保存。"
+    },
+    {
+      "id": "collection-43",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/rakugo-dojo/",
+      "version": "1.0-web.1",
+      "checkedAt": "2026-11-14T09:06:43.300Z",
+      "note": "Chromeで自動送り・一時停止・聞き流し開始停止、噺家獲得・再読込保存を確認。150噺家枠×50演目枠には短編・共通テンプレートを含み、7500の独立した長編ではありません。音声は端末合成で本人の実演ではありません。スマホ実機・音声聴取・全演目の自然完走は未検証。APKとは別保存。"
     }
   ],
-  "updatedAt": "2026-11-14T08:59:11.690Z"
+  "updatedAt": "2026-11-14T09:06:43.300Z"
 }
