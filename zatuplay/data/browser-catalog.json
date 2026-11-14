@@ -338,7 +338,21 @@
       "version": "1.0-web.1",
       "checkedAt": "2026-11-14T09:40:45.886Z",
       "note": "Chromeで新規開始・移動・メニュー・セーブ・再読込後コンティニューを確認。画面ボタンとキーボード対応。全地域探索・音声実聴取・スマホ実機は未検証。APKと保存は別です。"
+    },
+    {
+      "id": "drive-blacksensei4",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/blacksensei4/",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-14T09:51:18.454Z",
+      "note": "Chromeで本編導入・訓練開始・移動・一時停止と再開を確認。保存形式の正常/異常データ検証済み。全250面完走・クリア記録の実プレイ保存・スマホ実機は未検証。APKとは保存別。"
+    },
+    {
+      "id": "collection-19",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/skhn-music/",
+      "version": "1.0-web.1",
+      "checkedAt": "2026-11-14T09:51:18.454Z",
+      "note": "端末内音楽プレーヤー。音源は同梱しません。合成WAVのZIP取込・再生位置進行・一時停止・分類編集・再読込後保持をChromeで確認。100MB/回、500曲まで。ZIP/skhnは非暗号化ZIPのみ。音声実聴取・全音声形式・実機未検証。元音源は保管してください。"
     }
   ],
-  "updatedAt": "2026-11-14T09:40:45.886Z"
+  "updatedAt": "2026-11-14T09:51:18.454Z"
 }
