@@ -49,7 +49,7 @@ if(window.PointerEvent){
 }
 window.addEventListener('blur',function(){if(drag)up(drag.x,true);});
 window.addEventListener('pageshow',function(){launching=false;play.disabled=false;play.textContent='この作品を遊ぶ';render(false);});
-document.getElementById('exit').onclick=function(){if(window.Android)Android.exit();else location.href='/zatuplay/';};
+document.getElementById('exit').onclick=function(){if(window.Android)Android.exit();else location.href=window.ZatuHomeURL;};
 window.KurskSelector={select:select,getCurrent:function(){return current;},launch:launch};
 if(window.KurskSound)KurskSound.music('select');
 render(false);

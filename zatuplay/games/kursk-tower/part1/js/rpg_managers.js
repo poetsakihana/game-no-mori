@@ -1935,7 +1935,7 @@ SceneManager.update = function() {
 };
 
 SceneManager.terminate = function() {
-    location.href='/zatuplay/';
+    location.href=window.ZatuHomeURL;
 };
 
 SceneManager.onError = function(e) {
