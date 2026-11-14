@@ -1,0 +1,16 @@
+#layer-strip{position:absolute;z-index:5;top:108px;left:16px;display:flex;gap:5px}#layer-strip button{padding:7px 12px;font-size:12px;background:#102a3bdc}#layer-strip button.active{background:#d4b774;color:#102435}#objective{max-width:calc(100% - 260px);line-height:1.6}#modal p{white-space:pre-line;line-height:1.85}#modal label{display:flex;align-items:center;gap:14px;padding:12px 0}.row{flex-wrap:wrap}#panel{max-height:90vh}#k3-toolbar{z-index:6}#k3-map{z-index:4}#puzzle-feedback{color:#ffe19b;min-height:1.7em}#puzzle-input .keypad{max-width:330px;margin:auto}#modal .eyebrow{color:#e1c58b}#modal button:disabled{opacity:.35}.route-grid button{min-width:0}@media(max-height:430px){header{padding:5px 12px}header h1{font-size:16px}#objective{top:60px;font-size:10px;max-width:calc(100% - 230px)}#layer-strip{top:91px;left:12px}#layer-strip button{padding:5px 8px;font-size:10px}#k3-toolbar{top:62px}#k3-map{top:101px;width:100px;height:68px}#panel{padding:14px;max-height:92vh}#modal h2{font-size:20px}#modal p{line-height:1.6;font-size:13px}}@media(max-width:600px){#objective{max-width:calc(100% - 24px);top:88px}#layer-strip{top:136px}#k3-toolbar{top:174px}#k3-map{top:214px}}
+/* Dialogs always cover 3D overlays, including portrait and first-frame rendering. */
+#game #modal{z-index:110}#game #objective{z-index:3}#device-feedback{color:#ffe19b;min-height:1.7em}#device-options{display:flex;flex-direction:column}#device-options button{text-align:left;white-space:normal;line-height:1.6}#layer-strip{flex-wrap:wrap;max-width:calc(100% - 24px)}@media(max-width:600px){#layer-strip{gap:4px}#layer-strip button{padding:7px 9px;min-height:36px}#objective{font-size:11px;line-height:1.5;max-height:44px;overflow:auto}#modal{padding:12px}#panel{width:100%;max-height:94vh;padding:18px}#panel h2{font-size:19px}}
+@media(max-width:600px){
+ #game header{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:3px 7px;padding:6px 10px;height:82px;align-content:center}
+ #game header>div:first-child{grid-column:1/-1;min-width:0}
+ #game header h1{font-size:14px;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0}
+ #game header .eyebrow{font-size:8px;letter-spacing:1px}
+ #game #stats{font-size:10px;text-align:left;line-height:13px;white-space:normal}
+ #game header button{font-size:11px;min-height:30px;padding:5px 9px}
+ #game #objective{top:87px;left:10px;width:calc(100% - 20px);max-width:none;margin:0;padding:4px 8px;max-height:43px}
+ #game #layer-strip{top:135px;left:10px}
+ body #k3-toolbar{top:179px;right:6px;max-width:calc(100% - 12px);gap:4px}
+ body #k3-toolbar button{font-size:10px;padding:6px 8px}
+ body #k3-map{top:216px;width:88px;height:60px}
+}

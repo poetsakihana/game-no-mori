@@ -1,0 +1,1 @@
+var $plugins = [{"name":"KurskCompat","status":true,"description":"2003互換・Android操作","parameters":{}},{"name":"KurskEasy","status":true,"description":"三つの手助けとやさしい難易度","parameters":{}}];

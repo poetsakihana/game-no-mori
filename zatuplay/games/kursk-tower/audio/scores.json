@@ -1,0 +1,74 @@
+{
+  "authorship": "Original note/chord arrays and additive synthesis; no samples or quoted melodies",
+  "bgm": {
+    "select": {
+      "title": "五つの冒険",
+      "bpm": 108,
+      "bars": 16
+    },
+    "metro": {
+      "title": "迷宮を走る灯",
+      "bpm": 104,
+      "bars": 16
+    },
+    "depth": {
+      "title": "ヨミの眠る底",
+      "bpm": 76,
+      "bars": 16
+    },
+    "fire": {
+      "title": "焔の鍵",
+      "bpm": 124,
+      "bars": 16
+    },
+    "ice": {
+      "title": "凍った声の図書館",
+      "bpm": 88,
+      "bars": 16
+    },
+    "shadow": {
+      "title": "闇は道しるべ",
+      "bpm": 96,
+      "bars": 16
+    },
+    "dawn": {
+      "title": "帰り道の星",
+      "bpm": 110,
+      "bars": 16
+    },
+    "battle": {
+      "title": "奈落を越える三人",
+      "bpm": 140,
+      "bars": 16
+    },
+    "boss": {
+      "title": "封鬼門の誓い",
+      "bpm": 132,
+      "bars": 16
+    },
+    "final": {
+      "title": "最後の奈落の残響",
+      "bpm": 148,
+      "bars": 16
+    },
+    "ending": {
+      "title": "奈落に灯る帰り道",
+      "bpm": 92,
+      "bars": 16
+    }
+  },
+  "effects": [
+    "confirm",
+    "cancel",
+    "wrong",
+    "solve",
+    "chest",
+    "heal",
+    "strike",
+    "magic",
+    "guard",
+    "victory",
+    "defeat",
+    "step"
+  ]
+}
