@@ -345,7 +345,14 @@
       "version": "1.0-web.1",
       "checkedAt": "2026-11-14T09:51:18.454Z",
       "note": "端末内音楽プレーヤー。音源は同梱しません。合成WAVのZIP取込・再生位置進行・一時停止・分類編集・再読込後保持をChromeで確認。100MB/回、500曲まで。ZIP/skhnは非暗号化ZIPのみ。音声実聴取・全音声形式・実機未検証。元音源は保管してください。"
+    },
+    {
+      "id": "collection-15",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/lets-shopping/game/",
+      "version": "0.7.0-web.1",
+      "checkedAt": "2026-11-14T10:21:03.911Z",
+      "note": "Chromeで新規開始・1日目・手帳・クイック保存・再読込後復帰を確認。全31日・追加年間編・全戦闘・音声実聴取・スマホ実機は未検証。APKとは保存が別です。"
     }
   ],
-  "updatedAt": "2026-11-14T09:52:44.690Z"
+  "updatedAt": "2026-11-14T10:21:03.911Z"
 }

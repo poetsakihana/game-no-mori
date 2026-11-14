@@ -1,0 +1,30 @@
+/* レッツゴーショッピング v0.6.2 / controller-only game surface */
+var ShoppingGamepad={};
+(function(){'use strict';var P=ShoppingGamepad;P.keyCounts={};P.releaseHandlers=[];P.pending={};P.frame=0;var inputUpdate=Input.update;Input.update=function(){P.frame++;inputUpdate.call(this);Object.keys(P.pending).forEach(function(k){if(P.frame>=P.pending[k]){if(!P.keyCounts[k])Input._currentState[k]=false;delete P.pending[k];}});};P.releaseAll=function(){P.releaseHandlers.forEach(function(f){f();});Input.clear();};
+P.key=function(label){if(label==='A')return 'ok';if(label==='B')return 'escape';if(label==='START')return SceneManager._scene instanceof Scene_Map?'menu':'ok';if(label==='SELECT')return 'shoppingSelect';return {up:'up',down:'down',left:'left',right:'right'}[label];};
+P.mount=function(){if(document.getElementById('shopping-pad'))return;var css=document.createElement('style');css.textContent='#shopping-pad{position:fixed;inset:0;z-index:110;pointer-events:none;touch-action:none}#shopping-pad button{position:absolute;pointer-events:auto;width:54px;height:50px;border:2px solid #ffffff90;border-radius:12px;background:#172c47e6;color:#fff;font:bold 20px sans-serif;touch-action:none;user-select:none;-webkit-user-select:none}#shopping-pad button:active{background:#4b83bd}#shopping-pad .round{width:64px;height:64px;border-radius:50%;font-size:28px}#shopping-pad .small{width:88px;height:38px;font-size:15px;border-radius:20px}';document.head.appendChild(css);var pad=document.createElement('div');pad.id='shopping-pad';document.body.appendChild(pad);
+function button(label,action,style,klass){var b=document.createElement('button'),activeKey=null,held={};b.textContent=label;b.setAttribute('aria-label',action);if(klass)b.className=klass;Object.assign(b.style,style);
+function down(id){if(held[id])return;held[id]=true;if(!activeKey){activeKey=P.key(action);P.keyCounts[activeKey]=(P.keyCounts[activeKey]||0)+1;}delete P.pending[activeKey];P.pendingStart=P.pendingStart||{};P.pendingStart[activeKey]=P.frame;Input._currentState[activeKey]=true;}
+function up(id){delete held[id];if(!Object.keys(held).length&&activeKey){P.keyCounts[activeKey]=Math.max(0,(P.keyCounts[activeKey]||0)-1);if(!P.keyCounts[activeKey])P.pending[activeKey]=Math.max(P.frame+1,(P.pendingStart[activeKey]||0)+2);activeKey=null;}}
+function clear(){held={};if(activeKey)P.keyCounts[activeKey]=Math.max(0,(P.keyCounts[activeKey]||0)-1);Input._currentState[activeKey]=P.keyCounts[activeKey]>0;activeKey=null;}
+b.addEventListener('pointerdown',function(e){e.preventDefault();e.stopPropagation();down(e.pointerId);if(b.setPointerCapture)b.setPointerCapture(e.pointerId);});['pointerup','pointercancel','lostpointercapture'].forEach(function(type){b.addEventListener(type,function(e){e.preventDefault();e.stopPropagation();up(e.pointerId);});});
+['touchstart','touchmove','touchend','touchcancel'].forEach(function(type){b.addEventListener(type,function(e){e.preventDefault();e.stopPropagation();if(window.PointerEvent)return;for(var i=0;i<e.changedTouches.length;i++){var t=e.changedTouches[i];if(type==='touchstart')down(t.identifier);else if(type==='touchend'||type==='touchcancel')up(t.identifier);}},{passive:false});});
+['mousedown','mouseup','click','contextmenu'].forEach(function(type){b.addEventListener(type,function(e){e.preventDefault();e.stopPropagation();});});window.addEventListener('blur',clear);document.addEventListener('visibilitychange',function(){if(document.hidden)clear();});P.releaseHandlers.push(clear);pad.appendChild(b);}
+button('▲','up',{left:'66px',bottom:'118px'});button('◀','left',{left:'12px',bottom:'64px'});button('▶','right',{left:'120px',bottom:'64px'});button('▼','down',{left:'66px',bottom:'10px'});
+button('A','A',{right:'12px',bottom:'96px'},'round');button('B','B',{right:'88px',bottom:'36px'},'round');button('START','START',{right:'12px',top:'12px'},'small');button('SELECT','SELECT',{right:'12px',top:'60px'},'small');
+};
+var pause=window.bebiPause;window.bebiPause=function(){P.releaseAll();if(pause)pause();};
+var boot=Scene_Boot.prototype.start;Scene_Boot.prototype.start=function(){boot.call(this);var old=document.getElementById('bebi-controls');if(old)old.remove();P.mount();};
+var base=Scene_Base.prototype.update;Scene_Base.prototype.update=function(){base.call(this);P.mount();['bebi-controls','bebi-book','shopping-rewards-button'].forEach(function(id){var el=document.getElementById(id);if(el)el.style.display='none';});};
+Scene_Map.prototype.processMapTouch=function(){$gameTemp.clearDestination();this._touchCount=0;};Scene_Map.prototype.updateDestination=function(){$gameTemp.clearDestination();this._touchCount=0;};
+TouchInput._onTrigger=function(){};TouchInput._onCancel=function(){};TouchInput._onMove=function(){};TouchInput._onRelease=function(){};TouchInput._onWheel=function(){};
+Window_Selectable.prototype.processTouch=function(){};Window_Selectable.prototype.processWheel=function(){};
+Window_Message.prototype.isTriggered=function(){return Input.isRepeated('ok')||Input.isRepeated('cancel');};
+Scene_Map.prototype.isMenuCalled=function(){return Input.isTriggered('menu');};
+var update=Scene_Map.prototype.update;Scene_Map.prototype.update=function(){update.call(this);if(Input.isTriggered('shoppingSelect'))BebiExtras.open();};
+Input.gamepadMapper[0]='ok';Input.gamepadMapper[1]='escape';Input.gamepadMapper[8]='shoppingSelect';Input.gamepadMapper[9]='menu';
+var triggered=Input.isTriggered;Input.isTriggered=function(name){return triggered.call(this,name)||(name==='ok'&&!(SceneManager._scene instanceof Scene_Map)&&triggered.call(this,'menu'));};
+var title=Window_TitleCommand.prototype.makeCommandList;Window_TitleCommand.prototype.makeCommandList=function(){title.call(this);this.addCommand('ゲームを終わる','shoppingExit');};
+var create=Scene_Title.prototype.createCommandWindow;Scene_Title.prototype.createCommandWindow=function(){create.call(this);this._commandWindow.setHandler('shoppingExit',P.exit);};
+P.exit=function(){Input.clear();TouchInput.clear();AudioManager.stopAll();location.href='../../../';};
+})();
