@@ -1,0 +1,22 @@
+import * as T from './three.module.js';
+import {createWork} from './clay-models.js';
+import {studioLights,contactShadow,disposeModel} from './clay-material.js';
+export async function createClayViewer(el,{number=1,customModel=null}={}){
+ const renderer=new T.WebGLRenderer({antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio,1.7));renderer.setClearColor(0xeee8df);renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;el.appendChild(renderer.domElement);
+ const scene=new T.Scene(),cam=new T.PerspectiveCamera(36,1,.05,70),key=studioLights(scene);let obj=customModel?await new T.ObjectLoader().parseAsync(customModel):createWork(number);
+ let bounds=new T.Box3().setFromObject(obj),sz=bounds.getSize(new T.Vector3()),center=bounds.getCenter(new T.Vector3());const wrapper=new T.Group();wrapper.add(obj);obj.position.sub(new T.Vector3(center.x,bounds.min.y,center.z));wrapper.scale.setScalar(3.3/Math.max(sz.x,sz.z,sz.y*1.1));scene.add(wrapper);wrapper.add(contactShadow());
+ const floor=new T.Mesh(new T.PlaneGeometry(120,120),new T.MeshStandardMaterial({color:0xeee8df,roughness:1}));floor.rotation.x=-Math.PI/2;floor.position.y=-.025;floor.receiveShadow=true;scene.add(floor);
+ let az=.3,polar=.7,dist=7,auto=!matchMedia('(prefers-reduced-motion: reduce)').matches,active=true,last=0,lightMode=0;
+ const targetY=sz.y*wrapper.scale.x*.42;const pts=new Map();
+ function size(){if(el.clientWidth<1||el.clientHeight<1)return;renderer.setSize(el.clientWidth,el.clientHeight);cam.aspect=el.clientWidth/el.clientHeight;cam.updateProjectionMatrix();}
+ const ro=new ResizeObserver(size);ro.observe(el);size();
+ el.onpointerdown=e=>{el.setPointerCapture(e.pointerId);pts.set(e.pointerId,[e.clientX,e.clientY]);};el.onpointermove=e=>{if(!pts.has(e.pointerId))return;const prev=pts.get(e.pointerId);if(pts.size===1){az-=(e.clientX-prev[0])*.008;polar-=(e.clientY-prev[1])*.007;}else{const other=[...pts.entries()].find(([id])=>id!==e.pointerId)[1];const old=Math.hypot(prev[0]-other[0],prev[1]-other[1]),now=Math.hypot(e.clientX-other[0],e.clientY-other[1]);if(old>2&&now>2)dist*=old/now;}pts.set(e.pointerId,[e.clientX,e.clientY]);};el.onpointerup=el.onpointercancel=e=>pts.delete(e.pointerId);el.addEventListener('wheel',e=>{e.preventDefault();dist+=e.deltaY*.004;},{passive:false});
+ const $=s=>document.querySelector(s);function autoLabel(){$('#auto').textContent='自動回転 '+(auto?'ON':'OFF');$('#auto').setAttribute('aria-pressed',auto);}autoLabel();$('#auto').onclick=()=>{auto=!auto;autoLabel();};$('#reset').onclick=()=>{az=.3;polar=.7;dist=7;};$('#top').onclick=()=>polar=.03;$('#plus').onclick=()=>dist-=.6;$('#minus').onclick=()=>dist+=.6;
+ const film=new T.Mesh(new T.SphereGeometry(1,32,16,0,Math.PI*2,0,Math.PI/2),new T.MeshPhysicalMaterial({color:0xffffff,transparent:true,opacity:.09,roughness:.18,depthWrite:false,side:T.DoubleSide}));film.scale.set(1.9,.7,1.9);film.position.y=.15;film.visible=false;scene.add(film);$('#wrap').onclick=e=>{film.visible=!film.visible;e.target.setAttribute('aria-pressed',film.visible);e.target.textContent=film.visible?'ラップを隠す':'ラップを見る';};
+ $('#lighting')?.addEventListener('click',e=>{lightMode=(lightMode+1)%3;key.position.set(...[[-3.5,6,4],[4,3,1],[-.5,5,-3]][lightMode]);key.color.setHex([0xfff1df,0xffffff,0xffdcb4][lightMode]);e.target.textContent=['照明：自然光','照明：横から','照明：夕暮れ'][lightMode];});
+ $('#download').onclick=()=>{const a=document.createElement('a');a.download='mii-clay-'+number+'.json';a.href=URL.createObjectURL(new Blob([JSON.stringify(wrapper.toJSON())],{type:'application/json'}));a.click();setTimeout(()=>URL.revokeObjectURL(a.href),10000);};
+ function tick(t){const dt=Math.min(50,t-last||16);last=t;if(auto&&!pts.size)az+=dt*.00009;polar=Math.max(.025,Math.min(2.65,polar));dist=Math.max(3.1,Math.min(13,dist));cam.position.set(Math.sin(az)*Math.sin(polar)*dist,Math.cos(polar)*dist+targetY,Math.cos(az)*Math.sin(polar)*dist);cam.lookAt(0,targetY,0);renderer.render(scene,cam);}
+ function setActive(a){active=a;renderer.setAnimationLoop(a?tick:null);if(a){size();last=0;}}
+ setActive(true);window.__clayViewer={number,renderer,scene,cam,obj:wrapper,ready:true};
+ return{setActive,dispose(){setActive(false);ro.disconnect();disposeModel(wrapper);floor.geometry.dispose();floor.material.dispose();film.geometry.dispose();film.material.dispose();renderer.dispose();el.replaceChildren();}};
+}

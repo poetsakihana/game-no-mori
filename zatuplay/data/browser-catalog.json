@@ -324,7 +324,21 @@
       "version": "2.1.0-web.1",
       "checkedAt": "2026-11-14T09:23:49.638Z",
       "note": "NPC配信シミュレーター。実際の配信・送信・課金・換金はありません。Chromeで入退室・コメント・プロフィール保存再読込を確認。ログイン報酬・日付更新・獲得上限をテスト。音声実聴取・スマホ実機は未検証。APKと保存は別です。"
+    },
+    {
+      "id": "clay-museum",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/clay-museum/museum/",
+      "version": "2.0.0-web.1",
+      "checkedAt": "2026-11-14T09:40:45.886Z",
+      "note": "64作品の写真鑑賞・お気に入り・保存再読込・絞込みをChromeで確認。3D表示はWebGL対応端末が必要です。クラウドGPU制限により3D館内移動は未検証。APKと保存は別です。"
+    },
+    {
+      "id": "collection-24",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/mokumoku/",
+      "version": "1.0-web.1",
+      "checkedAt": "2026-11-14T09:40:45.886Z",
+      "note": "Chromeで新規開始・移動・メニュー・セーブ・再読込後コンティニューを確認。画面ボタンとキーボード対応。全地域探索・音声実聴取・スマホ実機は未検証。APKと保存は別です。"
     }
   ],
-  "updatedAt": "2026-11-14T09:23:49.638Z"
+  "updatedAt": "2026-11-14T09:40:45.886Z"
 }
