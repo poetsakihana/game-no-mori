@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#faf7ef">
+  <meta name="description" content="季節ごとの果物・野菜・草花100種類を育て、収穫や開花を完成図鑑に記録できる栽培シミュレーション。">
+  <link rel="icon" href="./assets/icon.png" type="image/png">
+  <link rel="stylesheet" href="./style.css?v=3">
+  <link rel="preload" href="./assets/garden-spring.webp" as="image">
+  <title>いちご日和</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">庭の内容へ</a>
+  <header class="app-header">
+    <div class="header-inner">
+      <button class="brand" type="button" data-nav="garden" aria-label="いちご日和の庭へ">
+        <img src="./assets/icon.png" width="42" height="42" alt="">
+        <span><strong>いちご日和</strong><small>季節の栽培シミュレーション</small></span>
+      </button>
+      <nav class="navigation" aria-label="ゲーム内メニュー">
+        <button type="button" class="nav-button" data-nav="garden" aria-current="page"><i class="icon i-sprout" aria-hidden="true"></i><span>庭</span></button>
+        <button type="button" class="nav-button" data-nav="journal"><i class="icon i-book" aria-hidden="true"></i><span>栽培日誌</span></button>
+        <button type="button" class="nav-button" data-nav="basket"><i class="icon i-basket" aria-hidden="true"></i><span>収穫かご</span></button>
+        <button type="button" class="nav-button" data-nav="book"><i class="icon i-flower" aria-hidden="true"></i><span>完成図鑑</span></button>
+      </nav>
+      <div class="header-tools">
+        <button type="button" class="help-button" id="show-help" aria-label="育て方を読む"><i class="icon i-help" aria-hidden="true"></i><span>育て方</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main-shell">
+    <noscript><p class="card noscript">いちご日和を遊ぶには、ブラウザで JavaScript を有効にしてください。</p></noscript>
+    <p class="storage-warning" id="storage-warning" role="status" hidden>このブラウザでは栽培記録を保存できません。</p>
+    <section class="view" id="view-garden" aria-labelledby="garden-title">
+      <div class="page-heading">
+        <div><h1 id="garden-title">今日の庭</h1><p id="garden-subtitle">少しずつ育つ、季節の鉢植え。</p></div>
+        <div class="date-chip" id="date-chip" aria-label="庭の日付"><i class="icon i-calendar" aria-hidden="true"></i><span></span></div>
+      </div>
+      <div class="garden-layout">
+        <section class="card scene-card" aria-label="庭と鉢の選択">
+          <div class="scene" id="scene" data-period="day" data-weather="sun">
+            <img class="scene-backdrop" id="scene-backdrop" src="./assets/garden-spring.webp" alt="">
+            <div class="scene-tint" aria-hidden="true"></div>
+            <div class="scene-rain" aria-hidden="true"></div>
+            <div class="scene-shade" aria-hidden="true"></div>
+            <div class="scene-header">
+              <span class="scene-chip" id="scene-period"><i class="icon i-sun" aria-hidden="true"></i><span>昼</span></span>
+              <span class="scene-chip" id="scene-weather"></span>
+            </div>
+            <div class="plant-display" id="plant-display">
+              <span class="plant-shadow" aria-hidden="true"></span>
+              <img id="plant-image" alt="いちごの苗" src="./assets/strawberry-0.webp" fetchpriority="high">
+              <img id="plant-specimen" class="plant-specimen" alt="" hidden>
+              <div id="plant-effect" aria-hidden="true"></div>
+            </div>
+            <div class="scene-empty" id="scene-empty" hidden></div>
+            <div class="scene-footer">
+              <span class="scene-chip scene-clock"><i class="icon i-clock" aria-hidden="true"></i><time id="clock"></time><span class="time-unit">日本時間</span></span>
+              <span class="scene-chip" id="scene-position"></span>
+            </div>
+          </div>
+          <div class="plots" id="plots" aria-label="鉢を選ぶ"></div>
+        </section>
+
+        <div class="garden-side">
+          <section class="card care-card" id="care-card" aria-labelledby="care-title"></section>
+          <section class="card forecast-card" aria-labelledby="forecast-title">
+            <h2 id="forecast-title">これからの天気</h2>
+            <div id="forecast" class="forecasts"></div>
+          </section>
+        </div>
+
+        <section class="card growth-card" id="growth-card" aria-labelledby="growth-title"></section>
+      </div>
+    </section>
+
+    <section class="view" id="view-journal" aria-labelledby="journal-title" hidden>
+      <div class="page-heading secondary-heading"><div><h1 id="journal-title">栽培日誌</h1><p>お世話と成長を、日付ごとに見返せます。</p></div></div>
+      <div class="journal-banner card" id="journal-today"></div>
+      <div class="card history-card">
+        <div class="history-header"><h2>これまでの記録</h2>
+          <label for="journal-filter">表示する鉢</label>
+          <select id="journal-filter"><option value="all">すべて</option></select>
+        </div>
+        <div class="history-list" id="history-list"></div>
+        <button class="outline-button" type="button" id="more-history" hidden>もっと見る</button>
+      </div>
+    </section>
+
+    <section class="view" id="view-basket" aria-labelledby="basket-title" hidden>
+      <div class="page-heading secondary-heading"><div><h1 id="basket-title">収穫かご</h1><p>果物や野菜の収穫数、大きさ、出来栄えを見返せます。</p></div></div>
+      <div class="harvest-summary card" id="harvest-summary"></div>
+      <div class="harvest-list" id="harvest-list"></div>
+      <button class="outline-button" type="button" id="more-harvests" hidden>もっと見る</button>
+    </section>
+
+    <section class="view" id="view-book" aria-labelledby="book-title" hidden>
+      <div class="page-heading secondary-heading"><div><h1 id="book-title">完成図鑑</h1><p>育て上げた植物に、自分だけの栽培メモを。</p></div></div>
+      <div class="card book-banner" id="book-banner"></div>
+      <section class="book-catalog" aria-label="植物の一覧">
+        <div class="catalog-controls card">
+          <div class="catalog-search"><label for="book-search">植物名</label><input id="book-search" type="search" placeholder="例：いちご、菜の花" autocomplete="off"></div>
+          <div><label for="book-season">季節</label><select id="book-season"><option value="all">すべての季節</option><option value="0">春</option><option value="1">夏</option><option value="2">秋</option><option value="3">冬</option></select></div>
+          <div><label for="book-category">種類</label><select id="book-category"><option value="all">すべての種類</option><option value="fruit">果物</option><option value="vegetable">野菜</option><option value="plant">草花・観葉植物</option></select></div>
+          <div><label for="book-status">記録</label><select id="book-status"><option value="all">すべての状態</option><option value="done">完成済み</option><option value="growing">栽培中</option><option value="todo">未完成</option></select></div>
+        </div>
+        <p class="catalog-count" id="book-count" aria-live="polite"></p>
+        <div class="catalog-grid" id="book-grid"></div>
+      </section>
+    </section>
+
+    <footer class="page-footer"><span><i class="icon i-check" aria-hidden="true"></i><span id="save-label">このブラウザに自動保存</span></span><a href="../../" style="color:inherit">ZatuPlayに戻る</a></footer>
+  </main>
+
+  <dialog class="help-dialog" id="help-dialog" aria-labelledby="help-title">
+    <div class="dialog-header">
+      <span class="panel-icon tinted-green"><i class="icon i-sprout" aria-hidden="true"></i></span>
+      <h2 id="help-title">育て方</h2>
+      <form method="dialog"><button class="close-button" aria-label="閉じる"><i class="icon i-close" aria-hidden="true"></i></button></form>
+    </div>
+    <div class="dialog-content">
+      <h3>ZatuPlay版の保存</h3><p>栽培記録はこの端末のブラウザに保存されます。元の「いちご日和」サイトや別の端末とは共有されません。ブラウザのデータを消すと記録も消えるためご注意ください。天気はゲーム内の予報です。</p><h3>時間と季節</h3>
+      <p>庭の季節は日本時間の暦に合わせて変わります。春は3〜5月、夏は6〜8月、秋は9〜11月、冬は12〜2月です。閉じていた間の成長や土の乾きも、開いたときに計算します。</p>
+      <h3>水と日当たり</h3>
+      <p>適した水分は植物によって違います。鉢のお世話画面で目安を確かめられます。水が多すぎたり、乾いたまま長く過ごしたりすると、育ち方や出来栄えに影響します。</p>
+      <p>難易度は、育つまでの日数と水・日当たりの管理をもとにした目安です。</p>
+      <h3>肥料と受粉</h3>
+      <p>土の栄養が減ったら肥料を補いましょう。次の肥料までは3日必要です。実を育てる作物の花が開いたら、一度だけ受粉を手伝えて、実つきがよくなります。</p>
+      <h3>苗選びと完成図鑑</h3>
+      <p>2鉢目の空き鉢にも、今の季節の苗を植えられます。各季節に25種類ずつあり、季節が変わっても植えた苗は育ち続けます。収穫や草花の完成を重ねると、最大8鉢まで使えます。</p>
+      <p>果物・野菜は収穫すると自動で図鑑に登録されます。草花は満開や見頃になったら「図鑑に記録する」を押しましょう。完成済みのページにはメモを書き足せます。</p>
+    </div>
+    <form method="dialog"><button class="solid-button dialog-done">庭に戻る</button></form>
+  </dialog>
+
+  <dialog class="help-dialog nursery-dialog" id="nursery-dialog" aria-labelledby="nursery-title">
+    <div class="dialog-header">
+      <span class="panel-icon tinted-green"><i class="icon i-sprout" aria-hidden="true"></i></span>
+      <div><p class="overline" id="nursery-subtitle"></p><h2 id="nursery-title">苗を選ぶ</h2></div>
+      <form method="dialog"><button class="close-button" aria-label="苗選びを閉じる"><i class="icon i-close" aria-hidden="true"></i></button></form>
+    </div>
+    <div class="nursery-controls"><label for="nursery-category">表示する苗</label><select id="nursery-category"><option value="all">すべての種類</option><option value="fruit">果物</option><option value="vegetable">野菜</option><option value="plant">草花・観葉植物</option></select></div>
+    <div id="nursery-grid" class="nursery-grid" role="group" aria-label="今の季節の苗"></div>
+    <div class="nursery-footer"><p id="nursery-selection" aria-live="polite">植える苗を選んでください。</p><button id="nursery-plant" class="solid-button" type="button" disabled><i class="icon i-sprout" aria-hidden="true"></i>この苗を植える</button></div>
+  </dialog>
+
+  <dialog class="help-dialog entry-dialog" id="entry-dialog" aria-labelledby="entry-title">
+    <div class="dialog-header">
+      <span class="panel-icon tinted-rose"><i class="icon i-flower" aria-hidden="true"></i></span>
+      <div><p class="overline" id="entry-category"></p><h2 id="entry-title"></h2></div>
+      <form method="dialog"><button class="close-button" aria-label="図鑑の詳細を閉じる"><i class="icon i-close" aria-hidden="true"></i></button></form>
+    </div>
+    <div class="entry-body" id="entry-body"></div>
+    <form class="entry-memo" id="entry-memo-form" hidden>
+      <label for="entry-memo">わたしの栽培メモ</label>
+      <textarea id="entry-memo" rows="4" maxlength="600" placeholder="育て方の工夫や、次に試したいことを書いておけます。"></textarea>
+      <div class="entry-memo-footer"><p id="entry-notice" role="status"></p><span id="entry-memo-length"></span><button type="submit" class="solid-button">メモを保存</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="./main.mjs?v=4"></script>
+</body>
+</html>
