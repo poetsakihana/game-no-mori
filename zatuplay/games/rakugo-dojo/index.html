@@ -262,7 +262,7 @@
                     <button id="btn-play-pause" onclick="togglePlayPause()" class="px-5 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-stone-950 font-bold text-sm md:text-base transition flex items-center gap-2 shadow-lg shadow-amber-900/40">
                         <span id="play-icon">▶</span> <span id="play-text">開演（自動送り開始）</span>
                     </button>
-                    <button onclick="stepNextDialogue()" class="px-4 py-2.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 text-sm font-bold border border-stone-600 transition">
+                    <button onclick="manualNextDialogue()" class="px-4 py-2.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-200 text-sm font-bold border border-stone-600 transition">
                         次の一言 ❯
                     </button>
                     <button onclick="restartStory()" class="px-3 py-2.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300 text-sm border border-stone-600 transition">
@@ -1098,6 +1098,13 @@
             document.getElementById("current-dialogue").innerText = `「${line.text}」`;
             document.getElementById("line-counter").innerText = state.currentLineIndex + 1;
             document.getElementById("total-lines").innerText = script.length;
+        }
+
+        function manualNextDialogue() {
+            pausePlay();
+            const script = getCurrentScript();
+            state.currentLineIndex = (state.currentLineIndex + 1) % script.length;
+            updateStageDisplay(); saveGame();
         }
 
         function stepNextDialogue() {
