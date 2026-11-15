@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#191c17">
+  <meta name="description" content="5作から遊べる、液晶携帯ゲーム風のミニゲーム集。クリアするたびに次のゲームがひらく。">
+  <title>ポケット液晶100</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-content">
+      <a class="brand" href="./" aria-label="ポケット液晶100 ホーム">
+        <span class="brand-device" aria-hidden="true"><i></i><b></b></span>
+        <span>POCKET LCD<span class="brand-count">100</span></span>
+      </a>
+      <div class="top-actions">
+        <button type="button" class="quiet-button" id="sound" aria-pressed="true">
+          <span class="sound-icon" aria-hidden="true"></span><span id="sound-label">音あり</span>
+        </button>
+        <button type="button" class="quiet-button" id="help-open">
+          <span class="help-icon" aria-hidden="true">?</span>遊び方
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <a class="zatuplay-return" href="../../browser/">← ZatuPlayへ</a>
+    <section class="masthead" aria-labelledby="heading">
+      <div>
+        <h1 id="heading">ステージセレクト</h1>
+        <p>最初の5作から。初クリアで、次のゲームがひらく。</p>
+      </div>
+      <div class="progress" aria-label="ゲームの進み具合">
+        <div class="progress-stat">
+          <span class="progress-label">解放済み</span>
+          <span class="progress-number"><strong id="unlocked-count">05</strong><span> / 100</span></span>
+        </div>
+        <div class="progress-stat progress-cleared">
+          <span class="progress-label">クリア</span>
+          <span class="progress-number"><strong id="clear-count">00</strong><span> / 100</span></span>
+        </div>
+        <div id="progress-track" class="progress-track" role="progressbar" aria-label="クリアしたゲーム" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="progress-fill"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="workspace">
+      <section class="play-panel" aria-labelledby="game-name">
+        <div class="device" id="device">
+          <div class="device-header" aria-hidden="true">
+            <span>DOT MATRIX <b>GAME</b></span>
+            <span class="power"><i></i> POWER</span>
+          </div>
+          <div class="bezel">
+            <div class="lcd" id="lcd">
+              <div class="lcd-hud">
+                <div><span>SCORE</span><b id="score">00</b></div>
+                <div><span>GOAL</span><b id="goal">06</b></div>
+                <div><span>TIME</span><b id="time">40</b></div>
+                <div class="lcd-life"><span>MISS</span><b id="life" aria-label="残り3回"></b></div>
+              </div>
+              <canvas id="screen" width="320" height="124" aria-label="液晶ゲーム画面"></canvas>
+              <div class="screen-end" id="screen-end" hidden>
+                <strong id="screen-title"></strong>
+                <span id="screen-subtitle"></span>
+              </div>
+            </div>
+            <div class="bezel-details" aria-hidden="true"><span>LCD</span><span id="device-number">01 · 100</span></div>
+          </div>
+          <div class="device-bottom">
+            <div class="device-direction">
+              <button type="button" class="device-btn" id="left" aria-label="左" title="左（←キー）" disabled>◀</button>
+              <button type="button" class="device-btn" id="right" aria-label="右" title="右（→キー）" disabled>▶</button>
+            </div>
+            <div class="speaker" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            <button type="button" class="device-btn action-key" id="action" aria-label="アクション" title="アクション（スペースキー）">A</button>
+          </div>
+          <div class="device-labels" aria-hidden="true"><span>LEFT&nbsp;&nbsp;&nbsp;&nbsp;RIGHT</span><span>ACTION</span></div>
+        </div>
+
+        <div class="game-details">
+          <div class="game-title-line">
+            <span id="game-number" class="game-number">01</span>
+            <h2 id="game-name">りんごキャッチ</h2>
+            <span id="game-cleared" class="cleared-tag" hidden>✓ クリア</span>
+          </div>
+          <p class="game-description" id="game-description"></p>
+          <p class="game-objective" id="game-objective"></p>
+          <div class="game-actions">
+            <button type="button" class="primary-button" id="primary"><span id="primary-icon" aria-hidden="true">▶</span><span id="primary-label">ゲームを始める</span></button>
+            <button type="button" class="secondary-button" id="secondary" hidden></button>
+          </div>
+          <div class="keyboard-hint">
+            <span class="key-pair" id="arrow-help"><kbd>←</kbd><kbd>→</kbd><span id="arrow-hint">移動</span></span>
+            <span class="key-pair" id="action-help"><kbd>SPACE</kbd><span id="action-hint">スタート</span></span>
+          </div>
+          <p id="game-result" class="sr-only" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="catalog" aria-label="ゲーム一覧" id="catalog">
+        <div class="catalog-heading">
+          <div class="filters" role="group" aria-label="ゲーム一覧の絞り込み">
+            <button type="button" class="filter" data-filter="all" aria-pressed="true">すべて <span id="all-total">100</span></button>
+            <button type="button" class="filter" data-filter="open" aria-pressed="false">遊べる <span id="open-total">05</span></button>
+            <button type="button" class="filter" data-filter="cleared" aria-pressed="false">クリア済み <span id="cleared-total">00</span></button>
+          </div>
+          <span class="range" id="range"></span>
+        </div>
+        <div id="games" class="game-grid" aria-label="ステージ"></div>
+        <p id="empty" class="empty" hidden>クリアしたゲームがここに並びます。</p>
+        <nav class="pagination" aria-label="ゲーム一覧のページ" id="pagination">
+          <button type="button" class="page-button" id="previous-page" aria-label="前のページ">←</button>
+          <output class="page-number" id="page-number"></output>
+          <button type="button" class="page-button" id="next-page" aria-label="次のページ">→</button>
+        </nav>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="help" class="help-dialog" aria-labelledby="help-title">
+    <form method="dialog">
+      <div class="help-title"><h2 id="help-title">遊び方</h2><button type="submit" class="page-button" aria-label="閉じる">×</button></div>
+      <ol>
+        <li>ステージセレクトで遊べるゲームを選び、スタート。</li>
+        <li>液晶の下にある <kbd>◀</kbd><kbd>▶</kbd><kbd>A</kbd> で操作。キーボードなら <kbd>←</kbd><kbd>→</kbd><kbd>SPACE</kbd> で遊べます。</li>
+        <li>制限時間内に目標を達成するとクリア。初クリアごとに次の1作が解放されます。</li>
+      </ol>
+      <p>クリアの記録は、遊んだブラウザに自動で保存されます。</p>
+      <button class="primary-button" type="submit">とじる</button>
+    </form>
+  </dialog>
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>
