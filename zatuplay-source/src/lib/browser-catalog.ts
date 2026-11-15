@@ -9,6 +9,7 @@ export interface BrowserRelease {
   version: string;
   checkedAt: string;
   note?: string;
+  kind?: 'external-site';
   app?: BrowserApp;
 }
 export interface BrowserCatalog {schemaVersion:1;apps:BrowserRelease[];updatedAt:string|null;}
@@ -35,6 +36,7 @@ export async function loadBrowserCatalog():Promise<BrowserCatalog>{
  const ids=new Set<string>();
  for(const app of data.apps){
    if(typeof app.id!=='string'||ids.has(app.id)||typeof app.url!=='string'||typeof app.checkedAt!=='string'||!app.checkedAt||Number.isNaN(Date.parse(app.checkedAt)))throw Error('Invalid browser release');
+   if(app.kind!==undefined&&app.kind!=='external-site')throw Error('Invalid browser release kind');
    if(app.app!==undefined){
      const metadata=app.app;
      if(!metadata||[metadata.name,metadata.subtitle,metadata.description,metadata.category,metadata.color].some(value=>typeof value!=='string')||

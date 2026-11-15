@@ -277,7 +277,7 @@
       "note": "Chromeで札幌市2問完了・復習・報酬重複防止・保存再読込・実JSON復元/取消・一世代復旧・別タブ保護を確認。北海道境界/検索/地理院背景ON・OFF確認。47県6571問全自然完走、狭幅/スマホ実機・音聴取・全629出典照合は未検証。APK原本は変更せず自動同期もしません。"
     },
     {
-      "id": "ichigo-biyori",
+      "id": "drive-ichigobiyori",
       "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/ichigo-biyori/",
       "version": "1.0.0-web.1",
       "checkedAt": "2026-11-14T08:59:11.690Z",
@@ -450,7 +450,50 @@
       "version": "1.2.0-web.1",
       "checkedAt": "2026-11-15T14:33:23.262408Z",
       "note": "非公式ファン制作版。Chromeで初期選択・無料ガチャ・操作訓練・通常ミッション1自然完了（7ショットA・全体1/3）・報酬・再読込・実JSON復元/取消・一時停止/再開・実2タブの一時プレイ保護を確認。原本に制作版オリジナルと記載された48音源を保持、独立した権利証明や実聴取検証ではありません。音初期OFF・ゲーム内通貨は虚構で課金なし。全編・スマホ実機・音の実聴取は未確認。APKとは別保存。"
+    },
+    {
+      "id": "collection-01",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/amusement-paradise/",
+      "version": "0.5.0-web.1",
+      "checkedAt": "2026-11-15T15:04:00Z",
+      "note": "APK主ゲームの20アトラクションを移植した3D限定版。Chrome CPU描画で全20施設の乗降、コースター自然終了、屋内・水中・運転・屋台・一時停止、保存/JSON復元/取消・別タブ保護を確認。出所未確認BGM、原作RPG・装飾素材は未収録。GPU・全20施設の完走・スマホ実機・効果音の実聴取は未確認。APKとは別保存。",
+      "app": {
+        "name": "遊園地パラダイス3D",
+        "subtitle": "20アトラクションの3D限定版",
+        "description": "自由に歩ける遊園地。ジェットコースター、観覧車、屋台と夜景。原作RPGとBGMは未収録。",
+        "category": "アドベンチャー",
+        "color": "violet",
+        "icon": "star",
+        "tags": [
+          "遊園地",
+          "3D",
+          "20アトラクション"
+        ],
+        "order": 1001
+      }
+    },
+    {
+      "id": "drive-sakihanaofficial100",
+      "url": "https://sakihana-poetry.maroonshell4.chatgpt.site/",
+      "kind": "external-site",
+      "version": "1.0.0-site-link.1",
+      "checkedAt": "2026-11-15T15:03:13.946954+00:00",
+      "note": "既存APKと同じ公式Webサイトへのリンクです。Chromeでホーム・画像・「恋は今でも」の作品詳細とブラウザの戻るを確認。音声・全ページ・スマホ実機は未検証。",
+      "app": {
+        "name": "咲華 公式サイト",
+        "subtitle": "詩と作品を紹介する公式サイト",
+        "description": "公式恋愛詩人・咲華の詩や作品を紹介する既存Webサイトを開きます。",
+        "category": "エンタメ",
+        "color": "violet",
+        "tags": [
+          "咲華",
+          "公式サイト",
+          "詩",
+          "sakihana-official"
+        ],
+        "order": 10999
+      }
     }
   ],
-  "updatedAt": "2026-11-15T14:42:35.889Z"
+  "updatedAt": "2026-11-15T15:13:51.008Z"
 }
