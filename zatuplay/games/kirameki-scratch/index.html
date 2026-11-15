@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100d19">
+  <meta name="description" content="500種類の黒い下絵を指先でこすって彩るスクラッチアート。完成した作品をギャラリーで見返そう。">
+  <title>きらめきスクラッチ</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="symbols" aria-hidden="true">
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11 2.5l1.9 6.6 6.6 1.9-6.6 1.9-1.9 6.6-1.9-6.6L2.5 11l6.6-1.9L11 2.5Z"/><path d="M19 3v5m-2.5-2.5h5M19 15.5v5m-2.5-2.5h5"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="m14 5 5 5M4 20l4.5-1 11-11a2.2 2.2 0 0 0-3.1-3.1l-11 11L4 20Z"/></symbol>
+    <symbol id="i-gallery" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m4 16 5-5 4 4 2.5-2.5L21 18"/><circle cx="15.8" cy="8.4" r="1.15"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 8a8 8 0 1 0 .2 7.5M20 3v5h-5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="5.9"/><path d="m15 15 4.8 4.8"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14.5 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5.5 12.5 4.2 4.2 8.8-9"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="shell site-header-inner">
+      <a class="brand" href="#studio" aria-label="きらめきスクラッチのアトリエ">
+        <span class="brand-mark"><svg><use href="#i-sparkles"></use></svg></span>
+        <span>きらめきスクラッチ</span>
+      </a>
+      <nav class="top-nav" aria-label="メインメニュー">
+        <a class="nav-link" id="studio-link" href="#studio" aria-current="page"><svg><use href="#i-pen"></use></svg><span>アトリエ</span></a>
+        <a class="nav-link" id="gallery-link" href="#gallery"><svg><use href="#i-gallery"></use></svg><span>ギャラリー</span><span class="nav-count" id="nav-count" aria-hidden="true">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell main">
+    <header class="intro">
+      <div id="studio-intro">
+        <h1>こすって、<span>色</span>を見つけよう。</h1>
+        <p>黒いシートの線をなぞると、隠れた色があらわれます。</p>
+      </div>
+      <div id="gallery-intro" hidden>
+        <h1>完成した<span>作品</span></h1>
+        <p>こすって完成させた絵を、いつでも見返せます。</p>
+      </div>
+      <div class="total">
+        <span class="total-icon"><svg><use href="#i-sparkles"></use></svg></span>
+        <div>
+          <span class="total-label">完成した作品</span>
+          <div class="total-number"><strong id="completed-count">0</strong><span> / 500</span></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="studio" id="studio">
+      <section class="panel work-panel" aria-labelledby="work-title">
+        <div class="work-heading">
+          <span class="level-tag" id="work-number"></span>
+          <div class="work-info">
+            <h2 id="work-title"></h2>
+            <span id="work-genre"></span>
+          </div>
+          <button class="button quiet work-reset" type="button" id="reset">
+            <svg><use href="#i-refresh"></use></svg><span id="reset-label">やり直す</span>
+          </button>
+        </div>
+        <div class="drawing" id="drawing" tabindex="0" role="group" aria-label="スクラッチシート" aria-describedby="keyboard-help">
+          <canvas class="art-layer" id="art" width="960" height="640" aria-hidden="true"></canvas>
+          <canvas class="scratch-layer" id="scratch" width="960" height="640" aria-hidden="true"></canvas>
+          <div class="cursor" id="brush-cursor" hidden></div>
+          <div class="draw-hint" id="draw-hint" aria-hidden="true"><svg><use href="#i-pen"></use></svg> 線をなぞってスタート</div>
+        </div>
+        <p class="sr-only" id="keyboard-help">矢印キーでペンを動かし、スペースキーで削ります。シフトキーを押しながら矢印キーを押すと、線を描けます。</p>
+        <div class="work-tools">
+          <fieldset class="brush-tools">
+            <legend class="sr-only">ペンの太さ</legend>
+            <span aria-hidden="true" class="tool-label">ペンの太さ</span>
+            <div class="brush-options">
+              <label class="brush-option"><input type="radio" name="brush" value="20"><span><i class="brush-dot fine"></i>細い</span></label>
+              <label class="brush-option"><input type="radio" name="brush" value="37" checked><span><i class="brush-dot medium"></i>ふつう</span></label>
+              <label class="brush-option"><input type="radio" name="brush" value="63"><span><i class="brush-dot wide"></i>太い</span></label>
+            </div>
+          </fieldset>
+          <div class="work-progress">
+            <div class="progress-label"><label for="progress">完成度</label><strong id="progress-value">0%</strong></div>
+            <progress id="progress" value="0" max="100"></progress>
+          </div>
+        </div>
+        <div class="finish" id="finish" hidden>
+          <span class="finish-mark"><svg><use href="#i-check"></use></svg></span>
+          <div class="finish-message"><strong>作品が完成しました</strong><span id="finish-status">ギャラリーに保存しました。</span></div>
+          <button class="button quiet" id="show-art" type="button">作品を見る</button>
+          <button class="button primary" id="next-art" type="button">次の下絵<svg><use href="#i-right"></use></svg></button>
+        </div>
+      </section>
+
+      <aside class="panel library-panel" aria-labelledby="library-title">
+        <div class="library-heading">
+          <span class="library-icon"><svg><use href="#i-grid"></use></svg></span>
+          <h2 id="library-title">下絵を選ぶ</h2>
+          <span class="library-total">全500種</span>
+        </div>
+        <div class="filters">
+          <label class="search-label"><svg><use href="#i-search"></use></svg><input type="search" id="search" placeholder="名前・番号で検索" aria-label="下絵の名前や番号で検索"></label>
+          <label class="select-label"><select id="category" aria-label="ジャンルで絞り込む"><option value="">すべて</option></select><svg><use href="#i-down"></use></svg></label>
+        </div>
+        <div class="stage-list" id="stage-list"></div>
+        <div class="filter-empty" id="filter-empty" hidden>下絵が見つかりませんでした。</div>
+        <div class="pagination" id="pagination">
+          <button class="button icon-button" id="previous-page" type="button" aria-label="下絵の前のページ"><svg><use href="#i-left"></use></svg></button>
+          <span id="range" aria-live="polite"></span>
+          <button class="button icon-button" id="next-page" type="button" aria-label="下絵の次のページ"><svg><use href="#i-right"></use></svg></button>
+        </div>
+      </aside>
+    </div>
+
+    <section id="gallery" aria-label="完成した作品のギャラリー" hidden>
+      <div class="panel gallery-empty" id="gallery-empty">
+        <span class="empty-mark"><svg><use href="#i-gallery"></use></svg></span>
+        <h2>完成した作品は、ここに並びます。</h2>
+        <p>まずは好きな下絵をひとつ、完成させよう。</p>
+        <a class="button primary" href="#studio">アトリエへ<svg><use href="#i-right"></use></svg></a>
+      </div>
+      <div class="gallery-list" id="gallery-list"></div>
+      <div class="pagination gallery-pages" id="gallery-pages" hidden>
+        <button class="button icon-button" id="gallery-prev" type="button" aria-label="ギャラリーの前のページ"><svg><use href="#i-left"></use></svg></button>
+        <span id="gallery-range" aria-live="polite"></span>
+        <button class="button icon-button" id="gallery-next" type="button" aria-label="ギャラリーの次のページ"><svg><use href="#i-right"></use></svg></button>
+      </div>
+    </section>
+    <p class="save-problem" id="save-problem" role="status" hidden>ブラウザに保存できませんでした。この画面を閉じる前に、完成した作品を画像で保存できます。</p>
+    <span id="announcement" class="sr-only" role="status" aria-live="polite"></span>
+  </main>
+
+  <footer class="shell zatuplay-return">
+    <a class="button quiet" href="../../browser/"><svg aria-hidden="true"><use href="#i-left"></use></svg>ZatuPlayへ戻る</a>
+  </footer>
+
+  <dialog class="modal artwork-modal" id="artwork-dialog" aria-labelledby="dialog-title">
+    <div class="modal-heading">
+      <div><span id="dialog-label" class="modal-label"></span><h2 id="dialog-title"></h2></div>
+      <button class="button icon-button" type="button" data-close aria-label="閉じる"><svg><use href="#i-close"></use></svg></button>
+    </div>
+    <canvas id="dialog-image" width="960" height="640" aria-label="完成したスクラッチアート"></canvas>
+    <div class="modal-footer">
+      <span id="dialog-date"></span>
+      <a class="button primary" id="download" download><svg><use href="#i-download"></use></svg>画像を保存</a>
+    </div>
+  </dialog>
+
+  <dialog class="modal reset-modal" id="reset-dialog" aria-labelledby="reset-title">
+    <h2 id="reset-title">はじめからこすりますか？</h2>
+    <p>この下絵の、いまの作業をリセットします。</p>
+    <div class="modal-footer">
+      <button class="button quiet" type="button" data-close autofocus>続ける</button>
+      <button class="button primary" type="button" id="confirm-reset">やり直す</button>
+    </div>
+  </dialog>
+  <noscript>このゲームで遊ぶには、ブラウザで JavaScript を有効にしてください。</noscript>
+</body>
+</html>

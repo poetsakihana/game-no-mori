@@ -2725,11 +2725,51 @@
       "available": true,
       "driveUrl": "https://drive.google.com/file/d/12ntdn0-cwdV0t5BKy2W-n5sc9HpWZwJX/view?usp=drivesdk",
       "modifiedAt": "2026-11-11T23:59:12.784Z"
+    },
+    {
+      "id": "drive-kiramekiscratch",
+      "name": "きらめきスクラッチ",
+      "subtitle": "500種類のスクラッチアート",
+      "description": "黒い下絵をこすって、隠れた色を見つけよう。完成した絵はギャラリーでいつでも見返せます。",
+      "category": "エンタメ",
+      "color": "violet",
+      "tags": [
+        "スクラッチアート",
+        "お絵描き",
+        "500種類"
+      ],
+      "icon": "star",
+      "filename": "Kirameki-Scratch-v1.0.0.apk",
+      "size": 62422,
+      "sha256": "31a47c1107cc4fc98750fefb3eaa0154aebb9722122a81e398428c7b67330d66",
+      "parts": [],
+      "package": "jp.zatuplay.kiramekiscratch",
+      "version": "1.0.0",
+      "minSdk": 26,
+      "targetSdk": 35,
+      "order": 11000,
+      "checked": "2026-11-15T14:38:56.290Z",
+      "deviceTested": false,
+      "source": "drive",
+      "versions": [
+        {
+          "fileId": "16fTap9AkBGyljj6lDFfPJJbQ-3FaCZcS",
+          "filename": "Kirameki-Scratch-v1.0.0.apk",
+          "version": "1.0.0",
+          "size": 62422,
+          "modifiedAt": "2026-11-15T14:35:14.920Z",
+          "viewUrl": "https://drive.google.com/file/d/16fTap9AkBGyljj6lDFfPJJbQ-3FaCZcS/view?usp=drivesdk",
+          "available": true
+        }
+      ],
+      "available": true,
+      "driveUrl": "https://drive.google.com/file/d/16fTap9AkBGyljj6lDFfPJJbQ-3FaCZcS/view?usp=drivesdk",
+      "modifiedAt": "2026-11-15T14:35:14.920Z"
     }
   ],
   "revision": "5ee310c22fffe80fd8e9b6973e929a7f4e9b2f2b265f79c517da5171d69d8930",
   "checkedAt": "2026-11-15T14:09:04.095Z",
-  "fileCount": 87,
-  "availableCount": 64,
+  "fileCount": 88,
+  "availableCount": 65,
   "waitingCount": 0
 }

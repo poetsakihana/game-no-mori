@@ -416,7 +416,27 @@
         ],
         "order": 200
       }
+    },
+    {
+      "id": "drive-kiramekiscratch",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/kirameki-scratch/",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-15T14:38:56.290Z",
+      "note": "10ジャンル・全500種類。タッチ、マウス、キーボード対応。進行と完成作品をブラウザ内に自動保存し、ギャラリーから見返せます。",
+      "app": {
+        "name": "きらめきスクラッチ",
+        "subtitle": "500種類のスクラッチアート",
+        "description": "黒い下絵をこすって、隠れた色を見つけよう。完成した絵はギャラリーでいつでも見返せます。",
+        "category": "エンタメ",
+        "color": "violet",
+        "tags": [
+          "スクラッチアート",
+          "お絵描き",
+          "500種類"
+        ],
+        "order": 201
+      }
     }
   ],
-  "updatedAt": "2026-11-15T14:11:40.064Z"
+  "updatedAt": "2026-11-15T14:38:56.290Z"
 }
