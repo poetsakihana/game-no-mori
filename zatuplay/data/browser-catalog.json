@@ -398,7 +398,7 @@
       "note": "WebGL非対応では軽量2Dで起動。Chromeの通常操作で第1階の戦闘・守護者撃破・地下2階進行、Lv.2/150Gと設定の保存再読込、開始取消を確認。元の21階・100敵・21ボスを保持。GPU3D・スマホ実機・音の実聴取・全21階の手動完走は未検証。APKとは別保存。"
     },
     {
-      "id": "pocket-lcd-100",
+      "id": "drive-pocketlcd100",
       "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/pocket-lcd-100/",
       "version": "1.0.0-web.1",
       "checkedAt": "2026-11-15T14:03:09.380Z",
@@ -418,5 +418,5 @@
       }
     }
   ],
-  "updatedAt": "2026-11-15T14:03:09.380Z"
+  "updatedAt": "2026-11-15T14:11:40.064Z"
 }
