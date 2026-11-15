@@ -396,7 +396,61 @@
       "version": "2.1.1-web.2",
       "checkedAt": "2026-11-15T13:41:18.086Z",
       "note": "WebGL非対応では軽量2Dで起動。Chromeの通常操作で第1階の戦闘・守護者撃破・地下2階進行、Lv.2/150Gと設定の保存再読込、開始取消を確認。元の21階・100敵・21ボスを保持。GPU3D・スマホ実機・音の実聴取・全21階の手動完走は未検証。APKとは別保存。"
+    },
+    {
+      "id": "drive-pocketlcd100",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/pocket-lcd-100/",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-15T14:03:09.380Z",
+      "note": "画面ボタンとキーボードに対応。進行はブラウザ内に保存。全100作のクリアと段階解放を自動テストで確認。",
+      "app": {
+        "name": "ポケット液晶100",
+        "subtitle": "ポケットサイズの液晶ゲーム集",
+        "description": "りんごキャッチや川わたりなど、最初の5作からスタート。初クリアごとに次の1作がひらく、全100作のゲーム集。",
+        "category": "ミニゲーム",
+        "color": "green",
+        "tags": [
+          "液晶ゲーム",
+          "レトロ",
+          "ミニゲーム"
+        ],
+        "order": 200
+      }
+    },
+    {
+      "id": "drive-kiramekiscratch",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/kirameki-scratch/",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-15T14:38:56.290Z",
+      "note": "10ジャンル・全500種類。タッチ、マウス、キーボード対応。進行と完成作品をブラウザ内に自動保存し、ギャラリーから見返せます。",
+      "app": {
+        "name": "きらめきスクラッチ",
+        "subtitle": "500種類のスクラッチアート",
+        "description": "黒い下絵をこすって、隠れた色を見つけよう。完成した絵はギャラリーでいつでも見返せます。",
+        "category": "エンタメ",
+        "color": "violet",
+        "tags": [
+          "スクラッチアート",
+          "お絵描き",
+          "500種類"
+        ],
+        "order": 201
+      }
+    },
+    {
+      "id": "collection-36",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/re-rhythm/",
+      "version": "0.3.0-web.1",
+      "checkedAt": "2026-11-15T14:33:23.262408Z",
+      "note": "原本の82ステージ・8地域と育成/図鑑を保持した非公式試作版。Chromeで通常入力/中止、神経衰弱Lv1完走・リング保存、設定保存、実JSON復元/取消、別タブ保護を確認。本編65点クリア・全編・スマホ実機・音の実聴取は未確認。合成音と端末音声を使用。APKとは別保存。"
+    },
+    {
+      "id": "collection-18",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/grasuma/",
+      "version": "1.2.0-web.1",
+      "checkedAt": "2026-11-15T14:33:23.262408Z",
+      "note": "非公式ファン制作版。Chromeで初期選択・無料ガチャ・操作訓練・通常ミッション1自然完了（7ショットA・全体1/3）・報酬・再読込・実JSON復元/取消・一時停止/再開・実2タブの一時プレイ保護を確認。原本に制作版オリジナルと記載された48音源を保持、独立した権利証明や実聴取検証ではありません。音初期OFF・ゲーム内通貨は虚構で課金なし。全編・スマホ実機・音の実聴取は未確認。APKとは別保存。"
     }
   ],
-  "updatedAt": "2026-11-15T13:41:18.086Z"
+  "updatedAt": "2026-11-15T14:42:35.889Z"
 }

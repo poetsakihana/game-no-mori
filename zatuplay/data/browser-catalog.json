@@ -436,7 +436,21 @@
         ],
         "order": 201
       }
+    },
+    {
+      "id": "collection-36",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/re-rhythm/",
+      "version": "0.3.0-web.1",
+      "checkedAt": "2026-11-15T14:33:23.262408Z",
+      "note": "原本の82ステージ・8地域と育成/図鑑を保持した非公式試作版。Chromeで通常入力/中止、神経衰弱Lv1完走・リング保存、設定保存、実JSON復元/取消、別タブ保護を確認。本編65点クリア・全編・スマホ実機・音の実聴取は未確認。合成音と端末音声を使用。APKとは別保存。"
+    },
+    {
+      "id": "collection-18",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/grasuma/",
+      "version": "1.2.0-web.1",
+      "checkedAt": "2026-11-15T14:33:23.262408Z",
+      "note": "非公式ファン制作版。Chromeで初期選択・無料ガチャ・操作訓練・通常ミッション1自然完了（7ショットA・全体1/3）・報酬・再読込・実JSON復元/取消・一時停止/再開・実2タブの一時プレイ保護を確認。原本に制作版オリジナルと記載された48音源を保持、独立した権利証明や実聴取検証ではありません。音初期OFF・ゲーム内通貨は虚構で課金なし。全編・スマホ実機・音の実聴取は未確認。APKとは別保存。"
     }
   ],
-  "updatedAt": "2026-11-15T14:38:56.290Z"
+  "updatedAt": "2026-11-15T14:42:35.889Z"
 }

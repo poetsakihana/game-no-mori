@@ -1,0 +1,2608 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Reリズム天国ミラクルスターズ — 開発試作版 0.3 キャラクター更新</title><style>#web-save-status:empty{display:none}body{padding-bottom:40px}*{box-sizing:border-box}body{margin:0;background:#f9f5ed;color:#294553;font-family:system-ui,-apple-system,sans-serif}main{width:min(100%,760px);padding:20px;margin:auto}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.brand{font-size:20px;font-weight:900}.brand span{color:#ec846d}.badge{font-size:11px;border:1px solid #dcd9cd;border-radius:18px;padding:7px 12px}.console{width:100%;aspect-ratio:1;border-radius:28px;overflow:hidden;border:5px solid #fff;box-shadow:0 14px 35px #29455319;position:relative;background:#c9edeb}.screen{position:absolute;inset:0;overflow:hidden;padding:24px;display:flex;flex-direction:column}[hidden]{display:none!important}button{font:inherit;font-weight:bold;cursor:pointer;padding:12px 18px;border:0;border-radius:13px;background:#294e60;color:white}button:disabled{opacity:.42;cursor:default}button:focus-visible{outline:3px solid #e9b84b;outline-offset:3px}.ghost{background:#edf0e7;color:#385766}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:bold;color:#769386;margin:0}.title-screen{text-align:center;justify-content:center;align-items:center;background:radial-gradient(circle at 85% 13%,#f9da92 0 8%,transparent 8.2%),radial-gradient(circle at 9% 88%,#ead4f5 0 17%,transparent 17.2%),linear-gradient(140deg,#d9f5ed,#fef7de)}.title-stars{font-size:clamp(25px,5vw,43px);color:#e9ab46;letter-spacing:18px;margin-bottom:22px;animation:float 3s ease-in-out infinite}.title-screen h1{font-size:clamp(32px,8vw,68px);letter-spacing:-2px;color:#2b6470;margin:14px 0 0;text-shadow:3px 3px white;line-height:1.2}.title-screen h1 span{display:block;font-size:.45em;letter-spacing:2px;color:#df8666;margin-top:10px}.subtitle{font-size:13px;letter-spacing:2px;color:#81968a}.title-mascots{font-size:clamp(28px,6vw,49px);margin:24px 0 28px}.start-title{background:#ed8468;min-width:210px;box-shadow:0 5px 0 #c96e57}.small{font-size:12px}.title-note{font-size:10px;opacity:.65;margin-top:20px}@keyframes float{50%{transform:translateY(-7px)}}h2{margin:6px 0;font-size:25px}.select-screen{background:#f8faf1}.select-head,.playhead{display:flex;justify-content:space-between;align-items:center;gap:8px}.select-head button,.playhead button{font-size:12px;padding:9px 12px}.progress{display:flex;justify-content:space-between;font-size:12px;background:#e8efd5;border-radius:10px;padding:10px 13px;margin:14px 0}.toolbar{display:flex;gap:10px;align-items:center}nav{display:flex;background:#e9ece0;border-radius:12px;padding:4px}nav button{color:#5d7269;background:transparent;font-size:12px;padding:8px 11px}nav .active{background:white;color:#294e60}input[type=search]{width:100%;min-width:0;border:1px solid #dbe0d4;font:inherit;font-size:13px;padding:10px;border-radius:11px}.unlock-help{font-size:11px;color:#758d81;margin:10px 0}.selector-list{overflow:auto;flex:1;min-height:0;padding-right:4px;scrollbar-width:thin}.group h3{font-size:12px;letter-spacing:1px;margin:16px 0 8px}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.card{background:white;color:#294553;border:1px solid #e2e7db;padding:9px;min-height:130px;text-align:left;position:relative;border-radius:13px}.card .art{display:flex;justify-content:space-between;align-items:center;border-radius:9px;padding:9px;font-size:26px;margin-bottom:7px}.card .number{font-size:9px;opacity:.7}.card b{display:block;font-size:11px;line-height:1.4;word-break:normal}.card small{display:block;font-size:9px;color:#758881;line-height:1.4;margin-top:5px}.card:disabled{opacity:.46;filter:grayscale(.85)}.card.next-stage{border:2px solid #eeac55;background:#fffaf0}.card.next-stage small{color:#b67b32}.game-screen{background:#fff;padding:20px;gap:8px}.playhead h2{font-size:23px}.game-screen #instruction{font-size:12px;line-height:1.5;margin:0}.playinfo{display:flex;justify-content:space-between;gap:7px;font-size:11px;font-weight:bold}.arena{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#d7efeb;border-radius:18px;overflow:hidden}canvas{display:block;width:100%;height:100%;object-fit:contain}#feedback{text-align:center;font-size:16px;font-weight:bold;min-height:25px}.inputs{display:flex;justify-content:center;gap:7px}.key{flex:1;min-width:0;background:#e8ece5;color:#355365;font-size:22px;padding:11px 6px;touch-action:none;user-select:none}.key.primary{background:#ed8468;color:white;flex:1.2}.key small{font-size:9px;display:block}.key.pressed{transform:translateY(2px);background:#e8bc62}.game-actions{display:flex;justify-content:center;gap:10px}.game-actions button{font-size:12px;padding:10px 20px}.result-screen{background:radial-gradient(circle at 50% 35%,#fffaf1,#f9e7bb);align-items:center;justify-content:center;text-align:center;gap:14px}.result-screen h2{font-size:25px}.result-screen #rank{font-size:25px;font-weight:bold;color:#d38455}.result-screen h3{font-size:clamp(50px,10vw,86px);margin:0;color:#2b5966}.result-stars{font-size:32px;color:#dbaa48;letter-spacing:15px}.result-screen p{font-size:13px;line-height:1.7;margin:0}.result-screen #unlock-message{font-weight:bold;color:#558974}.result-screen button{margin-top:8px}.settings-panel{margin-top:22px;background:white;padding:16px;border-radius:18px}.settings-panel summary{font-size:13px;cursor:pointer;font-weight:bold}.settings,.music-settings{display:flex;align-items:center;flex-wrap:wrap;gap:15px;margin-top:15px}.music-settings>span{width:100%;font-size:12px;color:#6d897c}label{display:flex;gap:7px;align-items:center;font-size:12px}input[type=range]{width:90px}footer{font-size:11px;line-height:1.8;color:#7b8b81;margin:20px 0}a{color:#486f7b}.empty{text-align:center;font-size:13px;padding:20px}@media(max-width:520px){main{padding:10px}.console{border-radius:20px;border-width:3px}.screen{padding:13px}.select-head h2{font-size:19px}.select-head button{font-size:10px}.progress{margin:9px 0;padding:7px 10px}.toolbar{gap:5px}nav button{font-size:10px;padding:6px 8px}.cards{gap:5px}.card{padding:5px;min-height:99px;border-radius:9px}.card .art{padding:5px;font-size:19px;margin-bottom:5px}.card b{font-size:9px}.card small{font-size:8px}.card .number{font-size:8px}.game-screen{gap:5px;padding:10px}.playhead h2{font-size:18px}.playhead .eyebrow{font-size:8px}.game-screen #instruction{font-size:10px}.playinfo{font-size:9px}.key{font-size:18px;padding:7px 4px}.key small{font-size:8px}#feedback{font-size:12px;min-height:18px}.game-actions button{font-size:11px;padding:7px 18px}.result-screen{gap:10px}.result-screen h2{font-size:19px}.result-screen #rank{font-size:20px}.result-screen p{font-size:11px}.title-mascots{margin:14px 0 20px}.title-stars{margin-bottom:12px;letter-spacing:10px}.title-note{margin-top:12px}.start-title{min-width:180px;padding:10px}.unlock-help{font-size:9px}.badge{font-size:9px}}
+@media(max-width:520px){.title-stars{display:none}.title-screen h1{font-size:28px;line-height:1.1;margin:6px 0}.title-screen h1 span{margin-top:6px}.title-screen .subtitle{font-size:10px;margin:4px 0}.title-mascots{font-size:26px;margin:8px 0}.start-title{font-size:14px;padding:9px 16px}.title-screen .small{font-size:10px;margin:6px 0}.title-screen .title-note{font-size:8px;margin:4px 0}}@media(max-width:380px){.title-screen .subtitle{display:none}.title-mascots{font-size:20px;margin:6px 0}.title-screen h1{font-size:26px}.title-screen .title-note{position:absolute;bottom:7px}}
+
+.controller{display:flex;justify-content:space-between;align-items:center;padding:0 8px;gap:10px;flex-shrink:0}.controller button{touch-action:none;user-select:none;-webkit-user-select:none}.dpad{display:grid;grid-template-columns:repeat(3,32px);grid-template-rows:repeat(3,30px);gap:2px}.dpad button{padding:0;border-radius:7px;background:#4b6570;color:#fff;font-size:19px}.pad-up{grid-column:2;grid-row:1}.pad-left{grid-column:1;grid-row:2}.pad-center{grid-column:2;grid-row:2;font-size:8px!important;background:#82969a!important}.pad-right{grid-column:3;grid-row:2}.pad-down{grid-column:2;grid-row:3}.ab-buttons{display:flex;align-items:center;gap:13px}.ab-buttons button{width:59px;height:59px;border-radius:50%;padding:6px;font-size:26px;box-shadow:0 4px 0 #a9b6ae}.ab-buttons small{display:block;font-size:8px}.button-a{background:#ed8468}.button-b{background:#6695c4}.button-a{margin-top:-18px}.controller-help{font-size:10px;line-height:1.7;color:#78918a}.controller .pressed{background:#e7b55c!important;transform:translateY(2px);box-shadow:none}@media(max-width:520px){.dpad{grid-template-columns:repeat(3,24px);grid-template-rows:repeat(3,23px);gap:1px}.dpad button{font-size:15px}.ab-buttons{gap:10px}.ab-buttons button{width:43px;height:43px;font-size:20px}.ab-buttons small{font-size:7px}.controller-help{font-size:8px}.controller{padding:0 4px}}
+@media(orientation:landscape){
+html,body{height:100%;margin:0;overflow:hidden;background:#e1eae5}
+main{width:100%;height:100dvh;padding:8px 105px;display:flex;justify-content:center;align-items:center;margin:0}
+main>header,main>footer,.settings-panel{display:none}
+.console{position:relative;width:100%;height:100%;aspect-ratio:auto;border-radius:18px;border-width:3px;overflow:visible;box-shadow:0 6px 20px #29455316}
+.screen{border-radius:15px;padding:12px;overflow:hidden}
+.title-screen h1{font-size:clamp(28px,9vh,60px);margin:5px 0;line-height:1.1}.title-stars{display:none}.title-mascots{font-size:clamp(24px,8vh,42px);margin:8px 0}.title-screen .subtitle{font-size:11px;margin:3px 0}.title-screen .small{margin:5px 0}.title-screen .title-note{margin:5px 0;font-size:9px;position:static}.start-title{padding:8px 18px}
+.game-screen{gap:5px;overflow:visible}.game-screen .arena{min-height:0;flex:1;width:100%;background:#d7efeb;overflow:hidden}.arena canvas{width:100%;height:100%;object-fit:contain}
+.game-screen .playhead{flex-shrink:0}.playhead h2{font-size:19px;margin:3px 0}.playhead .eyebrow{font-size:9px}.playhead button{font-size:10px;padding:6px 10px}.game-screen #instruction{font-size:10px;line-height:1.3;flex-shrink:0}.playinfo{font-size:10px;flex-shrink:0}#feedback{font-size:12px;min-height:17px;flex-shrink:0}.game-actions{flex-shrink:0}.game-actions button{padding:5px 15px;font-size:11px}
+.controller{position:absolute;inset:0;padding:0;pointer-events:none;display:block}.controller-help{display:none}.controller button{pointer-events:auto}
+.controller .dpad{position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%);display:grid;grid-template-columns:repeat(3,27px);grid-template-rows:repeat(3,29px);gap:2px}.dpad button{font-size:17px;box-shadow:0 3px 0 #314a57}.dpad .pad-center{font-size:9px!important;box-shadow:none}
+.controller .ab-buttons{position:absolute;left:calc(100% + 20px);top:50%;transform:translateY(-50%);width:70px;display:flex;flex-direction:column-reverse;gap:18px;align-items:center}.controller .ab-buttons button{height:59px;width:59px;font-size:26px;flex-shrink:0}.controller .ab-buttons .button-a{margin:0}.controller .ab-buttons small{font-size:8px}.button-b{margin-left:-14px}.button-a{margin-left:8px}
+.select-head h2{font-size:20px}.select-head button{font-size:10px;padding:7px 10px}.progress{margin:8px 0;padding:7px 10px}.unlock-help{font-size:10px}.cards{grid-template-columns:repeat(5,1fr);gap:6px}.card{min-height:100px;padding:6px}.card b{font-size:11px}.card small{font-size:8px}.card .art{padding:5px;font-size:24px}.result-screen{gap:7px}.result-screen h3{font-size:52px}.result-screen h2{font-size:20px}.result-screen #rank{font-size:20px}.result-screen p{font-size:11px}.result-stars{font-size:23px}
+}
+@media(orientation:landscape) and (max-height:360px){main{padding:6px 96px}.screen{padding:9px}.playhead h2{font-size:16px}.game-screen #instruction{font-size:9px}.game-screen{gap:3px}.controller .dpad{grid-template-columns:repeat(3,24px);grid-template-rows:repeat(3,26px)}.controller .ab-buttons{left:calc(100% + 14px);width:66px;gap:12px}.controller .ab-buttons button{width:51px;height:51px;font-size:23px}.title-screen .subtitle{display:none}.title-mascots{margin:6px 0}.result-screen h3{font-size:43px}.result-screen{gap:5px}}
+
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}.controller button{-webkit-touch-callout:none;touch-action:none}button{touch-action:manipulation}@media(orientation:landscape){main{height:100vh;height:100dvh;padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom));padding-left:calc(105px + env(safe-area-inset-left));padding-right:calc(105px + env(safe-area-inset-right))}.browser-settings-toggle{display:block!important;position:absolute;left:50%;bottom:4px;transform:translateX(-50%);z-index:3;font-size:9px;padding:4px 10px}.settings-panel[open]{display:block;position:fixed;z-index:20;inset:10% 18%;overflow:auto;margin:0;box-shadow:0 8px 35px #0005}.settings-panel[open] summary{padding:8px}.game-actions{padding-bottom:12px}}@media(orientation:portrait){.browser-settings-toggle{display:none}.browser-tip{font-size:11px;text-align:center;color:#647e72;margin:10px 0}}@media(orientation:landscape){.browser-tip{display:none}}
+
+.side-screen{background:#fbf7ec}.mode-body{overflow:auto;flex:1;min-height:0;padding:10px 3px;display:flex;flex-direction:column;gap:10px}.mode-body p{font-size:12px;line-height:1.6;margin:3px 0}.mode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mode-grid button{font-size:12px;min-height:80px;background:#e1ede0;color:#345c62}.mode-body>button{font-size:12px}.side-art{font-size:65px;text-align:center;margin:8px}.side-dialogue{background:white;border-radius:16px;padding:18px!important;font-size:16px!important}.side-rail{height:48px;border-radius:12px;background:#e5ede3;position:relative;overflow:hidden}.side-rail:before{content:'';position:absolute;left:25%;height:100%;border-left:3px solid #294553}.side-rail span{position:absolute;top:9px;border-radius:50%;padding:6px 10px;color:white;font-weight:bold}.side-keys{display:flex;justify-content:center;gap:30px}.side-keys button{border-radius:50%;width:55px;height:55px;font-size:24px;touch-action:none}.side-keys button:first-child{background:#649dca}.side-keys button:last-child{background:#ed8468}.sound-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}.sound-grid button{padding:10px 0;background:#e6e9df;color:#576f69}.sound-grid .lit{background:#edbd5d}@media(orientation:landscape){.mode-grid{grid-template-columns:repeat(3,1fr)}.mode-grid button{min-height:58px}.side-art{font-size:43px;margin:2px}.mode-body{gap:7px}}
+
+.campaign-notice{font-size:10px;line-height:1.4;margin:5px 0;padding:6px 9px;background:#fff1c2;border-radius:9px}.perfect-heart{font-size:12px;display:block;margin-top:4px}.trial-controls{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:7px;font-size:10px;flex-shrink:0}.trial-controls label{font-size:10px}.trial-controls select{font:inherit;border:1px solid #dce3d8;padding:4px;border-radius:6px}.trial-controls span{font-size:9px}.night-game #canvas,.night-game #instruction,.night-game .playinfo,.night-game #feedback{visibility:hidden}.night-game .arena{background:#070d19!important}.night-game .arena:after{content:'NIGHT MODE · 音だけを頼りに';font-size:12px;color:#718295;position:absolute;left:50%;transform:translateX(-50%)}
+
+#model-y{background:#ffdc80;width:56px;height:56px;border-radius:50%;touch-action:none}#model-y[hidden],#practice-start[hidden]{display:none!important}#model-y small{display:block;font-size:10px}
+
+.party-settings,.party-choice{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0}.party-choice b{flex:1}.party-arena{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.party-player{text-align:center;background:#e8f3ee;border-radius:16px;padding:10px;transition:transform .12s,background .12s}.party-player>div{font-size:40px}.party-hit{transform:translateY(-8px);background:#b3efd4}.party-miss{transform:rotate(-7deg);background:#ffd0cf}.party-results{width:100%;border-collapse:collapse}.party-results td,.party-results th{padding:8px;border-bottom:1px solid #cbd9d1}
+
+.mini-art{font-size:60px;text-align:center;min-height:110px;transition:transform .08s}.rabbit{font-size:30px;margin:10px}.rabbit.chosen{outline:4px solid #ef9475}.composer-grid{display:grid;grid-template-columns:repeat(16,minmax(30px,1fr));gap:3px;overflow:auto}.composer-grid button{min-width:30px;padding:8px 2px}.composer-grid .lit{background:#f3be79}.play-column{outline:2px solid #298885}
+
+.drum-kit{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.drum-kit .lit{background:#f7c466;transform:scale(.96)}.narration-settings{display:flex;gap:12px;flex-wrap:wrap;margin-top:15px}
+
+.selector-list{overflow:hidden;display:flex;flex-direction:column;padding:0}#library{height:100%;display:flex;flex-direction:column;justify-content:center;min-height:0}.stage-carousel{flex:1;min-height:120px;position:relative;overflow:hidden;touch-action:pan-y;perspective:900px}.carousel-card{position:absolute;top:50%;left:50%;width:min(34%,230px);aspect-ratio:1;padding:12px;color:#294553;display:flex;flex-direction:column;align-items:center;justify-content:center;border:3px solid white;box-shadow:0 8px 20px #29455333;transition:transform .25s,opacity .25s;user-select:none}.carousel-card span{font-size:11px}.carousel-card b{font-size:clamp(12px,2vw,21px)}.carousel-card small{font-size:10px}.carousel-art{font-size:clamp(35px,7vw,80px)}.position-2{transform:translate(-50%,-50%) scale(1);z-index:3}.position-1{transform:translate(-155%,-50%) scale(.72) rotateY(12deg);z-index:2;opacity:.75}.position-3{transform:translate(55%,-50%) scale(.72) rotateY(-12deg);z-index:2;opacity:.75}.position-0{transform:translate(-240%,-50%) scale(.5);opacity:.25}.position-4{transform:translate(140%,-50%) scale(.5);opacity:.25}.centered{outline:3px solid #eead57}.carousel-controls{display:flex;justify-content:center;gap:10px}.carousel-controls button{padding:8px 12px;font-size:12px}.carousel-detail{text-align:center;font-size:11px;line-height:1.4;margin:8px}.select-screen .progress,.select-screen .campaign-notice{margin:5px 0}@media(max-height:500px) and (orientation:landscape){.select-screen .eyebrow,.select-screen .unlock-help{display:none}.carousel-card{width:min(26%,165px)}.carousel-art{font-size:40px}.carousel-card b{font-size:13px}.carousel-detail{margin:4px;font-size:10px}}
+
+.guide-panel{position:fixed;inset:0;z-index:200;background:#173746bb;display:flex;align-items:center;justify-content:center;padding:16px}.guide-panel>div{max-width:680px;max-height:90dvh;overflow:auto;background:#fffdf5;border-radius:20px;padding:22px}.guide-panel p{font-size:13px;line-height:1.7}.guide-panel button{margin:5px}.guide-open{align-self:center;padding:6px 12px;font-size:11px;margin-top:5px}
+
+.campaign-footnote{font-size:10px;line-height:1.4;text-align:center;color:#758881;margin:6px 0 0;flex-shrink:0}#campaign-notice:empty{display:none}
+
+.carousel-card .stage-crown{position:absolute;top:7px;right:9px;font-size:25px;line-height:1;filter:drop-shadow(0 2px 1px #79552033)}
+
+main>header.player-hud{display:grid!important;grid-template-columns:1fr 1fr 1fr;position:fixed;top:0;left:0;right:0;height:36px;padding:5px 12px;z-index:60;margin:0;background:#e1eae5;color:#294553;font-size:12px}.player-hud #hud-rank{text-align:center}.player-hud time{text-align:right;font-size:10px}.system-buttons{position:fixed;right:8px;top:40px;z-index:60;display:flex;flex-direction:column;gap:5px}.system-buttons button{font-size:9px;padding:6px 9px}.title-screen .title-image{width:100%;height:100%;object-fit:contain;min-height:0}.title-screen{padding:0;background:#ffe600}.title-screen #begin{position:absolute;bottom:45px}.title-screen .small{position:absolute;bottom:18px;background:#ffffffe0;padding:3px 12px;border-radius:8px}.title-screen .title-note{position:absolute;bottom:1px;background:#ffffffe0;padding:2px 6px} @media(orientation:landscape){main{padding-top:40px!important}}@media(orientation:portrait){main{padding-top:42px}}
+.unlock-toggle{background:#e9ab46!important;color:#1f3a47!important;font-size:11px!important;padding:7px 11px!important;box-shadow:0 2px 0 #b88128}
+.unlock-toggle.unlocked-all{background:#56a882!important;color:#fff!important;box-shadow:0 2px 0 #387559}
+.memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0}
+.memory-card{background:#fff;border:3px solid #759288;border-radius:12px;padding:12px 6px;font-size:18px;text-align:center;color:#294553;min-height:64px}
+.memory-card.cursor{outline:4px solid #ed8468;background:#fff8ea}
+.memory-card.matched{background:#d4f3e2;border-color:#4b9b73;opacity:.75}
+.memory-card.open{background:#ffe8b3;border-color:#d89636}
+.clock-arena{text-align:center;padding:14px;background:#fffdf6;border-radius:16px;border:2px solid #e0dccb}
+.clock-face{font-size:38px;font-weight:900;color:#294553;margin:6px 0}
+</style><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#e1eae5"><link rel="stylesheet" href="re.css"><script src="character-art.js"></script><script src="sprite-art.js"></script></head><body><a id="zatuplay-return" href="../../browser/" style="position:fixed;bottom:10px;left:10px;z-index:10002;padding:10px 14px;border-radius:10px;background:#243f54;color:white;font-size:12px;text-decoration:none;box-shadow:0 2px 8px #0003">← ZatuPlay 一覧へ</a><div id="web-save-status" role="status" style="position:fixed;bottom:54px;left:0;right:0;z-index:10001;background:#fff2c9;padding:8px;text-align:center;font-size:12px"></div><script src="browser-save.js?v=0.3.0-web.1"></script><main><header class="player-hud"><span id="hud-stars">⭐ 0</span><strong id="hud-rank">ランク 1</strong><time id="hud-clock"></time></header><div class="system-buttons"><button id="system-start">START</button><button id="system-select">SELECT</button></div><div class="console"><section id="title-screen" class="screen title-screen"><div class="title-image" style="background:#e5f3e9;display:grid;place-items:center"><div><h1>Reリズム天国<br><small>星をつなぐ、きみの一拍。</small></h1><p>非公式ファン制作・開発試作版</p></div></div><button id="begin" class="start-title">はじめる ▶</button><p id="resume-label" class="small">最初は 1-1 からスタート</p><p class="title-note">Reリズム天国ミラクルスターズ 開発試作版 0.3 キャラクター更新 · 全82ステージ＆全モード収録</p></section><section id="select-screen" class="screen select-screen" hidden><div class="select-head"><div><p class="eyebrow">STAGE SELECT</p><h2>ステージセレクト</h2></div><div style="display:flex;gap:6px;align-items:center"><button id="unlock-all-btn" class="unlock-toggle">🔓 全解放OFF</button><button id="open-modes" class="ghost">モード</button><button id="to-title" class="ghost">B タイトルへ</button></div></div><p id="campaign-notice" class="campaign-notice"></p><div class="progress"><span><b id="cleared">0</b> / 82 クリア</span><span id="medals">メダル 0</span></div><div class="toolbar"><nav id="tabs" aria-label="ステージの区分"><button data-tab="front" class="active">オモテ</button><button data-tab="back">ウラ</button><button data-tab="extra">追加</button></nav><input id="search" type="search" placeholder="検索（例：輪くぐり、侍、リミックス20）" aria-label="ステージ名を検索"></div><p class="unlock-help">左右・スワイプで選択 · 中央でA／決定 · B（K/X）でタイトルへ · 65点以上で次が解放（🔓全解放ボタンで全ステージ即時プレイ可）</p><div class="selector-list"><section id="library"></section></div><p class="campaign-footnote">パーフェクトキャンペーン：対象ステージで3回ミス、または他ステージ5回プレイまで挑戦可能。</p></section><section id="game-screen" class="screen game-screen" hidden><div class="playhead"><div><span class="eyebrow" id="stageid"></span><h2 id="title"></h2></div><button id="back" class="ghost">選択へ</button></div><p id="instruction"></p><div class="playinfo"><span id="lives" aria-label="ノリカン">ノリカン ♥♥♥♥♥</span><span id="phase">準備</span><span id="combo">コンボ 0</span><span id="score">0 点</span><span id="personal">最高 —</span></div><div class="arena"><canvas id="canvas" width="1000" height="460" aria-label="リズムゲームの画面"></canvas></div><div id="feedback" role="status" aria-live="polite">練習で操作を覚えよう。Y長押し中だけお手本が動きます。</div><div class="controller"><div class="dpad" aria-label="十字キー"><button data-key="U" class="pad-up" aria-label="上 ジャンプ">▲</button><button data-key="L" class="pad-left" aria-label="左">◀</button><button data-key="LR" class="pad-center" aria-label="左＋A同時">同時</button><button data-key="R" class="pad-right" aria-label="右">▶</button><button data-key="D" class="pad-down" aria-label="下">▼</button></div><span class="controller-help">左：十字キー<br>右：A・B</span><div class="ab-buttons"><button id="model-y" data-key="Y" hidden aria-label="Y長押し お手本">Y<small>長押し</small></button><button data-key="B" class="button-b" aria-label="B 下と同じ操作">B<small>K / X</small></button><button data-key="A" class="button-a" aria-label="A 主操作">A<small>Space / J</small></button></div></div><div class="trial-controls"><label>遊び方 <select id="trial-mode"><option value="normal">通常</option><option value="campaign">パーフェクトキャンペーン</option><option value="perfect">パーフェクト挑戦</option><option value="night">ナイトモード</option><option value="auto">オート鑑賞（深海/練習）</option></select></label><span id="perfect-state"></span></div><div class="game-actions"><button id="practice-start">練習する</button><button id="start">スタート ▶</button><button id="stop" class="ghost" disabled>中止</button></div></section><section id="result-screen" class="screen result-screen" hidden><p class="eyebrow">RESULT</p><h2 id="result-stage"></h2><span id="rank"></span><h3 id="resultscore"></h3><div class="result-stars" aria-hidden="true">✦ ♪ ✦</div><p id="resulttext"></p><p id="unlock-message"></p><button id="result-select">ステージセレクトへ ▶</button></section><section id="mode-screen" class="screen side-screen" hidden><div class="select-head"><h2 id="mode-title">モード</h2><div style="display:flex;gap:6px"><button id="mode-hub" class="ghost">一覧</button><button id="mode-back" class="ghost">ステージへ</button></div></div><div id="mode-body" class="mode-body"></div></section></div><p class="browser-tip">横向きにするとゲーム機コントローラー配置でさらに快適に遊べます。</p><button id="browser-settings-toggle" class="browser-settings-toggle" style="display:none" aria-expanded="false">音量・音読ちゃん・操作設定</button><details class="settings-panel"><summary>音量・音読ちゃん・操作設定</summary><div class="settings"><label>全体音量 <input id="volume" type="range" min="0" max="100" value="65"></label><label><input id="voice" type="checkbox">掛け声（ボイス合図）</label><label><input id="guide" type="checkbox" checked>タイミングガイド表示</label><label>入力補正 <input id="offset" type="range" min="-200" max="200" step="10" value="0"><span id="offsetval">0 ms</span></label></div><div class="music-settings"><span id="musiclabel">BGM：Reリズム天国ミラクルスターズ ステージ楽曲</span><label><input id="bgmon" type="checkbox" checked>BGMオン</label><label>BGM音量 <input id="bgmvolume" type="range" min="0" max="100" value="70"></label><label>合図・効果音 <input id="sfxvolume" type="range" min="0" max="100" value="90"></label></div><p class="small">読み上げと掛け声は初期状態でOFFです。ONにするとブラウザ・OSの音声サービスを使用し、選ぶ音声によって読み上げ内容が外部サービスに送られる場合があります。</p><div class="narration-settings"><label>音読ちゃん（進行読み上げ） <select id="narration-mode"><option value="off" selected>読み上げしない</option><option value="normal">読み上げる！</option><option value="verbose">もっと読み上げちゃう!!</option></select></label><label>音量 <input id="narration-volume" type="range" min="0" max="100" value="75"></label><label>速度 <input id="narration-rate" type="range" min="0.5" max="2" step="0.1" value="1.05"></label><button id="narration-test">音読ちゃんテスト</button></div><details><summary>パラソルのキャラクター画像を差し替え</summary><p>透明背景PNG/WebP：4人×開閉2枚。</p><div id="parasol-assets"></div><p id="parasol-asset-status"></p></details><details><summary>フライングディスクの画像を差し替え</summary><p>透明PNG/WebP、1枚2MB以下。</p><div id="disc-assets"></div></details><input type="checkbox" id="practice" hidden></details><footer><p>『Reリズム天国ミラクルスターズ』開発試作版：オモテ40＋ウラ40＋深海＋キャラクター紹介の全82ステージ、リミックス1〜20（リミックス20の全31ゲーム32区間メドレー完全収録）、ビートスペル全8章、みんなで遊ぶ全10種＋みんなのおもちゃ全7種、リズムおもちゃ全7種、スコアアタック全8種、ドラムレッスン全14種、パーフェクトキャンペーン＆ナイトモード＆音読ちゃん対応。</p><p style="font-size:12px">非公式ファン制作の開発試作版です。任天堂等の公式作品・監修・出演ではありません。音楽・効果音は合成音、読み上げは端末音声です。原本の82ステージと8地域ストーリーを保持。既存リズム天国master・APKとは別保存。画面離脱時は演奏を中止し、途中演奏からは再開しません。</p><a href="../../browser/">← ZatuPlay 一覧</a></footer></main><div id="guide-panel" class="guide-panel" role="dialog" aria-modal="true" aria-label="ゲーム紹介" hidden><div id="guide-panel-body"></div></div><script>
+// Reリズム天国ミラクルスターズ 試作表現データ・譜面エンジン
+const groups=[
+['輪くぐり','パラソル','フライングディスク','アレのエサ','リミックス1'],
+['ケロケロロケット','カーアクション','ハードル','プチプチ研究室','リミックス2'],
+['下ごしらえ','へくしょいムーン','カニトリオ','コロコロ行進','リミックス3'],
+['パンプアップル','会話','リサイクル','ダンサー','リミックス4'],
+['虫取り','雷','そっとキャッチ','ワイパー','リミックス5'],
+['シュート練習','デッキブラシ','THE A','侍','リミックス6'],
+['カーアクション2','パンプアップル2','コロコロ行進2','パラソル2','リミックス7'],
+['そっとキャッチ2','へくしょいムーン2','ケロケロロケット2','会話2','リミックス8'],
+['輪くぐり2','ダンサー2','虫取り2','棒つかみ','リミックス9'],
+['デッキブラシ2','ハードル2','雷2','PETとなわとび','リミックス10'],
+['シュート練習2','フライングディスク2','カニトリオ2','ガーディアン','リミックス11'],
+['棒つかみ2','侍2','ワイパー2','手拍子','リミックス12'],
+['リサイクル2','PETとなわとび2','THE A2','くっしん菌','リミックス13'],
+['ガーディアン2','下ごしらえ2','プチプチ研究室2','わたり鳥','リミックス14'],
+['くっしん菌2','アレのエサ2','手拍子2','わたり鳥2','リミックス15'],
+['リミックス16','リミックス17','リミックス18','リミックス19','リミックス20']];
+
+const profiles={
+'輪くぐり':{icon:'◎',emoji:'⚪',kind:'hoop',color:'#c3eeee',cue:'パ・ピ・プ・ペ → ポ！(A)',help:'しらたま5人で前進し「パ・ピ・プ・ペ・ポ」の「ポ」でAジャンプ。裏拍や暗転、前の仲間がシャボン玉になって合図が抜ける演出も再現。',cast:'しらたま',song:'輪くぐりマーチ',lore:'しらたま5人組のリーダーは先頭ではなく実は最後尾のあなた。シャボン玉に入った仲間は眠っているので声が出せません。',bpm:114},
+'パラソル':{icon:'☂',emoji:'☂️',kind:'umbrella',color:'#ffd9e8',cue:'開く A (パッ) / 閉じる ↓ (チョッ) / オーレ！→A',help:'右端4人目のカサパホーマーを操作。開く時はA、閉じる時は↓（またはB）。2では「オーレ！」の1拍後に全員でAを開く。',cast:'カサパホーマー',song:'君がいて僕が居る (Jacky Halim / 2)',lore:'カサパホーマーたちは雨の日も晴れの日も傘ひとつで空を舞う妖精。リミックス7の終盤では誇らしげなチョビ髭が生えます。',bpm:112},
+'フライングディスク':{icon:'◉',emoji:'🥏',kind:'disc',color:'#cee8fc',cue:'口笛ピー！→ 1・2・3・4・5・6 → 7拍目で A',help:'主人の口笛でディスクを投げた後、7拍目でAジャンプキャッチ。主人へのズームアップで犬が見えなくなる目押し防止演出も試作表現。',cast:'エキサイティング犬・パピーちゃん・シルバー姉さん',song:'フライング・サニーデイ',lore:'シルバー姉さんの投げるディスクは風に乗って正確に7拍で届く特製品。カメラが寄っても犬の足音は心の中で続いています。',bpm:118},
+'アレのエサ':{icon:'●',emoji:'🦖',kind:'feed',color:'#ffe2ec',cue:'花からハート発射 → 2拍後(2は4拍後も)に A',help:'花から飛んでくるハートのエサを2拍後（裏拍あり）に恐竜ちゃんがAでパクッ！2では高く飛ぶ4拍後の黄金エサが追加。',cast:'恐竜ちゃん',song:'My Telepathy！私の熱い光線 (櫻井優衣)',lore:'恐竜ちゃんの大好物は不思議な花が咲かせる恋のハート。高く上がったエサは倍の4拍待つのがポイント。',bpm:116},
+'ケロケロロケット':{icon:'↑',emoji:'🐸',kind:'frog',color:'#d3f0ad',cue:'カエルが蓮の葉に着地した拍で A',help:'蓮の葉を持つ大ピョコちんガエルを操作し、飛んでくるカエルが乗った瞬間にAで打ち上げる（5拍・4拍・3拍・裏拍）。2は雲の上でオタマジャクシも登場。',cast:'ピョコちんガエル・大ピョコちんガエル',song:'ケロケロ・スカイハイ',lore:'蓮の葉トランポリンで成層圏まで飛び上がるカエルたち。2では雲海の上まで到達し、オタマジャクシもロケット発射します。',bpm:116},
+'カーアクション':{icon:'▰',emoji:'🚗',kind:'car',color:'#e1e4f5',cue:'前車「プップー」3拍目 ↓ブレーキ / 後車「👈🏻」4.5拍目 Aウィリー',help:'3列の中央の車を操作。前の車がプップーと鳴ったら3拍目で↓ブレーキ、後ろの車の合図では4.5拍目でAウィリー加速！2は暗闇トンネル演出あり。',cast:'新型コロリーナ / GT type RZ-ほにゃらら',song:'ハイウェイ・スターズ',lore:'新型コロリーナGT type RZはエアロパーツ装着でウィリー性能が向上。トンネルでライトが消えてもエンジン音でタイミングが分かります。',bpm:120},
+'ハードル':{icon:'⌁',emoji:'🏃',kind:'hurdle',color:'#c2eadb',cue:'オレンジ「ホップ・ステップ・ジャンプ」A / 水色「スライディングー」↓',help:'ミホちゃん自作ゲーム。オレンジはAでジャンプ、水色は↓でスライディング。途中でバグが発生し超高速＆画面横引き伸ばし（2は富士山反転）！',cast:'ハードルマン・ミホちゃん',song:'バグってランナー',lore:'プログラミング少女ミホちゃんの処女作。後半の画面引き伸ばしと富士山の逆転は、本人いわく「仕様です！」。',bpm:124},
+'プチプチ研究室':{icon:'⦿',emoji:'🫧',kind:'pop',color:'#ccdefa',cue:'ピンク丸 A親指プチ！ / 青い丸 A長押しで力強く潰す',help:'お手本の「YES」のリズムを真似しよう。ピンクの丸はA短押し、青い丸はA長押しでギュッと潰す。2は青が先に来る複合パターンが登場。',cast:'モノ（ソフト・ハード）',song:'ラボラトリー・ビート',lore:'四角い頭のハードと丸い頭のソフトが日夜プチプチの快感を研究中。青いハード気泡は親指に力を込めて長押しで潰します。',bpm:115},
+'下ごしらえ':{icon:'♧',emoji:'🥕',kind:'prep',color:'#f9e6bc',cue:'口笛で野菜キャッチ A / 黄色パプリカ＋タイマー音は 3連続 A・A・A',help:'左右から飛んでくる野菜を口笛に合わせてAでキャッチ。黄色いパプリカとキッチンタイマー音が鳴ったらブロッコリーをパパパンと3連続キャッチ！',cast:'サチコ・ダイヤモンド・チャチャ・チャチャブラザーズ',song:'キッチン・ダイヤモンド',lore:'料理研究家サチコ・ダイヤモンドの華麗な下ごしらえ。黄色いパプリカは「次、ブロッコリー3連いくわよ！」の合図です。',bpm:114},
+'へくしょいムーン':{icon:'☾',emoji:'🌝',kind:'moon',color:'#bac9ee',cue:'緑点滅「へーーっくしょん」4拍目A / 赤点滅「へっくしょん」3.5拍目A',help:'月（CV:加藤茶風）がくしゃみした瞬間にAで旅人を脱出させる。緑は4拍目（不意打ち2拍目）、赤は3.5拍目（不意打ち1.5拍目）。アシュリーも低確率出演！',cast:'月・旅人・アシュリー（ゲスト）',song:'1000年に1度のくしゃみ夜',lore:'1000年に1度の怖い夜。コウモリの群れの中に、メイドインワリオのアシュリーがホウキに乗ってこっそり紛れ込んでいます。',bpm:108},
+'カニトリオ':{icon:'↔',emoji:'🦀',kind:'crab',color:'#fad0bb',cue:'マカロン3拍目・マンゴスチン1.5拍目 ←＋A同時 / 2のソラマメは ←→A順押し',help:'3匹のタベモノポンポンガニが食べ物を巣穴へ運ぶ。マカロン・マンゴスチンは←＋A同時押し、2で追加されるソラマメは「←→A」と順番に押す！',cast:'タベモノポンポンガニ・カモメ先生',song:'恋するアヒージョ (Cabrales / 2)',lore:'カモメ先生の見守る砂浜で、空き缶に視界を遮られてもリズムよく食料運搬。ソラマメだけは左から右へ受け渡します。',bpm:112},
+'コロコロ行進':{icon:'↻',emoji:'🐱',kind:'march',color:'#efd8b6',cue:'行進 毎拍 A / 「ローリング」次の1回を → (または↓) / 「3・2・1」停止',help:'4匹のまねきねこ（2はダルマ）が毎拍Aで行進。「ローリング」の合図で次の1拍を→（または↓）の回転に置き換える。「3・2・1」でストップ！',cast:'コロリンコ猫ちゃんズ / だるまさん・ダルマックス',song:'七転び八Get up! (クルクル・香村奈保・原田真緒)',lore:'転んでもすぐ起き上がる猫ちゃんズとダルマックス。止まっている最中に「ローリング！」と号令がかかる引っ掛けにも注意。',bpm:112},
+'パンプアップル':{icon:'♤',emoji:'🍎',kind:'apple',color:'#fcd7b4',cue:'赤・青リンゴ A・A (2回押し) / レモン A・↓ (2回目を素早く弾く)',help:'飛んでくる果物を力こぶで跳ね飛ばす！赤リンゴは2回押し、青リンゴは連続飛来、レモンは2回目を早めに跳ね返す（A→↓）。1は途中で正面視点に変化！',cast:'コウ・マキシマム・トリさん',song:'マキシマム・マッスル',lore:'ボディビルダーのコウ・マキシマムは上腕二頭筋だけで果実を成層圏へ弾き飛ばす。酸っぱいレモンは反射神経で素早く2連打！',bpm:114},
+'会話':{icon:'…',emoji:'👽',kind:'talk',color:'#d4d9f9',cue:'「ンチャッチャッチャ」A・A / 「ウォッウォッウォウォ」← / 2は「ウォッウォッチャ」A・←',help:'宇宙人と会話！Aで「ウォッ」、←で「チャッ」。合図に合わせてA2回、←1回、2では「A→←」を返す。中盤で宇宙船に乗り子供が大人に成長！',cast:'ともだち・リズム星人・特ダネさん・通訳者宇宙人',song:'コズミック・トーク',lore:'地球で出会ったともだちとリズム星人は宇宙船で星々の旅へ。時の流れで2人が大人になった時、かつての「通訳者」の宇宙人が窓の外を横切ります。',bpm:106},
+'リサイクル':{icon:'♻',emoji:'🥫',kind:'can',color:'#c9e7df',cue:'赤い空き缶 リズム通り A / 青い空き缶 変則拍 ↓(またはA)',help:'空き缶にトンカチを振り下ろして潰す！赤い缶と青い缶で合図から潰すまでのリズムが異なる。1の前半はカエル先輩がナビゲート。',cast:'トン・カチオ・カエル先輩・猫田社長',song:'ハンマー・リサイクル',lore:'猫田社長の工場で働くトン・カチオ。2ではカエル先輩が卒業して独り立ちし、次々流れてくる缶を一人で捌きます。',bpm:116},
+'ダンサー':{icon:'★',emoji:'💃',kind:'dance',color:'#fbd1ef',cue:'エルボー 毎拍 A / ステップ ←・A・→・A / 2は高速キメポーズ ←→A',help:'バックダンサーとして踊る！その場エルボー（A連打）と左右移動ステップ（←→A交互）を切り替え。2は赤く輝くスペースダンサーズ＆高速キメポーズ追加！',cast:'バックダンサー・アイドル・レーナ (西玲奈)',song:'踊ればDance！ (西玲奈) / 斬新なDancin\' (福島ひなた・アミ杏心)',lore:'人気アイドル・レーナのステージを支えるバックダンサーズ。リミックス4ではレーナ不在のインスト特訓バージョンになります。',bpm:120},
+'虫取り':{icon:'♧',emoji:'🦋',kind:'bug',color:'#d6edb9',cue:'蝶(1・2・3)・バッタ(1・2・3・4) 2.5拍目で A / 2の青トンボは4拍目で A',help:'娘（2は成長した娘と師匠）と昆虫採集！蝶とバッタは合図から2.5拍目でA、2の青いトンボは急接近後に4拍目でA。捕まえるたび木が育ち終盤に空へ舞い上がる！',cast:'昆虫研究家と娘・師匠・マジカルインセクツ',song:'マジカル・フォレスト',lore:'マジカルインセクツを捕まえると不思議な木が急成長。虫取り2のクライマックスでは木々がロケットのように飛び立ち、巨大カブトムシの星座が現れます。',bpm:112},
+'雷':{icon:'ϟ',emoji:'⚡',kind:'thunder',color:'#bdc7e0',cue:'通常雷 3拍目で ↓ワープ / 数字表示時はその後2拍おきに数字回数 ↓',help:'宇宙人ワープマンを操作し↓で雷をワープ回避！普段は3拍目、画面に数字（2〜4）が出たら通常雷のあと2拍おきに数字の回数だけ連続ワープ！2は桃色の雷雲も登場。',cast:'ワープマン・イエロー モクモク・ピンク モクモク',song:'エレクトロ・ワープ',lore:'イエローモクモクは3拍目、ピンクモクモクは素早いテンポで放電。モニターの数字を見落とさずに連続ワープでかわしましょう。',bpm:116},
+'そっとキャッチ':{icon:'∪',emoji:'🍮',kind:'catch',color:'#fde3b1',cue:'黄色プリン ↓でそっとキャッチ / 緑のダメプリン Aで目からレーザー撃破',help:'作業ロボS-CATCH-01となり、黄色いプリンは↓で優しくコンベアーへ、緑色のダメプリンはAの目からレーザーで処理！照明トラブルや2の30秒高速ゾーンも再現。',cast:'S-CATCH-01・ダメプリン',song:'ファクトリー・プリン',lore:'巨大ロボS-CATCH-01は繊細なアームでプリンを傷つけずに受け止めます。2の高速ゾーンでは胸モニターの映像が特別仕様に変化！',bpm:112},
+'ワイパー':{icon:'∠',emoji:'🚙',kind:'wiper',color:'#c5dbed',cue:'ピンクちゃんジャンプ ← / アオくんジャンプ A / 2は「←→A→←→A」連続',help:'往復するワイパーをジャンプで避ける！←で左のピンクちゃん、Aで右のアオくんがジャンプ（無関係な時に跳ぶと雨で滑って転ぶ）。2は4連続交互ジャンプ追加！',cast:'ピンクちゃん＆アオくん・いわゆるリズム警察',song:'いいかげんなヤツ / Wiper (松本ハルキ)',lore:'フロントガラスの上で雨宿りするピンクちゃんとアオくん。車のライトの点滅とクラクションのパン振りで、ワイパーがどちらから来るか分かります。',bpm:114},
+'シュート練習':{icon:'◌',emoji:'⚽',kind:'soccer',color:'#bfe5c7',cue:'白ボール Aシュート / ピンクボール ←胸トラップ→A / 2の黄色は ←→A→Aオーバーヘッド',help:'白ボールはAでシュート、ピンクは「←→A」で胸トラップシュート！2は黄色ボールで「←→A→A」のオーバーヘッドキックが追加＆Wデートの高校ベンチとモナが登場！',cast:'エースストライカー・ソラ・フライングレフェリーズ・ハヤト先輩・モナ',song:'スタジアム・ドリーム',lore:'ソラの猛特訓。シュート練習2の背景は『みんなのリズム天国』の「Wデート」と同じ高校で、ベンチの後ろをメイドインワリオのモナがスクーターで通過します。',bpm:118},
+'デッキブラシ':{icon:'▥',emoji:'🧹',kind:'brush',color:'#cde7ea',cue:'「ゴーゴー」A・A・A / 「スピンスピン」←回転→A決めポーズ / 2は「ウン、ゴー」連続A',help:'アイドル4人組が鉄骨の上をお掃除！「ゴーゴー」でA3回前進、「スピンスピン」で←回転からAで決めポーズ！2（GOSHI-PIKA）は「3・2・1」までAで進み続ける動作が追加。',cast:'男性アイドル「ブラッシャーズ」 / 女性アイドル「GOSHI-PIKA」',song:'鉄骨シャイニング',lore:'超高層ビルの鉄骨の上でも笑顔とステップを忘れないアイドルグループ。2のGOSHI-PIKAは「ウン、セ、ウン、セ」の掛け声で再び前進へ戻ります。',bpm:114},
+'THE A':{icon:'A',emoji:'🎸',kind:'letter',color:'#f3e4a2',cue:'TEA・SODA・COCOA・SEA の「A」の拍で A / 2は「AAA」「AAAAA」全押し追加',help:'流れる英単語（TEA、SODA、COCOA、最後はSEA）の「A」が中央に来る拍でA！成功で実写風背景＆歴代キャラが登場。2は3文字・5文字すべてAの連続押しが追加！',cast:'ギタリスト（松本ハルキ風）',song:'八方busy (松本ハルキ)',lore:'愛用のギターをかき鳴らすギタリスト。成功時に浮かび上がる紅茶・ソーダ・ココア・海の風景には、リズム天国歴代キャラクターが隠れています。',bpm:110},
+'侍':{icon:'／',emoji:'⚔️',kind:'samurai',color:'#d9d2e9',cue:'単体斬り A / 2体まとめ斬り A・A / 2は数字の数だけ連続斬り＆最後に一閃',help:'侍・虎伝京がリズムに乗って妖怪を真っ二つ！1体斬り（A）と2体連続斬り（A・A）を聞き分けよう。2は画面の数字の数だけ連続で斬り、画面左右反転演出も登場！',cast:'虎伝京・ブッとびオバケ',song:'正義の味方！ (松笠鈴)',lore:'闇夜に現れるブッとびオバケを刀一閃で成敗する虎伝京。連続斬りの最中は息を潜め、最後の1体を斬り捨てる瞬間に気合の雄叫びを上げます。',bpm:122},
+'棒つかみ':{icon:'┃',emoji:'🥋',kind:'rod',color:'#eddcca',cue:'数字の数だけ A / カラテ家合図「パンチ・キック！」で素早く A・A',help:'カラテ家が落ちてくる棒をAでキャッチ！数字に合わせた連続キャッチのほか、歴代「カラテ家」ゆかりの合図で素早く2回掴むリズム（2はさらに高速連打）が登場。',cast:'カラテ家',song:'スピリッツ・オブ・カラテ',lore:'シリーズおなじみのカラテ家が、今回は修行として落ちてくる木の棒を素手でキャッチ。聞き覚えのある「パンチ、キック！」の掛け声でファンを唸らせます。',bpm:116},
+'PETとなわとび':{icon:'⌒',emoji:'🍾',kind:'rope',color:'#d2edc9',cue:'「ぴょんぴょん」でA連続ジャンプ / 「二重跳び」A・A直後は裏拍キープ / 「3・2・1・ストップ」',help:'ペットボトルのPETが縄跳び！「ぴょんぴょん」でAジャンプを続け、二重跳び（A・A）の後は次の合図まで裏拍にリズムが切り替わる。「3・2・1・ストップ」で静止！',cast:'PET・なわとびトレーナー・モアイ氏・ケロケロダンサーズ',song:'Oh！僕の甘いドーナツ (Mattia Bindi / 2)',lore:'2では『リズム天国ゴールド』のケロケロダンサーズがイタリア語の甘美なボーカル「Oh！僕の甘いドーナツ」を披露し、モアイ氏が熱い視線を送ります。',bpm:124},
+'ガーディアン':{icon:'✦',emoji:'☄️',kind:'guard',color:'#bdc4e7',cue:'ウンダバ島民の掛け声に合わせ 中距離(標準) / 近距離(遅め) / 2の遠距離(早め) を A・←・→ で撃墜',help:'ウンダバ島民の掛け声に合わせて飛来する隕石に武器を投げて撃墜！中距離と少し遅れる近距離、さらに2では前倒しで投げる「遠い隕石」の3パターンを聞き分けよう。',cast:'ガーディアン・ウンダバ島民',song:'ウンダバ・メテオストライク',lore:'神秘の島を守る巨大な石神ガーディアンと水色髪の巫女。島民たちの掛け声の高さとリズムに、隕石までの距離がすべて込められています。',bpm:122},
+'手拍子':{icon:'✋',emoji:'👏',kind:'clap',color:'#f6d3be',cue:'「3・2・1」1回 / 「1・2・3」連続手拍子 / 「Check it out」2連打 / 2は高速「A→←→A」',help:'A（右手）と←（左手）で手拍子！「3・2・1」は1回、「1・2・3」はストップまで連続、「Check it out」は2回連続叩き。2は超高速「A→←→A」キメポーズが追加！',cast:'クラッパーズ',song:'クラップ・ユア・ハンズ',lore:'実写の街並みやサイバー空間に溶け込むクラッパーズ。2の高速「右・左・右（A・←・A）」は音に乗って一気に駆け抜けるのがコツです。',bpm:118},
+'くっしん菌':{icon:'↧',emoji:'🦠',kind:'squat',color:'#e3d6ed',cue:'リボン菌を A(伸びる) → ↓(かがむ) 交互操作 / 1は遅い合図あり / 2は素早く3回「A・↓・A」',help:'右側のリボンをつけた菌をA（伸びる）と↓（かがむ）で交互に屈伸させる！1は通常速度と一呼吸置く遅いパターン、2は遅い合図に代わり「素早く3回（A・↓・A）」が追加！',cast:'くっしん菌',song:'ミクロ・エクササイズ',lore:'顕微鏡の向こうで今日も元気に体操するくっしん菌たち。リミックス18や13では手拍子から間髪入れず屈伸に入る繋ぎが名物です。',bpm:112},
+'わたり鳥':{icon:'⌁',emoji:'🦆',kind:'bird',color:'#c8e4fa',cue:'白リーダー鳥のお手本後に A長押し(羽を下ろす) → 離す(羽を上げる) / 2は高速ちょん押し追加',help:'先頭の白いリーダー鳥が羽ばたくリズムを見て、鳴き声の後に同じリズムでAを押し続けて羽を下ろし、離して上げる！2は「押してすぐ離してまた押す」高速羽ばたきが追加。',cast:'わたり鳥',song:'ウイングス・オブ・ジャーニー',lore:'大空を渡る鳥の群れ。ボタンを「押す時」だけでなく「離す時」も羽ばたきの拍になっている、シリーズ伝統の長押しリズムゲームです。',bpm:112},
+'深海':{icon:'≈',emoji:'🫧',kind:'sea',color:'#1c4e80',cue:'音を頼りに中央の浮上マシーンを A で浮上 / 終盤の特別合図は裏拍3連続 A・A・A',help:'リミックス6クリアで解放されるスタッフクレジットゲーム。3台の中央の浮上マシーンを操作し、音に合わせてAで浮上。最後の裏拍3回浮上を決めるとハイレベル達成！',cast:'浮上マシーン・音読ちゃん・ハム子・キッサ店のマスター',song:'ドキドキのラララ (Sparkling Eyes)',lore:'15年ぶりとなる遊べるスタッフクレジット。初回はオート鑑賞も可能で、深海から光差す海面へと浮上しながら開発スタッフとキャラクターたちを振り返ります。',bpm:104},
+'キャラクター紹介':{icon:'♡',emoji:'🌟',kind:'cast',color:'#241b35',cue:'パ・ピ・プ・ペ → ポ！(A) · シャボン玉変則＆暗闇スポットライト演出',help:'リミックス14クリアで解放されるシリーズ初の遊べるキャラクター紹介！輪くぐり2をベースに、本編・リズムおもちゃ・スコアアタック・ビートスペルの全キャラが登場！',cast:'ミラクルスターズ オールキャスト＆音読ちゃん',song:'ミラクルスターズ・パレード',lore:'シャボン玉の合図抜けや暗闇の中でジャンプの瞬間だけ光るしらたまを操作しながら、本作を彩るすべての仲間たちが次々とステージを駆け抜けます。',bpm:118}
+};
+
+const catalog=groups.flatMap((names,g)=>names.map((name,j)=>({id:`${g+1}-${j+1}`,name,group:g+1,slot:j+1,base:name.replace(/2$/,''),advanced:/2$/.test(name)&&!name.startsWith('リミックス'),remix:name.startsWith('リミックス')})));
+catalog.push({id:'extra-1',name:'深海',group:17,slot:1,base:'深海',advanced:false,remix:false},{id:'extra-2',name:'キャラクター紹介',group:17,slot:2,base:'キャラクター紹介',advanced:true,remix:false});
+
+const remixSets=[
+  ['輪くぐり','パラソル','フライングディスク','アレのエサ'],
+  ['ケロケロロケット','カーアクション','ハードル','プチプチ研究室'],
+  ['下ごしらえ','へくしょいムーン','カニトリオ','コロコロ行進'],
+  ['パンプアップル','会話','リサイクル','ダンサー'],
+  ['虫取り','雷','そっとキャッチ','ワイパー'],
+  ['シュート練習','デッキブラシ','THE A','侍'],
+  ['カーアクション','パンプアップル','コロコロ行進','パラソル'],
+  ['輪くぐり','パラソル','フライングディスク','アレのエサ','ケロケロロケット','カーアクション','ハードル','プチプチ研究室','下ごしらえ','へくしょいムーン','カニトリオ','コロコロ行進','パンプアップル','会話','リサイクル','ダンサー','虫取り','雷','そっとキャッチ','ワイパー','シュート練習','デッキブラシ','THE A','侍'],
+  ['輪くぐり','ダンサー','虫取り','棒つかみ','PETとなわとび','ガーディアン','手拍子','くっしん菌','わたり鳥','輪くぐり'],
+  ['デッキブラシ','ハードル','雷','PETとなわとび'],
+  ['シュート練習','フライングディスク','カニトリオ','ガーディアン'],
+  ['棒つかみ','侍','ワイパー','手拍子'],
+  ['リサイクル','PETとなわとび','THE A','くっしん菌'],
+  ['ガーディアン','下ごしらえ','プチプチ研究室','わたり鳥'],
+  ['くっしん菌','アレのエサ','手拍子','わたり鳥'],
+  ['パラソル','シュート練習','パンプアップル','輪くぐり','会話','カニトリオ','虫取り','THE A'],
+  ['侍','リサイクル','棒つかみ','雷','手拍子'],
+  ['フライングディスク','ハードル','ワイパー','そっとキャッチ','シュート練習','下ごしらえ','くっしん菌','コロコロ行進','カーアクション','わたり鳥','フライングディスク'],
+  ['棒つかみ','輪くぐり','リサイクル','虫取り','シュート練習','会話','デッキブラシ','ダンサー','パンプアップル','アレのエサ','プチプチ研究室','パラソル','THE A','ガーディアン','PETとなわとび','ケロケロロケット','下ごしらえ','へくしょいムーン'],
+  ['パラソル','わたり鳥','ガーディアン','虫取り','カニトリオ','くっしん菌','手拍子','会話','フライングディスク','PETとなわとび','ワイパー','アレのエサ','シュート練習','プチプチ研究室','ケロケロロケット','コロコロ行進','デッキブラシ','輪くぐり','深海','パンプアップル','THE A','下ごしらえ','雷','へくしょいムーン','棒つかみ','そっとキャッチ','リサイクル','カーアクション','侍','ハードル','ダンサー','パラソル']
+];
+
+const remixThemes={
+  'リミックス1':{title:'ミラクルスターズ・テーマ (紹介映像曲)',theme:'intro'},
+  'リミックス2':{title:'soon be a lady (Hotzmic)',theme:'night_autumn'},
+  'リミックス3':{title:'キッチン＆ムーン・ジャンブル (割り込み演出)',theme:'interrupt'},
+  'リミックス4':{title:'踊ればDance！ インスト特訓編',theme:'stage'},
+  'リミックス5':{title:'終わりなきパーフェクト (大橋光) · ヒーロー＆怪人メカ',theme:'hero'},
+  'リミックス6':{title:'オモテ前半クライマックス',theme:'grand'},
+  'リミックス7':{title:'フレンチ・スピードジャム (割り込み＆チョビ髭演出)',theme:'mustache'},
+  'リミックス8':{title:'Love me forever！ (Ado / 作詞作曲:つんく♂)',theme:'ado'},
+  'リミックス9':{title:'ウラ開幕＆新ステージ予告スペシャル (最後引っ掛けあり)',theme:'spoiler'},
+  'リミックス10':{title:'スロー＆ハイスピード・シフト',theme:'speedup'},
+  'リミックス11':{title:'アラビアン・フライングナイト (ガーディアン割り込み)',theme:'arabian'},
+  'リミックス12':{title:'ストイック・ビートセッション',theme:'stoic'},
+  'リミックス13':{title:'ポップ＆ミクロ・グルーヴ',theme:'pop'},
+  'リミックス14':{title:'ウラ後半クライマックス・スカイ',theme:'sky'},
+  'リミックス15':{title:'サイバーパンク・ネオンビート',theme:'cyberpunk'},
+  'リミックス16':{title:'実写ブレンド・スローテンポ (シリーズ最遅BPM)',theme:'photo'},
+  'リミックス17':{title:'和風ハネリズム・セッション',theme:'washo'},
+  'リミックス18':{title:'シルエット・アンビエント (最終ディスク無音)',theme:'silhouette'},
+  'リミックス19':{title:'18ステージ耐久ロングメドレー',theme:'marathon'},
+  'リミックス20':{title:'グランドフィナーレ・全31ゲーム32区間メドレー',theme:'finale'}
+};
+
+function sectionProfiles(s){
+  if(!s.remix)return[s.base];
+  const idx=Number(s.name.replace('リミックス',''))-1;
+  return remixSets[idx]||remixSets[0];
+}
+
+function difficultyNotes(p,level,advanced=false,block=0){
+  const k=p.kind;
+  if(k==='hoop'){
+    const notes=[[4,'A']];
+    if(level>=2)notes.push([level===2?7:level===3?6.5:6,'A']);
+    if(advanced&&level>=3)notes.push([7.5,'A']);
+    return notes;
+  }
+  if(k==='umbrella'){
+    if(advanced&&block%2===1)return[[2,'A'],[3,'D'],[5,'A'],[7,'A']]; // オーレ！→1拍挟んでA
+    return level===1?[[2,'A'],[5,'D']]:level===2?[[2,'A'],[4,'D'],[6,'A']]:[[1.5,'A'],[2.5,'D'],[4.5,'A'],[5.5,'D'],[7,'A']];
+  }
+  if(k==='disc'){
+    if(advanced&&level>=2)return[[3.5,'A'],[7,'A']]; // 裏拍ディスク
+    return level<=2?[[6,'A']]:[[3,'A'],[6.5,'A']];
+  }
+  if(k==='feed'){
+    if(advanced&&block%2===1)return[[4,'A'],[6.5,'A']]; // 4拍後エサ＋2拍後エサ
+    return level===1?[[2,'A'],[6,'A']]:level===2?[[2,'A'],[4.5,'A'],[6.5,'A']]:[[2,'A'],[3.5,'A'],[5.5,'A'],[7,'A']];
+  }
+  if(k==='frog'){
+    if(advanced)return[[2,'A'],[3.5,'A'],[5,'A'],[6.5,'A']]; // ハイペース＋オタマジャクシ
+    return level===1?[[4,'A']]:level===2?[[3,'A'],[6,'A']]:[[2.5,'A'],[5,'A'],[6.5,'A']];
+  }
+  if(k==='car'){
+    return level===1?[[3,'D'],[6.5,'A']]:level===2?[[2.5,'D'],[4.5,'A'],[7,'D']]:[[2,'D'],[4.5,'A'],[6,'D'],[7.5,'A']];
+  }
+  if(k==='hurdle'){
+    return level===1?[[3,'A'],[6,'D']]:level===2?[[2.5,'A'],[4.5,'D'],[6.5,'A']]:[[2,'A'],[3.5,'D'],[5.5,'A'],[7,'D']];
+  }
+  if(k==='pop'){
+    if(advanced)return[[2,'A',1],[4,'A'],[4.5,'A'],[6,'A',1]]; // 青長押しが先に来るパターン
+    return level===1?[[2,'A'],[5,'A',1]]:level===2?[[2,'A'],[3,'A'],[5.5,'A',1]]:[[1.5,'A'],[2,'A'],[2.5,'A'],[5,'A',1.2]];
+  }
+  if(k==='prep'){
+    return level===1?[[2,'A'],[5,'A']]:level===2?[[2,'A'],[4.5,'A'],[5,'A'],[5.5,'A']]:[[1.5,'A'],[3.5,'A'],[5,'A'],[5.5,'A'],[6,'A']];
+  }
+  if(k==='moon'){
+    return level===1?[[4,'A'],[6.5,'A']]:level===2?[[2,'A'],[5.5,'A']]:[[1.5,'A'],[4,'A'],[6.5,'A']];
+  }
+  if(k==='crab'){
+    if(advanced)return[[2,'LR'],[4,'L'],[4.5,'A'],[6.5,'LR']]; // ソラマメ(←→A)追加
+    return level===1?[[3,'LR'],[6,'LR']]:level===2?[[2,'LR'],[4.5,'LR'],[6.5,'LR']]:[[1.5,'LR'],[3.5,'LR'],[5,'LR'],[6.5,'LR']];
+  }
+  if(k==='march'){
+    return level===1?[[1,'A'],[2,'A'],[3,'A'],[4,'R'],[5,'A'],[6,'A']]:[[1,'A'],[2,'A'],[3,'R'],[4,'A'],[5,'A'],[6,'R'],[7,'R']];
+  }
+  if(k==='apple'){
+    return level===1?[[2,'A'],[3,'A'],[5.5,'A'],[6,'D']]:[[1.5,'A'],[2.5,'A'],[3.5,'A'],[4.5,'A'],[6,'A'],[6.5,'D']];
+  }
+  if(k==='talk'){
+    if(advanced)return[[4,'A'],[4.5,'L'],[6,'A'],[6.5,'A']]; // ウォッウォッチャ(A→←)追加
+    return level===1?[[4,'A'],[4.5,'A'],[6.5,'L']]:[[4,'A'],[4.5,'A'],[5.5,'L'],[6.5,'A'],[7,'A']];
+  }
+  if(k==='can'){
+    return level===1?[[2,'A'],[5,'D']]:level===2?[[2,'A'],[4,'D'],[6,'A']]:[[1.5,'A'],[3,'D'],[4.5,'A'],[6.5,'D']];
+  }
+  if(k==='dance'){
+    if(advanced)return[[1.5,'L'],[2,'A'],[3.5,'R'],[4,'A'],[5.5,'L'],[5.75,'A'],[7,'A']]; // 高速キメポーズ
+    return level===1?[[2,'A'],[3,'A'],[5,'L'],[6,'A']]:[[1.5,'L'],[2.5,'A'],[3.5,'R'],[4.5,'A'],[6,'A'],[7,'A']];
+  }
+  if(k==='bug'){
+    if(advanced)return[[2.5,'A'],[6,'A']]; // 4拍目青トンボ
+    return level===1?[[2.5,'A'],[6.5,'A']]:[[2.5,'A'],[4.5,'A'],[6.5,'A']];
+  }
+  if(k==='thunder'){
+    return level===1?[[3,'D'],[6,'D']]:level===2?[[3,'D'],[5,'D'],[7,'D']]:[[2,'D'],[4,'D'],[6,'D'],[7,'D']];
+  }
+  if(k==='catch'){
+    return level===1?[[2,'D'],[5,'A']]:level===2?[[2,'D'],[4,'A'],[6,'D']]:[[1.5,'D'],[3,'A'],[4.5,'D'],[6,'A'],[7,'D']];
+  }
+  if(k==='wiper'){
+    if(advanced)return[[1.5,'L'],[2.25,'A'],[3,'L'],[3.75,'A'],[5.5,'L'],[6.5,'A']]; // 左→右→左→右
+    return level===1?[[2,'L'],[4,'A'],[6,'L']]:[[1.5,'L'],[3,'A'],[4.5,'L'],[6,'A']];
+  }
+  if(k==='soccer'){
+    if(advanced)return[[2,'A'],[4,'L'],[4.75,'A'],[5.25,'A'],[7,'A']]; // 黄色ボール ←→A→A オーバーヘッド
+    return level===1?[[2,'A'],[5,'L'],[6,'A']]:[[2,'A'],[3.5,'L'],[4.25,'A'],[6.5,'A']];
+  }
+  if(k==='brush'){
+    if(advanced)return[[1,'A'],[2,'A'],[3,'A'],[4.5,'L'],[5.5,'A'],[6.5,'A'],[7.5,'A']]; // ウン、ゴー連続前進＋スピン
+    return level===1?[[2,'A'],[2.5,'A'],[3,'A'],[5,'L'],[6,'A']]:[[1.5,'A'],[2,'A'],[2.5,'A'],[4.5,'L'],[5.5,'A'],[7,'A']];
+  }
+  if(k==='letter'){
+    if(advanced&&block%2===1)return[[2,'A'],[3,'A'],[4,'A'],[6,'A']]; // すべてA (AAA)
+    return level===1?[[3,'A'],[6,'A']]:[[2.5,'A'],[5,'A'],[7,'A']];
+  }
+  if(k==='samurai'){
+    return level===1?[[2,'A'],[5,'A'],[5.5,'A']]:level===2?[[2,'A'],[4,'A'],[4.5,'A'],[6.5,'A']]:[[1.5,'A'],[3.5,'A'],[4,'A'],[4.5,'A'],[6.5,'A']];
+  }
+  if(k==='rod'){
+    return level===1?[[2,'A'],[5,'A'],[5.5,'A']]:level===2?[[2,'A'],[3,'A'],[5.5,'A'],[6,'A']]:[[1.5,'A'],[2,'A'],[2.5,'A'],[5,'A'],[5.5,'A'],[6.5,'A']];
+  }
+  if(k==='rope'){
+    return level===1?[[1,'A'],[2,'A'],[3,'A'],[4,'A'],[4.5,'A'],[5.5,'A'],[6.5,'A']]:[[1,'A'],[2,'A'],[3,'A'],[3.5,'A'],[4.5,'A'],[5.5,'A'],[6,'A'],[7,'A']];
+  }
+  if(k==='guard'){
+    if(advanced)return[[1.5,'L'],[3.5,'A'],[6,'R']]; // 遠・中・近距離
+    return level===1?[[2.5,'A'],[6,'L']]:[[2,'L'],[4.5,'R'],[6.5,'A']];
+  }
+  if(k==='clap'){
+    if(advanced)return[[2,'A'],[3,'L'],[5,'A'],[5.25,'L'],[5.5,'A'],[7,'A']]; // 超高速 A→←→A
+    return level===1?[[3,'A'],[5,'A'],[6,'L']]:[[2,'A'],[3,'L'],[4,'A'],[6,'A'],[6.5,'A']];
+  }
+  if(k==='squat'){
+    if(advanced)return[[2,'A'],[3,'D'],[5,'A'],[5.4,'D'],[5.8,'A']]; // 素早く3回 A・↓・A
+    return level===1?[[2,'A'],[3,'D'],[4,'A'],[6.5,'D']]:[[1.5,'A'],[2.5,'D'],[3.5,'A'],[4.5,'D'],[6,'A'],[7,'D']];
+  }
+  if(k==='bird'){
+    if(advanced)return[[4,'A',.8],[5.5,'A',.25],[6,'A',.8]]; // ちょん押し高速羽ばたき＋滑空
+    return level===1?[[4,'A',1.5]]:[[4,'A',1],[5.5,'A',1.2]];
+  }
+  if(k==='sea'){
+    return block>=7?[[2,'A'],[4.5,'A'],[5,'A'],[5.5,'A']]:[[2,'A'],[5,'A'],[6.5,'A']];
+  }
+  if(k==='cast'){
+    return[[4,'A'],[6.5,'A']];
+  }
+  return[[2,'A'],[4,'A'],[6,'A']];
+}
+
+function stageSectionCount(s,practice){
+  if(practice)return 4;
+  if(s.name==='リミックス20')return 32;
+  if(s.name==='リミックス19')return 18;
+  if(s.name==='リミックス8')return 24;
+  if(s.remix)return 12;
+  if(s.id==='extra-1'||s.id==='extra-2')return 12;
+  return 10;
+}
+
+function buildChart(s,practice=false){
+  let pool=sectionProfiles(s),baseBpm=(s.remix?122:profiles[s.base].bpm)+(s.advanced?10:0);
+  if(s.name==='リミックス16')baseBpm=88;
+  if(s.name==='リミックス17')baseBpm=116;
+  if(s.name==='リミックス18')baseBpm=106;
+  if(s.name==='リミックス20')baseBpm=126;
+  let beat=60/baseBpm,sections=stageSectionCount(s,practice),events=[],cues=[],difficulties=[],tempoMap=[],elapsed=0;
+  for(let block=0;block<sections;block++){
+    let factor=1;
+    // 原作準拠のテンポ変化演出
+    if((s.base==='ハードル'||s.name==='リミックス10')&&block>=Math.floor(sections/2))factor=1.28;
+    else if(s.name==='そっとキャッチ2'&&block>=3&&block<=6)factor=1.25;
+    else if(s.name==='へくしょいムーン2')factor=block<3?0.88:1.22;
+    else if(s.name==='リミックス9'&&block===sections-1)factor=0.82; // 最後引っ掛け
+    const localBpm=Math.round(baseBpm*factor),localBeat=60/localBpm,start=elapsed;
+    tempoMap.push({start,beat:localBeat,bpm:localBpm,firstBeat:block*8});
+    elapsed+=8*localBeat;
+    const level=1+Math.min(3,Math.floor(block*4/sections));
+    difficulties.push(level);
+    let name=pool[block%pool.length],p=profiles[name],adv=s.advanced||['リミックス7','リミックス9','リミックス10','リミックス11','リミックス12','リミックス13','リミックス14','リミックス15','リミックス16','リミックス17','リミックス18','リミックス19','リミックス20'].includes(s.name);
+    let notes=difficultyNotes(p,level,adv,block);
+    for(const [b,key,len] of notes){
+      let step=p.kind==='hoop'?(level===1?1:level===2?.75:.5):p.kind==='disc'?(s.name==='リミックス11'?.5:1):0;
+      const silentFinal=(s.name==='リミックス18'&&block===sections-1);
+      events.push({at:start+b*localBeat,key,duration:(len||0)*localBeat,kind:p.kind,name,level,block,cueStart:step?start+(b-(p.kind==='hoop'?4:s.name==='リミックス11'?3:6)*step)*localBeat:null,cueStep:step*localBeat,result:null,held:false,released:false,finaleOffbeat:p.kind==='sea'&&block===sections-1&&b>=4.5});
+      if(silentFinal)continue; // リミックス18最後のフライングディスクは完全無音
+      if(['talk','clap','bird'].includes(p.kind)){
+        cues.push({at:start+Math.max(0.3,b-3)*localBeat,key,kind:p.kind,syllable:p.kind==='talk'?(key==='L'?'ウォッウォッウォウォ':'ンチャッチャッチャ'):p.kind==='clap'?'Check it out!':'ピヨッ♪'});
+      }else if(p.kind==='hoop'||p.kind==='cast'){
+        for(let i=0;i<4;i++){
+          // 輪くぐり2やシャボン玉状態では「パ・プ」など一部合図が抜ける原作演出
+          if((adv||s.id==='extra-2')&&block>=2&&(i===1||i===3))continue;
+          cues.push({at:start+(b-(4-i)*step)*localBeat,key:'A',kind:p.kind,syllable:['パ','ピ','プ','ペ'][i]});
+        }
+      }else if(p.kind==='disc'){
+        const count=s.name==='リミックス11'?3:6;
+        for(let i=0;i<count;i++)cues.push({at:start+(b-(count-i)*step)*localBeat,key:'A',kind:p.kind,syllable:s.name==='リミックス11'?['オイ','オイ','エイ'][i]:String(i+1)});
+      }else{
+        let syl='♪';
+        if(p.kind==='umbrella')syl=key==='A'?(adv&&b===7?'オーレ！':'パッ'):'チョッ';
+        else if(p.kind==='car')syl=key==='D'?'プップー！':'3・2・1';
+        else if(p.kind==='hurdle')syl=key==='A'?'ホップ・ステップ':'スライディン';
+        else if(p.kind==='prep')syl=b>=4.5?'ピピピッ！':'ホイッスル';
+        else if(p.kind==='moon')syl=b<=2?'ハッ！？':'ムズムズ…';
+        else if(p.kind==='march')syl=key==='R'?'ローリング！':'1・2';
+        else if(p.kind==='brush')syl=key==='L'?'スピンスピン！':'ゴーゴー！';
+        else if(p.kind==='rope')syl=b%1!==0?'二重跳び！':'ぴょん';
+        cues.push({at:start+Math.max(0.1,b-1)*localBeat,key,kind:p.kind,syllable:syl});
+      }
+    }
+  }
+  return{events,cues,bpm:baseBpm,beat,sections,pool,difficulties,tempoMap,end:elapsed};
+}
+function sectionAtTime(chart,t){let i=0;while(i+1<chart.tempoMap.length&&t>=chart.tempoMap[i+1].start)i++;return i}
+function timeAtBeat(chart,b){const i=Math.max(0,Math.min(chart.tempoMap.length-1,Math.floor(b/8))),q=chart.tempoMap[i];return q.start+(b-q.firstBeat)*q.beat}
+if(typeof module!=='undefined')module.exports={catalog,profiles,buildChart,sectionProfiles,difficultyNotes,sectionAtTime,timeAtBeat};
+</script>
+<script>
+function timingPoints(error){const d=Math.abs(error);return d<=.068?100:d<=.125?80:d<=.185?45:0}
+function finalScore(events,extra){
+  let raw=Math.max(0,Math.round(events.reduce((n,e)=>n+(e.result||0),0)/Math.max(1,events.length)-extra*2));
+  // 深海：最後の裏拍3回浮上を外すと平凡（最大85点）確定
+  if(events.some(e=>e.finaleOffbeat&&(!e.result||e.result===0)))raw=Math.min(85,raw);
+  return raw;
+}
+function closestEvent(events,now,key){
+  let best=null,d=.185001;
+  for(const e of events){
+    if(e.result!==null||e.held)continue;
+    const match=(e.key===key)||(e.key==='D'&&key==='B')||(e.key==='R'&&key==='D'&&e.kind==='march')||(e.key==='LR'&&(key==='LR'||key==='A'||key==='L'));
+    if(!match)continue;
+    let diff=Math.abs(now-e.at);
+    if(diff<d){d=diff;best=e}
+  }
+  return best;
+}
+if(typeof module!=='undefined')module.exports={timingPoints,finalScore,closestEvent};
+</script><script>
+function musicHash(s){return [...s].reduce((n,c)=>(n*31+c.codePointAt(0))>>>0,7)}
+function midiHz(n){return 440*Math.pow(2,(n-69)/12)}
+function musicArrangement(stage,chart){
+  const seed=musicHash(stage.name),p=profiles[stage.base]||{};
+  const soft=['sea','moon','bird','catch','umbrella'].includes(p.kind)||stage.name==='リミックス16'||stage.name==='リミックス18';
+  const minor=['guard','samurai','moon','thunder'].includes(p.kind)||stage.name==='リミックス11'||stage.name==='リミックス15';
+  const arabian=stage.name==='リミックス11';
+  const washo=stage.name==='リミックス17'||p.kind==='samurai';
+  const scale=arabian?[0,1,4,5,7,8,11]:washo?[0,2,3,7,9,10,12]:minor?[0,2,3,5,7,8,10]:[0,2,4,5,7,9,11];
+  const title=stage.remix?(remixThemes[stage.name]?.title||stage.name):(p.song||stage.name);
+  return{seed,soft,minor,arabian,washo,swing:washo,silentLast:stage.name==='リミックス18',modulate:stage.name==='リミックス20',root:(minor?57:60)+(seed%5)-2,scale,shape:soft?'sine':seed%2?'triangle':'square',progression:seed%2?[0,5,3,4]:[0,3,5,4],motif:[[0,2,4,2,6,4,2,1],[4,2,0,2,3,5,4,2],[0,4,3,2,1,2,4,6],[2,3,4,6,4,3,2,0]][seed%4],title};
+}
+function musicNotes(arr,index,beat,section=0,totalSections=10){
+  if(arr.silentLast&&section===totalSections-1)return[]; // リミックス18最後のディスクは完全無音
+  const notes=[],pos=index%64,b=Math.floor(pos/2),half=pos%2,bar=Math.floor(b/8),degree=arr.progression[bar%4],octave=d=>arr.scale[((d%7)+7)%7]+12*Math.floor(d/7),root=arr.root+(arr.modulate?(section%5)-2:0);
+  function add(m,len,level,type=arr.shape,role='melody'){notes.push({frequency:midiHz(m),duration:len*beat,level,type,role})}
+  if(half===0&&(b%8!==7||!arr.soft)){const d=arr.motif[b%8]+(bar%2?1:0);add(root+12+octave(d),arr.soft?.75:.42,arr.soft?.06:.05)}
+  if(half===1&&!arr.soft&&b%4===3)add(root+12+octave(arr.motif[(b+1)%8]),.28,.028);
+  if(half===0&&b%2===0)add(root-12+octave(degree+(b%4===2?4:0)),1.65,.075,'triangle','bass');
+  if(half===0&&b%4===0)for(const d of [degree,degree+2,degree+4])add(root+octave(d),3.6,arr.soft?.018:.013,'sine','chord');
+  if(half===1&&b%2===0)add(root+octave(degree+[0,2,4][Math.floor(b/2)%3]),.35,.018,'triangle','arpeggio');
+  if(half===0&&b%4===0)notes.push({frequency:120,duration:.15,level:arr.soft?.07:.1,type:'sine',role:'kick',endFrequency:40});
+  if(half===0&&b%4===2)notes.push({frequency:180,duration:.07,level:arr.soft?.022:.035,type:'triangle',role:'snare',endFrequency:75});
+  if(!arr.soft||half===0)notes.push({frequency:6200+(arr.seed%500),duration:.021,level:arr.soft?.003:.004,type:'square',role:'hat'});
+  return notes;
+}
+function musicVoice(r,time,n){const o=audio.createOscillator(),v=audio.createGain();o.type=n.type;o.frequency.setValueAtTime(n.frequency,time);if(n.endFrequency)o.frequency.exponentialRampToValueAtTime(n.endFrequency,time+n.duration);v.gain.setValueAtTime(0,time);v.gain.linearRampToValueAtTime(n.level,time+.007);v.gain.exponentialRampToValueAtTime(.0001,time+Math.max(.02,n.duration));o.connect(v);v.connect(r.bgmGain);r.musicVoices.add(o);o.onended=()=>{r.musicVoices.delete(o);o.disconnect();v.disconnect()};o.start(time);o.stop(time+n.duration+.02)}
+function scheduleMusic(r,now){while(r.musicCursor<r.sections*16){const musicalBeat=r.musicCursor/2,at=r.base+timeAtBeat(r,musicalBeat);if(at>now+.2)break;const section=Math.min(r.sections-1,Math.floor(musicalBeat/8)),beat=r.tempoMap[section].beat;if(at>=now-.03)for(const n of musicNotes(r.arrangement,r.musicCursor,beat,section,r.sections))musicVoice(r,Math.max(now,at),n);r.musicCursor++}}
+if(typeof module!=='undefined')module.exports={musicArrangement,musicNotes,midiHz};
+</script><script>
+// パーフェクトキャンペーン（原作仕様：対象ステージで3回ミス または 他ステージ5回プレイで終了、ミスしても最後までプレイ可）
+let perfectRecords={},perfectCampaign={target:null,failures:0,otherPlays:0,lastAttempt:null};
+let unlockAllMode=false;
+try{
+  perfectRecords=JSON.parse(rhythmStorage.getItem('rhythm-perfect-records')||'{}');
+  perfectCampaign=Object.assign({target:null,failures:0,otherPlays:0,lastAttempt:null},JSON.parse(rhythmStorage.getItem('rhythm-perfect-campaign')||'{}'));
+  unlockAllMode=rhythmStorage.getItem('rhythm-unlock-all-v1')==='true';
+}catch{}
+function perfectRecord(id){return perfectRecords[id]||{unlocked:false,streak:0,night:false,star:false}}
+function perfectSave(){try{rhythmStorage.setItem('rhythm-perfect-records',JSON.stringify(perfectRecords));rhythmStorage.setItem('rhythm-perfect-campaign',JSON.stringify(perfectCampaign))}catch{}}
+function noMiss(events,extra){return extra===0&&events.length>0&&events.every(e=>e.result!==null&&e.result>0)}
+function trialAllowed(id,mode){
+  if(mode==='normal'||mode==='auto')return true;
+  
+  if(unlockAllMode)return true;
+  const p=perfectRecord(id);
+  if(mode==='perfect')return p.unlocked;
+  if(mode==='night')return p.night;
+  return mode==='campaign'&&perfectCampaign.target===id;
+}
+function applyPerfectResult(id,mode,success){
+  const p={...perfectRecord(id)};let message='';
+  if(mode==='campaign'&&(perfectCampaign.target===id||unlockAllMode)){
+    if(success){
+      p.unlocked=true;p.streak=Math.max(1,p.streak);perfectCampaign={target:null,failures:0,otherPlays:0,lastAttempt:null};
+      message='パーフェクトキャンペーン達成！ パーフェクトモード＆資料室のオマケ情報を永久解放！';
+    }else if(perfectCampaign.target===id){
+      perfectCampaign.failures++;
+      if(perfectCampaign.failures>=3){perfectCampaign={target:null,failures:0,otherPlays:0,lastAttempt:null};message='キャンペーン3回ミスにより終了。次の発生を待とう。'}
+      else message=`キャンペーン失敗 · 残り挑戦${3-perfectCampaign.failures}回（他ステージ残り${5-perfectCampaign.otherPlays}回）`;
+    }
+  }else if(perfectCampaign.target&&perfectCampaign.target!==id){
+    perfectCampaign.otherPlays=(perfectCampaign.otherPlays||0)+1;
+    if(perfectCampaign.otherPlays>=5){perfectCampaign={target:null,failures:0,otherPlays:0,lastAttempt:null};message='他ステージを5回プレイしたため開催中のキャンペーンが終了しました。'}
+  }
+  if(mode==='perfect'&&(p.unlocked||unlockAllMode)){
+    p.unlocked=true;
+    p.streak=success?Math.min(3,p.streak+1):0;
+    if(p.streak>=3){p.night=true;message='3回連続パーフェクト達成！ 虹色ハート🌈♥とナイトモードを解放！'}
+    else message=`連続パーフェクト ${p.streak}/3${success?'':' · ミスで連続記録が0に戻りました。'}`;
+  }
+  if(mode==='night'&&(p.night||unlockAllMode)){
+    p.unlocked=true;p.night=true;
+    if(success){p.star=true;message='ナイトモード完全制覇！ 虹色ハートに星印🌈♥★が付きました！'}
+    else message='ナイトモード失敗。音とリズムだけを頼りに再挑戦しよう！';
+  }
+  perfectRecords[id]=p;perfectSave();return message;
+}
+function maybePerfectCampaign(playedId,random=Math.random){
+  const candidates=catalog.slice(0,80).filter((s,i)=>(unlockAllMode||i<campaign)&&((saves[s.id]?.score||0)>=90||unlockAllMode)&&!perfectRecord(s.id).unlocked);
+  if(!candidates.length||random()>=.35)return false;
+  const s=candidates[Math.min(candidates.length-1,Math.floor(random()*candidates.length))];
+  perfectCampaign={target:s.id,failures:0,otherPlays:0,lastAttempt:null};perfectSave();return true;
+}
+function perfectHeart(id){const p=perfectRecord(id);return p.star?'🌈♥★':p.night?'🌈♥':p.unlocked?'♥':''}
+function trialUI(){
+  if(!selected)return;
+  const id=selected.id,p=perfectRecord(id);
+  for(const mode of ['campaign','perfect','night','auto']){
+    const option=document.querySelector('#trial-mode option[value="'+mode+'"]');
+    if(option)option.disabled=!trialAllowed(id,mode);
+  }
+  $('#trial-mode').value=perfectCampaign.target===id?'campaign':'normal';
+  $('#perfect-state').textContent=`${perfectHeart(id)} ${p.unlocked?'永久解放 · 連続 '+p.streak+'/3':''}${perfectCampaign.target===id?' · キャンペーン開催中！ 残り'+(3-perfectCampaign.failures)+'回':''}`;
+}
+function campaignNotice(){
+  const s=catalog.find(s=>s.id===perfectCampaign.target);
+  $('#campaign-notice').textContent=s?`🔥 パーフェクトキャンペーン発生中：${s.id} ${s.name}（あと${3-perfectCampaign.failures}回ミス または 他ステージ${5-(perfectCampaign.otherPlays||0)}回で消滅）`:'';
+}
+function referenceRoom(){
+  stop(true);if(typeof sideStop==='function')sideStop();selected=null;showScreen('mode');$('#mode-title').textContent='資料室（オマケ情報・全82項目）';
+  const body=$('#mode-body');body.replaceChildren();
+  const note=document.createElement('p');
+  note.textContent='パーフェクトキャンペーンを達成したステージ（または🔓全解放モードON時）のオマケ設定資料・登場キャラクター・楽曲情報を閲覧できます。';
+  body.append(note);
+  let count=0;
+  for(const s of catalog){
+    if(!unlockAllMode&&!perfectRecord(s.id).unlocked)continue;
+    count++;
+    const details=document.createElement('details'),title=document.createElement('summary'),text=document.createElement('p');
+    const p=profiles[s.base]||{};
+    title.textContent=`${s.id} ${s.name} ${perfectHeart(s.id)} ${s.remix?'['+(remixThemes[s.name]?.title||'リミックス')+']':p.song?'[♪ '+p.song+']':''}`;
+    text.textContent=s.remix
+      ? `【収録ゲーム（全${sectionProfiles(s).length}区間）】${sectionProfiles(s).join(' → ')}。${remixThemes[s.name]?.title||''}`
+      : `【登場キャラ】${p.cast||'ミラクルスターズ'} ／ 【オマケ資料】${p.lore||p.help}`;
+    details.append(title,text);body.append(details);
+  }
+  if(!count){
+    const text=document.createElement('p');
+    text.textContent='まだ解放された資料はありません。パーフェクトキャンペーンを達成するか、ステージセレクト右上の「🔓全解放」をONにしてご覧ください。';
+    body.append(text);
+  }
+}
+</script><script>
+let season={month:'',highWater:0,xp:0,stars:0,missions:{clears:0,high:0,perfect:0},claimed:[]};try{Object.assign(season,JSON.parse(rhythmStorage.getItem('rhythm-season-v1')||'{}'))}catch{}
+function japanMonth(date=new Date()){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit'}).format(date)}
+function seasonSave(){try{rhythmStorage.setItem('rhythm-season-v1',JSON.stringify(season))}catch{}}
+function seasonCheck(date=new Date()){const month=japanMonth(date);season.highWater=Math.max(season.highWater,campaign);if(!season.month){season.month=month;seasonSave();return false}seasonSave();return false}
+function stageRank(points,group){return group>=9&&group<=16?(points>=90?'ハイレベル':points>=65?'（でも）平凡':'やりなおし'):(points>=90?'最高':points>=65?'（かなり）いいかんじ':'ファイト！')}
+function stageExperience(s){if(s.remix)return 50;if(s.advanced)return 40;return Math.min(50,10+Math.round((s.group-1)/15*40))}
+function seasonResult(points,perfect){season.highWater=Math.max(season.highWater,campaign);const earned=points>=65?stageExperience(selected):0;season.xp+=earned;$('#unlock-message').textContent+=' · EXP＋'+earned;if(points>=65)season.missions.clears++;if(points>=90)season.missions.high++;if(perfect)season.missions.perfect++;seasonSave()}
+const seasonMissions=[{key:'clears',goal:5,label:'ステージを5回クリア',reward:1},{key:'high',goal:3,label:'最高／ハイレベルを3回獲得',reward:2},{key:'perfect',goal:1,label:'ノーミスで1回クリア',reward:3}];
+function seasonMenu(){sideStop();const b=$('#mode-body');b.replaceChildren();const rank=Math.floor(season.xp/100)+1;b.append(sideNode('h3',`ノリカンランク ${rank} · 累計EXP ${season.xp} · ミラクルスター ⭐${season.stars}`),sideNode('p','ステージクリアでEXPとミラクルスターを獲得。メダルは最高／ハイレベル（90点以上）で1ステージにつき1枚獲得できます。'));for(const m of seasonMissions){const progress=season.missions[m.key]||0,done=season.claimed.includes(m.key);b.append(sideNode('p',`${m.label}：${Math.min(progress,m.goal)}/${m.goal} · スター＋${m.reward}`),sideButton(done?'受取済み':'報酬を受け取る',()=>{if(progress<m.goal||season.claimed.includes(m.key))return;season.claimed.push(m.key);season.stars+=m.reward;seasonSave();seasonMenu()},done||progress<m.goal))}}
+</script>
+<script>
+const $=s=>document.querySelector(s),cv=$('#canvas'),ctx=cv.getContext('2d');
+let tab='front',selected=null,run=null,audio=null,master=null,startPending=false,startGeneration=0;
+let inputSources=new Map(),held=new Set(),lastHit=-10,lastAction='A',toast='',toastUntil=0,saves={};
+try{saves=JSON.parse(rhythmStorage.getItem('rhythm-lab-v2')||'{}')}catch{}
+const colors={A:'#ed846a',D:'#649dca',L:'#79b297',R:'#aa8ac9',LR:'#dbb35b'};
+const difficultyLabels=['','序盤','中盤','後半','クライマックス'];
+const keyLabels={A:'A',D:'B/↓',L:'←',R:'→',LR:'←＋A'};
+function persist(){try{rhythmStorage.setItem('rhythm-lab-v2',JSON.stringify(saves))}catch{}}
+let campaign=0,screen='title';
+try{campaign=Math.max(0,Math.min(82,Number(rhythmStorage.getItem('rhythm-lab-campaign-v1'))||0))}catch{}
+seasonCheck();
+
+function updateUnlockAllBtn(){
+  const btn=$('#unlock-all-btn');
+  if(!btn)return;
+  btn.textContent=unlockAllMode?'🔓 全解放ON（全82ステージ＆全モード解放中）':'🔓 全解放OFF';
+  btn.classList.toggle('unlocked-all',unlockAllMode);
+}
+if($('#unlock-all-btn')){
+  $('#unlock-all-btn').onclick=()=>{
+    unlockAllMode=!unlockAllMode;
+    try{rhythmStorage.setItem('rhythm-unlock-all-v1',String(unlockAllMode))}catch{}
+    updateUnlockAllBtn();
+    renderLibrary();
+  };
+  updateUnlockAllBtn();
+}
+
+function accessible(s){
+  if(typeof rePending!=='undefined'&&rePending&&catalog[rePending.index]===s)return true;
+  
+  if(unlockAllMode)return true;
+  const i=catalog.indexOf(s);
+  return s.id==='extra-1'?Math.max(campaign,season.highWater)>=30:s.id==='extra-2'?Math.max(campaign,season.highWater)>=70:i>=0&&i<=campaign;
+}
+function showScreen(name){screen=name;for(const id of ['title','select','game','result','mode'])$('#'+id+'-screen').hidden=id!==name}
+function saveCampaign(){try{rhythmStorage.setItem('rhythm-lab-campaign-v1',String(campaign))}catch{}}
+function summary(){
+  const cl=unlockAllMode?82:Math.min(campaign,80)+catalog.slice(80).filter(s=>(saves[s.id]?.score||0)>=65).length;
+  const md=unlockAllMode?Math.max(80,catalog.slice(0,80).filter(s=>(saves[s.id]?.score||0)>=90).length):catalog.slice(0,80).filter(s=>(saves[s.id]?.score||0)>=90).length;
+  $('#cleared').textContent=cl;
+  $('#medals').textContent='メダル '+md+'枚';
+  $('#resume-label').textContent=unlockAllMode?'全82ステージ＆全モード解放中！':campaign===0?'最初は 1-1 輪くぐり からスタート':campaign>=82?'全82ステージ制覇！':`続き：${catalog[campaign].id} ${catalog[campaign].name}`;
+}
+function stageSelect(){stop(true);seasonCheck();if(selected){tab=selected.group<=8?'front':selected.group<=16?'back':'extra'}$('#search').value='';selected=null;document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));renderLibrary();showScreen('select')}
+let carouselIndex=0,carouselList=[],carouselTab='';
+function carouselMove(delta){if(!carouselList.length)return;carouselIndex=(carouselIndex+delta+carouselList.length)%carouselList.length;renderCarousel()}
+function renderLibrary(){
+  campaignNotice();
+  const backTab=document.querySelector('[data-tab="back"]');
+  if(backTab)backTab.disabled=!unlockAllMode&&campaign<40;
+  const term=$('#search').value.trim();
+  carouselList=catalog.filter(s=>(tab==='front'?s.group<=8:tab==='back'?s.group>=9&&s.group<=16:s.group===17)&&(s.name.includes(term)||s.id.includes(term)));
+  if(carouselTab!==tab||!term){
+    const next=carouselList.findIndex(s=>catalog.indexOf(s)===campaign);
+    carouselIndex=next>=0?next:Math.min(carouselIndex,Math.max(0,carouselList.length-1));
+    carouselTab=tab;
+  }
+  carouselIndex=Math.min(carouselIndex,Math.max(0,carouselList.length-1));
+  renderCarousel();summary();
+}
+function renderCarousel(){
+  const root=$('#library');root.replaceChildren();
+  if(!carouselList.length){const empty=document.createElement('p');empty.textContent='該当するステージはありません。';root.append(empty);return}
+  const track=document.createElement('div');track.className='stage-carousel';track.setAttribute('aria-label','横スクロールのステージ選択');
+  let x0=null;
+  track.onpointerdown=e=>{x0=e.clientX};
+  track.onpointerup=e=>{if(x0!==null&&Math.abs(e.clientX-x0)>35){carouselMove(e.clientX<x0?1:-1)}x0=null};
+  track.onpointercancel=()=>x0=null;
+  track.onwheel=e=>{if(Math.abs(e.deltaX)>15){e.preventDefault();carouselMove(e.deltaX>0?1:-1)}};
+  for(const offset of [-2,-1,0,1,2]){
+    if(carouselList.length<3&&Math.abs(offset)>1)continue;
+    const i=(carouselIndex+offset+carouselList.length)%carouselList.length,s=carouselList[i],p=s.remix?{emoji:'🎛️',color:'#f3deb8'}:profiles[s.base];
+    const b=document.createElement('button');
+    b.className='carousel-card position-'+(offset+2)+(offset===0?' centered':'');
+    b.style.background=p.color;
+    b.setAttribute('aria-label',s.id+' '+s.name+(!accessible(s)?' 未解放':''));
+    b.setAttribute('aria-current',offset===0?'true':'false');
+    const art=document.createElement('div');art.className='carousel-art';art.textContent=p.emoji;
+    const n=document.createElement('span');n.textContent=s.id+(s.group>=9&&s.group<=16?` (裏${s.group-8}-${s.slot})`:'');
+    const title=document.createElement('b');title.textContent=s.name;
+    const status=document.createElement('small');
+    status.textContent=!accessible(s)?'🔒 未解放':saves[s.id]?`${stageRank(saves[s.id].score,s.group)} (${saves[s.id].score}点) ${perfectHeart(s.id)}`:'▶ 遊ぶ';
+    b.append(n,art,title,status);
+    if((saves[s.id]?.score||0)>=65){
+      const crown=document.createElement('span');crown.className='stage-crown';
+      crown.textContent=(saves[s.id]?.score||0)>=90?'🏅':'👑';
+      crown.setAttribute('aria-label','クリア済み');b.append(crown);
+    }
+    b.onclick=()=>{if(offset!==0)carouselMove(offset);else if(accessible(s))select(s)};
+    track.append(b);
+  }
+  const controls=document.createElement('div');controls.className='carousel-controls';
+  for(const [label,fn] of [['◀ 前',()=>carouselMove(-1)],['決定 A',()=>{const s=carouselList[carouselIndex];if(accessible(s))select(s)}],['次 ▶',()=>carouselMove(1)]]){
+    const b=document.createElement('button');b.textContent=label;b.onclick=fn;
+    if(label==='決定 A')b.disabled=!accessible(carouselList[carouselIndex]);
+    controls.append(b);
+  }
+  const detail=document.createElement('p');detail.className='carousel-detail';
+  const current=carouselList[carouselIndex];
+  detail.textContent=`${carouselIndex+1} / ${carouselList.length} · `+(current.remix?`${remixThemes[current.name]?.title||'リミックス'}（登場：${sectionProfiles(current).slice(0,6).join('・')}${sectionProfiles(current).length>6?'ほか':''}）`:profiles[current.base].help);
+  const info=document.createElement('button');info.className='guide-open';info.textContent='ゲーム紹介・操作・楽曲情報';info.onclick=()=>showStageGuide(current);
+  root.append(track,controls,info,detail);
+}
+
+function select(s){
+  if(!accessible(s))return false;
+  stop(true);selected=s;
+  $('#practice').checked=false;
+  $('#practice-start').hidden=!!s.remix; // 原作ミラクルスターズ仕様：全通常＆2ステージにおさらい練習あり
+  $('#model-y').hidden=true;
+  showScreen('game');
+  $('#title').textContent=s.name;
+  const p=profiles[s.base]||{};
+  $('#stageid').textContent=`${s.id}${s.group>=9&&s.group<=16?` (裏${s.group-8}-${s.slot})`:''} · ${s.remix?(remixThemes[s.name]?.title||'REMIX'):(p.cast||'RHYTHM TENGOKU')}`;
+  $('#instruction').textContent=s.remix?`【${remixThemes[s.name]?.title||s.name}】全${sectionProfiles(s).length}区間メドレー（${sectionProfiles(s).slice(0,8).join('→')}${sectionProfiles(s).length>8?'…':''}）`:p.help;
+  $('#personal').textContent='最高 '+(saves[s.id]?.score??'—');
+  $('#phase').textContent='準備';
+  $('#score').textContent='0 点';
+  $('#combo').textContent='コンボ 0';
+  $('#feedback').textContent=s.id==='extra-1'?'スタッフクレジット「深海」：遊び方で「オート鑑賞」も選べます。':s.name==='リミックス8'?'ヒント：曲の始まりにA長押しでシルエット演出に変化！':'スタートで音楽と合図が始まります。';
+  trialUI();
+  if(s.id==='extra-1'&&!saves[s.id])$('#trial-mode').value='auto';
+  narrate(s.name,$('#instruction').textContent);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function beep(time,freq=500,length=.08,level=.12,shape='sine'){
+  if(!run)return;
+  const osc=audio.createOscillator(),v=audio.createGain();
+  osc.type=shape;osc.frequency.value=freq;
+  v.gain.setValueAtTime(0,time);
+  v.gain.linearRampToValueAtTime(level,time+.004);
+  v.gain.exponentialRampToValueAtTime(.0001,time+length);
+  osc.connect(v);v.connect(run.sfxGain);
+  osc.start(time);osc.stop(time+length+.01);
+}
+
+async function start(){
+  if(seasonCheck()){renderLibrary();showScreen('select');return}
+  if(run||startPending||!selected||!accessible(selected))return;
+  const practicing=$('#practice').checked&&!selected.remix;
+  const trial=practicing?'normal':$('#trial-mode').value||'normal';
+  if(!trialAllowed(selected.id,trial)){
+    $('#feedback').textContent='このモードは未解放です（🔓全解放ボタンで即時解放できます）。';
+    return;
+  }
+  const generation=++startGeneration;startPending=true;$('#start').disabled=true;
+  try{
+    audio=audio||new(window.AudioContext||window.webkitAudioContext)();
+    await audio.resume();
+    if(generation!==startGeneration||document.hidden||screen!=='game'){startPending=false;$('#start').disabled=false;return;}
+    if(!master){
+      const unlock=audio.createOscillator(),unlockGain=audio.createGain();
+      unlockGain.gain.value=0;unlock.connect(unlockGain);unlockGain.connect(audio.destination);
+      unlock.start();unlock.stop(audio.currentTime+.01);
+    }
+    master=master||audio.createGain();
+    master.gain.value=+$('#volume').value/100;
+    master.connect(audio.destination);
+    let chart=buildChart(selected,practicing),bus=audio.createGain();
+    bus.connect(master);
+    let bgmGain=audio.createGain(),sfxGain=audio.createGain();
+    bgmGain.connect(bus);sfxGain.connect(bus);
+    bgmGain.gain.value=$('#bgmon').checked?+$('#bgmvolume').value/100:0;
+    sfxGain.gain.value=+$('#sfxvolume').value/100;
+    run={
+      ...chart,trial,base:audio.currentTime+1.2,bus,extra:0,lives:5,combo:0,maxCombo:0,
+      scheduled:new Set(),bgmGain,sfxGain,musicCursor:0,musicVoices:new Set(),
+      arrangement:musicArrangement(selected,chart),practice:practicing,
+      modelHeld:trial==='auto',autoMode:trial==='auto',
+      adoSilhouette:false,treesGrown:0,parasolOpen:true,
+      bubbleMode:selected.name==='輪くぐり2'||selected.id==='extra-2'||(selected.name==='輪くぐり'&&Math.random()<0.38),
+      ashleyCameo:Math.random()<0.45,monaCameo:Math.random()<0.5,alienCameo:Math.random()<0.45
+    };
+    document.body.classList.toggle('night-game',trial==='night');
+    $('#trial-mode').disabled=true;
+    $('#lives').textContent='ノリカン ♥♥♥♥♥';
+    $('#model-y').hidden=!practicing;
+    $('#practice-start').disabled=true;
+    held.clear();
+    $('#stop').disabled=false;$('#practice').disabled=true;toast='';
+    $('#feedback').textContent=trial==='auto'?'オートプレイ鑑賞中…':selected.name==='コロコロ行進2'?'豆知識：ダルマ（Daruma）は七転び八起きで願いを叶える日本の縁起物です！':'合図を聴いて、リズムに乗ろう！';
+    $('#musiclabel').textContent='♪ '+run.arrangement.title;
+  }catch(e){
+    $('#feedback').textContent='音声を開始できませんでした。端末の音声設定を確認してね。';
+    $('#start').disabled=false;
+  }finally{startPending=false}
+}
+
+function setFeedback(text){toast=text;toastUntil=audio.currentTime+.65;$('#feedback').textContent=text}
+function loseLife(){
+  if(!run||run.practice||run.autoMode)return false;
+  // 原作ミラクルスターズ仕様：3DS版の即終了ではなくWii版同様にミスしても最後まで完走可能！
+  run.lives=Math.max(1,run.lives-1);
+  $('#lives').textContent='ノリカン '+'♥'.repeat(run.lives)+'♡'.repeat(5-run.lives);
+  return false;
+}
+function resolve(e,points,text){
+  if(e.result!==null)return;
+  e.result=points;
+  if(points){
+    run.combo++;run.maxCombo=Math.max(run.maxCombo,run.combo);
+    if(e.kind==='bug')run.treesGrown=(run.treesGrown||0)+1;
+  }else run.combo=0;
+  $('#combo').textContent='コンボ '+run.combo;
+  $('#score').textContent=finalScore(run.events,run.extra)+' 点';
+  setFeedback(text);
+  if(!points)loseLife();
+}
+function down(key){
+  if(!run||run.modelHeld||held.has(key))return;
+  held.add(key);
+  document.querySelector(`[data-key="${key}"]`)?.classList.add('pressed');
+  let now=audio.currentTime-run.base-+$('#offset').value/1000;
+  // リミックス8：曲の始まりでAボタン長押しするとシルエット調に変化する原作隠し演出
+  if(selected?.name==='リミックス8'&&now<0.5&&key==='A'){
+    run.adoSilhouette=true;
+    setFeedback('✨ シルエットモード発動！（リミックス8隠し演出）');
+  }
+  let effective=(held.has('L')&&(held.has('R')||held.has('A')))?'LR':key;
+  let e=closestEvent(run.events,now,effective);
+  lastHit=audio.currentTime;lastAction=effective;
+  const curKind=profiles[run.pool[sectionAtTime(run,now)%run.pool.length]]?.kind;
+  if(effective==='A'&&curKind==='disc')run.discJump=audio.currentTime-run.base;
+  if(curKind==='umbrella'&&['A','D','B'].includes(effective)){run.parasolOpen=effective==='A';run.parasolChanged=audio.currentTime-run.base}
+  if(effective==='A'&&(curKind==='hoop'||curKind==='cast')){run.lastPlayerJump=audio.currentTime-run.base;speakCue('ポ',run)}
+  if(!e){
+    if((key==='L'||key==='R'||key==='A')&&run.events.some(e=>e.result===null&&e.key==='LR'&&Math.abs(e.at-now)<=.185))return;
+    run.extra++;run.combo=0;$('#combo').textContent='コンボ 0';
+    setFeedback(curKind==='wiper'?'ツルッ！ワイパーが動いていない時に跳ぶと雨で滑るよ！':'空振り · 合図を聴こう！');
+    beep(audio.currentTime,130,.08);loseLife();return;
+  }
+  let error=now-e.at,points=timingPoints(error);
+  if(e.duration){
+    e.held=true;e.startPoints=points;e.holdKey=key;
+    setFeedback(e.kind==='bird'?'羽を下ろして滑空中…合図で離して羽を上げよう！':e.kind==='pop'?'ギュッ…そのまま長押しで青い丸を潰そう！':'長押し中…終端で離そう！');
+    beep(audio.currentTime,650,.08);return;
+  }
+  resolve(e,points,points===100?'★ ぴったり！':error<0?'ちょっと早い！':'ちょっと遅い！');
+  beep(audio.currentTime,points===100?960:620,.1);
+}
+function up(key){
+  held.delete(key);
+  document.querySelector(`[data-key="${key}"]`)?.classList.remove('pressed');
+  if(!run)return;
+  let now=audio.currentTime-run.base-+$('#offset').value/1000;
+  for(const e of run.events.filter(e=>e.held&&e.result===null&&e.holdKey===key)){
+    let p=timingPoints(now-e.at-e.duration);
+    e.released=true;
+    resolve(e,p?Math.min(p,e.startPoints):0,p?'★ 長押し＆リリース成功！':'離すタイミングが違った！');
+    if(p)beep(audio.currentTime,1080,.09);
+  }
+}
+function stop(cancel=false){
+  startGeneration++;startPending=false;$('#start').disabled=false;
+  if(!run)return;
+  const r=run;run=null;
+  $('#model-y').hidden=true;$('#practice-start').disabled=false;
+  document.body.classList.remove('night-game');
+  $('#trial-mode').disabled=false;
+  r.bus.gain.setValueAtTime(0,audio.currentTime);r.bus.disconnect();
+  for(const o of r.musicVoices){try{o.stop(audio.currentTime)}catch{}}
+  r.musicVoices.clear();r.bgmGain.disconnect();r.sfxGain.disconnect();
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  inputSources.clear();held.clear();
+  document.querySelectorAll('.pressed').forEach(x=>x.classList.remove('pressed'));
+  $('#start').disabled=false;$('#stop').disabled=true;$('#practice').disabled=false;
+  if(r.practice){
+    $('#practice').checked=false;$('#phase').textContent='おさらい練習終了';
+    $('#feedback').textContent='練習完了！本番へ進もう。';$('#start').textContent='本番スタート ▶';return;
+  }
+  if(cancel){
+    if(r.trial&&r.trial!=='normal'&&r.trial!=='auto')applyPerfectResult(selected.id,r.trial,false);
+    $('#feedback').textContent='中止しました。';return;
+  }
+  const points=finalScore(r.events,r.extra),perfect=noMiss(r.events,r.extra),rank=stageRank(points,selected.group);
+  if(!r.practice&&!r.autoMode){
+    let prev=saves[selected.id];
+    saves[selected.id]={score:Math.max(prev?.score||0,points),perfect:perfect||prev?.perfect||false};
+    persist();summary();
+  }
+  $('#result-stage').textContent=selected.id+' '+selected.name;
+  let newly=false;
+  if(!r.practice&&!r.autoMode&&points>=65&&catalog.indexOf(selected)===campaign){
+    campaign++;
+    while(campaign>=80&&campaign<82&&(saves[catalog[campaign].id]?.score||0)>=65)campaign++;
+    saveCampaign();newly=true;
+  }
+  summary();
+  let msg=r.autoMode?'オート鑑賞完了！次は自分で操作して挑戦しよう。':newly?(campaign<82?'🎉 次のステージ解放！ '+catalog[campaign].id+' '+catalog[campaign].name:'🎊 全82ステージ完全制覇！！'):(points<65?'65点以上でクリア＆次ステージ解放！':'クリア！ '+(points>=90?'🏅メダル獲得！':'90点以上でメダルがもらえます。'));
+  if(selected.name==='リミックス6'&&points>=65)msg+=' · 🌊 スタッフクレジット「深海」が解放されました！';
+  if(selected.name==='リミックス8'&&points>=65)msg+=' · 🌙 音読ちゃん「おめでとう！ウラステージとバー、スコアアタック、ドラムレッスンが解放されたよ！」';
+  if(selected.name==='リミックス14'&&points>=65)msg+=' · 🌟 音読ちゃん「すごーい！遊べる『キャラクター紹介』が解放されたよ！」';
+  $('#unlock-message').textContent=msg;
+  if(!r.autoMode){
+    seasonResult(points,perfect);
+    let perfectMessage=applyPerfectResult(selected.id,r.trial||'normal',perfect);
+    if(r.trial==='normal'&&maybePerfectCampaign(selected.id))perfectMessage+=' 🔥 新たなパーフェクトキャンペーンが発生！';
+    if(perfectMessage)$('#unlock-message').textContent+=' '+perfectMessage;
+  }
+  if(typeof reRecord==='function')reRecord(points,perfect,r);
+  showScreen('result');
+  $('#rank').textContent=(r.autoMode?'オート鑑賞 · ':r.practice?'練習 · ':'')+rank+(perfect?' · ★PERFECT★':'');
+  $('#resultscore').textContent=points+' 点';
+  $('#resulttext').textContent=`成功 ${r.events.filter(e=>e.result>0).length}/${r.events.length} · 最大コンボ ${r.maxCombo} · 空振り ${r.extra}回`;
+  $('#personal').textContent='最高 '+(saves[selected.id]?.score??'—');
+  $('#feedback').textContent='終了！';$('#phase').textContent='リザルト';
+}
+function speakCue(word,owner){
+  if(run!==owner||!$('#voice').checked||!('speechSynthesis' in window)||typeof SpeechSynthesisUtterance==='undefined')return;
+  const synth=window.speechSynthesis;
+  const u=new SpeechSynthesisUtterance(word);u.lang='ja-JP';u.rate=2.1;u.volume=Math.min(1,+$('#sfxvolume').value/100);
+  const voice=synth.getVoices().find(v=>v.lang.startsWith('ja'));if(voice)u.voice=voice;
+  if(synth.speaking)synth.cancel();synth.speak(u);
+}
+function schedule(now){
+  const r=run,horizon=now+.12;
+  for(let i=0;i<r.cues.length;i++){
+    let q=r.cues[i],t=r.base+q.at;
+    if(t<=horizon&&!r.scheduled.has('q'+i)){
+      r.scheduled.add('q'+i);
+      if(q.kind==='disc'&&q.syllable==='1'&&t>=now-.03)beep(Math.max(t,now),1600,.18,.13);
+      if((q.kind==='hoop'||q.kind==='cast'||q.kind==='umbrella'||q.kind==='march'||q.kind==='brush')&&q.syllable&&q.syllable!=='♪'){
+        const owner=r;setTimeout(()=>speakCue(q.syllable,owner),Math.max(0,(t-now)*1000));
+      }
+      if(t>=now-.03)beep(Math.max(t,now),q.key==='D'?330:q.key==='L'?440:q.key==='R'?660:540,.08,.13);
+    }
+  }
+  scheduleMusic(r,now);
+}
+function ellipse(x,y,rx,ry,color){ctx.fillStyle=color;ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,7);ctx.fill()}
+function text(s,x,y,size=24,color='#294554'){ctx.font=`bold ${size}px system-ui,sans-serif`;ctx.fillStyle=color;ctx.textAlign='center';ctx.fillText(s,x,y)}
+function creature(x,y,color='#fff',size=38){artMascot(ctx,x,y,size,color,x>750)}
+function depthStage(p,t){
+  ctx.fillStyle='#ffffff40';ctx.beginPath();ctx.moveTo(110,295);ctx.lineTo(890,295);ctx.lineTo(1100,460);ctx.lineTo(-100,460);ctx.closePath();ctx.fill();
+  ctx.strokeStyle='#29455418';ctx.lineWidth=2;
+  for(let i=0;i<8;i++){ctx.beginPath();ctx.moveTo(200+i*85,295);ctx.lineTo(-160+i*190,460);ctx.stroke()}
+  for(const y of [310,335,375,430]){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(1000,y);ctx.stroke()}
+}
+function drawHoop(t,block=0,isCast=false){
+  const syllables=['パ','ピ','プ','ペ','ポ'];
+  const all=run?.events.filter(e=>e.kind==='hoop'||e.kind==='cast')||[];
+  const target=all.find(e=>t>=e.cueStart-.5&&t<=e.at+.45);
+  const phase=target?(t-target.cueStart)/target.cueStep:-9;
+  const darkSpot=(isCast&&block%2===1)||(!isCast&&block>=5&&block%3===2);
+  if(darkSpot){ctx.fillStyle='#0d1322';ctx.fillRect(0,0,1000,460)}
+  for(let i=0;i<5;i++){
+    const x=180+i*155,step=target?.cueStep||.4;let jump=0;
+    if(i<4&&target){let f=(t-target.cueStart-i*step)/Math.min(.32,step*.8);if(f>=0&&f<1)jump=Math.sin(f*Math.PI)*78}
+    if(i===4&&run){const f=(t-(run.lastPlayerJump??-9))/.32;if(f>=0&&f<1)jump=Math.sin(f*Math.PI)*78}
+    let y=282-jump;const foot=Math.sin(t*20+i)*7;
+    if(darkSpot&&i<4&&jump<=5)continue; // 暗転時はジャンプ瞬間やプレイヤーのみ照射
+    if(darkSpot&&i===4)ellipse(x,y,85,110,'#fff9c433');
+    ellipse(x,325,33*(1-jump/150),7,'#28494c33');
+    ellipse(x-13,y+29,12,7,'#e9eeeb');ellipse(x+13,y+29+foot,12,7,'#ffffff');
+    const inBubble=(run?.bubbleMode||selected?.advanced||isCast)&&i<4&&(i%2===1||selected?.name==='輪くぐり2');
+    creature(x,y,'#fff',32);
+    if(inBubble){
+      ellipse(x,y,46,50,'#a6e7ff55');ctx.strokeStyle='#ffffffaa';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(x,y,46,50,0,0,7);ctx.stroke();
+      text('💤',x+24,y-36,18);
+    }
+    text(i===4?'あなた(ポ)':inBubble?'(シャボン玉)':syllables[i],x,352,15,darkSpot?'#fff':'#294554');
+    if(target&&Math.floor(phase)===i&&!inBubble)text(syllables[i]+'！',x,y-55,26,'#e85d44');
+    if(i===4){ctx.strokeStyle='#eac15d';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(x,y,38,41,0,0,7);ctx.stroke()}
+  }
+  for(const e of all){
+    let p=(t-e.cueStart)/e.cueStep;if(p<-.65||p>5.3)continue;
+    let x=180+p*155;
+    ctx.strokeStyle=e.result===0?'#b98888':e.result>0?'#5eaa86':'#edac66';ctx.lineWidth=9;
+    ctx.beginPath();ctx.ellipse(x,241,22,62,0,0,7);ctx.stroke();
+    ctx.strokeStyle='#fff0c9';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(x-3,239,18,58,0,0,7);ctx.stroke();
+  }
+  if(isCast){
+    const castList=[
+      ['しらたま','輪くぐり'],['カサパホーマー','パラソル'],['エキサイティング犬＆シルバー姉さん','フライングディスク'],
+      ['恐竜ちゃん','アレのエサ'],['ピョコちんガエル','ケロケロロケット'],['新型コロリーナ','カーアクション'],
+      ['ハードルマン＆ミホちゃん','ハードル'],['モノ(ソフト＆ハード)','プチプチ研究室'],['サチコ・ダイヤモンド','下ごしらえ'],
+      ['月＆旅人＆アシュリー','へくしょいムーン'],['タベモノポンポンガニ＆カモメ先生','カニトリオ'],['コロリンコ猫ちゃんズ＆ダルマックス','コロコロ行進'],
+      ['コウ・マキシマム','パンプアップル'],['ともだち＆リズム星人','会話'],['トン・カチオ＆カエル先輩','リサイクル'],
+      ['アイドル・レーナ＆バックダンサー','ダンサー'],['昆虫研究家＆マジカルインセクツ','虫取り'],['ワープマン＆モクモク','雷'],
+      ['S-CATCH-01＆ダメプリン','そっとキャッチ'],['ピンクちゃん＆アオくん','ワイパー'],['エースストライカー・ソラ＆モナ','シュート練習'],
+      ['ブラッシャーズ＆GOSHI-PIKA','デッキブラシ'],['ギタリスト','THE A'],['虎伝京＆ブッとびオバケ','侍'],
+      ['カラテ家','棒つかみ'],['PET＆モアイ氏','PETとなわとび'],['ガーディアン＆ウンダバ島民','ガーディアン'],
+      ['クラッパーズ','手拍子'],['くっしん菌','くっしん菌'],['わたり鳥','わたり鳥'],
+      ['音読ちゃん＆浮上マシーン','深海・進行'],['ウサギ＆フグ＆フクロウ＆魔導士','おもちゃ・スコア・ビートスペル']
+    ];
+    const idx=Math.floor(Math.max(0,t)/1.8)%castList.length;
+    ctx.fillStyle='#ffffffdd';ctx.fillRect(220,75,560,72);
+    text('🌟 キャラクター紹介：'+castList[idx][0],500,108,24,'#241b35');
+    text('登場ステージ：'+castList[idx][1],500,136,16,'#5a4675');
+  }
+}
+
+function drawStageCustom(kind,p,now,t,block,bounce){
+  const b=run?.beat||.5;
+  const next=run?.events.find(e=>e.result===null&&!e.held&&e.at>=t-.2);
+  const dt=next?next.at-t:2;
+  if(kind==='feed'){
+    // 左の花からハートが放物線で飛び、右のオレンジ色の恐竜ちゃんが食べる（2は4拍後の高い黄金ハートも）
+    ctx.fillStyle='#7ec876';ctx.fillRect(0,335,1000,125);
+    // 花
+    ctx.fillStyle='#4aa052';ctx.fillRect(155,250,14,90);
+    for(let a=0;a<6;a++)ellipse(162+Math.cos(a)*28,240+Math.sin(a)*28,16,16,'#ff7eb3');
+    ellipse(162,240,18,18,'#ffe066');
+    artDino(ctx,790,265,bounce);
+    // 飛んでくるハートエサ
+    for(const ev of (run?.events.filter(e=>e.kind==='feed'&&e.result===null)||[])){
+      const span=ev.at-t,flightDur=selected?.advanced&&ev.at- (run?.tempoMap[ev.block]?.start||0) > 3*b ? 4*b : 2*b;
+      if(span>=0&&span<=flightDur){
+        const prog=1-span/flightDur,hx=170+prog*545,hy=240-Math.sin(prog*Math.PI)*(flightDur>2.5*b?175:95);
+        text(flightDur>2.5*b?'💛':'💖',hx,hy,46);
+      }
+    }
+    text('♪ My Telepathy！私の熱い光線',500,435,16,'#6c465e');
+  }else if(kind==='frog'){
+    // ケロケロロケット（1は池・蓮の葉、リミックス2は夜、2は雲・天空＋オタマジャクシ）
+    const isSky=selected?.advanced,isNight=selected?.name==='リミックス2';
+    ctx.fillStyle=isNight?'#162447':isSky?'#a2d2ff':'#b7efc5';ctx.fillRect(0,0,1000,460);
+    if(isSky){for(let i=0;i<6;i++)ellipse(150+i*150,340+(i%2)*15,95,32,'#ffffffdd')}
+    else{ctx.fillStyle=isNight?'#1f4068':'#4cc9f0';ctx.fillRect(0,330,1000,130)}
+    // 大ピョコちんガエルと蓮の葉
+    const padY=255-bounce*0.6;
+    artFrog(ctx,500,310,1);
+    ellipse(500,padY,90,18,'#2d6a4f');
+    if(next&&dt<4*b&&dt>-.3){
+      const prog=Math.max(0,1-dt/(2*b));
+      const fy=prog<=1?80+prog*(padY-105):padY-105-(prog-1)*380;
+      artFrog(ctx,500,fy-15,.42);
+    }
+    if(bounce>5)text('ロケット発射ーッ！🚀',500,130,26,isNight?'#ffd166':'#1b4332');
+  }else if(kind==='car'){
+    // カーアクション：3車線の中央の赤い新型コロリーナ（2は暗闇トンネル演出）
+    const darkTunnel=(selected?.advanced||selected?.name==='カーアクション2')&&block>=4&&block%2===1;
+    ctx.fillStyle=darkTunnel?'#090c15':'#5c677d';ctx.fillRect(0,180,1000,280);
+    if(!darkTunnel){
+      ctx.fillStyle='#fff';for(let x=0;x<1000;x+=120){ctx.fillRect((x-(t*280)%120),265,65,5);ctx.fillRect((x-(t*280)%120),365,65,5)}
+    }
+    // 後ろの車・真ん中の自車・前の車
+    const wheelie=lastAction==='A'&&bounce>5?-18:0,brake=lastAction==='D'&&bounce>5?12:0;
+    if(!darkTunnel){
+      text('🚙',210,325,68);text('🚕',790,325,68);
+    }
+    if(next&&dt<1.5){
+      if(next.key==='D')text('🔊 プップー！(↓ブレーキ)',780,220,24,'#ffccd5');
+      else text('👈🏻 ウィリー加速合図！(A)',230,220,24,'#ffe066');
+    }
+    ctx.save();ctx.translate(500+brake,315);ctx.rotate(wheelie*Math.PI/180);
+    ctx.fillStyle='#e63946';ctx.beginPath();ctx.roundRect(-65,-32,130,52,18);ctx.fill();
+    ctx.fillStyle='#a8dadc';ctx.beginPath();ctx.roundRect(-35,-58,72,30,12);ctx.fill();
+    ellipse(-40,22,18,18,'#222');ellipse(40,22,18,18,'#222');
+    if(selected?.advanced){ctx.fillStyle='#ffb703';ctx.fillRect(-75,-42,18,22)} // GTウイング
+    ctx.restore();
+    if(darkTunnel)text('トンネル暗闇区間 · 合図とエンジン音に集中！',500,125,20,'#ffd166');
+  }else if(kind==='hurdle'){
+    // ハードル：ミホちゃんのモニター内ドット絵ランナー＋後半バグ横引き伸ばし＋2の桜＆富士山上下反転
+    const bug=block>=Math.floor((run?.sections||10)/2);
+    const fujiFlip=(selected?.advanced||selected?.name==='ハードル2')&&block>=Math.floor((run?.sections||10)*0.7);
+    ctx.save();
+    if(bug){ctx.translate(500,230);ctx.scale(1.42,0.84);ctx.translate(-500,-230)}
+    // モニター枠
+    ctx.fillStyle='#3d5a80';ctx.fillRect(140,85,720,305);
+    ctx.fillStyle=selected?.name==='リミックス2'?'#fde2bb':'#98f5e1';ctx.fillRect(160,105,680,265);
+    if(selected?.advanced||selected?.name==='ハードル2'){
+      // 富士山（後半バグで上下反転！）
+      ctx.save();
+      if(fujiFlip){ctx.translate(500,225);ctx.scale(1,-1);ctx.translate(-500,-225)}
+      ctx.fillStyle='#457b9d';ctx.beginPath();ctx.moveTo(370,330);ctx.lineTo(465,175);ctx.lineTo(535,175);ctx.lineTo(630,330);ctx.fill();
+      ctx.fillStyle='#fff';ctx.beginPath();ctx.moveTo(465,175);ctx.lineTo(535,175);ctx.lineTo(558,215);ctx.lineTo(442,215);ctx.fill();
+      ctx.restore();
+      text('🌸',240,155,28);text('🌸',740,165,28);
+    }
+    if(selected?.name==='リミックス2'){text('🍂',260,155,28);text('🍁',700,165,28)}
+    ctx.fillStyle='#52b788';ctx.fillRect(160,330,680,40);
+    // ドット絵ハードルマン
+    const slide=lastAction==='D'&&bounce>5;
+    const ry=slide?312:285-bounce;
+    ctx.fillStyle='#ffd166';ctx.fillRect(280,ry-36,36,slide?24:46);
+    ctx.fillStyle='#111';ctx.fillRect(302,ry-30,6,6);
+    if(next&&dt<2.2&&dt>-.2){
+      const hx=295+dt/b*210;
+      if(next.key==='A'){ctx.fillStyle='#f77f00';ctx.fillRect(hx,285,22,48);text('JUMP(A)',hx+10,272,15,'#d62828')}
+      else{ctx.fillStyle='#00b4d8';ctx.fillRect(hx,215,28,72);text('SLIDE(↓)',hx+14,205,15,'#023e8a')}
+    }
+    ctx.restore();
+    text(bug?(fujiFlip?'💻 ミホ「富士山反転も仕様です！！」':'⚠️ ゲームバグ発生！ハイスピード＆画面引き伸ばし！'):'👩‍💻 ミホちゃん制作「ハードル」',500,425,18,'#1d3557');
+  }else if(kind==='pop'){
+    // プチプチ研究室：四角い青頭(ハード)と丸いピンク頭(ソフト)が気泡を潰す
+    ctx.fillStyle='#e8f1f5';ctx.fillRect(0,0,1000,460);
+    // 左：ハード（四角い水色頭）、右：ソフト（丸いピンク頭）
+    ctx.fillStyle='#4cc9f0';ctx.fillRect(215,175,70,70);ellipse(238,205,5,5,'#111');ellipse(262,205,5,5,'#111');
+    ellipse(750,210,40,40,'#ff70a6');ellipse(738,205,5,5,'#111');ellipse(762,205,5,5,'#111');
+    // 中央のプチプチシート
+    ctx.fillStyle='#ffffffcc';ctx.beginPath();ctx.roundRect(330,150,340,190,22);ctx.fill();
+    const holding=run?.events.some(e=>e.held&&e.result===null);
+    const isBlue=holding||(next&&next.duration>0);
+    ellipse(500,245,isBlue?62:48,isBlue?62:48,isBlue?'#4895ef':'#ff85a1');
+    text(holding?'ギュウウッ！(長押し中)':isBlue?'青い丸：A長押し！':'ピンク丸：Aプチ！',500,252,22,'#fff');
+  }else if(kind==='prep'){
+    // 下ごしらえ：サチコ・ダイヤモンドが野菜をキャッチ（黄色パプリカ後はブロッコリー3連！）
+    ctx.fillStyle='#fff3cd';ctx.fillRect(0,0,1000,460);
+    ctx.fillStyle='#d4a373';ctx.fillRect(0,335,1000,125);
+    // サチコ・ダイヤモンドとボウル
+    ellipse(500,255-bounce*0.4,42,46,'#f9dcc4');text('👩‍🍳',500,260-bounce*0.4,82);
+    const upcoming=run?.events.filter(e=>e.kind==='prep'&&e.result===null&&e.at>=t-.1&&e.at<=t+2.5*b)||[];
+    if(upcoming.length>=2)text('⏰ ピピピッ！黄色パプリカ合図 → ブロッコリー3連続 (パパパン)！',500,125,22,'#d9480f');
+    upcoming.forEach((ev,idx)=>{
+      const span=ev.at-t,vx=idx%2===0?160+(1-span/(2*b))*340:840-(1-span/(2*b))*340,vy=260-Math.sin(Math.max(0,span)*2.2)*95;
+      text(upcoming.length>=2?'🥦':'🥕',vx,vy,52);
+    });
+  }else if(kind==='moon'){
+    // へくしょいムーン：右上に加藤茶風の顔つき月（緑4拍・赤3.5拍）＋旅人＋アシュリー低確率ゲスト
+    ctx.fillStyle='#10182b';ctx.fillRect(0,0,1000,460);
+    const isRed=next&&(next.at*2)%1!==0;
+    const mColor=next&&dt<2.2?(isRed?'#ff595e':'#8ac926'):'#f9dc5c';
+    ellipse(780,145,78,78,mColor);
+    // 月の顔（太眉・目・鼻・ちょび髭）
+    ctx.strokeStyle='#222';ctx.lineWidth=4;
+    ctx.beginPath();ctx.moveTo(745,118);ctx.lineTo(770,122);ctx.moveTo(790,122);ctx.lineTo(815,118);ctx.stroke();
+    ellipse(758,136,10,7,'#fff');ellipse(802,136,10,7,'#fff');ellipse(758,136,4,4,'#111');ellipse(802,136,4,4,'#111');
+    ctx.fillStyle='#222';ctx.fillRect(768,162,24,7);
+    text(dt<.3?'ハクション！！🤧':isRed?'赤点滅：3.5拍目(短)':'緑点滅：4拍目(長)',780,250,20,'#fff');
+    // 旅人たち
+    for(let i=0;i<3;i++)text('🏃',260+i*90+(bounce>10?65:0),335-bounce,52);
+    // ホラー妨害演出＆アシュリー
+    if(block>=2){
+      text('🦇',380+Math.sin(t*6)*90,180,42);text('🦇',540+Math.cos(t*5)*90,210,42);
+      if(run?.ashleyCameo)text('🧙‍♀️アシュリー',460+Math.sin(t*3)*110,145,24,'#ff9ebb');
+    }
+    if(selected?.advanced&&dt<1.2)text(block>=7?'⚡ 来る！！':'⚠️ ふいうち注意！',500,105,28,'#ff595e');
+  }else if(kind==='crab'){
+    // カニトリオ：3匹の赤カニ＋カモメ先生＋マカロン/マンゴスチン(←+A同時)＋2のソラマメ(←→A)
+    ctx.fillStyle='#fff1d0';ctx.fillRect(0,280,1000,180);
+    text('🐦カモメ先生',500,125,26,'#1d3557');
+    for(let i=0;i<3;i++){
+      const cx=280+i*220,cy=320-(i===1?bounce:Math.sin(t*8+i)*8);
+      ellipse(cx,cy,44,30,'#e63946');ellipse(cx-16,cy-26,8,8,'#fff');ellipse(cx+16,cy-26,8,8,'#fff');
+      ellipse(cx-16,cy-26,4,4,'#111');ellipse(cx+16,cy-26,4,4,'#111');
+      text('🦀',cx,cy+10,64);
+    }
+    if(block>=4){ctx.fillStyle='#adb5bd';ctx.fillRect(445,265,110,85);text('🥫空き缶',500,312,20,'#222')}
+    if(next&&dt<2*b){
+      const food=next.key==='LR'?'🧁マカロン (←＋A同時押し)':'🫛ソラマメ (← → A 順押し)';
+      text(food,500,205,26,'#9b2226');
+    }
+  }else if(kind==='march'){
+    // コロコロ行進：4匹の招き猫（2は赤いダルマ）が行進（A）＆ローリング（→）
+    const isDaruma=selected?.advanced||selected?.name==='コロコロ行進2';
+    for(let i=0;i<4;i++){
+      const mx=230+i*165,my=300-(i===3?bounce*0.6:Math.abs(Math.sin(t*6+i))*18);
+      ctx.save();ctx.translate(mx,my);
+      if(lastAction==='R'&&bounce>5&&i===3)ctx.rotate(t*14);
+      if(isDaruma){
+        ellipse(0,0,38,42,'#d62828');ellipse(0,-10,24,18,'#fcefb4');
+        ellipse(-9,-12,5,5,'#111');ellipse(9,-12,5,5,'#111');
+      }else{
+        ellipse(0,0,36,38,'#fff');ellipse(-12,-10,4,5,'#111');ellipse(12,-10,4,5,'#111');
+        ctx.fillStyle='#e63946';ctx.fillRect(-26,14,52,8);ellipse(0,18,6,6,'#ffd166');
+      }
+      ctx.restore();
+    }
+    text(next?.key==='R'?'🔊 ボス「ローリング！(→)」':'🔊 行進 1・2・3・4 (毎拍A)',500,155,26,'#6c3c0c');
+  }else if(kind==='apple'){
+    // パンプアップル：コウ・マキシマムが力こぶで赤リンゴ・青リンゴ・レモンを弾き飛ばす
+    const frontView=!selected?.advanced&&block>=4&&block<=7;
+    ellipse(500,305,68,62,'#f4a261');
+    ellipse(415,275-bounce*0.5,38,34,'#e76f51');ellipse(585,275-bounce*0.5,38,34,'#e76f51');
+    text(frontView?'😤 コウ・マキシマム(正面)':'💪 コウ・マキシマム(背面)',500,320,24,'#fff');
+    if(next&&dt<2*b){
+      const isLemon=next.key==='D';
+      text(isLemon?'🍋 レモン！(2回目を素早く↓)':'🍎🍏 リンゴ！(A・A 2回押し)',500,175-Math.sin(dt*3)*35,28,'#9b2226');
+    }
+  }else if(kind==='talk'){
+    // 会話：リズム星人（ピンク髪＋緑アンテナ）とともだち（中盤でUFO搭乗＆大人に成長）
+    const inSpace=block>=4;
+    if(inSpace){
+      ctx.fillStyle='#1b1438';ctx.fillRect(0,0,1000,460);
+      // タイトル画面左上のUFO
+      ellipse(500,130,115,28,'#adb5bd');ellipse(500,112,55,26,'#f9dc5c');ellipse(500,142,68,14,'#ff70a6');
+      if(run?.alienCameo)text('🛸 通訳者宇宙人(ゲスト)',820,120,18,'#a9def9');
+    }
+    // リズム星人（左）とプレイヤー（右）
+    ellipse(310,275,38,40,'#ffcad4');ellipse(292,230,7,7,'#52b788');ellipse(328,230,7,7,'#52b788');
+    text(inSpace?'🧑‍🚀大人ともだち':'🧒ともだち',690,285-bounce*0.5,34,inSpace?'#fff':'#294554');
+    text(next?.key==='L'?'宇宙人「ウォッウォッウォウォ」→ ←(チャッ)':'宇宙人「ンチャッチャッチャ」→ A(ウォッ)',500,195,24,inSpace?'#ffd166':'#294554');
+  }else if(kind==='can'){
+    // リサイクル：トン・カチオがハンマーで赤缶・青缶を潰す（1前半はカエル先輩ナビ）
+    ctx.fillStyle='#6c757d';ctx.fillRect(120,325,760,26);
+    if(!selected?.advanced&&block<5)text('🐸 カエル先輩「リズムよく潰すケロ！」',250,155,20,'#2d6a4f');
+    // トン・カチオ（タイトル画面の白キャラ＋大ハンマー）
+    ellipse(650,265,34,42,'#fff');
+    ctx.save();ctx.translate(610,245);ctx.rotate(bounce>10?-0.9:0.3);
+    ctx.fillStyle='#495057';ctx.fillRect(-75,-18,75,12);ctx.fillStyle='#adb5bd';ctx.fillRect(-95,-38,32,52);
+    ctx.restore();
+    if(next&&dt<2.2*b){
+      const cx=560-dt/b*180,isBlue=next.key==='D';
+      ctx.fillStyle=isBlue?'#1d3557':'#e63946';ctx.fillRect(cx-22,272,44,52);
+      text(isBlue?'青缶(↓)':'赤缶(A)',cx,260,18,isBlue?'#1d3557':'#e63946');
+    }
+  }else if(kind==='dance'){
+    // ダンサー：アイドル・レーナ（リミックス4では不在）＆バックダンサー3人（2は赤いスペースダンサーズ）
+    const space=selected?.advanced||selected?.name==='ダンサー2';
+    if(space){ctx.fillStyle='#2b0918';ctx.fillRect(0,0,1000,460)}
+    const stepX=lastAction==='L'?-38:lastAction==='R'?38:0;
+    for(let i=0;i<3;i++){
+      const dx=280+i*220+stepX,dy=285-(i===2?bounce*0.7:Math.abs(Math.sin(t*7))*20);
+      ellipse(dx,dy,34,44,space?'#ff4d6d':'#4895ef');
+      text(i===2?'🕺YOU':'🕺',dx,dy+8,54);
+    }
+    if(selected?.name!=='リミックス4'){
+      text('🎤 アイドル・レーナ',500,155,26,space?'#ffb3c1':'#d63384');
+    }
+  }else if(kind==='bug'){
+    // 虫取り：捕まえるたび背景に木が生え、終盤に空へロケット発射（2は青トンボ＆巨大カブトムシ星座）
+    const trees=Math.min(8,run?.treesGrown||block);
+    const launch=block>=Math.floor((run?.sections||10)-2);
+    for(let i=0;i<trees;i++){
+      const tx=120+i*108,ty=launch?260-((t*140)%240):290;
+      ctx.fillStyle='#6c584c';ctx.fillRect(tx-8,ty,16,55);
+      ellipse(tx,ty-18,34,38,'#52b788');
+    }
+    if(launch&&selected?.advanced)text('🪲 巨大カブトムシのシルエット',500,115,24,'#2b2d42');
+    text(selected?.advanced?'🧔師匠 ＆ 👩成長した娘':'🤠昆虫研究家 ＆ 👧娘',320,315,28);
+    text('🕸️',640,280-bounce*0.8,74);
+    if(next&&dt<2.5*b){
+      const bx=640-dt/b*140,by=220-Math.sin(dt*4)*35;
+      text(selected?.advanced&&next.at%2===0?'🟦蜻蛉(青トンボ・4拍目)':'🦋',bx,by,48);
+    }
+  }else if(kind==='thunder'){
+    // 雷：ワープマンがモクモクの雷を↓ワープで回避（連続雷は画面上に数字表示、2はピンクモクモク登場）
+    const pinkCloud=selected?.advanced&&block%2===1;
+    ellipse(500,135,115,48,pinkCloud?'#ff85a1':'#ffd166');
+    text(pinkCloud?'ピンク モクモク':'イエロー モクモク',500,142,20,'#222');
+    const upcomingCount=(run?.events.filter(e=>e.kind==='thunder'&&e.block===block)||[]).length;
+    if(upcomingCount>=2)text(`連続雷カウント：【 ${upcomingCount} 】回！`,500,205,28,'#d90429');
+    const warpX=lastAction==='D'&&bounce>10?660:500;
+    ellipse(warpX,310,36,42,'#a9def9');text('👽ワープマン',warpX,318,22,'#1d3557');
+    if(next&&dt<.25){ctx.fillStyle='#ffee32';ctx.fillRect(488,180,24,145);text('⚡',500,260,68)}
+  }else if(kind==='catch'){
+    // そっとキャッチ：巨大石ロボ S-CATCH-01（タイトル画面右側）が黄色プリンを↓キャッチ、緑ダメプリンをA目レーザー撃破
+    const blackout=!selected?.advanced&&block>=5&&block<=6;
+    const fastZone=selected?.advanced&&block>=3&&block<=6;
+    if(blackout){ctx.fillStyle='#141619';ctx.fillRect(0,0,1000,460)}
+    // S-CATCH-01 の巨大ドームボディ
+    ellipse(680,270,135,145,'#adb5bd');ellipse(680,175,65,32,'#343a40');
+    ellipse(660,175,16,10,'#fff');ellipse(700,175,16,10,'#fff');
+    if(fastZone){
+      ctx.fillStyle='#ff006e';ctx.fillRect(620,235,120,70);
+      text('⚡HIGH SPEED⚡',680,275,15,'#fff');
+    }
+    if(lastAction==='A'&&bounce>10){
+      ctx.strokeStyle='#ff0055';ctx.lineWidth=7;ctx.beginPath();ctx.moveTo(660,175);ctx.lineTo(360,295);ctx.stroke();
+    }
+    if(next&&dt<2*b){
+      const px=360,py=120+(1-dt/(2*b))*175,bad=next.key==='A';
+      text(bad?'🟢ダメプリン(Aレーザー)':'🍮プリン(↓キャッチ)',px,py,30,bad?'#2b9348':'#b56576');
+    }
+  }else if(kind==='wiper'){
+    // ワイパー：フロントガラスの上のピンクちゃん(←)とアオくん(A)がワイパーをジャンプ回避
+    ctx.strokeStyle='#495057';ctx.lineWidth=12;
+    const angle=(Math.sin(t*3.2)*0.75);
+    ctx.beginPath();ctx.moveTo(500,410);ctx.lineTo(500+Math.sin(angle)*320,410-Math.cos(angle)*260);ctx.stroke();
+    const pJump=lastAction==='L'&&bounce>5?bounce:0,aJump=lastAction==='A'&&bounce>5?bounce:0;
+    ellipse(360,310-pJump,30,34,'#ff70a6');text('ピンク(←)',360,360,16);
+    ellipse(640,310-aJump,30,34,'#4cc9f0');text('アオ(A)',640,360,16);
+  }else if(kind==='soccer'){
+    // シュート練習：ソラが白(A)・ピンク(←→A)・2の黄色(←→A→Aオーバーヘッド)をシュート＋Wデート高校ベンチ＆モナ
+    if(selected?.advanced){
+      ctx.fillStyle='#8d99ae';ctx.fillRect(140,265,220,45);text('🏫 Wデート高校ベンチ (ハヤト先輩)',250,255,16,'#2b2d42');
+      if(run?.monaCameo)text('🛵 モナ(ゲスト)',780,245,22,'#e63946');
+    }
+    ellipse(640,285-bounce*0.6,34,42,'#ff70a6');text('⚽ソラ',640,295-bounce*0.6,24,'#1d3557');
+    if(next&&dt<2*b){
+      const bx=260+(1-dt/(2*b))*350,by=275-Math.sin(dt*3)*65;
+      const bColor=selected?.advanced&&next.at%2===0?'🟡オーバーヘッド(←→A→A)':next.key==='L'?'🩷胸トラップ(←→A)':'⚪白ボール(A)';
+      text(bColor,bx,by,26,'#1d3557');
+    }
+  }else if(kind==='brush'){
+    // デッキブラシ：鉄骨の上でアイドル4人組（1はブラッシャーズ、2はGOSHI-PIKA）がお掃除＆スピン決めポーズ
+    ctx.fillStyle='#c1121f';ctx.fillRect(0,330,1000,38);
+    const female=selected?.advanced||selected?.name==='デッキブラシ2';
+    for(let i=0;i<4;i++){
+      const ix=230+i*180,iy=280-(i===3?bounce*0.5:Math.sin(t*6+i)*10);
+      ellipse(ix,iy,30,40,female?'#ff758f':'#4cc9f0');
+      text('🧹',ix+18,iy+18,42);
+    }
+    text(female?'✨ 女性アイドル「GOSHI-PIKA」':'✨ 男性アイドル「ブラッシャーズ」',500,145,24,'#1d3557');
+  }else if(kind==='letter'){
+    // THE A：TEA・SODA・COCOA・最後はSEA（2はAAA・AAAAAすべてAも登場）＋成功時に実写風風景＆歴代キャラ
+    const words=selected?.advanced&&block%2===1?['AAA','AAAAA']:['TEA','SODA','COCOA','SEA'];
+    const word=block===run?.sections-1?'SEA':words[block%words.length];
+    if(bounce>8){
+      ctx.fillStyle='#caf0f8';ctx.fillRect(160,110,680,230);
+      text(`📸 ${word} 特製フォト背景 ＆ 歴代リズ天キャラ登場！`,500,155,22,'#0077b6');
+    }
+    text('🎸 ギタリスト (♪八方busy)',220,320,22,'#6c584c');
+    for(let i=0;i<word.length;i++){
+      const ch=word[i],isHit=ch==='A';
+      text(ch,340+i*95,255-(isHit?bounce*0.5:0),isHit?88:56,isHit?'#e63946':'#495057');
+    }
+  }else if(kind==='samurai'){
+    // 侍：虎伝京がブッとびオバケを真っ二つ（2は連続斬りの数字表示＆左右反転演出）
+    const flip=selected?.advanced&&block>=5&&block%2===1;
+    ctx.save();if(flip){ctx.translate(1000,0);ctx.scale(-1,1)}
+    // 虎伝京（白着物＋紺袴）
+    ctx.fillStyle='#1d3557';ctx.fillRect(275,285,54,60);ctx.fillStyle='#fff';ctx.fillRect(280,235,44,52);
+    text('⚔️虎伝京',302,220,22,'#1d3557');
+    const waveCount=(run?.events.filter(e=>e.kind==='samurai'&&e.block===block)||[]).length;
+    if(selected?.advanced&&waveCount>=2)text(`連続斬り：【 ${waveCount} 】体！`,500,145,28,'#7209b7');
+    if(next&&dt<2*b)text('👻ブッとびオバケ',340+dt/b*190,275,58);
+    ctx.restore();
+  }else if(kind==='rod'){
+    // 棒つかみ：カラテ家が落ちてくる棒を数字の数だけキャッチ（パンチ・キック！合図あり）
+    const count=(run?.events.filter(e=>e.kind==='rod'&&e.block===block)||[]).length;
+    text(`🥋 カラテ家 · キャッチ本数：【 ${count} 】`,500,145,26,'#6c3c0c');
+    ellipse(500,295-bounce*0.4,42,48,'#fff');text('✋',560,285-bounce*0.6,58);
+    if(next&&dt<1.8*b){
+      ctx.fillStyle='#8d5524';ctx.fillRect(552,110+(1-dt/(1.8*b))*155,14,75);
+    }
+  }else if(kind==='rope'){
+    // PETとなわとび：トレーナーとペットボトルのPETが縄跳び＆モアイ氏
+    text('🗿モアイ氏',180,295,48);text('🏃‍♀️トレーナー',340,295,32);
+    const petY=285-bounce;
+    ctx.fillStyle='#90e0ef';ctx.fillRect(520,petY-45,42,72);ctx.fillStyle='#0077b6';ctx.fillRect(530,petY-60,22,15);
+    text('PET',541,petY-5,16,'#03045e');
+    ctx.strokeStyle='#b5838d';ctx.lineWidth=6;ctx.beginPath();
+    ctx.ellipse(540,265,135,Math.max(12,Math.abs(Math.sin(t/b*Math.PI))*85),0,0,7);ctx.stroke();
+  }else if(kind==='guard'){
+    // ガーディアン：ウンダバ島民の掛け声に合わせて遠・中・近の隕石を撃墜
+    ellipse(500,290,75,85,'#adb5bd');text('🛡️ガーディアン＆ウンダバ島民',500,365,20,'#1d3557');
+    if(next&&dt<2.2*b){
+      const distLabel=next.key==='L'?'遠い隕石(早め←)':next.key==='R'?'近い隕石(遅め→)':'中距離の隕石(A)';
+      text('☄️ '+distLabel,500,140+(1-dt/(2.2*b))*110,30,'#9b2226');
+    }
+  }else if(kind==='clap'){
+    // 手拍子：クラッパーズが右手(A)・左手(←)で手拍子（Check it out! / 2は超高速A→←→A）
+    ctx.fillStyle='#ffffff99';ctx.fillRect(190,115,620,230);
+    text('👏 クラッパーズ',500,165,26,'#6c3c0c');
+    text('🤚 左手(←)',370,275-(lastAction==='L'?bounce:0),42,'#2a9d8f');
+    text('✋ 右手(A)',630,275-(lastAction==='A'?bounce:0),42,'#e76f51');
+  }else if(kind==='squat'){
+    // くっしん菌：リボンをつけた菌がA(伸びる)・↓(かがむ)で屈伸体操
+    for(let i=0;i<3;i++){
+      const sx=280+i*220,stretch=i===2?(lastAction==='D'?-22:bounce*0.7):Math.sin(t*6)*18;
+      ellipse(sx,290-stretch/2,38,48+stretch,'#9b5de5');
+      if(i===2)text('🎀YOU',sx,230-stretch,22,'#f15bb5');
+    }
+  }else if(kind==='bird'){
+    // わたり鳥：白いリーダー鳥に続いてA長押し(羽を下ろす)＆離す(羽を上げる)
+    const holding=run?.events.some(e=>e.held&&e.result===null);
+    for(let i=0;i<4;i++){
+      const bx=220+i*185,by=250+(i===3?(holding?22:-bounce*0.5):Math.sin(t*5+i)*15);
+      ellipse(bx,by,36,22,i===0?'#ffffff':'#8d99ae');
+      text(i===0?'🕊️リーダー':holding?'🦆(羽下げ中)':'🦆(羽上げ)',bx,by-28,18,'#1d3557');
+    }
+  }else if(kind==='sea'){
+    // 深海（スタッフクレジット）：3台の浮上マシーンのうち中央を操作＋音読ちゃん＆ハム子＆マスター
+    ctx.fillStyle='#0a244d';ctx.fillRect(0,0,1000,460);
+    for(let i=0;i<10;i++)ellipse(90+i*95,420-((t*45+i*40)%360),8,8,'#90e0ef55');
+    for(let i=0;i<3;i++){
+      const sx=280+i*220,sy=285-(i===1?bounce*0.8:Math.sin(t*3+i)*12);
+      ellipse(sx,sy,46,34,i===1?'#ffd166':'#48cae4');
+      text(i===1?'🫧中央マシーン(YOU)':'🫧浮上マシーン',sx,sy+55,15,'#caf0f8');
+    }
+    const credits=['非公式ファン制作・開発試作版','BGM・効果音：端末内の合成音','読み上げ：ブラウザの合成音声','公式の出演・歌唱・監修ではありません','THANK YOU FOR PLAYING!'];
+    text('🎬 '+credits[Math.floor(Math.max(0,t)/4)%credits.length],500,125,24,'#ffd166');
+  }
+}
+
+function scene(p,now,t,block){
+  let kind=p.kind,bounce=audio&&audio.currentTime-lastHit<.4?Math.sin((audio.currentTime-lastHit)/.4*Math.PI)*50:0;
+  ctx.fillStyle=p.color;ctx.fillRect(0,0,1000,460);
+  depthStage(p,t);
+  if(kind==='hoop')drawHoop(t,block,false);
+  else if(kind==='cast')drawHoop(t,block,true);
+  else if(kind==='disc')drawDisc(t,block);
+  else if(kind==='umbrella')drawParasol(t,block);
+  else drawStageCustom(kind,p,now,t,block,bounce);
+
+  // 原作リミックス固有演出（割り込み小窓・シルエット・ヒーロー・サイバーパンク・和風・写真ブレンド）
+  if(run&&selected?.remix){
+    const rName=selected.name;
+    if((rName==='リミックス3'||rName==='リミックス7'||rName==='リミックス11')&&block%2===1){
+      ctx.fillStyle='#ffffffdd';ctx.fillRect(670,70,295,115);ctx.strokeStyle='#e63946';ctx.lineWidth=4;ctx.strokeRect(670,70,295,115);
+      const cameo=rName==='リミックス3'?'🥕下ごしらえ＆🌝ムーン割り込み！':rName==='リミックス7'?'🐱コロコロ行進割り込み！':'☄️ガーディアン割り込み！';
+      text(cameo,817,132,17,'#d62828');
+    }
+    if(rName==='リミックス5')text('🦸 ヒーロー＆怪人メカ特別コスチューム発動中！',500,445,16,'#d90429');
+    if(rName==='リミックス15'){
+      ctx.strokeStyle='#00f5d488';ctx.lineWidth=3;ctx.strokeRect(15,15,970,430);
+      text('⚡ CYBERPUNK NEON REMIX 15 ⚡',500,445,16,'#00bbf9');
+    }
+    if(rName==='リミックス16'){
+      ctx.strokeStyle='#fff';ctx.lineWidth=14;ctx.strokeRect(12,12,976,436);
+      text('📷 実写ブレンド・スローテンポ (88 BPM)',500,442,16,'#343a40');
+    }
+    if(rName==='リミックス17')text('⛩️ 和風ハネリズム・リミックス17',500,442,16,'#9b2226');
+    if(rName==='リミックス18'||run.adoSilhouette){
+      ctx.fillStyle='#080b12aa';ctx.fillRect(0,0,1000,460);
+      text(rName==='リミックス18'&&block===run.sections-1?'🤫 最終フライングディスク：完全無音で7拍目をキャッチ！':'🖤 シルエット演出モード',500,442,18,'#e0e1dd');
+    }
+  }
+  text(p.cue,500,45,22,kind==='sea'||kind==='cast'||kind==='moon'?'#fff':'#294554');
+  if(run&&selected?.remix)text(`${selected.name} [${block+1}/${run.sections}]：${run.pool[block%run.pool.length]}`,500,80,18,kind==='sea'||kind==='moon'?'#ffd166':'#294554');
+}
+
+function frame(){
+  if(selected){
+    let now=audio?.currentTime||0,t=run?now-run.base:0,block=run?Math.max(0,Math.min(run.sections-1,sectionAtTime(run,t))):0;
+    let name=run?run.pool[block%run.pool.length]:sectionProfiles(selected)[0],p=profiles[name];
+    if(run){
+      run.beat=run.tempoMap[block].beat;schedule(now);
+      let corrected=t-+$('#offset').value/1000;
+      for(const e of run.events){
+        if(!run)break;if(e.result!==null)continue;
+        if((run.practice&&run.modelHeld)||run.autoMode){
+          if(!e.demo&&t>=e.at-1e-7&&t<=e.at+.18){
+            e.demo=true;e.held=false;lastHit=now;lastAction=e.key;
+            if(e.name==='フライングディスク')run.discJump=t;
+            if(e.name==='パラソル'){run.parasolOpen=e.key==='A';run.parasolChanged=t}
+            if(e.key==='A'){run.lastPlayerJump=t;if(e.name==='輪くぐり')speakCue('ポ',run)}
+            beep(now,950,.1);
+            setFeedback((run.autoMode?'オート：':'お手本：')+keyLabels[e.key]+(e.duration?' 長押し':''));
+          }
+          if(e.demo){if(t>=e.at+(e.duration||0)-1e-7){e.result=100;run.combo++;run.maxCombo=Math.max(run.maxCombo,run.combo);$('#combo').textContent='コンボ '+run.combo;$('#score').textContent=finalScore(run.events,run.extra)+' 点'}continue}
+        }
+        if(!e.held&&corrected>e.at+.185)resolve(e,0,'ミス · 次の拍へ！');
+        if(run&&e.held&&corrected>e.at+e.duration+.185)resolve(e,0,'終端で離そう！');
+      }
+      if(run)$('#phase').textContent=t<0?'まもなくスタート':`${block+1}/${run.sections} · ${'★'.repeat(run.difficulties[block])} ${difficultyLabels[run.difficulties[block]]} · ${run.tempoMap[block].bpm} BPM`;
+      if(run&&t>run.end+.25)stop();
+    }
+    ctx.save();ctx.shadowColor='#24475244';ctx.shadowBlur=5;ctx.shadowOffsetY=3;
+    scene(p,now,t,block);ctx.restore();
+    if(run&&$('#guide').checked){
+      let b=run.beat;ctx.fillStyle='#ffffffb0';ctx.fillRect(25,365,950,75);
+      ctx.strokeStyle='#284e60';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(250,370);ctx.lineTo(250,440);ctx.stroke();
+      text('今',250,456,13);
+      for(const e of run.events){
+        let x=250+(e.at-t)/b*110;if(x<30||x>970)continue;
+        if(e.duration){ctx.fillStyle=colors[e.key];ctx.fillRect(x,388,e.duration/b*110,20)}
+        ellipse(x,398,19,19,e.result===null?colors[e.key]:'#a9b6b2');
+        text(keyLabels[e.key],x,403,12,'white');
+      }
+      for(const q of run.cues){let x=250+(q.at-t)/b*110;if(x>30&&x<970)text(q.syllable||'♪',x,380,11,'#546e7b')}
+    }
+    if(now<toastUntil&&toast)text(toast,500,118,23);
+    if(run&&t<0)text(String(Math.ceil(-t)),500,210,48);
+  }
+  requestAnimationFrame(frame);
+}
+
+$('#tabs').onclick=e=>{
+  let b=e.target.closest('button');if(!b)return;
+  if(b.dataset.tab==='back'&&!unlockAllMode&&campaign<40)return;
+  tab=b.dataset.tab;
+  document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('active',x===b));
+  renderLibrary();
+};
+$('#search').oninput=renderLibrary;$('#back').onclick=stageSelect;
+$('#begin').onclick=()=>{tab='front';$('#search').value='';renderLibrary();carouselIndex=0;renderCarousel();document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('active',x.dataset.tab==='front'));showScreen('select')};
+$('#to-title').onclick=()=>{showScreen('title');summary()};
+$('#result-select').onclick=stageSelect;$('#start').onclick=start;$('#stop').onclick=()=>stop(true);
+$('#volume').oninput=()=>{if(master)master.gain.value=+$('#volume').value/100};
+function updateMix(){if(run){run.bgmGain.gain.value=$('#bgmon').checked?+$('#bgmvolume').value/100:0;run.sfxGain.gain.value=+$('#sfxvolume').value/100}}
+$('#bgmon').onchange=updateMix;$('#bgmvolume').oninput=updateMix;$('#sfxvolume').oninput=updateMix;
+$('#offset').oninput=()=>$('#offsetval').textContent=$('#offset').value+' ms';
+function logicalKey(key){return key==='B'?'D':key==='U'?'A':key}
+function pressInput(source,key){
+  if(key==='Y'){if(run?.practice){inputSources.set(source,{key:'Y',logical:'Y'});run.modelHeld=true;$('#model-y').classList.add('pressed')}return}
+  if(!run||inputSources.has(source))return;
+  const logical=logicalKey(key);
+  const exists=[...inputSources.values()].some(v=>v.logical===logical);
+  inputSources.set(source,{key,logical});
+  if(!exists)down(logical);
+  document.querySelector(`[data-key="${key}"]`)?.classList.add('pressed');
+}
+function releaseInput(source){
+  const v=inputSources.get(source);if(!v)return;
+  inputSources.delete(source);
+  if(v.key==='Y'){
+    if(run)run.modelHeld=[...inputSources.values()].some(x=>x.key==='Y');
+    if(!run?.modelHeld){$('#model-y').classList.remove('pressed');if(run)for(const e of run.events)if(e.demo&&e.result===null){e.result=0;e.held=false}}
+    return;
+  }
+  if(![...inputSources.values()].some(x=>x.logical===v.logical))up(v.logical);
+  if(![...inputSources.values()].some(x=>x.key===v.key))document.querySelector(`[data-key="${v.key}"]`)?.classList.remove('pressed');
+}
+document.querySelectorAll('[data-key]').forEach(b=>{
+  b.onpointerdown=e=>{e.preventDefault();b.setPointerCapture(e.pointerId);pressInput('pointer'+e.pointerId,b.dataset.key)};
+  b.onpointerup=e=>releaseInput('pointer'+e.pointerId);
+  b.onpointercancel=e=>releaseInput('pointer'+e.pointerId);
+  b.onlostpointercapture=e=>releaseInput('pointer'+e.pointerId);
+  b.onclick=e=>{if(e.detail===0){pressInput('accessibility',b.dataset.key);releaseInput('accessibility')}};
+});
+$('#practice-start').onclick=()=>{if(run||selected?.remix)return;$('#practice').checked=true;start()};
+const keyboard={KeyY:'Y',Space:'A',KeyJ:'A',KeyZ:'A',ArrowUp:'U',ArrowDown:'D',KeyK:'B',KeyX:'B',ArrowLeft:'L',KeyF:'L',ArrowRight:'R',KeyL:'R',KeyH:'LR'};
+document.addEventListener('keydown',e=>{
+  if(!$('#guide-panel').hidden){if(['KeyK','KeyX','Escape'].includes(e.code)){$('#guide-panel').hidden=true;e.preventDefault()}return}
+  if(['INPUT','SELECT'].includes(e.target.tagName))return;
+  if(!run&&screen==='select'){
+    if(e.code==='ArrowLeft'||e.code==='ArrowRight'){e.preventDefault();if(!e.repeat)carouselMove(e.code==='ArrowRight'?1:-1);return}
+    if(['Space','KeyJ','KeyZ','Enter'].includes(e.code)){e.preventDefault();const s=carouselList[carouselIndex];if(s&&accessible(s))select(s);return}
+  }
+  if(!run&&['KeyK','KeyX','Escape'].includes(e.code)){
+    e.preventDefault();
+    if(screen==='select')$('#to-title').onclick();
+    else if(screen==='game'||screen==='result')stageSelect();
+    else if(screen==='mode')$('#mode-back').onclick();
+    return;
+  }
+  let k=keyboard[e.code];
+  if(k&&run){e.preventDefault();if(!e.repeat)pressInput('key'+e.code,k)}
+  if(e.code==='Escape')stop(true);
+});
+document.addEventListener('keyup',e=>{if(keyboard[e.code])releaseInput('key'+e.code)});
+window.addEventListener('blur',()=>stop(true));
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stop(true);else if(seasonCheck()){selected=null;renderLibrary();showScreen('select')}});
+$('#browser-settings-toggle').onclick=()=>{const panel=document.querySelector('.settings-panel');panel.open=!panel.open;$('#browser-settings-toggle').setAttribute?.('aria-expanded',String(panel.open))};
+renderLibrary();showScreen('title');frame();
+</script>
+<script>
+const sideModes=[
+  {id:'season',name:'ノリカンランク・ミッション',icon:'⭐',at:0},
+  {id:'party',name:'みんなで遊ぶ（全10種＋おもちゃ7種）',icon:'🎮',at:0},
+  {id:'cafe',name:'キッサ店',icon:'☕',at:5},
+  {id:'toys',name:'リズムおもちゃ（全7種）',icon:'🧸',at:5},
+  {id:'spell',name:'ビートスペル（全8章）',icon:'🪄',at:5},
+  {id:'sea',name:'深海（スタッフクレジット）',icon:'🫧',at:30},
+  {id:'back',name:'ウラ（ステージ9〜16）',icon:'🌙',at:40},
+  {id:'bar',name:'バー',icon:'🍹',at:40},
+  {id:'score',name:'スコアアタック（全8種）',icon:'🏆',at:40},
+  {id:'drum',name:'ドラムレッスン（全14種）',icon:'🥁',at:40},
+  {id:'cast',name:'キャラクター紹介',icon:'🌟',at:70},
+  {id:'reference',name:'資料室（全82項目）',icon:'📖',at:0}
+];
+let sideRun=null,sideCurrent=null,sideRecords={},playerName='あなた';
+try{
+  sideRecords=JSON.parse(rhythmStorage.getItem('rhythm-side-records')||'{}');
+  playerName=rhythmStorage.getItem('rhythm-player-name-v1')||'あなた';
+}catch{}
+function medalCount(){
+  const earned=catalog.slice(0,80).filter(s=>(saves[s.id]?.score||0)>=90).length;
+  return unlockAllMode?80:earned;
+}
+function sideUnlocked(id){
+  
+  if(unlockAllMode)return true;
+  return Math.max(campaign,season.highWater)>=sideModes.find(x=>x.id===id).at;
+}
+function sideSave(){try{rhythmStorage.setItem('rhythm-side-records',JSON.stringify(sideRecords))}catch{}}
+function sideStop(){sideGeneration++;if(sideRun){try{sideRun.bus.gain.value=0;sideRun.bus.disconnect()}catch{}sideRun=null}}
+function sideNode(tag,text){const n=document.createElement(tag);n.textContent=text;return n}
+function sideButton(text,action,disabled=false){let b=sideNode('button',text);b.disabled=disabled;b.onclick=action;return b}
+function forceCallName(text){
+  // 原作仕様：みんなで遊ぶ（特にバレーボール？など）では読み上げ設定がOFFでも名前を読み上げる
+  if(!('speechSynthesis' in window)||typeof SpeechSynthesisUtterance==='undefined')return;
+  const u=new SpeechSynthesisUtterance(text);u.lang='ja-JP';u.rate=1.2;u.volume=Math.min(1,+$('#sfxvolume').value/100);
+  window.speechSynthesis.cancel();window.speechSynthesis.speak(u);
+}
+function openModeHub(){
+  stop(true);sideStop();selected=null;showScreen('mode');sideCurrent=null;
+  $('#mode-title').textContent='モードセレクト';
+  const body=$('#mode-body');body.replaceChildren();
+  body.append(sideNode('p',`🏅 メダル ${medalCount()}枚 · 💍 リング ${ringCount()}/30個 ${unlockAllMode?'· 🔓全解放モードON':''}`));
+  let grid=document.createElement('div');grid.className='mode-grid';
+  for(const m of sideModes){
+    grid.append(sideButton(`${m.icon} ${m.name} · ${sideUnlocked(m.id)?'遊ぶ':'🔒 '+(m.at/5)+'章クリア'}`,()=>openSideMode(m.id),!sideUnlocked(m.id)));
+  }
+  body.append(grid);
+}
+function openSideMode(id){
+  if(!sideUnlocked(id))return;
+  if(id==='reference'){referenceRoom();return}
+  sideStop();sideCurrent=id;showScreen('mode');
+  $('#mode-title').textContent=sideModes.find(x=>x.id===id).name;
+  const body=$('#mode-body');body.replaceChildren();
+  if(id==='sea'||id==='cast'){select(catalog[id==='sea'?80:81]);return}
+  if(id==='back'){tab='back';selected=null;renderLibrary();showScreen('select');return}
+  if(id==='season'){seasonMenu();return}
+  if(id==='drum'){drumMenu();return}
+  if(id==='toys'||id==='score'){miniMenu(id);return}
+  if(id==='party'){partyMenu();return}
+  if(id==='spell'){spellMenu();return}
+  if(id==='cafe'||id==='bar'){
+    let phrases=id==='cafe'?[
+      'マスター「いらっしゃい。キッサ店へようこそ。ハム子も元気にしてるよ。」',
+      'マスター「ステージ1〜8のオモテをクリアしていくと、新しい出会いがあるらしいね。」',
+      'マスター「最高評価でメダルを集めると、リズムおもちゃやビートスペルの新章が開くよ。」',
+      'マスター「輪くぐりでしらたまがシャボン玉になったら、心の中でパ・ピ・プ・ペを数えるといいよ。」'
+    ]:[
+      'バーのマスター「ようこそ。ウラの世界は手強いだろう？まずは一杯どうぞ。」',
+      'バーのマスター「リミックス18の最後のフライングディスクは完全無音だ。心で7拍数えるんだぞ。」',
+      'バーのマスター「リミックス20はパラソルから始まりパラソルで終わる、全31ゲームの集大成だ。」',
+      'バーのマスター「パーフェクトを3回連続で達成すれば、画面が消えるナイトモードへの扉が開くよ。」'
+    ];
+    let n=0;const art=sideNode('div',id==='cafe'?'☕ 🐶ハム子 ＆ マスター':'🍹 🦉バーのマスター');
+    art.className='side-art';const line=sideNode('p',phrases[0]);line.className='side-dialogue';
+    body.append(art,line,sideButton('マスターと話す',()=>{n=(n+1)%phrases.length;line.textContent=phrases[n];narrate(phrases[n])}));
+    return;
+  }
+}
+let sideGeneration=0;
+async function sideAudio(){
+ const generation=++sideGeneration;try{
+  audio=audio||new(window.AudioContext||window.webkitAudioContext)();await audio.resume();if(generation!==sideGeneration||document.hidden)return null;
+  if(!master){master=audio.createGain();master.connect(audio.destination)}
+  master.gain.value=+$('#volume').value/100;
+  const bus=audio.createGain();bus.connect(master);return bus;}catch(e){document.getElementById('web-save-status').textContent='音声を開始できませんでした。もう一度操作してください。';return null;}
+}
+function sideTone(r,t,f,len=.08,volume=.11){
+  if(!r?.bus)return;
+  let o=audio.createOscillator(),v=audio.createGain();o.type='triangle';o.frequency.value=f;
+  v.gain.setValueAtTime(0,t);v.gain.linearRampToValueAtTime(volume,t+.004);v.gain.exponentialRampToValueAtTime(.0001,t+len);
+  o.connect(v);v.connect(r.bus);o.start(t);o.stop(t+len+.01);
+}
+function sidePress(key){
+  const r=sideRun;if(!r)return;
+  if(r.drums){drumPress(key);return}
+  if(r.mini){miniPress(key);return}
+  if(r.party){partyPress(key);return}
+  if(r.spell){spellPress(key);return}
+  if(r.board||r.composer)return;
+  const now=audio.currentTime-r.base-+$('#offset').value/1000;
+  let e=r.notes.filter(x=>x.result===null&&(x.key===key||(x.key==='B'&&key==='D'))).sort((a,b)=>Math.abs(a.at-now)-Math.abs(b.at-now))[0];
+  if(!e||Math.abs(e.at-now)>.185){r.extra++;r.combo=0;$('#side-feedback').textContent='空振り';return}
+  e.result=timingPoints(now-e.at);r.points+=e.result;r.combo++;
+  sideTone(r,audio.currentTime,key==='A'?820:440);
+  $('#side-feedback').textContent=e.result===100?'★ ぴったり！':'いい感じ！';
+}
+function sideFinish(label){
+  const r=sideRun;if(!r)return;
+  let points=Math.max(0,r.points-r.extra*20);
+  sideRecords[r.opt.name]=Math.max(sideRecords[r.opt.name]||0,points);sideSave();sideStop();
+  const body=$('#mode-body');body.replaceChildren();
+  body.append(sideNode('h3',label),sideNode('p',`スコア ${points}点 · 自己ベスト ${sideRecords[r.opt.name]}点`),sideButton('もう一度遊ぶ',()=>sideStart(r.opt)),sideButton('戻る',()=>partyToyMenu()));
+}
+async function sideStart(opt){
+  sideStop();const bus=await sideAudio();if(!bus)return;
+  const count=28,beat=60/(104+opt.level*12),notes=[];
+  for(let b=2;b<count;b++){
+    notes.push({at:b*beat,key:opt.type==='drum'?(b%4===2?'B':'A'):opt.level>1&&b%3===0?'B':'A',result:null});
+    if(opt.level>=3&&b%4===3)notes.push({at:(b+.5)*beat,key:'A',result:null});
+  }
+  sideRun={notes,beat,end:count*beat,opt,bus,base:audio.currentTime+1,scheduled:new Set(),points:0,combo:0,extra:0};
+  const body=$('#mode-body');body.replaceChildren();
+  body.append(sideNode('h3',opt.name),sideNode('p','リズムに合わせてA（オレンジ）・B/▼（青）を押そう！'));
+  let art=sideNode('div',opt.icon||'🎵');art.className='side-art';art.id='side-art';
+  let stats=sideNode('p','準備');stats.id='side-stats';
+  let rail=document.createElement('div');rail.id='side-rail';rail.className='side-rail';
+  let feedback=sideNode('p','音楽スタート！');feedback.id='side-feedback';
+  let keys=document.createElement('div');keys.className='side-keys';
+  for(const key of ['B','A']){
+    const b=sideButton(key,()=>{});
+    b.onpointerdown=e=>{e.preventDefault();sidePress(key)};
+    b.onclick=e=>{if(e.detail===0)sidePress(key)};
+    keys.append(b);
+  }
+  body.append(art,stats,rail,feedback,keys,sideButton('おもちゃ一覧へ',partyToyMenu));
+}
+function sideFrame(){
+  const r=sideRun;
+  if(r){
+    if(r.drums){drumFrame(r);requestAnimationFrame(sideFrame);return}
+    if(r.mini){miniFrame(r);requestAnimationFrame(sideFrame);return}
+    if(r.composer){composerFrame(r);requestAnimationFrame(sideFrame);return}
+    if(r.party){partyFrame(r);requestAnimationFrame(sideFrame);return}
+    if(r.spell){spellFrame(r);requestAnimationFrame(sideFrame);return}
+    let t=audio.currentTime-r.base;
+    for(let b=Math.max(0,Math.floor(t/r.beat));b<=(t+.12)/r.beat;b++){
+      if(b*r.beat>=t-.02&&!r.scheduled.has(b)){r.scheduled.add(b);sideTone(r,Math.max(audio.currentTime,r.base+b*r.beat),b%4===0?150:300,.07,.04)}
+    }
+    for(const e of r.notes){if(e.result===null&&t>e.at+.185){e.result=0;r.combo=0}}
+    if(sideRun===r){
+      $('#side-stats').textContent=`${r.points}点 · コンボ ${r.combo}`;
+      const rail=$('#side-rail');if(rail){rail.replaceChildren();for(const e of r.notes){const x=25+(e.at-t)/r.beat*17;if(x<0||x>100)continue;const n=sideNode('span',e.key);n.style.left=x+'%';n.style.background=e.key==='A'?'#ed8468':'#649dca';rail.append(n)}}
+      if(t>r.end)sideFinish('演奏フィニッシュ！');
+    }
+  }
+  requestAnimationFrame(sideFrame);
+}
+$('#open-modes').onclick=openModeHub;
+$('#mode-back').onclick=()=>{sideStop();selected=null;renderLibrary();showScreen('select')};
+$('#mode-hub').onclick=openModeHub;
+document.addEventListener('keydown',e=>{
+  if(!sideRun||e.repeat||['INPUT','SELECT'].includes(e.target.tagName))return;
+  if(sideRun.party&&sideRun.gameIdx===9){
+    // リズム神経衰弱：十字キーでカード選択、Aでめくる
+    if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.code)){e.preventDefault();memoryMove(e.code);return}
+    if(['Space','KeyJ','KeyZ','Enter'].includes(e.code)){e.preventDefault();memoryFlip(sideRun.cursor);return}
+  }
+  let key=['Space','KeyJ','KeyZ'].includes(e.code)?'A':['KeyK','KeyX','ArrowDown'].includes(e.code)?'B':e.code==='ArrowLeft'?'L':e.code==='ArrowRight'?'R':null;
+  if(sideRun?.spell&&e.code==='ArrowDown')key='D';
+  if(key){e.preventDefault();sidePress(key)}
+});
+document.addEventListener('keyup',e=>{
+  if(sideRun?.party){
+    if(['Space','KeyJ','KeyZ'].includes(e.code))partyRelease('A');
+  }
+  if(['ArrowDown','KeyK','KeyX'].includes(e.code))miniRelease('B');
+});
+window.addEventListener('blur',sideStop);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)sideStop()});
+sideFrame();
+</script><script>
+// ビートスペル（全8章・原作完全準拠）
+const spellChapters=['めざめ','癒しの魔法','炎のモンスター','対決！最後の四天王','新たなるめざめ','バックフリップ','強化魔法','決戦'];
+const spellMagic=[
+  {name:'ファイア',from:1,keys:['B','A'],beats:[0,1],power:24},
+  {name:'キュア',from:2,keys:['B','D','A'],beats:[0,.5,1.5],heal:36},
+  {name:'ウォータ',from:3,keys:['B','B','A'],beats:[0,1,3],power:32},
+  {name:'ボルト',from:5,keys:['B','B','B','B','A'],beats:[0,1,1.5,2,3],power:48},
+  {name:'ニードル',from:5,keys:['B','B','A'],beats:[0,.5,1],power:42,self:10},
+  {name:'アタップ',from:7,keys:['B','B','A'],beats:[0,1,2],buff:'attack'},
+  {name:'デファップ',from:7,keys:['B','B','B','A'],beats:[0,1,2,3],buff:'defense'},
+  {name:'エクソス',from:8,keys:['B','B','B','B','B','A'],beats:[0,.5,1,1.5,2,3],power:85}
+];
+const spellTips=[
+  'ファイア（B→A）：攻撃呪文の基本ビートを掴もう。',
+  'キュア（B→▼→A）：体力が減ったら回復呪文のビートに乗ろう。',
+  'ウォータ（B→B→無→A）：休符を1拍置いてAで放つ水魔法。',
+  '四天王戦：赤い竜にはウォータ、青い竜にはファイアが特効！',
+  'ボルト（B→B→B→B→A）とファイアのコンボが強力！ズレたらファイアで立て直そう。',
+  'バックフリップ（◀）：敵の大技の拍に合わせてカウンター回避！',
+  'アタップ（B→B→A）・デファップ（B→B→B→A）で強化して戦おう。',
+  '最終章「決戦」：ビート表示なし！ボス戦は鐘の合図で究極魔法エクソス（B×5→A）を放て！'
+];
+let spellProgress={cleared:0};try{spellProgress=JSON.parse(rhythmStorage.getItem('rhythm-spell-v1')||'{"cleared":0}')}catch{}
+function spellUnlocked(c){
+  
+  if(unlockAllMode)return true;
+  return Math.max(campaign,season.highWater)>=5&&medalCount()>=(c-1)*3&&spellProgress.cleared>=c-1;
+}
+function spellMenu(){
+  sideStop();const body=$('#mode-body');body.replaceChildren();
+  body.append(sideNode('p',`🪄 ビートスペル全8章 · 所持メダル ${medalCount()}枚（各章3枚ごとに解放）。敗北しても強化状態を引き継いでリトライできます。`));
+  spellChapters.forEach((name,i)=>body.append(sideButton(`第${i+1}章「${name}」 · 必要メダル${i*3}枚${spellProgress.cleared>i?' ✓クリア済':''}`,()=>spellStart(i+1),!spellUnlocked(i+1))));
+}
+async function spellStart(chapter,previous=null){
+  if(!spellUnlocked(chapter))return;
+  sideStop();const bus=await sideAudio();if(!bus)return;
+  sideRun={
+    spell:true,bus,chapter,room:previous?.room||1,rooms:[3,4,4,4,8,11,12,13][chapter-1],
+    hp:previous?.maxHp||100,maxHp:previous?.maxHp||100,hearts:previous?.hearts??3,retries:previous?.retries||0,
+    score:previous?.score||0,levels:previous?.levels||{},
+    loadout:previous?.loadout||spellMagic.filter(m=>m.from<=chapter).slice(0,5).map(m=>m.name),
+    attack:0,defense:0,enemy:75+chapter*15,enemyMax:75+chapter*15,
+    base:audio.currentTime+1,beat:60/(92+chapter*7),scheduled:new Set(),cast:null,selected:'ファイア',lastAttack:-1,stun:0
+  };
+  spellBattleUI();
+}
+function spellBattleUI(){
+  const r=sideRun,b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('p',`第${r.chapter}章「${spellChapters[r.chapter-1]}」 · ${spellTips[r.chapter-1]}`));
+  const art=sideNode('div','🧙‍♂️ ✨ '+(r.room>=r.rooms?'🐉ボス':'👾モンスター'));art.className='side-art';art.id='side-art';
+  const stats=sideNode('p','準備');stats.id='side-stats';
+  const rail=sideNode('div','');rail.id='side-rail';rail.className='side-rail';
+  const feedback=sideNode('p','唱えるスペルを選んでください');feedback.id='side-feedback';
+  b.append(art,stats,rail,feedback);
+  let menu=sideNode('div','');menu.className='side-keys';
+  for(const name of r.loadout){const m=spellMagic.find(x=>x.name===name);menu.append(sideButton(`${name} Lv${r.levels[name]||1}`,()=>spellChoose(m)))}
+  b.append(menu);
+  const keys=sideNode('div','');keys.className='side-keys';
+  for(const [k,label] of [['B','B'],['D','▼'],['A','A'],['L','◀ バックフリップ']]){
+    const n=sideButton(label,()=>{});
+    n.onpointerdown=e=>{e.preventDefault();spellPress(k)};
+    n.onclick=e=>{if(e.detail===0)spellPress(k)};
+    if(k==='L')n.disabled=r.chapter<6;
+    keys.append(n);
+  }
+  b.append(keys,sideButton('章選択へ戻る',spellMenu));
+}
+function spellChoose(m){
+  const r=sideRun;if(!r?.spell||r.cast)return;
+  const t=audio.currentTime-r.base,start=Math.max(0,Math.ceil((t/r.beat+1)/4)*4);
+  r.selected=m.name;
+  r.cast={m,start,notes:m.keys.map((key,i)=>({key,at:(start+m.beats[i])*r.beat,result:null})),bad:false};
+  $('#side-feedback').textContent=m.name+'：'+m.keys.map((k,i)=>(i&&m.beats[i]-m.beats[i-1]>1?'休 → ':'')+(k==='D'?'▼':k)).join(' → ');
+}
+function spellHurt(r,n){if(r.hp===0){r.hearts--;r.hp=r.maxHp;if(r.hearts<=0){spellEnd(false);return}}r.hp=Math.max(0,r.hp-n)}
+function spellPress(key){
+  const r=sideRun;if(!r?.spell)return;
+  const t=audio.currentTime-r.base-+$('#offset').value/1000;if(t<0)return;
+  if(key==='L'&&r.chapter>=6){
+    const beat=t/r.beat,attack=8+Math.round((beat-8)/8)*8;
+    if(attack>=8&&Math.abs(beat-attack)*r.beat<=.185){r.stun=t+4*r.beat;r.lastAttack=attack;$('#side-feedback').textContent='★ バックフリップ成功！敵の大技をカウンター！';sideTone(r,audio.currentTime,1000)}
+    else $('#side-feedback').textContent='バックフリップは敵の攻撃の拍で！';
+    return;
+  }
+  const c=r.cast;if(!c){$('#side-feedback').textContent='先に唱える魔法を選ぼう';return}
+  const e=c.notes.find(n=>n.result===null);
+  if(!e||e.key!==key||Math.abs(e.at-t)>.185){c.bad=true;$('#side-feedback').textContent='リズムがズレた！一度待ってファイアなどで立て直そう';return}
+  e.result=timingPoints(t-e.at);
+  sideTone(r,audio.currentTime,key==='A'?880:key==='D'?300:440);
+  if(c.notes.every(n=>n.result!==null))spellCast();
+}
+function spellCast(){
+  const r=sideRun,c=r.cast,m=c.m;r.cast=null;
+  if(c.bad||c.notes.some(n=>!n.result)){$('#side-feedback').textContent='詠唱失敗 · 次の小節で立て直そう';return}
+  r.score+=100;const t=audio.currentTime-r.base,lv=r.levels[m.name]||1;let message='✨ '+m.name+'発動！';
+  if(m.heal)r.hp=Math.min(r.maxHp,r.hp+m.heal+lv*4);
+  if(m.buff)r[m.buff]=t+16*r.beat;
+  if(m.power){
+    let damage=m.power+lv*5;if(r.attack>t)damage*=1.5;
+    if(r.chapter===3&&m.name==='ウォータ')damage*=1.5;
+    if(r.chapter===4){let red=Math.floor(t/(8*r.beat))%2===0;if(m.name===(red?'ウォータ':'ファイア'))damage*=1.8}
+    r.enemy-=damage;if(m.self)spellHurt(r,m.self);
+  }
+  if(sideRun!==r)return;$('#side-feedback').textContent=message;
+  if(r.enemy<=0)spellReward();
+}
+function spellReward(){
+  const r=sideRun;if(r.room>=r.rooms){spellEnd(true);return}
+  sideStop();const b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('h3',`エリア ${r.room}/${r.rooms} 突破！`),sideNode('p','強化するスペルまたは最大HPアップを選ぼう。'));
+  for(const m of spellMagic.filter(m=>m.from<=r.chapter)){
+    b.append(sideButton(`${m.name}を${r.loadout.includes(m.name)?'強化':'習得'}`,()=>{
+      const next={...r,room:r.room+1,loadout:[...r.loadout],levels:{...r.levels}};
+      if(next.loadout.includes(m.name))next.levels[m.name]=Math.min(5,(next.levels[m.name]||1)+1);
+      else if(next.loadout.length<5)next.loadout.push(m.name);
+      spellStart(r.chapter,next);
+    }));
+  }
+  b.append(sideButton('宝箱：最大HP＋15＆ダメージ軽減で次へ',()=>spellStart(r.chapter,{...r,room:r.room+1,maxHp:r.maxHp+15})));
+}
+function spellEnd(clear){
+  const r=sideRun;if(!r?.spell)return;
+  if(clear){spellProgress.cleared=Math.max(spellProgress.cleared,r.chapter);try{rhythmStorage.setItem('rhythm-spell-v1',JSON.stringify(spellProgress))}catch{}}
+  sideStop();const b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('h3',clear?(r.chapter===8?'🎉 最終章「決戦」制覇！王国にリズムが戻った！':'✨ 第'+r.chapter+'章クリア！'):'ハートがゼロになった！'),sideNode('p',`スコア ${Math.max(0,r.score-r.retries*100)}点 · リトライ ${r.retries}回（強化したスペルを引き継いで再挑戦可能）`),sideButton('章選択へ',spellMenu),sideButton(clear?'もう一度遊ぶ':'強化を引き継いで再挑戦',()=>clear?spellStart(r.chapter):spellStart(r.chapter,spellRetryState(r))));
+}
+function spellFrame(r){
+  const t=audio.currentTime-r.base;
+  for(let n=Math.max(0,Math.floor(t/r.beat));n<=(t+.12)/r.beat;n++){
+    if(!r.scheduled.has(n)&&n*r.beat>=t-.03){
+      r.scheduled.add(n);
+      sideTone(r,Math.max(audio.currentTime,r.base+n*r.beat),n%4===0?180:360,.07,.045);
+      if(r.chapter===8&&n%8===0)sideTone(r,Math.max(audio.currentTime,r.base+n*r.beat),1320,.35,.1);
+    }
+  }
+  if(r.cast){
+    for(const e of r.cast.notes)if(e.result===null&&t>e.at+.185){e.result=0;r.cast.bad=true}
+    if(r.cast.notes.every(e=>e.result!==null))spellCast();
+  }
+  if(sideRun!==r)return;
+  const attack=Math.floor(t/r.beat/8)*8;
+  if(attack>=8&&attack!==r.lastAttack&&t>attack*r.beat+.185){r.lastAttack=attack;if(r.stun<t)spellHurt(r,(10+r.chapter*2)*(r.defense>t?.5:1))}
+  if(sideRun!==r)return;
+  $('#side-stats').textContent=`エリア ${r.room}/${r.rooms} · HP ${Math.ceil(r.hp)}/${r.maxHp} · ♥${r.hearts} · 敵HP ${Math.max(0,Math.ceil(r.enemy))}${r.chapter===4?' · '+(Math.floor(t/(8*r.beat))%2===0?'🔴赤い竜(水弱点)':'🔵青い竜(炎弱点)'):''}`;
+  const rail=$('#side-rail');rail.replaceChildren();
+  if(r.chapter<8&&r.cast)for(const e of r.cast.notes){const x=25+(e.at-t)/r.beat*17;if(x>=0&&x<=100){const n=sideNode('span',e.key==='D'?'▼':e.key);n.style.left=x+'%';rail.append(n)}}
+  if(r.chapter===8)rail.textContent='🔔 最終章「決戦」：ビート表示なし！耳と鐘の合図で拍を刻もう';
+}
+function spellRetryState(r){return{room:1,maxHp:r.maxHp,hearts:3,levels:{...r.levels},loadout:[...r.loadout],score:r.score,retries:r.retries+1}}
+</script><script>
+// みんなで遊ぶ（全10ゲーム固有システム＆みんなのおもちゃ全7種完全実装）
+const partyGames=[
+  ['リズム脱毛','🌱','pluck'],
+  ['アニマル宅配便','📦','beam'],
+  ['忍者たち','🥷','ninja'],
+  ['モンスターテニス','🎾','tennis'],
+  ['バイキンはかせ','🦠','germ'],
+  ['バレーボール？','🏐','volley'],
+  ['ボンバーエンジェル','💣','bomber'],
+  ['おやつ','🍰','snack'],
+  ['レスラー競争','💪','wrestler'],
+  ['リズム神経衰弱','🃏','memory']
+];
+const partyCPU={easy:{rate:.72,spread:.15},normal:{rate:.86,spread:.09},hard:{rate:.96,spread:.045}};
+let partyRings={};try{partyRings=JSON.parse(rhythmStorage.getItem('rhythm-party-rings-v1')||'{}')}catch{}
+function ringCount(){return unlockAllMode?30:Object.values(partyRings).filter(Boolean).length}
+function awardPartyRing(r,clear){
+  if(r.opt.practice||!clear)return false;
+  const id=r.opt.game+':'+r.opt.level;
+  if(partyRings[id])return false;
+  partyRings[id]=true;
+  try{rhythmStorage.setItem('rhythm-party-rings-v1',JSON.stringify(partyRings))}catch{}
+  return true;
+}
+const partyToyList=[
+  ['コンコン楽団',0,'drum','🦊'],
+  ['トロッコ',1,'toy','🛤️'],
+  ['つみき',3,'toy','🧱'],
+  ['岩くだき',5,'score','🪨'],
+  ['ミニおやつ',10,'score','🍮'],
+  ['パンチングバッグ',15,'score','🥊'],
+  ['ミラクルオルゴール',30,'drum','🎠']
+];
+function partyToyMenu(){
+  sideStop();sideCurrent='party';const b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('h3',`🎁 みんなのおもちゃ（全7種） · 所持リング 💍${ringCount()}/30個`),sideNode('p','みんなで遊ぶで高評価クリアするとリングを獲得！集めたリング数に応じて全7種のおもちゃで遊べます。'));
+  for(const [name,need,type,icon] of partyToyList){
+    b.append(sideButton(`${icon} ${name} · 必要リング ${need}個`,()=>sideStart({name:'みんなのおもちゃ：'+name,type,icon,level:need>=15?3:need>=3?2:1}),ringCount()<need));
+  }
+  b.append(sideButton('みんなで遊ぶ一覧へ戻る',partyMenu));
+}
+
+function partyMenu(){
+  sideStop();const b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('p','🎮 あなた＋CPU3人の4人プレイ！先頭6種は協力、後半4種は対戦。巻き毛長押し・長押し強ビーム＆燃料ゲージ・桃忍者のハート矢回復・炎の玉2連射・フォーク位置入れ替え・バレーボール3点先取＆名前呼び・爆弾3個破壊・3時ジャスト時計・神経衰弱カードめくりまで試作表現！'));
+  const form=sideNode('div','');form.className='party-settings';
+  const nameLabel=sideNode('label','あなたの名前 '),nameInput=sideNode('input','');
+  nameInput.value=playerName;nameInput.style.width='110px';nameInput.style.padding='4px';
+  nameInput.onchange=()=>{playerName=nameInput.value.trim()||'あなた';try{rhythmStorage.setItem('rhythm-player-name-v1',playerName)}catch{}};
+  nameLabel.append(nameInput);form.append(nameLabel);
+  for(const [id,label,options] of [['party-cpu','CPUの強さ',[['easy','やさしい'],['normal','ふつう'],['hard','むずかしい']]],['party-level','難易度',[['1','1 (オモテ評価)'],['2','2 (オモテ評価)'],['3','3 (ウラ評価)']]]]){
+    const l=sideNode('label',label+' '),s=sideNode('select','');s.id=id;
+    for(const [v,t] of options){const o=sideNode('option',t);o.value=v;s.append(o)}
+    if(id==='party-cpu')s.value='normal';
+    l.append(s);form.append(l);
+  }
+  b.append(form,sideNode('p',`💍 リング ${ringCount()}/30個 · 難易度1〜2は「最高/いいかんじ/ファイト」、難易度3は「ハイレベル/平凡/やりなおし」で評価！`),sideButton('🎁 みんなのおもちゃ（全7種）',partyToyMenu));
+  for(let i=0;i<partyGames.length;i++){
+    const row=sideNode('div','');row.className='party-choice';
+    const rings=[1,2,3].map(lv=>partyRings[i+':'+lv]||unlockAllMode?'💍':'⚪').join('');
+    row.append(sideNode('b',`${partyGames[i][1]} ${partyGames[i][0]} ${rings}`),sideButton('紹介・ルール',()=>showPartyGuide(i)),sideButton('練習',()=>partyStart(partyOptions(i,true))),sideButton('本番',()=>partyStart(partyOptions(i,false))));
+    b.append(row);
+  }
+}
+function partyOptions(game,practice){return{game,practice,kind:game<6?'coop':'versus',style:partyGames[game][2],cpu:$('#party-cpu')?.value||'normal',level:Number($('#party-level')?.value)||1}}
+
+function partyChart(opt,rng=Math.random){
+  const beat=60/(98+opt.level*14),style=opt.style,count=opt.practice?8:18,events=[];
+  for(let i=0;i<count;i++){
+    const at=(2+i*2)*beat;
+    let key='A',duration=0,tag='normal';
+    if(style==='pluck'){
+      if(opt.level>=2&&i%4===3){duration=beat*0.9;tag='curly'} // 巻き毛（長押し）
+      else if(i%2===1)key='L'; // 左ボタン交互抜き対応
+    }else if(style==='beam'){
+      if(i%4===2){duration=beat*0.9;tag='hardEnemy'} // 硬い敵（長押し強ビーム）
+      else if(opt.level>=2&&i%5===4){key='B';tag='barrier'} // バリア反射
+    }else if(style==='ninja'){
+      if(opt.level>=2&&i%5===3)tag='cannon'; // 大砲
+      else if(i%4===3)tag='heartArrow'; // 桃忍者のハート矢
+    }else if(style==='tennis'){
+      tag=opt.level>=2&&i%4===3?'allSmash':'turn';
+    }else if(style==='germ'){
+      tag='lane'+((i+opt.level)%4);
+    }else if(style==='volley'){
+      tag=i%3===0?'レシーブ':i%3===1?'トス':'スパイク';
+      if(opt.level===2&&i%6===5)tag='ジャンピングレシーブ';
+      if(opt.level===3&&i%6===5)tag='スパイクカット';
+    }
+    const cpu=partyCPU[opt.cpu];
+    const results=[null,...Array.from({length:3},()=>rng()<cpu.rate?timingPoints((rng()*2-1)*cpu.spread):0)];
+    events.push({at,key,duration,tag,results,held:false,closed:false});
+  }
+  return{beat,events,end:events.at(-1).at+beat*2.5};
+}
+
+async function partyStart(opt){
+  sideStop();const bus=await sideAudio();if(!bus)return;
+  forceCallName(`${playerName}、スタート！`);
+  // ゲーム8：おやつ（3時ジャスト時計ストップウォッチ勝負）
+  if(opt.style==='snack'){startSnackParty(opt,bus);return}
+  // ゲーム10：リズム神経衰弱（カードめくり記憶勝負）
+  if(opt.style==='memory'){startMemoryParty(opt,bus);return}
+
+  sideRun={
+    party:true,gameIdx:opt.game,opt,bus,...partyChart(opt),base:audio.currentTime+1.2,scheduled:new Set(),
+    players:Array.from({length:4},(_,i)=>({name:i?'CPU '+i:playerName,score:0,success:0,miss:0,extra:0,bombs:0,distance:0,flash:'準備',flashAt:-10})),
+    fuel:75,palanquinHp:100,bossHp:100,forkLane:1,volleyPoints:0,volleyChain:0,
+    captive:opt.level===1?'🤴王子':opt.level===2?'👸デイジー姫風':'👑王様'
+  };
+  const b=$('#mode-body');b.replaceChildren();
+  const ruleText={
+    pluck:'🌱 リズム脱毛：Aまたは◀で毛を抜こう！巻き毛はA長押し！Lv3は葉っぱで隠れるよ。4人全員同時ミスがなければ続行！',
+    beam:'📦 アニマル宅配便：敵の声に合わせてAでビーム、硬い敵はA長押し強ビーム！Lv2〜はBでバリア反射！右の燃料ゲージを維持しよう。',
+    ninja:'🥷 忍者たち：飛んでくる矢をAで斬って殿様の籠（共通HP）を守れ！大砲は高威力、桃忍者の💖ハート矢をジャストで斬るとHP大回復！',
+    tennis:`🎾 モンスターテニス：順番にAでスマッシュ（${sideRun.captive}を救出せよ）！ジャスト入力で🔥炎の玉（2発分）！`,
+    germ:'🦠 バイキンはかせ：Aでフォークを刺してバイキン撃退！途中で自分のフォーク担当位置が入れ替わるぞ。アンカーのジャストは一撃必殺！',
+    volley:'🏐 バレーボール？：レシーブ・トス・スパイクを繋いで3点先取で勝利！あなたの番になると音読ちゃんが名前を呼ぶよ！',
+    bomber:'💣 ボンバーエンジェル：自動移動で中央に来た拍にAで矢を放ち、ブロックを割って先に爆弾を3個壊した人が勝利！',
+    wrestler:'💪 レスラー競争：リズムに合わせてAでハードルを飛び越え、4人の中で最初にゴールテープを切ろう！'
+  }[opt.style];
+  b.append(sideNode('p',`${opt.practice?'【練習】':'【本番 Lv'+opt.level+'】'} ${ruleText}`));
+  const arena=sideNode('div','');arena.id='party-arena';arena.className='party-arena';
+  for(let i=0;i<4;i++){
+    const card=sideNode('div','');card.className='party-player';card.id='party-player-'+i;
+    card.append(sideNode('strong',i?'🤖 CPU '+i:'🎮 '+playerName),sideNode('div',partyGames[opt.game][1]));
+    arena.append(card);
+  }
+  const stats=sideNode('p','準備');stats.id='side-stats';
+  const rail=sideNode('div','');rail.id='side-rail';rail.className='side-rail';
+  const feedback=sideNode('p','音楽と合図を聴こう');feedback.id='side-feedback';
+  b.append(arena,stats,rail,feedback);
+  const keys=sideNode('div','');keys.className='side-keys';
+  for(const [k,lbl] of [['L','◀'],['B','B'],['A','A (長押し可)']]){
+    const n=sideButton(lbl,()=>{});
+    n.onpointerdown=e=>{e.preventDefault();n.setPointerCapture?.(e.pointerId);partyPress(k)};
+    n.onpointerup=()=>partyRelease(k);n.onpointercancel=()=>partyRelease(k);
+    n.onclick=e=>{if(e.detail===0){partyPress(k);partyRelease(k)}};
+    keys.append(n);
+  }
+  b.append(keys,sideButton(opt.practice?'本番へ進む':'中止して一覧へ',()=>opt.practice?partyStart({...opt,practice:false}):partyMenu()));
+}
+
+// おやつ（3時ジャスト時計勝負）専用実装
+function startSnackParty(opt,bus){
+  const targetSec=6.0; // 12時から3時までのカウント（6秒＝3時ちょうど）
+  const cpu=partyCPU[opt.cpu];
+  const cpuTimes=Array.from({length:3},()=>targetSec+(Math.random()*2-1)*cpu.spread*2.2);
+  sideRun={party:true,snackMode:true,gameIdx:7,opt,bus,base:audio.currentTime+1,targetSec,playerTime:null,cpuTimes,scheduled:new Set(),events:[{results:[100,80,80,80]}],players:Array.from({length:4},(_,i)=>({name:i?'CPU '+i:playerName,score:0,success:0,miss:0,extra:0}))};
+  const b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('h3','🍰 おやつ（3時ジャスト勝負）'),sideNode('p','時計の針が「3時00分（6.00秒）」になったと思った瞬間にAを押そう！途中で時計が消えるので心の中でカウント！'));
+  const box=sideNode('div','');box.className='clock-arena';
+  const face=sideNode('div','🕛 準備…');face.id='snack-clock';face.className='clock-face';
+  const sub=sideNode('p','チック・タック・チック・タック…');sub.id='side-feedback';
+  box.append(face,sub);b.append(box);
+  const btn=sideButton('🍰 今だ！おやつを取る (A)',()=>partyPress('A'));
+  btn.style.fontSize='20px';btn.style.padding='16px 28px';
+  b.append(btn,sideButton('一覧へ戻る',partyMenu));
+}
+
+// リズム神経衰弱（十字キー選択＆リズム回数カードめくり＋モグラダミー）専用実装
+function startMemoryParty(opt,bus){
+  // 1回・2回・3回・5回鳴るカードのペア＋Lvに応じてモグラダミーカード
+  const deck=[1,1,2,2,3,3,5,5];
+  if(opt.level>=2)deck.push(0,4,4,0); // 0=モグラダミー
+  else deck.push(4,4,6,6);
+  deck.sort(()=>Math.random()-0.5);
+  sideRun={
+    party:true,memoryMode:true,gameIdx:9,opt,bus,base:audio.currentTime,deck,
+    matched:Array(deck.length).fill(false),cursor:0,firstPick:null,lockUntil:0,
+    turn:0,events:Array(6).fill({results:[100,80,80,80]}),
+    players:Array.from({length:4},(_,i)=>({name:i?'CPU '+i:playerName,score:0,success:0,miss:0,extra:0}))
+  };
+  renderMemoryUI();
+}
+function renderMemoryUI(){
+  const r=sideRun;if(!r?.memoryMode)return;
+  const b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('h3','🃏 リズム神経衰弱'),sideNode('p','◀▶▲▼（またはカード直接タップ）で選び、Aでめくって音が鳴った回数（1回・2回・3回・5回）が同じペアを揃えよう！🐹モグラのダミーに注意！'));
+  const stats=sideNode('p',`${playerName}: ${r.players[0].score}点 · CPU1: ${r.players[1].score}点 · CPU2: ${r.players[2].score}点 · CPU3: ${r.players[3].score}点`);
+  stats.id='side-stats';b.append(stats);
+  const grid=sideNode('div','');grid.className='memory-grid';
+  r.deck.forEach((val,idx)=>{
+    const isOpen=r.firstPick===idx||r.secondPick===idx;
+    const isMatched=r.matched[idx];
+    const card=sideButton(isMatched?'✓ 揃い':isOpen?(val===0?'🐹モグラ!':'♪×'+val+'回'):'🃏 ?',()=>{r.cursor=idx;memoryFlip(idx)},isMatched);
+    card.className='memory-card'+(r.cursor===idx?' cursor':'')+(isMatched?' matched':'')+(isOpen?' open':'');
+    grid.append(card);
+  });
+  const fb=sideNode('p',r.statusText||'カードを選んでAでめくろう！');fb.id='side-feedback';
+  const controls=sideNode('div','');controls.className='side-keys';
+  for(const [lbl,fn] of [['◀',()=>memoryMove('ArrowLeft')],['▶',()=>memoryMove('ArrowRight')],['A めくる',()=>memoryFlip(r.cursor)]]){
+    controls.append(sideButton(lbl,fn));
+  }
+  b.append(grid,fb,controls,sideButton('終了して結果へ',()=>partyFinish()));
+}
+function memoryMove(code){
+  const r=sideRun;if(!r?.memoryMode)return;
+  const n=r.deck.length;
+  if(code==='ArrowLeft')r.cursor=(r.cursor+n-1)%n;
+  if(code==='ArrowRight')r.cursor=(r.cursor+1)%n;
+  if(code==='ArrowUp')r.cursor=(r.cursor+n-4)%n;
+  if(code==='ArrowDown')r.cursor=(r.cursor+4)%n;
+  renderMemoryUI();
+}
+function memoryFlip(idx){
+  const r=sideRun;if(!r?.memoryMode||r.matched[idx]||r.firstPick===idx||audio.currentTime<r.lockUntil)return;
+  const val=r.deck[idx];
+  // 音の回数だけリズム音を鳴らす
+  if(val===0){
+    sideTone(r,audio.currentTime,140,.25,.15);
+    r.statusText='🐹 モグラのダミーカードだった！お手つき！';
+    r.players[0].miss++;r.firstPick=null;renderMemoryUI();return;
+  }
+  for(let k=0;k<val;k++)sideTone(r,audio.currentTime+k*0.16,520+val*45,.09,.12);
+  if(r.firstPick===null){
+    r.firstPick=idx;r.statusText=`1枚目：♪×${val}回鳴った！同じ回数のカードを探そう`;
+    renderMemoryUI();
+  }else{
+    r.secondPick=idx;
+    const firstVal=r.deck[r.firstPick];
+    if(firstVal===val){
+      r.matched[r.firstPick]=true;r.matched[idx]=true;
+      r.players[0].score+=300;r.players[0].success++;
+      r.statusText=`★ ペア成立！（♪×${val}回）＋300点！`;
+      r.firstPick=null;r.secondPick=null;
+      renderMemoryUI();
+      if(r.matched.filter((m,i)=>m||r.deck[i]===0).length===r.deck.length)setTimeout(()=>partyFinish(),600);
+    }else{
+      r.statusText=`残念！（♪×${firstVal}回 と ♪×${val}回）位置を覚えておこう`;
+      // CPUもスコア加算シミュレート
+      const cpuIdx=1+Math.floor(Math.random()*3);
+      if(Math.random()<0.45){r.players[cpuIdx].score+=200;r.players[cpuIdx].success++}
+      r.lockUntil=audio.currentTime+0.7;
+      renderMemoryUI();
+      setTimeout(()=>{if(sideRun===r){r.firstPick=null;r.secondPick=null;renderMemoryUI()}},700);
+    }
+  }
+}
+
+function partyPress(key){
+  const r=sideRun;if(!r?.party)return;
+  if(r.snackMode){
+    if(r.playerTime!==null)return;
+    const t=audio.currentTime-r.base;if(t<0)return;
+    r.playerTime=t;
+    const allTimes=[t,...r.cpuTimes];
+    const diffs=allTimes.map(x=>Math.abs(x-r.targetSec));
+    const minDiff=Math.min(...diffs);
+    allTimes.forEach((tm,i)=>{
+      const err=Math.round((tm-r.targetSec)*1000);
+      const pts=Math.max(0,Math.round(100-Math.abs(err)/8));
+      r.players[i].score=pts;
+      r.players[i].success=Math.abs(diffs[i]-minDiff)<0.02?1:0;
+      r.players[i].flash=`${err>=0?'+':''}${err}ms`;
+    });
+    sideTone(r,audio.currentTime,880,.15,.14);
+    setTimeout(()=>partyFinish(),600);
+    return;
+  }
+  if(r.memoryMode){memoryFlip(r.cursor);return}
+  const t=audio.currentTime-r.base-+$('#offset').value/1000;
+  const e=r.events.find(e=>e.results[0]===null&&!e.held&&Math.abs(e.at-t)<=.185&&(e.key===key||(e.key==='L'&&key==='A')));
+  if(e){
+    const pts=timingPoints(t-e.at);
+    if(e.duration){
+      e.held=true;e.startPoints=pts;
+      $('#side-feedback').textContent=e.tag==='curly'?'🌱 巻き毛を長押し中…終端で離して抜こう！':'⚡ チャージ強ビーム照射中…終端で離そう！';
+      sideTone(r,audio.currentTime,640);return;
+    }
+    completePartyHit(r,e,pts,t);return;
+  }
+  r.players[0].extra++;$('#side-feedback').textContent='空振り';
+}
+function partyRelease(key){
+  const r=sideRun;if(!r?.party||r.snackMode||r.memoryMode)return;
+  const t=audio.currentTime-r.base-+$('#offset').value/1000;
+  for(const e of r.events.filter(e=>e.held&&e.results[0]===null)){
+    const p=timingPoints(t-e.at-e.duration);
+    completePartyHit(r,e,p?Math.min(p,e.startPoints):0,t);
+  }
+}
+function completePartyHit(r,e,pts,t){
+  e.results[0]=pts;
+  const just=pts===100,style=r.opt.style;
+  sideTone(r,audio.currentTime,just?980:580);
+  if(style==='beam'){
+    r.fuel=Math.min(100,r.fuel+(just?18:8));
+    $('#side-feedback').textContent=just?'★ 超ピッタリ撃破！燃料ゲージ大回復！':e.tag==='barrier'?'🛡️ バリアで敵弾を跳ね返した！':'ビーム命中！';
+  }else if(style==='ninja'){
+    if(e.tag==='heartArrow'&&just){r.palanquinHp=Math.min(100,r.palanquinHp+30);$('#side-feedback').textContent='💖 桃忍者のハート矢をジャスト斬り！殿様の籠HP大回復！'}
+    else $('#side-feedback').textContent=e.tag==='cannon'?'💥 大砲の弾を一刀両断！':'⚔️ 矢を斬った！';
+  }else if(style==='tennis'){
+    r.bossHp=Math.max(0,r.bossHp-(just?18:9));
+    $('#side-feedback').textContent=just?'🔥 ジャストスマッシュ！炎の玉で2連撃！！':'🎾 ナイススマッシュ！';
+  }else if(style==='germ'){
+    $('#side-feedback').textContent=just&&r.forkLane===3?'⚡ アンカー超ピッタリ一撃必殺！！':'🍴 バイキン撃退！';
+  }else if(style==='volley'){
+    r.volleyChain++;
+    if(r.volleyChain%3===0){r.volleyPoints++;$('#side-feedback').textContent=`🏐 スパイク決定！ ${r.volleyPoints}/3点！`}
+    else $('#side-feedback').textContent=`🏐 ${e.tag}成功！`;
+  }else if(style==='bomber'){
+    if(pts>=80&&r.players[0].success%3===2){r.players[0].bombs++;$('#side-feedback').textContent=`💣 爆弾破壊！ (${r.players[0].bombs}/3個)`}
+    else $('#side-feedback').textContent='🏹 ブロック破壊！';
+  }else if(style==='wrestler'){
+    r.players[0].distance+=just?15:10;
+    $('#side-feedback').textContent=just?'💪 ジャストハードル飛び越え！急加速！':'ハードルジャンプ！';
+  }else{
+    $('#side-feedback').textContent=just?'★ ぴったり抜けた！':'成功！';
+  }
+}
+function partyClose(r,e,t){
+  e.closed=true;
+  if(e.results[0]===null)e.results[0]=0;
+  e.results.forEach((p,i)=>{
+    const player=r.players[i];
+    if(p>0){
+      player.success++;player.score+=p;player.flash='★成功';
+      if(i>0&&r.opt.style==='bomber'&&player.success%4===0)player.bombs=Math.min(3,player.bombs+1);
+      if(i>0&&r.opt.style==='wrestler')player.distance+=p===100?14:9;
+    }else{
+      player.miss++;player.flash='ミス';
+      if(r.opt.style==='beam'&&i===0)r.fuel=Math.max(0,r.fuel-14);
+      if(r.opt.style==='ninja')r.palanquinHp=Math.max(0,r.palanquinHp-(e.tag==='cannon'?18:6));
+    }
+    player.flashAt=t;
+  });
+  // リズム脱毛：4人全員が同じ毛でミスした場合のみゲームオーバー
+  if(r.opt.style==='pluck'&&e.results.every(x=>x===0)){partyFinish('全員同時ミス！ゲームオーバー');return}
+  if(r.opt.style==='germ')r.forkLane=(r.forkLane+1)%4;
+  if(r.opt.style==='volley'){
+    // 次の出番でプレイヤー名を呼ぶ（読み上げ設定OFFでも呼ぶ原作仕様）
+    forceCallName(playerName);
+  }
+}
+function partyFinish(customTitle=null){
+  const r=sideRun;if(!r?.party)return;
+  const players=r.players.map((p,i)=>({...p,i,score:Math.max(0,p.score-p.extra*15)})).sort((a,b)=>b.score-a.score);
+  const totalPossible=Math.max(1,r.events.length*100);
+  const myPct=r.snackMode?r.players[0].score:r.memoryMode?Math.min(100,Math.round(r.players[0].score/9)):Math.round(r.players[0].score/totalPossible*100);
+  const evalRank=stageRank(myPct,r.opt.level===3?9:1);
+  const clear=customTitle?false:r.opt.kind==='coop'?myPct>=65:(players[0].i===0||myPct>=65);
+  const ring=awardPartyRing(r,clear&&myPct>=90);
+  sideStop();const b=$('#mode-body');b.replaceChildren();
+  b.append(
+    sideNode('h3',customTitle||(r.opt.practice?'練習完了':`${partyGames[r.opt.game][0]} · 評価【 ${evalRank} 】`)),
+    sideNode('p',ring?`💍 最高評価でリングを1個獲得！（所持リング ${ringCount()}/30個）`:`所持リング 💍${ringCount()}/30個（評価「最高／ハイレベル」でリング獲得）`)
+  );
+  const table=sideNode('table','');table.className='party-results';
+  const header=sideNode('tr','');for(const s of ['順位','プレイヤー','スコア','成功','ミス','備考'])header.append(sideNode('th',s));table.append(header);
+  players.forEach((p,idx)=>{
+    const row=sideNode('tr','');
+    const note=r.snackMode?(p.flash||'—'):r.opt.style==='bomber'?`💣${p.bombs||0}個`:r.opt.style==='wrestler'?`${p.distance||0}m`:'—';
+    for(const s of [idx+1,p.name,p.score,p.success,p.miss,note])row.append(sideNode('td',String(s)));
+    table.append(row);
+  });
+  b.append(table,sideButton('もう一度遊ぶ',()=>partyStart({...r.opt,practice:false})),sideButton('みんなで遊ぶ一覧へ',partyMenu));
+}
+function partyFrame(r){
+  if(r.memoryMode)return;
+  const t=audio.currentTime-r.base;
+  if(r.snackMode){
+    const face=$('#snack-clock');
+    if(face){
+      if(t<0)face.textContent=`🕛 カウント開始まで ${Math.ceil(-t)}`;
+      else if(t<2.8)face.textContent=`🕐 ${(t*0.5).toFixed(2)}時間経過（3時＝6.00秒でA！）`;
+      else face.textContent='❓ 時計が消えた！心の中で3時（6.00秒）を数えてA！';
+    }
+    if(t>9.5&&r.playerTime===null){r.playerTime=9.5;partyPress('A')}
+    return;
+  }
+  for(let n=Math.max(0,Math.floor(t/r.beat));n<=(t+.12)/r.beat;n++){
+    if(n*r.beat>=t-.03&&!r.scheduled.has(n)){
+      r.scheduled.add(n);
+      sideTone(r,Math.max(audio.currentTime,r.base+n*r.beat),n%4===0?160:320,.07,.04);
+    }
+  }
+  for(const e of r.events)if(!e.closed&&t>e.at+(e.duration||0)+.185)partyClose(r,e,t);
+  if(sideRun!==r)return;
+  const extraHud=r.opt.style==='beam'?` · ⛽燃料 ${r.fuel}%`:r.opt.style==='ninja'?` · 🏯籠HP ${r.palanquinHp}%`:r.opt.style==='tennis'?` · 👾ボスHP ${r.bossHp}% (${r.captive})`:r.opt.style==='germ'?` · 🍴担当位置 ${r.forkLane+1}番`:r.opt.style==='volley'?` · 🏐得点 ${r.volleyPoints}/3点`:'';
+  $('#side-stats').textContent=`Lv${r.opt.level}${extraHud} · 残り${Math.max(0,Math.ceil(r.end-t))}秒`;
+  r.players.forEach((p,i)=>{
+    const card=$('#party-player-'+i);if(!card)return;
+    card.className='party-player'+(t-p.flashAt<.4?(p.flash==='ミス'?' party-miss':' party-hit'):'');
+    card.replaceChildren();
+    card.append(sideNode('strong',i?'🤖 '+p.name:'🎮 '+p.name),sideNode('div',partyGames[r.opt.game][1]),sideNode('p',`${p.score}点 · ${p.flash}`));
+  });
+  const rail=$('#side-rail');
+  if(rail){
+    rail.replaceChildren();
+    for(const e of r.events){
+      const x=25+(e.at-t)/r.beat*17;
+      if(x>=0&&x<=100){
+        const n=sideNode('span',e.duration?'長A':e.key);
+        n.style.left=x+'%';n.style.background=e.tag==='heartArrow'?'#ff4d6d':e.duration?'#f77f00':'#ed8468';
+        rail.append(n);
+      }
+    }
+  }
+  if((r.opt.style==='volley'&&r.volleyPoints>=3)||(r.opt.style==='bomber'&&r.players.some(p=>p.bombs>=3))||t>r.end)partyFinish();
+}
+</script><script>
+// リズムおもちゃ（全7種）＆スコアアタック（全8種）
+const miniToys=[
+  ['誰のリズムでSHOW？',0,'quiz','🐇'],
+  ['オトボード',2,'composer','🎼'],
+  ['バウンディング フグ',5,'rally','🐡'],
+  ['オトボード2（キャンプ）',8,'composer','🏕️'],
+  ['ブランコ',11,'swing','👟'],
+  ['オトボード3（夏祭り盆踊り）',14,'composer','🏮'],
+  ['フクロウ',17,'owl','🦉']
+];
+const miniScores=[
+  ['クラップショー',0,'clap','👏',1],
+  ['師匠',10,'dodge','🥋',1],
+  ['クラップショー2',16,'clap','👏',2],
+  ['スケボー',22,'skate','🛹',1],
+  ['クラップショー3',32,'clap','👏',3],
+  ['パラソル プロ',42,'umbrella','☂️',3],
+  ['スケボー2',52,'skate','🛹',3],
+  ['くるくるシューティング',62,'shoot','🎯',3]
+];
+function miniAllowed(mode,index){
+  
+  if(unlockAllMode)return true;
+  const list=mode==='toys'?miniToys:miniScores;
+  return sideUnlocked(mode)&&!!list[index]&&medalCount()>=list[index][1];
+}
+function miniMenu(mode){
+  sideStop();const b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('p',`🏅 所持メダル ${medalCount()}枚 · メダルを集めてミニゲームを解放しよう！`));
+  (mode==='toys'?miniToys:miniScores).forEach((m,i)=>b.append(sideButton(`${m[3]} ${m[0]} · 必要メダル ${m[1]}枚${sideRecords['mini:'+mode+':'+i]!==undefined?' · 最高 '+sideRecords['mini:'+mode+':'+i]:''}`,()=>miniStart(mode,i),!miniAllowed(mode,i))));
+}
+function miniJudge(error){const a=Math.abs(error);return a<=.04?1000:a<=.075?700:a<=.12?300:0}
+function miniChart(kind,level=1){
+  const beat=60/(102+level*14),notes=[],cues=[];
+  for(let round=0;round<8;round++){
+    const pattern=level===1?[0,1,2]:level===2?[0,.5,1.5,2.5]:[0,.5,1,1.75,2.5,3];
+    for(const [i,off] of pattern.entries()){
+      const key=kind==='owl'?(i%2?'B':'A'):kind==='umbrella'?(i%3?'B':'A'):kind==='dodge'?(i%2?'B':'A'):'A';
+      notes.push({at:(2+round*8+4+off)*beat,key,result:null});
+      if(['clap','owl'].includes(kind))cues.push({at:(2+round*8+off)*beat,key,done:false});
+    }
+  }
+  return{notes,cues,beat,end:66*beat};
+}
+async function miniStart(mode,index){
+  if(!miniAllowed(mode,index))return;
+  sideStop();const m=(mode==='toys'?miniToys:miniScores)[index];
+  if(m[2]==='composer'){miniComposer(index);return}
+  const bus=await sideAudio();if(!bus)return;
+  sideRun={mini:true,mode,index,m,bus,base:audio.currentTime+1,...miniChart(m[2],m[4]||1),scheduled:new Set(),points:0,combo:0,maxCombo:0,counts:{PERFECT:0,GREAT:0,GOOD:0,MISS:0},extra:0,rally:0,life:3,round:0,cursor:0,amplitude:.35,heldDown:false,previous:0,phase:0};
+  const b=$('#mode-body');b.replaceChildren();
+  const help=m[2]==='quiz'?'誰のリズムでSHOW？：ウサギたち（2匹→4匹→9匹）の中から本当に手拍子（耳拍子）している1匹を◀▶で選びAで決定！':m[2]==='swing'?'ブランコ：▼長押しで後ろにこぎ、離して前にこぐ！十分に揺れたら最下点でAを押して靴を遠くへ飛ばそう！':m[2]==='owl'?'フクロウ：左の親フクロウのお手本を聴き、Aで鳴く・▼を押しながらシュッと細くなる動きを真似しよう！':m[2]==='rally'?'バウンディング フグ：落ちてくるフグをラケットの高さでタイミングよくAで打ち返し続けよう！':m[2]==='clap'?'クラップショー：前半のお手本を聴いて、後半にAで同じ手拍子！':m[2]==='umbrella'?'パラソル プロ：Aで開く、▼で閉じる高難度プロチャレンジ！':m[2]==='dodge'?'師匠：Aでパンチ、▼でキックを華麗に捌こう！':m[2]==='skate'?'スケボー：「ピピッ！！カッ。」の合図に合わせてAでジャンプトリック！':'くるくるシューティング：リズムに合わせてAでターゲットを撃ち抜こう！';
+  b.append(sideNode('p',help));
+  const art=sideNode('div',m[3]);art.id='mini-art';art.className='mini-art';
+  const stats=sideNode('p','準備');stats.id='side-stats';
+  const rail=sideNode('div','');rail.id='side-rail';rail.className='side-rail';
+  const feedback=sideNode('p','リズムに乗ろう！');feedback.id='side-feedback';
+  b.append(art,stats,rail,feedback);
+  const keys=sideNode('div','');keys.className='side-keys';
+  for(const [key,label] of [['L','◀'],['B','▼'],['A','A'],['R','▶']]){
+    const n=sideButton(label,()=>{});
+    n.onpointerdown=e=>{e.preventDefault();n.setPointerCapture?.(e.pointerId);miniPress(key)};
+    n.onpointerup=()=>miniRelease(key);n.onpointercancel=()=>miniRelease(key);
+    n.onclick=e=>{if(e.detail===0){miniPress(key);miniRelease(key)}};
+    keys.append(n);
+  }
+  b.append(keys,sideButton('一覧へ戻る',()=>miniMenu(mode)));
+  if(m[2]==='quiz')miniQuizRound(sideRun);
+}
+function miniQuizRound(r){
+  r.rabbitCount=r.round<2?2:r.round<5?4:9;
+  r.answer=Math.floor(Math.random()*r.rabbitCount);
+  r.cursor=0;r.quizStart=audio.currentTime;
+  r.shifts=Array.from({length:r.rabbitCount},(_,i)=>i===r.answer?0:(i%2?1:-1)*(.18+Math.random()*.12));
+}
+function miniPress(key){
+  const r=sideRun;if(!r?.mini)return;
+  const t=audio.currentTime-r.base-+$('#offset').value/1000,kind=r.m[2];
+  if(kind==='quiz'){
+    if(key==='L'||key==='R'){r.cursor=(r.cursor+(key==='R'?1:r.rabbitCount-1))%r.rabbitCount;if(navigator.vibrate)navigator.vibrate(25);return}
+    if(key==='A'){
+      if(r.cursor===r.answer){r.points+=1000;r.round++;$('#side-feedback').textContent='⭕ 正解！本当に耳拍子しているウサギを見抜いた！';if(r.round===8){miniFinish();return}}
+      else{r.life--;$('#side-feedback').textContent='❌ フェイントのウサギだった！残りライフ '+r.life;if(r.life===0){miniFinish();return}}
+      miniQuizRound(r);
+    }
+    return;
+  }
+  if(kind==='swing'){
+    if(key==='B'&&!r.heldDown){r.heldDown=true;const precision=Math.max(0,1-Math.abs(Math.cos(r.phase)));r.amplitude=Math.min(1.6,r.amplitude+.08+precision*.1)}
+    if(key==='A'&&t>=0){const speed=r.amplitude*Math.abs(Math.cos(r.phase))*11,angle=Math.PI/4+Math.sin(r.phase)*.4;r.points=Math.max(1.5,Math.round(speed*speed*Math.sin(2*angle)/9.8*10)/10);miniFinish()}
+    return;
+  }
+  const e=r.notes.find(n=>n.result===null&&n.key===key&&Math.abs(n.at-t)<=.12+1e-7);
+  if(!e){r.extra++;r.combo=0;$('#side-feedback').textContent='空振り';if(kind==='rally')miniFinish();return}
+  e.result=miniJudge(t-e.at);miniResolve(r,e);
+  sideTone(r,audio.currentTime,key==='A'?880:330);r.flash=t;
+  $('#side-feedback').textContent=Object.keys(r.counts)[[1000,700,300,0].indexOf(e.result)];
+}
+function miniRelease(key){
+  const r=sideRun;
+  if(r?.mini&&r.m[2]==='swing'&&key==='B'&&r.heldDown){r.heldDown=false;r.amplitude=Math.min(1.6,r.amplitude+.06*Math.abs(Math.cos(r.phase)))}
+}
+function miniResolve(r,e){
+  const name=e.result===1000?'PERFECT':e.result===700?'GREAT':e.result===300?'GOOD':'MISS';
+  r.counts[name]++;r.points+=e.result;
+  if(e.result){r.combo++;r.maxCombo=Math.max(r.maxCombo,r.combo);r.rally++}else r.combo=0;
+}
+function miniFinish(){
+  const r=sideRun;if(!r?.mini)return;
+  const points=r.m[2]==='rally'?r.rally:r.points;
+  const id='mini:'+r.mode+':'+r.index;
+  sideRecords[id]=Math.max(sideRecords[id]||0,points);sideSave();sideStop();
+  const b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('h3',r.m[0]+' リザルト'),sideNode('p',`記録：${points}${r.m[2]==='swing'?' m（靴飛距離）':r.m[2]==='rally'?' ラリー':'点'} · 自己ベスト ${sideRecords[id]}`),sideNode('p',`PERFECT ${r.counts.PERFECT} · GREAT ${r.counts.GREAT} · GOOD ${r.counts.GOOD} · MISS ${r.counts.MISS} · 最大コンボ ${r.maxCombo}`),sideButton('もう一度挑戦',()=>miniStart(r.mode,r.index)),sideButton('一覧へ',()=>miniMenu(r.mode)));
+}
+function miniFrame(r){
+  const t=audio.currentTime-r.base,kind=r.m[2];
+  for(let n=Math.max(0,Math.floor(t/r.beat));n<=(t+.12)/r.beat;n++)if(n*r.beat>=t-.03&&!r.scheduled.has(n)){r.scheduled.add(n);sideTone(r,Math.max(audio.currentTime,r.base+n*r.beat),n%4===0?180:360,.07,.04)}
+  const art=$('#mini-art');if(!art)return;
+  if(kind==='quiz'){
+    art.replaceChildren();
+    for(let i=0;i<r.rabbitCount;i++){
+      const n=sideButton('🐇 '+(i+1),()=>{r.cursor=i;miniPress('A')});
+      n.className='rabbit'+(i===r.cursor?' chosen':'');
+      const phase=(audio.currentTime-r.quizStart-r.shifts[i])/r.beat;
+      n.style.transform=Math.abs(phase-Math.round(phase))<.12?'translateY(-15px)':'';
+      art.append(n);
+    }
+    $('#side-stats').textContent=`問題 ${r.round+1}/8 (${r.rabbitCount}匹) · ライフ ♥${r.life} · ${r.points}点`;return;
+  }
+  if(kind==='swing'){
+    const dt=Math.max(0,Math.min(.05,t-r.previous));r.previous=t;r.phase=t*3;
+    r.amplitude=Math.max(.2,r.amplitude-dt*.002);
+    art.textContent='🐦ハト  🪑👟ブランコ';
+    art.style.transform=`rotate(${Math.sin(r.phase)*r.amplitude*42}deg)`;
+    $('#side-stats').textContent=`揺れ角度 ${Math.round(r.amplitude*42)}° · ▼長押し(後ろ)＆離す(前)でこぎ、最下点でA発射！`;return;
+  }
+  for(const q of r.cues)if(!q.done&&t>=q.at){q.done=true;sideTone(r,audio.currentTime,q.key==='A'?720:300,.12,.12);$('#side-feedback').textContent=kind==='owl'?(q.key==='A'?'🦉親「ホー！(A)」':'🦉親「シュッ！(▼細くなる)」'):'お手本 '+(q.key==='A'?'A':'▼')}
+  for(const e of r.notes)if(e.result===null&&t>e.at+.12){e.result=0;miniResolve(r,e);if(kind==='rally'){miniFinish();return}}
+  $('#side-stats').textContent=`${r.m[2]==='rally'?r.rally+' ラリー':r.points+'点'} · コンボ ${r.combo} · ベスト ${sideRecords['mini:'+r.mode+':'+r.index]||0}`;
+  const next=r.notes.find(e=>e.result===null);
+  art.style.transform=t-(r.flash||-10)<.25?'translateY(-18px)':'';
+  if(kind==='rally'&&next){const distance=Math.min(1,Math.abs(next.at-t)/(r.beat*2));art.style.transform=`translateY(${-distance*100}px)`}
+  const rail=$('#side-rail');if(rail){rail.replaceChildren();for(const e of r.notes){const x=25+(e.at-t)/r.beat*17;if(x>=0&&x<=100){const n=sideNode('span',e.key==='B'?'▼':e.key);n.style.left=x+'%';rail.append(n)}}}
+  if(t>r.end){if(kind==='rally'){r.base=audio.currentTime;const c=miniChart('rally',3);r.notes=c.notes;r.end=c.end;r.scheduled.clear()}else miniFinish()}
+}
+async function miniComposer(index){
+  if(!miniAllowed('toys',index))return;
+  sideStop();const bus=await sideAudio();if(!bus)return;if(!bus)return;const id='rhythm-composition-'+index;
+  let saved=null;try{saved=JSON.parse(rhythmStorage.getItem(id)||'null')}catch{}
+  const cells=Array.isArray(saved?.cells)&&saved.cells.length===64?saved.cells:Array(64).fill(false);
+  sideRun={composer:true,bus,cells,tempo:saved?.tempo||112,playing:false,base:audio.currentTime,last:-1,index};
+  const r=sideRun,b=$('#mode-body');b.replaceChildren();
+  const themeDesc=index===3?'🏕️ オトボード2（キャンプ場セッション：男の子・女の子・犬・リス）':index===5?'🏮 オトボード3（夏祭り盆踊り：お寿司・招き猫・赤べこ・和太鼓）':'🎼 オトボード1（カラフル音符ポップセッション）';
+  b.append(sideNode('h3',themeDesc),sideNode('p','4パート×16ステップ。同じ縦列に複数置くと和音・同時演奏になります。Yボタン（またはスライダー）でテンポ変更！'));
+  const tempo=sideNode('input','');tempo.type='range';tempo.min=60;tempo.max=180;tempo.value=r.tempo;
+  const label=sideNode('p',r.tempo+' BPM');
+  tempo.oninput=()=>{r.tempo=Number(tempo.value);label.textContent=r.tempo+' BPM';r.base=audio.currentTime;r.last=-1};
+  b.append(label,tempo);
+  const grid=sideNode('div','');grid.className='composer-grid';
+  const icons=index===3?['👦','👧','🐕','🐿️']:index===5?['🍣','🐱','🐂','🥁']:['♪','♫','♬','♩'];
+  for(let i=0;i<64;i++){
+    const n=sideButton(cells[i]?icons[Math.floor(i/16)]:'·',()=>{cells[i]=!cells[i];n.textContent=cells[i]?icons[Math.floor(i/16)]:'·';n.classList.toggle('lit',cells[i])});
+    n.id='composer-'+i;n.classList.toggle('lit',cells[i]);grid.append(n);
+  }
+  b.append(grid,sideButton('▶ 再生 ／ ■ 停止',()=>{r.playing=!r.playing;r.base=audio.currentTime+.1;r.last=-1}),sideButton('全部消す',()=>{cells.fill(false);for(let i=0;i<64;i++){$('#composer-'+i).textContent='·';$('#composer-'+i).classList.remove('lit')}}),sideButton('💾 保存',()=>{try{rhythmStorage.setItem(id,JSON.stringify({cells,tempo:r.tempo}));label.textContent='保存しました · '+r.tempo+' BPM'}catch{}}),sideButton('おもちゃ一覧へ',()=>miniMenu('toys')));
+}
+function composerFrame(r){
+  if(!r.playing)return;
+  const step=Math.floor((audio.currentTime-r.base)/(60/r.tempo/2));
+  if(step<0||step<=r.last)return;
+  r.last=step;
+  for(let i=0;i<64;i++)$('#composer-'+i)?.classList.toggle('play-column',i%16===step%16);
+  for(let row=0;row<4;row++)if(r.cells[row*16+step%16])sideTone(r,audio.currentTime,(r.index===5?[130,196,262,392]:r.index===3?[220,330,550,660]:[262,330,392,523])[row],r.index===5?.09:.2,.09);
+}
+</script><script>
+// 進行キャラクター「音読ちゃん」（声 - 端末の合成音声 3段階設定：読み上げしない / 読み上げる！ / もっと読み上げちゃう!!）
+let narrationSettings={mode:'off',volume:75,rate:1.05};
+try{Object.assign(narrationSettings,JSON.parse(rhythmStorage.getItem('rhythm-narration-v1')||'{}'))}catch{}
+function narrate(text,detail=''){
+  if(narrationSettings.mode==='off'||!('speechSynthesis' in window)||typeof SpeechSynthesisUtterance==='undefined')return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text+(narrationSettings.mode==='verbose'?'。'+detail:''));
+  u.lang='ja-JP';u.volume=Number(narrationSettings.volume)/100;u.rate=Number(narrationSettings.rate);
+  window.speechSynthesis.speak(u);
+}
+function narrationInit(){
+  const s=$('#narration-mode'),v=$('#narration-volume'),r=$('#narration-rate');
+  s.value=narrationSettings.mode;v.value=narrationSettings.volume;r.value=narrationSettings.rate;
+  for(const n of [s,v,r])n.onchange=()=>{
+    narrationSettings={mode:s.value,volume:Number(v.value),rate:Number(r.value)};
+    try{rhythmStorage.setItem('rhythm-narration-v1',JSON.stringify(narrationSettings))}catch{}
+    window.speechSynthesis?.cancel();
+  };
+  $('#narration-test').onclick=()=>narrate('こんにちは！音読ちゃんです！','リズム天国ミラクルスターズへようこそ！リズムに乗って楽しく遊ぼうね！');
+  document.addEventListener('click',e=>{
+    const b=e.target.closest?.('button');if(!b||b.id==='narration-test')return;
+    if(b.closest?.('.controller,.side-keys,.drum-kit,.composer-grid,.memory-grid')||b.dataset.key)return;
+    narrate(b.textContent,screen==='game'?$('#instruction').textContent:screen==='mode'?$('#mode-title').textContent:'');
+  });
+}
+narrationInit();
+if(typeof MutationObserver!=="undefined"){
+  let readingTimer;
+  new MutationObserver(()=>{
+    clearTimeout(readingTimer);
+    readingTimer=setTimeout(()=>{
+      if(screen==='result')narrate('評価、'+$('#rank').textContent,$('#resultscore').textContent+'。'+$('#unlock-message').textContent);
+    },500);
+  }).observe(document.querySelector('main'),{subtree:true,characterData:true,childList:true});
+}
+</script><script>
+// ドラムレッスン（全14種・原作メダル解放条件準拠）
+const drumLessons=[
+  ['スネアドラム',0],['バスドラム',25],['シンバル',30],['フロアタム',35],['ハイタム',40],
+  ['ハイハット',45],['ツインペダル',50],['ボッサのリズム',55],['テクニカル（前編）',60],
+  ['テクニカル（後編）',65],['地獄のツインペダル（前編）',70],['地獄のツインペダル（後編）',75],
+  ['あっちの世界',80],['自由に演奏',0]
+];
+const drumParts={S:['スネア','Y / →',240,'square'],K:['バス','B / ↓',75,'sine'],C:['左シンバル','ZL / Q',1400,'sawtooth'],V:['右シンバル','ZR / E',1900,'sawtooth'],F:['フロアタム','A / J',130,'sine'],T:['ハイタム','X / I',300,'sine'],H:['ハイハット','L / U',2400,'square'],P:['右ペダル','R / O',85,'sine']};
+function drumAllowed(i){
+  if(unlockAllMode)return true;return sideUnlocked('drum')&&!!drumLessons[i]&&medalCount()>=drumLessons[i][1]}
+function drumMenu(){
+  sideStop();const b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('p',`🥁 ドラムレッスン全14ステージ · 所持メダル ${medalCount()}枚（スネアと自由演奏は初期解放、バスドラム25枚〜あっちの世界80枚）`));
+  drumLessons.forEach((m,i)=>b.append(sideButton(`${m[0]} · 必要メダル${m[1]}枚${sideRecords['drum:'+i]!==undefined?' · 最高 '+sideRecords['drum:'+i]+'点':''}`,()=>drumStart(i),!drumAllowed(i))));
+}
+function drumChart(index,slow=false){
+  const beat=60/(slow?68:90+index*5),notes=[],cues=[];
+  if(index===13)return{beat,notes,cues,end:Infinity};
+  const part=['S','K','C','F','T','H'][index];
+  for(let block=0;block<6;block++){
+    let pattern=[];
+    if(index<6)for(let n=0;n<4;n+=index===5?.5:1)pattern.push([n,part]);
+    else if(index===6||index===10||index===11){for(let n=0;n<4;n+=index>=10?.25:.5)pattern.push([n,Math.round(n*4)%4===0?'K':'P']);if(index>=10)pattern.push([1,'S'],[3,'S'],[0,'C'])}
+    else{for(let n=0;n<4;n+=index>=9?.5:1){pattern.push([n,n%2===0?'K':'S']);if(index>=8)pattern.push([n,'H'])}pattern.push([.75,'T'],[2.5,'F']);if(index===12)pattern.push([0,'C'],[3.5,'V'],[1.25,'P'])}
+    for(const [off,key] of pattern){cues.push({at:(2+block*8+off)*beat,key,done:false});notes.push({at:(6+block*8+off)*beat,key,result:null})}
+  }
+  notes.sort((a,b)=>a.at-b.at);return{beat,notes,cues,end:50*beat};
+}
+async function drumStart(index,slow=false){
+  if(!drumAllowed(index))return;
+  sideStop();const bus=await sideAudio();if(!bus)return;
+  sideRun={drums:true,index,slow,bus,base:audio.currentTime+1,...drumChart(index,slow),scheduled:new Set(),extra:0,hits:0};
+  const b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('h3','🥁 '+drumLessons[index][0]),sideNode('p','前半4拍は先生のお手本、後半4拍で同じドラムパーツを叩こう！'));
+  const stats=sideNode('p','準備');stats.id='side-stats';
+  const rail=sideNode('div','');rail.id='side-rail';rail.className='side-rail';
+  const feedback=sideNode('p','お手本を聴こう');feedback.id='side-feedback';
+  b.append(stats,rail,feedback);
+  const keys=sideNode('div','');keys.className='drum-kit';
+  for(const [key,p] of Object.entries(drumParts)){
+    const n=sideButton(p[0]+' ('+p[1]+')',()=>{});n.id='drum-'+key;
+    n.onpointerdown=e=>{e.preventDefault();drumPress(key)};
+    n.onclick=e=>{if(e.detail===0)drumPress(key)};
+    keys.append(n);
+  }
+  b.append(keys,sideButton(slow?'通常テンポで本番':'スロー練習',()=>drumStart(index,!slow)),sideButton('レッスン一覧へ',()=>drumMenu()));
+}
+function drumTone(r,key,time){
+  const p=drumParts[key];let o=audio.createOscillator(),g=audio.createGain();
+  o.type=p[3];o.frequency.setValueAtTime(p[2],time);o.frequency.exponentialRampToValueAtTime(p[2]*.45,time+.13);
+  g.gain.setValueAtTime(.12,time);g.gain.exponentialRampToValueAtTime(.0001,time+(key==='C'||key==='V'?.4:.15));
+  o.connect(g);g.connect(r.bus);o.start(time);o.stop(time+.45);
+}
+function drumPress(key){
+  const r=sideRun;if(!r?.drums||!drumParts[key])return;
+  drumTone(r,key,audio.currentTime);r.hits++;
+  $('#drum-'+key)?.classList.add('lit');setTimeout(()=>$('#drum-'+key)?.classList.remove('lit'),100);
+  if(r.index===13)return;
+  const now=audio.currentTime-r.base-+$('#offset').value/1000;
+  const e=r.notes.find(n=>n.result===null&&n.key===key&&Math.abs(n.at-now)<=.185);
+  if(!e){r.extra++;$('#side-feedback').textContent='空振り';return}
+  e.result=timingPoints(now-e.at);$('#side-feedback').textContent=e.result===100?'★ ぴったり！':'ナイスショット！';
+}
+function drumFinish(){
+  const r=sideRun;if(!r?.drums)return;
+  const score=finalScore(r.notes,r.extra);
+  if(!r.slow){sideRecords['drum:'+r.index]=Math.max(sideRecords['drum:'+r.index]||0,score);sideSave()}
+  sideStop();const b=$('#mode-body');b.replaceChildren();
+  b.append(sideNode('h3',drumLessons[r.index][0]+' リザルト'),sideNode('p',`${score} / 100点 · 成功 ${r.notes.filter(n=>n.result>0).length}/${r.notes.length} · 空振り ${r.extra}`),sideButton('リトライ',()=>drumStart(r.index,r.slow)),sideButton('一覧へ',drumMenu));
+}
+function drumFrame(r){
+  const t=audio.currentTime-r.base;
+  if(r.index===13){$('#side-stats').textContent='自由演奏セッション · '+r.hits+'打';return}
+  for(const q of r.cues)if(!q.done&&t+.1>=q.at){q.done=true;drumTone(r,q.key,Math.max(audio.currentTime,r.base+q.at))}
+  for(const n of r.notes)if(n.result===null&&t>n.at+.185)n.result=0;
+  $('#side-stats').textContent=`${t<0?'準備':Math.floor(Math.max(0,t/r.beat-2)/4)%2===0?'🥁 先生のお手本':'🥁 あなたの番！'} · ${finalScore(r.notes,r.extra)}点 · ${Math.round(60/r.beat)} BPM`;
+  const rail=$('#side-rail');if(rail){rail.replaceChildren();for(const n of r.notes){const x=25+(n.at-t)/r.beat*17;if(x<0||x>100)continue;const p=sideNode('span',n.key);p.style.left=x+'%';p.style.top=(Object.keys(drumParts).indexOf(n.key)%4*18)+'px';rail.append(p)}}
+  if(t>r.end)drumFinish();
+}
+const drumKeyboard={KeyY:'S',ArrowRight:'S',KeyB:'K',KeyK:'K',ArrowDown:'K',KeyQ:'C',KeyE:'V',KeyJ:'F',Space:'F',KeyI:'T',KeyU:'H',KeyO:'P'};
+document.addEventListener('keydown',e=>{if(!sideRun?.drums||e.repeat||['INPUT','SELECT'].includes(e.target.tagName))return;const key=drumKeyboard[e.code];if(key){e.preventDefault();drumPress(key)}});
+</script><script>
+const partyDescriptions=[
+  '次々と生えてくる毛をAや◀で順番に抜く協力ゲーム。2からは長押しの巻き毛、3からは葉っぱ隠しが追加。全員が同じリズムでミスするとゲームオーバー。',
+  '敵の声を聴いてAでビーム発射、硬い敵はA長押し強ビーム。2からはBでバリア反射。画面右の燃料ゲージを維持しよう（超ピッタリで大回復）。',
+  '飛んでくる矢をAで斬って殿様の籠（共通HP）を守る。2からは複数の矢と大砲が追加。HPが減ると桃忍者が放つハートの矢を超ピッタリで斬って回復！',
+  '順番にラケットを振ってモンスターを倒す。超ピッタリで炎の玉となり2発発射！1は王子、2はデイジー似の姫、3は王様を救出。',
+  'バイキンが発射されるリズムに合わせてフォークで刺す。4人で分担し、途中で担当位置が入れ替わる。アンカーの超ピッタリはどんなバイキンも一撃必殺！',
+  'レシーブ・トス・スパイク（2はジャンピングレシーブ、3はスパイクカット）を繋いで3点先取を目指す。順番が回ると読み上げOFFでも音読ちゃんが名前を呼ぶ！',
+  '自動移動するプレイヤーが中央に来る拍にAで矢を放ち、ブロックを割って先に爆弾を3個壊した人が勝利！',
+  '時計が3時ちょうどになった瞬間にAでおやつを取る！途中から時計が消えるので心の中でカウント。最も3時に近い人が勝利！',
+  '覆面レスラー4人がリズムに合わせて障害物をAジャンプで飛び越え、ゴールテープを競う徒競走！',
+  '絵柄ではなく音が鳴った回数（1回・2回・3回・5回）が同じカード2枚を揃える記憶ゲーム。モグラのダミーカードに注意！'
+];
+function stageGuideData(s){
+  const p=s.remix?null:profiles[s.base],pool=s.remix?sectionProfiles(s):[];
+  return{
+    title:s.id+' '+s.name,
+    rule:s.remix?`【${remixThemes[s.name]?.title||s.name}】全${pool.length}区間メドレー（${pool.join(' → ')}）`:p.help,
+    controls:s.remix?'各区間の画面上部に表示される合図・ボタンにリアルタイムで切り替え':p.cue,
+    cast:s.remix?'ステージ登場キャラクター全員':(p.cast||'ミラクルスターズ'),
+    song:s.remix?(remixThemes[s.name]?.title||'リミックス楽曲'):(p.song||'オリジナルステージBGM'),
+    unlock:catalog.indexOf(s)===0?'初期から解放':s.group===17?(s.id==='extra-1'?'リミックス6クリア':'リミックス14クリア'):catalog[catalog.indexOf(s)-1].name+'をクリア',
+    best:saves[s.id]?`${stageRank(saves[s.id].score,s.group)} (${saves[s.id].score}点)`:'未プレイ'
+  };
+}
+function guidePanel(title,lines,actions){
+  const panel=$('#guide-panel'),body=$('#guide-panel-body');body.replaceChildren();
+  const h=document.createElement('h2');h.textContent=title;body.append(h);
+  for(const [label,content] of lines){
+    const p=document.createElement('p'),b=document.createElement('b');
+    b.textContent=label+'：';p.append(b,document.createTextNode(content));body.append(p);
+  }
+  for(const [label,fn,disabled] of actions){
+    const b=document.createElement('button');b.textContent=label;b.disabled=!!disabled;
+    b.onclick=()=>{panel.hidden=true;fn()};body.append(b);
+  }
+  panel.hidden=false;narrate(title,lines.map(x=>x.join('。')).join('。'));
+}
+function showStageGuide(s){
+  const d=stageGuideData(s);
+  guidePanel(d.title,[
+    ['ゲーム内容・演出',d.rule],
+    ['操作・合図',d.controls],
+    ['登場キャラクター',d.cast],
+    ['使用楽曲',d.song],
+    ['評価・メダル',s.group>=9&&s.group<=16?'ウラ評価：ハイレベル(90点〜・メダル獲得) / (でも)平凡(65点〜) / やりなおし':'オモテ評価：最高(90点〜・メダル獲得) / (かなり)いいかんじ(65点〜) / ファイト！'],
+    ['解放条件',d.unlock],
+    ['自己ベスト',String(d.best)]
+  ],[['閉じる',()=>{}],['▶ このステージを遊ぶ',()=>select(s),!accessible(s)]]);
+}
+function showPartyGuide(i){
+  const coop=i<6;
+  guidePanel(partyGames[i][1]+' '+partyGames[i][0],[
+    ['ジャンル',coop?'4人協力ゲーム（難易度1〜3）':'4人対戦ゲーム（難易度1〜3）'],
+    ['ルール・原作ギミック',partyDescriptions[i]],
+    ['リング獲得条件','難易度1〜2は「最高」、難易度3は「ハイレベル」評価でクリアするとリングを1個獲得（全10種×3難易度＝最大30個）']
+  ],[['閉じる',()=>{}],['練習を遊ぶ',()=>partyStart(partyOptions(i,true))],['本番を遊ぶ',()=>partyStart(partyOptions(i,false))]]);
+}
+</script><script>
+const parasolColors=['#ef5a5c','#ee8fbb','#67ba84','#559cdc'];let parasolImages=Array(8).fill(null);
+function parasolState(t,i){const events=run?.events.filter(e=>profiles[e.name]?.kind==='umbrella'&&e.at<=t+(i===3?0:(3-i)*.18))||[];if(i===3)return run?.parasolOpen??true;const e=events.at(-1);return !e||e.key==='A'}
+function drawParasol(t,block=0){
+  ctx.fillStyle='#aebdcd';ctx.fillRect(0,0,1000,460);
+  for(let i=0;i<9;i++){
+    const x=i*122-20,h=125+(i%3)*28;ctx.fillStyle=['#7a889c','#8494a5','#9c9fa9'][i%3];ctx.fillRect(x,250-h,110,h);
+    for(let row=0;row<3;row++)for(let col=0;col<3;col++){ctx.fillStyle='#d9dfcba0';ctx.fillRect(x+12+col*29,260-h+row*32,16,20)}
+  }
+  ctx.fillStyle='#d5d7d3';ctx.fillRect(0,275,1000,90);ctx.fillStyle='#6a7584';ctx.fillRect(0,365,1000,95);
+  ctx.fillStyle='#e9dfc9';for(let i=0;i<7;i++)ctx.fillRect(i*160+15,415,95,7);
+  ctx.strokeStyle='#edf4fc80';ctx.lineWidth=2;
+  for(let i=0;i<75;i++){const x=(i*137+t*42)%1040,y=(i*59+t*220)%450;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-5,y+13);ctx.stroke()}
+  const showMustache=selected?.name==='リミックス7'&&block>=Math.floor((run?.sections||10)-2);
+  for(let i=0;i<4;i++){
+    const x=245+i*170,open=parasolState(t,i),anim=run?.parasolChanged&&i===3?Math.min(1,Math.max(0,(t-run.parasolChanged)/.15)):1,w=open?18+52*anim:70-52*anim,y=290+Math.sin(t*5+i)*3;
+    ellipse(x,345,55,8,'#253a4b33');
+    const image=parasolImages[i*2+(open?0:1)];
+    if(image)ctx.drawImage(image,x-76,y-140,152,195);
+    else{
+      artParasol(ctx,x,y,w,parasolColors[i],showMustache);
+    }
+    if(i===3){
+      text('YOU (カサパホーマー)',x,362,13,'#193d61');
+      if(run&&t-(run.parasolChanged||-10)<.35)text(open?'パッ！':'チョッ！',x,165,24);
+    }
+  }
+  if(showMustache)text('🥸 リミックス7終盤演出：カサパホーマーにチョビ髭が生えた！',500,120,20,'#193d61');
+}
+function parasolAssetSettings(){
+  const root=$('#parasol-assets');if(!root)return;
+  for(let i=0;i<8;i++){
+    const l=document.createElement('label');l.textContent=['赤','ピンク','緑','青'][Math.floor(i/2)]+' '+(i%2?'閉じる':'開く');
+    const input=document.createElement('input');input.type='file';input.accept='image/png,image/webp';
+    input.onchange=()=>{const f=input.files?.[0];if(!f||f.size>2*1024*1024)return;const reader=new FileReader();reader.onload=()=>{const img=new Image();img.onload=()=>{parasolImages[i]=img;$('#parasol-asset-status').textContent='画像を反映しました。'};img.src=reader.result};reader.readAsDataURL(f)};
+    l.append(input);root.append(l);
+  }
+}
+parasolAssetSettings();
+</script><script>
+const discSprites={};
+function drawDisc(t,block){
+  const events=run?.events.filter(e=>e.kind==='disc')||[],event=events.find(e=>e.at>=t-.65),beat=run?.beat||.5,approach=event?event.at-t:3,countBeats=selected?.name==='リミックス11'?3:6,start=event?event.at-countBeats*beat:0,flight=Math.max(0,Math.min(1,(t-start)/(countBeats*beat)));
+  const jump=run?.discJump===undefined?-10:t-run.discJump,height=jump>=0&&jump<.6?Math.sin(jump/.6*Math.PI)*92:0;
+  const caught=event?.result>0&&Math.abs(t-event.at)<.5,failed=event?.result===0&&t>event.at;
+  ctx.fillStyle=selected?.name==='リミックス11'?'#2b193d':'#b8e0ef';ctx.fillRect(0,0,1000,460);
+  ctx.fillStyle=selected?.name==='リミックス11'?'#4a2545':'#b8a3de';ctx.fillRect(0,310,1000,150);
+  ellipse(230,335,180,25,'#f4daca');ellipse(740,335,200,25,'#c8e9ce');
+  const zoom=run&&!run.practice&&block%3===2;
+  const noBob=run&&!run.practice&&block%4===3;
+  ctx.save();if(zoom){ctx.translate(-110,0);ctx.scale(1.45,1.2)}
+  const tr=discSprites.trainer;
+  if(tr)ctx.drawImage(tr,150,190,110,135);
+  else{
+    artTrainer(ctx,213,214);
+    text('シルバー姉さん',213,355,14,'#222');
+  }
+  ctx.restore();
+  const dogX=zoom?1080:745,dogY=300-height-(noBob?0:Math.abs(Math.sin(t/beat*Math.PI))*10),state=failed?'miss':caught?'catch':height>0?'jump':'idle',sprite=discSprites[state];
+  if(sprite)ctx.drawImage(sprite,dogX-65,dogY-90,130,120);
+  else{
+    artDog(ctx,dogX,dogY,state);
+  }
+  if(event&&approach<countBeats*beat&&approach>-.6){
+    let x=caught?dogX+56:260+flight*540,y=caught?dogY-23:225-Math.sin(flight*Math.PI)*75+flight*30;
+    ellipse(x,y,27,7,'#ef8fc0');ellipse(x,y-2,18,3,'#ffc3e0');
+  }
+  // 原作仕様：練習とリミックス1（またはガイドON時）では数字カウントを表示
+  if(run?.practice||selected?.name==='リミックス1'||(selected?.name==='フライングディスク2'&&block<3)||$('#guide').checked){
+    const q=run?.cues.filter(q=>q.kind==='disc'&&q.at<=t).at(-1);
+    text(caught?'キャッチ！':failed?'逃した！':q?.syllable||'口笛を聴こう',500,105,32,selected?.name==='リミックス11'?'#ffd166':'#294554');
+  }
+  if(zoom)text('🔍 主人ズームアップ中！犬が見えなくても7拍目を数えよう',500,150,20,'#d62828');
+}
+function discAssetSettings(){
+  const root=$('#disc-assets');if(!root)return;
+  for(const [key,label] of Object.entries({idle:'犬 待機',jump:'犬 ジャンプ',catch:'犬 キャッチ',miss:'犬 失敗',trainer:'トレーナー'})){
+    const l=document.createElement('label');l.textContent=label;
+    const n=document.createElement('input');n.type='file';n.accept='image/png,image/webp';
+    n.onchange=()=>{const f=n.files?.[0];if(!f||f.size>2097152)return;const reader=new FileReader();reader.onload=()=>{const img=new Image();img.onload=()=>discSprites[key]=img;img.src=reader.result};reader.readAsDataURL(f)};
+    l.append(n);root.append(l);
+  }
+}
+discAssetSettings();
+</script><script>
+function updateHUD(){
+  $('#hud-stars').textContent='⭐ '+season.stars+' · 🏅'+medalCount();
+  $('#hud-rank').textContent='ノリカンランク '+(Math.floor(season.xp/100)+1);
+  $('#hud-clock').textContent=new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date());
+}
+$('#system-start').onclick=()=>{if(screen==='title')$('#begin').onclick();else if(screen==='game'&&!run)start();else if(screen==='select'){const s=carouselList[carouselIndex];if(s&&accessible(s))select(s)}};
+$('#system-select').onclick=()=>{if(run)stop(true);if(sideRun)sideStop();openModeHub()};
+updateHUD();if(typeof setInterval!=='undefined')setInterval(updateHUD,1000);
+</script><script src="re.js?v=0.3.0-web.1"></script><script src="browser-settings.js?v=0.3.0-web.1"></script></body></html>
