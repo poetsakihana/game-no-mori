@@ -1,0 +1,10 @@
+# Preserve Jekyll 3.10 default exclusions and omit development sources from Pages.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - zatuplay-source
