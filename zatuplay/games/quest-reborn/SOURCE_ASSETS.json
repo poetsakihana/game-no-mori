@@ -1,6 +1,6 @@
 {
   "sourceVersion": "2.1.1",
-  "browserVersion": "2.1.1-web.1",
+  "browserVersion": "2.1.1-web.2",
   "catalogId": "quest-reborn",
   "apkSha256": "3f61c1fe7d2aa4351efed09af62dcc573d5ab99f658bbd1dfcf9192a872dc06e",
   "entry": "index.html",
@@ -29,5 +29,14 @@
     "android.css": "Android-only layout replaced by browser.css coarse-pointer additions.",
     "game.bundle.js": "Duplicate Android IIFE bundle; original modules and local Three.js are the browser entry."
   },
-  "notes": "Original core, catalog, models, art, style and Three.js are unchanged. No APK, signing keys or Android binaries are distributed."
+  "notes": "Original core, catalog, models, art, style and Three.js are unchanged. No APK, signing keys or Android binaries are distributed.",
+  "changesWeb2": [
+    "Canvas 2D fallback only when WebGL initialization fails; shared gameplay and save logic",
+    "Cardinal controls in top-down mode; original controls retained for 3D",
+    "HTML entry pins startup.js and game.js to web.2 cache keys; unchanged module dependencies retain their original URLs"
+  ],
+  "candidateSha256": {
+    "game.js": "86d2bea72a0db8615db14fe7875fe45bab9c5ce6c5da35c4c117a6af55272110",
+    "index.html": "a240fcf3234514ef5e38e8f775df587f0eb29c559866261e30654779e9706a34"
+  }
 }

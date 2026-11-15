@@ -37,7 +37,7 @@
       "note": "Chromeで1-1クリア、進行保存・1-2海中面の再開、陸海空の訓練起動を確認。APKとは自動同期しません。画面ボタン・音声・全250面の手動完走・スマホ実機は未検証。"
     },
     {
-      "id": "black-sensei-4",
+      "id": "drive-blacksensei4",
       "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/black-sensei-4/",
       "version": "1.0.0-web.1",
       "checkedAt": "2026-11-14T03:47:03Z",
@@ -366,7 +366,37 @@
       "version": "2.2.1-web.1",
       "checkedAt": "2026-11-14T14:00:22.153Z",
       "note": "第1作の2Dで冒頭・移動・メニュー・保存/再読込復帰をChromeで確認。3D・第2〜5作・全戦闘・スマホ実機は未検証。開始前にも検証範囲を表示。WebGL非対応では2D表示。原作の順次解放・内容を保持、APKとは保存が別です。"
+    },
+    {
+      "id": "collection-44",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/manzai-theater/",
+      "version": "1-web.1",
+      "checkedAt": "2026-11-15T13:41:18.086Z",
+      "note": "150名・9ジャンルの創作台本シミュレーター。本人の実演・声・監修ではありません。Chromeで字幕公演完走と加点、停止・ガチャ・大会、保存再読込、実JSON復元/取消、別タブ保護を確認。非表示時は再生停止。音の実聴取・実機・全組合せの実操作は未検証。APKとは別保存。",
+      "app": {
+        "name": "漫才＆コント劇場",
+        "subtitle": "150名のデータと創作台本の組み合わせ",
+        "description": "9ジャンルの創作台本を組み合わせる非公式の娯楽シミュレーター。本人の声や実際の発言ではありません。",
+        "category": "エンタメ",
+        "color": "violet",
+        "tags": [
+          "GAMESELECT",
+          "漫才",
+          "コント",
+          "字幕",
+          "創作台本",
+          "漫才 20354871"
+        ],
+        "order": 1044
+      }
+    },
+    {
+      "id": "quest-reborn",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/quest-reborn/?v=2.1.1-web.2",
+      "version": "2.1.1-web.2",
+      "checkedAt": "2026-11-15T13:41:18.086Z",
+      "note": "WebGL非対応では軽量2Dで起動。Chromeの通常操作で第1階の戦闘・守護者撃破・地下2階進行、Lv.2/150Gと設定の保存再読込、開始取消を確認。元の21階・100敵・21ボスを保持。GPU3D・スマホ実機・音の実聴取・全21階の手動完走は未検証。APKとは別保存。"
     }
   ],
-  "updatedAt": "2026-11-14T14:00:22.153Z"
+  "updatedAt": "2026-11-15T13:41:18.086Z"
 }

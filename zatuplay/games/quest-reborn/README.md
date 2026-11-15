@@ -1,3 +1,15 @@
+# 2026-11-15 改善候補 2.1.1-web.2（公開前）
+
+WebGL初期化失敗時のみCanvas 2Dの見下ろし表示へ切り替えます。元の3Dコード、21階、敵、戦闘、報酬、衝突、保存は共通です。軽量表示の上移動は W/↑、右移動は D/→。赤い予兆範囲、魔弾、敵HP、宝箱、門、階段、主人公の向き・防御・跳躍とダメージ数字を表示します。3DモデルをCanvasに再現したものではなく、識別しやすい簡易図形です。両方の描画が使えないときは開始せず既存保存を保護します。
+
+新しい外部依存や音声素材は追加していません。Three.js MIT通知と原本画像を維持し、元の6資産はSHA-256一致。タイトル・素材の第三者権利について新しい許諾証明を取得したという意味ではありません。
+
+Node 30テスト群成功（追加：軽量表示開始・移動・保存復帰・停止、全21階/全5予兆型/弾/ダメージ文字描画呼出し、両描画失敗）。模擬Canvasでのロジック検証です。実Chromeの描画・通常戦闘・B1→B2・保存再読込は親タスクでこれから確認。スマホ実機・実GPU・音声聴取・全階の手動攻略は未確認。公開やカタログ登録は未実行。
+
+以下は旧版の履歴であり、当時の公開件数は現在値ではありません。
+
+---
+
 # エアガイツ QUEST REBORN ブラウザ版
 
 版: **2.1.1-web.1**。カタログID: `quest-reborn`。
@@ -82,3 +94,10 @@ cd zatuplay-source && npm run build
 次はWebGL 2が利用できる環境で、通常戦闘→B1ボス撃破→B2解放→再読込後のゲーム進行再開を実操作確認してください。描画・画面操作・音声・実タブ切替も確認し、完了基準を満たしてからカタログへ登録します。スマホ実機、Safari/Firefox、全21階の手動攻略、音の実聴取も未確認です。
 
 この保留による公開済み件数の加算はありません。カタログは15作品、固定52作品の対象は7作品完了・残り45作品のままです。
+
+## 2026-11-15 integrated browser QA (web.2)
+Cloud Chrome with WebGL unavailable: Canvas2D started automatically. Through normal keyboard input, traversed B1, defeated regular enemies and guardian Gald, obtained the key, advanced to B2. Reload/Continue preserved B2, level 2, 150 gold and 7 potions. Settings/pause/title/new-game cancellation preserved the record. Real GPU rendering, mobile hardware, touch controls, audible sound and complete 21-floor playthrough remain unverified. Logic checks are not a substitute for those checks.
+
+### web.2 キャッシュ更新対策
+
+HTMLが直接読み込む `startup.js` と `game.js` に `?v=2.1.1-web.2` を付け、旧web.1のスクリプトキャッシュと区別します。startup.jsは起動監視のみでgame.jsをimportしません。変更していない依存モジュールのURLは維持します。HTML自体が古いキャッシュのままの場合は再読込が必要で、すべてのブラウザの更新時刻を保証するものではありません。

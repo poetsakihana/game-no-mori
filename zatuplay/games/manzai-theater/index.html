@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0f172a">
+  <title>漫才＆コント劇場 | ZatuPlay ブラウザ版</title>
+  <link rel="stylesheet" href="tailwind.css">
+  <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+  <style>
+    html, body { background:#020617; color:#f1f5f9; margin:0; }
+    .save-status, .backup-bar, .browser-nav { background:#0f172a; color:#f8fafc; padding:12px 16px; text-align:left; margin:0; line-height:1.6; }
+    .backup-bar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; border-bottom:1px solid #64748b; }
+    .backup-bar button, .backup-bar label, .browser-nav a { display:inline-flex; align-items:center; min-height:44px; padding:10px 14px; background:#1e293b; color:#f8fafc; border:1px solid #94a3b8; border-radius:8px; }
+    .backup-bar label { flex-wrap:wrap; gap:8px; }
+    .backup-bar input { max-width:100%; color:#f8fafc; min-height:44px; }
+    .backup-bar input::file-selector-button { min-height:44px; padding:8px 12px; color:#0f172a; background:#e2e8f0; border:0; margin-right:8px; }
+    .backup-bar button:focus-visible, .browser-nav a:focus-visible, .backup-bar input:focus-visible { outline:3px solid #fbbf24; outline-offset:3px; }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+      user-select: none;
+    }
+    .spotlight {
+      background: radial-gradient(circle at 50% 30%, rgba(255, 255, 230, 0.45) 0%, rgba(255, 255, 200, 0.15) 50%, transparent 75%);
+    }
+    .stage-floor {
+      background: linear-gradient(to bottom, #78350f, #451a03);
+      box-shadow: inset 0 10px 20px rgba(0,0,0,0.5);
+    }
+    .curtain-bg {
+      background: linear-gradient(90deg, #991b1b 0%, #b91c1c 25%, #7f1d1d 50%, #b91c1c 75%, #991b1b 100%);
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.02); }
+    }
+    @keyframes speakBounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06) rotate(1deg); }
+    }
+    @keyframes laughFloat {
+      0% { opacity: 0; transform: translateY(10px) scale(0.6); }
+      30% { opacity: 1; transform: translateY(-15px) scale(1.2); }
+      100% { opacity: 0; transform: translateY(-40px) scale(1.4); }
+    }
+    .speaking {
+      animation: speakBounce 0.35s infinite ease-in-out;
+    }
+    .laugh-pop {
+      animation: laughFloat 1.2s forwards ease-out;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.2);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.25);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-black"><nav class="browser-nav"><a href="../../browser/">← ZatuPlayの一覧へ戻る</a></nav><aside style="padding:12px;background:#172554;color:white">ブラウザ版 v1-web.1。創作台本とブラウザ合成音声を使う非公式シミュレーターです。本人の声・実際の発言・出演・監修を示しません。音声機能はOSにより外部通信する場合があります。実機動作は未検証です。</aside>
+
+  <!-- TOP HEADER & STATUS BAR -->
+  <header class="bg-slate-900/90 backdrop-blur border-b border-amber-500/20 sticky top-0 z-50 px-4 py-2.5 shadow-lg">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-red-500 flex items-center justify-center text-white shadow-md shadow-amber-500/30 text-xl font-black">
+          <i class="fa-solid fa-microphone-lines"></i>
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-black tracking-tight flex items-center gap-2">
+            <span>創作台本 漫才＆コント劇場</span>
+            <span class="text-xs bg-red-600/80 text-white font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">台本素材の組み合わせ</span>
+          </h1>
+          <p class="text-xs text-slate-400">出演者データ150名 × 創作台本の組み合わせ × 合成音声＆合成効果音</p>
+        </div>
+      </div>
+
+      <!-- User Stats & Quick Toggles -->
+      <div class="flex items-center gap-3">
+        <!-- Points Pill -->
+        <div class="flex items-center bg-slate-800 border border-amber-500/30 rounded-full px-3.5 py-1 shadow-inner">
+          <i class="fa-solid fa-coins text-amber-400 mr-1.5 text-sm"></i>
+          <span class="text-xs text-slate-400 mr-1">笑いpt:</span>
+          <span id="userPoints" class="font-black text-amber-300 text-sm tracking-wide">500</span>
+        </div>
+
+        <!-- Collection Pill -->
+        <div class="flex items-center bg-slate-800 border border-slate-700 rounded-full px-3 py-1 text-xs">
+          <i class="fa-solid fa-id-card text-emerald-400 mr-1.5"></i>
+          <span class="text-slate-400 mr-1">解放:</span>
+          <span id="unlockedCount" class="font-black text-white">1</span>
+          <span class="text-slate-500">/150</span>
+        </div>
+
+        <!-- Audio Voice Toggle -->
+        <button id="voiceToggleBtn" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 transition">
+          <i id="voiceIcon" class="fa-solid fa-volume-high text-amber-400"></i>
+          <span id="voiceStatus">音声 ON</span>
+        </button>
+
+        <!-- Sound FX Toggle -->
+        <button id="sfxToggleBtn" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-xs px-3 py-1.5 rounded-full border border-slate-700 transition">
+          <i id="sfxIcon" class="fa-solid fa-bell text-emerald-400"></i>
+          <span id="sfxStatus">効果音 ON</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="bg-slate-900 border-b border-slate-800 px-4">
+    <div class="max-w-7xl mx-auto flex space-x-2 sm:space-x-4 overflow-x-auto py-2" id="navTabs">
+      <button data-tab="theater" class="nav-btn active flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition bg-amber-500 text-black shadow-md shadow-amber-500/20">
+        <i class="fa-solid fa-masks-theater"></i> 劇場ライブ
+      </button>
+      <button data-tab="gacha" class="nav-btn flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition">
+        <i class="fa-solid fa-dice text-amber-400"></i> 芸人ガチャ
+      </button>
+      <button data-tab="zukan" class="nav-btn flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition">
+        <i class="fa-solid fa-book-open text-blue-400"></i> 芸人名鑑 (150名)
+      </button>
+      <button data-tab="tournament" class="nav-btn flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition">
+        <i class="fa-solid fa-trophy text-yellow-400"></i> お笑いGP杯
+      </button>
+      <button data-tab="autoplay" class="nav-btn flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition">
+        <i class="fa-solid fa-headphones text-purple-400"></i> 聞き流しラジオ
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN VIEW CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-5 flex flex-col">
+
+    <!-- 1. THEATER TAB -->
+    <section id="tab-theater" class="tab-content flex-1 flex flex-col gap-4">
+      
+      <!-- Stage Section -->
+      <div class="relative bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col" style="min-height: 480px;">
+        
+        <!-- Curtains & Backdrop -->
+        <div class="absolute inset-x-0 top-0 h-14 curtain-bg border-b-4 border-amber-600/40 z-10 flex items-center justify-center">
+          <div class="text-amber-300/80 font-black tracking-widest text-xs uppercase px-4 py-0.5 rounded bg-black/40 border border-amber-400/30">
+            ★ 笑撃 GRAND THEATER LIVE ★
+          </div>
+        </div>
+
+        <!-- Spotlight & Stage Environment -->
+        <div class="relative flex-1 spotlight flex flex-col justify-end pt-16 pb-28 px-4 sm:px-8">
+          
+          <!-- Audience Laughter Particles Anchor -->
+          <div id="laughContainer" class="absolute inset-0 pointer-events-none z-30 overflow-hidden"></div>
+
+          <!-- Standing Sanpachi Microphone (Classic Manzai Center Mic) -->
+          <div class="absolute bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none z-20 opacity-80">
+            <!-- Mic head -->
+            <div class="w-5 h-7 rounded-full bg-gradient-to-b from-slate-200 to-slate-400 border border-slate-600 shadow-sm flex items-center justify-center">
+              <div class="w-3 h-4 rounded-sm bg-slate-800/60"></div>
+            </div>
+            <!-- Neck & screw -->
+            <div class="w-1.5 h-4 bg-slate-500"></div>
+            <div class="w-3 h-1.5 bg-amber-600 rounded-sm"></div>
+            <!-- Stand pole -->
+            <div class="w-1.5 h-20 bg-gradient-to-r from-slate-400 via-slate-200 to-slate-500"></div>
+            <!-- Base -->
+            <div class="w-14 h-2.5 bg-slate-800 rounded-full border border-slate-600 shadow-lg"></div>
+          </div>
+
+          <!-- Speech Bubble Overlay -->
+          <div id="dialogueBox" class="relative z-30 max-w-2xl mx-auto w-full mb-6 transition-all duration-300">
+            <div class="bg-slate-900/95 border-2 border-amber-400/80 rounded-2xl p-4 shadow-2xl backdrop-blur relative">
+              <!-- Speaker Tag -->
+              <div class="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-slate-700/60">
+                <div class="flex items-center gap-2">
+                  <span id="speakerBadge" class="text-xs font-black px-2.5 py-0.5 rounded-full bg-amber-500 text-black">
+                    待機中
+                  </span>
+                  <span id="speakerRole" class="text-xs text-slate-400 font-semibold"></span>
+                </div>
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                  <span id="routineTopic" class="bg-slate-800 px-2 py-0.5 rounded text-amber-300">ネタ準備中</span>
+                  <span id="stepCounter" class="font-mono">0 / 0</span>
+                </div>
+              </div>
+              <!-- Speech Text -->
+              <p id="speechText" class="text-base sm:text-xl font-bold text-white min-h-[3.5rem] flex items-center leading-relaxed">
+                「ネタを始める」ボタンを押すと、創作台本を組み合わせた漫才・コントが始まります！
+              </p>
+              <!-- Bubble Pointer Tail -->
+              <div id="bubbleTail" class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[12px] border-t-amber-400/90 transition-all"></div>
+            </div>
+          </div>
+
+          <!-- Comedians on Stage (Avatars) -->
+          <div id="stagePerformers" class="relative z-20 flex justify-center items-end gap-6 sm:gap-14 min-h-[170px]">
+            <!-- Performer slots rendered via JS -->
+          </div>
+
+        </div>
+
+        <!-- Wooden Stage Floor -->
+        <div class="stage-floor h-24 border-t-4 border-amber-900/80 px-4 flex items-center justify-between text-xs text-amber-200/60 z-20">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>客席稼働中: 満員御礼 (800席)</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span id="stageEffectTag" class="text-amber-400 font-bold"></span>
+            <span id="applaudState" class="hidden text-amber-300 animate-bounce font-black text-sm">
+              <i class="fa-solid fa-hands-clapping"></i> 拍手喝采！！
+            </span>
+          </div>
+        </div>
+
+        <!-- Audience Silhouette Bar at Bottom -->
+        <div class="absolute inset-x-0 bottom-0 h-8 bg-black/80 flex justify-around items-end px-2 pointer-events-none z-30">
+          <div class="w-8 h-5 bg-black rounded-t-full opacity-60"></div>
+          <div class="w-10 h-6 bg-black rounded-t-full opacity-70"></div>
+          <div class="w-7 h-4 bg-black rounded-t-full opacity-50"></div>
+          <div class="w-9 h-7 bg-black rounded-t-full opacity-80"></div>
+          <div class="w-11 h-6 bg-black rounded-t-full opacity-75"></div>
+          <div class="w-8 h-5 bg-black rounded-t-full opacity-60"></div>
+          <div class="w-10 h-7 bg-black rounded-t-full opacity-70"></div>
+        </div>
+      </div>
+
+      <!-- Controls & Roster Configuration Panel -->
+      <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 flex flex-col gap-4 shadow-lg">
+        
+        <!-- Upper Row: Formation & Mode Selector -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
+          
+          <!-- Formation Type (1 / 2 / 3) -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-slate-400">出演形式:</span>
+            <div class="inline-flex rounded-lg bg-slate-800 p-0.5 border border-slate-700">
+              <button id="btnPin" class="formation-btn active px-3 py-1.5 rounded-md text-xs font-bold transition bg-amber-500 text-black">
+                ピン (1人)
+              </button>
+              <button id="btnCombi" class="formation-btn px-3 py-1.5 rounded-md text-xs font-bold text-slate-300 hover:text-white transition">
+                コンビ (2人)
+              </button>
+              <button id="btnTrio" class="formation-btn px-3 py-1.5 rounded-md text-xs font-bold text-slate-300 hover:text-white transition">
+                トリオ (3人)
+              </button>
+            </div>
+          </div>
+
+          <!-- Routine Genre / Bug Mode Selection -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-slate-400">ネタジャンル:</span>
+            <select id="genreSelect" class="bg-slate-800 border border-slate-700 rounded-lg text-xs px-3 py-1.5 text-white focus:outline-none focus:border-amber-500">
+              <option value="random"> ランダムおまかせ (台本素材の組み合わせ)</option>
+              <option value="conbini"> コンビニの深夜バイト (日常)</option>
+              <option value="hospital"> トンデモ問診票 (医療)</option>
+              <option value="sf"> 時空警察と宇宙人 (SF)</option>
+              <option value="suspense">️ 密室殺人未遂の事情聴取 (サスペンス)</option>
+              <option value="sengoku">⚔️ 戦国武将の合戦会議 (歴史)</option>
+              <option value="restaurant"> 注文が絶対に届かないファミレス</option>
+              <option value="quiz">❓ 正解が消滅したウルトラクイズ</option>
+              <option value="isekai">️ 異世界転生と魔王の暇つぶし</option>
+              <option value="bug"> 自立CPU思考停止＆概念崩壊 (超バグ)</option>
+            </select>
+          </div>
+
+          <!-- Quick Random Team Button -->
+          <button id="randomTeamBtn" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700 transition">
+            <i class="fa-solid fa-shuffle"></i> 解放芸人からランダム編成
+          </button>
+        </div>
+
+        <!-- Middle Row: Performer Slots Chooser -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="slotPickerContainer">
+          <!-- Slot 1 -->
+          <div class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-3 flex flex-col gap-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-amber-400 flex items-center gap-1.5">
+                <i class="fa-solid fa-user"></i> 1人目
+              </span>
+              <span id="slot1Desc" class="text-slate-400 text-[11px]"></span>
+            </div>
+            <select id="slot1Select" class="w-full bg-slate-900 border border-slate-700 rounded-lg text-xs p-2 text-white font-medium focus:outline-none focus:border-amber-500">
+              <!-- Populated via JS -->
+            </select>
+          </div>
+
+          <!-- Slot 2 -->
+          <div id="slot2Wrapper" class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-3 flex flex-col gap-2 opacity-50 pointer-events-none">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-cyan-400 flex items-center gap-1.5">
+                <i class="fa-solid fa-user-group"></i> 2人目 (相方)
+              </span>
+              <span id="slot2Desc" class="text-slate-400 text-[11px]"></span>
+            </div>
+            <select id="slot2Select" class="w-full bg-slate-900 border border-slate-700 rounded-lg text-xs p-2 text-white font-medium focus:outline-none focus:border-amber-500">
+              <!-- Populated via JS -->
+            </select>
+          </div>
+
+          <!-- Slot 3 -->
+          <div id="slot3Wrapper" class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-3 flex flex-col gap-2 opacity-50 pointer-events-none">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-purple-400 flex items-center gap-1.5">
+                <i class="fa-solid fa-users"></i> 3人目 (トリオ)
+              </span>
+              <span id="slot3Desc" class="text-slate-400 text-[11px]"></span>
+            </div>
+            <select id="slot3Select" class="w-full bg-slate-900 border border-slate-700 rounded-lg text-xs p-2 text-white font-medium focus:outline-none focus:border-amber-500">
+              <!-- Populated via JS -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Bug Indicator Warning -->
+        <div id="bugWarningBox" class="hidden bg-red-950/40 border border-red-500/40 rounded-lg px-3 py-2 text-xs text-red-300 flex items-center gap-2">
+          <i class="fa-solid fa-triangle-exclamation text-red-400"></i>
+          <span id="bugWarningText">同キャラ重複を検知！時空崩壊バグ漫才モードが発動します。</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+          <div class="flex items-center gap-2">
+            <button id="startPlayBtn" class="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-black px-6 py-2.5 rounded-xl shadow-lg shadow-amber-500/20 transition transform active:scale-95 text-sm sm:text-base">
+              <i class="fa-solid fa-play"></i> ネタ開演！
+            </button>
+            <button id="pausePlayBtn" class="hidden flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2.5 rounded-xl border border-slate-700 transition text-sm">
+              <i class="fa-solid fa-pause"></i> 一時停止
+            </button>
+            <button id="skipStepBtn" class="hidden flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-4 py-2.5 rounded-xl border border-slate-700 transition text-sm">
+              <i class="fa-solid fa-forward-step"></i> 次のセリフ
+            </button>
+            <button id="stopPlayBtn" class="hidden flex items-center gap-2 bg-red-950/80 hover:bg-red-900 text-red-200 font-bold px-4 py-2.5 rounded-xl border border-red-800 transition text-sm">
+              <i class="fa-solid fa-stop"></i> 終了
+            </button>
+          </div>
+
+          <div class="text-xs text-slate-400 flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-amber-400"></i>
+            <span>ネタを最後まで観ると <strong class="text-amber-300">+200pt</strong> 獲得！</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 2. GACHA TAB -->
+    <section id="tab-gacha" class="tab-content hidden flex-1 flex flex-col gap-6 max-w-4xl mx-auto w-full">
+      
+      <!-- Gacha Banner Card -->
+      <div class="relative bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900 rounded-3xl p-6 sm:p-8 border-2 border-amber-400/50 shadow-2xl overflow-hidden flex flex-col items-center text-center">
+        <!-- Floating spark decorations -->
+        <div class="absolute -top-12 -left-12 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <span class="bg-amber-500 text-black text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-wider mb-3 shadow">
+          ★ お笑い芸人 発掘スカウトガチャ ★
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight mb-2">
+          全150人の伝説・人気芸人を集めろ！
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl mb-6">
+          漫才やコントを鑑賞して貯めた「笑いポイント」で芸人をスカウト！<br>
+          手に入れた芸人は劇場ライブや名鑑、GP杯トーナメントですぐに使えます。
+        </p>
+
+        <!-- Current Points Pill -->
+        <div class="bg-slate-900/80 border border-amber-500/40 rounded-2xl px-6 py-2.5 mb-8 flex items-center gap-3">
+          <i class="fa-solid fa-coins text-amber-400 text-xl"></i>
+          <span class="text-xs text-slate-400">所持ポイント:</span>
+          <span id="gachaPointsDisplay" class="text-2xl font-black text-amber-300 font-mono">500</span>
+          <span class="text-xs text-slate-400">pt</span>
+        </div>
+
+        <!-- Gacha Buttons -->
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-8 w-full max-w-md">
+          <!-- 1 Pull -->
+          <button id="gachaSingleBtn" class="flex-1 min-w-[150px] bg-gradient-to-b from-amber-400 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-black p-4 rounded-2xl font-black shadow-lg shadow-amber-500/30 transition transform active:scale-95 flex flex-col items-center gap-1 border-2 border-amber-300">
+            <span class="text-base sm:text-lg"><i class="fa-solid fa-gem mr-1"></i> 1回引く</span>
+            <span class="text-xs bg-black/20 px-3 py-0.5 rounded-full">100 pt</span>
+          </button>
+
+          <!-- 10 Pulls -->
+          <button id="gachaMultiBtn" class="flex-1 min-w-[150px] bg-gradient-to-b from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 text-white p-4 rounded-2xl font-black shadow-lg shadow-purple-500/30 transition transform active:scale-95 flex flex-col items-center gap-1 border-2 border-purple-300">
+            <span class="text-base sm:text-lg"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i> 10連スカウト</span>
+            <span class="text-xs bg-black/30 px-3 py-0.5 rounded-full">1000 pt (未所持優先)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Gacha Result Display Area -->
+      <div id="gachaResultArea" class="hidden bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col gap-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h3 class="font-black text-lg text-white flex items-center gap-2">
+            <i class="fa-solid fa-sparkles text-amber-400"></i> スカウト結果
+          </h3>
+          <button id="closeGachaResultBtn" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+            結果を閉じる
+          </button>
+        </div>
+        <div id="gachaCardsGrid" class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+          <!-- Result Cards -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 3. ZUKAN (ENCYCLOPEDIA) TAB -->
+    <section id="tab-zukan" class="tab-content hidden flex-1 flex flex-col gap-4">
+      
+      <!-- Filter and Search Header -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4 shadow-lg">
+        <div>
+          <h2 class="text-lg font-black text-white flex items-center gap-2">
+            <i class="fa-solid fa-book-open text-blue-400"></i>
+            <span>お笑い芸人名鑑 (全150名)</span>
+          </h2>
+          <p class="text-xs text-slate-400">全150名の性格・ボケ/ツッコミ属性・決め台詞・音声パラメータ一覧</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Ownership Filter -->
+          <select id="zukanFilterOwnership" class="bg-slate-800 border border-slate-700 rounded-lg text-xs px-3 py-2 text-white">
+            <option value="all">すべて表示</option>
+            <option value="unlocked">解放済みのみ</option>
+            <option value="locked">未解放のみ</option>
+          </select>
+
+          <!-- Role Filter -->
+          <select id="zukanFilterRole" class="bg-slate-800 border border-slate-700 rounded-lg text-xs px-3 py-2 text-white">
+            <option value="all">全役割 (ボケ＆ツッコミ)</option>
+            <option value="boke">ボケ担当</option>
+            <option value="tsukkomi">ツッコミ担当</option>
+          </select>
+
+          <!-- Search Input -->
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-xs text-slate-500"></i>
+            <input type="text" id="zukanSearchInput" placeholder="芸人名やコンビ名で検索..." class="bg-slate-800 border border-slate-700 rounded-lg text-xs pl-8 pr-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 w-44 sm:w-56">
+          </div>
+        </div>
+      </div>
+
+      <!-- Comedians Grid -->
+      <div id="zukanGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 overflow-y-auto max-h-[680px] p-1">
+        <!-- Rendered via JS -->
+      </div>
+
+    </section>
+
+    <!-- 4. TOURNAMENT (GP) TAB -->
+    <section id="tab-tournament" class="tab-content hidden flex-1 flex flex-col gap-6 max-w-5xl mx-auto w-full">
+      
+      <!-- Tournament Header -->
+      <div class="bg-gradient-to-r from-amber-900/60 via-slate-900 to-amber-950/60 border-2 border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <span class="bg-yellow-500 text-black text-xs font-black px-3 py-0.5 rounded-full uppercase tracking-wider mb-2 inline-block">
+            M-1 & KOC 頂上決戦
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-white">笑撃！全日本お笑いグランプリ杯</h2>
+          <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
+            あなたの解放した芸人からピン・コンビ・トリオを結成してエントリー！<br>
+            大会は乱数によるシミュレーションです。実際の台本をAIが評価する機能ではありません。優勝賞金は <strong>2,000 pt</strong>！
+          </p>
+        </div>
+
+        <button id="startTournamentBtn" class="bg-gradient-to-b from-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-black font-black px-8 py-4 rounded-2xl shadow-xl shadow-amber-500/30 text-base sm:text-lg transition transform active:scale-95 shrink-0 flex items-center gap-2">
+          <i class="fa-solid fa-trophy"></i> グランプリ開幕！
+        </button>
+      </div>
+
+      <!-- Tournament Progress View -->
+      <div id="tournamentBracket" class="bg-slate-900 border border-slate-800 rounded-3xl p-6 flex flex-col gap-6">
+        <h3 class="font-black text-white text-base flex items-center gap-2 border-b border-slate-800 pb-3">
+          <i class="fa-solid fa-sitemap text-amber-400"></i> トーナメント対戦表 (全8組の激突)
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Round 1 -->
+          <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/60 flex flex-col gap-3">
+            <h4 class="text-xs font-bold text-amber-400 uppercase tracking-wider border-b border-slate-700 pb-1">
+              第1回戦 (準々決勝)
+            </h4>
+            <div id="tRound1Matches" class="flex flex-col gap-2 text-xs">
+              <!-- JS Populated -->
+            </div>
+          </div>
+
+          <!-- Semi Final -->
+          <div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/60 flex flex-col gap-3">
+            <h4 class="text-xs font-bold text-cyan-400 uppercase tracking-wider border-b border-slate-700 pb-1">
+              準決勝 (BEST 4)
+            </h4>
+            <div id="tRound2Matches" class="flex flex-col gap-2 text-xs">
+              <!-- JS Populated -->
+            </div>
+          </div>
+
+          <!-- Final -->
+          <div class="bg-slate-800/50 rounded-xl p-4 border border-amber-500/40 flex flex-col gap-3">
+            <h4 class="text-xs font-bold text-yellow-300 uppercase tracking-wider border-b border-amber-500/30 pb-1">
+              決勝戦 (FINAL)
+            </h4>
+            <div id="tFinalMatch" class="flex flex-col gap-2 text-xs">
+              <!-- JS Populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Battle Log & Judges Scoring -->
+        <div id="tournamentLiveLog" class="bg-slate-950 rounded-xl p-4 border border-slate-800 text-xs min-h-[140px] flex flex-col justify-center items-center text-slate-400">
+          「グランプリ開幕！」ボタンを押すと、乱数による対戦シミュレーションが始まります。
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 5. AUTOPLAY (RADIO) TAB -->
+    <section id="tab-autoplay" class="tab-content hidden flex-1 flex flex-col gap-6 max-w-3xl mx-auto w-full">
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center gap-4">
+        <div class="w-16 h-16 rounded-2xl bg-purple-600/30 border border-purple-500/50 flex items-center justify-center text-purple-400 text-2xl mb-2">
+          <i class="fa-solid fa-radio animate-pulse"></i>
+        </div>
+        <h2 class="text-2xl font-black text-white">解放芸人ノンストップ聞き流しラジオ</h2>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-md">
+          あなたの入手した芸人だけで自動的にピン・コンビ・トリオを無限にシャッフル編成！<br>
+          作業用BGMとして漫才・コント・効果音がエンドレスに流れます。
+        </p>
+
+        <!-- Radio Stats -->
+        <div class="flex items-center gap-6 bg-slate-800/80 border border-slate-700 px-6 py-3 rounded-2xl text-xs">
+          <div>
+            <span class="text-slate-400 block">対象芸人数</span>
+            <strong id="autoPlayAvailableCount" class="text-amber-400 text-base font-black">1名</strong>
+          </div>
+          <div class="border-l border-slate-700 pl-6">
+            <span class="text-slate-400 block">通算聴取ネタ</span>
+            <strong id="autoPlayCount" class="text-purple-400 text-base font-black">0本</strong>
+          </div>
+          <div class="border-l border-slate-700 pl-6">
+            <span class="text-slate-400 block">獲得笑いpt</span>
+            <strong id="autoPlayEarned" class="text-emerald-400 text-base font-black">+0 pt</strong>
+          </div>
+        </div>
+
+        <!-- Big Toggle Button -->
+        <button id="autoPlayToggleBtn" class="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 text-white font-black px-8 py-4 rounded-2xl shadow-xl shadow-purple-500/20 text-base transition transform active:scale-95 flex items-center gap-3">
+          <i class="fa-solid fa-play text-lg"></i> 聞き流しオート再生を開始
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- COMEDIAN DETAIL MODAL -->
+  <div id="comedianModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border-2 border-amber-500/60 rounded-3xl max-w-md w-full p-6 shadow-2xl relative flex flex-col gap-4">
+      <button id="closeModalBtn" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex items-center gap-4">
+        <div id="modalAvatar" class="w-16 h-16 rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-lg"></div>
+        <div>
+          <span id="modalRoleBadge" class="text-xs font-bold px-2 py-0.5 rounded-full mb-1 inline-block"></span>
+          <h3 id="modalName" class="text-xl font-black text-white"></h3>
+          <p id="modalGroup" class="text-xs text-slate-400"></p>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/80 rounded-xl p-3 text-xs flex flex-col gap-2 border border-slate-700">
+        <div><span class="text-slate-400">芸風タイプ:</span> <strong id="modalType" class="text-slate-200"></strong></div>
+        <div><span class="text-slate-400">代表的なボケ/ツッコミ:</span> <strong id="modalCatch" class="text-amber-300 font-bold"></strong></div>
+        <div class="flex items-center gap-4 pt-1">
+          <div><span class="text-slate-400">音声ピッチ:</span> <strong id="modalPitch" class="text-white"></strong></div>
+          <div><span class="text-slate-400">発話速度:</span> <strong id="modalRate" class="text-white"></strong></div>
+        </div>
+      </div>
+
+      <div class="flex gap-2 pt-2">
+        <button id="modalVoiceSampleBtn" class="flex-1 bg-amber-500 hover:bg-amber-400 text-black font-bold py-2 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow">
+          <i class="fa-solid fa-volume-high"></i> 音声サンプル試聴
+        </button>
+        <button id="modalSetLeadBtn" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-bold py-2 rounded-xl text-xs transition border border-slate-700">
+          劇場メインにセット
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastBox" class="fixed bottom-5 right-5 z-50 pointer-events-none flex flex-col gap-2"></div>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // --- 1. COMEDIANS MASTER DATA (150 PERSONS) ---
+    const COMEDIANS = [{"id": 1, "name": "松本人志", "group": "ダウンタウン", "role": "boke", "type": "シュール・鬼才", "pitch": 0.85, "rate": 0.95, "catch": "遺憾なく発揮したい", "color": "#fbbf24"}, {"id": 2, "name": "浜田雅功", "group": "ダウンタウン", "role": "tsukkomi", "type": "どつき・大声", "pitch": 1.15, "rate": 1.15, "catch": "結果発表ーー！", "color": "#ef4444"}, {"id": 3, "name": "伊達みきお", "group": "サンドウィッチマン", "role": "tsukkomi", "type": "強面・的確", "pitch": 0.9, "rate": 1.05, "catch": "ちょっと何言ってるか分からない", "color": "#f97316"}, {"id": 4, "name": "富澤たけし", "group": "サンドウィッチマン", "role": "boke", "type": "低音・飄々", "pitch": 0.7, "rate": 0.9, "catch": "もういいぜ！", "color": "#64748b"}, {"id": 5, "name": "大悟", "group": "千鳥", "role": "boke", "type": "破天荒・酒癖", "pitch": 0.8, "rate": 0.9, "catch": "シンプルに口が臭い", "color": "#10b981"}, {"id": 6, "name": "ノブ", "group": "千鳥", "role": "tsukkomi", "type": "岡山弁・嘆き", "pitch": 1.3, "rate": 1.1, "catch": "クセがすごい！", "color": "#06b6d4"}, {"id": 7, "name": "若林正恭", "group": "オードリー", "role": "tsukkomi", "type": "分析・早口", "pitch": 1.05, "rate": 1.2, "catch": "お前マジで何なんだよ！", "color": "#3b82f6"}, {"id": 8, "name": "春日俊彰", "group": "オードリー", "role": "boke", "type": "胸張り・筋肉", "pitch": 0.75, "rate": 0.85, "catch": "トゥース！アパー！", "color": "#ec4899"}, {"id": 9, "name": "粗品", "group": "霜降り明星", "role": "tsukkomi", "type": "片手ツッコミ・鋭利", "pitch": 1.25, "rate": 1.25, "catch": "ただの○○やないか！", "color": "#8b5cf6"}, {"id": 10, "name": "せいや", "group": "霜降り明星", "role": "boke", "type": "形態模写・高速", "pitch": 1.2, "rate": 1.3, "catch": "情緒どうなってんねん！", "color": "#f59e0b"}, {"id": 11, "name": "塙宣之", "group": "ナイツ", "role": "boke", "type": "言い間違い・淡々", "pitch": 0.9, "rate": 1.0, "catch": "ヤホーで調べました", "color": "#14b8a6"}, {"id": 12, "name": "土屋伸之", "group": "ナイツ", "role": "tsukkomi", "type": "優等生・整流", "pitch": 1.05, "rate": 1.1, "catch": "いや、それ違うからね！", "color": "#6366f1"}, {"id": 13, "name": "長谷川雅紀", "group": "錦鯉", "role": "boke", "type": "バカ・大声", "pitch": 1.35, "rate": 1.2, "catch": "こーーーんにーーーちはーー！", "color": "#e11d48"}, {"id": 14, "name": "渡辺隆", "group": "錦鯉", "role": "tsukkomi", "type": "頭叩き・冷静", "pitch": 0.8, "rate": 0.95, "catch": "うるせえよ！立て！", "color": "#475569"}, {"id": 15, "name": "野田クリスタル", "group": "マヂカルラブリー", "role": "boke", "type": "床転がり・奇行", "pitch": 1.1, "rate": 1.1, "catch": "吊革につかまりたくない！", "color": "#d946ef"}, {"id": 16, "name": "村上", "group": "マヂカルラブリー", "role": "tsukkomi", "type": "朗らか・困惑", "pitch": 0.95, "rate": 1.05, "catch": "どういう状態！？", "color": "#84cc16"}, {"id": 17, "name": "駒場孝", "group": "ミルクボーイ", "role": "boke", "type": "筋肉・オカン忘れ", "pitch": 0.85, "rate": 0.95, "catch": "オカンが言うにはな", "color": "#0ea5e9"}, {"id": 18, "name": "内海崇", "group": "ミルクボーイ", "role": "tsukkomi", "type": "角刈り・偏見", "pitch": 1.15, "rate": 1.15, "catch": "ほな○○と違うか〜！", "color": "#a855f7"}, {"id": 19, "name": "山内健司", "group": "かまいたち", "role": "boke", "type": "サイコ・屁理屈", "pitch": 1.05, "rate": 1.1, "catch": "お前が折れろよ！", "color": "#f43f5e"}, {"id": 20, "name": "濱家隆一", "group": "かまいたち", "role": "tsukkomi", "type": "長身・正統派", "pitch": 0.95, "rate": 1.05, "catch": "何言うてんねんお前！", "color": "#22c55e"}, {"id": 21, "name": "中川剛", "group": "中川家", "role": "boke", "type": "細かすぎる人間観察", "pitch": 0.9, "rate": 0.95, "catch": "おっちゃんの咳払い", "color": "#78716c"}, {"id": 22, "name": "中川礼二", "group": "中川家", "role": "tsukkomi", "type": "車掌・大阪のオバハン", "pitch": 1.1, "rate": 1.1, "catch": "まもなく2番線に〜！", "color": "#ca8a04"}, {"id": 23, "name": "徳井義実", "group": "チュートリアル", "role": "boke", "type": "妄想・変態的熱弁", "pitch": 0.95, "rate": 1.0, "catch": "チリンチリンが盗まれた", "color": "#eab308"}, {"id": 24, "name": "福田充徳", "group": "チュートリアル", "role": "tsukkomi", "type": "バイク・的確引き戻し", "pitch": 1.1, "rate": 1.15, "catch": "もうええわ、勝手にせえ！", "color": "#38bdf8"}, {"id": 25, "name": "岩尾望", "group": "フットボールアワー", "role": "boke", "type": "ブサイク誇張・淡々", "pitch": 0.85, "rate": 0.9, "catch": "イキキッテル！", "color": "#94a3b8"}, {"id": 26, "name": "後藤輝基", "group": "フットボールアワー", "role": "tsukkomi", "type": "例えツッコミ神", "pitch": 1.25, "rate": 1.2, "catch": "高低差ありすぎて耳キーンなるわ！", "color": "#f87171"}, {"id": 27, "name": "小杉竜一", "group": "ブラックマヨネーズ", "role": "tsukkomi", "type": "ハゲ弄られ・大声", "pitch": 1.2, "rate": 1.15, "catch": "ヒーハー！！", "color": "#fb923c"}, {"id": 28, "name": "吉田敬", "group": "ブラックマヨネーズ", "role": "boke", "type": "被害妄想・ネガティブ", "pitch": 0.9, "rate": 0.95, "catch": "どうかしてるぜ！", "color": "#a3e635"}, {"id": 29, "name": "山崎弘也", "group": "アンタッチャブル", "role": "boke", "type": "適当・ハイテンション", "pitch": 1.3, "rate": 1.25, "catch": "あざーーーっす！", "color": "#4ade80"}, {"id": 30, "name": "柴田英嗣", "group": "アンタッチャブル", "role": "tsukkomi", "type": "猛獣使い・高速", "pitch": 1.15, "rate": 1.3, "catch": "だまれお前は！！", "color": "#2dd4bf"}, {"id": 31, "name": "石田明", "group": "NON STYLE", "role": "boke", "type": "白服・スピードボケ", "pitch": 1.05, "rate": 1.3, "catch": "テンポ上げていこう！", "color": "#f1f5f9"}, {"id": 32, "name": "井上裕介", "group": "NON STYLE", "role": "tsukkomi", "type": "ナルシスト・受け流し", "pitch": 1.0, "rate": 1.15, "catch": "俺のファンが悲しむだろ", "color": "#c084fc"}, {"id": 33, "name": "佐藤哲夫", "group": "パンクブーブー", "role": "boke", "type": "屁理屈・執拗", "pitch": 1.0, "rate": 1.1, "catch": "命乞いだけはうまいぞ", "color": "#fb7185"}, {"id": 34, "name": "黒瀬純", "group": "パンクブーブー", "role": "tsukkomi", "type": "博多弁・怒号", "pitch": 1.15, "rate": 1.2, "catch": "おい哲夫！話を聞け！", "color": "#f472b6"}, {"id": 35, "name": "西田幸治", "group": "笑い飯", "role": "boke", "type": "ダブルボケ・野生", "pitch": 0.85, "rate": 1.0, "catch": "思ってたんと違う！", "color": "#65a30d"}, {"id": 36, "name": "哲夫", "group": "笑い飯", "role": "boke", "type": "ダブルボケ・仏教", "pitch": 1.1, "rate": 1.05, "catch": "交代や！オレがボケる！", "color": "#d97706"}, {"id": 37, "name": "久保田かずのぶ", "group": "とろサーモン", "role": "boke", "type": "ラップ・悪口", "pitch": 0.95, "rate": 1.05, "catch": "チェケラッチョ、世も末だな", "color": "#b91c1c"}, {"id": 38, "name": "村田秀亮", "group": "とろサーモン", "role": "tsukkomi", "type": "美声ナレーション", "pitch": 0.9, "rate": 1.0, "catch": "もうやめとけ、刺されるぞ", "color": "#047857"}, {"id": 39, "name": "鰻和弘", "group": "銀シャリ", "role": "boke", "type": "天然・天然記念物", "pitch": 1.0, "rate": 0.95, "catch": "僕、ウナギって言いますねん", "color": "#0284c7"}, {"id": 40, "name": "橋本直", "group": "銀シャリ", "role": "tsukkomi", "type": "青ジャケット・マシンガン", "pitch": 1.2, "rate": 1.25, "catch": "喩えのインフレが起きてるわ！", "color": "#1d4ed8"}, {"id": 41, "name": "井口浩之", "group": "ウエストランド", "role": "tsukkomi", "type": "悪口・超高速毒舌", "pitch": 1.4, "rate": 1.35, "catch": "あ〜〜警察行けよもう！", "color": "#b45309"}, {"id": 42, "name": "河本太", "group": "ウエストランド", "role": "boke", "type": "無口・棒立ち・キャンプ", "pitch": 0.8, "rate": 0.85, "catch": "……キャンプ行きたい", "color": "#3f3f46"}, {"id": 43, "name": "高比良くるま", "group": "令和ロマン", "role": "boke", "type": "頭脳派・メタ視点", "pitch": 1.15, "rate": 1.25, "catch": "漫才ってこうやって壊すんですよ", "color": "#9333ea"}, {"id": 44, "name": "松井ケムリ", "group": "令和ロマン", "role": "tsukkomi", "type": "御曹司・どっしり", "pitch": 0.9, "rate": 1.05, "catch": "金で解決できないボケすんな！", "color": "#4338ca"}, {"id": 45, "name": "飯塚悟志", "group": "東京03", "role": "tsukkomi", "type": "怒号・コントの心臓", "pitch": 1.2, "rate": 1.2, "catch": "何でお前が仕切ってんだよ！", "color": "#be123c"}, {"id": 46, "name": "角田晃広", "group": "東京03", "role": "boke", "type": "小心者・逆ギレ", "pitch": 1.1, "rate": 1.1, "catch": "オレは悪くないんだぁぁ！", "color": "#e11d48"}, {"id": 47, "name": "豊本明長", "group": "東京03", "role": "boke", "type": "無表情・淡々奇行", "pitch": 0.85, "rate": 0.9, "catch": "……そうですね、帰ります", "color": "#52525b"}, {"id": 48, "name": "秋山竜次", "group": "ロバート", "role": "boke", "type": "憑依芸・クリエイター", "pitch": 0.9, "rate": 1.05, "catch": "体モノマネやってやろうか！", "color": "#ea580c"}, {"id": 49, "name": "馬場裕之", "group": "ロバート", "role": "boke", "type": "料理・マイペース", "pitch": 1.0, "rate": 0.9, "catch": "オリーブオイル足しとくね〜", "color": "#65a30d"}, {"id": 50, "name": "山本博", "group": "ロバート", "role": "tsukkomi", "type": "巻き込まれ・ボクサー", "pitch": 1.1, "rate": 1.15, "catch": "オレの意見一個も通らねえ！", "color": "#0d9488"}, {"id": 51, "name": "名倉潤", "group": "ネプチューン", "role": "tsukkomi", "type": "リーダー・タイ人", "pitch": 1.05, "rate": 1.1, "catch": "お前らええ加減にせえよ！", "color": "#0369a1"}, {"id": 52, "name": "原田泰造", "group": "ネプチューン", "role": "boke", "type": "熱血・曲がったこと嫌い", "pitch": 1.1, "rate": 1.1, "catch": "泰造〜〜！参上！！", "color": "#15803d"}, {"id": 53, "name": "堀内健", "group": "ネプチューン", "role": "boke", "type": "自由人・予測不能", "pitch": 1.25, "rate": 1.15, "catch": "ジュンジュワーーー！！", "color": "#7c3aed"}, {"id": 54, "name": "岡部大", "group": "ハナコ", "role": "boke", "type": "顔芸・全力疾走", "pitch": 1.05, "rate": 1.1, "catch": "ハフハフ…うまいっす！！", "color": "#c2410c"}, {"id": 55, "name": "秋山寛貴", "group": "ハナコ", "role": "tsukkomi", "type": "優しい・コント職人", "pitch": 1.0, "rate": 1.05, "catch": "いや、ちょっと落ち着いて！", "color": "#059669"}, {"id": 56, "name": "菊田竜大", "group": "ハナコ", "role": "boke", "type": "見学・無邪気", "pitch": 1.1, "rate": 0.95, "catch": "へえ〜！すごいね二人とも！", "color": "#4b5563"}, {"id": 57, "name": "友近", "group": "ピン芸人", "role": "boke", "type": "旅館の女将・憑依", "pitch": 1.2, "rate": 1.0, "catch": "水谷千重子でございます", "color": "#db2777"}, {"id": 58, "name": "陣内智則", "group": "ピン芸人", "role": "tsukkomi", "type": "映像ツッコミ神", "pitch": 1.15, "rate": 1.15, "catch": "なんやねんこの映像！！", "color": "#dc2626"}, {"id": 59, "name": "バカリズム", "group": "ピン芸人", "role": "boke", "type": "偏執狂・フリップ", "pitch": 0.95, "rate": 1.05, "catch": "女子のこういうとこ、ね", "color": "#475569"}, {"id": 60, "name": "劇団ひとり", "group": "ピン芸人", "role": "boke", "type": "泣き芸・狂気の演技", "pitch": 1.1, "rate": 1.0, "catch": "愛してるんだよぉぉ！", "color": "#9f1239"}, {"id": 61, "name": "狩野英孝", "group": "ピン芸人", "role": "boke", "type": "天然ナルシスト・神主", "pitch": 1.1, "rate": 1.05, "catch": "ラーメン、つけ麺、僕イケメン！", "color": "#f59e0b"}, {"id": 62, "name": "小島よしお", "group": "ピン芸人", "role": "boke", "type": "筋肉・海パン", "pitch": 1.3, "rate": 1.2, "catch": "そんなの関係ねぇ！はいオッパッピー！", "color": "#10b981"}, {"id": 63, "name": "サンシャイン池崎", "group": "ピン芸人", "role": "boke", "type": "絶叫・ハイテンション", "pitch": 1.45, "rate": 1.3, "catch": "イエエエエエイ！！空前絶後の！", "color": "#ef4444"}, {"id": 64, "name": "ひょっこりはん", "group": "ピン芸人", "role": "boke", "type": "マッシュルーム・神出鬼没", "pitch": 1.25, "rate": 1.0, "catch": "はい、ひょっこりはん！", "color": "#06b6d4"}, {"id": 65, "name": "ハリウッドザコシショウ", "group": "ピン芸人", "role": "boke", "type": "誇張ものまね・狂気", "pitch": 1.4, "rate": 1.25, "catch": "ドカーン！シュー！ええやん！", "color": "#f97316"}, {"id": 66, "name": "くっきー!", "group": "ピン芸人", "role": "boke", "type": "白塗り・怪奇・アート", "pitch": 0.8, "rate": 0.9, "catch": "歯型取ったろか！", "color": "#7c2d12"}, {"id": 67, "name": "ゆりやんレトリィバァ", "group": "ピン芸人", "role": "boke", "type": "英語風・ダンス", "pitch": 1.2, "rate": 1.05, "catch": "オーマイガー！サプライズ！", "color": "#d946ef"}, {"id": 68, "name": "やす子", "group": "ピン芸人", "role": "boke", "type": "自衛隊・迷彩", "pitch": 1.35, "rate": 1.1, "catch": "はい〜〜！ピコピコ！", "color": "#15803d"}, {"id": 69, "name": "もう中学生", "group": "ピン芸人", "role": "boke", "type": "ダンボール工作・無垢", "pitch": 1.3, "rate": 1.05, "catch": "ためになったね〜〜！", "color": "#eab308"}, {"id": 70, "name": "おいでやす小田", "group": "ピン芸人", "role": "tsukkomi", "type": "鼓膜破壊・絶叫ツッコミ", "pitch": 1.45, "rate": 1.3, "catch": "どないなっとんねんコレぇぇぇ！！", "color": "#dc2626"}, {"id": 71, "name": "こがけん", "group": "ピン芸人", "role": "boke", "type": "ハリウッド映画あるある", "pitch": 1.15, "rate": 1.05, "catch": "オーマイガー…死ぬ奴のセリフ！", "color": "#3b82f6"}, {"id": 72, "name": "とにかく明るい安村", "group": "ピン芸人", "role": "boke", "type": "パンツ穿いてます", "pitch": 1.15, "rate": 1.1, "catch": "Don't worry, I'm wearing!", "color": "#f43f5e"}, {"id": 73, "name": "ヒロシ", "group": "ピン芸人", "role": "boke", "type": "哀愁・ソロキャンプ", "pitch": 0.7, "rate": 0.85, "catch": "ヒロシです……", "color": "#334155"}, {"id": 74, "name": "あばれる君", "group": "ピン芸人", "role": "boke", "type": "滝汗・熱血空回り", "pitch": 1.25, "rate": 1.2, "catch": "自分、気合い入ってます！！", "color": "#ea580c"}, {"id": 75, "name": "兼近大樹", "group": "EXIT", "role": "boke", "type": "ネオ渋谷系・パリピ", "pitch": 1.2, "rate": 1.2, "catch": "ポンポーン！ナイトプールパシャパシャ！", "color": "#ec4899"}, {"id": 76, "name": "りんたろー。", "group": "EXIT", "role": "tsukkomi", "type": "美容・チャラツッコミ", "pitch": 1.0, "rate": 1.1, "catch": "控えめに言ってバイブスいと上がりけり", "color": "#8b5cf6"}, {"id": 77, "name": "盛山晋太郎", "group": "見取り図", "role": "tsukkomi", "type": "長髪・巨漢・的確", "pitch": 1.05, "rate": 1.15, "catch": "あたおかやんけ！", "color": "#0284c7"}, {"id": 78, "name": "リリー", "group": "見取り図", "role": "boke", "type": "クール・女好き・アート", "pitch": 0.85, "rate": 0.95, "catch": "盛山、ちょっと黙って", "color": "#64748b"}, {"id": 79, "name": "嶋佐和也", "group": "ニューヨーク", "role": "boke", "type": "偏見・ストリート", "pitch": 0.95, "rate": 1.05, "catch": "こういう奴、超嫌いなんすよ", "color": "#eab308"}, {"id": 80, "name": "屋敷裕政", "group": "ニューヨーク", "role": "tsukkomi", "type": "毒舌・甲高い笑い", "pitch": 1.2, "rate": 1.2, "catch": "最悪やん！絶対炎上するって！", "color": "#ef4444"}, {"id": 81, "name": "長田庄平", "group": "チョコレートプラネット", "role": "boke", "type": "小道具・肩幅・TT", "pitch": 1.05, "rate": 1.1, "catch": "TT兄弟！Tを探そう！", "color": "#3b82f6"}, {"id": 82, "name": "松尾駿", "group": "チョコレートプラネット", "role": "boke", "type": "どんだけ〜・美容", "pitch": 1.25, "rate": 1.1, "catch": "どんだけ〜〜！背負い投げ〜！", "color": "#ec4899"}, {"id": 83, "name": "じろう", "group": "シソンヌ", "role": "boke", "type": "おじさん・怪演", "pitch": 0.9, "rate": 0.95, "catch": "あたいのパチンコ玉がねぇ！", "color": "#65a30d"}, {"id": 84, "name": "長谷川忍", "group": "シソンヌ", "role": "tsukkomi", "type": "大声・ツッコミの教科書", "pitch": 1.15, "rate": 1.15, "catch": "おいババア！座れ！", "color": "#b91c1c"}, {"id": 85, "name": "森田哲矢", "group": "さらば青春の光", "role": "tsukkomi", "type": "出っ歯・ゲス・社長", "pitch": 1.1, "rate": 1.2, "catch": "金になる匂いがプンプンするで！", "color": "#ca8a04"}, {"id": 86, "name": "東ブクロ", "group": "さらば青春の光", "role": "boke", "type": "スキャンダル・ゴルフ", "pitch": 0.95, "rate": 1.0, "catch": "ノーコメントでお願いします", "color": "#475569"}, {"id": 87, "name": "鈴木もぐら", "group": "空気階段", "role": "boke", "type": "ギャンブル・地下芸人", "pitch": 0.8, "rate": 0.95, "catch": "サイコゥ！サイコゥ！", "color": "#78350f"}, {"id": 88, "name": "水川かたまり", "group": "空気階段", "role": "tsukkomi", "type": "サイコ・発狂", "pitch": 1.25, "rate": 1.2, "catch": "サイコゥサイコゥ…死にたい！", "color": "#0284c7"}, {"id": 89, "name": "小峠英二", "group": "バイきんぐ", "role": "tsukkomi", "type": "スキンヘッド・超大声", "pitch": 1.35, "rate": 1.25, "catch": "なんて日だ！！！", "color": "#dc2626"}, {"id": 90, "name": "西村瑞樹", "group": "バイきんぐ", "role": "boke", "type": "キャンプ・サイコパス", "pitch": 0.9, "rate": 0.95, "catch": "バカ鍋作ってきました", "color": "#16a34a"}, {"id": 91, "name": "加賀翔", "group": "かが屋", "role": "boke", "type": "演技派・日常コント", "pitch": 1.0, "rate": 1.0, "catch": "すいません…気まずいっすね", "color": "#0ea5e9"}, {"id": 92, "name": "賀屋壮也", "group": "かが屋", "role": "boke", "type": "ロン毛・怪演", "pitch": 0.95, "rate": 1.0, "catch": "ちょっと聞いてよ〜！", "color": "#8b5cf6"}, {"id": 93, "name": "浦井のりひろ", "group": "男性ブランコ", "role": "tsukkomi", "type": "メガネ・温厚", "pitch": 0.95, "rate": 1.05, "catch": "何ですかその生物は！", "color": "#059669"}, {"id": 94, "name": "平井まさあき", "group": "男性ブランコ", "role": "boke", "type": "マッドサイエンティスト", "pitch": 1.1, "rate": 1.1, "catch": "ボトルメールを流しましょう！", "color": "#d97706"}, {"id": 95, "name": "堂前透", "group": "ロングコートダディ", "role": "tsukkomi", "type": "脱力・天才的視点", "pitch": 0.9, "rate": 0.95, "catch": "もうええわ、座ろか", "color": "#4338ca"}, {"id": 96, "name": "兎", "group": "ロングコートダディ", "role": "boke", "type": "天然・ポンコツ愛され", "pitch": 1.15, "rate": 1.05, "catch": "オレ、悪くないよね！？", "color": "#f59e0b"}, {"id": 97, "name": "芝大輔", "group": "モグライダー", "role": "tsukkomi", "type": "リーゼント・操縦士", "pitch": 1.05, "rate": 1.2, "catch": "おいともしげ！間違えてるぞ！", "color": "#0f766e"}, {"id": 98, "name": "ともしげ", "group": "モグライダー", "role": "boke", "type": "噛み倒し・パニック", "pitch": 1.25, "rate": 1.25, "catch": "ぼ、僕がちゃんとしなきゃ！", "color": "#e11d48"}, {"id": 99, "name": "伊藤幸司", "group": "ランジャタイ", "role": "tsukkomi", "type": "綾波レイ髪型・見守り", "pitch": 0.9, "rate": 0.9, "catch": "国崎くん、いっちゃってください", "color": "#1e293b"}, {"id": 100, "name": "国崎和也", "group": "ランジャタイ", "role": "boke", "type": "奇声・完全カオス", "pitch": 1.4, "rate": 1.3, "catch": "ウッチャンナンチャンが天井から！", "color": "#eab308"}, {"id": 101, "name": "誠", "group": "ヨネダ2000", "role": "boke", "type": "リズム・餅つき・宇宙", "pitch": 1.15, "rate": 1.1, "catch": "アイ〜〜ンペ〜〜！", "color": "#ec4899"}, {"id": 102, "name": "愛", "group": "ヨネダ2000", "role": "tsukkomi", "type": "巨漢・ハーモニカ", "pitch": 0.85, "rate": 0.95, "catch": "ど〜〜も〜〜！", "color": "#10b981"}, {"id": 103, "name": "畠中悠", "group": "オズワルド", "role": "boke", "type": "サスペンダー・奇行", "pitch": 0.85, "rate": 0.9, "catch": "明日の朝、船に乗ります", "color": "#ca8a04"}, {"id": 104, "name": "伊藤俊介", "group": "オズワルド", "role": "tsukkomi", "type": "ハスキーボイス・静寂打破", "pitch": 1.1, "rate": 1.15, "catch": "一旦やめさせてもらいます！", "color": "#b91c1c"}, {"id": 105, "name": "楢原真樹", "group": "ヤーレンズ", "role": "boke", "type": "マシンガンおしゃべり", "pitch": 1.15, "rate": 1.3, "catch": "ねーねー、聞いて聞いて！", "color": "#f97316"}, {"id": 106, "name": "出井隼之介", "group": "ヤーレンズ", "role": "tsukkomi", "type": "オシャレ・受け流し", "pitch": 1.0, "rate": 1.1, "catch": "全部拾うの大変なんだから！", "color": "#2563eb"}, {"id": 107, "name": "新山", "group": "さや香", "role": "boke", "type": "熱血・大声・見せ算", "pitch": 1.3, "rate": 1.25, "catch": "これが『見せ算』やーー！", "color": "#dc2626"}, {"id": 108, "name": "石井", "group": "さや香", "role": "tsukkomi", "type": "ダンス・冷めた正論", "pitch": 1.0, "rate": 1.05, "catch": "もう二度とやんなそんなネタ！", "color": "#4b5563"}, {"id": 109, "name": "ユースケ", "group": "ダイアン", "role": "boke", "type": "ローテンション・毒", "pitch": 0.85, "rate": 0.9, "catch": "岸大介です〜", "color": "#78716c"}, {"id": 110, "name": "津田篤宏", "group": "ダイアン", "role": "tsukkomi", "type": "すぐキレる・全力咆哮", "pitch": 1.45, "rate": 1.3, "catch": "ゴイゴイスー！！スーを差し上げます！", "color": "#ea580c"}, {"id": 111, "name": "岩井勇気", "group": "ハライチ", "role": "boke", "type": "ノリボケ連鎖・腐り芸", "pitch": 0.95, "rate": 1.1, "catch": "○○からの、××！", "color": "#475569"}, {"id": 112, "name": "澤部佑", "group": "ハライチ", "role": "tsukkomi", "type": "坊主頭・ノリツッコミ", "pitch": 1.25, "rate": 1.2, "catch": "バカ野郎！もういいよ！", "color": "#ca8a04"}, {"id": 113, "name": "中田敦彦", "group": "オリエンタルラジオ", "role": "boke", "type": "インテリ・パーフェクト", "pitch": 1.05, "rate": 1.15, "catch": "I am a perfect human.", "color": "#1e3a8a"}, {"id": 114, "name": "藤森慎吾", "group": "オリエンタルラジオ", "role": "tsukkomi", "type": "チャラ男・合いの手", "pitch": 1.2, "rate": 1.25, "catch": "君かわうぃーね！！", "color": "#ec4899"}, {"id": 115, "name": "児嶋一哉", "group": "アンジャッシュ", "role": "tsukkomi", "type": "勘違い・名前いじられ", "pitch": 1.25, "rate": 1.15, "catch": "児嶋だよ！！！", "color": "#ef4444"}, {"id": 116, "name": "渡部建", "group": "アンジャッシュ", "role": "boke", "type": "すれ違い・グルメ", "pitch": 1.0, "rate": 1.1, "catch": "予約の取れない名店です", "color": "#0d9488"}, {"id": 117, "name": "設楽統", "group": "バナナマン", "role": "tsukkomi", "type": "カイザー・ドS", "pitch": 0.95, "rate": 1.05, "catch": "日村さん、ちょっとこっち来て", "color": "#1e293b"}, {"id": 118, "name": "日村勇紀", "group": "バナナマン", "role": "boke", "type": "顔芸・ダンス・愛され", "pitch": 1.2, "rate": 1.15, "catch": "設楽統〜〜！何すんだよ！", "color": "#eab308"}, {"id": 119, "name": "小木博明", "group": "おぎやはぎ", "role": "boke", "type": "毒舌・マイペース偏見", "pitch": 0.95, "rate": 0.95, "catch": "オレは悪くないと思うんだよね", "color": "#57534e"}, {"id": 120, "name": "矢作兼", "group": "おぎやはぎ", "role": "tsukkomi", "type": "癒やし・肯定ツッコミ", "pitch": 1.0, "rate": 1.0, "catch": "小木は天才だからね〜", "color": "#0891b2"}, {"id": 121, "name": "川島明", "group": "麒麟", "role": "tsukkomi", "type": "超低音美声・朝の顔", "pitch": 0.65, "rate": 0.95, "catch": "麒麟です……ラヴィット！", "color": "#7c2d12"}, {"id": 122, "name": "田村裕", "group": "麒麟", "role": "boke", "type": "ホームレス中学生", "pitch": 1.1, "rate": 1.05, "catch": "公園のダンボールは温かい", "color": "#d97706"}, {"id": 123, "name": "山本浩司", "group": "タイムマシーン3号", "role": "tsukkomi", "type": "器用・的確ツッコミ", "pitch": 1.1, "rate": 1.2, "catch": "全部太らせて言うな！", "color": "#2563eb"}, {"id": 124, "name": "関太", "group": "タイムマシーン3号", "role": "boke", "type": "おデブ・ご飯狂信者", "pitch": 0.9, "rate": 1.0, "catch": "白米は飲み物です！", "color": "#f97316"}, {"id": 125, "name": "小宮浩信", "group": "三四郎", "role": "tsukkomi", "type": "滑舌・逆ギレ", "pitch": 1.25, "rate": 1.15, "catch": "バチボコ腹立つわ！", "color": "#dc2626"}, {"id": 126, "name": "相田周二", "group": "三四郎", "role": "boke", "type": "低音美声・マイペース", "pitch": 0.85, "rate": 0.95, "catch": "小宮、今日も可愛いね", "color": "#6366f1"}, {"id": 127, "name": "ナダル", "group": "コロチキ", "role": "boke", "type": "甲高い美声・クズ芸", "pitch": 1.35, "rate": 1.1, "catch": "イっちゃってる！やっべぇぞ！", "color": "#059669"}, {"id": 128, "name": "西野創人", "group": "コロチキ", "role": "tsukkomi", "type": "卓球・ナダル操縦", "pitch": 1.0, "rate": 1.15, "catch": "さぁ！さぁ！", "color": "#9333ea"}, {"id": 129, "name": "竹内まなぶ", "group": "カミナリ", "role": "boke", "type": "茨城弁・とぼけ", "pitch": 0.95, "rate": 0.9, "catch": "そうなんだっぺな〜", "color": "#65a30d"}, {"id": 130, "name": "石田たくみ", "group": "カミナリ", "role": "tsukkomi", "type": "強烈平手打ち・茨城弁", "pitch": 1.3, "rate": 1.25, "catch": "そうと決まればそうじゃねえか！", "color": "#ea580c"}, {"id": 131, "name": "布川ひろき", "group": "トム・ブラウン", "role": "tsukkomi", "type": "ロン毛・頭掴み", "pitch": 1.1, "rate": 1.15, "catch": "ダメーーーッ！！！", "color": "#7c3aed"}, {"id": 132, "name": "みちお", "group": "トム・ブラウン", "role": "boke", "type": "合体・怪力・狂気", "pitch": 0.85, "rate": 1.0, "catch": "キャー！合体させちゃうぞ！", "color": "#e11d48"}, {"id": 133, "name": "シュウペイ", "group": "ぺこぱ", "role": "boke", "type": "ギャル男・シュウペイポーズ", "pitch": 1.2, "rate": 1.1, "catch": "シュウペイでーーす！", "color": "#ec4899"}, {"id": 134, "name": "松陰寺太勇", "group": "ぺこぱ", "role": "tsukkomi", "type": "キザ・全肯定ツッコミ", "pitch": 1.1, "rate": 1.0, "catch": "悪くないだろう。時を戻そう", "color": "#a855f7"}, {"id": 135, "name": "南條庄助", "group": "すゑひろがりず", "role": "tsukkomi", "type": "狂言・鼓打ち", "pitch": 1.2, "rate": 1.1, "catch": "いよぉぉぉーーっ！ポン！", "color": "#b45309"}, {"id": 136, "name": "三島達矢", "group": "すゑひろがりず", "role": "boke", "type": "扇子・古風言い換え", "pitch": 0.9, "rate": 0.95, "catch": "あっぱれあっぱれ！", "color": "#d97706"}, {"id": 137, "name": "なかやまきんに君", "group": "ピン芸人", "role": "boke", "type": "筋肉・Bon Jovi", "pitch": 1.25, "rate": 1.15, "catch": "パワーーー！！ヤー！！", "color": "#dc2626"}, {"id": 138, "name": "バイク川崎バイク", "group": "ピン芸人", "role": "boke", "type": "バイク・三段オチ", "pitch": 1.25, "rate": 1.2, "catch": "B・K・B！ヒィーア！", "color": "#0ea5e9"}, {"id": 139, "name": "せんちゃん", "group": "クールポコ。", "role": "tsukkomi", "type": "合いの手・臼", "pitch": 1.1, "rate": 1.05, "catch": "へぇ〜！そんな男がいるんですか！", "color": "#22c55e"}, {"id": 140, "name": "小野まじめ", "group": "クールポコ。", "role": "boke", "type": "杵・男は黙って", "pitch": 1.3, "rate": 1.15, "catch": "なぁ〜〜にぃ〜〜！？やっちまったな！", "color": "#ef4444"}, {"id": 141, "name": "高木晋哉", "group": "ジョイマン", "role": "boke", "type": "ステップ・韻踏み", "pitch": 1.25, "rate": 1.2, "catch": "ナナナナー ナナナナー 生麦生米生卵！", "color": "#f59e0b"}, {"id": 142, "name": "池谷和志", "group": "ジョイマン", "role": "tsukkomi", "type": "呆れ・リズム破壊", "pitch": 1.05, "rate": 1.1, "catch": "なんだこいつーー！！", "color": "#6366f1"}, {"id": 143, "name": "ダンディ坂野", "group": "ピン芸人", "role": "boke", "type": "黄色スーツ・ゲッツ", "pitch": 1.2, "rate": 1.1, "catch": "ゲッツ！！アンド ターン！", "color": "#eab308"}, {"id": 144, "name": "スギちゃん", "group": "ピン芸人", "role": "boke", "type": "デニムベスト・ワイルド", "pitch": 1.1, "rate": 1.05, "catch": "ワイルドだろぉ〜〜？", "color": "#0284c7"}, {"id": 145, "name": "森慎太郎", "group": "どぶろっく", "role": "tsukkomi", "type": "ギター・美声ハモり", "pitch": 1.0, "rate": 1.0, "catch": "もしかしてだけど〜", "color": "#16a34a"}, {"id": 146, "name": "江口直人", "group": "どぶろっく", "role": "boke", "type": "美声下ネタソング", "pitch": 0.9, "rate": 0.95, "catch": "大きなイチモツをください〜", "color": "#d946ef"}, {"id": 147, "name": "小林友治", "group": "金属バット", "role": "boke", "type": "坊主・脱力・皮肉", "pitch": 0.8, "rate": 0.9, "catch": "ええやんけ、燃やしたら", "color": "#475569"}, {"id": 148, "name": "友保隼平", "group": "金属バット", "role": "tsukkomi", "type": "超ロン毛・独特イントネーション", "pitch": 1.2, "rate": 1.1, "catch": "あかんて！消されるて！", "color": "#ca8a04"}, {"id": 149, "name": "永野", "group": "ピン芸人", "role": "boke", "type": "水色シャツ・奇行ダンス", "pitch": 1.3, "rate": 1.25, "catch": "ゴッホより〜普通に〜ラッセンが好き〜！", "color": "#06b6d4"}, {"id": 150, "name": "明石家さんま", "group": "レジェンド", "role": "boke", "type": "引き笑い・お笑い怪獣", "pitch": 1.35, "rate": 1.35, "catch": "ファーｗｗ！ほんでほんで！？", "color": "#dc2626"}];
+
+    // --- 2. LOCAL STORAGE / STATE MANAGEMENT ---
+    const STATE_KEY = 'zatuplay_manzai_browser_v1';
+    let gameState = {
+      points: 1500, // Generous starting points for immediate 10-pull gacha!
+      unlockedIds: [1, 9, 8, 3, 65], // Initial 5 stars: 松本人志, 粗品, 春日俊彰, 伊達みきお, ハリウッドザコシショウ
+      totalWatched: 0,
+      settings: {
+        voice: false,
+        sfx: true,
+      },
+      selectedFormation: 2, // Default to combi (2 persons) for instant manzai!
+      selectedGenre: 'random',
+      selectedSlots: [1, 9, 8] // Default setup: 松本人志 × 粗品
+    };
+
+    const initialState = JSON.parse(JSON.stringify(gameState));
+    const statusNode = document.createElement('p');
+    statusNode.className = 'save-status';
+    document.body.prepend(statusNode);
+    let canSave = false;
+    function validateState(x) {
+      if (!x || !Number.isSafeInteger(x.points) || x.points < 0 || x.points > 1e12 || !Number.isSafeInteger(x.totalWatched) || x.totalWatched < 0) throw Error('invalid counts');
+      if (!Array.isArray(x.unlockedIds) || !x.unlockedIds.length || x.unlockedIds.length > 150 || x.unlockedIds.some(id => !COMEDIANS.some(c => c.id === id))) throw Error('invalid roster');
+      if (![1,2,3].includes(x.selectedFormation) || !Array.isArray(x.selectedSlots) || x.selectedSlots.length !== 3 || x.selectedSlots.some(id => !x.unlockedIds.includes(id))) throw Error('invalid slots');
+      if (!x.settings || typeof x.settings.voice !== 'boolean' || typeof x.settings.sfx !== 'boolean' || !['random','conbini','hospital','sf','suspense','sengoku','restaurant','quiz','isekai','bug'].includes(x.selectedGenre)) throw Error('invalid settings');
+      return { points:x.points,totalWatched:x.totalWatched,unlockedIds:[...new Set(x.unlockedIds)],selectedSlots:x.selectedSlots.slice(),selectedFormation:x.selectedFormation,selectedGenre:x.selectedGenre,settings:{voice:x.settings.voice,sfx:x.settings.sfx} };
+    }
+    statusNode.textContent = '一時プレイ：保存を準備中';
+    if (navigator.locks) navigator.locks.request(STATE_KEY, {ifAvailable:true}, async lock => {
+      if (!lock) { statusNode.textContent = '一時プレイ：別タブが保存中です'; return; }
+      try {
+        const saved = localStorage.getItem(STATE_KEY);
+        if (saved) gameState = validateState(JSON.parse(saved));
+        canSave = true;
+        statusNode.textContent = 'このタブに自動保存します';
+        setFormation(gameState.selectedFormation); genreSelect.value = gameState.selectedGenre; updateHeaderStats(); populateSlotSelects(); renderStagePerformers(); updateSettingsUI();
+      } catch(e) { statusNode.textContent = '一時プレイ：保存データを読めません。元データは保持しています'; }
+      await new Promise(() => {});
+    }); else statusNode.textContent = '一時プレイ：この環境は排他保存に未対応';
+    function saveState() {
+      if (canSave) try { localStorage.setItem(STATE_KEY, JSON.stringify(validateState(gameState))); }
+      catch(e) { canSave = false; statusNode.textContent = '一時プレイ：保存できません'; }
+      updateHeaderStats();
+    }
+    // --- 3. WEB AUDIO API PROCEDURAL SOUND SYNTHESIS ---
+    let audioCtx = null;
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    // Synthesize Audience Applause & Cheers
+    function playApplauseSound(duration = 2.5) {
+      if (!gameState.settings.sfx) return;
+      try {
+        const ctx = getAudioContext();
+        const bufferSize = ctx.sampleRate * duration;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+
+        // Pink/granular applause noise
+        let lastOut = 0.0;
+        for (let i = 0; i < bufferSize; i++) {
+          const white = Math.random() * 2 - 1;
+          lastOut = (lastOut + 0.02 * white) / 1.02;
+          // modulate with random clapping transients
+          const clapImpulse = Math.random() > 0.985 ? (Math.random() * 2 - 1) * 2.5 : 0;
+          data[i] = (lastOut * 0.7 + clapImpulse * 0.3);
+        }
+
+        const noise = ctx.createBufferSource();
+        noise.buffer = buffer;
+
+        // Bandpass filter centered around 1200Hz
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(1100, ctx.currentTime);
+        filter.Q.setValueAtTime(0.8, ctx.currentTime);
+
+        const gainNode = ctx.createGain();
+        gainNode.gain.setValueAtTime(0.01, ctx.currentTime);
+        gainNode.gain.linearRampToValueAtTime(0.4, ctx.currentTime + 0.3);
+        gainNode.gain.setValueAtTime(0.35, ctx.currentTime + duration - 0.6);
+        gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+
+        noise.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(ctx.destination);
+
+        noise.start();
+        noise.stop(ctx.currentTime + duration);
+      } catch (e) {
+        console.warn('Audio error', e);
+      }
+    }
+
+    // Synthesize Audience Laughter (Wa-ha-ha burst)
+    function playLaughterSound() {
+      if (!gameState.settings.sfx) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        // 3-4 rhythmic giggle bursts
+        const burstCount = 4;
+        for (let b = 0; b < burstCount; b++) {
+          const t = now + b * 0.16 + (Math.random() * 0.03);
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          const filter = ctx.createBiquadFilter();
+
+          osc.type = 'sawtooth';
+          const baseFreq = 260 + Math.random() * 60;
+          osc.frequency.setValueAtTime(baseFreq, t);
+          osc.frequency.exponentialRampToValueAtTime(baseFreq * 0.7, t + 0.14);
+
+          filter.type = 'bandpass';
+          filter.frequency.setValueAtTime(750 + (b * 50), t);
+          filter.Q.setValueAtTime(2.5, t);
+
+          gain.gain.setValueAtTime(0.001, t);
+          gain.gain.linearRampToValueAtTime(0.18, t + 0.03);
+          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.13);
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(t);
+          osc.stop(t + 0.15);
+        }
+      } catch (e) {
+        console.warn('Audio error', e);
+      }
+    }
+
+    // Synthesize Slap / Punchline Sound (Tsukkomi Smack)
+    function playTsukkomiSound() {
+      if (!gameState.settings.sfx) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(450, now);
+        osc.frequency.exponentialRampToValueAtTime(80, now + 0.1);
+
+        gain.gain.setValueAtTime(0.4, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.13);
+      } catch (e) {}
+    }
+
+    // Synthesize Intro Brass Fanfare (M-1 style)
+    function playFanfareSound() {
+      if (!gameState.settings.sfx) return;
+      try {
+        const ctx = getAudioContext();
+        const notes = [261.63, 329.63, 392.00, 523.25]; // C, E, G, High C
+        notes.forEach((freq, idx) => {
+          const t = ctx.currentTime + idx * 0.1;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(freq, t);
+
+          gain.gain.setValueAtTime(0.001, t);
+          gain.gain.linearRampToValueAtTime(0.15, t + 0.04);
+          gain.gain.exponentialRampToValueAtTime(0.001, t + (idx === notes.length - 1 ? 0.6 : 0.25));
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(t);
+          osc.stop(t + 0.7);
+        });
+      } catch (e) {}
+    }
+
+    // Synthesize Gacha Jingle
+    function playGachaSound() {
+      if (!gameState.settings.sfx) return;
+      try {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        [523.25, 659.25, 783.99, 1046.50].forEach((f, i) => {
+          const t = now + i * 0.08;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(f, t);
+          gain.gain.setValueAtTime(0.2, t);
+          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(t);
+          osc.stop(t + 0.35);
+        });
+      } catch (e) {}
+    }
+
+    // --- 4. WEB SPEECH API (AUTOMATIC VOICE SYNTHESIS) ---
+    let speechAvailable = ('speechSynthesis' in window);
+    let selectedVoice = null;
+
+    function initSpeech() {
+      if (!speechAvailable) return;
+      const updateVoices = () => {
+        const voices = window.speechSynthesis.getVoices();
+        selectedVoice = voices.find(v => v.lang.includes('ja') || v.lang.includes('JP')) || voices[0];
+      };
+      updateVoices();
+      if (window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = updateVoices;
+      }
+    }
+    initSpeech();
+
+    let voiceEpoch = 0;
+    function cancelVoice() {
+      voiceEpoch++;
+      if (speechAvailable) window.speechSynthesis.cancel();
+    }
+    function speakLine(text, comedian, onComplete) {
+      const epoch = ++voiceEpoch;
+      const done = onComplete;
+      let called = false;
+      onComplete = () => { if (epoch === voiceEpoch && !called) { called = true; if (done) done(); } };
+      if (!gameState.settings.voice || !speechAvailable) {
+        // Fallback: visual reading timer
+        const readingMs = Math.max(1600, text.length * 90);
+        setTimeout(() => {
+          if (onComplete) onComplete();
+        }, readingMs);
+        return;
+      }
+
+      try {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        if (selectedVoice) utterance.voice = selectedVoice;
+        utterance.lang = 'ja-JP';
+        utterance.pitch = comedian.pitch || 1.0;
+        utterance.rate = (comedian.rate || 1.0) * 1.05;
+
+        let finished = false;
+        utterance.onend = () => {
+          if (!finished) {
+            finished = true;
+            if (onComplete) onComplete();
+          }
+        };
+        utterance.onerror = (err) => {
+          console.warn('SpeechSynthesis error:', err);
+          if (!finished) {
+            finished = true;
+            if (onComplete) onComplete();
+          }
+        };
+
+        // Fallback watchdog in case browser drops onend
+        const maxTimeout = Math.max(2500, text.length * 150);
+        setTimeout(() => {
+          if (!finished) {
+            finished = true;
+            if (onComplete) onComplete();
+          }
+        }, maxTimeout);
+
+        window.speechSynthesis.speak(utterance);
+      } catch (e) {
+        console.warn('Speech exception:', e);
+        if (onComplete) onComplete();
+      }
+    }
+
+    // --- 5. AUTONOMOUS CPU SCRIPT ENGINE (29,263,750 COMBINATIONS) ---
+    // Pure dialogue generation without narrative strings or meta brackets
+    const GENRE_DATA = {
+      conbini: {
+        title: "コンビニの深夜バイト",
+        intros: ["いらっしゃいませー！温めますか？", "深夜のコンビニバイトって暇すぎますよね", "おでんの仕込みが完全に宇宙工学なんですよ"],
+        topics: ["肉まん頼んだら中身が全部消滅してたんですよ", "温めをお願いしたら店員がバーコードリーダーを電子レンジに入れたんです", "揚げたてのファミチキから時報が聞こえてきたんです"],
+        punchlines: ["もういいぜ！次のお客様どうぞ！", "温めすぎて店ごと消し炭になりましたわ！", "どないなっとんねんこのコンビニは！"]
+      },
+      hospital: {
+        title: "トンデモ問診票",
+        intros: ["先生、問診票書いてきたんですけど見てください", "最近どうも体の調子がピコピコ言うんですよ", "健康診断で肺活量がマイナス3000ccって出ましてね"],
+        topics: ["『最近気になる症状は？』に『明日の天気予報』って書いちゃいました", "聴診器を当てられたら『ツーツー』って話し中の音がしたんです", "レントゲン撮ったら骨じゃなくて全員分の領収書が写ってたんです"],
+        punchlines: ["アンタもう退院して家で寝ててください！", "処方箋に『気合い』って書くな！もうええわ！", "健康診断やり直せ！どうもありがとうございました！"]
+      },
+      sf: {
+        title: "時空警察と宇宙人",
+        intros: ["我々は未来から来た時空警察である！動くな！", "宇宙の果てから地球に漫才しにやってきました", "タイムマシン乗ってきたらブレーキ踏み間違えて今日に着きました"],
+        topics: ["歴史改変を防ぐために今朝食べた納豆の回数を調査しています", "ワームホール開いたら隣のオカンの晩ごはんが見えたんです", "アンドロメダ星雲ではボケたら即座に恒星が爆発する法律なんです"],
+        punchlines: ["時空が歪みすぎてオチが昨日に戻っちゃいました！", "未来へ帰れ！もうええわ！", "ありがとうございましたー！"]
+      },
+      suspense: {
+        title: "密室殺人未遂の事情聴取",
+        intros: ["この洋館の密室に犯人がいる！全員動かないでくれ！", "刑事さん、私には完璧なアリバイがあるんです！", "ダイイングメッセージに『ポテトチップスうすしお』と書かれていた！"],
+        topics: ["犯人は凶器の冷凍マグロを自分で刺身にして完食したんです！", "密室の鍵が最初から内側のドアノブに刺さってなかったんですよ", "全員が被害者のフリをして誰も犯人を探そうとしないんです！"],
+        punchlines: ["全員逮捕だ！もうええわ！", "謎は全て解けてない！ありがとうございました！", "サスペンス劇場終わるぞ！"]
+      },
+      sengoku: {
+        title: "戦国武将の合戦会議",
+        intros: ["いざ出陣！敵の本陣を急襲するのじゃ！", "殿！兵糧がすべてタピオカミルクティーでございます！", "我が軍の軍師がさっきから雀牌で占いばかりしております！"],
+        topics: ["火縄銃の代わりにクラッカー持ってきた足軽がいるんです！", "敵の総大将がインスタライブで本陣の位置を世界に晒してるんです！", "陣太鼓を叩いたらクラブミュージックが鳴り響いたんです！"],
+        punchlines: ["天下統一諦めろ！もうええわ！", "合戦中止！解散じゃー！", "ありがとうございました！"]
+      },
+      restaurant: {
+        title: "注文が通らないファミレス",
+        intros: ["ご注文はお決まりでしょうか？", "すいません、ハンバーグセットを頼んだはずなんですが", "この店、ボタン押しても誰も来ないどころかボタンが逃げるんです"],
+        topics: ["オムライス頼んだらタマゴの殻だけが綺麗に積まれてきたんですよ", "『お水のおかわりはいかがですか？』って言ってお湯を頭にかけられたんです", "厨房から『シェフの思考停止により本日の営業を終了します』ってアナウンスが！"],
+        punchlines: ["ファミレス出直してこい！もうええわ！", "お会計だけはしっかり取るんかい！ありがとうございました！", "シェフ呼んでこい！"]
+      },
+      quiz: {
+        title: "正解が消滅したウルトラクイズ",
+        intros: ["第1問！デデン！問題です！", "早押しボタン押したら感電しました！", "絶対に誰も答えられないクイズ大会にようこそ！"],
+        topics: ["問題！『日本の首都はどこでしょう？』正解は『オカンが作った焼きそば』！", "全員がお手つきしすぎて点数が国家予算の赤字レベルになったんです！", "司会者が途中で答えを忘れてウィキペディアを開き始めたんです！"],
+        punchlines: ["クイズ大会中止だバカ野郎！もうええわ！", "正解のない世界で生きていけ！ありがとうございました！", "ピンポン鳴らすな！"]
+      },
+      isekai: {
+        title: "異世界転生と魔王の暇つぶし",
+        intros: ["トラックに轢かれたら異世界のステージに立ってました", "我こそは魔王！勇者よ、漫才で余を笑わせてみせよ！", "初期ステータス見たら『ツッコミ力9999』になってたんですよ"],
+        topics: ["聖剣を引き抜いたらただのサツマイモだったんです！", "魔王が毎週末に温泉旅行行っててラスボス城がずっと留守なんです！", "スライムに漫才見せたら分裂して客席を埋め尽くしたんです！"],
+        punchlines: ["異世界から現実へ帰れ！もうええわ！", "魔王を倒す前に喉が枯れました！ありがとうございました！", "レベル上げ直してこい！"]
+      },
+      bug: {
+        title: "自立CPU思考停止＆概念崩壊",
+        intros: ["エラー404：ボケのメモリがオーバーフローしました", "相手の発言を解析中……解析不能！完全思考停止！", "どうもー！時空と存在の境界線がガバガバ漫才でーす！"],
+        topics: ["さっきお前が言った言葉、オレのデータベースに存在しない概念なんだが？", "ツッコミの構文が逆転して、お前のボケを俺が懇切丁寧に解説し始めてるぞ！", "全員が全員を訂正しすぎて、誰も日本語の正解に戻れない地獄が始まった！"],
+        punchlines: ["CPU再起動！強制シャットダウン！もうええわ！", "宇宙のメモリが足りません！ありがとうございましたー！", "バグり散らかして終了！"]
+      }
+    };
+
+    function generateRoutine(comediansList, genreKey) {
+      const count = comediansList.length;
+      const isDuplicate = count > 1 && new Set(comediansList.map(c => c.id)).size < count;
+      const isSoloCombi = count === 1 && comediansList[0].group !== 'ピン芸人';
+
+      // Pick genre
+      const validKeys = Object.keys(GENRE_DATA);
+      const chosenKey = (genreKey === 'random' || !GENRE_DATA[genreKey]) 
+        ? (isDuplicate ? 'bug' : validKeys[Math.floor(Math.random() * validKeys.length)]) 
+        : genreKey;
+      const g = GENRE_DATA[chosenKey];
+
+      const script = [];
+      const addLine = (cIdx, text, isLaugh = false, isSlap = false) => {
+        script.push({
+          comedian: comediansList[cIdx],
+          text: text,
+          laugh: isLaugh,
+          slap: isSlap
+        });
+      };
+
+      const c0 = comediansList[0];
+      const c1 = count > 1 ? comediansList[1] : null;
+      const c2 = count > 2 ? comediansList[2] : null;
+
+      // --- BRANCH A: DUPLICATE / BUG MANZAI (Same character clone) ---
+      if (isDuplicate) {
+        addLine(0, `${c0.name}です！よろしくお願いしまーす！`);
+        addLine(1, `おい待て！なんで全く同じ顔のお前が横におんねん！`, true);
+        if (count === 3) {
+          addLine(2, `ちょっと待て、俺もまったく同じ人間なんだが！？3人いるぞ！`, true, true);
+        }
+        addLine(0, `声のトーンもピッチも完全に一致してて気持ち悪いねん！`);
+        addLine(1, `${c1.catch}！`, true);
+        addLine(0, `俺の持ちギャグを本人の目の前で堂々とパクるな！`, true, true);
+        addLine(1, `いや俺が本物や！お前こそ思考ルーチンがバグった偽物やろ！`);
+        if (count === 3) {
+          addLine(2, `全員が本物だと言い張ったら、この劇場のギャラは誰に振り込まれるんだ！`, true);
+        }
+        addLine(0, `思考停止する寸前や！お前が言った言葉をそのままオウム返しで返すぞ！`);
+        addLine(1, `『お前が言った言葉をそのままオウム返しで返すぞ！』って言うな！`, true, true);
+        addLine(0, `ツッコミがツッコミを説明し始めてもう誰もツッコめなくなってるわ！`);
+        addLine(1, `もうええわ！ドッペルゲンガー同士で仲良く消滅しまーす！`, true);
+        if (count === 3) addLine(2, `時空の歪みを閉じて解散！ありがとうございましたー！`, true);
+        return { title: `【バグ漫才】自己同一性崩壊 (${c0.name}重複)`, lines: script };
+      }
+
+      // --- BRANCH B: PIN PERFORMANCE (Solo Cont / Standup) ---
+      if (count === 1) {
+        if (isSoloCombi) {
+          addLine(0, `どうもー！${c0.group}の${c0.name}です！`);
+          addLine(0, `……って、相方はどこ行ってん！？舞台袖に誰もいーひんぞ！`, true);
+          addLine(0, `仕方ない、今日は一人で相方の分まで二役やるしかないか……`);
+          addLine(0, `『おい${c0.name}、${g.intros[0]}』って相方の声マネ下手くそすぎるやろ！`, true);
+          addLine(0, `あかん、一人でボケて自分で大声で訂正してたら頭がおかしくなってきた！`);
+          addLine(0, `相方への不満が走馬灯のように思い出されて胸が苦しい！`);
+          addLine(0, `${c0.catch}！`, true);
+          addLine(0, `一人で叫んで誰にも拾われないこの虚しさ、まさに芸術！`);
+          addLine(0, `相方探しの旅に出てきます！ありがとうございましたー！`, true);
+          return { title: `【ピンコント】相方不在の苦悩 (${c0.name})`, lines: script };
+        } else {
+          addLine(0, `どうもー！${c0.name}です！`);
+          addLine(0, `${c0.catch}！`, true);
+          addLine(0, `今日は${g.title}について一人でじっくり語りたいと思います。`);
+          addLine(0, `${g.topics[0]}`);
+          addLine(0, `普通ならここで客席からツッコミが入るはずなんですが、静寂が痛い！`, true);
+          addLine(0, `気まずくなればなるほど声のボリュームを上げて押し切るスタイル！`);
+          addLine(0, `${g.topics[1]}`);
+          addLine(0, `自分で言っておいて何ですが、まったく意味が分かりません！`);
+          addLine(0, `${g.punchlines[0]} ありがとうございましたー！`, true);
+          return { title: `【ピン芸】${g.title} (${c0.name})`, lines: script };
+        }
+      }
+
+      // --- BRANCH C: COMBI PERFORMANCE (2 Persons) ---
+      if (count === 2) {
+        addLine(0, `どうもー！${c0.name}と！`);
+        addLine(1, `${c1.name}です！よろしくお願いしまーす！`);
+        addLine(0, `いきなりですけど、${g.intros[0]}`);
+        addLine(1, `急に何を言い出すねん！舞台に出てきて第一声がそれか！`, true, true);
+        addLine(0, `いや真面目な話、${g.topics[0]}`);
+        addLine(1, `なんやその状況！ちょっと何言ってるか分からないんだけど！`, true);
+        
+        // Memory echo & reversal
+        addLine(0, `お前さっき『舞台に出てきて第一声がそれか』って言うたよな？`);
+        addLine(1, `言うたよ！お前が変なこと言うからや！`);
+        addLine(0, `じゃあお前が第一声で正しい日本語を喋ってみろよ！`);
+        addLine(1, `えっ、俺！？……${c1.catch}！`, true);
+        addLine(0, `なんでここで自分の決め台詞で逃げんねん！役割が逆転しとるやろ！`, true, true);
+        
+        // Tsukkomi explains boke & chaos
+        addLine(1, `違うねん！お前のボケがあまりにも荒唐無稽すぎて、俺が脳内で因数分解して解説せんと話が進まへんねん！`);
+        addLine(0, `ツッコミがボケの構造を解説し始めたら漫才はおしまいやぞ！`);
+        addLine(1, `お前が先に正解を消滅させとんねん！`);
+        addLine(0, `${c0.catch}！`, true);
+        addLine(1, `${g.punchlines[0]}`, true, true);
+        addLine(0, `ありがとうございましたー！`);
+        return { title: `【コンビ漫才】${g.title} (${c0.name} × ${c1.name})`, lines: script };
+      }
+
+      // --- BRANCH D: TRIO PERFORMANCE (3 Persons) ---
+      if (count === 3) {
+        addLine(0, `どうもー！${c0.name}と！`);
+        addLine(1, `${c1.name}と！`);
+        addLine(2, `${c2.name}でーす！3人合わせてお願いしまーす！`);
+        
+        addLine(0, `今日は3人で${g.title}について作戦会議をしたいと思うんですが。`);
+        addLine(1, `お前が仕切るとロクなことにならんから俺に任せろ！`);
+        addLine(2, `ちょっと待って！俺の立ち位置、完全にマイクから遠すぎて声拾えてないんだけど！`, true);
+        
+        addLine(0, `${g.topics[0]}`);
+        addLine(1, `バカ言え！そんなもん通るわけないやろ！`, true, true);
+        addLine(2, `俺はむしろ賛成だけどね！オリーブオイルかければ全部解決するよ！`, true);
+        
+        // Total confusion & memory chaos
+        addLine(0, `お前らさっきから俺の意見を1ミリも聞いてないだろ！`);
+        addLine(1, `聞いてないのはお前や！さっきから言ってること全部矛盾しとるぞ！`);
+        addLine(2, `誰がボケで誰がツッコミか、AIのCPUでも判別つかなくなってきましたー！`, true);
+        
+        addLine(0, `${c0.catch}！`);
+        addLine(1, `${c1.catch}！`, true);
+        addLine(2, `${c2.catch}！`, true, true);
+        
+        addLine(1, `全員が持ちネタを一斉に叫ぶな！鼓膜が破れるわ！`, true);
+        addLine(0, `${g.punchlines[0]}`);
+        addLine(2, `3人仲良く退場！ありがとうございましたー！`, true);
+        return { title: `【トリオコント】${g.title} (${c0.name} × ${c1.name} × ${c2.name})`, lines: script };
+      }
+
+      return { title: "漫才", lines: [] };
+    }
+
+    // --- 6. DOM ELEMENTS & CONTROLLER LOGIC ---
+    let currentRoutine = null;
+    let currentLineIndex = 0;
+    let isPlaying = false;
+    let isPaused = false;
+    let playTimeout = null;
+    let isAutoPlayActive = false;
+
+    // Elements
+    const userPointsEl = document.getElementById('userPoints');
+    const unlockedCountEl = document.getElementById('unlockedCount');
+    const gachaPointsDisplayEl = document.getElementById('gachaPointsDisplay');
+    const voiceToggleBtn = document.getElementById('voiceToggleBtn');
+    const voiceIcon = document.getElementById('voiceIcon');
+    const voiceStatus = document.getElementById('voiceStatus');
+    const sfxToggleBtn = document.getElementById('sfxToggleBtn');
+    const sfxIcon = document.getElementById('sfxIcon');
+    const sfxStatus = document.getElementById('sfxStatus');
+
+    // Tab buttons
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    // Stage controls
+    const btnPin = document.getElementById('btnPin');
+    const btnCombi = document.getElementById('btnCombi');
+    const btnTrio = document.getElementById('btnTrio');
+    const genreSelect = document.getElementById('genreSelect');
+    genreSelect.addEventListener('change', () => { gameState.selectedGenre = genreSelect.value; saveState(); });
+    const randomTeamBtn = document.getElementById('randomTeamBtn');
+    const slot1Select = document.getElementById('slot1Select');
+    const slot2Select = document.getElementById('slot2Select');
+    const slot3Select = document.getElementById('slot3Select');
+    const slot2Wrapper = document.getElementById('slot2Wrapper');
+    const slot3Wrapper = document.getElementById('slot3Wrapper');
+    const bugWarningBox = document.getElementById('bugWarningBox');
+    const bugWarningText = document.getElementById('bugWarningText');
+
+    const startPlayBtn = document.getElementById('startPlayBtn');
+    const pausePlayBtn = document.getElementById('pausePlayBtn');
+    const skipStepBtn = document.getElementById('skipStepBtn');
+    const stopPlayBtn = document.getElementById('stopPlayBtn');
+
+    const dialogueBox = document.getElementById('dialogueBox');
+    const speakerBadge = document.getElementById('speakerBadge');
+    const speakerRole = document.getElementById('speakerRole');
+    const speechText = document.getElementById('speechText');
+    const routineTopic = document.getElementById('routineTopic');
+    const stepCounter = document.getElementById('stepCounter');
+    const bubbleTail = document.getElementById('bubbleTail');
+    const stagePerformers = document.getElementById('stagePerformers');
+    const stageEffectTag = document.getElementById('stageEffectTag');
+    const applaudState = document.getElementById('applaudState');
+    const laughContainer = document.getElementById('laughContainer');
+
+    // --- TAB SWITCHING ---
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+        navButtons.forEach(b => {
+          b.classList.remove('bg-amber-500', 'text-black', 'shadow-md', 'shadow-amber-500/20');
+          b.classList.add('text-slate-300');
+        });
+        btn.classList.add('bg-amber-500', 'text-black', 'shadow-md', 'shadow-amber-500/20');
+        btn.classList.remove('text-slate-300');
+
+        tabContents.forEach(c => c.classList.add('hidden'));
+        const activeContent = document.getElementById('tab-' + targetTab);
+        if (activeContent) activeContent.classList.remove('hidden');
+
+        if (targetTab === 'zukan') renderZukan();
+        if (targetTab === 'gacha') updateGachaView();
+      });
+    });
+
+    // --- SOUND & VOICE TOGGLES ---
+    voiceToggleBtn.addEventListener('click', () => {
+      gameState.settings.voice = !gameState.settings.voice;
+      updateSettingsUI();
+      saveState();
+    });
+
+    sfxToggleBtn.addEventListener('click', () => {
+      gameState.settings.sfx = !gameState.settings.sfx;
+      updateSettingsUI();
+      saveState();
+      if (gameState.settings.sfx) playTsukkomiSound();
+    });
+
+    function updateSettingsUI() {
+      if (gameState.settings.voice) {
+        voiceIcon.className = "fa-solid fa-volume-high text-amber-400";
+        voiceStatus.textContent = "音声 ON";
+      } else {
+        voiceIcon.className = "fa-solid fa-volume-xmark text-slate-500";
+        voiceStatus.textContent = "音声 OFF";
+      }
+
+      if (gameState.settings.sfx) {
+        sfxIcon.className = "fa-solid fa-bell text-emerald-400";
+        sfxStatus.textContent = "効果音 ON";
+      } else {
+        sfxIcon.className = "fa-solid fa-bell-slash text-slate-500";
+        sfxStatus.textContent = "効果音 OFF";
+      }
+    }
+
+    function updateHeaderStats() {
+      userPointsEl.textContent = gameState.points;
+      unlockedCountEl.textContent = gameState.unlockedIds.length;
+      gachaPointsDisplayEl.textContent = gameState.points;
+      const apCount = document.getElementById('autoPlayAvailableCount');
+      if (apCount) apCount.textContent = `${gameState.unlockedIds.length}名`;
+    }
+
+    // --- FORMATION SELECTION ---
+    function setFormation(num) {
+      gameState.selectedFormation = num;
+      btnPin.classList.toggle('bg-amber-500', num === 1);
+      btnPin.classList.toggle('text-black', num === 1);
+      btnPin.classList.toggle('text-slate-300', num !== 1);
+
+      btnCombi.classList.toggle('bg-amber-500', num === 2);
+      btnCombi.classList.toggle('text-black', num === 2);
+      btnCombi.classList.toggle('text-slate-300', num !== 2);
+
+      btnTrio.classList.toggle('bg-amber-500', num === 3);
+      btnTrio.classList.toggle('text-black', num === 3);
+      btnTrio.classList.toggle('text-slate-300', num !== 3);
+
+      slot2Wrapper.classList.toggle('opacity-50', num < 2);
+      slot2Wrapper.classList.toggle('pointer-events-none', num < 2);
+      slot3Wrapper.classList.toggle('opacity-50', num < 3);
+      slot3Wrapper.classList.toggle('pointer-events-none', num < 3);
+
+      checkDuplicateBug();
+      renderStagePerformers();
+      saveState();
+    }
+
+    btnPin.addEventListener('click', () => setFormation(1));
+    btnCombi.addEventListener('click', () => setFormation(2));
+    btnTrio.addEventListener('click', () => setFormation(3));
+
+    function checkDuplicateBug() {
+      const num = gameState.selectedFormation;
+      const ids = gameState.selectedSlots.slice(0, num);
+      const isDup = num > 1 && new Set(ids).size < ids.length;
+      if (isDup) {
+        bugWarningBox.classList.remove('hidden');
+        bugWarningText.textContent = `同キャラ重複を検知！自己同一性崩壊バグ漫才（CPU思考停止モード）が発動します！`;
+      } else {
+        bugWarningBox.classList.add('hidden');
+      }
+    }
+
+    // Populate Select Options
+    function populateSlotSelects() {
+      const selects = [slot1Select, slot2Select, slot3Select];
+      selects.forEach((sel, sIdx) => {
+        sel.innerHTML = '';
+        // Group by unlocked vs locked
+        const unlocked = COMEDIANS.filter(c => gameState.unlockedIds.includes(c.id));
+        unlocked.forEach(c => {
+          const opt = document.createElement('option');
+          opt.value = c.id;
+          opt.textContent = `【${c.role === 'boke' ? 'ボケ' : 'ツッコミ'}】${c.name} (${c.group})`;
+          if (c.id === gameState.selectedSlots[sIdx]) opt.selected = true;
+          sel.appendChild(opt);
+        });
+
+        sel.addEventListener('change', () => {
+          gameState.selectedSlots[sIdx] = parseInt(sel.value, 10);
+          checkDuplicateBug();
+          renderStagePerformers();
+          saveState();
+        });
+      });
+    }
+
+    randomTeamBtn.addEventListener('click', () => {
+      const unlocked = gameState.unlockedIds;
+      if (unlocked.length === 0) return;
+      for (let i = 0; i < 3; i++) {
+        const rId = unlocked[Math.floor(Math.random() * unlocked.length)];
+        gameState.selectedSlots[i] = rId;
+      }
+      populateSlotSelects();
+      checkDuplicateBug();
+      renderStagePerformers();
+      saveState();
+      showToast('チームをランダム編成しました！');
+    });
+
+    // --- RENDER PERFORMERS ON STAGE ---
+    function renderStagePerformers() {
+      stagePerformers.innerHTML = '';
+      const count = gameState.selectedFormation;
+      const activeIds = gameState.selectedSlots.slice(0, count);
+
+      activeIds.forEach((cId, idx) => {
+        const comedian = COMEDIANS.find(c => c.id === cId) || COMEDIANS[0];
+        const card = document.createElement('div');
+        card.id = `performer-${idx}`;
+        card.className = "flex flex-col items-center transition-all duration-300 relative";
+        
+        // Character visual (SVG / Stylish Avatar)
+        card.innerHTML = `
+          <div class="relative group cursor-pointer" onclick="openComedianModal(${comedian.id})">
+            <!-- Halo / Glow -->
+            <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-amber-500 to-red-500 opacity-20 blur-sm group-hover:opacity-60 transition"></div>
+            <!-- Body Avatar -->
+            <div class="w-16 h-20 sm:w-20 sm:h-24 rounded-2xl flex flex-col items-center justify-center p-2 shadow-xl border-2 border-slate-700 relative text-white" style="background-color: ${comedian.color}">
+              <span class="text-xl sm:text-2xl mb-1">${comedian.role === 'boke' ? '' : ''}</span>
+              <span class="text-[10px] sm:text-xs font-black tracking-tighter text-center leading-tight drop-shadow-md line-clamp-1">${comedian.name}</span>
+              <span class="text-[8px] bg-black/40 px-1 rounded uppercase tracking-wider mt-0.5">${comedian.role === 'boke' ? 'ボケ' : 'ツッコミ'}</span>
+            </div>
+          </div>
+          <span class="text-[11px] font-bold text-slate-300 mt-2 bg-slate-900/90 px-2 py-0.5 rounded border border-slate-800 shadow">
+            ${comedian.name}
+          </span>
+        `;
+        stagePerformers.appendChild(card);
+      });
+    }
+
+    // --- STAGE PLAYBACK CONTROLLER ---
+    function startRoutinePlay() {
+      stopRoutine(true);
+      speechText.textContent = '開演準備中…';
+      speakerBadge.textContent = '準備中';
+      pausePlayBtn.textContent = '一時停止';
+      const count = gameState.selectedFormation;
+      const comediansList = gameState.selectedSlots.slice(0, count).map(id => COMEDIANS.find(c => c.id === id) || COMEDIANS[0]);
+      const genre = genreSelect.value;
+
+      currentRoutine = generateRoutine(comediansList, genre);
+      currentLineIndex = 0;
+      isPlaying = true;
+      isPaused = false;
+
+      // Update UI Controls
+      startPlayBtn.classList.add('hidden');
+      pausePlayBtn.classList.remove('hidden');
+      skipStepBtn.classList.remove('hidden');
+      stopPlayBtn.classList.remove('hidden');
+      applaudState.classList.add('hidden');
+      routineTopic.textContent = currentRoutine.title;
+
+      playFanfareSound();
+      showToast(`『${currentRoutine.title}』開演！`);
+
+      playTimeout = setTimeout(playNextLine, 1000);
+    }
+
+    function playNextLine() {
+      if (!isPlaying || isPaused || !currentRoutine) return;
+
+      if (currentLineIndex >= currentRoutine.lines.length) {
+        finishRoutine();
+        return;
+      }
+
+      const item = currentRoutine.lines[currentLineIndex];
+      const comedian = item.comedian;
+      currentLineIndex++;
+
+      // Update Dialogue Box
+      stepCounter.textContent = `${currentLineIndex} / ${currentRoutine.lines.length}`;
+      speakerBadge.textContent = comedian.name;
+      speakerBadge.style.backgroundColor = comedian.color;
+      speakerRole.textContent = `【${comedian.role === 'boke' ? 'ボケ' : 'ツッコミ'}】${comedian.group}`;
+      speechText.textContent = item.text;
+
+      // Animate Performer Avatar
+      const activeIdx = gameState.selectedSlots.indexOf(comedian.id);
+      const perfEl = document.getElementById(`performer-${activeIdx >= 0 ? activeIdx : 0}`);
+      if (perfEl) {
+        perfEl.classList.add('speaking');
+        setTimeout(() => perfEl.classList.remove('speaking'), 900);
+      }
+
+      // SFX & Crowd Reactions
+      if (item.slap) {
+        playTsukkomiSound();
+        stageEffectTag.textContent = " ペシッ！(ツッコミ)";
+        setTimeout(() => stageEffectTag.textContent = "", 1000);
+      }
+      if (item.laugh) {
+        playLaughterSound();
+        spawnLaughParticle();
+      }
+
+      // Voice synthesis
+      speakLine(item.text, comedian, () => {
+        if (isPlaying && !isPaused) {
+          playTimeout = setTimeout(() => {
+            playNextLine();
+          }, 600);
+        }
+      });
+    }
+
+    function finishRoutine() {
+      if (!isPlaying) return;
+      cancelVoice();
+      isPlaying = false;
+      isPaused = false;
+      startPlayBtn.classList.remove('hidden');
+      pausePlayBtn.classList.add('hidden');
+      skipStepBtn.classList.add('hidden');
+      stopPlayBtn.classList.add('hidden');
+
+      // Applause & Points
+      applaudState.classList.remove('hidden');
+      playApplauseSound(3.0);
+      stageEffectTag.textContent = " 拍手喝采！大爆笑！";
+
+      const reward = 200;
+      gameState.points += reward;
+      gameState.totalWatched += 1;
+      saveState();
+      showToast(`ネタ完走！ +${reward}pt 獲得！`);
+
+      if (isAutoPlayActive) {
+      autoPlayCount++;
+      autoPlayEarned += 200;
+      autoPlayCountEl.textContent = `${autoPlayCount}本`;
+      autoPlayEarnedEl.textContent = `+${autoPlayEarned} pt`;
+      }
+      // If AutoPlay Radio is active, wait and loop to next
+      if (isAutoPlayActive) {
+        const epoch = autoEpoch;
+        setTimeout(() => {
+          if (isAutoPlayActive && epoch === autoEpoch) {
+            triggerAutoPlayNext();
+          }
+        }, 3500);
+      }
+    }
+
+    function stopRoutine(silent = false) {
+      const wasPlaying = isPlaying;
+      cancelVoice();
+      isPlaying = false;
+      isPaused = false;
+      clearTimeout(playTimeout);
+      if (speechAvailable) window.speechSynthesis.cancel();
+      startPlayBtn.classList.remove('hidden');
+      pausePlayBtn.classList.add('hidden');
+      skipStepBtn.classList.add('hidden');
+      stopPlayBtn.classList.add('hidden');
+      speechText.textContent = "ネタが終了しました。";
+      speakerBadge.textContent = "待機中";
+      if (wasPlaying && !silent) showToast('ネタを中断しました。');
+    }
+
+    startPlayBtn.addEventListener('click', startRoutinePlay);
+    stopPlayBtn.addEventListener('click', stopRoutine);
+    pausePlayBtn.addEventListener('click', () => {
+      if (!isPlaying) return;
+      isPaused = !isPaused;
+      clearTimeout(playTimeout);
+      cancelVoice();
+      if (isPaused) {
+        currentLineIndex = Math.max(0, currentLineIndex - 1);
+        pausePlayBtn.textContent = '再開';
+      } else {
+        pausePlayBtn.textContent = '一時停止';
+        playNextLine();
+      }
+    });
+    skipStepBtn.addEventListener('click', () => {
+      if (!isPlaying || isPaused) return;
+      clearTimeout(playTimeout);
+      cancelVoice();
+      playNextLine();
+    });
+
+    // Spawn Audience Laugh Bubble Animation
+    function spawnLaughParticle() {
+      const laughs = ["(客席: ドッ！) ｗｗｗ", "ワハハハハ！", "ギャハハハ！", "フフッｗｗ", "ドッカンドッカン！"];
+      const text = laughs[Math.floor(Math.random() * laughs.length)];
+      const el = document.createElement('div');
+      el.className = "absolute text-xs sm:text-sm font-black text-amber-300 bg-black/60 px-2.5 py-1 rounded-full border border-amber-400/50 shadow-lg laugh-pop pointer-events-none";
+      el.textContent = text;
+      el.style.left = `${20 + Math.random() * 60}%`;
+      el.style.bottom = `${20 + Math.random() * 30}%`;
+      laughContainer.appendChild(el);
+      setTimeout(() => el.remove(), 1300);
+    }
+
+    // --- 7. GACHA SYSTEM ---
+    const gachaSingleBtn = document.getElementById('gachaSingleBtn');
+    const gachaMultiBtn = document.getElementById('gachaMultiBtn');
+    const gachaResultArea = document.getElementById('gachaResultArea');
+    const gachaCardsGrid = document.getElementById('gachaCardsGrid');
+    const closeGachaResultBtn = document.getElementById('closeGachaResultBtn');
+
+    function updateGachaView() {
+      updateHeaderStats();
+    }
+
+    function doGacha(pulls = 1) {
+      const cost = pulls === 1 ? 100 : 1000;
+      if (gameState.points < cost) {
+        showToast(`ポイントが足りません！ (必要: ${cost}pt) 劇場でネタを鑑賞して貯めてください！`, 'error');
+        return;
+      }
+
+      gameState.points -= cost;
+      playGachaSound();
+
+      const results = [];
+      const unlockedSet = new Set(gameState.unlockedIds);
+
+      for (let i = 0; i < pulls; i++) {
+        // If 10 pulls, 1 guaranteed locked comedian if available
+        let candidatePool = COMEDIANS;
+        if (pulls === 10 && i === 9) {
+          const lockedList = COMEDIANS.filter(c => !unlockedSet.has(c.id));
+          if (lockedList.length > 0) candidatePool = lockedList;
+        }
+        const pick = candidatePool[Math.floor(Math.random() * candidatePool.length)];
+        const isNew = !unlockedSet.has(pick.id);
+        if (isNew) {
+          unlockedSet.add(pick.id);
+          gameState.unlockedIds.push(pick.id);
+        }
+        results.push({ comedian: pick, isNew: isNew });
+      }
+
+      saveState();
+      populateSlotSelects();
+      showGachaResults(results);
+    }
+
+    function showGachaResults(results) {
+      gachaResultArea.classList.remove('hidden');
+      gachaCardsGrid.innerHTML = '';
+      results.forEach(res => {
+        const c = res.comedian;
+        const card = document.createElement('div');
+        card.className = `p-3 rounded-2xl flex flex-col items-center text-center border relative shadow-lg ${res.isNew ? 'bg-amber-950/40 border-amber-400 animate-pulse' : 'bg-slate-800/80 border-slate-700'}`;
+        card.innerHTML = `
+          ${res.isNew ? '<span class="absolute top-1.5 right-1.5 bg-red-600 text-[10px] font-black text-white px-1.5 py-0.5 rounded-full shadow">NEW!</span>' : ''}
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl mb-2 shadow" style="background-color: ${c.color}">
+            ${c.role === 'boke' ? '' : ''}
+          </div>
+          <span class="text-xs font-black text-white line-clamp-1">${c.name}</span>
+          <span class="text-[10px] text-slate-400">${c.group}</span>
+          <span class="text-[9px] text-amber-300 font-semibold mt-1">${c.type}</span>
+        `;
+        gachaCardsGrid.appendChild(card);
+      });
+      showToast(`スカウト完了！ 新規芸人: ${results.filter(r => r.isNew).length}名`);
+    }
+
+    gachaSingleBtn.addEventListener('click', () => doGacha(1));
+    gachaMultiBtn.addEventListener('click', () => doGacha(10));
+    closeGachaResultBtn.addEventListener('click', () => gachaResultArea.classList.add('hidden'));
+
+    // --- 8. ZUKAN (ENCYCLOPEDIA) ---
+    const zukanGrid = document.getElementById('zukanGrid');
+    const zukanFilterOwnership = document.getElementById('zukanFilterOwnership');
+    const zukanFilterRole = document.getElementById('zukanFilterRole');
+    const zukanSearchInput = document.getElementById('zukanSearchInput');
+
+    function renderZukan() {
+      const ownFilter = zukanFilterOwnership.value;
+      const roleFilter = zukanFilterRole.value;
+      const query = zukanSearchInput.value.trim().toLowerCase();
+
+      zukanGrid.innerHTML = '';
+      const filtered = COMEDIANS.filter(c => {
+        const isUnlocked = gameState.unlockedIds.includes(c.id);
+        if (ownFilter === 'unlocked' && !isUnlocked) return false;
+        if (ownFilter === 'locked' && isUnlocked) return false;
+        if (roleFilter !== 'all' && c.role !== roleFilter) return false;
+        if (query) {
+          const matchName = c.name.toLowerCase().includes(query);
+          const matchGroup = c.group.toLowerCase().includes(query);
+          const matchCatch = c.catch.toLowerCase().includes(query);
+          if (!matchName && !matchGroup && !matchCatch) return false;
+        }
+        return true;
+      });
+
+      filtered.forEach(c => {
+        const isUnlocked = gameState.unlockedIds.includes(c.id);
+        const card = document.createElement('div');
+        card.className = `p-3 rounded-2xl flex flex-col items-center text-center border transition transform hover:-translate-y-1 cursor-pointer ${isUnlocked ? 'bg-slate-900 border-slate-700 shadow-md' : 'bg-slate-950/60 border-slate-800 opacity-60'}`;
+        card.onclick = () => openComedianModal(c.id);
+
+        card.innerHTML = `
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl mb-2 shadow relative" style="background-color: ${isUnlocked ? c.color : '#334155'}">
+            ${isUnlocked ? (c.role === 'boke' ? '' : '') : '<i class="fa-solid fa-lock text-slate-400 text-sm"></i>'}
+          </div>
+          <span class="text-xs font-black ${isUnlocked ? 'text-white' : 'text-slate-500'} line-clamp-1">${isUnlocked ? c.name : '？？？？'}</span>
+          <span class="text-[10px] text-slate-400">${isUnlocked ? c.group : '未開放'}</span>
+          <span class="text-[9px] ${c.role === 'boke' ? 'text-amber-400' : 'text-cyan-400'} font-bold mt-1">
+            ${isUnlocked ? (c.role === 'boke' ? 'ボケ担当' : 'ツッコミ担当') : 'スカウトで入手'}
+          </span>
+        `;
+        zukanGrid.appendChild(card);
+      });
+    }
+
+    zukanFilterOwnership.addEventListener('change', renderZukan);
+    zukanFilterRole.addEventListener('change', renderZukan);
+    zukanSearchInput.addEventListener('input', renderZukan);
+
+    // --- 9. COMEDIAN DETAIL MODAL ---
+    const comedianModal = document.getElementById('comedianModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalAvatar = document.getElementById('modalAvatar');
+    const modalRoleBadge = document.getElementById('modalRoleBadge');
+    const modalName = document.getElementById('modalName');
+    const modalGroup = document.getElementById('modalGroup');
+    const modalType = document.getElementById('modalType');
+    const modalCatch = document.getElementById('modalCatch');
+    const modalPitch = document.getElementById('modalPitch');
+    const modalRate = document.getElementById('modalRate');
+    const modalVoiceSampleBtn = document.getElementById('modalVoiceSampleBtn');
+    const modalSetLeadBtn = document.getElementById('modalSetLeadBtn');
+    let currentModalComedian = null;
+
+    window.openComedianModal = function(cId) {
+      const c = COMEDIANS.find(item => item.id === cId);
+      if (!c) return;
+      currentModalComedian = c;
+      const isUnlocked = gameState.unlockedIds.includes(c.id);
+
+      modalAvatar.style.backgroundColor = isUnlocked ? c.color : '#334155';
+      modalAvatar.innerHTML = isUnlocked ? (c.role === 'boke' ? '' : '') : '<i class="fa-solid fa-lock"></i>';
+      modalRoleBadge.className = `text-xs font-bold px-2 py-0.5 rounded-full mb-1 inline-block ${c.role === 'boke' ? 'bg-amber-500 text-black' : 'bg-cyan-500 text-black'}`;
+      modalRoleBadge.textContent = c.role === 'boke' ? 'ボケ担当' : 'ツッコミ担当';
+      modalName.textContent = isUnlocked ? c.name : '未開放の芸人';
+      modalGroup.textContent = isUnlocked ? `所属: ${c.group}` : 'スカウトガチャで解放可能';
+      modalType.textContent = isUnlocked ? c.type : '？？？？';
+      modalCatch.textContent = isUnlocked ? `「${c.catch}」` : '？？？？';
+      modalPitch.textContent = isUnlocked ? `${c.pitch} (周波数倍率)` : '？？';
+      modalRate.textContent = isUnlocked ? `${c.rate} (発話テンポ)` : '？？';
+
+      comedianModal.classList.remove('hidden');
+    };
+
+    closeModalBtn.addEventListener('click', () => comedianModal.classList.add('hidden'));
+    comedianModal.addEventListener('click', (e) => {
+      if (e.target === comedianModal) comedianModal.classList.add('hidden');
+    });
+
+    modalVoiceSampleBtn.addEventListener('click', () => {
+      if (!currentModalComedian) return;
+      speakLine(currentModalComedian.catch, currentModalComedian);
+      playTsukkomiSound();
+    });
+
+    modalSetLeadBtn.addEventListener('click', () => {
+      if (!currentModalComedian) return;
+      if (!gameState.unlockedIds.includes(currentModalComedian.id)) {
+        showToast('まだ解放されていない芸人です！', 'error');
+        return;
+      }
+      gameState.selectedSlots[0] = currentModalComedian.id;
+      populateSlotSelects();
+      renderStagePerformers();
+      saveState();
+      comedianModal.classList.add('hidden');
+      showToast(`${currentModalComedian.name}を劇場のメインにセットしました！`);
+    });
+
+    // --- 10. TOURNAMENT (GRAND PRIX) ENGINE ---
+    const startTournamentBtn = document.getElementById('startTournamentBtn');
+    const tRound1Matches = document.getElementById('tRound1Matches');
+    const tRound2Matches = document.getElementById('tRound2Matches');
+    const tFinalMatch = document.getElementById('tFinalMatch');
+    const tournamentLiveLog = document.getElementById('tournamentLiveLog');
+
+    startTournamentBtn.addEventListener('click', runTournament);
+
+    let tournamentEpoch = 0, tournamentRunning = false;
+    function runTournament() {
+      if (tournamentRunning) return;
+      tournamentRunning = true;
+      startTournamentBtn.disabled = true;
+      const epoch = ++tournamentEpoch;
+      const later = (fn, ms) => setTimeout(() => { if (epoch === tournamentEpoch) fn(); }, ms);
+      const userComedian = COMEDIANS.find(c => c.id === gameState.selectedSlots[0]) || COMEDIANS[0];
+      const rivalPool = COMEDIANS.filter(c => c.id !== userComedian.id);
+      
+      // Shuffle rivals to make 7 opponents
+      const shuffled = [...rivalPool].sort(() => 0.5 - Math.random());
+      const rivals = shuffled.slice(0, 7);
+
+      const competitors = [
+        { name: `★ あなた (${userComedian.name})`, power: 85 + Math.random() * 14, isUser: true },
+        ...rivals.map(r => ({ name: `${r.name} (${r.group})`, power: 75 + Math.random() * 23, isUser: false }))
+      ];
+
+      // Round 1 (8 -> 4)
+      tRound1Matches.innerHTML = '';
+      tRound2Matches.innerHTML = '<span class="text-slate-500">準決勝 待機中...</span>';
+      tFinalMatch.innerHTML = '<span class="text-slate-500">決勝 待機中...</span>';
+
+      tournamentLiveLog.innerHTML = `<span class="text-amber-400 font-bold"><i class="fa-solid fa-microphone"></i> 第1回戦 激突開始！審査員が採点中……</span>`;
+      playFanfareSound();
+
+      later(() => {
+        const r1Winners = [];
+        for (let i = 0; i < 4; i++) {
+          const a = competitors[i * 2];
+          const b = competitors[i * 2 + 1];
+          const scoreA = Math.floor(a.power + Math.random() * 8);
+          const scoreB = Math.floor(b.power + Math.random() * 8);
+          const winner = scoreA >= scoreB ? a : b;
+          r1Winners.push(winner);
+
+          const row = document.createElement('div');
+          row.className = "p-2 rounded bg-slate-900 border border-slate-800 flex justify-between";
+          row.innerHTML = `<span>${a.name} (${scoreA}点) vs ${b.name} (${scoreB}点)</span> <strong class="text-amber-400">勝: ${winner.name}</strong>`;
+          tRound1Matches.appendChild(row);
+        }
+
+        playLaughterSound();
+
+        // Round 2 (4 -> 2)
+        later(() => {
+          tRound2Matches.innerHTML = '';
+          const r2Winners = [];
+          for (let j = 0; j < 2; j++) {
+            const a = r1Winners[j * 2];
+            const b = r1Winners[j * 2 + 1];
+            const scoreA = Math.floor(a.power + Math.random() * 8);
+            const scoreB = Math.floor(b.power + Math.random() * 8);
+            const winner = scoreA >= scoreB ? a : b;
+            r2Winners.push(winner);
+
+            const row = document.createElement('div');
+            row.className = "p-2 rounded bg-slate-900 border border-slate-800 flex justify-between";
+            row.innerHTML = `<span>${a.name} vs ${b.name}</span> <strong class="text-cyan-400">勝: ${winner.name}</strong>`;
+            tRound2Matches.appendChild(row);
+          }
+
+          // Final
+          later(() => {
+            tFinalMatch.innerHTML = '';
+            const fA = r2Winners[0];
+            const fB = r2Winners[1];
+            // Bias slightly in favor of user if user reached final
+            const fScoreA = Math.floor(fA.power + (fA.isUser ? 8 : 0) + Math.random() * 6);
+            const fScoreB = Math.floor(fB.power + (fB.isUser ? 8 : 0) + Math.random() * 6);
+            const champion = fScoreA >= fScoreB ? fA : fB;
+
+            const finalRow = document.createElement('div');
+            finalRow.className = "p-3 rounded-xl bg-amber-950/60 border border-amber-400 text-center font-black flex flex-col gap-1";
+            finalRow.innerHTML = `
+              <span class="text-xs text-amber-300">決勝スコア: ${fA.name} (${fScoreA}) - ${fB.name} (${fScoreB})</span>
+              <span class="text-sm text-yellow-300"> 優勝: ${champion.name}！！</span>
+            `;
+            tFinalMatch.appendChild(finalRow);
+
+            tournamentRunning = false; startTournamentBtn.disabled = false;
+            if (champion.isUser) {
+              playApplauseSound(4.0);
+              tournamentLiveLog.innerHTML = `
+                <div class="text-center">
+                  <span class="text-lg font-black text-yellow-300"> おめでとうございます！完全優勝！！</span>
+                  <p class="text-xs text-slate-300 mt-1">審査員コメント：「圧巻のバグ漫才！テンポと狂気のバランスが最高峰でした！」</p>
+                  <strong class="text-amber-400 text-sm mt-2 block">優勝賞金 +2,000 pt 獲得！</strong>
+                </div>
+              `;
+              gameState.points += 2000;
+              saveState();
+              showToast('GP優勝賞金 +2000pt を獲得しました！');
+            } else {
+              playLaughterSound();
+              tournamentLiveLog.innerHTML = `
+                <div class="text-center">
+                  <span class="text-sm font-bold text-slate-300">優勝は ${champion.name}！</span>
+                  <p class="text-xs text-slate-400 mt-1">参加賞として +300 pt が授与されました。</p>
+                </div>
+              `;
+              gameState.points += 300;
+              saveState();
+            }
+          }, 1200);
+
+        }, 1000);
+
+      }, 900);
+    }
+
+    // --- 11. AUTOPLAY RADIO (LISTENING MODE) ---
+    const autoPlayToggleBtn = document.getElementById('autoPlayToggleBtn');
+    const autoPlayCountEl = document.getElementById('autoPlayCount');
+    const autoPlayEarnedEl = document.getElementById('autoPlayEarned');
+    let autoEpoch = 0;
+    let autoPlayCount = 0;
+    let autoPlayEarned = 0;
+
+    autoPlayToggleBtn.addEventListener('click', () => {
+      autoEpoch++;
+      isAutoPlayActive = !isAutoPlayActive;
+      if (isAutoPlayActive) {
+        autoPlayToggleBtn.innerHTML = '<i class="fa-solid fa-stop text-lg"></i> オート再生を停止';
+        autoPlayToggleBtn.className = "bg-red-600 hover:bg-red-500 text-white font-black px-8 py-4 rounded-2xl shadow-xl text-base transition transform active:scale-95 flex items-center gap-3";
+        showToast('聞き流しオート再生を開始しました！');
+        triggerAutoPlayNext();
+      } else {
+        autoPlayToggleBtn.innerHTML = '<i class="fa-solid fa-play text-lg"></i> 聞き流しオート再生を開始';
+        autoPlayToggleBtn.className = "bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 text-white font-black px-8 py-4 rounded-2xl shadow-xl shadow-purple-500/20 text-base transition transform active:scale-95 flex items-center gap-3";
+        stopRoutine();
+        showToast('聞き流しを停止しました。');
+      }
+    });
+
+    function triggerAutoPlayNext() {
+      const unlocked = gameState.unlockedIds;
+      if (unlocked.length === 0) return;
+
+      // Random formation 1, 2, or 3
+      const num = Math.floor(Math.random() * 3) + 1;
+      setFormation(num);
+
+      // Pick random performers from unlocked
+      for (let i = 0; i < num; i++) {
+        gameState.selectedSlots[i] = unlocked[Math.floor(Math.random() * unlocked.length)];
+      }
+      saveState();
+      populateSlotSelects();
+      renderStagePerformers();
+
+
+      startRoutinePlay();
+    }
+
+    function suspendPlayback() {
+      autoEpoch++;
+      autoPlayToggleBtn.textContent = '聞き流しオート再生を開始';
+      isAutoPlayActive = false;
+      tournamentEpoch++;
+      tournamentRunning = false;
+      startTournamentBtn.disabled = false;
+      stopRoutine();
+      if (audioCtx && audioCtx.state === 'running') audioCtx.suspend();
+    }
+    document.addEventListener('visibilitychange', () => { if (document.hidden) suspendPlayback(); });
+    window.addEventListener('pagehide', suspendPlayback);
+
+    const backupBar = document.createElement('div');
+    backupBar.className = 'backup-bar';
+    backupBar.innerHTML = '<button type="button" id="exportSave">記録をJSON保存</button> / <label>JSONから復元 <input type="file" id="importSave" accept="application/json,.json"></label>';
+    statusNode.after(backupBar);
+    document.getElementById('exportSave').onclick = () => {
+      const blob = new Blob([JSON.stringify({game:'zatuplay-manzai',version:1,state:gameState})],{type:'application/json'});
+      const url = URL.createObjectURL(blob), a = document.createElement('a');
+      a.href=url; a.download='zatuplay-manzai-save.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+    };
+    document.getElementById('importSave').onchange = async event => {
+      const file = event.target.files[0]; event.target.value = '';
+      if (!file) return;
+      if (!canSave) { alert('保存できるタブで復元してください'); return; }
+      try {
+        if (file.size > 100000) throw Error('大きすぎます');
+        const data = JSON.parse(await file.text());
+        if (data.game !== 'zatuplay-manzai' || data.version !== 1) throw Error('別形式です');
+        const next = validateState(data.state);
+        if (!confirm('現在の記録を置き換えます。続けますか？')) return;
+        suspendPlayback();
+        localStorage.setItem(STATE_KEY, JSON.stringify(next));
+        gameState = next;
+        setFormation(gameState.selectedFormation); genreSelect.value = gameState.selectedGenre;
+        updateHeaderStats(); populateSlotSelects(); renderStagePerformers(); updateSettingsUI();
+      } catch(e) { alert('復元処理に失敗しました。読み込んだファイルを保管し、保存状態を確認してください。'); }
+    };
+
+    // --- 12. TOAST HELPER ---
+    function showToast(msg, type = 'info') {
+      const toast = document.createElement('div');
+      toast.className = `p-3 rounded-xl text-xs font-bold text-white shadow-xl border flex items-center gap-2 transform transition-all duration-300 translate-y-3 opacity-0 ${type === 'error' ? 'bg-red-900 border-red-500' : 'bg-slate-900 border-amber-500'}`;
+      toast.innerHTML = `<i class="fa-solid ${type === 'error' ? 'fa-circle-exclamation text-red-400' : 'fa-circle-check text-amber-400'}"></i> <span>${msg}</span>`;
+      document.getElementById('toastBox').appendChild(toast);
+      setTimeout(() => {
+        toast.classList.remove('translate-y-3', 'opacity-0');
+      }, 10);
+      setTimeout(() => {
+        toast.classList.add('opacity-0');
+        setTimeout(() => toast.remove(), 400);
+      }, 3200);
+    }
+
+    // --- INITIALIZATION ON LOAD ---
+    window.addEventListener('DOMContentLoaded', () => {
+      updateHeaderStats();
+      updateSettingsUI();
+      populateSlotSelects();
+      setFormation(gameState.selectedFormation);
+      renderStagePerformers();
+    });
+  </script>
+</body>
+</html>

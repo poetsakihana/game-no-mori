@@ -16,7 +16,15 @@ export interface BrowserCatalog {schemaVersion:1;apps:BrowserRelease[];updatedAt
 export function mergeBrowserApps(catalog: BrowserCatalog|null, existing: (BrowserApp&{id:string})[]) {
  const ids=new Set(existing.map(app=>app.id));
  const browserOnly=(catalog?.apps??[]).flatMap(({id,app})=>app&&!ids.has(id)?[{...app,id}]:[]);
- return [...existing,...browserOnly];
+ // Browser metadata is an explicit display override, not a replacement for APK fields.
+ const metadata=new Map((catalog?.apps??[]).filter(release=>release.app).map(release=>[release.id,release.app!]));
+ const merged=existing.map(app=>{
+   const override=metadata.get(app.id);
+   if(!override)return app;
+   const {name,subtitle,description,category,color,tags,order}=override;
+   return {...app,name,subtitle,description,category,color,tags,order};
+ });
+ return [...merged,...browserOnly];
 }
 // A browser release is separate from an APK. Never infer a playable URL from an APK filename.
 export async function loadBrowserCatalog():Promise<BrowserCatalog>{
