@@ -10,7 +10,7 @@
   <script src="browser-boot.js?v=2" defer></script>
 </head>
 <body>
-<p role="note" style="margin:12px;padding:12px;border:1px solid #c98a16;background:#fff6d8;color:#332600;font:14px/1.6 sans-serif">試験公開版：自動テストは通過していますが、実ブラウザ操作・スマホ実機・音の実聴取は未検証です。</p>
+<p role="note" style="margin:12px;padding:12px;border:1px solid #c98a16;background:#fff6d8;color:#332600;font:14px/1.6 sans-serif">試験公開版：Chromeで基本操作と保存保護を確認。全編の通常攻略・スマホ実機・音の実聴取は未検証です。</p>
   <main class="shell"><nav><a href="../../browser/" style="color:#e7ff86">← ZatuPlay 一覧</a></nav><p style="font-size:14px">架空の追いかけっこゲームです。現実ではまねしないでください。<br>ブラウザ版：ステージ開始時点を自動保存。途中位置は保存しません。APK・以前のChatGPT Site版とは別保存です。記録は自動で引き継がれません。</p><p id="save-status" role="status"></p><button id="resume-save" hidden>保存したステージから再開</button><button id="replay-ending" hidden>結末をもう一度見る</button><p>クリア条件：全50ステージを1人以上が走り抜けると「夜明けのチャイム」が解放され、クリア記録を保存します。</p><details><summary>データの回収・復元・初期化</summary><p>退避は直前の置換1回分です。必要なJSONは別の場所にコピーして保管してください。回収JSONのprimaryが保存本文、previousが前回退避です。回収JSON全体を貼り付けるとprimaryを復元します。本文だけの貼り付けも可能です。</p><button id="export-save">保存原文と退避を回収</button><button id="export-current">読込済み進行を表示</button><button id="use-previous">前回の退避本文を表示</button><textarea id="recovery-json" aria-label="復元用JSON" style="width:100%;height:120px"></textarea><button id="restore-save">確認して復元</button><button id="reset-save">確認して初期化</button></details>
     <header class="mast">
       <div class="identity">
