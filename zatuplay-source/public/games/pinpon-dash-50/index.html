@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100f1d">
+  <meta name="description" content="呼び鈴を鳴らし、夕暮れの街を駆け抜ける追いかけっこアーケード。">
+  <title>ピンポン・ダッシュ！</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <script src="browser-boot.js?v=1" defer></script>
+</head>
+<body>
+<p role="note" style="margin:12px;padding:12px;border:1px solid #c98a16;background:#fff6d8;color:#332600;font:14px/1.6 sans-serif">試験公開版：自動テストは通過していますが、実ブラウザ操作・スマホ実機・音の実聴取は未検証です。</p>
+  <main class="shell"><nav><a href="../../browser/" style="color:#e7ff86">← ZatuPlay 一覧</a></nav><p style="font-size:14px">架空の追いかけっこゲームです。現実ではまねしないでください。<br>ブラウザ版：ステージ開始時点を自動保存。途中位置は保存しません。APKとは別保存です。</p><p id="save-status" role="status"></p><button id="resume-save" hidden>保存したステージから再開</button>
+    <header class="mast">
+      <div class="identity">
+        <span class="brand-tag">アーケード / 1〜4人</span>
+        <h1>ピンポン<span>・ダッシュ！</span></h1>
+        <p>呼び鈴を鳴らして、家主を振り切れ。</p>
+      </div>
+      <div class="settings">
+        <button type="button" id="sound" class="small" aria-pressed="true">音 ON</button>
+        <button type="button" id="pause" class="small" disabled>一時停止</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <section class="game" aria-label="ゲーム画面">
+        <div class="arena-head">
+          <div><span class="stage-label" id="stage-number">STAGE 01 / 50</span><strong id="stage-name">夕焼け通り 1区画</strong></div>
+          <span id="goal">目標 0 / 1軒</span>
+        </div>
+        <div class="arena">
+          <canvas id="map" width="800" height="520" aria-label="家と左右の出口があるゲームマップ"></canvas>
+          <div class="veil" id="veil">
+            <div class="modal" id="modal">
+              <p class="eyebrow" id="panel-kicker">全50ステージ</p>
+              <h2 id="panel-title">何人、逃げ切れる？</h2>
+              <p id="panel-text">必要な軒数を回って、開いた出口へ。呼び鈴を鳴らしても、誰も出てこない家があるよ。</p>
+              <div class="seats" id="seats" role="group" aria-label="プレイヤー人数">
+                <button type="button" data-count="1" aria-pressed="true">1人</button>
+                <button type="button" data-count="2" aria-pressed="false">2人</button>
+                <button type="button" data-count="3" aria-pressed="false">3人</button>
+                <button type="button" data-count="4" aria-pressed="false">4人</button>
+              </div>
+              <div id="results" hidden></div>
+              <button type="button" class="primary" id="main-action">ゲームスタート <span aria-hidden="true">↗</span></button>
+              <button type="button" class="link-button" id="menu-action" hidden>タイトルに戻る</button>
+            </div>
+          </div>
+        </div>
+        <div class="arena-foot">
+          <span id="game-status" aria-live="polite">青い呼び鈴に近づくと鳴らせるよ。</span>
+          <span class="stamina-wrap"><span>ダッシュ</span><progress id="stamina" aria-label="ダッシュの残り体力" max="100" value="100"></progress></span>
+        </div>
+        <div class="touch" aria-label="タッチ操作">
+          <div class="dpad" role="group" aria-label="移動">
+            <button data-hold="up" aria-label="上に移動">↑</button>
+            <button data-hold="left" aria-label="左に移動">←</button>
+            <button data-hold="down" aria-label="下に移動">↓</button>
+            <button data-hold="right" aria-label="右に移動">→</button>
+          </div>
+          <div class="actions">
+            <button data-hold="dash" class="dash" aria-label="ダッシュ">ダッシュ</button>
+            <button id="ring" class="ring" aria-label="呼び鈴を鳴らす">ピンポン</button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel" aria-label="プレイ記録">
+        <div class="side-head"><h2>プレイ記録</h2><span id="runner">PLAYER 1</span></div>
+        <div class="survival"><span>生き残り</span><div><b id="alive">1</b><span id="total"> / 1人</span></div></div>
+        <dl class="stats">
+          <div><dt>呼び鈴の連打数</dt><dd><b id="rings">0</b> 回</dd></div>
+          <div><dt>回った軒数<span>今回のラン</span></dt><dd><b id="houses">0</b> 軒</dd></div>
+          <div><dt>退却スピード</dt><dd><b id="speed">0</b> km/h</dd></div>
+          <div><dt>最高スピード</dt><dd><b id="top-speed">0</b> km/h</dd></div>
+          <div><dt>壊れた呼び鈴</dt><dd><b id="breaks">0</b> 個</dd></div>
+        </dl>
+        <div class="door-card">
+          <div><span id="door-name">呼び鈴の破壊率</span><b id="damage-number">—</b></div>
+          <progress id="damage" aria-label="呼び鈴の破壊率" max="100" value="0"></progress>
+          <p id="door-note">同じ家に戻ってもダメージは残る。</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="legend" aria-label="キーボード操作">
+      <span><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> 移動</span>
+      <span><kbd>SPACE</kbd> 呼び鈴</span>
+      <span><kbd>SHIFT</kbd> ダッシュ</span>
+      <span><kbd>ESC</kbd> 一時停止</span>
+      <span class="turn-note">2〜4人は交代でプレイ</span>
+    </footer>
+  </main>
+</body>
+</html>

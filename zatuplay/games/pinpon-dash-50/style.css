@@ -1,0 +1,151 @@
+:root {
+  color-scheme: dark;
+  --ink: #100f1d;
+  --panel: #191827;
+  --line: #353347;
+  --text: #fbf5ff;
+  --muted: #c4bad0;
+  --lime: #e7ff86;
+  --lavender: #d0bdff;
+  --pink: #ff9ba9;
+  font-family: "Barlow", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  background: radial-gradient(ellipse at 22% -8%, #362950 0, #1e192f 27%, var(--ink) 62%);
+}
+button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #28263a;
+  color: var(--text);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+button:hover:not(:disabled) { filter: brightness(1.14); }
+button:active:not(:disabled) { transform: translateY(1px); }
+button:focus-visible { outline: 3px solid var(--lavender); outline-offset: 3px; }
+button:disabled { cursor: default; opacity: .55; }
+[hidden] { display: none !important; }
+.shell { width: min(1190px, 100%); margin: auto; padding: 36px 30px 22px; }
+.mast { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+.brand-tag { color: var(--lavender); font-size: 12px; font-weight: 900; letter-spacing: .15em; }
+h1 { font-size: clamp(31px, 6vw, 68px); margin: 7px 0 3px; line-height: 1.17; letter-spacing: -.07em; font-weight: 1000; }
+h1 span { color: var(--lime); }
+.identity p { margin: 9px 0 0; color: var(--muted); font-size: 14px; }
+.settings { display: flex; gap: 7px; }
+.small { padding: 8px 11px; font-size: 12px; white-space: nowrap; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 255px); gap: 15px; align-items: start; }
+.game, .panel { border: 1px solid var(--line); border-radius: 13px; background: var(--panel); box-shadow: 0 15px 35px #08071355; }
+.game { overflow: hidden; }
+.arena-head { min-height: 54px; padding: 9px 15px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.arena-head > div { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.stage-label { color: var(--lime); font: 800 12px "Courier Prime", monospace; letter-spacing: .025em; }
+#stage-name { font-size: 14px; }
+#goal { padding: 5px 9px; border-radius: 5px; background: #29263d; color: var(--lavender); font-size: 12px; font-weight: 800; white-space: nowrap; }
+.arena { position: relative; display: grid; background: #222438; }
+canvas { display: block; width: 100%; height: auto; grid-area: 1 / 1; margin: auto 0; }
+.veil { grid-area: 1 / 1; z-index: 1; display: grid; place-items: center; background: #0c0b19ad; padding: 12px; }
+.modal { width: min(100%, 430px); padding: 23px; background: #1b182c; border: 1px solid #514767; border-radius: 13px; box-shadow: 0 12px 42px #070612c4; text-align: center; }
+.eyebrow { margin: 0 0 7px; color: var(--lime); font-size: 11px; font-weight: 900; letter-spacing: .16em; }
+.modal h2 { font-size: clamp(23px, 4.5vw, 34px); line-height: 1.15; margin: 0 0 9px; font-weight: 1000; }
+#panel-text { margin: 0 auto 13px; color: var(--muted); font-size: 13px; line-height: 1.6; max-width: 30em; }
+.seats { display: flex; justify-content: center; gap: 6px; margin-bottom: 13px; }
+.seats button { min-width: 46px; min-height: 35px; font-size: 13px; }
+.seats [aria-pressed="true"] { background: var(--lavender); color: #1b142a; border-color: var(--lavender); }
+.primary { color: #1c250e; border: 1px solid #eaffaa; background: var(--lime); min-height: 43px; padding: 8px 19px; box-shadow: 0 3px 0 #7e9650; }
+.primary span { margin-left: 8px; }
+.link-button { display: inline-block; background: transparent; padding: 6px 8px; border: 0; margin: 5px 0 0; color: var(--muted); font-size: 12px; }
+#results { display: grid; gap: 4px; text-align: left; margin: 0 0 11px; }
+.result-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 7px; border-radius: 4px; padding: 4px 7px; background: #2b2640; color: var(--muted); font-size: 11px; }
+.result-row strong { color: var(--text); }
+.arena-foot { display: flex; justify-content: space-between; align-items: center; min-height: 46px; gap: 12px; padding: 7px 13px; font-size: 12px; color: var(--muted); }
+#game-status { font-weight: 700; }
+.stamina-wrap { flex: none; display: flex; gap: 7px; align-items: center; font-size: 11px; }
+progress { display: block; width: 100%; height: 7px; border: 0; border-radius: 99px; appearance: none; background: #363146; color: var(--lime); accent-color: var(--lime); overflow: hidden; }
+progress::-webkit-progress-bar { background: #363146; }
+progress::-webkit-progress-value { background: currentColor; border-radius: 99px; }
+progress::-moz-progress-bar { background: currentColor; border-radius: 99px; }
+#stamina { width: clamp(44px, 9vw, 100px); }
+.panel { padding: 15px; }
+.side-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.side-head h2 { margin: 0; font-size: 15px; }
+#runner { color: var(--lavender); font: 800 11px "Courier Prime", monospace; white-space: nowrap; }
+.survival { margin: 13px 0 9px; padding: 10px 12px; background: #2b3a26; color: var(--lime); border: 1px solid #40543b; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 7px; font-size: 12px; font-weight: 800; }
+.survival b { font-size: 28px; line-height: 1; }
+.stats { margin: 0 0 10px; }
+.stats > div { display: flex; gap: 7px; align-items: center; justify-content: space-between; min-height: 37px; border-bottom: 1px solid #302d40; }
+.stats dt, .stats dd { font-size: 12px; margin: 0; color: var(--muted); }
+.stats dt span { display: block; font-size: 9px; }
+.stats dd { white-space: nowrap; }
+.stats b { color: var(--text); font-size: 17px; font-variant-numeric: tabular-nums; }
+.door-card { padding: 9px; background: #252238; border-radius: 7px; }
+.door-card > div { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; margin-bottom: 7px; }
+#damage-number { color: var(--pink); }
+#damage { color: var(--pink); }
+.door-card p { font-size: 11px; line-height: 1.4; color: var(--muted); margin: 6px 0 0; }
+.touch { display: none; justify-content: space-between; gap: 8px; padding: 8px; border-top: 1px solid var(--line); }
+.dpad { display: grid; grid-template-columns: repeat(3, minmax(38px, 44px)); gap: 3px; }
+.dpad button { min-height: 37px; font-size: 17px; }
+.dpad [data-hold="up"] { grid-column: 2; }
+.dpad [data-hold="left"] { grid-column: 1; }
+.actions { display: flex; align-items: stretch; gap: 6px; }
+.actions button { padding: 5px clamp(7px, 2vw, 14px); font-size: 12px; }
+.touch button { touch-action: none; user-select: none; }
+.actions .dash { color: var(--lavender); }
+.actions .ring { color: #1c250e; background: var(--lime); }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 17px; margin-top: 13px; font-size: 11px; color: var(--muted); }
+kbd { display: inline-block; color: var(--text); background: #242235; border: 1px solid var(--line); border-radius: 4px; margin-right: 3px; padding: 1px 4px; font-size: 10px; }
+.turn-note { margin-left: auto; }
+@media (pointer: coarse), (max-width: 780px) { .touch { display: flex; } }
+@media (max-width: 780px) {
+  .shell { padding: 19px 14px; }
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .mast { align-items: flex-start; margin-bottom: 14px; }
+  .panel { padding: 10px 12px; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+}
+@media (max-width: 480px) {
+  .shell { padding: 12px 8px; }
+  .mast { position: relative; margin-bottom: 10px; gap: 5px; }
+  .brand-tag { font-size: 10px; }
+  .identity p { font-size: 11px; margin-top: 5px; }
+  .settings { position: absolute; right: 0; top: 0; gap: 3px; }
+  .settings .small { padding: 4px 6px; font-size: 10px; }
+  .arena-head { min-height: 37px; padding: 5px 7px; }
+  .arena-head > div { gap: 3px 6px; }
+  #stage-name, #goal { font-size: 10px; }
+  .stage-label { font-size: 10px; }
+  .veil { padding: 5px; }
+  .modal { padding: 10px; }
+  #panel-text { font-size: 11px; margin-bottom: 8px; }
+  .seats { margin-bottom: 7px; }
+  .seats button { min-height: 29px; }
+  .primary { min-height: 34px; font-size: 12px; }
+  .arena-foot { min-height: 38px; gap: 5px; padding: 4px 6px; font-size: 10px; }
+  .stamina-wrap { font-size: 9px; gap: 4px; }
+}
+
+.veil[data-mode="ending"] {
+  place-items: start center;
+  padding-top: clamp(9px, 3.5vw, 43px);
+  background: linear-gradient(#20162e74, transparent 78%);
+}
+.veil[data-mode="ending"] .modal {
+  border-color: #e6b694a0;
+  background: #281b38ed;
+  animation: ending-appears .8s ease-out both;
+}
+.veil[data-mode="ending"] .eyebrow { color: #ffdda1; }
+@keyframes ending-appears {
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .veil[data-mode="ending"] .modal { animation: none; }
+}
