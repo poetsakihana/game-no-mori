@@ -1,12 +1,13 @@
 const KEY='crossroad-save-v1', groups=Array.from({length:47},(_,i)=>DATA.stations.filter(s=>s.p===i+1));
 let state={v:1,coins:60,cleared:{},boards:{},unlocked:1,sound:true,daily:{},last:DATA.stations[0].id};
-try{let raw=localStorage.getItem(KEY);let x=JSON.parse(raw&&raw.startsWith('LZ:')?LZString.decompressFromUTF16(raw.slice(3)):raw);if(x&&x.v===1)state={...state,...x};}catch(e){}
+if(CrossroadSave.data)state={...state,...structuredClone(CrossroadSave.data)};
 let screen='home',pref=1,search='',active=null,puzzle=null,cells={},selected=0,position=null,toastTimer,audioCtx;
 const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const done=p=>groups[p-1].filter(s=>state.cleared[s.id]).length,total=()=>Object.keys(state.cleared).length;
-function save(){try{localStorage.setItem(KEY,'LZ:'+LZString.compressToUTF16(JSON.stringify(state)));}catch(e){toast('保存容量が不足しています。設定からバックアップしてください。');}$('#coins').textContent=state.coins;$('#sound').textContent=state.sound?'♪':'♪̸';}
+function save(){CrossroadSave.write(state);updateSaveDisplay()}
+function updateSaveDisplay(){$('#coins').textContent=state.coins;$('#sound').textContent=state.sound?'♪':'♪̸';}
 function beep(kind='tap'){
- if(!state.sound)return;
+ if(!state.sound||CrossroadSave.stopped)return;
  try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();audioCtx.resume();const notes=kind==='win'?[523,659,784,1047]:kind==='bad'?[180,130]:kind==='hint'?[659,880]:[440];
  notes.forEach((f,i)=>{let o=audioCtx.createOscillator(),g=audioCtx.createGain(),t=audioCtx.currentTime+i*.12;o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.06,t+.015);g.gain.exponentialRampToValueAtTime(.0001,t+.15);o.connect(g);g.connect(audioCtx.destination);o.start(t);o.stop(t+.18);});}catch(e){}
 }
@@ -17,7 +18,7 @@ function unlocked(p){return p>=1&&p<=47;}
 function difficulty(p){let t=levelFor(p);return ['','はじめての旅','ゆったり途中下車','ひらめき急行','難問特急','最終・超難関'][t];}
 function art(){return `<svg viewBox="0 0 600 270" xmlns="http://www.w3.org/2000/svg" aria-label="山と海の間を走る緑色の列車"><rect width="600" height="270" fill="#dfece4"/><circle cx="487" cy="64" r="33" fill="#f2cb78"/><g class="cloud" fill="#f7f6ea"><path d="M53 71c-8-22 31-30 40-15 20-21 48-4 45 15z"/><path d="M291 37c-5-15 20-22 28-9 13-17 41-5 38 9z"/></g><path d="M0 167L88 67l115 100L315 80l130 90L533 90l67 75v105H0" fill="#a8c4b4"/><path d="M0 197l137-57 111 59 145-68 139 63 68-21v97H0" fill="#79a993"/><path d="M0 231c134-33 250 6 361-19s160-2 239-18v76H0z" fill="#c7dcd5"/><path d="M0 244h600M0 252h600" stroke="#486d61" stroke-width="3"/><g stroke="#739489" stroke-width="4">${Array.from({length:20},(_,i)=>`<path d="M${i*32} 242v13"/>`).join('')}</g><g class="train"><rect x="109" y="166" width="333" height="68" rx="15" fill="#f9f7ed"/><path d="M109 209h333v15H109z" fill="#27795e"/><rect x="126" y="178" width="48" height="25" rx="5" fill="#4d7480"/><rect x="185" y="178" width="48" height="25" rx="5" fill="#4d7480"/><rect x="244" y="175" width="31" height="47" rx="4" fill="#c3d7cf"/><path d="M259 177v43" stroke="#70938a"/><rect x="287" y="178" width="48" height="25" rx="5" fill="#4d7480"/><rect x="346" y="178" width="48" height="25" rx="5" fill="#4d7480"/><path d="M410 179h18v24h-18z" fill="#4d7480"/><circle cx="152" cy="236" r="9" fill="#253f42"/><circle cx="391" cy="236" r="9" fill="#253f42"/><circle cx="426" cy="212" r="4" fill="#f2c66c"/><path d="M226 162l17-19h33l17 19" fill="none" stroke="#486d61" stroke-width="3"/></g><g fill="#335e4b"><path d="M35 210l20-48 20 48zM524 209l20-50 20 50z"/><path d="M53 207h5v31M542 207h5v31"/></g></svg>`;}
 function navigate(s,p){screen=s;if(p)pref=p;search='';active=null;window.scrollTo(0,0);render();}
-function render(){save();$('#nav').style.display=screen==='puzzle'?'none':'flex';document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===screen));
+function render(){if(CrossroadSave.stopped)return;updateSaveDisplay();$('#nav').style.display=screen==='puzzle'?'none':'flex';document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===screen));
  if(screen==='home')home();else if(screen==='journey')journey();else if(screen==='stations')stationList();else if(screen==='puzzle')renderPuzzle();else if(screen==='collection')collection();else settings();
 }
 function home(){let last=DATA.stations.find(s=>s.id===state.last)||DATA.stations[0],p=state.unlocked;
@@ -87,8 +88,8 @@ function collection(){let n=total(),full=groups.filter((g,i)=>done(i+1)===g.leng
 }
 function settings(){
  $('#app').innerHTML=`<div class="eyebrow">TRAVEL GUIDE</div><h1>旅のしおり。</h1><div class="card"><h3>遊び方</h3><p>マスかカギをタップして、言葉を選びます。交差するマスは、もう一度タップするとタテ・ヨコが切り替わります。</p><p>言葉全体をひらがなで入力し「入れる」を押すと、交差するマスにも反映されます。カタカナでも入力できます。長音「ー」や小さい「ゃ・ゅ・ょ・っ」も一文字です。</p><p>各県で3駅クリアすると次の県が解放されます。沖縄では18駅すべてを解くと、てだこ浦西駅の最終問題に挑戦できます。</p></div><div class="card"><h3>市区町村のマーク</h3><p class="muted">各駅の初回クリアで所在地のゲームオリジナルマークを獲得。地域ごとに1種類を集めます。以前クリアした駅のマークも自動で反映され、バックアップと復元に対応します。自治体の公式紋章ではありません。</p></div><div class="card"><h3>コインと星</h3><p class="muted">初回クリア：35〜55コイン。日替わり：一日一回＋20コイン。1マスヒント：10コイン。ヒントなしで星3つ、3回までで星2つ、それ以上で星1つ。</p><button class="secondary" id="toggle">効果音 ${state.sound?'オン':'オフ'}</button></div><div class="card"><h3>旅の記録</h3><p class="muted">入力途中の盤面も自動保存。ブラウザのサイトデータを削除すると記録が消えます。端末やブラウザを変える前にはバックアップしてください。APKとは自動同期しません。</p><div class="tools"><button class="secondary" id="export">バックアップ保存</button><button class="secondary" id="import">記録を復元</button></div><button class="back" id="reset">すべての記録を初期化</button></div><div class="card"><h3>クロスロード〜in都道府県</h3><p class="muted">ブラウザ版2.0-web.1 · 読み込みには通信が必要<br>JRの公開データ収録駅4,315駅＋ゆいレール19駅<br>路線220区分＋ゆいレール（データ上の路線区分数）</p><p class="notes">駅情報：Seo-4d696b75 / station_database、2026年9月30日版。駅名・読み・都道府県・路線を抽出、並び替え。駅データはCC BY-SA 4.0で提供します。<br>出典 https://github.com/Seo-4d696b75/station_database<br>ライセンス https://creativecommons.org/licenses/by-sa/4.0/<br>データに基づく収録であり、最新の営業駅との完全一致は保証されません。JR公式アプリではありません。</p><p class="notes">問題はオリジナルの共通語彙と地域語彙から、駅ごとに交差配置を自動生成しています。全駅に個別執筆した観光問題ではなく、共通のカギが再登場する場合があります。実際の旅客ルート、運賃や時刻表の案内には利用できません。</p></div>`;
- $('#toggle').onclick=()=>{state.sound=!state.sound;render();};$('#export').onclick=exportBackup;$('#import').onclick=()=>{if(typeof window.Android?.importSave==='function')window.Android.importSave();else modal(`<h2>記録を復元</h2><p class="muted">バックアップJSONを貼り付けてください。現在の記録は置き換わります。</p><textarea id="backup"></textarea><button class="bigbutton" id="apply">この記録を復元</button><button class="back" id="cancel">キャンセル</button>`),$('#apply').onclick=()=>importBackup($('#backup').value),$('#cancel').onclick=closeModal;};
- $('#reset').onclick=()=>{modal('<h2>旅の記録を初期化しますか？</h2><p>すべてのスタンプとコインが消えます。</p><button class="bigbutton" id="yes">記録を削除</button><button class="back" id="no">キャンセル</button>');$('#no').onclick=closeModal;$('#yes').onclick=()=>{localStorage.removeItem(KEY);location.reload();};};
+ $('#toggle').onclick=()=>{state.sound=!state.sound;save();render();};$('#export').onclick=exportBackup;$('#import').onclick=()=>{if(typeof window.Android?.importSave==='function')window.Android.importSave();else modal(`<h2>記録を復元</h2><p class="muted">バックアップJSONを貼り付けてください。現在の記録は置き換わります。</p><textarea id="backup"></textarea><button class="bigbutton" id="apply">この記録を復元</button><button class="back" id="cancel">キャンセル</button>`),$('#apply').onclick=()=>importBackup($('#backup').value),$('#cancel').onclick=closeModal;};
+ $('#reset').onclick=()=>{modal('<h2>旅の記録を初期化しますか？</h2><p>すべてのスタンプとコインが消えます。</p><button class="bigbutton" id="yes">記録を削除</button><button class="back" id="no">キャンセル</button>');$('#no').onclick=closeModal;$('#yes').onclick=()=>{CrossroadSave.reset();};};
 }
 function exportBackup(){let v=JSON.stringify(state);if(typeof window.Android?.exportSave==='function')window.Android.exportSave(v);else{let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([v],{type:'application/json'}));a.download='crossroad-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}}
 function importBackup(text){try{
@@ -96,7 +97,7 @@ function importBackup(text){try{
  if(s.v!==1||!Number.isInteger(s.unlocked)||s.unlocked<1||s.unlocked>47||!Number.isInteger(s.coins)||s.coins<0||s.coins>10000000||!s.cleared||Array.isArray(s.cleared)||!s.boards||Array.isArray(s.boards)||typeof s.sound!=='boolean'||!s.daily||Array.isArray(s.daily))throw Error();
  for(const [id,c]of Object.entries(s.cleared))if(!ids.has(id)||!c||!Number.isInteger(c.stars)||c.stars<1||c.stars>3)throw Error();
  for(const [id,b]of Object.entries(s.boards))if(!ids.has(id)||!b||!b.letters||Array.isArray(b.letters)||!Number.isInteger(b.hints)||b.hints<0||!Number.isInteger(b.checks)||b.checks<0||Object.entries(b.letters).some(([k,v])=>!/^\d+,\d+$/.test(k)||typeof v!=='string'||!/^[ぁ-ゖー]$/.test(v)))throw Error();
- modal('<h2>記録を復元しますか？</h2><p>現在の記録が、バックアップの記録に置き換わります。</p><button class="bigbutton" id="restore">復元する</button><button class="back" id="cancel">キャンセル</button>');$('#cancel').onclick=closeModal;$('#restore').onclick=()=>{state=s;closeModal();save();navigate('home');toast('旅の記録を復元しました。');};
+ modal('<h2>記録を復元しますか？</h2><p>現在の記録が、バックアップの記録に置き換わります。</p><button class="bigbutton" id="restore">復元する</button><button class="back" id="cancel">キャンセル</button>');$('#cancel').onclick=closeModal;$('#restore').onclick=()=>{CrossroadSave.replace(s);};
  }catch(e){toast('このバックアップは読み込めません。');}}
 window.importBackup=importBackup;
 document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>navigate(b.dataset.page));$('#sound').onclick=()=>{state.sound=!state.sound;save();};
@@ -105,3 +106,5 @@ window.gameBack=()=>{if(!$('#modal').classList.contains('hidden')){closeModal();
 
 
 const priorSettings=settings;
+
+window.crossroadSuspend=()=>{clearTimeout(toastTimer);try{clearTimeout(scrollTimer)}catch{}audioCtx?.suspend();};window.crossroadSnapshot=()=>state;

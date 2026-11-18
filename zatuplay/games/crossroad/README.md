@@ -25,3 +25,14 @@
 ## 一般公開URLのChrome確認
 
 2026-11-11T01:05:00.843Z に一般公開URLで起動・代表的な操作・保存を確認。詳細はBROWSER_RELEASES.mdの継続制作第2回を参照。
+
+## 2.0-web.2 local candidate: journey milestone and safe reset
+- Existing actual railway-ui rules remain: all 47 prefectures selectable, 10 generated boards per station. The old app.js Tedako-Uranishi ending was overridden by railway-ui.js and is not used as a completion claim.
+- Added 「全国ひとめぐり」 epilogue when at least one valid station stamp exists in each of 47 prefectures. Derived from existing cleared records, including old saves; not a new save field. Explicitly not every station or all boards. Can be replayed without rewards or writes. First crossing shows the epilogue after the normal puzzle reward is safely saved.
+- Keeps crossroad-save-v1, version1 JSON and LZ: UTF16 encoding. Existing station/round data stays compatible. Game scripts are loaded only after Web Lock and schema validation. Corrupt saves stop before app execution instead of becoming defaults. Initial render/in-memory round migration no longer automatically overwrites storage. Future deliberate play writes include the existing in-memory legacy-round compatibility mapping.
+- Reset/import confirm and copy exact previous raw bytes into crossroad-save-v1.before-change before replacement. Backup failure aborts. Stop old writer before replacement/reload. Recovery panel stays available after corruption, save failures or conflict; raw compressed or plain JSON can be restored. Backup is one replacement deep, so copy important data elsewhere.
+- Broken/normal boot retain lock until pagehide; no-lock second tab cannot replace. Pagehide stops and BFCache return reloads. Halt freezes game surfaces, toast/scroll timers and audio; confetti removal timers only remove decorative nodes.
+- node test-port.cjs: loads actual app+railway scripts with mocked DOM, verifies no boot writes, 46/47 region threshold, no-reward replay, generated puzzle completion. Storage tests cover corruption, quota, cancel, backup failure, stopped writer, broken-boot lock retention, second-tab refusal and pagehide.
+- 2026-11-19: 公式Sites previewをCUAで操作し、札幌駅の問題1を自然操作でクリア（35コイン獲得）、95コイン・1クリアの再読込後の保持を確認。リセット取消／確定、変更前の保存原文の完全一致、LZ原文から95コイン・1クリアへの復元、2タブ目の保護停止を確認。
+- 47県達成の人工fixtureで結末の再鑑賞を確認。これは通常プレイによる47県完走ではありません。
+- この候補のスマホ実機・実音声・通常プレイでの全国完走は未確認。上記は公式Sites previewでの確認であり、この候補の一般公開を示すものではありません。

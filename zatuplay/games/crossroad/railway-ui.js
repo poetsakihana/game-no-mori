@@ -92,6 +92,7 @@ function finish(){
 }
 function settings(){
  priorSettings();
+ $('#reset').onclick=()=>CrossroadSave.reset();
  const cards=$('#app').querySelectorAll('.card');
  cards[0].innerHTML=`<h3>遊び方</h3><p>都道府県を選び、駅名標を左右にスライド。駅ごとに「問題1〜10」を選べます。JR・地下鉄・私鉄などの種類と路線で絞り込めます。</p><p>マスかカギをタップし、ひらがな・カタカナで答えを入力します。交差マスは再度タップでタテ・ヨコを切り替え。小さい「ゃ・ゅ・ょ・っ」と長音も1マスです。</p><p>全県を最初から選べます。北海道から沖縄へ、章の順番に語彙とカギの数が難しくなります。</p>`;
  const last=cards[cards.length-1];last.innerHTML=`<h3>クロスロード 全国鉄道の旅</h3><p>ブラウザ版2.0-web.1 · 読み込みには通信が必要<br>47都道府県 / ${DATA.stations.length.toLocaleString()}駅 / ${Object.keys(DATA.lines).length}路線区分<br>1駅10盤面、合計${(DATA.stations.length*10).toLocaleString()}盤面<br>共通語彙 ${EXPANDED_WORDS.length}語＋地域語彙47語＋駅の読み</p><p class="notes">駅情報：Seo-4d696b75 / station_database、2026年9月30日版。営業中フラグの駅・路線を抽出し、既存駅との統合、読みの記号除去、住所からの地域抽出、並び替えを行いました。<br>出典：https://github.com/Seo-4d696b75/station_database<br>駅データはリポジトリLICENSE.mdに基づきCC BY-SA 4.0で提供します。<br>https://creativecommons.org/licenses/by-sa/4.0/</p><p class="notes">問題は共通語彙から駅・問題番号ごとに交差配置を生成します。すべての盤面が個別執筆された問題ではなく、カギや答えが再登場する場合があります。問題1は旧版の記録と互換性を保っています。</p><p class="notes">ゲーム用のデータであり、現在の全営業駅との完全一致を保証するものではありません。実際の乗換・運行情報ではありません。鉄道各社の公式アプリではありません。</p>`;
@@ -105,8 +106,14 @@ function importBackup(text){
   for(const [id,b]of Object.entries(s.boards))if(!validKey(id)||!plain(b)||!plain(b.letters)||!Number.isInteger(b.hints)||b.hints<0||!Number.isInteger(b.checks)||b.checks<0||Object.entries(b.letters).some(([k,v])=>!/^\d+,\d+$/.test(k)||typeof v!=='string'||!/^[ぁ-ゖー]$/.test(v)))throw Error();
   if(s.roundCleared!==undefined&&(!plain(s.roundCleared)||Object.entries(s.roundCleared).some(([id,c])=>!validKey(id)||!validStars(c))))throw Error();
   modal('<h2>記録を復元しますか？</h2><p>今の記録がバックアップの内容に置き換わります。</p><button class="bigbutton" id="restore">復元する</button><button class="back" id="cancel">キャンセル</button>');$('#cancel').onclick=closeModal;
-  $('#restore').onclick=()=>{state=s;migrateRounds();closeModal();save();navigate('home');toast('旅の記録を復元しました。');};
+  $('#restore').onclick=()=>{CrossroadSave.replace(s);};
  }catch(e){toast('このバックアップは読み込めません。ファイルの内容を確認してください。');}
 }
 window.importBackup=importBackup;
 render();
+
+function journeyMilestone(){return groups.every(g=>g.some(s=>!!state.cleared[s.id]));}
+function showJourneyEnding(){if(CrossroadSave.stopped||!journeyMilestone())return;modal('<span class="eyebrow">全国ひとめぐり</span><h2>47の土地に、<br>言葉の足あと。</h2><p>ひとつずつ集めた駅のスタンプが、北海道から沖縄までつながりました。</p><p>窓の外に知らない街が見えたら、また新しい言葉を探しに行きましょう。</p><p class="muted">47都道府県それぞれで1駅以上のスタンプを獲得した区切りです。全駅・全盤面制覇ではありません。駅ごとの残りの問題にも引き続き挑戦できます。</p><button class="bigbutton" id="ending-close">旅をつづける</button>');$('#ending-close').onclick=closeModal;}
+const beforeMilestoneFinish=finish;finish=function(){const before=journeyMilestone();beforeMilestoneFinish();if(!before&&journeyMilestone()&&!CrossroadSave.stopped)showJourneyEnding();};
+const endingButton=document.createElement('button');endingButton.textContent='全国ひとめぐりの結末を見る';endingButton.id='journey-ending';endingButton.onclick=showJourneyEnding;document.querySelector('#save-panel').append(endingButton);
+const previousRender=render;render=function(){previousRender();endingButton.hidden=!journeyMilestone();};render();
