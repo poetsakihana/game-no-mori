@@ -1,7 +1,7 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
-const nodes=new Map(),events={};function node(){return {style:{},dataset:{},hidden:false,textContent:'',children:[],setAttribute(){},append(x){this.children.push(x)},getContext(){return new Proxy({},{get:()=>()=>{}})},setPointerCapture(){}}}const get=s=>{if(!nodes.has(s))nodes.set(s,node());return nodes.get(s)};
-let saved={version:1,bosses:[],castle:0,ended:false,sound:false},writes=0;
-const ctx={console,document:{createElement:node,querySelector:get,querySelectorAll:()=>[],body:node(),addEventListener:(n,f)=>events[n]=f,hidden:false},window:{addEventListener:(n,f)=>events[n]=f},BrowserSave:{data:saved,stopped:false,write:v=>{saved=JSON.parse(JSON.stringify(v));writes++}},requestAnimationFrame(){},confirm:()=>false};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(__dirname,'game.js'),'utf8'),ctx);
+const nodes=new Map(),events={};function node(){return {style:{},dataset:{},hidden:false,textContent:'',children:[],setAttribute(){},append(x){this.children.push(x)},getContext(){return new Proxy({},{get:(t,k)=>k==='createLinearGradient'||k==='createRadialGradient'?()=>({addColorStop(){}}):()=>{}})},setPointerCapture(){}}}const get=s=>{if(!nodes.has(s))nodes.set(s,node());return nodes.get(s)};
+let raf=[];let saved={version:1,bosses:[],castle:0,ended:false,sound:false},writes=0;
+const ctx={console,document:{createElement:node,querySelector:get,querySelectorAll:()=>[],body:node(),addEventListener:(n,f)=>events[n]=f,hidden:false},window:{addEventListener:(n,f)=>events[n]=f},BrowserSave:{data:saved,stopped:false,write:v=>{saved=JSON.parse(JSON.stringify(v));writes++}},requestAnimationFrame(fn){raf.push(fn)},confirm:()=>false};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(__dirname,'game.js'),'utf8'),ctx);
 function run(code){return vm.runInContext(code,ctx)}
 assert.equal(run('mute'),true);assert.equal(run('mode'),'title');
 for(let i=0;i<14;i++){const level=run(`makeLevel(${i})`);assert.ok(level.width>1000);assert.ok(level.platforms.length>0);assert.ok(level.enemies.length>0)}
@@ -18,3 +18,11 @@ run('start(12);spawnBoss();mode="boss";boss.phase=3;boss.kind=3;boss.hp=8;weapon
 run('save={bosses:[0,1,2,3,4,5,6,7],castle:4,ended:false};start(12);spawnBoss();mode="boss"');for(let i=0;i<7;i++){run('boss.hp=0;bossDefeated()');assert.equal(run('mode'),'boss');assert.equal(run('save.castle'),4);assert.equal(run('boss.phase'),i+1)}run('boss.hp=0;bossDefeated()');assert.equal(run('mode'),'clear');assert.equal(run('save.castle'),5);console.log('PASS all eight rematch bosses required; only eighth defeat clears castle stage five');
 
 run('start(0);p.hp=0;mode="dead";complete();spawnBoss()');assert.equal(run('mode'),'dead');assert.equal(run('boss'),null);run('start(0);p.hp=1;p.inv=0;p.x=level.arena.x+30;p.y=level.height+200;update()');assert.equal(run('mode'),'dead');assert.equal(run('boss'),null);console.log('PASS: lethal fall/explicit death cannot become boss intro or stage clear');
+
+// Execute real frame callbacks, including update/musicTick/draw, not only model helpers.
+ctx.document.hidden=false;run('title();paused=false');let now=1000;for(let i=0;i<3;i++){assert.ok(raf.length);raf.shift()(now+=17)}
+for(let i=0;i<14;i++){run(`start(${i});paused=false`);raf.shift()(now+=17);run('spawnBoss();mode="boss"');raf.shift()(now+=17)}
+run('mode="ending";paused=false');raf.shift()(now+=17);
+run('audio={currentTime:0};audioReady=true;mute=false;mode="title";musicNext=0;musicStep=0');raf.shift()(now+=17);assert.ok(run('musicStep')>0);assert.equal(run('musicRiffs.length'),4);
+run('mute=true;musicNext=1');raf.shift()(now+=17);assert.equal(run('musicNext'),0);
+console.log('PASS actual RAF callbacks: title, 14 gameplay and boss renders, ending, enabled/disabled music scheduling; no undeclared globals. Canvas/audio mocks, not visual/listening QA.');
