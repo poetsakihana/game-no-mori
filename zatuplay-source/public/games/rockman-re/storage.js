@@ -1,0 +1,20 @@
+'use strict';
+(()=>{
+const key='zatuplay-rockman-re-v1';let raw=null,active=false,stopped=false,data;
+const status=t=>document.querySelector('#port-status').textContent=t;
+const blank=()=>({version:1,bosses:[],castle:0,ended:false,sound:false});
+function validate(v){
+ if(!v||typeof v!=='object'||Array.isArray(v)||Object.keys(v).some(k=>!['version','bosses','castle','ended','sound'].includes(k))||v.version!==1||!Array.isArray(v.bosses)||v.bosses.length>6||new Set(v.bosses).size!==v.bosses.length||v.bosses.some(i=>!Number.isInteger(i)||i<0||i>5)||!Number.isInteger(v.castle)||v.castle<0||v.castle>6||typeof v.ended!=='boolean'||typeof v.sound!=='boolean'||(v.bosses.length<6&&(v.castle!==0||v.ended))||(v.ended!==(v.castle===6)))throw Error('記録の形式・進行が不正、または未対応の版です。');return v;
+}
+function download(text,name){const url=URL.createObjectURL(new Blob([text],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),10000)}
+function stop(reason){stopped=true;active=false;try{if(typeof suspendPort==='function')suspendPort()}catch{};if(document.querySelector('#port-stop'))return;const box=document.createElement('section');box.id='port-stop';box.className='port-stop';box.setAttribute('role','alert');const h=document.createElement('h1');h.textContent='記録を守るため停止しました';const p=document.createElement('p');p.textContent=reason+' 既存の記録は削除しません。';const exportButton=document.createElement('button');exportButton.textContent='元データを回収';exportButton.onclick=()=>{try{download(localStorage.getItem(key)??'null','rockman-re-recovery.json')}catch{p.textContent='保存領域を読み出せません。'}};const reload=document.createElement('button');reload.textContent='再読込';reload.onclick=()=>location.reload();const back=document.createElement('a');back.href='../../browser/';back.textContent='ZatuPlayへ戻る';box.append(h,p,exportButton,reload,back);document.body.append(box);document.querySelectorAll('body > :not(#port-stop)').forEach(e=>e.inert=true)}
+function write(value){if(!active||stopped)throw Error('保存停止中');try{const next=validate({version:1,...value});if(localStorage.getItem(key)!==raw)throw Error('別の画面で記録が変わりました。');const text=JSON.stringify(next);localStorage.setItem(key,text);raw=text;data=JSON.parse(text);status('このブラウザに保存しました');return true}catch(e){stop('保存できません：'+e.message);throw e}}
+window.BrowserSave={get data(){return JSON.parse(JSON.stringify(data))},get stopped(){return stopped},write};
+window.addEventListener('storage',e=>{if(active&&(e.key===key||e.key===null))stop('別のタブから記録が変更されました。')});
+window.addEventListener('pageshow',e=>{if(e.persisted)location.reload()});
+document.querySelector('#port-backup').onclick=()=>{if(active&&!stopped)download(JSON.stringify({format:'zatuplay-rockman-re',version:1,data},null,2),'rockman-re-backup.json')};
+document.querySelector('#port-restore').onchange=async e=>{const file=e.target.files?.[0];e.target.value='';if(!file||!active||stopped)return;try{if(file.size>20000)throw Error('ファイルが大きすぎます。');const v=JSON.parse(await file.text());if(v.format!=='zatuplay-rockman-re'||v.version!==1)throw Error('このブラウザ版のバックアップではありません。');validate(v.data);if(!confirm('現在の記録と音設定を選択したJSONに置き換えますか？'))return;write(v.data);active=false;stopped=true;try{suspendPort()}catch{}location.reload()}catch(e){status('復元しませんでした：'+e.message)}};
+async function boot(){try{raw=localStorage.getItem(key);data=raw===null?blank():validate(JSON.parse(raw));active=true;status('保存保護が有効です');await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='game.js?v=1.8-web.1';s.onload=resolve;s.onerror=()=>reject(Error('ゲームを読み込めません'));document.head.append(s)});await new Promise(resolve=>window.addEventListener('pagehide',()=>{active=false;resolve()},{once:true}))}catch(e){stop(e.message)}}
+if(!navigator.locks){stop('このブラウザは保存保護（Web Locks）に対応していません。');return;}
+navigator.locks.request(key,{ifAvailable:true},lock=>{if(!lock){stop('別のタブでこのゲームを開いています。');return}return boot()}).catch(e=>stop(e.message));
+})();
