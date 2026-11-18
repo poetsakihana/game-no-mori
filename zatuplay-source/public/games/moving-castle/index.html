@@ -37,7 +37,7 @@
  <link rel="stylesheet" href="./browser.css">
  <script src="./browser-storage.js"></script>
 </head>
-<body>
+<body><p role="note" style="position:relative;z-index:9999;background:#fff0ba;color:#372900;padding:14px;font:14px sans-serif">試験更新版。同作品の旧版を含むタブをすべて閉じてから試してください。実機・実音声・全編完走は未検証。人工達成記録は通常プレイの実績ではありません。</p>
 <div id="app">
  <header class="topbar">
   <div class="brand"><span class="brand-emblem">♜</span><span><b>歩く城の冒険者</b><small>THE WALKING CITADEL · Ver.0.3 • 50 CHAPTERS</small></span></div>
@@ -68,7 +68,7 @@
      <span class="eyebrow">ORIGINAL ACTION RPG · CHAPTER ZERO</span>
      <h1>歩く城の<span>冒険者</span></h1>
      <p>城が歩けば、世界が目覚める。<br>最後の歩行城〈アルカ〉と、50の道と物語をつなぐ旅へ。</p>
-     <div class="intro-buttons"><button class="primary large" id="newGameBtn">✦ はじめから</button><button class="large" id="continueBtn" disabled>▸ つづきから</button></div>
+     <div class="intro-buttons"><button class="primary large" id="newGameBtn">✦ はじめから</button><button id="recoveryDownload">初期化前の記録を保管</button><button id="rawDownload">保存原文を回収</button><label>復元するJSON <input id="restoreFile" type="file" accept=".json,application/json"></label><p>最終ボス撃破後の記録から「つづきから」で結末を再鑑賞できます。初期化の退避は1世代です。JSONファイルの「確認して復元」から戻せます。</p><button class="large" id="continueBtn" disabled>▸ つづきから</button></div>
      <small class="intro-info">探索 × リアルタイム戦闘 × 城の建築 × 50章・50ボス</small>
     </div>
    </div>
@@ -185,7 +185,21 @@ function makeWorld(i){const r=rng(12345+i*23451),props=[],nodes=[]; for(let k=0;
  return {props,nodes,animals:Array.from({length:17},()=>({x:r()*WORLD_W,y:r()*WORLD_H,phase:r()*8}))}; }
 for(let i=0;i<WORLD.length;i++)worlds.push(makeWorld(i));
 function newState(){return {version:2,chapter:0,maxUnlocked:0,mode:'hero',player:{x:510,y:780,hp:120,maxHp:120,sp:100,maxSp:100,level:1,xp:0,nextXp:70,atk:28,weapon:1,armor:1,potions:3,attackTimer:0,dodgeTimer:0,dodgeCD:0,skillCD:0,face:0,invuln:0},castle:{x:360,y:790,hp:350,maxHp:350,engine:1,turret:0,hull:1,workshop:1,fireCD:0},resources:{wood:24,ore:14,crystal:4},data:WORLD.map(()=>({cleared:false,kills:0,collected:[]})),totalKills:0,saves:0,seconds:0,storySeen:WORLD.map((_,i)=>i===0),completed:false};}
+'use strict';
+function safeRecordStorage(){try{return localStorage}catch(e){return {getItem(){throw e},setItem(){throw e}}}}
+function RecordGate(key,storage,locks,report){
+ let expected=null,blocked=false,owned=false,release;
+ try{expected=storage.getItem(key)}catch(e){blocked=true}
+ const same=()=>{if(blocked||!owned)throw Error('保存保護中です。ほかのタブを閉じて再読込してください');if(storage.getItem(key)!==expected){blocked=true;throw Error('別画面の保存変更を検出しました')}};
+ const gate={get raw(){return expected},get ready(){return owned&&!blocked},block(){blocked=true},stop(){owned=false;blocked=true;release?.()},write(raw){same();try{storage.setItem(key,raw);if(storage.getItem(key)!==raw)throw Error('保存の読戻し確認に失敗しました');expected=raw}catch(e){blocked=true;report('保存を停止しました。原文を回収して再読込してください。');throw e}},replace(raw,backup=expected){try{same();if(backup!==null){try{storage.setItem(key+'.reset-recovery',backup)}catch(e){blocked=true;throw e};if(storage.getItem(key+'.reset-recovery')!==backup){blocked=true;throw Error('退避を確認できません')}}same();try{storage.setItem(key,raw);if(storage.getItem(key)!==raw)throw Error('保存の読戻し確認に失敗しました');expected=raw}catch(e){blocked=true;report('保存を停止しました。原文を回収して再読込してください。');throw e}}catch(e){blocked=true;throw e}},backup(){return storage.getItem(key+'.reset-recovery')}};
+ if(!locks?.request){blocked=true;report('安全な保存に対応していません。記録は上書きしません。')}
+ else locks.request(key,{ifAvailable:true},async lock=>{if(!lock||blocked){report('記録保護中です。別タブを閉じて再読込してください');return}if(storage.getItem(key)!==expected){blocked=true;report('起動中に記録が変わりました。再読込してください');return}owned=true;await new Promise(r=>release=r)}).catch(()=>{blocked=true;owned=false;report('保存の使用権を取得できません')});
+ return gate;
+}
+
+
 let saveReadState={kind:'empty',exists:false}, saveConflict=false;
+const recordGate=RecordGate(SAVE_KEY,safeRecordStorage(),navigator.locks,m=>setTimeout(()=>storageStatus(m,true),0));
 function storageStatus(text,error=false){$('#browserSaveStatus').textContent=text;$('#browserSaveStatus').dataset.state=error?'error':'ok';$('#saveStatus').textContent=text;}
 function sanitizeSave(data){return window.WalkingCastleStorage.normalize(data,newState(),worlds);}
 function loadSaved(){
@@ -207,7 +221,7 @@ function saveGame(silent=false){
  if(saveConflict){storageStatus('別タブで保存が変更されました。このタブは上書きを停止しています。再読込してください。',true);return false;}
  try{
   const next={...G,saves:G.saves+1};
-  localStorage.setItem(SAVE_KEY,JSON.stringify(next));G.saves=next.saves;
+  recordGate.write(JSON.stringify(next));G.saves=next.saves;
   storageStatus('保存済み '+new Date().toLocaleTimeString('ja-JP',{hour:'2-digit',minute:'2-digit'}));
   $('#continueBtn').disabled=false;if(!silent)notice('💾 冒険を記録した');return true;
  }catch(e){storageStatus('保存できません。設定・空き容量を確認し、このページを閉じないでください。',true);if(!silent)notice('⚠ 保存できません: ストレージ設定を確認');return false;}
@@ -467,7 +481,32 @@ function touchEnd(e){
  if(b.hasPointerCapture?.(e.pointerId))b.releasePointerCapture(e.pointerId);
 }
 for(const b of document.querySelectorAll('.touch-ui button')){b.addEventListener('pointerdown',touchStart);for(const ev of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(ev,touchEnd);}
-$('#newGameBtn').addEventListener('click',()=>{loadSaved();if(saveReadState.exists&&!confirm('保存済み、または読込できない冒険があります。最初から始めて上書きしますか？'))return;saveConflict=false;startGame(false);saveGame(true);openPanel('story');});
+function resetAdventure(){
+ if(!recordGate.ready){storageStatus('保存保護中のため新しい冒険へ変更しません。',true);return;}
+ loadSaved();if(['invalid','unavailable'].includes(saveReadState.kind)){storageStatus('読込できない原文を保護します。回収して確認してください。',true);return;}
+ if(saveReadState.exists&&!confirm('冒険の進行・成長・資源・結末記録を初期化しますか？音設定は残ります。変更前の記録を1世代退避します。'))return;
+ try{const backup=recordGate.raw??localStorage.getItem(LEGACY_SAVE_KEY);const next=newState();recordGate.replace(JSON.stringify(next),backup);saveConflict=false;startGame(true);openPanel('story');}
+ catch(e){storageStatus('新しい冒険へ変更しませんでした: '+e.message,true);}
+}
+$('#newGameBtn').addEventListener('click',resetAdventure);
+async function restoreAdventure(file){
+ if(!file)return;
+ if(!recordGate.ready){storageStatus('保存保護中のため復元しません。',true);return;}
+ try{
+  if(file.size>2000000)throw Error('ファイルが大きすぎます');
+  const next=sanitizeSave(JSON.parse(await file.text()));
+  if(!next)throw Error('この作品の有効な記録ではありません');
+  if(!confirm('今の冒険を選んだJSONに置き換えますか？変更前の記録を1世代退避します。音設定は残します。'))return;
+  const backup=recordGate.raw??localStorage.getItem(LEGACY_SAVE_KEY);
+  recordGate.replace(JSON.stringify(next),backup);
+  saveConflict=false;startGame(true);
+ }catch(e){storageStatus('復元しませんでした: '+e.message,true);}
+}
+$('#restoreFile').addEventListener('change',e=>{const file=e.target.files[0];e.target.value='';restoreAdventure(file);});
+
+function exportAdventureRaw(previous=false){try{const raw=previous?recordGate.backup():localStorage.getItem(SAVE_KEY)??localStorage.getItem(LEGACY_SAVE_KEY);if(raw===null)throw Error('記録がありません');const url=URL.createObjectURL(new Blob([raw],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=previous?'moving-castle-before-reset.json':'moving-castle-original.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}catch(e){storageStatus(e.message,true)}}
+$('#recoveryDownload').onclick=()=>exportAdventureRaw(true);$('#rawDownload').onclick=()=>exportAdventureRaw();
+window.addEventListener('pagehide',()=>recordGate.stop());window.addEventListener('pageshow',e=>{if(e.persisted)location.reload()});
 $('#collectionLink').addEventListener('click',leaveCollection);
 $('#browserSaveBtn').addEventListener('click',()=>G?saveGame():notice('まずゲームを開始してね'));
 $('#continueBtn').addEventListener('click',()=>startGame(true));

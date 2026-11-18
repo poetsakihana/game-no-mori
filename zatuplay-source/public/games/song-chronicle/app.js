@@ -1,3 +1,16 @@
+'use strict';
+function safeRecordStorage(){try{return localStorage}catch(e){return {getItem(){throw e},setItem(){throw e}}}}
+function RecordGate(key,storage,locks,report){
+ let expected=null,blocked=false,owned=false,release;
+ try{expected=storage.getItem(key)}catch(e){blocked=true}
+ const same=()=>{if(blocked||!owned)throw Error('保存保護中です。ほかのタブを閉じて再読込してください');if(storage.getItem(key)!==expected){blocked=true;throw Error('別画面の保存変更を検出しました')}};
+ const gate={get raw(){return expected},get ready(){return owned&&!blocked},block(){blocked=true},stop(){owned=false;blocked=true;release?.()},write(raw){same();try{storage.setItem(key,raw);if(storage.getItem(key)!==raw)throw Error('保存の読戻し確認に失敗しました');expected=raw}catch(e){blocked=true;report('保存を停止しました。原文を回収して再読込してください。');throw e}},replace(raw,backup=expected){try{same();if(backup!==null){try{storage.setItem(key+'.reset-recovery',backup)}catch(e){blocked=true;throw e};if(storage.getItem(key+'.reset-recovery')!==backup){blocked=true;throw Error('退避を確認できません')}}same();try{storage.setItem(key,raw);if(storage.getItem(key)!==raw)throw Error('保存の読戻し確認に失敗しました');expected=raw}catch(e){blocked=true;report('保存を停止しました。原文を回収して再読込してください。');throw e}}catch(e){blocked=true;throw e}},backup(){return storage.getItem(key+'.reset-recovery')}};
+ if(!locks?.request){blocked=true;report('安全な保存に対応していません。記録は上書きしません。')}
+ else locks.request(key,{ifAvailable:true},async lock=>{if(!lock||blocked){report('記録保護中です。別タブを閉じて再読込してください');return}if(storage.getItem(key)!==expected){blocked=true;report('起動中に記録が変わりました。再読込してください');return}owned=true;await new Promise(r=>release=r)}).catch(()=>{blocked=true;owned=false;report('保存の使用権を取得できません')});
+ return gate;
+}
+
+
 (() => {
  'use strict';
  const E=window.GAME_ENGINE, songs=window.SONG_CATALOG, content=window.STORY_CONTENT||{albums:{},songs:{}};
@@ -25,9 +38,10 @@
   if(!Number.isInteger(v.album)||!num(v.album,1,67))v.album=1;
   v.mode=v.mode==='free'?'free':'story';return v;
  }
- function load(){try{const raw=localStorage.getItem(STORAGE);return raw?validateSave(JSON.parse(raw)):defaults();}catch(e){loadWarning='保存データを読み込めませんでした。新しい旅として表示しています。手元のバックアップを設定から読み込めます。';return defaults();}}
+ const recordGate=RecordGate(STORAGE,safeRecordStorage(),navigator.locks,m=>setTimeout(()=>toast(m),0));
+ function load(){try{const raw=recordGate.raw;return raw?validateSave(JSON.parse(raw)):defaults();}catch(e){recordGate.block();loadWarning='保存データを読み込めません。元の記録を保護し、この回は上書きしません。';return defaults();}}
  let save=load();if(save.active){view='sim';save.selected=save.active.id;save.album=songById.get(save.active.id).album;buildKind=E.TYPES[songById.get(save.active.id).type].building;}
- function persist(){try{localStorage.setItem(STORAGE,JSON.stringify(save));}catch(e){toast('自動保存できません。設定からセーブを書き出して保管してください。');}}
+ function persist(){try{recordGate.write(JSON.stringify(save));return true;}catch(e){toast('未保存です。'+e.message);return false;}}
  function toast(message){clearTimeout(toastTimer);const el=$('#toast');el.textContent=message;el.classList.add('show');toastTimer=setTimeout(()=>el.classList.remove('show'),4300);}
  function sound(note=660){if(!save.settings.sound)return;try{const ctx=sound.ctx||(sound.ctx=new(window.AudioContext||window.webkitAudioContext)());ctx.resume();const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type='sine';osc.frequency.value=note;gain.gain.setValueAtTime(.035,ctx.currentTime);gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.25);osc.connect(gain);gain.connect(ctx.destination);osc.start();osc.stop(ctx.currentTime+.26);}catch(e){}}
  const current=()=>songById.get(save.selected)||songs[0];
@@ -100,7 +114,21 @@
 67の島と、610の歌。次の一音は、あなたの暮らしの中から生まれる。
 
 ――歌物語、星詠みのアーカディア。完。</p><div class="dialog-footer"><button class="btn primary" data-action="nav" data-view="journal">旅の記録を開く ${icon('book')}</button></div></div>`);}
- function settings(){openModal(`<div class="dialog-body">${closeButton()}<div class="eyebrow">SETTINGS / 旅のしたく</div><h2>あなたの歩幅で。</h2><div class="setting-row"><div>効果音<small>演奏や操作の小さな音。原曲の音源とは別です。</small></div><button class="btn secondary" data-action="settings-sound">${save.settings.sound?'ON':'OFF'}</button></div><div class="setting-row"><div>島のアニメーション<small>ゆっくり浮かぶ島の動き。</small></div><button class="btn secondary" data-action="motion">${save.settings.motion?'ON':'OFF'}</button></div><div class="setting-row"><div>セーブデータ<small>このブラウザに自動保存します。APKとは自動同期しません。</small></div><span style="font-size:10px;color:#9ba487">v1.0</span></div><div class="settings-actions"><button class="btn secondary" data-action="export">${icon('download')}セーブを書き出す</button><button class="btn secondary" data-action="import-save">${icon('upload')}セーブを読み込む</button></div><div class="dialog-source">機種変更やブラウザのデータを消す前に、セーブを書き出してください。書き出しには読み込んだ音源を含みません。音源はこのブラウザ内だけに保存されます。</div><div class="dialog-footer"><button class="btn secondary" data-action="import-audio">${icon('note')}手元の音源を読み込む</button><button class="btn ghost" data-action="about">この物語について</button></div></div>`);}
+
+ function replaceJourney(next){try{validateSave(next);recordGate.replace(JSON.stringify(next));save=next;return true}catch(e){toast('記録を置き換えませんでした。'+e.message);return false}}
+ function resetJourney(){
+  if(!recordGate.ready){toast('保存保護中のため初期化しません。');return;}
+  if(!confirm('610曲の進行・結末記録・仲間・街の成長・途中の物語を初期化しますか？音と表示設定、読み込んだ音源は残します。変更前の記録を1世代退避します。'))return;
+  const next=defaults();next.settings={...save.settings};
+  if(!replaceJourney(next))return;
+  audio.pause();mandatoryModal=false;view='songs';dialog.close();render();toast('新しい旅を始めました。音源は消していません。');
+ }
+ function exportRecordRaw(previous=false){try{const raw=previous?recordGate.backup():localStorage.getItem(STORAGE);if(raw===null)throw Error('記録がありません');const url=URL.createObjectURL(new Blob([raw],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=previous?'song-chronicle-before-reset.json':'song-chronicle-original.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}catch(e){toast(e.message)}}
+ window.addEventListener('pagehide',()=>recordGate.stop());
+ window.addEventListener('pageshow',e=>{if(e.persisted)location.reload()});
+ window.addEventListener('storage',e=>{if(e.key===STORAGE||e.key===null){recordGate.block();toast('別画面の更新を検出したため、上書きを停止しました。')}});
+
+ function settings(){openModal(`<div class="dialog-body">${closeButton()}<div class="eyebrow">SETTINGS / 旅のしたく</div><h2>あなたの歩幅で。</h2><div class="setting-row"><div>効果音<small>演奏や操作の小さな音。原曲の音源とは別です。</small></div><button class="btn secondary" data-action="settings-sound">${save.settings.sound?'ON':'OFF'}</button></div><div class="setting-row"><div>島のアニメーション<small>ゆっくり浮かぶ島の動き。</small></div><button class="btn secondary" data-action="motion">${save.settings.motion?'ON':'OFF'}</button></div><div class="setting-row"><div>セーブデータ<small>このブラウザに自動保存します。APKとは自動同期しません。</small></div><span style="font-size:10px;color:#9ba487">v1.0</span></div><div class="settings-actions"><button class="btn secondary" data-action="export">${icon('download')}セーブを書き出す</button><button class="btn secondary" data-action="import-save">${icon('upload')}セーブを読み込む</button></div><div class="settings-actions"><button class="btn secondary" data-action="reset-journey">全体の旅を初期化…</button><button class="btn secondary" data-action="export-previous">直前の退避を保管</button><button class="btn secondary" data-action="export-raw">保存原文を回収</button></div><p>結末は「想いの記録」で再鑑賞できます。610曲すべての達成後に総合エンディングが開きます。退避は1世代で次の初期化・復元時に入れ替わります。</p><div class="dialog-source">機種変更やブラウザのデータを消す前に、セーブを書き出してください。書き出しには読み込んだ音源を含みません。音源はこのブラウザ内だけに保存されます。</div><div class="dialog-footer"><button class="btn secondary" data-action="import-audio">${icon('note')}手元の音源を読み込む</button><button class="btn ghost" data-action="about">この物語について</button></div></div>`);}
  function about(){openModal(`<div class="dialog-body">${closeButton()}<div class="eyebrow">ABOUT / 歌と物語のあいだ</div><h2>咲華の歌から生まれた、<br>もうひとつの世界。</h2><p>公式恋愛詩人・咲華（さきはな）の曲目資料にある67アルバム・610曲を、歌の島と歌物語として収録しました。
 
 歌詞資料のある92曲は、そのことばや情景から着想を得ています。残り518曲は歌詞本文が未取得のため、曲名から物語を創作しています。元の歌が持つ意味や、作者の意図を断定するものではありません。
@@ -111,6 +139,9 @@
  function goView(v){if(!['songs','town','crew','journal','sim'].includes(v))return;if(v==='sim'&&!save.active)return;mandatoryModal=false;if(dialog.open)dialog.close();view=v;render();window.scrollTo({top:0,behavior:'instant'});if(v==='sim'&&E.needsEvent(save.active))showChoice();}
  async function dispatch(el){
   const action=el.dataset.action,id=el.dataset.id,kind=el.dataset.kind;
+  if(action==='reset-journey'){resetJourney();return;}
+  if(action==='export-previous'){exportRecordRaw(true);return;}
+  if(action==='export-raw'){exportRecordRaw();return;}
   if(action==='close'){closeModal();return;}
   if(action==='nav'){goView(el.dataset.view);return;}
   if(action==='select-song'){save.selected=id;persist();if(innerWidth<=540){details(id);}else render();return;}
@@ -154,7 +185,7 @@
  document.addEventListener('click',e=>{const el=e.target.closest('[data-action]');if(el&&!el.disabled){dispatch(el).catch(()=>toast('操作を完了できませんでした。もう一度お試しください。'));}});
  document.addEventListener('change',e=>{if(e.target.id==='album-select')selectAlbum(Number(e.target.value));if(e.target.id==='audio-progress'&&audio.duration)audio.currentTime=Number(e.target.value)/100*audio.duration;});
  document.addEventListener('input',e=>{if(e.target.id==='song-search'){clearTimeout(searchTimer);query=e.target.value;const at=e.target.selectionStart;limit=24;searchTimer=setTimeout(()=>{if(view!=='songs')return;render();const inp=$('#song-search');inp?.focus({preventScroll:true});inp?.setSelectionRange(at,at);},130);}});
- $('#save-file').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>2000000)throw Error('large');const restored=validateSave(JSON.parse(await file.text()));openModal(`<div class="dialog-body">${closeButton()}<div class="eyebrow">セーブの読み込み</div><h2>${Object.keys(restored.cleared).length}曲の旅を、引き継ぎますか。</h2><p>今のブラウザのセーブを、選んだファイルの内容に置き換えます。今の旅を残したい場合は、先にセーブを書き出してください。</p><div class="dialog-footer"><button class="btn secondary" data-action="export">今のセーブを書き出す</button><button class="btn primary" id="confirm-import-save">このセーブを引き継ぐ</button></div></div>`);$('#confirm-import-save').onclick=()=>{save=restored;mandatoryModal=false;dialog.close();view=save.active?'sim':'songs';persist();render();toast('旅のしおりを引き継ぎました。');if(save.active&&E.needsEvent(save.active))showChoice();};}catch(err){toast('このセーブは読み込めません。元の保存データはそのままです。');}});
+ $('#save-file').addEventListener('change',async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>2000000)throw Error('large');const restored=validateSave(JSON.parse(await file.text()));openModal(`<div class="dialog-body">${closeButton()}<div class="eyebrow">セーブの読み込み</div><h2>${Object.keys(restored.cleared).length}曲の旅を、引き継ぎますか。</h2><p>今のブラウザのセーブを、選んだファイルの内容に置き換えます。今の旅を残したい場合は、先にセーブを書き出してください。</p><div class="dialog-footer"><button class="btn secondary" data-action="export">今のセーブを書き出す</button><button class="btn primary" id="confirm-import-save">このセーブを引き継ぐ</button></div></div>`);$('#confirm-import-save').onclick=()=>{if(!replaceJourney(restored))return;mandatoryModal=false;dialog.close();view=save.active?'sim':'songs';render();toast('旅のしおりを引き継ぎました。');if(save.active&&E.needsEvent(save.active))showChoice();};}catch(err){toast('このセーブは読み込めません。元の保存データはそのままです。');}});
  function openDB(){return new Promise((resolve,reject)=>{const request=indexedDB.open('sakihana-song-audio',1);request.onupgradeneeded=()=>request.result.createObjectStore('tracks');request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);});}
  async function audioGet(id){const db=await openDB();return new Promise((resolve,reject)=>{const tx=db.transaction('tracks','readonly'),r=tx.objectStore('tracks').get(id);r.onsuccess=()=>{resolve(r.result);db.close();};r.onerror=()=>{reject(r.error);db.close();};});}
  async function audioPut(id,file){const db=await openDB();return new Promise((resolve,reject)=>{const tx=db.transaction('tracks','readwrite');tx.objectStore('tracks').put(file,id);tx.oncomplete=()=>{resolve();db.close();};tx.onerror=()=>{reject(tx.error);db.close();};tx.onabort=()=>{reject(tx.error);db.close();};});}
@@ -168,3 +199,4 @@
  window.addEventListener('beforeunload',persist);
  render();if(loadWarning)setTimeout(()=>toast(loadWarning),100);if(view==='sim'&&E.needsEvent(save.active))showChoice();
 })();
+

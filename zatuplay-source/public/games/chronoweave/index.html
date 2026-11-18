@@ -86,7 +86,7 @@
   };
 })();</script>
 </head>
-<body>
+<body><aside style="padding:12px 20px;background:#292431;color:#efe5f4;font-size:13px;line-height:1.7">試験更新：同じ作品の旧版・別タブをすべて閉じ、重要な記録は設定から書き出して保管してください。「自動保存済み」を確認してから終了してください。自然な攻略での全20章完走・実スマートフォン・音声の確認は未実施です。</aside>
   <div class="app-shell">
     <header class="site-header">
       <a class="brand" href="./" aria-label="CHRONOWEAVE ホーム"><span class="brand-symbol" aria-hidden="true">◷</span><span>CHRONO<span class="brand-light">WEAVE</span><small>時を編む者</small></span></a>
@@ -644,11 +644,11 @@
       return DREAM_PLACES.map(p=>({...p,x:p.id==='bridge'?54+shift:p.x+(r()-.5)*8,y:p.y+(r()-.5)*7}));
     }
     hitTest(x,y){const s=this.getState();let best=null,dist=7;for(const p of [...this.places().map(p=>({...p,type:'place'})),...C.visibleNPCs(s).map(n=>({...n,type:'npc'}))]){const d=Math.hypot((p.x-x),(p.y-y)*.7);if(d<dist){dist=d;best=p;}}return best;}
-    go(x,y,hit=null){this.target={x:C.clamp(x,9,91),y:C.clamp(y,30,88),hit};const s=this.getState();if(s.settings.reduced){const old={...s.player},distance=Math.hypot(this.target.x-old.x,this.target.y-old.y);for(let i=0;i<16;i++)s.path.push({x:old.x+(this.target.x-old.x)*i/15,y:old.y+(this.target.y-old.y)*i/15});s.path=s.path.slice(-200);s.player={x:this.target.x,y:this.target.y};if(s.stopped)s.flags.frozenWalk+=Math.floor(distance);this.target=null;this.onMove(1);if(hit)this.onArrival(hit);} }
-    nearest(){const s=this.getState(),p=this.hitTest(s.player.x,s.player.y);if(p)this.onArrival(p);}
-    replay(){const s=this.getState();if(s.path.length<8)return false;this.echo=C.clone(s.path);this.echoIndex=0;this.echoClock=0;return true;}
+    go(x,y,hit=null){if(window.ChronoCanInteract?.()===false)return;this.target={x:C.clamp(x,9,91),y:C.clamp(y,30,88),hit};const s=this.getState();if(s.settings.reduced){const old={...s.player},distance=Math.hypot(this.target.x-old.x,this.target.y-old.y);for(let i=0;i<16;i++)s.path.push({x:old.x+(this.target.x-old.x)*i/15,y:old.y+(this.target.y-old.y)*i/15});s.path=s.path.slice(-200);s.player={x:this.target.x,y:this.target.y};if(s.stopped)s.flags.frozenWalk+=Math.floor(distance);this.target=null;this.onMove(1);if(hit)this.onArrival(hit);} }
+    nearest(){if(window.ChronoCanInteract?.()===false)return;const s=this.getState(),p=this.hitTest(s.player.x,s.player.y);if(p)this.onArrival(p);}
+    replay(){if(window.ChronoCanInteract?.()===false)return false;const s=this.getState();if(s.path.length<8)return false;this.echo=C.clone(s.path);this.echoIndex=0;this.echoClock=0;return true;}
     frame(now){const dt=Math.min((now-(this.last||now))/1000,.06);this.last=now;const s=this.getState();if(!s.stopped&&!s.settings.reduced)this.t+=dt;this.update(dt);this.draw();requestAnimationFrame(t=>this.frame(t));}
-    update(dt){const s=this.getState(),p=s.player;let dx=0,dy=0,moved=0;
+    update(dt){if(window.ChronoCanInteract?.()===false){this.keys.clear();this.target=null;this.echo=null;return;}const s=this.getState(),p=s.player;let dx=0,dy=0,moved=0;
       if(this.keys.has('arrowleft')||this.keys.has('a'))dx--;if(this.keys.has('arrowright')||this.keys.has('d'))dx++;if(this.keys.has('arrowup')||this.keys.has('w'))dy--;if(this.keys.has('arrowdown')||this.keys.has('s'))dy++;
       if(dx||dy){this.target=null;const f=18*dt/Math.hypot(dx,dy);p.x=C.clamp(p.x+dx*f,9,91);p.y=C.clamp(p.y+dy*f*1.3,30,88);moved=18*dt;}
       else if(this.target){const tx=this.target.x-p.x,ty=this.target.y-p.y,d=Math.hypot(tx,ty),step=23*dt;if(d<=Math.max(step,.3)){p.x=this.target.x;p.y=this.target.y;const hit=this.target.hit;this.target=null;if(hit)this.onArrival(hit);}else{p.x+=tx/d*step;p.y+=ty/d*step;moved=step;}}
@@ -770,14 +770,57 @@
   const modes=[['explore','歴史探査','search'],['edit','歴史編集','edit'],['parallel','並行世界','parallel'],['ai','AI自立世界','ai'],['civilization','文明創造','city']];
   const metricInfo=[['nature','自然','leaf','#a9d3ad'],['trust','信頼','heart','#d3a9bd'],['knowledge','知識','book','#b7a6e1'],['civilization','文明','city','#dbc18b']];
   const prose=['小さな選択が、まだ知らない命の居場所になる。','橋を渡るのは、人だけじゃない。約束も、思い出も。','水の一滴が、何百年先の命を潤す。','忘れた約束を、もう一度あなたの手で。','あの日の自分が、まだこの道を歩いている。','世界の秒針を止めて、いつもの景色の向こうへ。','花は、種より先には咲けない。出来事にも順序がある。','目が覚めたあとにも、夢のかけらは残る。','届いたのは、まだ生まれていない誰かの文字。','選ばなかった明日にも、あなたの居場所がある。','受け継いだ言葉で、次の時代に灯りを。','真実は消えない。少しだけ、隠れているだけ。','凍った湖の下で、春はもう準備をしている。','あなたが見ていない時も、誰かの一日は続く。','街は、一人の思いつきから生まれる。','会ったことのない家族へ、今日の空を贈る。','予測は運命ではない。変えるための手がかりだ。','羽ばたきほどの選択が、世界を救うこともある。','土の記憶を持ったまま、星まで行こう。','ここまで編んだ歴史の先は、あなたの物語。'];
-  let lastSavedJSON=null;
+  let lastSavedJSON=null,expectedRaw=null,saveBlocked=false,saveQueue=Promise.resolve(),resetBusy=false,saveEpoch=0,pageActive=true;
   let s=C.create(Math.floor(Math.random()*900000)+100000),saveAvailable=true,savedWarning=false,autoTimer=null,audioCtx=null,previousReady=false;
-  try{const raw=localStorage.getItem(KEY);if(raw){const parsed=C.validate(JSON.parse(raw));if(parsed){s=parsed;lastSavedJSON=JSON.stringify(s);}else setTimeout(()=>toast('古い、または壊れたセーブのため、新しい世界で開始しました。',true),500);}}catch{saveAvailable=false;}
+  try{expectedRaw=localStorage.getItem(KEY);if(expectedRaw!==null){const parsed=C.validate(JSON.parse(expectedRaw));if(!parsed)throw Error('invalid');s=parsed;lastSavedJSON=JSON.stringify(s);}}catch{saveAvailable=false;saveBlocked=true;}
+  if(!navigator.locks?.request){saveAvailable=false;saveBlocked=true;}
   let world=null;
-  function save(){
-    try{const serialized=JSON.stringify(s);if(serialized===lastSavedJSON)return;localStorage.setItem(KEY,serialized);lastSavedJSON=serialized;$('saveStatus').innerHTML='<i></i> 自動保存済み';saveAvailable=true;}
-    catch{saveAvailable=false;$('saveStatus').textContent='保存できません';if(!savedWarning){toast('端末への保存ができません。設定からセーブデータを書き出せます。',true);savedWarning=true;}}
+  window.ChronoCanInteract=()=>pageActive&&!saveBlocked&&!resetBusy;
+  function freezeForStorage(){if(autoTimer){clearInterval(autoTimer);autoTimer=null;}if(world){world.keys.clear();world.target=null;world.echo=null;}audioCtx?.suspend();}
+  document.addEventListener('click',e=>{
+    if(window.ChronoCanInteract())return;
+    const button=e.target.closest('button,[data-act],canvas,[role="button"]');if(!button)return;
+    const readable=['menuButton','helpButton','recordsButton','chapterOverview'];
+    const safe=['settings','export','exportOriginal','exportRecovery','import','close','help','resetAsk','resetConfirm','chapters','finale'];
+    if(readable.includes(button.id)||safe.includes(button.dataset?.act))return;
+    e.preventDefault();e.stopImmediatePropagation();freezeForStorage();toast('保存停止中です。現在の世界は設定から書き出せます。再開には再読込が必要です。',true);
+  },true);
+
+  function save(forReset=false){
+    if(!pageActive||(resetBusy&&!forReset))return Promise.resolve(false);
+    const epoch=saveEpoch;
+    if(!saveBlocked)$('saveStatus').textContent='保存待ち…この表示中はページを閉じないでください';
+    const serialized=JSON.stringify(s);
+    saveQueue=saveQueue.then(async()=>{
+      if(!pageActive||epoch!==saveEpoch)return false;
+      if(saveBlocked){$('saveStatus').textContent='元の保存を保護中・上書きしません';return false;}
+      try{return await navigator.locks.request(KEY,()=>{
+        if(!pageActive||epoch!==saveEpoch)return false;
+        if(saveBlocked||localStorage.getItem(KEY)!==expectedRaw){saveBlocked=true;throw Error('別タブで記録が変わりました');}
+        if(!C.validate(JSON.parse(serialized))){saveBlocked=true;throw Error('保存形式が不正です');}
+        if(serialized!==lastSavedJSON){localStorage.setItem(KEY,serialized);expectedRaw=serialized;lastSavedJSON=serialized;}
+        $('saveStatus').innerHTML='<i></i> 自動保存済み';saveAvailable=true;return true;
+      });}catch(e){saveBlocked=true;saveAvailable=false;freezeForStorage();if(autoTimer){clearInterval(autoTimer);autoTimer=null;}$('saveStatus').textContent='保存できません。元の保存は変更しません';if(!savedWarning){toast('保存を停止しました。必要なら現在の記録を書き出してください。',true);savedWarning=true;}return false;}
+    });return saveQueue;
   }
+  async function replaceWorld(next){
+    if(resetBusy||!pageActive)return false;
+    const validated=C.validate(JSON.parse(JSON.stringify(next)));if(!validated){toast('保存形式が不正です。',true);return false;}
+    resetBusy=true;freezeForStorage();if(autoTimer){clearInterval(autoTimer);autoTimer=null;}
+    try{if(!saveBlocked&&!await save(true))throw Error('現在の進行を保存できません。原文を回収してください');await saveQueue;saveEpoch++;const ok=await navigator.locks.request(KEY,()=>{
+      if(!pageActive)throw Error('ページを離れたため中止しました');
+      if(localStorage.getItem(KEY)!==expectedRaw)throw Error('別の画面で保存が変わりました。再読込してください');
+      if(expectedRaw!==null){localStorage.setItem(KEY+'.reset-recovery',expectedRaw);if(localStorage.getItem(KEY+'.reset-recovery')!==expectedRaw)throw Error('退避を確認できません');}
+      if(localStorage.getItem(KEY)!==expectedRaw)throw Error('退避中に保存が変わりました');
+      const raw=JSON.stringify(validated);localStorage.setItem(KEY,raw);if(localStorage.getItem(KEY)!==raw)throw Error('保存結果を確認できません');
+      expectedRaw=raw;lastSavedJSON=raw;s=validated;saveBlocked=true;saveEpoch++;return true;
+    });if(ok){world.target=null;world.echo=null;audioCtx?.suspend();location.reload();return true;}}
+    catch(e){saveBlocked=true;saveAvailable=false;$('saveStatus').textContent='置換中止・保存停止中';toast('世界を変更できませんでした: '+e.message,true);return false;}finally{resetBusy=false;}
+  }
+  async function resetWorld(){const next=C.create(Math.floor(Math.random()*900000)+100000);next.settings={...s.settings};return replaceWorld(next);}
+  function exportRecovery(original=false){try{const raw=localStorage.getItem(original?KEY:KEY+'.reset-recovery');if(raw===null)throw Error('退避記録がありません');const url=URL.createObjectURL(new Blob([raw],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=original?'chronoweave-original.json':'chronoweave-before-reset.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch(e){toast(e.message,true)}}
+  window.addEventListener('storage',e=>{if(e.key===KEY||e.key===null){saveBlocked=true;saveAvailable=false;saveEpoch++;freezeForStorage();if(autoTimer){clearInterval(autoTimer);autoTimer=null;}$('saveStatus').textContent='別タブの変更を検出・上書き停止';}});
+  window.addEventListener('pageshow',e=>{if(e.persisted)location.reload()});
   function toast(message,error=false){const el=document.createElement('div');el.className='toast'+(error?' error':'');el.textContent=message;$('toastRegion').append(el);setTimeout(()=>el.remove(),4800);while($('toastRegion').children.length>3)$('toastRegion').firstElementChild.remove();}
   function tone(type='edit'){
     if(!s.settings.sound)return;
@@ -901,10 +944,10 @@
 
   function openRecords(filter='all'){const filters=[['all','すべて'],['story','章の物語'],['edit','歴史編集'],['discover','探索'],['npc','住民'],['quest','達成'],['branch','世界線']];const records=s.records.filter(r=>filter==='all'||r.kind===filter);modal('WORLD CHRONICLE',titleAndCopy('世界が覚えていること。',`${s.records.length}件の出来事。あなたが選び、住民たちが紡いだ歴史です。最新180件を保存します。`)+`<div class="record-filters">${filters.map(([id,name])=>`<button class="record-filter ${filter===id?'active':''}" data-act="recordsFilter" data-value="${id}">${name}</button>`).join('')}</div><div class="records-list">${records.length?records.map(r=>`<article class="record-item"><small>DAY ${r.day} · ${C.ERA_NAMES[r.era]}</small><h3>${esc(r.title)}</h3><p>${esc(r.body)}</p></article>`).join(''):'<div class="empty-state">まだ、この歴史は書かれていません。</div>'}</div><button class="row-button" data-act="recordsExport" style="margin-top:16px">世界の記録を書き出す</button>`);}
   function download(name,data,type){const blob=new Blob([data],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}
-  function openSettings(){modal('SETTINGS & SAVE DATA',titleAndCopy('旅の支度。','セーブはこのアプリ内に保存されます。別の端末へ移るときは書き出してください。')+`<div class="settings-row"><span>効果音<small>選択と達成を小さな音でお知らせ</small></span><button class="row-button" data-act="sound">${s.settings.sound?'オン':'オフ'}</button></div><div class="settings-row"><span>動きを抑える<small>移動を即時にし、背景の動きを抑えます</small></span><button class="row-button" data-act="reduced">${s.settings.reduced?'オン':'オフ'}</button></div><div class="settings-row"><span>セーブデータ<small>${saveAvailable?'自動保存を利用中':'ブラウザへの保存ができません'}</small></span><button class="row-button" data-act="export">書き出す</button></div><div class="settings-row"><span>セーブデータを読み込む<small>現在の進行を、選んだデータに置き換えます</small></span><button class="row-button" data-act="import">読み込む</button></div><div class="action-row"><button class="row-button" data-act="chapters">20章の進行</button><button class="row-button" data-act="help">遊び方</button></div><p class="dialog-copy" style="font-size:10px;margin-top:14px">AI自立世界は、環境と人物の目標から行動を決めるルールベースの仕組みです。生成AIへの接続や、アプリを閉じた間の自動進行はありません。</p><button class="danger-button" data-act="resetAsk">新しい世界で最初からはじめる</button>`);}
-  function toggleAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null;}else{autoTimer=setInterval(()=>{if(s.stopped||document.hidden||$('gameDialog').open)return;C.simulate(s);after(null,'era');},10000);}renderMode();}
+  function openSettings(){modal('SETTINGS & SAVE DATA',titleAndCopy('旅の支度。','「自動保存済み」を確認してからページを離れてください。保存待ちのまま終了した変更は残らない場合があります。旧版タブは新しい保存保護に対応していないため、同じ作品の旧版・別タブを閉じてください。別端末へ移る前に書き出してください。')+`<div class="settings-row"><span>効果音<small>選択と達成を小さな音でお知らせ</small></span><button class="row-button" data-act="sound">${s.settings.sound?'オン':'オフ'}</button></div><div class="settings-row"><span>動きを抑える<small>移動を即時にし、背景の動きを抑えます</small></span><button class="row-button" data-act="reduced">${s.settings.reduced?'オン':'オフ'}</button></div><div class="settings-row"><span>セーブデータ<small>${saveAvailable?'自動保存を利用中':'ブラウザへの保存ができません'}</small></span><button class="row-button" data-act="export">書き出す</button></div><div class="settings-row"><span>セーブデータを読み込む<small>現在の進行を、選んだデータに置き換えます</small></span><button class="row-button" data-act="import">読み込む</button></div><div class="action-row"><button class="row-button" data-act="chapters">20章の進行</button><button class="row-button" data-act="help">遊び方</button></div><p class="dialog-copy" style="font-size:10px;margin-top:14px">AI自立世界は、環境と人物の目標から行動を決めるルールベースの仕組みです。生成AIへの接続や、アプリを閉じた間の自動進行はありません。</p><button class="row-button" data-act="exportOriginal">保存原文を回収</button><button class="row-button" data-act="exportRecovery">初期化前の世界を書き出す</button><button class="danger-button" data-act="resetAsk">新しい世界で最初からはじめる</button>`);}
+  function toggleAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null;}else{autoTimer=setInterval(()=>{if(saveBlocked||resetBusy||!pageActive||s.stopped||document.hidden||$('gameDialog').open)return;C.simulate(s);after(null,'era');},10000);}renderMode();}
   document.addEventListener('click',e=>{
-    const b=e.target.closest('[data-act]');if(!b||b.disabled)return;const d=b.dataset;
+    const b=e.target.closest('[data-act]');if(!b||b.disabled)return;const d=b.dataset;if((saveBlocked||resetBusy||!pageActive)&&!['settings','export','exportOriginal','exportRecovery','import','close','help','resetAsk','resetConfirm'].includes(d.act)){toast('保存停止中です。設定から原文を回収・復元してください。',true);return;}
     switch(d.act){
       case 'storyOpen':openStory(d.index===undefined?s.chapter:Number(d.index));break;
       case 'storyPage':openStory(Number(d.index),d.phase,Number(d.line));break;
@@ -945,8 +988,8 @@
       case 'import':importSave();break;
       case 'sound':s.settings.sound=!s.settings.sound;after();openSettings();break;
       case 'reduced':s.settings.reduced=!s.settings.reduced;after();openSettings();break;
-      case 'resetAsk':modal('NEW WORLD',titleAndCopy('新しい世界を、編みはじめますか？','現在の物語・発見・世界線をすべて置き換えます。残したい場合は、先にセーブデータを書き出してください。')+'<div class="action-row"><button class="row-button" data-act="export">セーブを書き出す</button><button class="danger-button" data-act="resetConfirm">新しい世界で開始する</button><button class="row-button" data-act="close">戻る</button></div>');break;
-      case 'resetConfirm':if(autoTimer){clearInterval(autoTimer);autoTimer=null;}s=C.create(Math.floor(Math.random()*900000)+100000);world.target=null;world.echo=null;closeModal();after('新しい世界の歴史が始まりました。');break;
+      case 'resetAsk':modal('NEW WORLD',titleAndCopy('新しい世界を、編みはじめますか？','現在の物語・発見・世界線を置き換えます。設定は残り、変更前の世界を1世代退避します。退避は次の初期化で入れ替わるため、必要なら先に書き出してください。')+'<div class="action-row"><button class="row-button" data-act="export">セーブを書き出す</button><button class="danger-button" data-act="resetConfirm">新しい世界で開始する</button><button class="row-button" data-act="close">戻る</button></div>');break;
+      case 'resetConfirm':resetWorld();break;case 'exportRecovery':exportRecovery();break;case 'exportOriginal':exportRecovery(true);break;
       case 'help':openHelp();break;case 'chapters':openChapters();break;case 'close':closeModal();break;
     }
   });
@@ -954,7 +997,7 @@
     const result=C.claimChapter(s);if(!result.ok)return;world.target=null;world.echo=null;closeModal();after(`第${s.chapter}章を達成！ 時の力 ＋22。`,'quest');openStory(result.previous,'outro',0);
   }
 
-  function importSave(){const input=document.createElement('input');input.type='file';input.accept='.json,application/json';input.style.display='none';document.body.appendChild(input);input.addEventListener('cancel',()=>input.remove(),{once:true});input.addEventListener('change',async()=>{const file=input.files[0];input.remove();if(!file)return;if(file.size>2000000){toast('このセーブファイルは大きすぎます。',true);return;}try{const parsed=C.validate(JSON.parse(await file.text()));if(!parsed)throw Error('invalid');modal('LOAD SAVE DATA',titleAndCopy('この旅を、引き継ぎますか？',`${parsed.day}日目・第${Math.min(parsed.chapter+1,20)}章のセーブです。現在の進行が置き換わります。`)+`<div class="action-row"><button class="primary-button" id="confirmImport">このセーブを読み込む</button><button class="row-button" data-act="close">戻る</button></div>`);$('confirmImport').addEventListener('click',()=>{if(autoTimer){clearInterval(autoTimer);autoTimer=null;}s=parsed;world.target=null;world.echo=null;closeModal();after('セーブデータを読み込みました。');});}catch{toast('有効なCHRONOWEAVEのセーブデータではありません。',true);}});input.click();}
+  function importSave(){const input=document.createElement('input');input.type='file';input.accept='.json,application/json';input.style.display='none';document.body.appendChild(input);input.addEventListener('cancel',()=>input.remove(),{once:true});input.addEventListener('change',async()=>{const file=input.files[0];input.remove();if(!file)return;if(file.size>2000000){toast('このセーブファイルは大きすぎます。',true);return;}try{const parsed=C.validate(JSON.parse(await file.text()));if(!parsed)throw Error('invalid');modal('LOAD SAVE DATA',titleAndCopy('この旅を、引き継ぎますか？',`${parsed.day}日目・第${Math.min(parsed.chapter+1,20)}章のセーブです。現在の進行が置き換わります。`)+`<div class="action-row"><button class="primary-button" id="confirmImport">このセーブを読み込む</button><button class="row-button" data-act="close">戻る</button></div>`);$('confirmImport').addEventListener('click',()=>replaceWorld(parsed));}catch{toast('有効なCHRONOWEAVEのセーブデータではありません。',true);}});input.click();}
   $('closeDialog').addEventListener('click',closeModal);$('gameDialog').addEventListener('click',e=>{if(e.target===$('gameDialog')){const r=$('gameDialog').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeModal();}});
   $('dialogBody').addEventListener('change',e=>{if(e.target.id==='forecastEvent')updateForecastOptions();});
   $('dreamButton').addEventListener('click',()=>{C.dream(s);world.target=null;world.echo=null;after(s.dream?`${C.dreamInfo(s).name}。新しい夢の歴史が始まりました。`:'夢のかけらを持って、現実へ戻りました。','era');});
@@ -966,8 +1009,8 @@
   $('chapterOverview').style.cursor='pointer';$('chapterOverview').setAttribute('role','button');$('chapterOverview').tabIndex=0;$('chapterOverview').setAttribute('aria-label','20章の物語を見る');$('chapterOverview').addEventListener('click',openChapters);$('chapterOverview').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openChapters();}});
   world=new window.ChronoWorld.WorldView($('worldCanvas'),()=>s,arrival,event=>{if(event==='echo'){C.log(s,'過去の自分に出会った','別の時を歩く自分と、同じ場所で重なった。','discover');after('過去の自分と出会いました。時の重なりを記録しました。','quest');}else{save();if(ready()&&!previousReady)render();}});
   setInterval(()=>{const x=Math.round(s.player.x).toString().padStart(3,'0'),y=Math.round(s.player.y).toString().padStart(3,'0');$('coords').textContent=x+' : '+y;if(!world.target)$('mapHint').textContent=s.stopped?'時間停止中も、散策できます':'地図をタップして散策';},350);
-  window.addEventListener('storage',e=>{if(e.key!==KEY||!e.newValue)return;try{const parsed=C.validate(JSON.parse(e.newValue));if(parsed&&(document.hidden||JSON.stringify(s)===lastSavedJSON)){s=parsed;lastSavedJSON=e.newValue;if(world){world.target=null;world.echo=null;render();}}}catch{}});
-  setInterval(save,8000);window.addEventListener('pagehide',save);document.addEventListener('visibilitychange',()=>{if(document.hidden)save();});
+  // External saves never replace the in-memory world; export remains available after conflict.
+  setInterval(()=>{if(pageActive&&!saveBlocked&&!resetBusy)save();},8000);window.addEventListener('pagehide',()=>{pageActive=false;saveBlocked=true;saveEpoch++;if(autoTimer){clearInterval(autoTimer);autoTimer=null;}audioCtx?.suspend();if(world){world.target=null;world.echo=null;}});document.addEventListener('visibilitychange',()=>{if(document.hidden)save();});
   render();save();
   window.chronoweave={getState:()=>C.clone(s),version:'1.1.0'};
 })();
@@ -975,3 +1018,4 @@
 </script><script>window.ChronoBrowser.ready();</script>
 </body>
 </html>
+

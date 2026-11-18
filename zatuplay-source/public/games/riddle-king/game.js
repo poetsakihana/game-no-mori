@@ -7,6 +7,7 @@ const app = document.getElementById('app'), status = document.getElementById('sa
 const norm = v => v.normalize('NFKC').trim().replace(/[\s、。,.!！?？]/g,'').replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-96));
 const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let state = {version:1,unlocked:0,stage:0,answer:'',hint:false,solved:false,screen:'home',page:0,sound:false};
+let departed=false, resetBusy=false;
 let storage, expected = null, revision = 0, protectedSave = false, failed = false, suspended = false, ready = false;
 let ctx, interval, note = 0, audioFailed = false, saveQueue = Promise.resolve();
 const oscillators = new Set(), timeouts = new Set(), pointers = new Map();
@@ -41,20 +42,22 @@ function readSave() {
   } catch (_) { block('保存データを読み込めません。元のデータを上書きせず、この回は保存なしで遊べます。'); }
   if (!protectedSave && !navigator.locks?.request) block('このブラウザでは安全な別タブ保存に対応していません。この回は保存なしで遊べます。');
 }
+function nextRevision(){return revision>=Number.MAX_SAFE_INTEGER?1:revision+1;}
 function save() {
-  if (protectedSave || !ready) return saveQueue;
+  if (departed || resetBusy || protectedSave || !ready) return saveQueue;
   if (!failed) notice('保存中…');
   saveQueue = saveQueue.then(async () => {
-    if (protectedSave) return;
+    if (departed || protectedSave) return;
     try {
       await navigator.locks.request(KEY, () => {
-        if (protectedSave) return;
+        if (departed || protectedSave) return;
         const current = storage.getItem(KEY);
         if (current !== expected) { block('別のタブで保存データが変わりました。上書きを停止しました。必要なら現在の記録を書き出し、再読込してください。'); return; }
         if (!valid(state)) { block('進行の整合性を確認できないため、保存を停止しました。現在の記録を書き出して保管してください。'); return; }
-        const raw = JSON.stringify({revision:revision+1,state});
+        const raw = JSON.stringify({revision:nextRevision(),state});
         storage.setItem(KEY, raw);
-        expected = raw; revision++; failed = false;
+        if(storage.getItem(KEY)!==raw)throw Error('write verification');
+        expected = raw; revision=nextRevision(); failed = false;
         notice('保存しました。'); document.getElementById('retry-save').hidden = true;
       });
     } catch (_) {
@@ -145,8 +148,8 @@ function render() {
   const back=document.getElementById('home');if(back)back.onclick=home;
 }
 function releasePointers(){for(const [id,target] of pointers){try{if(target.hasPointerCapture?.(id))target.releasePointerCapture(id);}catch(_) {}}pointers.clear();}
-function pause(){if(!ready)return;suspended=true;stopAudio();releasePointers();document.activeElement?.blur?.();document.querySelector('main').inert=true;document.getElementById('music').disabled=true;document.getElementById('pause-panel').hidden=false;document.body.classList.add('paused');document.getElementById('resume').focus();save();}
-function resume(){if(document.hidden)return;suspended=false;document.querySelector('main').inert=false;document.getElementById('music').disabled=false;document.getElementById('pause-panel').hidden=true;document.body.classList.remove('paused');startMusic();document.getElementById('answer')?.focus();}
+function pause(persist=true){if(!ready)return;suspended=true;stopAudio();releasePointers();document.activeElement?.blur?.();document.querySelector('main').inert=true;document.getElementById('music').disabled=true;document.getElementById('pause-panel').hidden=false;document.body.classList.add('paused');document.getElementById('resume').focus();if(persist)save();}
+function resume(){if(document.hidden||departed||resetBusy)return;suspended=false;document.querySelector('main').inert=false;document.getElementById('music').disabled=false;document.getElementById('pause-panel').hidden=true;document.body.classList.remove('paused');startMusic();document.getElementById('answer')?.focus();}
 function download(){
   try{const data={revision:Math.max(revision,1),state};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='riddle-king-save.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);document.getElementById('import-status').textContent='現在の記録ファイルを書き出しました。ダウンロード先を確認してください。';}
   catch(_){document.getElementById('import-status').textContent='記録を書き出せませんでした。このページを閉じずに、ブラウザのダウンロード設定を確認してください。';}
@@ -154,23 +157,42 @@ function download(){
 document.getElementById('music').onclick=()=>{if(suspended||!ready)return;state.sound=!state.sound;audioFailed=false;document.getElementById('audio-status').textContent='';musicLabel();if(state.sound)startMusic();else stopAudio();save();};
 document.getElementById('resume').onclick=resume;document.getElementById('pause').onclick=pause;
 document.getElementById('retry-save').onclick=save;document.getElementById('export-save').onclick=download;
+async function replaceProgress(next,question){
+ if(resetBusy||departed||protectedSave||!ready||!navigator.locks?.request)return false;
+ resetBusy=true;pause(false);
+ try{
+  await saveQueue;
+  if(departed||protectedSave||failed)throw Error('保存停止中です');
+  if(!valid(next))throw Error('記録形式を確認できません');
+  if(!confirm(question))return false;
+  await navigator.locks.request(KEY,()=>{
+   if(departed||protectedSave||storage.getItem(KEY)!==expected)throw Error('別画面の変更または離脱を検出しました');
+   if(expected!==null){storage.setItem(KEY+'.reset-recovery',expected);if(storage.getItem(KEY+'.reset-recovery')!==expected)throw Error('退避を確認できません');}
+   if(storage.getItem(KEY)!==expected)throw Error('退避中に別画面の変更を検出しました');
+   const raw=JSON.stringify({revision:nextRevision(),state:next});storage.setItem(KEY,raw);
+   if(storage.getItem(KEY)!==raw)throw Error('書込を確認できません');
+   state=next;expected=raw;revision=nextRevision();failed=false;
+  });
+  render();musicLabel();notice('記録を置き換えました。変更前原文を1世代退避しました。');return true;
+ }catch(e){block('置換を停止しました：'+e.message);return false}
+ finally{resetBusy=false;}
+}
 document.getElementById('import-save').onchange=async e=>{
-  const file=e.target.files?.[0];e.target.value='';if(!file)return;
-  const importStatus=document.getElementById('import-status');
-  if(protectedSave){importStatus.textContent='保存保護中は復元できません。元のデータを変更せず、再読込で状態を確認してください。';return;}
-  try{
-    if(file.size>20000)throw Error('large file');
-    const data=JSON.parse(await file.text());
-    if(!data||!valid(data.state))throw Error('invalid save');
-    if(!confirm('このブラウザの記録を、選んだファイルの '+data.state.unlocked+' 問クリアの記録で置き換えますか？'))return;
-    if(protectedSave){importStatus.textContent='別タブの更新を検出したため、復元を中止しました。';return;}
-    stopAudio();state=data.state;render();musicLabel();await save();
-    importStatus.textContent=protectedSave||failed?'ファイルは読み込みましたが未保存です。保存欄を確認してください。':'記録を復元しました。';
-    if(state.sound)pause();
-  }catch(_){importStatus.textContent='記録ファイルを読み込めませんでした。進行と保存データは変更していません。';}
+ const file=e.target.files?.[0];e.target.value='';if(!file||resetBusy||departed)return;
+ const importStatus=document.getElementById('import-status');
+ try{if(file.size>20000)throw Error('large file');const data=JSON.parse(await file.text());
+ if(!data||!valid(data.state))throw Error('invalid save');
+ const done=await replaceProgress(data.state,'選んだ記録へ置き換えますか？現在の記録を1世代退避します。');
+ importStatus.textContent=done?'記録を復元しました。':'復元を中止しました。保存欄を確認してください。';
+ }catch(_){importStatus.textContent='記録ファイルを読み込めません。保存は変更していません。';}
 };
+async function resetProgress(){return replaceProgress({version:1,unlocked:0,stage:0,answer:'',hint:false,solved:false,screen:'home',page:0,sound:state.sound},'問題の進行・称号・入力途中の答えを初期化しますか？音設定は残し、現在の保存原文を1世代退避します。');}
+function exportPrevious(){try{const raw=storage.getItem(KEY+'.reset-recovery');if(raw===null)throw Error('退避記録がありません');const url=URL.createObjectURL(new Blob([raw],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='riddle-king-before-reset.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}catch(e){notice(e.message,true)}}
+document.getElementById('reset-progress').onclick=resetProgress;
+document.getElementById('export-previous').onclick=exportPrevious;
+
 document.getElementById('reload').onclick=()=>{if(confirm('未保存の進行は失われます。必要なら先に記録を書き出してください。再読込しますか？'))location.reload();};
-window.addEventListener('blur',pause);window.addEventListener('pagehide',pause);
+window.addEventListener('blur',()=>pause());window.addEventListener('pagehide',()=>{departed=true;pause(false)});window.addEventListener('pageshow',e=>{if(e.persisted)location.reload()});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
 window.addEventListener('storage',e=>{if((e.key===KEY||e.key===null)&&(!e.storageArea||e.storageArea===storage)&&e.newValue!==expected)block('別のタブで保存データが変わりました。上書きを停止しました。記録を書き出すか、再読込してください。');});
 document.addEventListener('pointerdown',e=>pointers.set(e.pointerId,e.target));
@@ -182,3 +204,4 @@ try {
   if(state.sound)pause();
 } catch (_) {app.textContent='問題データを読み込めませんでした。通信を確認して再読込してください。保存データは変更していません。';block('起動できなかったため、保存は行いません。');document.getElementById('music').disabled=true;document.getElementById('export-save').disabled=true;}
 })();
+
