@@ -2237,12 +2237,12 @@
         "GAMESELECT",
         "エンタメ"
       ],
-      "filename": "40.落語-150-500-v2.apk",
-      "size": 58203,
+      "filename": "40.千客万来落語-150-500-v2.3.apk",
+      "size": 1082339,
       "sha256": "",
       "parts": [],
       "package": "",
-      "version": "2",
+      "version": "2.3",
       "minSdk": null,
       "targetSdk": null,
       "order": 1040,
@@ -2279,8 +2279,8 @@
         }
       ],
       "available": true,
-      "driveUrl": "https://drive.google.com/file/d/1Z3PMra8gzwT2MMpz2aEO5H43v8dJ0UtN/view?usp=drivesdk",
-      "modifiedAt": "2026-10-26T10:13:16.069Z"
+      "driveUrl": "https://drive.google.com/file/d/18alA2bQTuqoB4U29-ORjsHEArWQ95ZgK/view?usp=drivesdk",
+      "modifiedAt": "2026-10-26T10:13:15.928Z"
     },
     {
       "id": "collection-41",
@@ -2489,12 +2489,12 @@
         "GAMESELECT",
         "RPG"
       ],
-      "filename": "50.DoragonOut-v2.4.0.apk",
-      "size": 212325361,
+      "filename": "50.DoragonOut-v2.5.2-InstallFix.apk",
+      "size": 314230306,
       "sha256": "",
       "parts": [],
       "package": "",
-      "version": "2.4.0",
+      "version": "2.5.2",
       "minSdk": null,
       "targetSdk": null,
       "order": 1050,
@@ -2549,8 +2549,8 @@
         }
       ],
       "available": true,
-      "driveUrl": "https://drive.google.com/file/d/107kmUx6TVlWJBf3TnltB28kjh_HpFc4n/view?usp=drivesdk",
-      "modifiedAt": "2026-11-10T09:15:19.230Z"
+      "driveUrl": "https://drive.google.com/file/d/1MVarkSPhqrU21ijFLFIX-adSiqw1xyjx/view?usp=drivesdk",
+      "modifiedAt": "2026-11-10T03:57:17.212Z"
     },
     {
       "id": "collection-51",
