@@ -493,7 +493,45 @@
         ],
         "order": 10999
       }
+    },
+    {
+      "id": "drive-pinpondash50",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/pinpon-dash-50/",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-18T09:24:42.731826+00:00",
+      "note": "試験公開：実ブラウザ操作・スマホ実機・音の実聴取は未検証。所有者の明示指示で公開。ステージ開始時点を保存（途中位置は対象外）。50面×4人進行・保存保護のモデルテスト通過。 Web Locks必須。APK・以前のChatGPT Site版とは別保存で、自動引継ぎはありません。確認日時は公開内容の確認であり実プレイ検証日時ではありません。",
+      "app": {
+        "name": "ピンポン・ダッシュ50",
+        "subtitle": "ブラウザ試験公開版",
+        "description": "50ステージ、1〜4人で交代する架空の追いかけっこゲーム。現実ではまねしないでください。",
+        "category": "アクション",
+        "color": "violet",
+        "tags": [
+          "試験公開",
+          "実機未検証"
+        ],
+        "order": 10999
+      }
+    },
+    {
+      "id": "drive-puchittobreak150",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/puchitto-break-150/",
+      "version": "1.0.0-web.1",
+      "checkedAt": "2026-11-18T09:24:42.731826+00:00",
+      "note": "試験公開：実ブラウザ操作・スマホ実機・音の実聴取は未検証。所有者の明示指示で公開。クリア記録・お気に入り・音設定を保存（遊びの途中状態は対象外）。JSON書出し・確認付き復元。150件のカタログと保存保護のモデルテスト通過。 Web Locks必須。APK・以前のChatGPT Site版とは別保存で、自動引継ぎはありません。確認日時は公開内容の確認であり実プレイ検証日時ではありません。",
+      "app": {
+        "name": "ぷちっと休憩150",
+        "subtitle": "ブラウザ試験公開版",
+        "description": "150種類の短い遊びを集めたミニゲーム集。",
+        "category": "カジュアル",
+        "color": "violet",
+        "tags": [
+          "試験公開",
+          "実機未検証"
+        ],
+        "order": 10999
+      }
     }
   ],
-  "updatedAt": "2026-11-15T15:13:51.008Z"
+  "updatedAt": "2026-11-18T09:24:42.731826+00:00"
 }
