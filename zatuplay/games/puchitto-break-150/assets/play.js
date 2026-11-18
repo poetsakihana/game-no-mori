@@ -248,9 +248,39 @@ const effects = {
   set(enabled) {
     this.enabled = enabled;
     if (enabled) this.unlock();
-    else this.stopAmbient();
+    else { this.stopAmbient(); narration.stop(); }
   }
 };
+
+// Browser-provided Japanese synthesis; only fixed game text, no microphone.
+const narration = {
+  token: 0,
+  utterance: null,
+  stop() {
+    this.token++;
+    this.utterance = null;
+    try { globalThis.speechSynthesis?.cancel(); } catch { /* optional API */ }
+  },
+  speak(text, fallback) {
+    this.stop();
+    if (!effects.enabled) { fallback("音OFF："); return; }
+    if (!globalThis.speechSynthesis || !globalThis.SpeechSynthesisUtterance) {
+      fallback("読み上げ非対応："); return;
+    }
+    const token = this.token;
+    try {
+      const u = new SpeechSynthesisUtterance(text);
+      this.utterance = u;
+      u.lang = "ja-JP"; u.rate = .85; u.volume = .8;
+      const voice = speechSynthesis.getVoices().find(v => /^ja(?:-|$)/i.test(v.lang));
+      if (voice) u.voice = voice;
+      u.onerror = () => { if (token === this.token) { this.utterance = null; fallback("読み上げできません："); } };
+      u.onend = () => { if (token === this.token) this.utterance = null; };
+      speechSynthesis.speak(u);
+    } catch { if (token === this.token) fallback("読み上げできません："); }
+  }
+};
+globalThis.addEventListener?.("pagehide", () => narration.stop());
 
 class Playfield {
   constructor(canvas, controls, status, meter, game, onClear) {
@@ -333,6 +363,7 @@ class Playfield {
     }, {signal});
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) {
+        narration.stop();
         effects.stopAmbient();
         this.scene.suspend?.();
       }
@@ -468,6 +499,7 @@ class Playfield {
     this.bits = this.bits.filter(bit => bit.t > 0);
   }
   dispose() {
+    narration.stop();
     cancelAnimationFrame(this.frame);
     this.abort.abort();
     this.scene.dispose?.();
@@ -1014,12 +1046,13 @@ scenes.quiz = (g, [style, clue, options, answer, reward]) => {
   };
   function show() {
     shown = true;
-    if (style === "telephone") [0, .24, .48].forEach(t => effects.tone(448, .12, .09, t, "triangle"));
+    if (style === "telephone") narration.stop();
     else if (style === "footstep") [0, .26].forEach(t => effects.rustle(670, .24, .13, t));
     else if (style === "parcel") [0, .12, .31].forEach(t => effects.tone(720, .15, .075, t, "triangle", 260));
     else effects.hit(style);
     answerButtons.forEach(button => button.disabled = false);
-    g.say(clue, .4);
+    g.say(clue + (style === "telephone" ? " 聞こえないときは「字幕を見る」。" : ""), .4);
+    if (style === "telephone") narration.speak(options[answer], reason => g.say(reason + "字幕「" + options[answer] + "」", .4));
   }
   function pick(i) {
     if (!shown) return;
@@ -1028,11 +1061,17 @@ scenes.quiz = (g, [style, clue, options, answer, reward]) => {
       g.say("もう少しよく確かめてみよう。 " + clue, .4);
       return;
     }
-    g.clear("正解。中身が分かった！");
+    if (style === "telephone") narration.stop();
+    g.clear(style === "telephone" ? "合言葉が伝わった！" : "正解。中身が分かった！");
   }
   g.button(actionLabels[style] ?? "ヒントを確かめる", show, true);
   answerButtons = options.map((opt, i) => g.button(opt, () => pick(i)));
   answerButtons.forEach(b => b.disabled = true);
+  if (style === "telephone") g.button("字幕を見る", () => {
+    narration.stop(); shown = true;
+    answerButtons.forEach(b => b.disabled = false);
+    g.say("字幕「" + options[answer] + "」を選んで返そう。", .4);
+  });
   g.say("気になるものを調べてみよう。", 0);
   return {
     down(p) {
@@ -1062,16 +1101,23 @@ scenes.quiz = (g, [style, clue, options, answer, reward]) => {
 scenes.browse = (g, [style, mark, frames, answers]) => {
   let current = 0;
   const found = new Set();
+  const announce = () => {
+    const message = "次は、" + frames[current] + "です。";
+    g.say("車内放送：" + message + " お題は「" + mark + "」。", found.size / answers.length);
+    narration.speak(message, reason => g.say(reason + "字幕「" + frames[current] + "」 お題は「" + mark + "」。", found.size / answers.length));
+  };
   const next = d => {
     current = (current + d + frames.length) % frames.length;
     effects.hit(style, current);
     g.say((current + 1) + " / " + frames.length + "　見つけた数 " + found.size + " / " + answers.length, found.size / answers.length);
+    if (style === "bus") announce();
   };
   function choose() {
     if (!answers.includes(current)) {
       g.say("印は「" + mark + "」。次も見てみよう。", found.size / answers.length);
       return;
     }
+    if (style === "bus") narration.stop();
     found.add(current);
     g.sparkle(360, 177, 18);
     effects.hit("notes", found.size);
@@ -1081,7 +1127,8 @@ scenes.browse = (g, [style, mark, frames, answers]) => {
   g.button("← 前へ", () => next(-1));
   g.button(style === "bus" ? "降車ボタン" : "ここで決定", choose, true);
   g.button("次へ →", () => next(1));
-  g.say("探す印　" + mark, 0);
+  if (style === "bus") g.button("車内放送を聞く・もう一度", announce);
+  g.say(style === "bus" ? "お題は「" + mark + "」。車内放送を聞くボタンで出発。音OFFでも表示の字幕で遊べます。" : "探す印　" + mark, 0);
   return {
     down(p) {
       if (p.x < 205) next(-1);
