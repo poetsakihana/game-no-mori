@@ -156,3 +156,7 @@ button, a, input { -webkit-tap-highlight-color: transparent; }
 }
 
 .web-tools{padding:16px;border:1px solid #ddd;border-radius:12px;margin-bottom:20px;background:#fff}.web-tools p{font-size:13px;line-height:1.6}.web-tools button,.web-tools input{max-width:100%;margin:4px}.web-tools a{color:#50418e}#storage-stop{position:fixed;inset:0;z-index:9999;background:#fff8ef;padding:5vw;overflow:auto}#storage-stop button{padding:12px;margin:8px}
+
+.collection-ending { margin: 20px 0; padding: 28px; border: 2px solid #bd92ab; border-radius: 24px; background: #fff3f8; color: #493c46; text-align: center; line-height: 1.9; }
+.collection-ending[hidden], #reset-review[hidden] { display:none; }
+#reset-review { flex-basis:100%; padding:16px; border:2px solid #a66147; border-radius:12px; }

@@ -45,6 +45,12 @@
       snapshot=next;status('保存済み');return true;
     } catch(e) {stop(e.message); return false;}
   }
+  function reloadAfterReplacement() {
+    // Quiesce the old in-memory game before navigation can be deferred.
+    active = false;
+    try { if (typeof playfield !== 'undefined') playfield?.dispose(); } catch {}
+    location.reload();
+  }
   window.BrowserSave={read,write,validate};
   window.addEventListener('storage',e=>{if(active && (e.key===key || e.key===null))stop('別のタブで保存が変更されました。')});
   window.addEventListener('pageshow',e=>{if(e.persisted)location.reload()});
@@ -57,13 +63,38 @@
       if(obj.format!=='puchitto-break-150'||obj.version!==1)throw Error('このゲームのバックアップではありません。');
       validate(obj.data);
       if(!confirm('現在のクリア記録・お気に入り・音設定を選択した記録に置き換えます。よろしいですか？'))return;
-      if(write(obj.data))location.reload();
+      if(write(obj.data))reloadAfterReplacement();
     }catch(e){status('復元しませんでした：'+e.message)}
+  };
+  let resetSnapshot;
+  const resetReview = document.getElementById('reset-review');
+  document.getElementById('reset-prepare').onclick=()=>{
+    try {
+      if (!active || localStorage.getItem(key)!==snapshot) throw Error('記録が変更されました。再読込してください。');
+      const backup=JSON.stringify({format:'puchitto-break-150',version:1,data:read()},null,2);
+      download(backup,'puchitto-before-reset-'+Date.now()+'.json');
+      resetSnapshot=snapshot;resetReview.hidden=false;
+      document.getElementById('reset-confirm').focus();
+    } catch(e) {stop(e.message)}
+  };
+  document.getElementById('reset-cancel').onclick=()=>{
+    resetSnapshot=undefined;resetReview.hidden=true;
+    document.getElementById('reset-prepare').focus();
+  };
+  document.getElementById('reset-confirm').onclick=()=>{
+    if(resetReview.hidden || resetSnapshot===undefined)return;
+    if(snapshot!==resetSnapshot){
+      resetReview.hidden=true;resetSnapshot=undefined;
+      status('記録が更新されたため中止しました。もう一度バックアップを書き出してください。');return;
+    }
+    if(!confirm('バックアップの保存を確認しましたか？ぷちっと休憩150の全クリア記録・お気に入りを消し、音をOFFに戻します。'))return;
+    resetReview.hidden=true;resetSnapshot=undefined;
+    if(write(empty()))reloadAfterReplacement();
   };
   async function start() {
     try {
       snapshot=localStorage.getItem(key);read();active=true;status('記録を確認しました');
-      await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='assets/site.js';s.onload=resolve;s.onerror=()=>reject(Error('ゲームを読み込めません。'));document.head.append(s)});
+      await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='assets/site.js?v=1.0.0-web.3';s.onload=resolve;s.onerror=()=>reject(Error('ゲームを読み込めません。'));document.head.append(s)});
       await new Promise(()=>{});
     }catch(e){stop(e.message)}
   }

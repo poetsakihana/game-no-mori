@@ -8,7 +8,7 @@ const allIds = new Set(catalog.map(game => game.id));
 const initial = BrowserSave.read();
 const save = { done: new Set(initial.done), favorites: new Set(initial.favorites), sound: initial.sound };
 function writeSave() {
-  BrowserSave.write({done: [...save.done], favorites: [...save.favorites], sound: save.sound});
+  return BrowserSave.write({done: [...save.done], favorites: [...save.favorites], sound: save.sound});
 }
 
 const filter = {category: -1, query: "", favorites: false, limit: pageSize};
@@ -26,6 +26,7 @@ function create(tag, className, text) {
 
 function updateProgress() {
   $("progress").textContent = "クリア " + save.done.size + " / " + catalog.length;
+  $("collection-ending").hidden = !catalog.every(game => save.done.has(game.id));
 }
 
 function paintSound() {
@@ -106,8 +107,10 @@ function mountGame(game) {
   playfield?.dispose();
   playfield = new Playfield($("surface"), $("game-controls"), $("game-status"), $("game-meter"), game, () => {
     save.done.add(game.id);
-    writeSave();
-    updateProgress();
+    if (writeSave()) {
+      updateProgress();
+      if (!$("collection-ending").hidden) $("ending-title").focus();
+    }
   });
 }
 
@@ -213,6 +216,7 @@ $("favorite").addEventListener("click", () => {
   favoriteButton();
 });
 $("back").addEventListener("click", leave);
+$("ending-lobby").addEventListener("click", leave);
 $("brand").addEventListener("click", event => {
   event.preventDefault();
   leave();

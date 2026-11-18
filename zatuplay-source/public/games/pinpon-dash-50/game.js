@@ -121,6 +121,8 @@ function setupTurn() {
 }
 
 function startRun() {
+  if(PortSave.stopped)return;
+  if(PortSave.data?.team.length){if(!confirm("新しいランを始めますか？現在の進行・クリア記録を置き換えます。変更前データを退避します。"))return;PortSave.preserve();}
   document.getElementById("resume-save").hidden = true;
   team = Array.from({ length: partySize }, (_, i) => ({
     id: i + 1, rings: 0, visited: 0, maxSpeed: 0, breaks: 0,
@@ -173,6 +175,8 @@ function advanceTurn() {
   if (!surviving()) {
     mode = "results";
   } else if (stageIndex === stages.length - 1) {
+    PortSave.write({version:1,partySize,stageIndex,team,sound,completed:true});
+    document.getElementById("replay-ending").hidden=false;
     mode = "ending";
     tone([523, 659, 784, 880, 1047], .038);
   } else {
@@ -728,6 +732,7 @@ function draw() {
 }
 
 function frame(now) {
+  if(PortSave.stopped){clearControls();requestAnimationFrame(frame);return;}
   const delta = visualTime ? clamp(now / 1000 - visualTime, 0, .04) : 0;
   visualTime = now / 1000;
   if (mode === "playing" && delta) tick(delta);
@@ -814,7 +819,7 @@ sound = PortSave.data?.sound ?? false;
 ui.sound.setAttribute("aria-pressed", sound);
 setText("sound", sound ? "音 ON" : "音 OFF");
 const resume = document.getElementById("resume-save");
-resume.hidden = !PortSave.data?.team.length;
+resume.hidden = !PortSave.data?.team.length || !!PortSave.data?.completed;
 resume.onclick = () => {
   const data = PortSave.data;
   partySize = data.partySize; stageIndex = data.stageIndex;
@@ -822,3 +827,9 @@ resume.onclick = () => {
   startStage(); resume.hidden = true;
 };
 requestAnimationFrame(frame);
+
+window.PinponSuspend=()=>{clearControls();if(mode==='playing')togglePause();audio?.suspend?.();};
+window.PinponSnapshot=()=>PortSave.data;
+const replayEnding=document.getElementById('replay-ending');
+replayEnding.hidden=!PortSave.data?.completed;
+replayEnding.onclick=()=>{if(PortSave.stopped||!PortSave.data?.completed)return;const d=PortSave.data;partySize=d.partySize;stageIndex=d.stageIndex;team=d.team.map(r=>({...r}));clearControls();mode='ending';setPanel();};

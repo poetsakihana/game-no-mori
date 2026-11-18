@@ -7,10 +7,10 @@
   <meta name="description" content="プチプチ、紙めくり、音あそび。日常の気持ちいい動きを集めた150のミニゲーム。">
   <title>ぷちっと休憩</title>
   <link rel="icon" href="assets/icon.png" type="image/png">
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css?v=1.0.0-web.3">
   <script src="assets/catalog.js?v=1.0.0-web.2" defer></script>
   <script src="assets/play.js?v=1.0.0-web.2" defer></script>
-  <script src="assets/storage.js" defer></script>
+  <script src="assets/storage.js?v=1.0.0-web.3" defer></script>
 </head>
 <body>
 <p role="note" style="margin:12px;padding:12px;border:1px solid #c98a16;background:#fff6d8;color:#332600;font:14px/1.6 sans-serif">試験公開版：自動テストは通過していますが、実ブラウザ操作・スマホ実機・音の実聴取は未検証です。</p>
@@ -32,8 +32,21 @@
       <p>ブラウザ版：クリア記録・お気に入り・音設定をこのブラウザに保存します。各遊びの途中は保存しません。APK・以前のChatGPT Site版とは別保存で、記録は自動で引き継がれません。元の音源は使わず合成音で遊べます。糸電話とバス案内は端末の日本語読み上げを使います（マイク不要）。音OFF・読み上げ非対応時は字幕で遊べます。</p>
       <button id="backup" type="button">記録を書き出す</button>
       <label>記録を復元 <input id="restore" type="file" accept="application/json,.json"></label>
+      <button id="reset-prepare" type="button">全記録をリセット…</button>
+      <section id="reset-review" hidden aria-label="リセットの最終確認">
+        <p>リセット前のバックアップを書き出しました。ファイルが端末に保存されたことを確認してください。実行すると、この作品のクリア150件分・お気に入り・音設定を初期状態に戻します。他作品の記録は変更しません。</p>
+        <button id="reset-confirm" type="button">バックアップ保存を確認してリセット</button>
+        <button id="reset-cancel" type="button">キャンセル</button>
+      </section>
       <p id="save-status" role="status">保存を確認しています…</p>
     </aside>
+    <section id="collection-ending" class="collection-ending" hidden aria-labelledby="ending-title" aria-live="polite">
+      <p>✿ 150 / 150 COMPLETE ✿</p>
+      <h2 id="ending-title" tabindex="-1">150のひと息、ありがとう。</h2>
+      <p>小さな「できた！」を、ひとつずつ。<br>150のあそびをすべてクリアしました。<br>今日のあなたに、やさしい休憩が届きますように。</p>
+      <p>おしまい。これからも、好きなあそびで何度でも休んでね。</p>
+      <button id="ending-lobby" type="button">一覧へ戻ってもう一度遊ぶ</button>
+    </section>
     <div id="lobby">
       <section class="hero" aria-labelledby="home-title">
         <div class="hero-image" aria-hidden="true"></div>
