@@ -53,6 +53,7 @@ function decode(raw){
 }
 const encode=(state,revision=0)=>JSON.stringify({format:'zatuplay-fryfriends',version:1,revision,savedAt:new Date().toISOString(),state:validate(state)},null,2);
 let baseline=null,initialState=blank(),phase='ready',revision=0,listener=()=>{},tail=Promise.resolve(),memoryBackup=null,protectedRaw=false;
+let departed=false;
 const locks=!!navigator.locks?.request;
 try{baseline=localStorage.getItem(KEY);if(baseline!==null){const d=decode(baseline);initialState=d.state;revision=d.revision}}
 catch{phase=baseline===null?'unavailable':'corrupt';protectedRaw=baseline!==null}
@@ -61,17 +62,19 @@ function report(p){phase=p;listener(p)}
 function commit(state,options={}){
  let clean;try{clean=validate(state);if(options.replace)validate(options.previous)}catch{report('invalid');return Promise.resolve(false)}
  const work=async()=>{
+  if(departed)return false;
   if(!locks){report('unsupported');return false}
   if(!options.replace&&protectedRaw){report('corrupt');return false}
   if(['conflict','unavailable'].includes(phase)){listener(phase);return false}
   try{return await navigator.locks.request(KEY+':writer',{mode:'exclusive'},()=>{
-   if(options.shouldContinue&&!options.shouldContinue())return false;
+   if(departed||(options.shouldContinue&&!options.shouldContinue()))return false;
    const current=localStorage.getItem(KEY);if(current!==baseline){report('conflict');return false}
    if(options.replace){
     const backup=JSON.stringify({format:'zatuplay-fryfriends-backup',version:1,createdAt:new Date().toISOString(),raw:current,memory:validate(options.previous)});
-    localStorage.setItem(BACKUP,backup);memoryBackup=backup;
+    localStorage.setItem(BACKUP,backup);if(localStorage.getItem(BACKUP)!==backup)throw Error('backup verification');memoryBackup=backup;
+    if(localStorage.getItem(KEY)!==current){report('conflict');return false}
    }
-   const next=encode(clean,revision+1);localStorage.setItem(KEY,next);baseline=next;revision++;protectedRaw=false;report('saved');return true;
+   const nextRevision=revision>=Number.MAX_SAFE_INTEGER-1?1:revision+1;const next=encode(clean,nextRevision);localStorage.setItem(KEY,next);if(localStorage.getItem(KEY)!==next)throw Error('write verification');baseline=next;revision=nextRevision;protectedRaw=false;report('saved');return true;
   })}catch(e){report(e?.name==='QuotaExceededError'?'quota':'unavailable');return false}
  };
  const result=tail.then(work);tail=result.catch(()=>{});return result;
@@ -86,6 +89,7 @@ function backupEnvelope(raw,external=true){
  if(d.format!=='zatuplay-fryfriends-backup'||d.version!==1||(d.raw!==null&&typeof d.raw!=='string')||typeof d.createdAt!=='string')throw Error('backup');
  return d;
 }
+window.addEventListener('pagehide',()=>{departed=true});window.addEventListener('pageshow',e=>{if(e.persisted)location.reload()});
 window.addEventListener('storage',e=>{if((e.key===KEY||e.key===null)&&e.newValue!==baseline)report('conflict')});
 window.FryStore={KEY,BACKUP,MAX_BYTES,blank,validate,decode,encode,commit,initialState,legalBoard,
  get phase(){return phase},get baseline(){return baseline},get locks(){return locks},

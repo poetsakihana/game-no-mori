@@ -22,5 +22,16 @@
 </div>
 <dialog id="selectDialog"><div class="modal-header"><div><span class="eyebrow">CHOOSE YOUR LESSON</span><h2>ステージ選択</h2></div><button class="close-btn" id="closeSelect" aria-label="閉じる">×</button></div><div class="map-summary"><span id="mapProgress">0 / 250 面クリア</span><div><i id="mapProgressBar"></i></div><span>全50章</span></div><div class="chapter-grid" id="chapterGrid"></div><div class="chapter-detail"><div><small id="selectedBiome"></small><h3 id="selectedChapter"></h3></div><span id="chapterCount"></span></div><div class="stage-grid" id="stageGrid"></div><p class="modal-foot">クリアすると次の面が開放。記録はこの端末のブラウザに保存されます。</p></dialog>
 <dialog id="helpDialog"><div class="modal-header"><div><span class="eyebrow">HOW TO PLAY</span><h2>操作ガイド</h2></div><button class="close-btn" id="closeHelp" aria-label="閉じる">×</button></div><div class="help-grid"><div><b>01</b><h3>手ごわい敵に3連撃</h3><p>Z または攻撃ボタンを押そう。素早く続けると3発目が強打に。空中でも攻撃可能。スペースを押し直すと二段ジャンプ。</p></div><div><b>02</b><h3>道具を拾う</h3><p>木の枝・鉄棒の近くで E。木の枝は14回、鉄棒は20回。緑の薬草は4個まで所持し、Qで体力を55回復。</p></div><div><b>03</b><h3>赤牙の強打、黒星会の投擲</h3><p>赤い予告が出たら攻撃の合図。重装の敵とボスは普通のパンチでは止まらない。敵の方を向いて X を押すとダメージを軽減。スペースで飛び越えよう。</p></div><div><b>04</b><h3>熱血ゲージをためる</h3><p>攻撃を当てると黄色のゲージがたまる。満タンで C を押すと、周囲を吹き飛ばす「熱血指導」！</p></div><div><b>05</b><h3>上も下も、道になる</h3><p>船内でははしごと二段ジャンプ。船外は↑↓←→で噴射、スペースで緊急噴射。入力を離しても流れ、Xで減速。通常面は全員撃破後にドックへ。各章5面はボス撃破で即クリア。</p></div><div><b>06</b><h3>補給と訓練を使おう</h3><p>カプセルに触れると酸素を補給。酸素が底をつくと体力が減る。薬草はQで55回復。訓練では船内・船外・縦スクロールを試せる。本編のクリア記録は自動保存。</p></div></div></dialog>
-<script defer src="game.bundle.js"></script>
+<section id="saveTools" style="max-width:960px;margin:20px auto;padding:16px;background:#202733;color:#fff">
+<h2>記録とエンディング</h2><p>全50章250面。最終50-5の勝利で既存の結末が開き、保存後はここから再鑑賞できます。解放しただけでは結末は開きません。途中の戦闘は保存されません。</p>
+<p>試験更新版。重要な記録は先に書き出してください。旧版を含む他のタブをすべて閉じて利用してください。旧版タブからの書込は完全には防止できず、検出時にこのタブを停止します。自然な250面完走・実スマートフォン・音声は未確認です。</p>
+<p id="portStatus" role="status">保存を確認中</p><button id="portEnding" hidden>エンディングをもう一度</button>
+<details><summary>保存の書き出し・復元・初期化</summary>
+<p>「現在の記録」はこのタブの進行。「保存原文」は他タブによる変更も含む端末上の原文です。JSONは外部へ送信しません。</p>
+<button id="portExport">現在の記録を書き出す</button> <button id="portRaw">保存原文を回収</button> <button id="portPrevious">直前バックアップを読み込む</button>
+<p><input id="portFile" type="file" accept=".json,application/json" aria-label="保存JSONを選択"></p><textarea id="portJSON" rows="5" style="width:95%" aria-label="復元JSON"></textarea><br>
+<button id="portRestore">入力JSONを復元する</button> <button id="portReset">全記録を初期化する</button>
+<p>復元・初期化は確認後、現在の原文を直前バックアップに1世代退避します。退避に失敗すると中止します。大切な旧バックアップは先に入力欄から保存してください。</p>
+</details></section>
+<script defer src="save-guard.js?v=690e2c5b8a6b"></script>
 </body></html>

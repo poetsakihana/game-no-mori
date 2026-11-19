@@ -592,10 +592,10 @@ function drawFronts(game, art) {
 const $=id=>document.getElementById(id),canvas=$('gameCanvas'),ctx=canvas.getContext('2d');
 let W=960,H=540,game=null,mode='title',paused=false,selectedChapter=0,clock=0,last=0,saveWarning=false;
 const keys={},touch={},pulses={},SAVE_KEY='black-sensei-4-v1';
-let save={unlocked:0,stars:{},scores:{}};
-try{const stored=JSON.parse(localStorage.getItem(SAVE_KEY));if(stored){save.unlocked=Math.max(0,Math.min(249,Math.floor(Number(stored.unlocked)||0)));for(const key of Object.keys(stored.stars||{}))if(+key>=0&&+key<250&&Number.isInteger(+key))save.stars[key]=Math.max(1,Math.min(3,Number(stored.stars[key])||1));save.scores=stored.scores||{};}}catch(error){}
-function persist(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(save));}catch(error){saveWarning=true;}}
-function titleSave(){const count=Object.keys(save.stars).length;$('saveText').textContent=saveWarning?'この環境では記録を保存できません':count?`${count} / 250 面クリア · ${makeStage(save.unlocked).id} から再開`:'はじめての放課後 / 1-1 から';$('startBtn').innerHTML=`${count?'続きの授業へ':'授業をはじめる'} <span>↗</span>`;}
+let save=window.BlackSave.read();
+function persist(){try{return window.BlackSave.write(save);}catch(error){saveWarning=true;return false;}}
+function recordWin(){if(game.status!=='clear'||game.practice||game.recorded)return true;const i=game.stage.index;save.stars[i]=Math.max(save.stars[i]||0,game.stars);save.scores[i]=Math.max(save.scores[i]||0,game.score);save.unlocked=Math.max(save.unlocked,Math.min(249,i+1));if(!persist())return false;game.recorded=true;return true;}
+function titleSave(){$('portEnding').hidden=!save.stars[249];const count=Object.keys(save.stars).length;$('saveText').textContent=saveWarning?'この環境では記録を保存できません':count?`${count} / 250 面クリア · ${makeStage(save.unlocked).id} から再開`:'はじめての放課後 / 1-1 から';$('startBtn').innerHTML=`${count?'続きの授業へ':'授業をはじめる'} <span>↗</span>`;}
 titleSave();
 let storyPages=[],storyIndex=0,storyDone=null;
 function openStory(pages,done){clearInputs();storyPages=pages;storyIndex=0;storyDone=done;mode='story';paused=true;$('storyScreen').classList.remove('hidden');paintStory();}
@@ -605,7 +605,7 @@ function advanceStory(){if(storyIndex+1<storyPages.length){storyIndex++;paintSto
 $('storyNext').onclick=advanceStory;$('storySkip').onclick=closeStory;
 const audio={enabled:false,context:null,next:0,step:0,
  init(){if(!this.context)this.context=new (window.AudioContext||window.webkitAudioContext)();if(this.context.state==='suspended')this.context.resume();},
- tone(f=200,d=.1,type='square',vol=.04,slide=0){if(!this.enabled||!this.context)return;const ac=this.context,o=ac.createOscillator(),a=ac.createGain(),t=ac.currentTime;o.type=type;o.frequency.setValueAtTime(f,t);if(slide)o.frequency.exponentialRampToValueAtTime(Math.max(20,slide),t+d);a.gain.setValueAtTime(vol,t);a.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(a);a.connect(ac.destination);o.start(t);o.stop(t+d);},
+ tone(f=200,d=.1,type='square',vol=.04,slide=0){if(!window.BlackSave.active()||!this.enabled||!this.context)return;const ac=this.context,o=ac.createOscillator(),a=ac.createGain(),t=ac.currentTime;o.type=type;o.frequency.setValueAtTime(f,t);if(slide)o.frequency.exponentialRampToValueAtTime(Math.max(20,slide),t+d);a.gain.setValueAtTime(vol,t);a.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(a);a.connect(ac.destination);o.start(t);o.stop(t+d);},
  effect(e){if(e.type==='hit')this.tone(100,.09,'sawtooth',.06,30);if(e.type==='swing')this.tone(260,.08,'triangle',.025,80);if(e.type==='hurt')this.tone(70,.2,'sawtooth',.05,25);if(e.type==='guard')this.tone(700,.06,'triangle',.04,270);if(e.type==='pickup'){this.tone(570,.15,'sine',.05);setTimeout(()=>this.tone(850,.15,'sine',.04),70);}if(e.type==='special')this.tone(110,.5,'sawtooth',.08,880);if(e.type==='clear'){[330,440,550,660].forEach((f,i)=>setTimeout(()=>this.tone(f,.25,'triangle',.05),i*100));}if(e.type==='jump')this.tone(170,.13,'triangle',.015,320);},
  tick(){if(!this.enabled||!this.context||mode!=='play'||paused||document.hidden)return;const now=this.context.currentTime;if(now>this.next){this.next=now+.24;const notes=[110,110,130.81,110,146.83,130.81,98,98];this.tone(notes[this.step%8],.16,'triangle',.025);if(this.step%4===0)this.tone(90,.11,'sine',.06,32);if(this.step%4===2)this.tone(200,.045,'square',.012,80);this.step++;}}
 };
@@ -615,9 +615,9 @@ function clearInputs(){for(const k in keys)delete keys[k];for(const k in touch)d
 function startStage(index,isPractice=false){if(index>save.unlocked&&!isPractice)return;clearInputs();game=createGame(index);game.practice=isPractice;game.viewWidth=W;mode='play';paused=false;$('titleScreen').classList.add('hidden');$('resultScreen').classList.add('hidden');$('pauseScreen').classList.add('hidden');$('hud').classList.remove('hidden');$('stageLabel').textContent=game.stage.id;$('stageName').textContent=game.stage.title;$('stageIntro').innerHTML=`<small>CHAPTER ${String(game.stage.chapter).padStart(2,'0')} · STAGE ${game.stage.face}</small>${game.stage.title}`;$('topStage').textContent=`STAGE ${game.stage.id} / ${game.stage.theme.name}`;$('selectDialog').close();if(audio.enabled)audio.init();updateHud();if(!isPractice&&(game.stage.face===1||game.stage.face===5))openStory(storyFor(game.stage.chapter,game.stage.face),()=>{mode='play';paused=false;});}
 function showTitle(){clearInputs();mode='title';paused=false;game=null;['hud','pauseScreen','resultScreen','storyScreen'].forEach(id=>$(id).classList.add('hidden'));$('titleScreen').classList.remove('hidden');$('topStage').textContent='50 CHAPTERS / 250 STAGES';titleSave();}
 function togglePause(){if(mode!=='play')return;paused=!paused;clearInputs();$('pauseScreen').classList.toggle('hidden',!paused);}
-function showResult(){if(game.stage.index===249&&game.status==='clear'){openStory(ENDING,renderResult);return;}renderResult();}
+function showResult(){if(!recordWin())return;if(game.stage.index===249&&game.status==='clear'){openStory(ENDING,renderResult);return;}renderResult();}
 function renderResult(){mode='result';clearInputs();const win=game.status==='clear',s=game.stage;
- if(win&&!game.practice){save.stars[s.index]=Math.max(save.stars[s.index]||0,game.stars);save.scores[s.index]=Math.max(save.scores[s.index]||0,game.score);save.unlocked=Math.max(save.unlocked,Math.min(249,s.index+1));persist();}
+ if(!recordWin())return;
  $('hud').classList.add('hidden');$('resultScreen').classList.remove('hidden');$('resultEyebrow').textContent=win?(s.index===249?'ALL LESSONS COMPLETE':'LESSON COMPLETE'):'LESSON NOT FINISHED';$('resultTitle').textContent=win?(s.index===249?'星を越えて、教室へ。':'指導完了。'):'まだ、終われない。';$('resultStars').textContent=win?'★'.repeat(game.stars)+'☆'.repeat(3-game.stars):'RETRY';$('resultStars').style.fontSize=win?'':'14px';
  const stories=['船内通路を確保した。救助隊が続いて進む。','帰還ドックに到着。酸素を補給する。','上昇航路を確保した。次は船内の救助だ。','昇降区画を開放した。次のドックへ向かう。'];
  $('resultStory').textContent=win?(s.index===249?'全ての帰還船が、青い地球へ向かう。':s.boss?`${s.enemies.at(-1).name}を倒した。新しい章へ、先生の歩みは続く。`:stories[s.face-1]):'拳を休めて、もう一度。体力は全回復して再挑戦。';
@@ -734,11 +734,13 @@ function drawTitle() {
   drawSpaceTitle({C,W,H,clock,rect,line,poly,circle,label,rounded,drawPerson},THEMES[0]);
 }
 
-function frame(now){const dt=Math.min((now-last)/1000||.016,.25);last=now;clock+=dt;C.save();C.clearRect(0,0,W,H);
+function frame(now){if(!window.BlackSave.active())return;const dt=Math.min((now-last)/1000||.016,.25);last=now;clock+=dt;C.save();C.clearRect(0,0,W,H);
  if(mode==='title')drawTitle();else if(game){if(mode==='play'&&!paused&&!document.hidden){let remaining=dt;const input=getInput();while(remaining>0){const step=Math.min(remaining,1/60);updateGame(game,step,input);remaining-=step;}for(const e of game.events)audio.effect(e);game.events=[];updateHud();if(game.status!=='playing')showResult();}if(game.shake>0&&mode==='play'&&!paused)C.translate((Math.random()-.5)*game.shake,(Math.random()-.5)*game.shake*.6);drawWorld();}
  C.restore();audio.tick();requestAnimationFrame(frame);}
+window.stopBlackSensei=()=>{paused=true;clearInputs();audio.enabled=false;if(audio.context)audio.context.suspend();};
+$('portEnding').onclick=()=>{if(!window.BlackSave.active()||!save.stars[249])return;game=createGame(249);game.practice=true;game.viewWidth=W;$('titleScreen').classList.add('hidden');$('resultScreen').classList.add('hidden');$('hud').classList.add('hidden');openStory(ENDING,showTitle);};
 requestAnimationFrame(frame);
 // Read-only snapshot for checking game state without coupling tests to artwork.
-window.blackSensei={snapshot:()=>game?{mode,paused,stage:game.stage.id,status:game.status,player:{x:game.player.x,y:game.player.y,hp:game.player.hp,weapon:game.player.weapon,herbs:game.player.herbs,level:game.player.level,resource:game.player.resource},cameraY:game.cameraY,enemies:game.enemies.filter(e=>!e.dead).length,unlocked:save.unlocked}:({mode,unlocked:save.unlocked})};
+window.blackSensei={saveSnapshot:()=>JSON.parse(JSON.stringify(save)),snapshot:()=>game?{mode,paused,stage:game.stage.id,status:game.status,player:{x:game.player.x,y:game.player.y,hp:game.player.hp,weapon:game.player.weapon,herbs:game.player.herbs,level:game.player.level,resource:game.player.resource},cameraY:game.cameraY,enemies:game.enemies.filter(e=>!e.dead).length,unlocked:save.unlocked}:({mode,unlocked:save.unlocked})};
 
 })();
