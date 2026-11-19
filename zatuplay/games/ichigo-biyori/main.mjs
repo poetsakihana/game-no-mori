@@ -5,6 +5,8 @@ import {
 } from './game.mjs?v=4';
 import { CATEGORIES, CROP_IDS, CROPS, CROPS_BY_SEASON, DIFFICULTY_LABELS, growthPath, isOrnamental, specimenPath } from './crops.mjs?v=3';
 
+import { BACKUP_KEY, bookComplete, decodeGarden, replaceGarden, sameGarden, weeklyGarden } from './extras.mjs?v=2';
+
 const KEY = 'ichigo-biyori.garden.v2';
 const LEGACY_KEY = 'ichigo-biyori.garden.v1';
 const REFRESH_MS = 15_000;
@@ -51,6 +53,9 @@ let effectsTimer;
 let nurseryPlot = null;
 let nurseryCrop = null;
 let entryCrop = null;
+let pendingGardenChange = null;
+let otherGardenChanged = false;
+let existingV2 = false;
 
 function readGarden(key = KEY) {
   try {
@@ -63,12 +68,21 @@ function readGarden(key = KEY) {
 function saveGarden() {
   let available = true;
   try {
-    const saved = readGarden();
-    if (saved && saved.startedAt === state.startedAt &&
-      (saved.lastAt > state.lastAt || (saved.lastAt === state.lastAt && saved.revision > state.revision))) {
+    const raw = localStorage.getItem(KEY);
+    const saved = decodeGarden(raw);
+    if ((raw !== null && !saved) || (raw === null && existingV2)) {
+      throw new Error('保存済みの庭を保護しています');
+    }
+    if (saved && !sameGarden(saved, state)) {
       state = saved;
-    } else {
+      otherGardenChanged = true;
+      available = false;
+    } else if (saved && (saved.lastAt > state.lastAt ||
+      (saved.lastAt === state.lastAt && saved.revision > state.revision))) {
+      state = saved;
+    } else if (raw !== JSON.stringify(state)) {
       localStorage.setItem(KEY, JSON.stringify(state));
+      existingV2 = true;
     }
   } catch {
     available = false;
@@ -80,7 +94,19 @@ function saveGarden() {
 
 function followOtherTab() {
   const saved = readGarden();
-  if (saved && saved.lastAt >= state.lastAt && saved.revision >= state.revision) state = saved;
+  if (saved && !sameGarden(saved, state)) {
+    if (existingV2) otherGardenChanged = true;
+    state = saved;
+    existingV2 = true;
+  } else if (saved && saved.lastAt >= state.lastAt && saved.revision >= state.revision) state = saved;
+}
+
+function takeActionNotice() {
+  if (!otherGardenChanged) return false;
+  otherGardenChanged = false;
+  render();
+  toast('別の画面で庭の記録が変わりました。表示を更新したので、操作をもう一度お試しください。');
+  return true;
 }
 
 function sync(now) {
@@ -275,6 +301,7 @@ function renderGarden(now) {
   renderCare(day, weather, now);
   renderForecast(day);
   renderGrowth(now);
+  renderWeekly(now);
 }
 
 function observation(plant, crop, stage) {
@@ -392,6 +419,15 @@ function normalizeSearch(text) {
   return text.normalize('NFKC').toLowerCase().trim().replace(/[ァ-ヶ]/g, char => String.fromCodePoint(char.codePointAt(0) - 0x60));
 }
 
+function renderWeekly(now) {
+  const challenge = weeklyGarden(state, now);
+  const endText = dateFormat.format(challenge.end - 1);
+  replaceContent($('weekly-garden'), `<div class="book-summary"><span class="panel-icon tinted-green">${icon('sprout')}</span>
+    <div><h2>今週の庭しごと</h2><p>${challenge.title} ・ ${endText}まで（日本時間）</p></div></div>
+    <ul class="garden-quest-list">${challenge.counts.map(({name, count, goal}) => `<li><span>${name}</span><span>${count} / ${goal} 日</span></li>`).join('')}</ul>
+    <p>${challenge.done ? '今週のしおりを獲得しました！ 次のお題は月曜に切り替わります。' : 'いつものお世話で進みます。同じ作業は1日1回まで数えます。'}</p>`);
+}
+
 function renderBook() {
   const count = Object.keys(state.book).length;
   const total = CROP_IDS.length;
@@ -399,6 +435,7 @@ function renderBook() {
   const category = $('book-category').value;
   const status = $('book-status').value;
   const query = normalizeSearch($('book-search').value);
+  $('ending-garden').hidden = !bookComplete(state);
   const growing = new Set(state.plots.filter(Boolean).map(plant => plant.cropId));
 
   replaceContent($('book-banner'), `<div class="book-summary">
@@ -476,6 +513,8 @@ function render(now = Date.now()) {
   if (activeView === 'book') renderBook();
   if ($('nursery-dialog').open) renderNursery(now);
   if ($('entry-dialog').open) renderEntry(now);
+  try { $('restore-garden').hidden = !decodeGarden(localStorage.getItem(BACKUP_KEY)); }
+  catch { $('restore-garden').hidden = true; }
 }
 
 function navigate(view, options = {}) {
@@ -513,10 +552,12 @@ function withGardenLock(callback) {
 function runAction(index, kind, cropId) {
   return withGardenLock(() => {
     followOtherTab();
+    if (takeActionNotice()) return;
+    const wasComplete = bookComplete(state);
     const now = Date.now();
     const result = kind ? care(state, index, kind, now) : sow(state, index, cropId, now);
     if (result.ok) state.revision += 1;
-    saveGarden();
+    const saved = saveGarden();
     if (!kind && result.ok) $('nursery-dialog').close();
     render(now);
     toast(result.message);
@@ -525,7 +566,9 @@ function runAction(index, kind, cropId) {
       const view = kind === 'complete' ? 'book' : 'basket';
       location.hash = view;
       navigate(view);
-      openEntry(result.record.cropId);
+      if (saved && !wasComplete && bookComplete(state)) {
+        $('garden-ending-dialog').showModal();
+      } else openEntry(result.record.cropId);
     } else if (kind === 'water' || kind === 'feed' || kind === 'pollinate' || cropId) {
       if (!kind) $('care-card').querySelector('[data-care="water"]')?.focus({ preventScroll: true });
       showEffect(kind || 'sow');
@@ -577,6 +620,7 @@ $('entry-memo-form').addEventListener('submit', event => {
   void withGardenLock(() => {
     const now = Date.now();
     sync(now);
+    if (takeActionNotice()) return;
     const result = writeMemo(state, cropId, memo);
     let saved = false;
     if (result.ok) {
@@ -593,6 +637,62 @@ $('entry-memo-form').addEventListener('submit', event => {
 $('journal-filter').addEventListener('change', () => { shownHistory = 15; render(); });
 $('more-history').addEventListener('click', () => { shownHistory += 15; render(); });
 $('more-harvests').addEventListener('click', () => { shownHarvests += 12; render(); });
+
+function openGardenChange(restoring) {
+  try {
+    const expected = localStorage.getItem(KEY);
+    if (!decodeGarden(expected)) throw new Error('保存済みの庭を確認できません。記録は変更していません。');
+    if (!navigator.locks?.request) throw new Error('このブラウザでは安全に庭の記録を切り替えられません。');
+    const backup = restoring ? localStorage.getItem(BACKUP_KEY) : null;
+    if (restoring && !decodeGarden(backup)) throw new Error('復元できる記録がありません。');
+    pendingGardenChange = { expected, restoring, backup };
+    $('garden-change-heading').textContent = restoring ? '保管した庭に切り替えますか？' : '庭の記録をリセットしますか？';
+    $('garden-change-description').textContent = restoring
+      ? '今の庭と直前に保管した庭を入れ替えます。今育てている植物やメモは予備の記録として保管され、同じ手順で戻せます。'
+      : '植物・収穫・完成図鑑・メモを初期状態に戻します。直前の庭は同じブラウザに保管され、「保管した庭に切り替える」で戻せます。前回のリセット時のバックアップは置き換わります。';
+    $('garden-change-confirm').textContent = restoring ? '復元する' : 'リセットする';
+    $('garden-change-dialog').showModal();
+  } catch (error) { toast(error.message); }
+}
+
+$('reset-garden').addEventListener('click', () => openGardenChange(false));
+$('restore-garden').addEventListener('click', () => openGardenChange(true));
+$('ending-garden').addEventListener('click', () => {
+  if (bookComplete(state)) $('garden-ending-dialog').showModal();
+});
+$('garden-change-dialog').addEventListener('close', () => { pendingGardenChange = null; });
+$('garden-change-confirm').addEventListener('click', async event => {
+  const action = pendingGardenChange;
+  if (!action || !$('garden-change-dialog').open) return;
+  pendingGardenChange = null;
+  event.currentTarget.disabled = true;
+  try {
+    await withGardenLock(() => {
+      const now = Date.now();
+      const generation = globalThis.crypto?.randomUUID?.() ?? (now + ':' + Math.random());
+      // Background simulation writes during confirmation are synchronized here.
+      // If the garden's actual gameplay revision changed meanwhile, never apply an older confirmation.
+      const currentRaw = localStorage.getItem(KEY);
+      const original = decodeGarden(action.expected), current = decodeGarden(currentRaw);
+      if (!original || !current || !sameGarden(original, current) || original.revision !== current.revision) {
+        throw new Error('庭の記録が変わりました。もう一度開いて確認してください。');
+      }
+      state = replaceGarden(localStorage, KEY, currentRaw, now, generation, action.restoring, action.backup);
+      existingV2 = true;
+      otherGardenChanged = false;
+      chosen = 0;
+      shownHistory = 15;
+      shownHarvests = 12;
+      $('garden-change-dialog').close();
+      location.hash = 'garden';
+      navigate('garden', { force: true });
+      toast(action.restoring ? '保管した庭に切り替えました。' : '庭を最初から始めました。');
+    });
+  } catch (error) {
+    $('garden-change-dialog').close();
+    toast(error.message || '保存できなかったため、庭は変更していません。');
+  } finally { $('garden-change-confirm').disabled = false; }
+});
 
 function viewFromHash() {
   const name = location.hash.slice(1);
@@ -614,14 +714,16 @@ function scheduleRefresh() {
 
 window.addEventListener('hashchange', () => navigate(viewFromHash()));
 window.addEventListener('storage', event => {
-  if (event.key === KEY) refresh();
+  if (event.key === KEY || event.key === BACKUP_KEY || event.key === null) refresh();
 });
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden) refresh();
 });
 window.addEventListener('pageshow', refresh);
 
-state = readGarden() ?? readGarden(LEGACY_KEY) ?? newGame(Date.now());
+state = readGarden();
+existingV2 = state !== null;
+state ??= readGarden(LEGACY_KEY) ?? newGame(Date.now());
 saveGarden();
 navigate(viewFromHash(), { initial: true, force: true });
 scheduleRefresh();

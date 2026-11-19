@@ -2,6 +2,7 @@
 const $=id=>document.getElementById(id),C=globalThis.FlyBattle;
 let game,renderer,store,lockRelease,ownsLock=false,ready=false,memoryOnly=false,failed=false,originalRaw=null,saveClock=0,last=performance.now(),animClock=0,previousAnnouncement='',pendingImport=null,importGeneration=0,focusReturn=null,scoopReadyAt=0;
 const nodes=new Map(),lastActions=new Map(),pointerTaken=new Set();
+let seenEnding=false,backupRaw=null,practice=null;
 function status(text){$('storage-status').textContent=text;}
 function curtain(title,text,options={}){$('curtain').hidden=false;$('curtain-title').textContent=title;$('curtain-text').textContent=text;for(const id of ['begin','memory','reload'])$(id).hidden=!options[id];$('controls').inert=true;}
 function hideCurtain(){$('curtain').hidden=true;$('controls').inert=false;}
@@ -19,11 +20,11 @@ const sound=new Sound();
 function attachGame(state){game=new C.Game(state);game.onScoop=q=>sound.scoop(q);}
 function protect(error){if(failed)return;importGeneration++;pendingImport=null;failed=true;ready=false;if(store&&store.expected!==null)originalRaw=store.expected;$('export-original').hidden=originalRaw===null;if(game)game.pause();sound.stop();status('保存を保護しています。元の記録には上書きしません。');curtain('記録を保護しています',error&&error.message?error.message:String(error),{memory:true,reload:true});draw();}
 function save(){if(!game||memoryOnly||!ownsLock||failed)return;try{store.save(game.s);status('このブラウザに保存済み。APK版とは別の記録です。');}catch(e){protect(e);}}
-function syncTime(now=performance.now()){const gap=(now-last)/1000;last=now;if(!ready||!game||failed||!$('curtain').hidden)return;if(game.s.screen==='play'&&!game.s.paused){if(gap>.25){pause('処理が中断されたため一時停止しました。再開して続けられます。');return;}const before=game.s.screen;game.advance(Math.max(0,gap));if(before!==game.s.screen){save();sound.sync();}else if(game.s.ticks-saveClock>=60){saveClock=game.s.ticks;save();}}}
+function syncTime(now=performance.now()){const gap=(now-last)/1000;last=now;if(!ready||!game||failed||!$('curtain').hidden)return;if(game.s.screen==='play'&&!game.s.paused){if(gap>.25){pause('処理が中断されたため一時停止しました。再開して続けられます。');return;}const before=game.s.screen;game.advance(Math.max(0,gap));if(before!==game.s.screen){save();sound.sync();if(ready&&!failed&&game.s.stage===100&&game.s.win&&!seenEnding){seenEnding=true;openDialog('ending-dialog');}}else if(game.s.ticks-saveClock>=60){saveClock=game.s.ticks;save();}}}
 function pause(note){if(!game||game.s.screen!=='play'||game.s.paused)return;game.pause();last=performance.now();save();sound.stop();if(note)status(note);draw();}
 function openDialog(id){syncTime();pause();focusReturn=document.activeElement;const el=$(id);try{if(typeof el.showModal==='function')el.showModal();else{el.setAttribute('open','');el.open=true;}}catch(e){el.setAttribute('open','');el.open=true;}}
 function closeDialog(id){const el=$(id);try{if(typeof el.close==='function')el.close();else{el.removeAttribute('open');el.open=false;}}catch(e){el.removeAttribute('open');el.open=false;}if(focusReturn&&focusReturn.isConnected)focusReturn.focus();last=performance.now();}
-function inDialog(){return $('name-dialog').open||$('import-dialog').open;}
+function inDialog(){return ['name-dialog','import-dialog','reset-dialog','ending-dialog','practice-dialog'].some(id=>$(id).open);}
 function action(id){if(!ready||failed||inDialog()||!$('curtain').hidden)return;syncTime();if(!ready||failed)return;const now=performance.now(),s=game.s;
  if(id.startsWith('food-')){if(now<scoopReadyAt)return;if(now-(lastActions.get(id)??-Infinity)<120)return;lastActions.set(id,now);if(game.take(Number(id.slice(5))))save();draw();return;}
  if(id==='sound'){s.sound=!s.sound;save();sound.sync();draw();return;}
@@ -36,7 +37,7 @@ function action(id){if(!ready||failed||inDialog()||!$('curtain').hidden)return;s
  else if(s.screen==='rank'&&id==='title')s.screen='title';
  last=performance.now();save();sound.sync();draw();
 }
-function draw(){if(!game||!renderer)return;const s=game.s,defs=renderer.draw(s,s.screen==='play'?s.clock:animClock),ids=new Set();
+function draw(){if(!game||!renderer)return;const s=game.s;const enabled=ready&&!failed;$('practice').disabled=!enabled;$('ending').hidden=!enabled||!s.champion;$('reset').disabled=!enabled||memoryOnly||!ownsLock;$('unreset').hidden=!enabled||memoryOnly||!ownsLock||backupRaw===null;const defs=renderer.draw(s,s.screen==='play'?s.clock:animClock),ids=new Set();
  for(const def of defs){ids.add(def.id);let b=nodes.get(def.id);if(!b){b=document.createElement('button');b.type='button';b.className='game-control';b.dataset.id=def.id;b.addEventListener('click',e=>{if(pointerTaken.has(def.id)){pointerTaken.delete(def.id);if(e.detail!==0)return;}action(def.id);});if(def.id.startsWith('food-')){b.addEventListener('pointerdown',e=>{if(e.button!==undefined&&e.button!==0||e.isPrimary===false)return;pointerTaken.add(def.id);action(def.id);});b.addEventListener('pointercancel',()=>pointerTaken.delete(def.id));}nodes.set(def.id,b);$('controls').append(b);}
   if(b.textContent!==def.label)b.textContent=def.label;b.setAttribute('aria-label',def.label);b.disabled=!def.enabled;b.style.left=def.x/10+'%';b.style.top=def.y/6.5+'%';b.style.width=def.w/10+'%';b.style.height=def.h/6.5+'%';}
  for(const [id,node]of nodes)if(!ids.has(id)){node.remove();nodes.delete(id);pointerTaken.delete(id);}
@@ -44,9 +45,9 @@ function draw(){if(!game||!renderer)return;const s=game.s,defs=renderer.draw(s,s
  let announcement='';if(s.screen==='play')announcement=`STAGE ${s.stage}、${C.RIVALS[Math.floor((s.stage-1)/25)]}と対戦。残り${Math.ceil(45-s.ticks/120)}秒。得点${s.points}、あなたの精度${(s.count?s.sum/s.count:0).toFixed(1)}％、CPU ${(s.count?s.cpuSum/s.count:0).toFixed(1)}％。${s.paused?'一時停止中。':''}`;else if(s.screen==='result')announcement=`${s.msg} 獲得${s.points}点。あなたの精度${(s.count?s.sum/s.count:0).toFixed(1)}％、CPU ${(s.count?s.cpuSum/s.count:50).toFixed(1)}％。`;else announcement=({title:'揚げどき！フライバトル。タイトル。',story:`ステージ選択、${s.page+1}ページ。`,rank:'端末内ランキング、TOP10。'})[s.screen];
  if(announcement!==previousAnnouncement){$('battle-status').textContent=announcement;previousAnnouncement=announcement;}
 }
-function frame(now){try{syncTime(now);if(ready&&!document.hidden)animClock+=1/60;draw();}catch(e){protect(e);}requestAnimationFrame(frame);}
+function frame(now){try{syncTime(now);if(ready&&!document.hidden)animClock+=1/60;draw();practiceFrame(now);}catch(e){protect(e);}requestAnimationFrame(frame);}
 async function initialize(){try{if(!C||!globalThis.FlyRenderer)throw Error('ゲームのファイルを読み込めませんでした。');const ctx=$('game').getContext('2d');if(!ctx)throw Error('Canvasを利用できません。');renderer=new FlyRenderer(ctx);attachGame(C.fresh());
- const load=()=>{try{store=new C.SaveStore(localStorage);const state=store.load();originalRaw=store.expected;if(state.screen==='play')state.paused=true;attachGame(state);draw();curtain('揚げどき！フライバトル',state.screen==='play'?'途中の戦況を読み込みました。停止状態から再開できます。':'100％の揚げごろを狙って、全100面に挑戦！',{begin:true});$('begin').textContent=state.screen==='play'?'つづきから':'はじめる';status(memoryOnly?'安全な保存機能がないため、保存せずに遊びます。記録の書き出しはできます。':'記録を読み込みました。');}catch(e){try{originalRaw=localStorage.getItem(C.KEY);}catch(ignored){}protect(e);}};
+ const load=()=>{try{store=new C.SaveStore(localStorage);const state=store.load();originalRaw=store.expected;try{backupRaw=store.backup();}catch(e){backupRaw=null;}if(state.screen==='play')state.paused=true;attachGame(state);draw();curtain('揚げどき！フライバトル',state.screen==='play'?'途中の戦況を読み込みました。停止状態から再開できます。':'100％の揚げごろを狙って、全100面に挑戦！',{begin:true});$('begin').textContent=state.screen==='play'?'つづきから':'はじめる';status(memoryOnly?'安全な保存機能がないため、保存せずに遊びます。記録の書き出しはできます。':'記録を読み込みました。');}catch(e){try{originalRaw=localStorage.getItem(C.KEY);}catch(ignored){}protect(e);}};
  if(navigator.locks&&typeof navigator.locks.request==='function'){navigator.locks.request(C.KEY+'.writer',{mode:'exclusive',ifAvailable:true},async lock=>{if(!lock){curtain('別のタブで使用中です','同じゲームの別タブを閉じてから再読込してください。保存せずに遊ぶこともできます。',{memory:true,reload:true});status('保存済み記録は保護されています。');draw();return;}ownsLock=true;load();await new Promise(resolve=>{lockRelease=resolve;});ownsLock=false;}).catch(e=>protect(e));}
  else{memoryOnly=true;load();}
  requestAnimationFrame(frame);
@@ -60,7 +61,7 @@ $('name-form').addEventListener('submit',e=>{e.preventDefault();if(!ready||faile
 $('import').addEventListener('change',async()=>{
  const generation=++importGeneration,input=$('import'),file=input.files&&input.files[0];input.value='';pendingImport=null;
  if($('import-dialog').open)closeDialog('import-dialog');if(!file)return;syncTime();pause();
- if(memoryOnly||!ownsLock){status('この画面では安全に保存できないため、復元はできません。保存機能の使えるブラウザで開いてください。');return;}
+ if(failed||memoryOnly||!ownsLock){status('この画面では安全に保存できないため、復元はできません。保存機能の使えるブラウザで開いてください。');return;}
  status('復元するファイルを読み込んでいます。');
  try{if(file.size>2000000)throw Error('ファイルが大きすぎます。');const raw=await file.text();
   if(generation!==importGeneration||memoryOnly||!ownsLock)return;
@@ -69,9 +70,50 @@ $('import').addEventListener('change',async()=>{
 });
 function cancelImport(){importGeneration++;pendingImport=null;closeDialog('import-dialog');status('復元をキャンセルしました。記録の置き換えは行っていません。');}
 $('import-cancel').addEventListener('click',cancelImport);
-$('import-confirm').addEventListener('click',()=>{const raw=pendingImport;importGeneration++;pendingImport=null;if(!raw||memoryOnly||!ownsLock)return;closeDialog('import-dialog');try{const s=store.import(raw);originalRaw=store.expected;if(s.screen==='play')s.paused=true;attachGame(s);sound.stop();failed=false;ready=false;draw();curtain('記録を復元しました','はじめるを押して進んでください。途中の戦況は停止状態です。',{begin:true});$('begin').textContent='はじめる';status('記録を復元しました。以前の記録もバックアップに保管しています。');}catch(e){protect(e);}});
+$('import-confirm').addEventListener('click',()=>{const raw=pendingImport;importGeneration++;pendingImport=null;if(!raw||memoryOnly||!ownsLock||failed)return;closeDialog('import-dialog');try{const s=store.import(raw);originalRaw=store.expected;if(s.screen==='play')s.paused=true;attachGame(s);sound.stop();failed=false;ready=false;draw();curtain('記録を復元しました','はじめるを押して進んでください。途中の戦況は停止状態です。',{begin:true});$('begin').textContent='はじめる';status('記録を復元しました。以前の記録もバックアップに保管しています。');}catch(e){protect(e);}});
 $('import-dialog').addEventListener('cancel',e=>{e.preventDefault();cancelImport();});
 $('name-dialog').addEventListener('cancel',()=>{last=performance.now();});
+
+$('ending').addEventListener('click',()=>{if(ready&&game.s.champion&&!inDialog())openDialog('ending-dialog');});
+$('ending-close').addEventListener('click',()=>closeDialog('ending-dialog'));
+$('reset').addEventListener('click',()=>{if(ready&&!failed&&ownsLock&&!memoryOnly&&!inDialog()){importGeneration++;pendingImport=null;openDialog('reset-dialog');}});
+$('reset-cancel').addEventListener('click',()=>closeDialog('reset-dialog'));
+$('reset-confirm').addEventListener('click',()=>{
+ if(!$('reset-dialog').open||!ready||failed||!ownsLock||memoryOnly)return;
+ closeDialog('reset-dialog');
+ try{const state=store.reset();originalRaw=store.expected;backupRaw=store.backup();attachGame(state);seenEnding=false;sound.sync();draw();status('初期状態に戻しました。リセット前の記録はボタンから復元できます。');}catch(e){protect(e);}
+});
+$('unreset').addEventListener('click',()=>{
+ if(!ready||failed||!ownsLock||memoryOnly||inDialog()||backupRaw===null)return;
+ try{const raw=store.backup(),value=C.decode(raw);importGeneration++;pendingImport=raw;$('import-info').textContent='リセット前の記録：'+value.state.name+' ・ 解放 '+value.state.unlocked+'面 ・ BEST '+value.state.best+'点';openDialog('import-dialog');}catch(e){status('復元できません：'+e.message);}
+});
+function clearPractice(){
+ practice=null;$('practice-level').disabled=false;$('practice-act').textContent='スタート';$('practice-meter').value=0;$('practice-percent').textContent='0％';$('practice-status').textContent='スタートを押すと練習が始まります。';
+}
+function markPractice(q,now){
+ const p=practice;if(!p||p.count>=5)return;
+ p.count++;p.sum+=q;p.start=now;
+ $('practice-status').textContent=''+p.count+'皿目：精度 '+q+'％'+(p.count===5?'。5皿の平均 '+Math.round(p.sum/5)+'％！':'。次の皿を揚げています。');
+ if(p.count===5){$('practice-act').textContent='もう一度';$('practice-level').disabled=false;}
+}
+function practiceFrame(now){
+ const p=practice;if(!p||!$('practice-dialog').open||p.count>=5)return;
+ const ratio=Math.max(0,(now-p.start)/1000/p.target),amount=Math.min(165,Math.round(ratio*100));
+ if($('practice-meter').value!==amount){$('practice-meter').value=amount;$('practice-percent').textContent=amount+'％';}
+ if(ratio>=1.65)markPractice(0,now);
+}
+$('practice').addEventListener('click',()=>{if(ready&&!failed&&!inDialog()){clearPractice();openDialog('practice-dialog');}});
+$('practice-act').addEventListener('click',()=>{
+ const now=performance.now();
+ if(!practice||practice.count>=5){
+  const target=Number($('practice-level').value);if(![1.3,2.4,4.6].includes(target))return;
+  practice={count:0,sum:0,target,start:now};$('practice-level').disabled=true;$('practice-act').textContent='引き上げる';$('practice-status').textContent='1皿目を揚げています。';
+ }else if(now-practice.start>=160){const age=(now-practice.start)/1000;markPractice(age/practice.target>=1.65?0:C.quality(age,practice.target),now);}
+});
+$('practice-close').addEventListener('click',()=>{clearPractice();closeDialog('practice-dialog');});
+$('practice-dialog').addEventListener('close',clearPractice);
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&practice)clearPractice();});
+
 $('fullscreen').addEventListener('click',async()=>{try{if(document.fullscreenElement&&document.exitFullscreen)await document.exitFullscreen();else if($('board').requestFullscreen)await $('board').requestFullscreen();else status('このブラウザでは全画面に対応していません。横向きでお遊びください。');}catch(e){status('全画面に切り替えられませんでした。通常表示で遊べます。');}});
 document.addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.altKey||e.metaKey||inDialog()||/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||''))return;const key=e.key.toLowerCase();if(/^[1-4]$/.test(key)&&game&&game.s.screen==='play'){e.preventDefault();action('food-'+(Number(key)-1));}else if(key==='m'){e.preventDefault();action('sound');}else if(key==='p'||key==='escape'){if(game&&game.s.screen==='play'){e.preventDefault();action('pause');}else if(key==='escape'&&ready&&!failed){game.s.screen='title';save();draw();}}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){syncTime();pause('画面を離れたため一時停止しました。');sound.stop();}last=performance.now();});

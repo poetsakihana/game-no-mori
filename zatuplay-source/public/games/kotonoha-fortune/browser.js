@@ -19,6 +19,11 @@
   function status(p){
     const n=$('browserStatus');n.textContent=messages[p]||p;n.dataset.state=['ready','saved','pending'].includes(p)?'ok':'error';
     $('browserRaw').classList.toggle('hidden',store.original===null && p!=='conflict');
+    const enabled=['ready','saved'].includes(p);
+    $('browserReset').disabled=!enabled||store.baseline===null;
+    let recovery=null;try{recovery=store.getRecovery();}catch{}
+    $('browserRecover').hidden=!recovery;
+    $('browserRecover').disabled=!enabled;
   }
   function snapshot(){
     const fields={};for(const id of store.fields)fields[id]=$(id).value||'';
@@ -103,15 +108,55 @@
     }catch{alert('対応するバックアップを読み込めませんでした。元の記録と入力は変更していません。');}
     finally{input.value='';importing=false;if(dirty)saveSoon();}
   };
-  erase=async function(){
-    if(importing)return;importing=true;
+  async function swapLocal(restoring){
+    if(importing)return;
+    importing=true;
     try{
-      await flush(true);let expected;try{expected=store.getCurrent();}catch{status('unavailable');return;}
-      if(!confirm('この作品の相談・プロフィール・カード記録・入力をすべて削除しますか？他の作品の保存は変更しません。必要なら先に取消してJSONを書き出してください。'))return;
-      const empty={data:{profile:{},sessions:[],journals:[],artSessions:[]},ui:store.normalizeUI()}, start=generation;
-      if(await store.commit(empty,{replace:true,expected,shouldContinue:()=>generation===start})){data=empty.data;failedAction=null;apply(empty.ui);dirty=false;status('saved');}
+      if(!await flush(true) || !['ready','saved'].includes(store.phase))return;
+      let expected,recovery;
+      try{expected=store.getCurrent();if(expected!==store.baseline){status('conflict');return;}
+        if(expected===null)return;recovery=store.getRecovery(expected);
+      }catch{status('unavailable');return;}
+      if(restoring&&!recovery)return;
+      const prompt=restoring
+        ? 'リセット前の記録を復元しますか？現在の記録は同じ復元枠に差し替えて残します。'
+        : 'この作品の相談・プロフィール・カード記録・入力をリセットしますか？直前の状態を端末に残します。以前の復元枠は置き換わります。';
+      if(!confirm(prompt))return;
+      const replacement=restoring?recovery:{data:{profile:{},sessions:[],journals:[],artSessions:[]},ui:store.normalizeUI()},start=generation;
+      if(await store.commit(replacement,{replace:true,expected,archive:true,shouldContinue:()=>generation===start})){
+        data=replacement.data;failedAction=null;apply(replacement.ui);dirty=false;
+        status('saved');$('browserStatus').textContent=restoring?'リセット前の記録を復元しました。復元直前の状態も残しています。':'記録をリセットしました。直前の状態はプロフィールから復元できます。';
+      }
     }finally{importing=false;if(dirty)saveSoon();}
-  };
+  }
+  erase=()=>swapLocal(false);
+  $('browserRecover').addEventListener('click',()=>swapLocal(true));
+  const walk=$('threeCardWalk'), deck=[
+    ['朝露','いま気になっていることを、ひとことだけ書く。'],
+    ['かすみ草','当たり前になった優しさを、ひとつ思い出す。'],
+    ['羽根','今日だけ手放してもいいことを考える。'],
+    ['木漏れ日','最近ほっとした瞬間を、もう一度思い浮かべる。'],
+    ['小石','今日できる一番小さな一歩を選ぶ。'],
+    ['便箋','伝えたい言葉を、送らずに一行だけ書く。'],
+    ['灯り','心地よく過ごすための時間を5分つくる。'],
+    ['しおり','好きだった場面を思い返してみる。'],
+    ['雨音','今の気持ちを変えなくていい時間をつくる。']
+  ], labels=['いまの気持ち','こころの余白','今日の小さな一歩'];
+  let walkDraw=[],walkIndex=0;
+  function startWalk(){
+    const pool=deck.slice();walkDraw=Array.from({length:3},()=>pool.splice(random(pool.length),1)[0]);walkIndex=0;
+    $('walkCards').replaceChildren();$('walkEnd').hidden=true;$('walkNext').textContent='1枚目をめくる';
+  }
+  $('threeCardOpen').addEventListener('click',()=>{if(ritualBusy||walk.open)return;startWalk();if(typeof walk.showModal==='function')walk.showModal();else{walk.setAttribute('open','');$('walkNext').focus();}});
+  $('walkClose').addEventListener('click',()=>{if(typeof walk.close==='function')walk.close();else{walk.removeAttribute('open');$('threeCardOpen').focus();}});
+  $('walkNext').addEventListener('click',()=>{
+    if(walkIndex===3){startWalk();return;}
+    const [name,line]=walkDraw[walkIndex], p=document.createElement('p'), title=document.createElement('strong');
+    title.textContent=labels[walkIndex]+' ｜ '+name;p.append(title,document.createElement('br'),document.createTextNode(line));$('walkCards').append(p);
+    walkIndex++;
+    if(walkIndex===3){$('walkEnding').textContent='どれかひとつ、心に残った言葉を今日のお守りに。次に進む速さは、あなたが決めていい。';$('walkEnd').hidden=false;}
+    $('walkNext').textContent=walkIndex===3?'もう一度歩く':(walkIndex+1)+'枚目をめくる';
+  });
   // Native dialog fallback is local and still exposes explicit Close/Escape.
   const dialog=$('cardPreview');
   if(typeof dialog.showModal!=='function'){
@@ -148,7 +193,7 @@
   deepen=function(...args){const r=original.deepen(...args);saveSoon();return r;};
   continueArt=function(...args){const r=original.continueArt(...args);saveSoon();return r;};
   document.addEventListener('input',saveSoon);document.addEventListener('change',saveSoon);
-  document.addEventListener('click',()=>{if(!applying)saveSoon();});
+  document.addEventListener('click',e=>{if(!applying&&!e.target.closest('#threeCardWalk,#threeCardOpen,#browserReset,#browserRecover'))saveSoon();});
   function stop(){
     suspended=true;
     if(ritualBusy)finishRitual();
@@ -159,7 +204,7 @@
   document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();else suspended=false;});
   window.addEventListener('pageshow',()=>{suspended=false;});
   window.addEventListener('beforeunload',e=>{if(dirty||['corrupt','conflict','quota','unavailable','unsupported','invalid'].includes(store.phase)){e.preventDefault();e.returnValue='';}});
-  window.KotonohaBrowser={version:'1.0.3-web.1',saveSoon,flush,snapshot,
+  window.KotonohaBrowser={version:'1.1.0-web.1',saveSoon,flush,snapshot,
     async retry(){store.retry();dirty=true;const ok=await flush();if(ok&&dirty)return flush();return ok;},
     exportOriginal(){try{const raw=store.original??store.getCurrent();if(raw!==null)download(raw,'kotonoha-fortune-original-save.json');}catch{alert('元データを退避できませんでした。ブラウザの保存設定をご確認ください。');}}
   };

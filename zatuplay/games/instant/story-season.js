@@ -24,6 +24,11 @@ const storyEndings={
  trace:['灯りをたどる地図','地図は商店街に引き継がれ、写真の場所をたどる小さな散歩会が始まった。消えた店の話を、初めて聞く人たちが歩いている。'],
  balance:['余白のある展覧会','窓辺の返事と町の地図は、一冊の冊子にまとまった。最後のページだけは白紙。これから町を歩く人の言葉を書く場所だ。']
 };
+const storyEpilogues=Object.freeze({
+ listen:['窓辺の二通目','春になって、空の小箱に一枚の葉書が入りました。写真の花屋で初めて花を買った日のこと。店主は返事を書いて、差出人の名前の横に小さな花を描きました。'],
+ trace:['地図にない寄り道','二度目の散歩会の日、蒼は地図の端に「ここから先は自由」と書き足しました。最初に寄り道した子が見つけたのは、旧花屋の裏で咲いた白い花でした。'],
+ balance:['白紙の一ページ','ある朝、白紙だった最後のページに路地の絵が一枚増えていました。絵の横には「はじめて来た町なのに、おかえり、と聞こえた気がした」と書いてありました。']
+});
 function storyProgress(){
  let saved=state.storySeason;
  if(saved?.version===1&&typeof saved.run==='string'&&Array.isArray(saved.entries)&&Array.isArray(saved.endings)&&saved.entries.length<=storyChapters.length)return saved;
@@ -55,6 +60,24 @@ function storyStart(){
  if(progress.run&&progress.entries.length<storyChapters.length)return;
  if(storyCommit({...progress,run:freshLoginID(),entries:[]}))storyDraw();
 }
+function storyResetRun(){
+ if(!accountRegistered()||state.playMode!=='story'||busy||!storyDialog.open)return;
+ const progress=storyProgress();
+ if(!progress.run||!confirm('今回の物語を第1章から始め直しますか？ 発見した結末・投稿・アカウント・保存済みメディアは残ります。前回の周回バックアップがある場合は置き換わります。'))return;
+ if(storyCommit({...progress,run:freshLoginID(),entries:[],beforeReset:{run:progress.run,entries:progress.entries}})){storyDraw();render()}
+}
+function storyUndoReset(){
+ if(!accountRegistered()||state.playMode!=='story'||busy||!storyDialog.open)return;
+ const {beforeReset,...progress}=storyProgress();
+ if(!storyCanUndo(beforeReset)||!confirm('リセット前の周回に戻しますか？ 現在の周回の選択だけが置き換わります。発見した結末や投稿は残ります。'))return;
+ if(storyCommit({...progress,run:beforeReset.run,entries:beforeReset.entries})){storyDraw();render()}
+}
+function storyCanUndo(backup){
+ return !!(backup&&typeof backup.run==='string'&&backup.run.length>0&&backup.run.length<=100&&Array.isArray(backup.entries)&&backup.entries.length<=storyChapters.length&&backup.entries.every(e=>e&&['listen','trace'].includes(e.path)&&typeof e.label==='string'&&typeof e.reply==='string'));
+}
+function storyEpilogueHTML(progress){
+ return Object.entries(storyEpilogues).map(([id,scene])=>progress.endings.includes(id)?'<li><details><summary>'+esc(storyEndings[id][0])+'の後日談</summary><h3>'+esc(scene[0])+'</h3><p>'+esc(scene[1])+'</p></details></li>':'<li>未発見 <span class="muted">（対応する結末を読むと解放）</span></li>').join('');
+}
 function storyChoose(chapterIndex,option){
  if(!accountRegistered()||state.playMode!=='story'||busy)return;
  let progress=storyProgress(),chapter=storyChapters[chapterIndex],choice=chapter?.choices[option];
@@ -85,7 +108,7 @@ function storyDraw(){
   body='<h3>閉館まで、あと七日。</h3><p>一枚の写真から始まる、全6章の物語。選んだ言葉が、港町に残るものを変えます。</p><button class="primary" onclick="storyStart()">第1章を始める</button>';
  }else if(!chapter){
   let ending=storyEndings[storyEnding(progress.entries)];
-  body='<span class="pill">エンディング</span><h3>'+ending[0]+'</h3><p>'+ending[1]+'</p><button onclick="storyStart()">別の選択で第1章から</button>';
+  body='<span class="pill">エンディング</span><h3>'+ending[0]+'</h3><p>'+ending[1]+'</p><p class="muted">物語だけを第1章から読み直します。今回の選択履歴は新しい周回に切り替わります。発見した結末・投稿・アカウント・保存済みメディアは残ります。</p><button type="button" onclick="storyResetRun()">物語だけ第1章から</button>';
  }else{
   let ready=!chapter.post||!!storyPostEvidence(progress);
   body='<span class="pill">第'+(index+1)+'章 / '+storyChapters.length+'</span><h3>'+chapter.title+'</h3><p>'+chapter.scene+'</p>';
@@ -93,9 +116,11 @@ function storyDraw(){
   if(chapter.post)body+=ready?'<p class="story-status">✓ この章の投稿を保存済み</p>':'<p class="story-status">この章で新しい投稿を1件保存すると、次の選択ができます。ジャンルや形式は自由です。</p><button class="primary" onclick="storyCompose()">投稿を書く</button>';
   body+='<div class="story-choices">'+chapter.choices.map((choice,option)=>'<button '+(ready?'':'disabled ')+'onclick="storyChoose('+index+','+option+')">'+choice[0]+'</button>').join('')+'</div>';
  }
+ if(progress.run&&chapter&&index>0)body+='<details><summary>この周回の進行をリセット</summary><p>今回の物語の選択だけをやり直します。発見した結末や投稿は消えません。</p><button type="button" onclick="storyResetRun()">物語だけ第1章から</button></details>';
+ if(storyCanUndo(progress.beforeReset))body+='<details><summary>リセット前の周回を復元</summary><p>前の周回に戻って続きを遊べます。投稿・結末図鑑は残ります。</p><button type="button" onclick="storyUndoReset()">前の周回へ戻る</button></details>';
  let journal=progress.entries.map((entry,i)=>'<li><b>'+storyChapters[i].title+'</b><p>'+esc(entry.label)+'</p><p>'+esc(entry.reply)+'</p></li>').join('');
  let collection=Object.entries(storyEndings).map(([key,ending])=>'<li>'+(progress.endings.includes(key)?ending[0]:'未発見')+'</li>').join('');
- storyDialog.innerHTML='<div class="story-paper"><div class="story-top"><h2 id="story-title">余白書店の最後の七日</h2><button type="button" onclick="storyDialog.close()">閉じる</button></div>'+body+(journal?'<details><summary>これまでの選択</summary><ol>'+journal+'</ol></details>':'')+'<details><summary>エンディング図鑑 '+progress.endings.length+' / 3</summary><ul>'+collection+'</ul></details></div>';
+ storyDialog.innerHTML='<div class="story-paper"><div class="story-top"><h2 id="story-title">余白書店の最後の七日</h2><button type="button" onclick="storyDialog.close()">閉じる</button></div>'+body+(journal?'<details><summary>これまでの選択</summary><ol>'+journal+'</ol></details>':'')+'<details><summary>エンディング図鑑 '+progress.endings.length+' / 3</summary><ul>'+collection+'</ul></details><details><summary>余白書店の後日談</summary><p>発見した結末の、その先を読めます。</p><ul>'+storyEpilogueHTML(progress)+'</ul></details></div>';
 }
 function storyCard(){
  let progress=storyProgress(),done=progress.entries.length;
@@ -157,7 +182,7 @@ function storyHomeHTML(){
  let progress=storyProgress(),last=progress.entries[progress.entries.length-1];
  return '<div class="welcome"><span class="pill">物語型</span><h2>あなたの言葉で、続きを。</h2><p>投稿と選択で進む、港町の小さな物語。</p></div>'+storyCard()+
   (last?'<section class="card pad"><h3>前回の選択</h3><p>'+esc(last.label)+'</p><p>'+esc(last.reply)+'</p></section>':'')+
-  '<section class="card pad"><h3>物語の進め方</h3><p>物語を開き、返事を選んで進めましょう。第2・4・6章は、物語型で新しい投稿を保存すると次の選択が開きます。</p><p>投稿後は「物語を開く」から続きへ。読了後は別の選択でもう一度遊べます。</p><p>発見した結末 '+progress.endings.length+' / 3</p></section>';
+  '<section class="card pad"><h3>物語の進め方</h3><p>物語を開き、返事を選んで進めましょう。第2・4・6章は、物語型で新しい投稿を保存すると次の選択が開きます。</p><p>投稿後は「物語を開く」から続きへ。読了後は別の選択でもう一度遊べます。</p><p>発見した結末 '+progress.endings.length+' / 3。結末を読むと、それぞれの後日談が開きます。</p></section>';
 }
 const storyRender=render;
 render=function(){
@@ -202,4 +227,5 @@ modeStyles.textContent='#play-mode-screen{position:fixed;inset:0;z-index:40;over
 document.head.append(modeStyles);
 INSTANT_CHANGELOG.unshift({version:'遊び方選択アップデート',date:'2026-11-05',items:['投稿型と物語型の選択画面','モードに合わせたホームとナビゲーション','アカウントごとに選択を保存し、いつでも切り替え']});
 INSTANT_CHANGELOG.unshift({version:'ストーリー大型アップデート',date:'2026-11-05',items:['投稿と選択で進む「余白書店の最後の七日」全6章','3つのエンディングと選択の記録','読了後は別の選択で再プレイ可能']});
+INSTANT_CHANGELOG.unshift({version:'余白書店・後日談アップデート',date:'2026-11-19',items:['3つの結末それぞれに後日談を追加','投稿や結末図鑑を残したまま、この周回だけを第1章からやり直せます','確認後にリセット前の周回も復元できます']});
 render();

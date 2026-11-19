@@ -1,4 +1,4 @@
-# Instant browser port — 4.4.1-web.1 (browser release)
+# Instant browser port — 4.4.1-web.2 (browser release)
 
 ## Original and scope
 
@@ -28,3 +28,9 @@ Independent security/import-schema findings have been addressed and production r
 ## Public browser acceptance
 
 Actual Chrome: local registration/login, six-chapter one-ending playthrough, text carousel and built-in photo posts, downloaded JSON cancel/reselect/restore/previous recovery, CPU follow/DM reply, and competing-tab protection passed. The conflict-message fix was rechecked on the public build. See QA.md for exact commits and limitations. Video/audio, physical mobile, other browser engines, installed PWA/offline and every long-term feature remain unverified.
+
+## 余白書店・後日談アップデート
+
+- 物語型の3つの結末には、それぞれ「余白書店の後日談」で読める短編が開きます。
+- 「物語だけ第1章から」は確認後に現在の周回だけを始め直します。発見した結末・投稿・プロフィール・登録情報・メディアはそのまま残ります。「リセット前の周回を復元」から直前の周回にも戻せます。
+- ブラウザ保存キー、アカウント登録方法、APK、既存の投稿型は変更しません。

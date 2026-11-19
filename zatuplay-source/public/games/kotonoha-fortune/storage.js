@@ -72,6 +72,16 @@
     out.resultVisible=v.resultVisible===true; out.artResultVisible=v.artResultVisible===true; out.ritualPending=v.ritualPending===true;
     return out;
   }
+  let archiveRaw, archiveValue;
+  function readArchive(raw) {
+    if(raw===null)return null;
+    if(raw===archiveRaw)return archiveValue;
+    const v=JSON.parse(raw);
+    if(v.resetBackup==null){archiveRaw=raw;archiveValue=null;return null;}
+    if(!obj(v.resetBackup)||v.resetBackup.app!=='kotonoha-fortune'||v.resetBackup.schema!==1||v.resetBackup.resetBackup!==undefined)throw Error('backup');
+    const archive=decode(JSON.stringify(v.resetBackup));
+    archiveRaw=raw;archiveValue=archive;return archive;
+  }
   function decode(text, importing = false) {
     if (typeof text !== 'string' || text.length > MAX_BYTES) throw Error('size');
     const v=JSON.parse(text);
@@ -103,7 +113,17 @@
         const current=localStorage.getItem(KEY);
         if (current !== (options.replace ? options.expected : baseline)) { report('conflict');return false; }
         if(!options.replace && current!==null){const old=decode(current);if(JSON.stringify({data:old.data,ui:old.ui})===JSON.stringify(content)){report('saved');return true;}}
-        const raw=JSON.stringify({app:'kotonoha-fortune',schema:1,revision:uuid(),savedAt:new Date().toISOString(),...content});
+        // The active snapshot and its one recovery slot are stored by a single atomic write.
+        // If the quota rejects it, neither the active snapshot nor the recovery slot changes.
+        let recovery=null;
+        if(options.archive) {
+          if(current===null)return false;
+          recovery=decode(current);
+        } else if(current!==null){
+          try{recovery=readArchive(current);}catch(e){if(!options.replace)throw e;}
+        }
+        const resetBackup=recovery?{app:'kotonoha-fortune',schema:1,...recovery}:null;
+        const raw=JSON.stringify({app:'kotonoha-fortune',schema:1,revision:uuid(),savedAt:new Date().toISOString(),...content,...(resetBackup?{resetBackup}:{})});
         if (raw.length>MAX_BYTES) { report('quota');return false; }
         localStorage.setItem(KEY,raw);baseline=raw;report('saved');return true;
       });
@@ -114,6 +134,7 @@
     KEY, MAX_BYTES, fields, screens, initialData, initialUI, uuid, validDate, decode, normalizeData, normalizeUI, commit,
     get phase(){return phase;}, get original(){return original;}, get baseline(){return baseline;},
     getCurrent(){return localStorage.getItem(KEY);},
+    getRecovery(raw=baseline){return readArchive(raw);},
     subscribe(fn){onStatus=fn;fn(phase);},
     retry(){ if (phase==='quota'||phase==='invalid') report('ready'); else if(phase==='unavailable'){try{if(localStorage.getItem(KEY)===baseline)report(locks?'ready':'unsupported');else report('conflict');}catch{}} },
     encode(snapshot){return JSON.stringify({app:'kotonoha-fortune',schema:1,revision:uuid(),exportedAt:new Date().toISOString(),data:normalizeData(snapshot.data),ui:normalizeUI(snapshot.ui)},null,2);}

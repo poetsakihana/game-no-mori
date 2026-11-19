@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#faf7ef">
   <meta name="description" content="季節ごとの果物・野菜・草花100種類を育て、収穫や開花を完成図鑑に記録できる栽培シミュレーション。">
   <link rel="icon" href="./assets/icon.png" type="image/png">
-  <link rel="stylesheet" href="./style.css?v=3">
+  <link rel="stylesheet" href="./style.css?v=4">
   <link rel="preload" href="./assets/garden-spring.webp" as="image">
   <title>いちご日和</title>
 </head>
@@ -73,6 +73,7 @@
         </div>
 
         <section class="card growth-card" id="growth-card" aria-labelledby="growth-title"></section>
+        <section class="card garden-quest" id="weekly-garden" aria-label="今週の庭しごと"></section>
       </div>
     </section>
 
@@ -99,6 +100,7 @@
     <section class="view" id="view-book" aria-labelledby="book-title" hidden>
       <div class="page-heading secondary-heading"><div><h1 id="book-title">完成図鑑</h1><p>育て上げた植物に、自分だけの栽培メモを。</p></div></div>
       <div class="card book-banner" id="book-banner"></div>
+      <button class="solid-button garden-ending-action" type="button" id="ending-garden" hidden>図鑑完成のエンディングを見る</button>
       <section class="book-catalog" aria-label="植物の一覧">
         <div class="catalog-controls card">
           <div class="catalog-search"><label for="book-search">植物名</label><input id="book-search" type="search" placeholder="例：いちご、菜の花" autocomplete="off"></div>
@@ -111,8 +113,28 @@
       </section>
     </section>
 
+    <section class="card garden-tools" aria-label="庭の記録管理">
+      <h2>庭の記録管理</h2>
+      <div><button class="outline-button" type="button" id="reset-garden">庭の記録をリセット</button>
+      <button class="outline-button" type="button" id="restore-garden" hidden>保管した庭に切り替える</button></div>
+    </section>
     <footer class="page-footer"><span><i class="icon i-check" aria-hidden="true"></i><span id="save-label">このブラウザに自動保存</span></span><a href="../../" style="color:inherit">ZatuPlayに戻る</a></footer>
   </main>
+
+  <dialog class="help-dialog" id="garden-change-dialog" aria-labelledby="garden-change-heading">
+    <h2 id="garden-change-heading"></h2><p id="garden-change-description"></p>
+    <div class="garden-change-actions"><form method="dialog"><button class="outline-button" autofocus>キャンセル</button></form>
+    <button type="button" class="solid-button" id="garden-change-confirm">リセットする</button></div>
+  </dialog>
+
+  <dialog class="help-dialog" id="garden-ending-dialog" aria-labelledby="garden-ending-heading">
+    <div class="dialog-header"><span class="panel-icon tinted-rose"><i class="icon i-flower" aria-hidden="true"></i></span>
+      <h2 id="garden-ending-heading">百の季節を綴る庭</h2></div>
+    <div class="dialog-content"><p>いちごの小さな苗を迎えた日から、いくつもの雨と日差しが庭を通りました。</p>
+      <p>最後の一種を記したページのとなりに、名前のない余白が残っています。そこに、ここまで庭を見守ってきたあなたの名前を。</p>
+      <p>完成図鑑、全100種類達成おめでとうございます。明日も庭は開いています。お気に入りをもう一度育てたり、新しいメモを残したりできます。</p></div>
+    <form method="dialog"><button class="solid-button dialog-done">図鑑に戻る</button></form>
+  </dialog>
 
   <dialog class="help-dialog" id="help-dialog" aria-labelledby="help-title">
     <div class="dialog-header">
@@ -123,6 +145,7 @@
     <div class="dialog-content">
       <h3>ZatuPlay版の保存</h3><p>栽培記録はこの端末のブラウザに保存されます。元の「いちご日和」サイトや別の端末とは共有されません。ブラウザのデータを消すと記録も消えるためご注意ください。天気はゲーム内の予報です。</p><h3>時間と季節</h3>
       <p>庭の季節は日本時間の暦に合わせて変わります。春は3〜5月、夏は6〜8月、秋は9〜11月、冬は12〜2月です。閉じていた間の成長や土の乾きも、開いたときに計算します。</p>
+      <h3>今週の庭しごと</h3><p>毎週月曜にお題が変わります。別の日にいつものお世話を重ねると、その週のしおりを獲得できます。植物の成長や品質には影響しません。</p>
       <h3>水と日当たり</h3>
       <p>適した水分は植物によって違います。鉢のお世話画面で目安を確かめられます。水が多すぎたり、乾いたまま長く過ごしたりすると、育ち方や出来栄えに影響します。</p>
       <p>難易度は、育つまでの日数と水・日当たりの管理をもとにした目安です。</p>
@@ -160,6 +183,6 @@
     </form>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-  <script type="module" src="./main.mjs?v=4"></script>
+  <script type="module" src="./main.mjs?v=6"></script>
 </body>
 </html>

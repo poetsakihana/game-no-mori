@@ -432,3 +432,15 @@ input:focus-visible,textarea:focus-visible{outline:2px solid #a64135;outline-off
   .nav-button .icon{--icon-size:12px}
   .book-summary>.panel-icon{display:none}
 }
+
+/* Seasonal activities and garden record controls. */
+.garden-quest,.garden-tools{margin-top:16px;padding:16px}
+.garden-quest h2,.garden-tools h2{font-size:1rem;margin:0 0 .2rem}
+.garden-quest p{color:var(--muted);font-size:.85rem}
+.garden-quest-list{list-style:none;margin:.8rem 0;padding:0}
+.garden-quest-list li{display:flex;justify-content:space-between;gap:.6rem;padding:.25rem 0}
+.garden-tools>div,.garden-change-actions{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.65rem}
+.garden-ending-action{margin-bottom:1rem}
+.garden-ending-action[hidden],.garden-tools button[hidden]{display:none}
+.garden-quest{grid-column:1;grid-row:3}
+@media(max-width:740px){.garden-quest{order:4;width:100%}}
