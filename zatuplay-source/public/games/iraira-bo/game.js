@@ -4,6 +4,9 @@
   let game, canvas, ctx, storage, baseline = null, revision = 0, saving = Promise.resolve();
   let blocked = false, conflict = false, writeFailed = false, fatal = false, dirty = false, savedAt = 0;
   let pointer = null, lastPoint = null, lastTime = performance.now(), saveClock = 0, buttonsSignature = '';
+  const BACKUP=KEY+'.before-reset';
+  let practiceMain=null, seenEnding=false, backupRaw=null, recordRequest=null, swapping=false;
+  const complete=() => game.state.best.every(t=>t!==null);
   const keys = new Set(), heldPointers = new Map();
   let audio = null, audioReady = false, audioEpoch = 0;
   const oscillators = new Set();
@@ -48,10 +51,10 @@
     $('reload').hidden = false; $('retry-save').hidden = true; render();
   }
   function save() {
-    if (blocked || fatal) return Promise.resolve(false);
+    if (blocked || fatal || practiceMain || swapping) return Promise.resolve(false);
     dirty = true;
     saving = saving.then(async () => {
-      if (blocked || fatal) return false;
+      if (blocked || fatal || practiceMain || swapping) return false;
       const snapshot = game.snapshot();
       try {
         return await navigator.locks.request(KEY, () => {
@@ -80,6 +83,7 @@
       releaseInputs(); beep(game.state.screen === 5);
       if (game.state.screen === 4) { try { navigator.vibrate?.(100); } catch (_) {} }
       save();
+      if(!practiceMain && game.state.screen===5 && complete() && !seenEnding){seenEnding=true;$('ending-dialog').showModal();}
     }
   }
   function tick(now) {
@@ -103,12 +107,14 @@
     if (wasPlaying) save(); render();
   }
   function action(id) {
-    if (conflict || fatal) return;
+    if (conflict || fatal || swapping) return;
+    if(practiceMain&&[104,109,108].includes(id)){endPractice();return;}
     tick(performance.now());
     if (id === 105) { pause(); return; }
     if (id === 107 && game.state.screen === 3 && !confirm('このステージの途中位置を捨て、最初からやり直しますか？')) return;
     releaseInputs();
     if (!game.action(id)) return;
+    if(practiceMain) game.course.limit=Infinity;
     lastTime = performance.now(); saveClock = 0;
     if (game.state.sound) unlockAudio(); else stopAudio();
     save(); render();
@@ -143,7 +149,7 @@
     } else {
       text(`STAGE ${s.level+1}`,90,47,21);button('一時停止',220,18,120,44,105,s.screen===2);
       const remaining=Math.max(0,game.course.limit-s.elapsed/1000);
-      text(`残り ${remaining.toFixed(1)} 秒`,180,101,23,remaining<10?C.gold:C.cyan);
+      text(practiceMain?'制限時間なし':`残り ${remaining.toFixed(1)} 秒`,180,101,23,remaining<10?C.gold:C.cyan);
       line(game.course.line,C.cyan,game.course.width+5);line(game.course.line,'#112636',game.course.width);
       const goal=game.course.line[220];circle(goal.x,goal.y,15,C.cyan);text('G',goal.x,goal.y+5,14,'#000');text('GOAL',goal.x,goal.y-40,12,C.cyan);
       ctx.shadowColor=C.gold;ctx.shadowBlur=14;circle(s.x,s.y,8,C.gold);ctx.shadowBlur=0;circle(s.x,s.y,3,C.white);
@@ -154,12 +160,12 @@
         if (s.screen===3) {text('ひとやすみ',180,269,31);text('タイマーも止まっているよ',180,309,15,C.muted);button('つづける',45,342,270,54,106);}
         if (s.screen===4) {text(s.reason,180,275,29,C.gold);text('落ち着いて、もう一回！',180,316,16,C.muted);button('リトライ',45,350,270,54,107);}
         if (s.screen===5) {
-          text(s.level===29?'全ステージ制覇！':'CLEAR!',180,269,31,C.cyan);text(`タイム ${(s.elapsed/1000).toFixed(2)} 秒`,180,310,22);
-          text(s.level===29?'あなたこそ、ネオン迷路の達人！':'次のステージが開いた！',180,342,15,C.gold);
-          button(s.level===29?'ステージを選ぶ':'次のステージ',45,370,270,54,108);
+          text(practiceMain?'練習クリア！':s.level===29?'全ステージ制覇！':'CLEAR!',180,269,31,C.cyan);text(`タイム ${(s.elapsed/1000).toFixed(2)} 秒`,180,310,22);
+          text(practiceMain?'本編の記録は変更していません':s.level===29?'あなたこそ、ネオン迷路の達人！':'次のステージが開いた！',180,342,15,C.gold);
+          button(practiceMain?'本編に戻る':s.level===29?'ステージを選ぶ':'次のステージ',45,370,270,54,108);
         }
         if(s.screen!==5)button('最初から',45,420,270,48,107);
-        button('ステージ選択',45,490,270,48,109);
+        button(practiceMain?'本編に戻る':'ステージ選択',45,490,270,48,109);
       }
     }
     const sig=JSON.stringify(specs);
@@ -169,8 +175,69 @@
       if(active)$('buttons').querySelector(`[data-action="${active}"]:not(:disabled)`)?.focus({preventScroll:true});
       $('game-status').textContent=s.screen===0?'イライラ棒。30ステージ。':s.screen===1?`ステージ選択。${s.unlocked}面まで解放。${s.best.filter(b=>b!==null).length}/30クリア。`:`ステージ${s.level+1}。${['','','プレイ中','一時停止中',s.reason,s.level===29?'全ステージ制覇':'クリア'][s.screen]}`;
     }
+    $('practice').disabled=conflict||!!practiceMain||swapping;
+    $('practice-end').hidden=!practiceMain;
+    $('ending').hidden=!!practiceMain||!complete();
+    $('reset').disabled=blocked||!!practiceMain||swapping||baseline===null;
+    $('restore').hidden=blocked||!!practiceMain||swapping||backupRaw===null;
     $('pause').disabled=s.screen!==2||conflict;$('sound').disabled=conflict;$('sound').textContent='効果音 '+(s.sound?'ON':'OFF');
     for(const b of document.querySelectorAll('[data-direction]'))b.disabled=s.screen!==2||conflict;
+  }
+  function endPractice(){
+    if(!practiceMain)return;
+    releaseInputs();stopAudio();game=practiceMain;practiceMain=null;
+    lastTime=performance.now();$('practice-status').textContent='練習を終えました。本編の進行は変わっていません。';render();
+  }
+  function openRecords(restoring){
+    if(blocked||practiceMain||swapping||!baseline)return;
+    pause();
+    saving.then(()=>{
+      if(blocked||writeFailed||practiceMain||swapping||!baseline||document.querySelector('dialog[open]'))return;
+      recordRequest={expected:baseline,expectedBackup:storage.getItem(BACKUP),restoring};
+      $('records-heading').textContent=restoring?'保管した記録に戻しますか？':'本編の記録をリセットしますか？';
+      $('records-desc').textContent=restoring?'現在の記録と保管した記録を入れ替えます。':'最短タイム・進行・途中位置・設定が初期状態になります。直前の記録は保管します。以前のバックアップは置き換わります。';
+      $('records-confirm').textContent=restoring?'切り替える':'リセットする';$('records-dialog').showModal();
+    }).catch(()=>status('記録を確認できませんでした。',true));
+  }
+  function configureExtras(){
+    $('practice-course').replaceChildren(...Array.from({length:30},(_,i)=>new Option('STAGE '+(i+1),i)));
+    $('practice').onclick=()=>{if(!practiceMain&&!conflict&&!swapping){pause();$('practice-dialog').showModal();}};
+    $('practice-go').onclick=()=>{
+      if(practiceMain||conflict||swapping)return;
+      const level=Number($('practice-course').value);
+      if(!Number.isInteger(level)||level<0||level>=30)return;
+      $('practice-dialog').close();releaseInputs();
+      practiceMain=game;
+      game=new NeonMaze.Game();
+      game.state.sound=practiceMain.state.sound;
+      game.state.unlocked=30;
+      game.start(level);game.course.limit=Infinity;
+      lastTime=performance.now();
+      $('practice-status').textContent='練習中：制限時間なし。本編の記録には入りません。';
+      render();
+    };
+    $('practice-end').onclick=endPractice;
+    $('ending').onclick=()=>{if(!practiceMain&&complete()){$('ending-dialog').showModal();}};
+    $('reset').onclick=()=>openRecords(false);
+    $('restore').onclick=()=>openRecords(true);
+    $('records-dialog').addEventListener('close',()=>{recordRequest=null;});
+    $('records-confirm').onclick=async()=>{
+      const request=recordRequest;if(!request||blocked||swapping||!$('records-dialog').open)return;
+      swapping=true;recordRequest=null;
+      $('records-dialog').close();
+      try{
+        await navigator.locks.request(KEY,()=>{
+          if(blocked||fatal)throw Error('記録の変更を中止しました。');
+          const state=request.restoring?NeonMaze.decode(request.expectedBackup).state:new NeonMaze.Game().snapshot();
+          const next=JSON.stringify({version:1,revision:revision+1,state});
+          ZatuRecords.exchange(storage,KEY,BACKUP,{...request,next,validate:NeonMaze.decode});
+          backupRaw=baseline;baseline=next;revision++;game=new NeonMaze.Game(state);seenEnding=complete();
+          lastTime=performance.now();saveClock=0;dirty=false;
+          status(request.restoring?'保管した記録に戻しました。':'本編を最初から始めました。直前の記録は復元できます。');
+        });
+      }catch(e){status(e.message||'記録を変更できませんでした。元の記録を保持します。',true);}
+      finally{swapping=false;render();}
+    };
   }
   function fatalError() { fatal=true; if(game)game.pause(); releaseInputs();stopAudio();$('load-error').hidden=false;$('load-error').textContent='ゲームの読み込み・描画で問題が起きました。保存は上書きせず停止しています。通信を確認して再読み込みしてください。'; }
   try {
@@ -183,7 +250,8 @@
       if(!navigator.locks?.request){blocked=true;status('この環境は安全な保存に対応していません。この回は保存せず遊びます。',true);}
       else status(saved?'保存を読み込みました。途中のプレイは「つづける」で再開します。':'まだ保存はありません。開始後に自動保存します。');
     } catch(_){blocked=true;status('保存を読み込めませんでした。元の保存は上書きせず、この回だけ保存なしで遊びます。',true);$('reload').hidden=false;}
-    game=new NeonMaze.Game(saved);
+    game=new NeonMaze.Game(saved);seenEnding=complete();
+    try {backupRaw=storage.getItem(BACKUP);if(backupRaw!==null)NeonMaze.decode(backupRaw);}catch(_){backupRaw=null;}
     $('game-frame').hidden=false;$('load-error').hidden=true;
     const point=e=>{const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*360/r.width,y:(e.clientY-r.top)*800/r.height};};
     canvas.addEventListener('pointerdown',e=>{
@@ -205,6 +273,7 @@
     window.addEventListener('keydown',e=>{
       if(e.isComposing||e.ctrlKey||e.altKey||e.metaKey)return;
       if((e.key==='Escape'||e.key===' ')&&game.state.screen===2){e.preventDefault();pause();return;}
+      if(document.querySelector('dialog[open]'))return;
       const k=keyName(e);if(!['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Shift'].includes(k)||game.state.screen!==2||conflict||fatal)return;
       e.preventDefault();tick(performance.now());keys.add(k);unlockAudio();
     });
@@ -218,6 +287,7 @@
     }
     $('pause').addEventListener('click',pause);$('sound').addEventListener('click',()=>action(101));
     $('help-button').addEventListener('click',()=>{const open=$('help').hidden;if(open)pause();$('help').hidden=!open;$('help-button').setAttribute('aria-expanded',String(open));});
+    configureExtras();
     $('retry-save').addEventListener('click',()=>save());
     $('reload').addEventListener('click',()=>{if(confirm('この回の未保存の変更を破棄し、保存を読み直しますか？'))location.reload();});
     document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});

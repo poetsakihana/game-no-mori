@@ -1,0 +1,11 @@
+.tokyo-extras{max-width:1160px;margin:10px auto;padding:0 16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.tokyo-extras button,.tokyo-dialog button{color:#203e40;background:#f3f1e8;border:1px solid #82988d;border-radius:10px;padding:8px 12px;min-height:42px;font:inherit}
+.tokyo-extras button:focus-visible,.tokyo-dialog :focus-visible{outline:3px solid #9d442e;outline-offset:3px}
+.tokyo-extras button:disabled,.tokyo-dialog button:disabled{opacity:.55}
+.tokyo-extras p{font-size:.9rem;flex-basis:100%;margin:0;color:#35594f}
+.tokyo-dialog{max-width:min(520px,calc(100vw - 28px));max-height:calc(100vh - 24px);overflow:auto;border:1px solid #82988d;border-radius:18px;padding:20px 24px;background:#fffcf1;color:#203e40;font:16px/1.65 system-ui,sans-serif}
+.tokyo-dialog::backdrop{background:#132d2b88}
+.tokyo-dialog h2{margin:0 0 8px}
+.tokyo-dialog form{display:block;margin:12px 0}
+.tokyo-dialog input{display:block;width:100%;padding:8px 10px;margin:8px 0;border:1px solid #82988d;border-radius:8px;background:white;font:inherit}
+.tokyo-extras [hidden],.tokyo-dialog [hidden]{display:none!important}

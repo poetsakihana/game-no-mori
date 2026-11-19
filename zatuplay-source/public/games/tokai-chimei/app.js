@@ -79,37 +79,51 @@ function savedKeys(raw){
   const compact=Array.isArray(raw.completed)?raw.completed:[];
   return [...keys,...compact.map(ref=>bySaveRef.get(ref)?.key).filter(Boolean)];
 }
-const storageKey="nagoya-chimei-techo-progress-v1";
+const legacyKey="nagoya-chimei-techo-progress-v1";
+const storageKey="nagoya-chimei-techo-progress-v2";
+const backupKey=storageKey+".before-reset";
 const mode="input";
-let solved=new Set(),lastWard="higashi",canSave=true;
-function savedProgress(){
-  const stored = localStorage.getItem(storageKey);
-  try {
-    const progress = JSON.parse(stored);
-    return progress && typeof progress === "object" && !Array.isArray(progress) ? progress : {};
-  } catch {
-    return {};
-  }
+let solved=new Set(),lastWard="higashi",canSave=true,progressRaw=null,progressGeneration='',wasCompleted=false;
+function validateProgress(raw){
+  const v=JSON.parse(raw);
+  if(!v||typeof v!=="object"||Array.isArray(v)||(!Array.isArray(v.solved)&&!Array.isArray(v.completed))||
+      v.solved&&(!Array.isArray(v.solved)||v.solved.some(k=>typeof k!=='string'))||
+      v.completed&&(!Array.isArray(v.completed)||v.completed.some(k=>typeof k!=='string'))||
+      v.generation!==undefined&&typeof v.generation!=='string')throw Error("保存形式が不正です。現在の記録は変更していません。");
+  return v;
 }
 function readSave(){
-  try {const raw=savedProgress();
-    for(const key of savedKeys(raw)) if(byKey.has(key)) solved.add(key);
-    if(byWard.has(raw.lastWard))lastWard=raw.lastWard;
+  try{
+    const stored=localStorage.getItem(storageKey);
+    const raw=stored===null?localStorage.getItem(legacyKey):stored;
+    const record=raw===null?{}:validateProgress(raw);
+    progressRaw=stored;
+    progressGeneration=record.generation||'';
+    solved=new Set(savedKeys(record).filter(key=>byKey.has(key)));
+    lastWard=byWard.has(record.lastWard)?record.lastWard:"higashi";
     canSave=true;
-  } catch {canSave=false}
+  }catch{canSave=false;}
 }
 function persist(){
-  try {
-    const prev=savedProgress();
-    for(const key of savedKeys(prev)) if(byKey.has(key)) solved.add(key);
-    localStorage.setItem(storageKey,JSON.stringify({format:2,completed:[...solved].map(k=>byKey.get(k).saveRef),lastWard,mode}));
-    canSave=true;
-  } catch {canSave=false;announce("このブラウザでは進み具合を保存できません。")}
+  if(!canSave)return false;
+  try{
+    const latest=localStorage.getItem(storageKey);
+    const previous=latest===null?{}:validateProgress(latest);
+    if(latest!==progressRaw&&(previous.generation||'')!==progressGeneration){
+      readSave();closePanel();drawHome();announce("別の画面で進行が変わりました。新しい記録を読み込みました。");
+      return false;
+    }
+    for(const key of savedKeys(previous))if(byKey.has(key))solved.add(key);
+    if(latest!==localStorage.getItem(storageKey))throw Error('conflict');
+    const next=JSON.stringify({format:2,completed:[...solved].map(k=>byKey.get(k).saveRef),lastWard,mode,generation:progressGeneration});
+    localStorage.setItem(storageKey,next);progressRaw=next;return true;
+  }catch{announce("このブラウザでは進み具合を保存できません。");return false;}
 }
 readSave();
 const done=w=>w.questions.reduce((n,q)=>n+Number(solved.has(q.key)),0);
 const hasBadge=w=>w.questions.length>0&&done(w)===w.questions.length;
 const allDone=()=>questions.length>0&&solved.size===questions.length;
+wasCompleted=allDone();
 const nagoyaDone=()=>hasBadge(nagoyaCity);
 const progress=(n,total)=>'<div class="progress-bar" role="progressbar" aria-label="正解の進み具合" aria-valuenow="'+n+'" aria-valuemin="0" aria-valuemax="'+total+'"><i style="width:'+Math.min(100,100*n/Math.max(total,1))+'%"></i></div>';
 const kicker=s=>'<div class="kicker"><i></i>'+s+'</div>';
@@ -171,6 +185,9 @@ function drawHome(){
   $('#townsDone').textContent=fmt(solved.size);$('#totalCount').textContent='/ '+fmt(questions.length)+' 問';
   $('#start span').textContent=allDone()?'記念品を見る':solved.size?'旅をつづける':'旅をはじめる';
   $('#scopeCount').textContent=fmt(questions.length)+'問の町名・丁目・小字';
+  $('#ending-open').hidden=!allDone();
+  $('#reset-progress').disabled=!canSave||!navigator.locks?.request||!solved.size;
+  try{$('#restore-progress').hidden=!canSave||!navigator.locks?.request||localStorage.getItem(backupKey)===null;}catch{$('#restore-progress').hidden=true;}
   renderDirectory();
 }
 function searchKey(text){
@@ -235,7 +252,7 @@ function wardRows(){const w=wardView,term=$("#wardFilter").value.trim();const ty
 }
 function hash(s){let h=2166136261;for(const c of s)h=Math.imul(h^c.charCodeAt(0),16777619);return h>>>0}
 function startGame(){
-  if(allDone()){showReward();return}
+  if(allDone()){showEnding();return}
   let w=byWard.get(lastWard)||wards[0];if(done(w)===w.questions.length)w=wards.find(x=>x.pref===w.pref&&done(x)<x.questions.length)||wards.find(x=>done(x)<x.questions.length);
   startWard(w);
 }
@@ -259,14 +276,19 @@ function answer(value){
   const s=active;if(!s||s.right)return;
   s.entry=value;
   if(!kana(value))s.text="読みを入力してから「答える」を押してちょう。";
-  else if(answerForms(s.q).includes((s.q.local||s.q.abr?azaKana:kana)(value))){s.right=true;solved.add(s.q.key);persist();drawHome()}
+  else if(answerForms(s.q).includes((s.q.local||s.q.abr?azaKana:kana)(value))){
+    s.right=true;solved.add(s.q.key);persist();
+    if(!panel.open)return;
+    drawHome();
+    if(allDone()&&!wasCompleted){wasCompleted=true;showEnding();return;}
+  }
   else s.text="惜しい！　もういっぺん挑戦してみてちょう。";
   drawQuiz();if(s.right)body.querySelector(".next-btn")?.focus({preventScroll:true});
 }
 function nextQuestion(){
   const s=active;if(!s||!s.right)return;const w=byWard.get(s.q.ward);
   if(hasBadge(w)&&!s.had){wardFinish(w);return}
-  if(allDone()){showReward();return}
+  if(allDone()){showEnding();return}
   const index=w.questions.indexOf(s.q);
   for(let i=1;i<=w.questions.length;i++){const q=w.questions[(index+i)%w.questions.length];if(!solved.has(q.key)){ask(q);return}}
   ask(w.questions[(index+1)%w.questions.length]);
@@ -333,8 +355,90 @@ function handleAction(e){
     case "leaveQuiz":showWard(byWard.get(active.q.ward));break;
   }
 }
+function showEnding(){
+  if(!allDone())return;
+  switchView('ending', kicker('GRAND TOUR COMPLETE')+'<h2 id="dialogTitle">地図の向こうへ</h2><p>愛知の朝、岐阜の山あい、三重の海風。読めなかった地名が、いまは旅を思い出す言葉になった。</p><p>東海3県の確認済み '+fmt(questions.length)+' 問をすべて正解。獲得したバッジや記念品は、いつでもコレクションから見返せます。</p>'+button('記念品とバッジを見る','badges'));
+}
+const drillPool=new Map(PREFECTURES.map(({id})=>[id,questions.filter(q=>byWard.get(q.ward)?.pref===id&&q.term&&q.answer&&q.answer.length>1)]));
+let drill=null;
+function drillMenu(){
+  switchView('drill-menu',kicker('FIVE-PLACE DETOUR')+'<h2 id="dialogTitle">今日の5問・読み歩き</h2><p>県を選ぶと今日の5問が始まります。本編の正解数・バッジ・途中の出発地は変わりません。日本時間の午前0時に入れ替わります。</p><div class="actions">'+PREFECTURES.map(({id})=>'<button type="button" class="secondary" data-drill="'+id+'">'+esc(prefectureName(id))+'</button>').join('')+'</div>');
+  for(const b of body.querySelectorAll('[data-drill]'))b.onclick=()=>{
+    const id=b.dataset.drill;
+    drill={list:TokaiDrill.sample(drillPool.get(id),Date.now(),id),index:0,score:0,id};
+    drawDrill();
+  };
+}
+function drawDrill(){
+  const d=drill;
+  if(d.index>=d.list.length){
+    switchView('drill-finish',kicker('DETOUR COMPLETE')+'<h2 id="dialogTitle">読み歩き、おつかれさま！</h2><p>'+esc(prefectureName(d.id))+'で '+d.score+' / '+d.list.length+' 問正解。本編の記録は変更していません。</p><button type="button" class="primary" id="drill-again">もう一度コースを選ぶ</button>');
+    $('#drill-again').onclick=drillMenu;return;
+  }
+  const q=d.list[d.index],w=byWard.get(q.ward);
+  switchView('drill',kicker('DETOUR • '+(d.index+1)+' / '+d.list.length)+'<p>'+esc(w.prefName+'・'+w.name+(q.parent?' ・ '+q.parent:''))+'</p><div class="question-card"><h2 id="dialogTitle">'+esc(q.term)+'</h2></div><form id="drillForm" class="reading-form"><label class="formlabel" for="drill-input">地名の読み</label><input type="text" id="drill-input" autocomplete="off" maxlength="100" placeholder="ひらがな・カタカナ"><button class="primary" type="submit">答える</button></form><p id="drill-feedback" class="feedback" role="status"></p><button type="button" class="secondary" id="drill-next" hidden>次へ</button>');
+  const form=$('#drillForm'),input=$('#drill-input'),feedback=$('#drill-feedback'),next=$('#drill-next');
+  let answered=false,composing=false;
+  input.oncompositionstart=()=>{composing=true;};input.oncompositionend=()=>{composing=false;};
+  input.onkeydown=e=>{if(e.key==='Enter'&&(composing||e.isComposing||e.keyCode===229))e.preventDefault();};
+  form.onsubmit=e=>{
+    e.preventDefault();if(answered||composing)return;
+    const value=(q.local||q.abr?azaKana:kana)(input.value);
+    if(!value){feedback.textContent='読みを入力してください。';return;}
+    answered=true;input.disabled=true;form.querySelector('button').disabled=true;
+    const correct=answerForms(q).includes(value);
+    if(correct)d.score++;
+    feedback.classList.add(correct?'good':'bad');
+    feedback.textContent=(correct?'正解！ ':'読みは「')+q.answer+(correct?'':'」です。');
+    next.hidden=false;next.textContent=d.index===d.list.length-1?'結果を見る':'次へ';next.focus();
+  };
+  next.onclick=()=>{if(!answered)return;d.index++;drawDrill();};
+  input.focus({preventScroll:true});
+}
+function showRecordPrompt(restoring){
+  if(!canSave||!navigator.locks?.request)return;
+  try{
+    // First copy the legacy record; never change the old key or make a valid
+    // older save inaccessible even when legacy browser tabs remain open.
+    if(progressRaw===null&&!persist())throw Error('進行の保存を確認できません。');
+    const expected=localStorage.getItem(storageKey), expectedBackup=localStorage.getItem(backupKey);
+    if(expected!==progressRaw)throw Error('別の画面で進行が変わりました。再読み込みしてください。');
+    validateProgress(expected);
+    if(restoring)validateProgress(expectedBackup);
+    switchView('record-switch',kicker('LOCAL RECORDS')+'<h2 id="dialogTitle">'+(restoring?'保管した進行に切り替えますか？':'本編の進行をリセットしますか？')+'</h2><p>'+(restoring?'現在の進行と保管した進行を入れ替えます。':'正解数・バッジ・再開地点が最初に戻ります。直前の進行はこのブラウザに保管されます。前回のバックアップは置き換わります。')+'</p><div class="actions"><button type="button" id="records-cancel" class="secondary">キャンセル</button><button type="button" id="records-apply" class="primary">'+(restoring?'切り替える':'リセットする')+'</button></div>');
+    $('#records-cancel').onclick=closePanel;$('#records-cancel').focus();
+    $('#records-apply').onclick=async e=>{
+      e.currentTarget.disabled=true;
+      try{
+        await navigator.locks.request(storageKey,()=>{
+          if(!panel.open||panelMode!=='record-switch')return;
+          const previous=restoring?validateProgress(expectedBackup):{format:2,completed:[],lastWard:'higashi',mode};
+          const generation=globalThis.crypto?.randomUUID?.()??Date.now()+':'+Math.random();
+          ZatuRecords.exchange(localStorage,storageKey,backupKey,{expected,expectedBackup,next:JSON.stringify({...previous,generation}),validate:validateProgress});
+          readSave();wasCompleted=allDone();drawHome();closePanel();
+          announce(restoring?'保管した進行に戻しました。':'本編を最初から始めました。直前の進行は復元できます。');
+        });
+      }catch(e){closePanel();announce(e.message||'現在の進行は変更していません。');}
+    };
+  }catch(e){announce(e.message);}
+}
+$('#drill-start').onclick=drillMenu;
+$('#ending-open').onclick=showEnding;
+$('#reset-progress').onclick=()=>showRecordPrompt(false);
+$('#restore-progress').onclick=()=>showRecordPrompt(true);
 document.addEventListener("click",handleAction);
-window.addEventListener("storage",e=>{if(e.key!==storageKey)return;readSave();drawHome();if(panelMode==="reward")showReward();else if(panelMode==="badge"&&currentBadge)showBadge(currentBadge);else if(panelMode==="keychain")showKeychain()});
+window.addEventListener("storage",e=>{
+  if(e.key!==storageKey&&e.key!==backupKey&&e.key!==null&&!(e.key===legacyKey&&progressRaw===null))return;
+  if(e.key===backupKey){drawHome();return;}
+  const oldGeneration=progressGeneration;
+  readSave();wasCompleted=allDone();drawHome();
+  if(oldGeneration!==progressGeneration){
+    if(!panelMode.startsWith('drill'))closePanel();
+    announce('別の画面で進行が切り替わりました。');
+  }else if(panelMode==="reward")showReward();
+  else if(panelMode==="badge"&&currentBadge)showBadge(currentBadge);
+  else if(panelMode==="keychain")showKeychain();
+});
 drawHome();
 
 $("#lookCastle").onclick=()=>{

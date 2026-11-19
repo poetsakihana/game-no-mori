@@ -1,3 +1,24 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#203e40"><title>東京よみめぐり</title><link rel="icon" href="./favicon.svg">  <script type="module" crossorigin src="./assets/index-CEbv4Y_H.js?v=e33cb4bc4860"></script>
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#203e40"><title>東京よみめぐり</title><link rel="icon" href="./favicon.svg">  <script type="module" crossorigin src="./assets/index-CEbv4Y_H.js?v=tokyo-1.1.0-web.1"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-BtB_Y-so.css">
-<link rel="stylesheet" href="browser.css"></head><body><nav class="zatu-browser-bar" aria-label="ZatuPlay ブラウザ版"><a href="../../browser/">← ブラウザ版一覧</a><p>ブラウザ版：進み具合はこの端末・このブラウザ内に保存されます。APK版・別の端末とは共有されません。サイトデータを削除すると記録も消えます。</p></nav><noscript><p class="zatu-browser-loading">このゲームを遊ぶには JavaScript を有効にしてください。</p></noscript><div id="root"></div></body></html>
+<link rel="stylesheet" href="browser.css"><link rel="stylesheet" href="tokyo-update.css?v=1.1.0-web.1"></head><body><nav class="zatu-browser-bar" aria-label="ZatuPlay ブラウザ版"><a href="../../browser/">← ブラウザ版一覧</a><p>ブラウザ版：進み具合はこの端末・このブラウザ内に保存されます。APK版・別の端末とは共有されません。サイトデータを削除すると記録も消えます。</p></nav><noscript><p class="zatu-browser-loading">このゲームを遊ぶには JavaScript を有効にしてください。</p></noscript><section class="tokyo-extras" aria-label="東京よみめぐりの追加機能">
+<button type="button" id="tokyo-practice" disabled>三つの路・読み練習</button>
+<button type="button" id="tokyo-ending" hidden>全地域読破のエンディング</button>
+<button type="button" id="tokyo-reset" disabled>記録をリセット</button>
+<button type="button" id="tokyo-recover" hidden disabled>リセット前の記録を復元</button>
+<p id="tokyo-status" role="status">記録を読み込んでいます。</p></section>
+<dialog id="tokyo-practice-dialog" class="tokyo-dialog" aria-labelledby="tokyo-practice-title">
+<h2 id="tokyo-practice-title">三つの路・読み練習</h2><p>23区・多摩・島しょから、地名を一問ずつ。ここでの正解は本編の進行やお宝に影響しません。</p>
+<form id="tokyo-practice-form"><label id="tokyo-prompt" for="tokyo-answer"></label>
+<input id="tokyo-answer" maxlength="80" autocomplete="off" enterkeyhint="go" autofocus>
+<button type="submit" id="tokyo-next">答える</button> <button type="button" id="tokyo-peek">読みを見る</button>
+<p id="tokyo-feedback" role="status"></p></form>
+<p id="tokyo-round-end" aria-live="polite" hidden></p>
+<button type="button" id="tokyo-replay" hidden>もう一度練習</button> <button type="button" data-tokyo-close>閉じる</button>
+</dialog>
+<dialog id="tokyo-ending-dialog" class="tokyo-dialog" aria-labelledby="tokyo-ending-title"><h2 id="tokyo-ending-title">旅の終わり、東京62地域</h2>
+<p>里山の風、下町の路地、船から見えた島の灯り。読めなかった名前も、今日は声に出せます。</p>
+<p>最後のページに、金色のしおりをひとつ。黄金の江戸弁キーホルダーは、お宝帳に待っています。</p>
+<p>全62地域読破。何度でも、好きなまちへ。</p><button type="button" data-tokyo-close>旅を振り返る</button></dialog>
+<dialog id="tokyo-confirm-dialog" class="tokyo-dialog" aria-labelledby="tokyo-confirm-title"><h2 id="tokyo-confirm-title"></h2><p id="tokyo-confirm-copy"></p>
+<button type="button" data-tokyo-close autofocus>キャンセル</button> <button type="button" id="tokyo-confirm"></button></dialog>
+<script src="tokyo-update.js?v=1.1.0-web.1"></script><div id="root"></div></body></html>
