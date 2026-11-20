@@ -1,7 +1,7 @@
 /* Browser adaptation. Original poems, cast, story and SVGs remain unchanged. */
 (function(root){
 'use strict';
-const KEY='zatuplay.sakihana-shikai.web.v1', FORMAT='zatuplay-sakihana-shikai', VERSION=1;
+const KEY='zatuplay.sakihana-shikai.web.v1', RESET_KEY=KEY+'.before-reset', FORMAT='zatuplay-sakihana-shikai', VERSION=1;
 function fresh(){return {index:0,read:[],favorites:[],collected:{},met:[],position:{x:500,y:400},sound:false};}
 const own=(o,k)=>Object.prototype.hasOwnProperty.call(o,k);
 function record(v){return !!v&&typeof v==='object'&&!Array.isArray(v)&&Object.getPrototypeOf(v)===Object.prototype;}
@@ -42,7 +42,7 @@ function createStore(env,notify){
   return fresh();
  }
  function check(){if(!writable||closed)return false;try{if(storage.getItem(KEY)!==raw){status('別の画面で記録が変わりました。上書きを止めました。現在の記録を書き出してください。');return false;}return true;}catch{status('保存領域にアクセスできません。現在の記録を書き出してください。');return false;}}
- function write(state){if(!check())return false;try{const next=encode(state);storage.setItem(KEY,next);raw=next;return true;}catch{status('自動保存できませんでした。現在の記録はメモリ内にあります。記録を書き出してください。');return false;}}
+ function write(state){if(!check())return false;try{const next=encode(state);storage.setItem(KEY,next);if(storage.getItem(KEY)!==next)throw Error("Readback mismatch");raw=next;return true;}catch{status('自動保存できませんでした。現在の記録はメモリ内にあります。記録を書き出してください。');return false;}}
  function replace(next,current){
   const before=encode(current);backup=before;
   if(!writable)return {ok:true,persisted:false};
@@ -50,9 +50,33 @@ function createStore(env,notify){
   try{storage.setItem(KEY+'.before-import',before);if(storage.getItem(KEY+'.before-import')!==before)throw Error();}catch{status('復元前のバックアップを保存できないため、読み込みを中止しました。現在の記録は変更していません。');return {ok:false,persisted:false};}
   return {ok:write(next),persisted:writable};
  }
+ function resetBackup(){
+  try{const saved=storage?.getItem(RESET_KEY);return saved==null?null:decode(saved);}catch{return null;}
+ }
+ function changeJourney(kind,current){
+  if(closed||!writable)return {ok:false,reason:'readonly'};
+  if(!check())return {ok:false,reason:'conflict'};
+  if(kind!=='reset'&&kind!=='restore')return {ok:false,reason:'invalid'};
+  let next;
+  if(kind==='reset'){next=fresh();next.sound=validate(current).sound;}
+  else{next=resetBackup();if(next===null)return {ok:false,reason:'missing'};}
+  let previous;
+  try{
+   const before=encode(current);
+   previous=storage.getItem(RESET_KEY);
+   storage.setItem(RESET_KEY,before);
+   if(storage.getItem(RESET_KEY)!==before)throw Error('Backup not stored');
+  }catch{return {ok:false,reason:'backup'};}
+  if(!write(next)){
+   // Preserve the previous recovery slot if the main record was not changed.
+   try{if(storage.getItem(KEY)===raw){if(previous===null)storage.removeItem(RESET_KEY);else storage.setItem(RESET_KEY,previous);}}catch{}
+   return {ok:false,reason:'write'};
+  }
+  return {ok:true,next};
+ }
  function external(e){if(e.key===KEY||e.key===null){if(writable)check();}}
  function close(){closed=true;writable=false;if(settleLoad)settleLoad();if(release){release();release=null;}}
- return {load,write,replace,external,close,get writable(){return writable&&!closed;},get original(){return raw;},get backup(){if(backup)return backup;try{return storage?.getItem(KEY+'.before-import')||null;}catch{return null;}}};
+ return {load,write,replace,changeJourney,resetBackup,external,close,get writable(){return writable&&!closed;},get original(){return raw;},get backup(){if(backup)return backup;try{return storage?.getItem(KEY+'.before-import')||null;}catch{return null;}}};
 }
 root.SakihanaSave={KEY,FORMAT,VERSION,fresh,validate,decode,encode,createStore};
 })(typeof window==='object'?window:globalThis);

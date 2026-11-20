@@ -89,17 +89,17 @@
     },
     {
       "id": "tokyo",
-      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/tokyo-kanji/?v=1.0.0-web.1",
-      "version": "1.0.0-web.1",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/tokyo-kanji/?v=1.1.0-web.1",
+      "version": "1.1.0-web.1",
       "checkedAt": "2026-11-11T00:41:16Z",
-      "note": "Chromeで正誤判定・ヒント・地域画像・お宝獲得・再読込後の保存を確認。APKとは自動同期しません。全62地域・1,706問の手動完走・スマホ実機・音の実聴取は未確認。"
+      "note": "23区・多摩・島しょの読み練習、本編のエンディング、確認付きリセットと復元を追加。 Chromeで正誤判定・ヒント・地域画像・お宝獲得・再読込後の保存を確認。APKとは自動同期しません。全62地域・1,706問の手動完走・スマホ実機・音の実聴取は未確認。"
     },
     {
       "id": "battlitia",
       "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/battlitia/",
-      "version": "1.1-web.1",
+      "version": "1.2-web.1",
       "checkedAt": "2026-11-11T01:03:32.777Z",
-      "note": "ソリティア・100面のカードバトル。敵へのダメージ・解放・設定を保存します。配札の途中は保存対象外。APKとは自動同期しません。Chromeで起動・山札操作・設定保存を確認済み。スマホ実機・全100面の手動完走・音の実聴取は未確認。"
+      "note": "固定配札の詰めソリティア3問、100面制覇のエンディング、確認付きリセットと復元を追加。 ソリティア・100面のカードバトル。敵へのダメージ・解放・設定を保存します。配札の途中は保存対象外。APKとは自動同期しません。Chromeで起動・山札操作・設定保存を確認済み。スマホ実機・全100面の手動完走・音の実聴取は未確認。"
     },
     {
       "id": "crossroad",
@@ -113,7 +113,7 @@
       "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/tokai-chimei/",
       "version": "3.1.0-web.1",
       "checkedAt": "2026-11-11T02:56:04.291Z",
-      "note": "愛知・岐阜・三重の125市町村と名古屋16区、84,488問の入力式地名クイズ。正解とバッジ獲得状況はブラウザに保存します。Chromeで東白川村の全3問・バッジ獲得・再読込を確認済み。スマホ実機は未確認。"
+      "note": "愛知・岐阜・三重の地域別日替わり5問、本編のエンディング、確認付きリセットと復元を追加。 愛知・岐阜・三重の125市町村と名古屋16区、84,488問の入力式地名クイズ。正解とバッジ獲得状況はブラウザに保存します。Chromeで東白川村の全3問・バッジ獲得・再読込を確認済み。スマホ実機は未確認。"
     },
     {
       "id": "warai",
@@ -173,24 +173,24 @@
     },
     {
       "id": "collection-09",
-      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/iraira-bo/?v=1.0-web.1",
-      "version": "1.0-web.1",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/iraira-bo/?v=1.1-web.1",
+      "version": "1.1-web.1",
       "checkedAt": "2026-11-12T01:09:27Z",
-      "note": "元APKの全30コース・ルールを保持。Chromeでドラッグによる1面クリア、2面解放/BEST保存、壁衝突/再挑戦、キー移動、途中位置/時間/音設定の保存再開、別タブの上書き防止を確認。全30面の手動攻略・スマホ実機/タッチ・音の実聴取は未確認。APKとは自動同期しません。"
+      "note": "全30コースの時間無制限練習、本編のエンディング、確認付きリセットと復元を追加。 元APKの全30コース・ルールを保持。Chromeでドラッグによる1面クリア、2面解放/BEST保存、壁衝突/再挑戦、キー移動、途中位置/時間/音設定の保存再開、別タブの上書き防止を確認。全30面の手動攻略・スマホ実機/タッチ・音の実聴取は未確認。APKとは自動同期しません。"
     },
     {
       "id": "collection-07",
-      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/fly-battle/?v=1.0-web.2",
-      "version": "1.0-web.2",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/fly-battle/?v=1.1-web.1",
+      "version": "1.1-web.1",
       "checkedAt": "2026-11-12T02:00:26Z",
-      "note": "元APKの全100面・4ライバル・4食材と原音源を保持。Chromeで1面勝利/2面解放、ランキング、途中停止・保存再開、JSON書出し/取消/同一ファイル復元、別タブ保護を確認。全100面の手動完走・スマホ実機/タッチ・音の実聴取は未確認。APKとは自動同期しません。"
+      "note": "追加モードとエンディング、確認付きリセットと復元に対応。 元APKの全100面・4ライバル・4食材と原音源を保持。Chromeで1面勝利/2面解放、ランキング、途中停止・保存再開、JSON書出し/取消/同一ファイル復元、別タブ保護を確認。全100面の手動完走・スマホ実機/タッチ・音の実聴取は未確認。APKとは自動同期しません。"
     },
     {
       "id": "collection-10",
-      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/kotonoha-fortune/?v=1.0.3-web.1",
-      "version": "1.0.3-web.1",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/kotonoha-fortune/?v=1.1.0-web.1",
+      "version": "1.1.0-web.1",
       "checkedAt": "2026-11-12T02:00:26Z",
-      "note": "元APKの1000メニュー・11,114枚のオリジナルカード図鑑を保持。100占術は11簡易実行/29ワーク/60記録専用の娯楽用仕様です。Chromeで抽選/深掘り/履歴、36枚配置、入力復帰、JSON復元、2タブ保護を確認。スマホ実機・全項目の手動一巡は未確認。APKと自動同期しません。"
+      "note": "追加モードとエンディング、確認付きリセットと復元に対応。占いは娯楽用です。 元APKの1000メニュー・11,114枚のオリジナルカード図鑑を保持。100占術は11簡易実行/29ワーク/60記録専用の娯楽用仕様です。Chromeで抽選/深掘り/履歴、36枚配置、入力復帰、JSON復元、2タブ保護を確認。スマホ実機・全項目の手動一巡は未確認。APKと自動同期しません。"
     },
     {
       "id": "collection-41",
@@ -201,10 +201,10 @@
     },
     {
       "id": "collection-42",
-      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/sakihana-shikai/?v=0.4.0-web.2",
-      "version": "0.4.0-web.2",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/sakihana-shikai/?v=0.4.0-web.3",
+      "version": "0.4.0-web.3",
       "checkedAt": "2026-11-12T04:07:41Z",
-      "note": "元APKの2,183詩・50人・全10章を保持。Chromeで通常4詩読了、光の途中保存、JSON復元、2タブ保護を確認。第2章は明示した9詩テスト記録から10詩目を実操作して境界確認し、元記録へ復元。全詩手動攻略・スマホ実機・音の実聴取は未確認。APKと自動同期しません。"
+      "note": "全2,183篇で「結末のない一篇」が解放。旅のリセット前に直前の記録を保管し、あとから復元できます。原詩と既存章は変更していません。隔離Chromeで最終篇直前からの表示・取消・再読込後の復元を確認。元APKの2,183詩・50人・全10章を保持。Chromeで通常4詩読了、光の途中保存、JSON復元、2タブ保護を確認。第2章は明示した9詩テスト記録から10詩目を実操作して境界確認し、元記録へ復元。全詩手動攻略・スマホ実機・音の実聴取は未確認。APKと自動同期しません。"
     },
     {
       "id": "collection-29",
@@ -250,10 +250,10 @@
     },
     {
       "id": "instant",
-      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/instant/?v=4.4.1-web.1",
-      "version": "4.4.1-web.1",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/instant/?v=4.4.1-web.2",
+      "version": "4.4.1-web.2",
       "checkedAt": "2026-11-12T11:58:26Z",
-      "note": "原本の端末内SNS・写真素材・6章の物語を保持。Chromeで登録/再ログイン、投稿/写真/カルーセル、6章1結末、実JSON復元と競合保護を確認。外部SNSではありません。動画・音声、残り2結末の実プレイ、全長期イベント、実機/他ブラウザ/オフラインは未確認。APKとは別保存です。"
+      "note": "3つの後日談と、物語の進行だけを対象にした確認付きリセットと復元を追加。 原本の端末内SNS・写真素材・6章の物語を保持。Chromeで登録/再ログイン、投稿/写真/カルーセル、6章1結末、実JSON復元と競合保護を確認。外部SNSではありません。動画・音声、残り2結末の実プレイ、全長期イベント、実機/他ブラウザ/オフラインは未確認。APKとは別保存です。"
     },
     {
       "id": "collection-38",
@@ -281,7 +281,7 @@
       "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/ichigo-biyori/",
       "version": "1.0.0-web.1",
       "checkedAt": "2026-11-14T08:59:11.690Z",
-      "note": "既存「いちご日和」第4版を移植。100種類・日本時間の暦/四季・難易度・完成図鑑を保持。Chromeで水やり、図鑑100種/検索、再読込保存を確認。Nodeで季節境界、植付制限、肥料間隔、成長、保存復元を検証。スマホ実機・全種の長期育成は未確認。元サイトとは別保存。",
+      "note": "育成の追加目標、エンディング、確認付きリセットと復元に対応。 既存「いちご日和」第4版を移植。100種類・日本時間の暦/四季・難易度・完成図鑑を保持。Chromeで水やり、図鑑100種/検索、再読込保存を確認。Nodeで季節境界、植付制限、肥料間隔、成長、保存復元を検証。スマホ実機・全種の長期育成は未確認。元サイトとは別保存。",
       "app": {
         "name": "いちご日和",
         "subtitle": "100種類を育てる季節の庭",
@@ -571,6 +571,13 @@
         ],
         "order": 1022
       }
+    },
+    {
+      "id": "nagoya-ben-juku",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/nagoya-ben-juku/",
+      "version": "1.0.1-web.1",
+      "checkedAt": "2026-11-20",
+      "note": "Android版1.0.1の四択150問・10ジャンル・例文・復習を維持。全問正解のエンディングと確認付き初期化・復元つき。Chromeで検証用の最終問からエンディング、初期化・復元を確認済み。スマホ実機は未確認。APKや別サイトとは保存が自動同期しません。"
     }
   ],
   "updatedAt": "2026-11-18T11:17:17.288078+00:00"

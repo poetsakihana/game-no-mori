@@ -1,7 +1,7 @@
 'use strict';
 const $=s=>document.getElementById(s),c=$('world'),g=c.getContext('2d');let poems=[],idx=0,px=500,py=390,lights=[],found=[],keys={},target=null,tick=0,filter=false,audio=null,muted=true;
 const Save=window.SakihanaSave;let state=Save.fresh(),ready=false,paused=false,lastFrame=null,lastSave=0,dirty=false,importToken=0,pendingImport=null,storageWarning=false,startupCanceled=false;
-const store=Save.createStore(window,text=>{storageWarning=true;$('storage-status').textContent=text;$('storage-status').classList.add('warning');$('export-original').hidden=store.original===null;if(ready)pause('保存の状態が変わりました。説明を確認してから再開してください。');});
+const store=Save.createStore(window,text=>{storageWarning=true;$('storage-status').textContent=text;$('storage-status').classList.add('warning');$('export-original').hidden=store.original===null;if(ready){syncJourney();pause('保存の状態が変わりました。説明を確認してから再開してください。');}});
 function clearInput(){keys={};target=null;}
 function snapshot(){state.index=idx;state.position={x:px,y:py};state.sound=!muted;return state;}
 function pause(reason='旅を一時停止しています。'){if(!ready)return;paused=true;clearInput();lastFrame=null;$('pause-reason').textContent=reason;$('pause-overlay').hidden=false;$('pause').textContent='再開';if(audio)try{audio.suspend().catch(()=>{});}catch{};save();}
@@ -11,9 +11,9 @@ function active(){return ready&&!paused&&!document.hidden&&!modalOpen();}
 const hero=new Image();hero.src='assets/traveler.svg?v=0.4.0-web.2';
 const guides=window.SAKIHANA_CAST;
 const guideImages=guides.map(q=>{let im=new Image();im.src='assets/'+q.file+'.svg?v=0.4.0-web.2';return im});
-let speechStep=0;const npc={x:365,y:355};
+let pendingJourney=null;let speechStep=0;const npc={x:365,y:355};
 function guideIndex(){return idx%guides.length}
-function modalOpen(){return ['reader','catalog','character-dialog','cast','conversation','story-dialog','import-dialog'].some(id=>$(id).open)}
+function modalOpen(){return ['reader','catalog','character-dialog','cast','conversation','story-dialog','import-dialog','ending-dialog','journey-dialog'].some(id=>$(id).open)}
 function updateGuide(){const q=guides[guideIndex()];$('guide-name').textContent=q.name;$('guide-role').textContent=q.role;$('guide-portrait').src='assets/'+q.file+'.svg?v=0.4.0-web.2';$('guide-portrait').alt=q.name+'：'+q.role}
 function speak(){if(!active())return;const q=guides[guideIndex()];speechStep=0;state.met ||= [];if(!state.met.includes(guideIndex()))state.met.push(guideIndex());save();$('speaker-name').textContent=q.name;$('speaker-image').src='assets/'+q.file+'.svg?v=0.4.0-web.2';$('speaker-image').alt=q.name;$('speech').textContent=q.intro;$('speech-next').textContent='つづきを聞く';$('speech-next').disabled=false;showDialog('conversation');ping(523)}
 $('speech-next').onclick=()=>{speechStep++;if(speechStep===1){$('speech').textContent=qAdvice()+'\nこの風景は「'+poems[idx].title+'」につながっているよ。３つの光を集めて詩碑へ。';$('speech-next').textContent='もうひとこと'}else if(speechStep===2){$('speech').textContent=found.length===3?'もう３つ揃っているね。詩碑のそばで「調べる」を押して、詩の声を聴いてみよう。':'今は'+found.length+'つ見つけたんだね。光っている場所まで歩いてみよう。あなたのペースで大丈夫。';$('speech-next').textContent='旅に戻る'}else $('conversation').close()};
@@ -43,7 +43,7 @@ window.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.targe
 window.addEventListener('keyup',e=>{let key=e.key.length===1?e.key.toLowerCase():e.key;keys[key]=false;});
 window.addEventListener('blur',()=>pause('画面から離れたため、一時停止しました。'));
 document.addEventListener('visibilitychange',()=>{if(document.hidden)pause('画面を閉じたため、一時停止しました。');});
-window.addEventListener('pagehide',()=>{startupCanceled=true;importToken++;pendingImport=null;pause();store.close();});
+window.addEventListener('pagehide',()=>{startupCanceled=true;importToken++;pendingImport=null;pendingJourney=null;pause();store.close();});
 window.addEventListener('pageshow',e=>{if(e.persisted){if(!ready){$('title').textContent='読み込みを中断しました。';$('message').textContent='ページを再読み込みして旅を始めてください。';}storageWarning=true;$('storage-status').textContent='履歴から戻りました。自動保存を再開するには再読み込みしてください。現在の記録は書き出せます。';pause('履歴から戻りました。記録を確認してから再開してください。');}});
 window.addEventListener('storage',e=>store.external(e));
 $('pause').onclick=()=>paused?resume():pause();$('resume').onclick=resume;
@@ -65,7 +65,38 @@ $('import-confirm').onclick=()=>{if(!pendingImport)return;const next=pendingImpo
 function qAdvice(){return guides[guideIndex()].advice}
 function renderCast(){let grid=document.querySelector('#cast .cast-grid');grid.replaceChildren();const all=[{name:'名前のない旅人',file:'traveler',role:'詩から生まれた主人公',intro:'まだ結末を持たない一篇。詩の声と、49人の住人に出会う。'},...guides];let query=$('cast-search').value.trim();all.forEach((q,i)=>{if(query&&!(q.name+q.role).includes(query))return;let a=document.createElement('article'),im=document.createElement('img'),h=document.createElement('h3'),p=document.createElement('p'),small=document.createElement('small');im.src='assets/'+q.file+'.svg?v=0.4.0-web.2';im.alt=q.role;im.loading='lazy';h.textContent=String(i+1).padStart(2,'0')+' '+q.name;p.textContent=q.role;small.textContent=i===0?'主人公':((state.met||[]).includes(i-1)?'出会いました':'未対話')+' · 初登場：詩 '+q.first;a.append(im,h,p,small);if(i){let b=document.createElement('button');b.textContent='初登場の詩へ';b.onclick=()=>{enter(q.first-1);$('cast').close()};a.append(b)}grid.append(a)});$('cast-count').textContent='全50種類 · 会話した住人 '+(state.met||[]).length+' / 49'}
 $('cast-search').oninput=renderCast;
-function updateStory(){let n=state.read.length,chapters=window.SAKIHANA_STORY,available=chapters.filter(x=>n>=x.need),current=available[available.length-1];$('story-title').textContent=current.title;$('story-progress').textContent=available.length+' / 10章 · 次章 '+(chapters[available.length]?chapters[available.length].need+'篇との出会い':'全章解放');}
+function syncJourney(){
+ $('reset-journey').disabled=!store.writable;
+ $('restore-journey').disabled=!store.writable||store.resetBackup()===null;
+}
+function journeyDialog(kind){
+ if(!ready||!store.writable||modalOpen()||(kind==='restore'&&!store.resetBackup()))return;
+ pendingJourney=kind;clearInput();lastFrame=null;
+ $('journey-title').textContent=kind==='reset'?'旅を最初から始めますか？':'前の旅の記録に戻しますか？';
+ $('journey-info').textContent=kind==='reset'?'出会った詩・お気に入り・集めた光・会話・現在地を初期化します。音の設定はそのままです。いまの旅はこのブラウザに1件だけ保存され、前のリセット用バックアップは置き換わります。':'直前の旅に戻ります。現在の旅は同じバックアップ枠に残るため、もう一度戻すこともできます。';
+ $('journey-confirm').textContent=kind==='reset'?'リセットする':'復元する';
+ $('journey-dialog').showModal();$('journey-cancel').focus();
+}
+function cancelJourney(){pendingJourney=null;$('journey-dialog').close();$('transfer-status').textContent='操作を取り消しました。旅の記録は変わっていません。';}
+$('reset-journey').onclick=()=>journeyDialog('reset');
+$('restore-journey').onclick=()=>journeyDialog('restore');
+$('journey-cancel').onclick=cancelJourney;
+$('journey-dialog').addEventListener('cancel',e=>{e.preventDefault();cancelJourney()});
+$('journey-confirm').onclick=()=>{
+ const op=pendingJourney;if(!ready||!op)return;
+ pendingJourney=null;$('journey-dialog').close();
+ const result=store.changeJourney(op,snapshot());syncJourney();
+ if(!result.ok){$('transfer-status').textContent='記録の変更を完了できませんでした。いまの旅は画面に残っています。必要なら先に書き出し、別のタブや保存容量を確認してください。';return;}
+ state=result.next;muted=!state.sound;
+ $('sound').textContent=muted?'音：オフ':'音：オン';
+ enter(state.index,state.position);
+ $('transfer-status').textContent=op==='reset'?'旅をリセットしました。「前の旅を復元」で戻せます。':'前の旅を復元しました。';
+};
+$('ending-open').onclick=()=>{
+ const last=window.SAKIHANA_STORY.at(-1);if(!ready||state.read.length<last.need)return;
+ $('ending-title').textContent=last.title;$('ending-copy').textContent=last.body;showDialog('ending-dialog');
+};
+function updateStory(){let n=state.read.length,chapters=window.SAKIHANA_STORY,available=chapters.filter(x=>n>=x.need),current=available[available.length-1];$('story-title').textContent=current.title;$('ending-open').hidden=n<chapters.at(-1).need;$('story-progress').textContent=available.length+' / 10章 · 次章 '+(chapters[available.length]?chapters[available.length].need+'篇との出会い':'全章解放');}
 $('story-open').onclick=()=>{let list=$('story-list');list.replaceChildren();window.SAKIHANA_STORY.forEach((q,i)=>{let a=document.createElement('article'),h=document.createElement('h3'),p=document.createElement('p');h.textContent='第'+(i+1)+'章 '+(state.read.length>=q.need?q.title:'未解放');p.textContent=state.read.length>=q.need?q.body:q.need+'篇との出会いで解放';a.className='line';a.append(h,p);list.append(a)});showDialog('story-dialog')};
 
 
@@ -74,5 +105,5 @@ document.querySelectorAll('button').forEach(b=>b.disabled=true);
 Promise.all([fetch('poems.json?v=0.4.0-web.2').then(r=>{if(!r.ok)throw Error();return r.json();}),store.load()]).then(([p,s])=>{
  if(startupCanceled)return;
  if(!Array.isArray(p)||p.length!==2183||p.some((v,i)=>v.id!==i+1||typeof v.title!=='string'||!v.title||typeof v.body!=='string'||!v.body))throw Error();
- poems=p;state=s;muted=!state.sound;ready=true;document.querySelectorAll('button').forEach(b=>b.disabled=false);$('sound').textContent=muted?'音：オフ':'音：オン';enter(state.index,state.position);$('export-original').hidden=store.original===null;$('export-backup').hidden=store.backup===null;requestAnimationFrame(draw);
+ poems=p;state=s;muted=!state.sound;ready=true;document.querySelectorAll('button').forEach(b=>b.disabled=false);$('sound').textContent=muted?'音：オフ':'音：オン';enter(state.index,state.position);syncJourney();$('export-original').hidden=store.original===null;$('export-backup').hidden=store.backup===null;requestAnimationFrame(draw);
 }).catch(()=>{if(startupCanceled)return;$('title').textContent='詩集を読み込めませんでした。';$('message').textContent='通信を確認してページを再読み込みしてください。保存済み記録は変更していません。';store.close();});
