@@ -38,12 +38,101 @@ const fmt=num=>Number(num||0).toLocaleString('ja-JP');
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 const imgTag=(id,cls='',more='')=>`<img src="${CHARACTER_IMAGES[id]}" class="${cls}" alt="${esc(NAMES[id])}" ${more}>`;
 const dayJST=()=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-const STORE_KEY='zatsuworld-save-v1';
 function blankState(){return {ver:1,coins:2000,hearts:3,unlocked:1,clearedStages:{},stageRewards:{},storyCatchup:[],stageStats:{},owned:{'0':{level:1,spares:0}},selectedChar:0,totalPlays:0,totalClears:0,totalWins:0,gifts:0,skillUses:0,highCombo:0,achievements:{},settings:{bgm:true,sfx:true,voice:false,lightFx:false},daily:{date:dayJST(),plays:0,clears:0,skill:0,gifts:0,claimed:[]}};}
 let state=blankState(),game=null,activeScreen='title',activeTab='stages',audioCtx=null,bgmTimer=null,bgmStep=0,frameId=null,toastTimer=null;
 function normalizeState(s){let base=blankState();if(!s||s.ver!==1)return base;let r={...base,...s,owned:s.owned&&typeof s.owned==='object'?s.owned:base.owned,settings:{...base.settings,...s.settings},daily:{...base.daily,...s.daily}};if(r.daily.date!==dayJST())r.daily={date:dayJST(),plays:0,clears:0,skill:0,gifts:0,claimed:[]};r.coins=Math.max(0,Number(r.coins)||0);r.hearts=Math.max(0,Number(r.hearts)||0);r.unlocked=Math.max(1,Math.min(100,Number(r.unlocked)||1));r.owned=Object.fromEntries(Object.entries(r.owned).filter(([id])=>/^\d+$/.test(id)&&Number(id)>=0&&Number(id)<CHARACTER_COUNT).map(([id,v])=>[id,{level:Math.max(1,Math.min(50,Math.floor(Number(v?.level)||1))),spares:Math.max(0,Math.min(99999,Math.floor(Number(v?.spares)||0)))}]));if(!r.owned['0'])r.owned['0']={level:1,spares:0};r.selectedChar=r.owned[String(r.selectedChar)]?Number(r.selectedChar):0;r.daily.claimed=Array.isArray(r.daily.claimed)?[...new Set(r.daily.claimed.filter(id=>MISSIONS.some(m=>m.id===id)))]:[];for(const key of ['plays','clears','skill','gifts'])r.daily[key]=Math.max(0,Math.floor(Number(r.daily[key])||0));for(const key of ['clearedStages','stageStats','achievements'])if(!r[key]||typeof r[key]!=='object'||Array.isArray(r[key]))r[key]={};r.stageRewards=Object.fromEntries(Object.entries(r.stageRewards&&typeof r.stageRewards==='object'?r.stageRewards:{}).filter(([id,v])=>/^\d+$/.test(id)&&Number(id)>=1&&Number(id)<=100&&v===true));r.storyCatchup=Array.isArray(r.storyCatchup)?[...new Set(r.storyCatchup.filter(n=>Number.isInteger(n)&&n>=1&&n<=100))]:[];r.stageStats=Object.fromEntries(Object.entries(r.stageStats).filter(([id,rec])=>rec&&typeof rec==='object'));return r;}
-let dbPromise;
-function save(){const packet={...state,updatedAt:Date.now()};try{localStorage.setItem(STORE_KEY,JSON.stringify(packet));}catch(e){toast('保存できません。ブラウザの空き容量を確認してちょー。');}openDb().then(db=>{if(!db)return;try{const tx=db.transaction('saves','readwrite');tx.objectStore('saves').put(packet,'main')}catch(e){console.warn('IndexedDB書き込み失敗',e)}});}
+const LEGACY_KEY='zatsuworld-save-v1', RECORD_KEY='zatsuworld-save-v2';
+const isObject=o=>o!==null&&typeof o==='object'&&!Array.isArray(o);
+function validPacket(p){
+ return isObject(p)&&p.ver===1&&[p.coins,p.hearts,p.unlocked].every(n=>Number.isFinite(n)&&n>=0)
+  &&Number.isInteger(p.unlocked)&&p.unlocked>=1&&p.unlocked<=100
+  &&isObject(p.owned)&&isObject(p.owned['0'])&&isObject(p.settings)&&isObject(p.daily)
+  &&isObject(p.clearedStages)&&isObject(p.stageStats)
+  &&(p.updatedAt===undefined||(Number.isFinite(p.updatedAt)&&p.updatedAt>=0));
+}
+function decodeRecord(raw){
+ const entry=JSON.parse(raw);
+ if(!isObject(entry)||entry.format!==2||!validPacket(entry.current)||(entry.backup!==null&&!validPacket(entry.backup)))throw Error('invalid v2 record');
+ return entry;
+}
+let ownsRecordLock=false,releaseRecordLock=null,recordBusy=false,recordRaw=null,record=null,recordDb=null,recordEpoch=0,mirrorQueue=Promise.resolve();
+const RECORD_LOCK='zatsuworld-v2-writer';
+function acquireRecordLock(){
+ if(!navigator.locks?.request)return Promise.resolve(false);
+ return new Promise(resolve=>{
+  try{navigator.locks.request(RECORD_LOCK,{mode:'exclusive',ifAvailable:true},lock=>{
+   if(!lock){resolve(false);return;}
+   return new Promise(release=>{releaseRecordLock=release;ownsRecordLock=true;resolve(true);});
+  }).catch(()=>resolve(false));}catch{resolve(false);}
+ });
+}
+function signalReadOnly(message){
+ ownsRecordLock=false;recordEpoch++;
+ const label=$('recordSafetyStatus');if(label)label.textContent=message;
+ if($('resetBtn'))$('resetBtn').disabled=true;
+ if($('restoreRecordBtn'))$('restoreRecordBtn').disabled=true;
+}
+function closeRecordLock(){
+ signalReadOnly('このページの保存を停止しました。再開するにはページを再読み込みしてください。');
+ // IDB mirror is never authoritative. Delay lock release until its queued writes settle.
+ const release=releaseRecordLock;releaseRecordLock=null;mirrorQueue.finally(()=>release?.());
+}
+function compareAndSet(expected,next){
+ if(!ownsRecordLock||localStorage.getItem(RECORD_KEY)!==expected)throw Error('record conflict');
+ localStorage.setItem(RECORD_KEY,next);
+ if(localStorage.getItem(RECORD_KEY)!==next)throw Error('record readback');
+}
+function writeMirror(db,envelope){
+ return idbAction(db,'readwrite',(store,tx)=>{
+  store.put(envelope,'record');
+  const check=store.get('record');
+  check.onsuccess=()=>{if(JSON.stringify(check.result)!==JSON.stringify(envelope))tx.abort();};
+ });
+}
+function save(){
+ if(!ownsRecordLock||recordBusy||!record)return false;
+ try{
+  const next={...record,current:{...state,updatedAt:Date.now()}},encoded=JSON.stringify(next);
+  compareAndSet(recordRaw,encoded);record=decodeRecord(encoded);recordRaw=encoded;
+  if(recordDb){
+   const snapshot=record,epoch=recordEpoch;
+   mirrorQueue=mirrorQueue.then(()=>{if(ownsRecordLock&&epoch===recordEpoch)return writeMirror(recordDb,snapshot);})
+    .catch(()=>toast('予備データは保存できませんでした。端末内の記録は保存済みです。'));
+  }
+  return true;
+ }catch{
+  signalReadOnly('保存結果を確認できなかったため、上書きを停止しました。再読み込みしてください。');
+  toast('このタブでの保存を停止しました。');return false;
+ }
+}
+async function replaceRecord(next){
+ if(!ownsRecordLock||recordBusy||!record||!recordDb)return false;
+ recordBusy=true;document.body.inert=true;
+ const prior=recordRaw,epoch=++recordEpoch;
+ try{
+  await mirrorQueue;
+  const encoded=JSON.stringify({format:2,current:{...next,updatedAt:Date.now()},backup:{...state,updatedAt:Date.now()}});
+  const replacement=decodeRecord(encoded),normalized=normalizeState(replacement.current);
+  if(!ownsRecordLock||localStorage.getItem(RECORD_KEY)!==prior)throw Error('conflict');
+  const write=writeMirror(recordDb,replacement);mirrorQueue=write.catch(()=>{});await write;
+  if(epoch!==recordEpoch)throw Error('page closed');
+  compareAndSet(prior,encoded);
+  recordRaw=encoded;record=replacement;state=normalized;
+ }catch(e){
+  if(ownsRecordLock)signalReadOnly('記録の切り替えを確認できませんでした。再読み込みして記録を確認してください。');
+  toast('記録の切り替えを完了できませんでした。');return false;
+ }finally{recordBusy=false;document.body.inert=false;}
+ stopMusic();goToStages();showScreen('title');toast('記録を切り替えました。直前の記録は復元できます。');return true;
+}
+function askReset(){
+ if(!ownsRecordLock||!recordDb)return;
+ showModal('セーブデータを初期化しますか？','<p>コイン、ハート、キャラ収集、全100話の進行と設定を初期状態に戻します。直前の記録をこのブラウザに1件退避します。以前の退避は入れ替わります。</p>',[{text:'退避して初期化',action:()=>{closeModal();replaceRecord(blankState());}},{text:'キャンセル',style:'outline',action:closeModal}]);
+}
+function askRestore(){
+ if(!ownsRecordLock||!recordDb)return;
+ const target=record?.backup;if(!target){toast('復元できる退避記録がありません。');return;}
+ showModal('直前の記録を復元しますか？','<p>現在の進行を直前の退避記録に戻します。現在の記録も新しい退避として残します。</p>',[{text:'復元する',action:()=>{closeModal();replaceRecord(target);}},{text:'キャンセル',style:'outline',action:closeModal}]);
+}
 function toast(msg){let t=document.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)}t.textContent=msg;t.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add('hidden'),2900);}
 function showModal(title,body,actions=[{text:'閉じる',action:closeModal,style:'outline'}]){$('modalTitle').textContent=title;$('modalBody').innerHTML=body;$('modalActions').innerHTML='';actions.forEach(a=>{let b=document.createElement('button');b.className=a.style==='outline'?'btn-outline':'btn-primary';b.textContent=a.text;b.addEventListener('click',a.action);$('modalActions').appendChild(b)});$('modal').classList.remove('hidden');}
 function closeModal(){$('modal').classList.add('hidden');}
@@ -394,27 +483,76 @@ function finishGame(){if(!game||game.finished)return;game.finished=true;resetBoa
 function renderRanks(stage,clears,score){let members=cpuRoster(stage).map(p=>({...p,me:false}));members.push({id:-1,name:'あなた',clears,score,me:true});members.sort((a,b)=>b.clears-a.clears||b.score-a.score||Number(b.me)-Number(a.me));let idx=members.findIndex(x=>x.me),windowIndices=new Set([0,1,2]);for(let j=Math.max(0,idx-5);j<=Math.min(members.length-1,idx+5);j++)windowIndices.add(j);let positions=[...windowIndices].sort((a,b)=>a-b);return positions.map((at,i)=>{let p=members[at],rank=1+members.filter(x=>x.clears>p.clears||(x.clears===p.clears&&x.score>p.score)).length;return `${i&&at-positions[i-1]>1?'<div class="rank-row">　…　</div>':''}<div class="rank-row ${p.me?'me':''}"><b>${rank}位</b><span>${p.me?'👤 ':''}${p.name}</span><span>${p.clears}個</span></div>`;}).join('');}
 function pauseGame(auto=false){if(!game||game.finished||game.paused)return;game.paused=true;resetBoardInput();syncGameUI();showModal(auto?'自動で一時停止したでね':'⏸️ ポーズ中','<p>ゲームを一時停止しとるでよ。再開すると残り時間から始まるがね。</p>',[{text:'▶ ゲームを再開',action:()=>{closeModal();game.paused=false;game.lastFrame=performance.now();syncGameUI();}},{text:'ステージ選択に戻る',style:'outline',action:()=>{goToStages();}}]);}
 
-// Bounded storage access: a blocked IndexedDB must not leave the start screen inert.
-function openDb(){
- if(!('indexedDB'in window))return Promise.resolve(null);
- if(!dbPromise)dbPromise=new Promise(resolve=>{
-  let done=false;const finish=db=>{if(done){db?.close();return}done=true;clearTimeout(timer);resolve(db)};
-  const timer=setTimeout(()=>finish(null),750);
-  try{const req=indexedDB.open('zatsuworld-game',1);
-   req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains('saves'))req.result.createObjectStore('saves')};
-   req.onsuccess=()=>finish(req.result);req.onerror=()=>finish(null);req.onblocked=()=>finish(null);
-  }catch{finish(null)}
- });return dbPromise;
+// Local v2 is authoritative: progress and rollback live in one atomic value.
+function openRecordDb(name,create){
+ return new Promise((resolve,reject)=>{
+  let request,done=false,absent=false;
+  const finish=(error,db)=>{if(done){db?.close();return;}done=true;clearTimeout(timer);if(error)reject(error);else resolve(db);};
+  const timer=setTimeout(()=>finish(Error('db timeout')),1200);
+  try{
+   request=indexedDB.open(name,1);
+   request.onupgradeneeded=e=>{
+    if(done||!create){absent=e.oldVersion===0;request.transaction.abort();return;}
+    request.result.createObjectStore('saves');
+   };
+   request.onsuccess=()=>finish(null,request.result);
+   request.onerror=()=>{if(!create&&absent)finish(null,null);else finish(request.error||Error('db error'));};
+   request.onblocked=()=>finish(Error('db blocked'));
+  }catch(error){finish(error);}
+ });
+}
+function idbAction(db,mode,work){
+ return new Promise((resolve,reject)=>{
+  let tx,value,settled=false;
+  const finish=(error,result)=>{if(settled)return;settled=true;clearTimeout(timer);error?reject(error):resolve(result);};
+  const timer=setTimeout(()=>{try{tx?.abort();}catch{}finish(Error('IDB timeout'));},1200);
+  try{
+   tx=db.transaction('saves',mode);
+   tx.oncomplete=()=>finish(null,value);
+   tx.onabort=tx.onerror=()=>finish(Error('IDB transaction'));
+   work(tx.objectStore('saves'),tx,v=>{value=v;});
+  }catch(error){try{tx?.abort();}catch{}finish(error);}
+ });
+}
+async function readLegacy(){
+ const raw=localStorage.getItem(LEGACY_KEY),local=raw===null?null:JSON.parse(raw);
+ if(raw!==null&&!validPacket(local))throw Error('invalid legacy local');
+ const db=await openRecordDb('zatsuworld-game',false);
+ let mirror;
+ if(db){
+  try{mirror=await idbAction(db,'readonly',(s,_tx,result)=>{const get=s.get('main');get.onsuccess=()=>result(get.result);});}
+  finally{db.close();}
+ }
+ if(mirror!==undefined&&!validPacket(mirror))throw Error('invalid legacy mirror');
+ if(local&&mirror&&(local.updatedAt||0)===(mirror.updatedAt||0)&&JSON.stringify(local)!==JSON.stringify(mirror))throw Error('ambiguous legacy');
+ return mirror&&(!local||(mirror.updatedAt||0)>(local.updatedAt||0))?mirror:local;
 }
 async function loadState(){
- let local=null;
- try{const raw=localStorage.getItem(STORE_KEY);if(raw)local=JSON.parse(raw)}catch(e){console.warn('端末内の控えを読み込めません',e)}
- if(local)state=normalizeState(local);
- const db=await openDb();if(!db)return;
- const stored=await new Promise(resolve=>{let done=false;const finish=value=>{if(done)return;done=true;clearTimeout(timer);resolve(value)},timer=setTimeout(()=>finish(null),400);
-  try{const req=db.transaction('saves','readonly').objectStore('saves').get('main');req.onsuccess=()=>finish(req.result);req.onerror=()=>finish(null)}catch{finish(null)}
- });
- if(stored&&(!local||(Number(stored.updatedAt)||0)>(Number(local.updatedAt)||0)))state=normalizeState(stored);
+ try{
+  const locked=await acquireRecordLock();
+  recordRaw=localStorage.getItem(RECORD_KEY);
+  if(recordRaw!==null){
+   record=decodeRecord(recordRaw);state=normalizeState(record.current);
+  }
+  if(!locked){
+   signalReadOnly('別のタブでプレイ中か、保存用の排他制御に対応していません。ここで進めても保存されません。');
+   return;
+  }
+  if(!record){
+   const legacy=await readLegacy();
+   const original=legacy||blankState();
+   const encoded=JSON.stringify({format:2,current:original,backup:null});
+   compareAndSet(null,encoded);recordRaw=encoded;record=decodeRecord(encoded);state=normalizeState(original);
+  }
+ }catch{
+  signalReadOnly('既存の記録を安全に読み込めませんでした。上書きしません。');
+  return;
+ }
+ try{recordDb=await openRecordDb('zatsuworld-game-v2',true);}
+ catch{
+  $('recordSafetyStatus').textContent='端末内の通常保存は使えます。予備データベースに接続できないため初期化と復元はできません。';
+  $('resetBtn').disabled=true;$('restoreRecordBtn').disabled=true;
+ }
 }
 function goToStages(){
  if(frameId!==null){cancelAnimationFrame(frameId);frameId=null}
@@ -430,7 +568,7 @@ function startMusic(){if(bgmTimer||!state.settings.bgm)return;let notes=[392,494
 function stopMusic(){if(bgmTimer){clearInterval(bgmTimer);bgmTimer=null;}}
 function voice(text){if(state.settings.voice&&'speechSynthesis'in window){try{speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang='ja-JP';u.rate=1.1;u.volume=.7;speechSynthesis.speak(u);}catch{}}}
 
-function bind(){$('characterSearch').addEventListener('input',renderCharacters);$('characterGroup').addEventListener('change',renderCharacters);$('nextStoryBtn').onclick=()=>{if(game?.finished&&state.clearedStages[game.stage]&&game.stage<100)stageBrief(game.stage+1)};$('resultJournalBtn').onclick=()=>{goToStages();setTab('story')};$('useRewardBtn').onclick=()=>{const id=game?.stage;if(id&&state.owned[id]){state.selectedChar=id;save();$('useRewardBtn').textContent=NAMES[id]+'を選択中'}};document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));$('startBtn').onclick=()=>{sound('level');goToStages();startMusic();};$('logoBtn').onclick=()=>{if(game&&!game.finished){pauseGame();return;}showScreen('title');};$('pauseBtn').onclick=()=>pauseGame();$('shuffleBtn').onclick=()=>shuffleBoard(true);$('helpBtn').onclick=showHelp;$('giftSkip').onclick=revealGift;$('giftContinue').onclick=closeGift;$('skillBtn').onclick=useSkill;$('openGiftBtn').onclick=openGift;$('resultBackBtn').onclick=goToStages;$('retryBtn').onclick=()=>{let s=game?.stage||1;startGame(s);};$('soundBtn').onclick=()=>{const on=state.settings.bgm||state.settings.sfx;state.settings.bgm=!on;state.settings.sfx=!on;if(state.settings.bgm)startMusic();else stopMusic();save();updateHUD();toast(on?'音をオフにしたでね':'音をオンにしたでよ！');};for(let key of ['bgm','sfx','voice','lightFx'])$(key+'Toggle').addEventListener('change',e=>{state.settings[key]=e.target.checked;if(key==='bgm'){if(e.target.checked)startMusic();else stopMusic();}save();});$('resetBtn').onclick=()=>showModal('セーブデータを初期化しますか？','<p>コイン、ハート、キャラ収集、ステージ記録などが全部消えるでよ。元には戻せんがね。</p>',[{text:'すべて初期化',action:()=>{state=blankState();save();closeModal();showScreen('title');toast('最初からやり直しだでね。');}},{text:'キャンセル',style:'outline',action:closeModal}]);document.addEventListener('visibilitychange',()=>{if(document.hidden&&activeScreen==='game')pauseGame(true);});window.addEventListener('resize',()=>{pointerRect=null});window.addEventListener('blur',()=>{if(activeScreen==='game'&&game&&!game.paused)pauseGame(true);});}
+function bind(){$('characterSearch').addEventListener('input',renderCharacters);$('characterGroup').addEventListener('change',renderCharacters);$('nextStoryBtn').onclick=()=>{if(game?.finished&&state.clearedStages[game.stage]&&game.stage<100)stageBrief(game.stage+1)};$('resultJournalBtn').onclick=()=>{goToStages();setTab('story')};$('useRewardBtn').onclick=()=>{const id=game?.stage;if(id&&state.owned[id]){state.selectedChar=id;save();$('useRewardBtn').textContent=NAMES[id]+'を選択中'}};document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab)));$('startBtn').onclick=()=>{sound('level');goToStages();startMusic();};$('logoBtn').onclick=()=>{if(game&&!game.finished){pauseGame();return;}showScreen('title');};$('pauseBtn').onclick=()=>pauseGame();$('shuffleBtn').onclick=()=>shuffleBoard(true);$('helpBtn').onclick=showHelp;$('giftSkip').onclick=revealGift;$('giftContinue').onclick=closeGift;$('skillBtn').onclick=useSkill;$('openGiftBtn').onclick=openGift;$('resultBackBtn').onclick=goToStages;$('retryBtn').onclick=()=>{let s=game?.stage||1;startGame(s);};$('soundBtn').onclick=()=>{const on=state.settings.bgm||state.settings.sfx;state.settings.bgm=!on;state.settings.sfx=!on;if(state.settings.bgm)startMusic();else stopMusic();save();updateHUD();toast(on?'音をオフにしたでね':'音をオンにしたでよ！');};for(let key of ['bgm','sfx','voice','lightFx'])$(key+'Toggle').addEventListener('change',e=>{state.settings[key]=e.target.checked;if(key==='bgm'){if(e.target.checked)startMusic();else stopMusic();}save();});$('resetBtn').onclick=askReset;const restore=document.createElement('button');restore.id='restoreRecordBtn';restore.className='btn-outline';restore.textContent='初期化前の記録を復元';restore.onclick=askRestore;$('resetBtn').after(restore);window.addEventListener('pagehide',closeRecordLock);window.addEventListener('storage',e=>{if((e.key===RECORD_KEY||e.key===null)&&ownsRecordLock)signalReadOnly('別の画面で記録が変更されたため、このタブは保存を停止しました。');});document.addEventListener('visibilitychange',()=>{if(document.hidden&&activeScreen==='game')pauseGame(true);});window.addEventListener('resize',()=>{pointerRect=null});window.addEventListener('blur',()=>{if(activeScreen==='game'&&game&&!game.paused)pauseGame(true);});}
 async function init(){$('startBtn').disabled=true;$('startBtn').textContent='読み込み中…';bind();await loadState();const catchup=reconcileStoryRewards();if(catchup.length){state.storyCatchup=[...new Set([...state.storyCatchup,...catchup])];save()}$('startBtn').disabled=false;$('startBtn').textContent='あそびはじめる　→';$('heroFriends').innerHTML=[1,2,0,3,4].map((id,i)=>`<img style="--rot:${[-12,9,-3,10,-7][i]}deg" src="${CHARACTER_IMAGES[id]}" alt="${esc(NAMES[id])}">`).join('');updateHUD();showScreen('title');if(state.pendingGift&&Number.isInteger(state.pendingGift.id)&&state.pendingGift.id>=0&&state.pendingGift.id<CHARACTER_COUNT)animateGift(state.pendingGift);}
 
 function episode(stage){return STORY_CHAPTERS[Math.floor((stage-1)/10)].scenes[(stage-1)%10]}

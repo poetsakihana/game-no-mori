@@ -5,7 +5,7 @@
 - ブラウザ版: `2.2.1-web.1`
 - 公開パス: `zatuplay/games/zatsu/`
 - 操作: 300体・100ステージ。マウスまたはタッチで同じ顔を3体以上なぞる。
-- 保存先: localStorage の zatsuworld-save-v1 と IndexedDB の zatsuworld-game。 APK・別端末・別ブラウザとは自動同期しない。ブラウザのデータ削除で消える場合がある。
+- 保存先: localStorage の zatsuworld-save-v2（主記録と直前の退避）、IndexedDB の zatsuworld-game-v2（予備）。更新後の初回起動時に旧ブラウザ版の記録を確認してコピーし、旧版の記録は変更しない。初回移行後に旧版で進めた記録や APK・別端末・別ブラウザの記録とは同期しない。端末のサイトデータを消去すると退避も失われる。
 
 ## 移植内容
 
