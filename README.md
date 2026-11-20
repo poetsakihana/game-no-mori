@@ -19,5 +19,6 @@ APKはAndroid専用です。iPhone・iPadではインストールできません
 - ホーム: https://poetsakihana.github.io/game-no-mori/zatuplay/
 - ブラウザで遊ぶ: https://poetsakihana.github.io/game-no-mori/zatuplay/browser/
 - Android・APK版: https://poetsakihana.github.io/game-no-mori/zatuplay/apk/
+- And10（Android 10向けAPK）: https://poetsakihana.github.io/game-no-mori/zatuplay/and10/
 
 ブラウザ版は作品ごとに公開・起動確認したものを掲載します。公開状況は `zatuplay/data/browser-catalog.json`、追加手順は `zatuplay-source/BROWSER_RELEASES.md` を参照。
