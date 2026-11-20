@@ -32,3 +32,18 @@ Confirmed title/start flow, chapter 1 stage 1 clear through normal controls, +60
 Full 440-stage completion, constellation drawing/summon UI, malformed JSON through the picker, mobile widths/devices, Firefox/Safari and audible sound remain unverified. Engine tests cover malformed-save validation independently.
 
 The entry HTML versions its JavaScript URL with a content hash so existing browser caches receive revised browser-specific guidance.
+
+---
+
+# ASTERIA — 星をつなぐ旅 1.2.0-web.1
+
+ZatuPlayブラウザ版で遊べる、88星座・440ステージのアクションRPGです。元の物語、バトル、夜空イベント、仲間の召喚と全ステージを保持しています。
+
+- 拠点の「星巡り手帳」で本編、全ステージ、星座別の達成数を確認できます。「未クリアの物語へ」から続きに進めます。
+- 本編60ステージで「星をつなぐ旅」、全440ステージで「夜空はひとつではない」が開きます。クリア後は星巡り手帳から再読できます。
+- 設定のリセットは確認画面を表示し、設定を残して進行を初期化します。リセットやJSON読み込みの直前の記録を1件残します。「この端末の控えから復元」で新旧を入れ替えられます。別の端末へ保管するときはJSONを書き出してください。
+- 公開ブラウザ版の旧セーブ（v1）を読み継ぎ、旧セーブ自体は書き換えず新しい領域に保存します。別タブからの古い上書きを拒否します。APKとの自動共有はありません。
+
+配備：全ファイルをHTTPSで同じディレクトリに置いて配信してください（Web Locksと端末データ保存に対応したブラウザを使用）。外部API、外部アセット、インストール、ビルド工程は不要です。ZIPを確認する場合は展開し、Web配信先で `index.html` を開きます。コレクションに戻るリンクはZatuPlay配備時の相対パスです。端末のサイトデータを消すと控えも失われます。
+
+配備差分では旧HTMLを開いている人のため従来の `app.js` を削除せず、更新した本体は別名 `app-final-1.2.0.js` に配置します。元の配備済み `style.css`、`favicon.svg`、`licenses/` は編集不要です。

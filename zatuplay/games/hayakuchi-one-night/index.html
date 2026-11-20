@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171321">
+<meta name="description" content="手本を聴いて、早口言葉をマイクで3回。ミス1回につき1点減点、85点以上でクリア。">
+<title>早口ワンナイト</title>
+<link rel="icon" type="image/png" href="./icon.png">
+<link rel="apple-touch-icon" href="./icon.png">
+<link rel="stylesheet" href="./style.css?v=1.1.2">
+<script src="./phrases.js" defer></script>
+<script src="./records.js?v=1.1.2" defer></script>
+<script src="./game.js?v=1.1.2" defer></script>
+</head>
+<body>
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="./" class="brand"><span class="brand-icon"><img src="./icon.png" alt="" width="35" height="35"></span><span>早口ワンナイト</span></a>
+    <button class="header-option bare" id="help-button" type="button"><span class="help-icon">?</span> 遊び方</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <div>
+      <p class="eyebrow"><span class="live-dot"></span> マイクで遊ぶ早口言葉</p>
+      <h1>早口<span>ワンナイト</span></h1>
+      <p class="intro-caption">手本を聴いて、同じ早口言葉を3回。どこまで言える？</p>
+    </div>
+    <div class="intro-wave wave" aria-hidden="true"></div>
+  </section>
+
+  <div class="layout">
+    <aside class="side">
+      <section class="panel levels" aria-labelledby="levels-title">
+        <h2 id="levels-title">難易度</h2>
+        <div id="level-list" class="level-list" aria-label="難易度を選ぶ"></div>
+      </section>
+      <section class="panel progress" aria-labelledby="progress-title">
+        <h2 id="progress-title">クリア記録</h2>
+        <p class="progress-number"><strong id="clear-count">0</strong><span> / 200 問</span></p>
+        <progress id="global-progress" value="0" max="200" aria-labelledby="progress-title"></progress>
+        <div class="bonus-actions"><button type="button" class="secondary" id="show-ending" hidden>エンディングを見る</button><button type="button" class="secondary" id="reset-clears" disabled>記録をリセット</button><button type="button" class="secondary" id="restore-clears" hidden>保管した記録に戻す</button></div>
+        <p class="record-status" id="record-status" role="status"></p>
+      </section>
+    </aside>
+
+    <section class="panel stage" aria-labelledby="phrase">
+      <div class="stage-top">
+        <span class="level-badge" id="stage-level"></span>
+        <span class="number" id="stage-number"></span>
+      </div>
+      <div class="phrase-area">
+        <h2 id="phrase"></h2>
+        <p id="kana"></p>
+      </div>
+      <div class="example">
+        <button class="secondary" id="demo" disabled type="button"><span class="play-symbol" aria-hidden="true">▶</span> <span id="demo-label">手本を聴く</span></button>
+        <label class="speed"><span>速度</span><select id="speed" aria-label="手本の速度">
+          <option value="0.75">ゆっくり</option><option value="1" selected>ふつう</option><option value="1.25">速め</option>
+        </select></label>
+      </div>
+      <div class="stage-divider"></div>
+      <div class="scoreboard" role="group" aria-label="挑戦の得点">
+        <p class="score-total"><strong id="score-value">100</strong><span> / 100点</span></p>
+        <p class="score-info"><strong>85点以上でクリア</strong><span id="score-misses">ミス合計 0回</span></p>
+      </div>
+      <ol id="rounds" class="rounds" aria-label="3回の挑戦"></ol>
+      <div class="record-area">
+        <span class="wave record-wave" aria-hidden="true"></span>
+        <button type="button" class="record" id="record" disabled><span id="record-icon" class="mic" aria-hidden="true"></span><span id="record-label">1回目を録音</span></button>
+        <span class="wave record-wave flipped" aria-hidden="true"></span>
+      </div>
+      <div class="speech-options"><button type="button" class="secondary" id="manual-round">マイクなしで自己採点</button>
+      <details><summary>自動採点とマイクの設定</summary><label><input type="checkbox" id="automatic-speech" autocomplete="off" aria-describedby="speech-notice"> このページでブラウザの音声認識を使う</label>
+      <p id="speech-notice">最初はオフです。オンにして録音を始めると、ブラウザによっては音声が認識サービスへ送られます。録音だけならこのページ内で聴いて自己採点できます。ページを離れると設定はオフに戻ります。マイクなしでも遊べます。</p></details></div>
+      <div class="status" id="status" aria-live="polite"></div>
+      <div id="retry-area" class="retry-area" hidden></div>
+      <div id="result" class="result" tabindex="-1" hidden></div>
+    </section>
+
+    <aside class="panel browse" aria-labelledby="browse-title">
+      <div class="browse-top">
+        <div><h2 id="browse-title">お題リスト</h2><p id="browse-subtitle"></p></div>
+        <button type="button" class="secondary random" id="random" disabled>おまかせ <span aria-hidden="true">⤨</span></button>
+      </div>
+      <div class="phrase-list" id="phrase-list" aria-label="早口言葉を選ぶ" tabindex="0"></div>
+      <div class="pagination">
+        <button class="nav-button" type="button" id="prev" disabled><span aria-hidden="true">‹</span> 前へ</button>
+        <button class="nav-button" type="button" id="next" disabled>次へ <span aria-hidden="true">›</span></button>
+      </div>
+    </aside>
+  </div>
+  <footer class="footer"><span>早口ワンナイト</span><span>マイクは録音時に使用します</span></footer>
+</main>
+
+<dialog id="help" aria-labelledby="help-title">
+  <div class="dialog-head"><h2 id="help-title">遊び方</h2><button type="button" class="nav-button" id="close-help">閉じる</button></div>
+  <ol>
+    <li>難易度を選び、お題を開きます。「手本を聴く」で同じ文が3回流れます。</li>
+    <li>「録音」を押してマイクを許可し、表示された文を1回読みます。言い終わったら「録音を止める」を押します。マイクなしの自己採点も選べます。</li>
+    <li>同じお題に3回挑戦します。100点から、3回分のミス1回につき1点引きます。85点以上でクリアです。</li>
+    <li>自動採点は、音声認識で聞き取った文から、言い違い・抜け・余分な読みを数えます。音声認識が使えないときは、録音を聴いてミス回数を入力できます。</li>
+  </ol>
+  <p>録音は今開いているページで再生できます。クリア記録はこのブラウザに保存します。音声認識は初期設定ではオフです。オンの場合、ブラウザによっては認識サービスに音声を送ります。録音自体はクリア記録に保存しません。</p>
+</dialog>
+<dialog id="ending" aria-labelledby="ending-title"><div class="dialog-head"><h2 id="ending-title">ことばの夜明け</h2><button class="nav-button" type="button" id="close-ending">閉じる</button></div>
+<p class="ending-kicker">全200問クリア</p><p>つまずいた言葉も、言えた瞬間の笑顔も、今夜のあなたの一部。最後のお題を読み終えたら、好きなひと言をもう一度。</p><button type="button" class="secondary" id="replay-first">最初のお題をもう一度</button></dialog>
+<dialog id="manage-records" aria-labelledby="manage-title"><div class="dialog-head"><h2 id="manage-title"></h2></div><p id="manage-explain"></p><p class="record-status" id="manage-error" role="alert"></p>
+<div class="bonus-actions"><button type="button" class="nav-button" id="manage-cancel" autofocus>キャンセル</button><button type="button" class="secondary" id="manage-apply"></button></div></dialog>
+</body>
+</html>

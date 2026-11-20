@@ -6,3 +6,20 @@
 .browser-port-info details[open] summary{list-style:disclosure-open}
 .browser-port-info p{margin:6px 0 2px;max-width:74em}
 .browser-port-info a:focus-visible,.browser-port-info summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+
+/* ASTERIA browser final: journey ledger and recoverable save controls */
+.asteria-ledger,.asteria-save-note{border:1px solid #4b526b;border-radius:16px;background:#14233a;color:#eaf1ff;padding:16px 20px}
+.asteria-ledger{margin:0 0 18px}
+.asteria-ledger h2,.asteria-ending h2{margin:5px 0 12px}
+.asteria-ledger p{margin:8px 0;line-height:1.6}
+.asteria-ledger progress{display:block;width:100%;max-width:34rem;height:.6rem;margin:12px 0 16px;accent-color:#eacd91}
+.asteria-ledger-actions{display:flex;flex-wrap:wrap;gap:8px}
+.asteria-save-note{position:relative;z-index:1;margin:12px auto;max-width:52rem;width:calc(100% - 24px);line-height:1.5}
+.asteria-record-dialog,.asteria-ending{max-width:min(36rem,calc(100vw - 28px));line-height:1.7}
+.asteria-record-dialog button,.asteria-ending button{margin:5px}
+.asteria-ending-stars{font-size:3rem;letter-spacing:.2em;color:#eacd91;text-shadow:0 0 22px #f3d78588}
+.asteria-record-dialog button:focus-visible,.asteria-ending button:focus-visible,.asteria-ledger button:focus-visible{outline:3px solid #eacd91;outline-offset:3px}
+@media(max-width:480px){
+ .asteria-ledger{padding:14px}
+ .asteria-ledger-actions button,.asteria-record-dialog button{min-height:44px}
+}

@@ -75,10 +75,10 @@
     },
     {
       "id": "asteria",
-      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/asteria/?v=1.1.0-web.1",
-      "version": "1.1.0-web.1",
-      "checkedAt": "2026-11-11T00:41:16Z",
-      "note": "Chromeで1面クリア・2面解放・再読込後の保存、JSON書出し・復元・同じファイルの再読込を確認。88星座・440ステージ。APKとは自動同期しません。全ステージ完走・スマホ実機・音の実聴取は未確認。"
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/asteria/",
+      "version": "1.2.0-web.1",
+      "checkedAt": "2026-11-20",
+      "note": "88星座・440ステージ。エンディングの再鑑賞、確認付き初期化と復元を追加。全ステージ完走・スマホ実機・音の実聴取は未確認。APKとは自動同期しません。"
     },
     {
       "id": "komorebi",
@@ -307,9 +307,9 @@
     {
       "id": "collection-43",
       "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/rakugo-dojo/",
-      "version": "1.0-web.1",
-      "checkedAt": "2026-11-14T09:06:43.300Z",
-      "note": "Chromeで自動送り・一時停止・聞き流し開始停止、噺家獲得・再読込保存を確認。150噺家枠×50演目枠には短編・共通テンプレートを含み、7500の独立した長編ではありません。音声は端末合成で本人の実演ではありません。スマホ実機・音声聴取・全演目の自然完走は未検証。APKとは別保存。"
+      "version": "1.0-web.2",
+      "checkedAt": "2026-11-20",
+      "note": "極楽寄席道場。噺家ごとの50席制覇で千秋楽を上演し、報酬は初回のみ。演目帳・確認付き初期化と復元に対応。150枠×50演目には短編・共通テンプレートを含み、音声は端末合成。スマホ実機・全演目の完走は未確認。APKとは別保存。"
     },
     {
       "id": "collection-40",
@@ -578,6 +578,49 @@
       "version": "1.0.1-web.1",
       "checkedAt": "2026-11-20",
       "note": "Android版1.0.1の四択150問・10ジャンル・例文・復習を維持。全問正解のエンディングと確認付き初期化・復元つき。Chromeで検証用の最終問からエンディング、初期化・復元を確認済み。スマホ実機は未確認。APKや別サイトとは保存が自動同期しません。"
+    },
+    {
+      "id": "hayakuchi-one-night",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/hayakuchi-one-night/",
+      "version": "1.1.2-web.1",
+      "checkedAt": "2026-11-20",
+      "note": "5段階・全200問、手本音声、3回チャレンジ。対応ブラウザで音声認識を利用し、マイクなし練習も可能。ミス1回につき1点減点、85点以上でクリア。全問クリアのエンディングと、確認付き初期化・復元に対応。実マイク・スマホ実機・200問の自然完走は未確認。APKとは別保存。",
+      "app": {
+        "name": "早口ワンナイト",
+        "subtitle": "マイクで3回挑戦する早口言葉・全200問",
+        "description": "5段階・全200問。手本を聴き、早口言葉を3回練習できます。",
+        "category": "学び・クイズ",
+        "color": "pink",
+        "tags": [
+          "早口言葉",
+          "はやくちことば",
+          "発音",
+          "マイク",
+          "早口ワンナイト"
+        ],
+        "order": 0
+      }
+    },
+    {
+      "id": "pakupaku-kitchen",
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/pakupaku-kitchen-75/",
+      "version": "3D-web.1",
+      "checkedAt": "2026-11-20",
+      "note": "全75品・5弾と7工程。3D投影の調理台・調理音・BGM、全品達成のエンディング、タイムアタック。ランキングは端末内のみで、現行限定サイト・APKとは同期しません。進行を初期化してもタイム・設定を保持できます。スマホ実機は未確認。",
+      "app": {
+        "name": "ぱくぱくキッチン",
+        "subtitle": "音つきで遊べる全75品の料理チャレンジ",
+        "description": "全75品に挑戦できる料理ゲーム。ブラウザ版のランキングは端末内のみです。",
+        "category": "シミュレーション",
+        "color": "orange",
+        "tags": [
+          "料理",
+          "調理",
+          "タイムアタック",
+          "BGM"
+        ],
+        "order": 0
+      }
     }
   ],
   "updatedAt": "2026-11-18T11:17:17.288078+00:00"
