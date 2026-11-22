@@ -1,0 +1,44 @@
+name: Render Zatsu workshop in Blender
+on:
+  push:
+    branches:
+      - zatuplay/zatsu-star-workshop-3
+    paths:
+      - zatuplay-source/scripts/zatsu-workshop/blender_scene.py
+      - .github/workflows/zatsu-workshop-art.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    if: github.ref == 'refs/heads/zatuplay/zatsu-star-workshop-3'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Blender and WebP encoder
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq blender webp
+      - name: Render the observatory and eight turntable angles
+        run: |
+          mkdir -p "$RUNNER_TEMP/zatsu-art" zatuplay/games/zatsu/workshop-art
+          blender -b -t 2 --python-exit-code 1 -P zatuplay-source/scripts/zatsu-workshop/blender_scene.py -- "$RUNNER_TEMP/zatsu-art"
+          for src in "$RUNNER_TEMP"/zatsu-art/*.png; do
+            name=$(basename "$src" .png)
+            cwebp -quiet -q 88 -alpha_q 96 "$src" -o "zatuplay/games/zatsu/workshop-art/$name.webp"
+          done
+          test -s zatuplay/games/zatsu/workshop-art/atelier.webp
+          test -s zatuplay/games/zatsu/workshop-art/view-7.webp
+      - name: Save generated assets to the source and publication trees
+        run: |
+          mkdir -p zatuplay-source/public/games/zatsu/workshop-art
+          cp zatuplay/games/zatsu/workshop-art/*.webp zatuplay-source/public/games/zatsu/workshop-art/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add zatuplay{,-source/public}/games/zatsu/workshop-art/
+          if ! git diff --cached --quiet; then
+            git commit -m "Render the Zatsu workshop and turntable with Blender"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
