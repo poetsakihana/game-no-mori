@@ -1,6 +1,5 @@
 """Render the Zatsu World star workshop, its turntable and board medallion with Blender."""
 import math
-import os
 import sys
 from pathlib import Path
 import bpy
@@ -12,8 +11,8 @@ out.mkdir(parents=True, exist_ok=True)
 bpy.ops.wm.read_factory_settings(use_empty=True)
 scene = bpy.context.scene
 scene.render.engine = 'CYCLES'
-scene.cycles.samples = 16
-scene.cycles.use_denoising = True
+scene.cycles.samples = 40
+scene.cycles.use_denoising = False
 scene.render.image_settings.file_format = 'PNG'
 scene.render.film_transparent = True
 scene.render.resolution_percentage = 100
