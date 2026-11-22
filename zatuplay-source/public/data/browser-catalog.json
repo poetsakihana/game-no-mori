@@ -152,10 +152,10 @@
     },
     {
       "id": "collection-17",
-      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/riddle-king/?v=1.1-web.1",
-      "version": "1.1-web.1",
-      "checkedAt": "2026-11-12T00:22:40Z",
-      "note": "元APKの16,000問を保持。Chromeで22問の正答・順次解放、入力途中/正解画面の再読込、JSON書出し/確認付き復元、別タブの上書き防止を確認。音設定の保持は確認済み、実聴取・全問の手動攻略・スマホ実機・Safari/Firefoxは未確認。APKとは自動同期しません。"
+      "url": "https://poetsakihana.github.io/game-no-mori/zatuplay/games/riddle-king/?v=1.1-web.2",
+      "version": "1.1-web.2",
+      "checkedAt": "2026-11-22T04:25:46.665287Z",
+      "note": "王冠アイコンを追加。元APKの16,000問を保持。Chromeで22問の正答・順次解放、入力途中/正解画面の再読込、JSON書出し/確認付き復元、別タブの上書き防止を確認。音設定の保持は確認済み、実聴取・全問の手動攻略・スマホ実機・Safari/Firefoxは未確認。APKとは自動同期しません。"
     },
     {
       "id": "collection-34",

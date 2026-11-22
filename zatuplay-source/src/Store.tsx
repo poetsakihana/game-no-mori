@@ -22,7 +22,8 @@ function Brand({compact=false}:{compact?:boolean}){
 }
 function AppIcon({app,large=false}:{app:AppRecord;large?:boolean}){
  const Icon=iconMap[app.icon as keyof typeof iconMap]??Gamepad2;
- return <span className={'app-icon theme-'+app.color+(large?' large':'')} aria-hidden="true">{app.id==='zatsu'?<img src={sitePath("icons/zatsu.png")} alt=""/>:<><span className="icon-glint"/><Icon strokeWidth={1.7}/></>}</span>;
+ const image=app.id==='collection-17'?'games/riddle-king/icon-192.png':app.id==='zatsu'?'icons/zatsu.png':null;
+ return <span className={'app-icon theme-'+app.color+(large?' large':'')} aria-hidden="true">{image?<img src={sitePath(image)} alt=""/>:<><span className="icon-glint"/><Icon strokeWidth={1.7}/></>}</span>;
 }
 function Artwork({app}:{app:AppRecord}){
  if(app.id==='zatsu')return <div className="artwork artwork-zatsu" aria-hidden="true"><span className="art-spark spark-a">✦</span><span className="art-spark spark-b">✦</span>{[5,2,0,4].map((n,i)=><img key={n} className={'zatu-friend friend-'+i} src={sitePath('art/zatu-'+n+'.webp')} alt=""/>)}<span className="art-pill">MEET YOUR NEW FRIENDS</span></div>;

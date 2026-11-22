@@ -1382,28 +1382,37 @@
     {
       "id": "collection-17",
       "name": "なぞなぞ王",
-      "subtitle": "GAMESELECT コレクション",
+      "subtitle": "16,000問の謎を解き、王冠を目指そう",
       "category": "学び・クイズ",
-      "description": "「なぞなぞ王」のAndroid用アプリです。Googleドライブの配布ページからAPKを入手できます。",
-      "color": "green",
-      "icon": "map",
+      "description": "王冠アイコン付きv1.2。16,000問のなぞなぞ・数字・論理・言葉の暗号に挑戦。Android版はオフライン対応です。v1.2は別アプリとしてインストールされ、旧APKの進行状況は引き継ぎません。",
+      "color": "blue",
+      "icon": "crown",
       "tags": [
         "GAMESELECT",
         "学び・クイズ"
       ],
-      "filename": "17.なぞなぞ王_v1.1.apk",
-      "size": 852618,
-      "sha256": "",
+      "filename": "17.なぞなぞ王_v1.2.apk",
+      "size": 1042512,
+      "sha256": "9cbfcacf71061d42f8f9ee94b3457604735688c2456f77a66eeaf0cdec3ca2db",
       "parts": [],
-      "package": "",
-      "version": "1.1",
-      "minSdk": null,
-      "targetSdk": null,
+      "package": "jp.sakihana.riddleking.zatuplay",
+      "version": "1.2",
+      "minSdk": 23,
+      "targetSdk": 35,
       "order": 1017,
-      "checked": "2026-11-15T15:08:21.984Z",
+      "checked": "2026-11-22T04:26:04.431Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
+        {
+          "fileId": "1dJWqmLhZkPpfaIj7wMjpDg06KHWzbXww",
+          "filename": "17.なぞなぞ王_v1.2.apk",
+          "version": "1.2",
+          "size": 1042512,
+          "modifiedAt": "2026-11-22T04:26:04.431Z",
+          "viewUrl": "https://drive.google.com/file/d/1dJWqmLhZkPpfaIj7wMjpDg06KHWzbXww/view?usp=drivesdk",
+          "available": true
+        },
         {
           "fileId": "15O6hNfG1gl5xQSYjoJztzdPP6ah8Bw4F",
           "filename": "17.なぞなぞ王_v1.1.apk",
@@ -1415,8 +1424,8 @@
         }
       ],
       "available": true,
-      "driveUrl": "https://drive.google.com/file/d/15O6hNfG1gl5xQSYjoJztzdPP6ah8Bw4F/view?usp=drivesdk",
-      "modifiedAt": "2026-10-25T03:04:20.619Z"
+      "driveUrl": "https://drive.google.com/file/d/1dJWqmLhZkPpfaIj7wMjpDg06KHWzbXww/view?usp=drivesdk",
+      "modifiedAt": "2026-11-22T04:26:04.431Z"
     },
     {
       "id": "collection-18",
@@ -2805,9 +2814,9 @@
       "modifiedAt": "2026-11-11T23:59:12.784Z"
     }
   ],
-  "revision": "65fc53284d93753a70f9254ed95343018aa03d9988af112550129df9e058f901",
-  "checkedAt": "2026-11-15T15:08:21.984Z",
-  "fileCount": 89,
+  "revision": "8061bd56e3d2f51a952a91900b0ec25e3d0608ba9881d4d5ec66ee570e256748",
+  "checkedAt": "2026-11-22T04:26:04.431Z",
+  "fileCount": 90,
   "availableCount": 66,
   "waitingCount": 0
 }
