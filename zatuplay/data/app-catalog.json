@@ -6,7 +6,7 @@
       "name": "早口ワンナイト",
       "subtitle": "マイクで3回挑戦する早口言葉・全200問",
       "category": "学び・クイズ",
-      "description": "簡単から激ムズまで5段階、各40問。手本を3つの速度で聴き、同じお題をマイクで3回読み上げます。録音の聞き返しとクリア記録に対応。Android版は手本音声を収録しており、オフラインで遊べます。",
+      "description": "早口言葉200問、5段階の難易度に挑戦。同じお題をマイクで3回読み、100点からミス1回につき1点を減点。85点以上でクリアです。音声認識が使えない場合は、録音を聴いて自己採点できます。Android版は手本音声を収録しています。",
       "color": "pink",
       "icon": "headphones",
       "tags": [
@@ -16,12 +16,12 @@
         "マイク",
         "早口ワンナイト"
       ],
-      "filename": "Hayakuchi-One-Night-v1.0.1.apk",
-      "size": 9274911,
-      "sha256": "359bb5451f8fe1de1cbbb11caaaca0515701a4f7b5915f1b39dede6e2c80fcc1",
+      "filename": "Hayakuchi-One-Night-v1.0.2.apk",
+      "size": 9276141,
+      "sha256": "fcc1ecee25457a43988de8ce997e7400d3d0f0e03c1f4d4cf8ad27d7f584e9a6",
       "parts": [],
       "package": "jp.sakihana.zatuplay.hayakuchi",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "minSdk": 26,
       "targetSdk": 34,
       "order": 0,
@@ -29,6 +29,15 @@
       "deviceTested": false,
       "source": "bundled",
       "versions": [
+        {
+          "fileId": "14jZDXm2cLOcWblgT_W4lFqcbnCzECcc2",
+          "filename": "Hayakuchi-One-Night-v1.0.2.apk",
+          "version": "1.0.2",
+          "size": 9276141,
+          "modifiedAt": "2026-11-18T12:28:56.924Z",
+          "viewUrl": "https://drive.google.com/file/d/14jZDXm2cLOcWblgT_W4lFqcbnCzECcc2/view?usp=drivesdk",
+          "available": true
+        },
         {
           "fileId": "1iGy0vhFUfXO_WZ3b4lK7og5rW3HZyIcM",
           "filename": "Hayakuchi-One-Night-v1.0.1.apk",
@@ -40,33 +49,33 @@
         }
       ],
       "available": true,
-      "driveUrl": "https://drive.google.com/file/d/1iGy0vhFUfXO_WZ3b4lK7og5rW3HZyIcM/view?usp=drivesdk",
-      "modifiedAt": "2026-11-18T12:08:48.203Z"
+      "driveUrl": "https://drive.google.com/file/d/14jZDXm2cLOcWblgT_W4lFqcbnCzECcc2/view?usp=drivesdk",
+      "modifiedAt": "2026-11-18T12:28:56.924Z"
     },
     {
       "id": "pakupaku-kitchen",
       "name": "ぱくぱくキッチン",
-      "subtitle": "音つきで遊べる全75品の料理チャレンジ",
+      "subtitle": "全75品・508工程の3D料理ゲーム",
       "category": "シミュレーション",
-      "description": "切る、炒める、焼く、煮る。5品から始まる全5弾を、調理音とオリジナルBGMと一緒に楽しめます。全75品をクリアするとタイムアタックが解放。ブラウザ版はZatuPlayのランキング、Android版はオフラインで端末内ランキングに対応します。",
+      "description": "水洗い、包丁、卵割り、炒め、煮込み、盛り付けまで、1品5〜9工程を3DCGで調理。操作に合わせて道具・食材・湯気が動きます。BGMと調理音つき。全75品クリアでタイムアタックが解放されます。Android版はオフライン対応の別アプリ「ぱくぱくキッチン3D」です。前のAPKの進行状況は引き継ぎません。",
       "color": "orange",
       "icon": "game",
       "tags": [
         "料理",
-        "調理",
+        "3D",
         "タイムアタック",
         "BGM"
       ],
       "filename": "Pakupaku-Kitchen-1.0.1.apk",
       "size": 485588,
-      "sha256": "212a3685e3f7a3bd134abb2f99a368109bd0f699e19e701334934baecf868752",
+      "sha256": "c0ef136f8d6cf4fdaa0a2233f3a77a246238edb9910371f97daffd0f405df554",
       "parts": [],
-      "package": "jp.sakihana.zatuplay.pakupakukitchen",
+      "package": "jp.sakihana.zatuplay.pakupaku3dworld",
       "version": "1.0.1",
       "minSdk": 26,
       "targetSdk": 34,
       "order": 0,
-      "checked": "2026-11-18",
+      "checked": "2026-11-22",
       "deviceTested": false,
       "source": "bundled",
       "versions": [
@@ -149,7 +158,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 0,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -198,7 +207,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -238,7 +247,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 2,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -278,7 +287,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 3,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -318,7 +327,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 4,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -358,7 +367,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 5,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -398,7 +407,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 6,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -438,7 +447,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 7,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -478,7 +487,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 8,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -518,7 +527,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 9,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -558,7 +567,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 10,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -607,7 +616,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 11,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -665,7 +674,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 12,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -705,7 +714,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 13,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -745,7 +754,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 14,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -785,7 +794,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 15,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -843,7 +852,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 16,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -892,7 +901,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 17,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -950,7 +959,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 18,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -990,7 +999,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 19,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1030,7 +1039,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 20,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1070,7 +1079,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 21,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1109,7 +1118,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 22,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1148,7 +1157,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1001,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1196,7 +1205,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1002,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1244,7 +1253,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1003,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1283,7 +1292,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1007,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1322,7 +1331,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1009,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1361,7 +1370,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1010,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1400,7 +1409,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1012,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1439,7 +1448,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1013,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1478,7 +1487,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1015,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1526,7 +1535,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1017,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1565,7 +1574,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1018,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1604,7 +1613,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1019,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1643,7 +1652,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1020,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1700,7 +1709,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1021,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1739,7 +1748,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1022,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1778,7 +1787,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1023,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1817,7 +1826,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1024,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1856,7 +1865,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1026,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1895,7 +1904,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1028,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1934,7 +1943,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1029,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -1973,7 +1982,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1030,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2012,7 +2021,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1031,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2051,7 +2060,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1032,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2090,7 +2099,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1034,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2129,7 +2138,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1035,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2168,7 +2177,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1036,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2207,7 +2216,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1038,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2246,7 +2255,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1040,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2303,7 +2312,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1041,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2342,7 +2351,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1042,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2381,7 +2390,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1043,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2420,7 +2429,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1044,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2459,7 +2468,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1048,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2498,7 +2507,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1050,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2573,7 +2582,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1051,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2630,7 +2639,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1053,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2678,7 +2687,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1062,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2717,7 +2726,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 1063,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2756,7 +2765,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 10999,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2795,7 +2804,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 10999,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2834,7 +2843,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 10999,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2873,7 +2882,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 10999,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2912,7 +2921,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 10999,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2951,7 +2960,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 10999,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -2990,7 +2999,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 10999,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -3029,7 +3038,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 10999,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -3072,7 +3081,7 @@
       "minSdk": null,
       "targetSdk": null,
       "order": 10999,
-      "checked": "2026-11-18T12:14:07.531Z",
+      "checked": "2026-11-22T04:17:46.377Z",
       "deviceTested": false,
       "source": "drive",
       "versions": [
@@ -3109,9 +3118,9 @@
       "modifiedAt": "2026-11-16T23:11:08.035Z"
     }
   ],
-  "revision": "596ad3d972f571b01f42c79e6f91266cea97b77dde49562206f481f05453c019",
-  "checkedAt": "2026-11-18T12:14:07.531Z",
-  "fileCount": 98,
+  "revision": "6d6610ed62745ca5ecade8f5cb04971207f085770f27a8e253b3dec3990d4357",
+  "checkedAt": "2026-11-22T04:17:46.377Z",
+  "fileCount": 99,
   "availableCount": 76,
   "waitingCount": 0
 }
